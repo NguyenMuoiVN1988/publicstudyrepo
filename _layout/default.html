@@ -1,112 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
   
-  <!-- MathJax Configuration -->
+  <!-- MathJax Configuration - PHẢI ĐẶT TRƯỚC KHI LOAD MATHJAX -->
   <script>
     window.MathJax = {
       tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']], // Các ký hiệu cho công thức inline
-        displayMath: [['$$', '$$'], ['\\[', '\\]']], // Các ký hiệu cho công thức display
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
         processEscapes: true,
-        processEnvironments: true
+        processEnvironments: true,
+        processRefs: true,
+        tags: 'ams',
+        macros: {
+          // Thêm các macro toán học thường dùng
+          R: "\\mathbb{R}",
+          N: "\\mathbb{N}",
+          Z: "\\mathbb{Z}",
+          Q: "\\mathbb{Q}",
+          C: "\\mathbb{C}",
+          vec: ["\\overrightarrow{#1}", 1],
+          dfrac: ["\\frac{#1}{#2}", 2]
+        }
+      },
+      svg: {
+        fontCache: 'global'
       },
       options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // Bỏ qua các tag này
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      },
+      startup: {
+        ready() {
+          MathJax.startup.defaultReady();
+          console.log('MathJax is loaded and ready!');
+        }
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
   
-  <!-- Marked.js for Markdown processing (if needed) -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Load MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
   <!-- CSS Styles -->
   <style>
     :root {
       --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       --text-primary: #333;
+      --content-bg: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+    
+    * {
+      box-sizing: border-box;
     }
     
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg-gradient);
       min-height: 100vh;
+      margin: 0;
       padding: 20px;
       color: var(--text-primary);
-      margin: 0;
+      line-height: 1.6;
     }
     
     .top-bar {
       position: sticky;
       top: 0;
       left: 0;
-      width: 100%;
-      background-color: #f2f2f2;
-      padding: 10px;
-      font-family: sans-serif;
+      right: 0;
+      background-color: rgba(242, 242, 242, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
       border-bottom: 1px solid #ccc;
-      z-index: 9999; /* đảm bảo nằm trên các thành phần khác */
-      box-sizing: border-box;
+      z-index: 9999;
+      margin-bottom: 20px;
     }
     
     .top-bar a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
-      margin-right: 15px; /* khoảng cách giữa các link */
+      margin-right: 20px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
     }
     
     .top-bar a:hover {
-      color: #667eea;
+      background-color: #667eea;
+      color: white;
     }
     
     .content {
-      margin-top: 60px; /* đẩy nội dung xuống để không bị thanh top-bar che mất */
-      background-color: #fff; /* màu nền nội dung */
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: var(--content-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px var(--shadow);
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
-    /* Styles for math equations */
+    /* MathJax Styling */
     .MathJax {
       font-size: 1.1em !important;
     }
     
-    /* Responsive design */
+    .MathJax_Display {
+      margin: 1em 0 !important;
+    }
+    
+    /* Đảm bảo các công thức toán hiển thị đúng */
+    mjx-container[jax="CHTML"] {
+      line-height: 0;
+    }
+    
+    mjx-container[jax="CHTML"][display="true"] {
+      display: block;
+      text-align: center;
+      margin: 1em 0;
+    }
+    
+    /* Styling cho nội dung toán học */
+    .math-problem {
+      margin: 20px 0;
+      padding: 15px;
+      border-left: 4px solid #667eea;
+      background-color: #f8f9fa;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .answer-options {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    
+    .answer-options li {
+      margin: 5px 0;
+    }
+    
+    .correct-answer {
+      color: #28a745;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    
+    /* Responsive */
     @media (max-width: 768px) {
       body {
         padding: 10px;
       }
       
       .content {
-        margin-top: 50px;
-        padding: 15px;
+        padding: 20px;
+      }
+      
+      .top-bar {
+        padding: 10px;
+      }
+      
+      .top-bar a {
+        margin-right: 10px;
+        font-size: 14px;
       }
     }
   </style>
 </head>
 <body>
   <div class="top-bar">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <!-- Thêm các link navigation khác nếu cần -->
+    <a href="/">🏠 Trang chủ</a>
+    <a href="/about">📖 Giới thiệu</a>
+    <a href="/contact">📧 Liên hệ</a>
   </div>
   
   <div class="content">
     {{ content }}
   </div>
   
-  <!-- Script để xử lý MathJax sau khi content được load -->
+  <!-- Script để đảm bảo MathJax hoạt động tốt -->
   <script>
-    // Đảm bảo MathJax render lại sau khi content được load
-    if (window.MathJax) {
-      MathJax.typesetPromise().catch((err) => console.log('MathJax typeset failed: ' + err.message));
+    // Chờ DOM load xong
+    document.addEventListener('DOMContentLoaded', function() {
+      // Nếu MathJax đã sẵn sáng, render lại
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise().then(() => {
+          console.log('MathJax typeset completed!');
+        }).catch((err) => {
+          console.error('MathJax typeset failed:', err);
+        });
+      }
+    });
+    
+    // Hàm để render MathJax khi có nội dung mới (nếu cần)
+    function renderMath() {
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        return window.MathJax.typesetPromise();
+      }
+      return Promise.resolve();
     }
+    
+    // Expose function globally nếu cần
+    window.renderMath = renderMath;
   </script>
 </body>
 </html>
