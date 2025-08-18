@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <title>{{ page.title | default: site.title }}</title>
     
-    <!-- MathJax 3.x for mathematical formulas -->
+    <!-- MathJax 3.x - Simple Configuration -->
     <script>
         MathJax = {
             tex: {
@@ -19,256 +18,43 @@
             }
         };
     </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV5EBZTLVF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-HV5EBZTLVF');
-    </script>
     
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            line-height: 1.6;
         }
         
-        .header {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            color: #2c3e50;
-            margin: 0;
-            font-size: 2.5em;
-        }
-        
-        .header p {
-            color: #7f8c8d;
-            margin: 10px 0 0 0;
-            font-size: 1.2em;
+        h1, h2, h3 {
+            color: #333;
+            border-bottom: 2px solid #007cba;
+            padding-bottom: 10px;
         }
         
         .content {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .content h1, .content h2, .content h3 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-            margin-top: 30px;
-        }
-        
-        .content h1 { font-size: 2.2em; }
-        .content h2 { font-size: 1.8em; }
-        .content h3 { font-size: 1.5em; }
-        
-        .content p {
-            color: #34495e;
-            font-size: 1.1em;
-            margin: 15px 0;
-        }
-        
-        .content ul, .content ol {
-            color: #34495e;
-            font-size: 1.1em;
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-        
-        .content li {
-            margin: 8px 0;
-        }
-        
-        .content a {
-            color: #3498db;
-            text-decoration: none;
-            border-bottom: 2px solid transparent;
-            transition: border-bottom 0.3s ease;
-        }
-        
-        .content a:hover {
-            border-bottom: 2px solid #3498db;
-        }
-        
-        .content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .content th, .content td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        
-        .content th {
-            background: #3498db;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .content tr:hover {
-            background: #f8f9fa;
-        }
-        
-        .content blockquote {
-            background: #ecf0f1;
-            border-left: 5px solid #3498db;
-            margin: 20px 0;
+            background: #f9f9f9;
             padding: 20px;
-            border-radius: 5px;
-            font-style: italic;
-        }
-        
-        .content code {
-            background: #f8f9fa;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            color: #e74c3c;
-        }
-        
-        .content pre {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 20px;
-            border-radius: 10px;
-            overflow-x: auto;
+            border-radius: 8px;
             margin: 20px 0;
         }
         
-        .content pre code {
-            background: none;
-            color: inherit;
-            padding: 0;
-        }
-        
-        /* MathJax styling - Improved */
+        /* Basic MathJax styling */
         .MathJax {
-            font-size: 1.1em !important;
             outline: none !important;
-        }
-        
-        .MathJax_Display {
-            margin: 20px 0 !important;
-            text-align: center !important;
-        }
-        
-        .MathJax_Display .MathJax {
-            text-align: left !important;
-        }
-        
-        /* Ensure MathJax elements are visible */
-        .MathJax_Display, .MathJax_Display .MathJax {
-            display: block !important;
-            visibility: visible !important;
-        }
-        
-        /* Fix for inline math */
-        .MathJax:not(.MathJax_Display) {
-            display: inline !important;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: #7f8c8d;
-            font-size: 0.9em;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .header p {
-                font-size: 1.1em;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-            
-            .content h1 { font-size: 1.8em; }
-            .content h2 { font-size: 1.5em; }
-            .content h3 { font-size: 1.3em; }
-            
-            .content table {
-                font-size: 0.9em;
-            }
-            
-            .content th, .content td {
-                padding: 10px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.6em;
-            }
-            
-            .content {
-                padding: 15px;
-            }
-            
-            .content h1 { font-size: 1.5em; }
-            .content h2 { font-size: 1.3em; }
-            .content h3 { font-size: 1.1em; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>{{ site.title }}</h1>
-            <p>{{ site.description }}</p>
-        </div>
-        
-        <div class="content">
-            {{ content }}
-        </div>
-        
-        <div class="footer">
-            <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }}. Tài liệu học tập công khai.</p>
-        </div>
+    <h1>{{ page.title | default: site.title }}</h1>
+    
+    <div class="content">
+        {{ content }}
     </div>
     
-    <!-- Additional MathJax configuration -->
     <script>
         // Simple MathJax check
         window.addEventListener('load', function() {
@@ -278,8 +64,6 @@
                     if (MathJax.typesetPromise) {
                         MathJax.typesetPromise().then(() => {
                             console.log('MathJax typesetting completed');
-                        }).catch((err) => {
-                            console.error('MathJax typesetting error:', err);
                         });
                     }
                 } else {
