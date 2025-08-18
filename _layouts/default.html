@@ -7,8 +7,19 @@
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
   {%- include head-custom.html -%}
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HV5EBZTLVF');
+</script>
 </head>
 <body>
+  <div class="top-bar">
+     <a href="https://www.publicstudy.net/">🏠 Trang chủ</a>
+         <a href="https://exam12.publicstudy.net/"> Kiểm tra Toán 12</a>
+
+    </div>
   {{ content }}
 </body>
 </html>
