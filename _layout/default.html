@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Game Đếm 1 2 3 4 5</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f3e5f5 25%, #fff3e0 50%, #e3f2fd 75%, #fce4ec 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .worksheet {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .worksheet::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(90deg, #ff6b9d, #ffa726, #66bb6a, #42a5f5, #ab47bc, #ef5350);
+            border-radius: 25px 25px 0 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 25px;
+        }
+        
+        .title {
+            font-size: 2.5em;
+            color: #2e7d32;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #555;
+            background: #fff8e1;
+            padding: 15px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            border: 3px dashed #ff9800;
+            margin-bottom: 10px;
+        }
+        
+        .instruction {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border-left: 6px solid #2196f3;
+            font-size: 1.2em;
+            color: #1565c0;
+            text-align: center;
+        }
+        
+        .matching-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            margin: 50px 0;
+            position: relative;
+            gap: 100px;
+        }
+        
+        .left-column, .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+
+        /* Responsive Design cho điện thoại */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .worksheet {
+                padding: 20px;
+                border-radius: 15px;
+            }
+            
+            .title {
+                font-size: 1.8em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+                padding: 10px 15px;
+            }
+            
+            .instruction {
+                font-size: 1em;
+                padding: 15px;
+                margin: 20px 0;
+            }
+            
+            .matching-container {
+                flex-direction: column;
+                gap: 30px;
+                margin: 30px 0;
+            }
+            
+            .left-column, .right-column {
+                gap: 20px;
+            }
+            
+            .item-group {
+                min-width: 200px;
+                padding: 15px;
+                gap: 8px;
+            }
+            
+            .items-display {
+                max-width: 180px;
+                gap: 6px;
+            }
+            
+            .item {
+                font-size: 2.2em;
+            }
+            
+            .number-option {
+                width: 70px;
+                height: 70px;
+                font-size: 2.2em;
+                border-width: 4px;
+            }
+            
+            .item-label {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .worksheet {
+                padding: 15px;
+            }
+            
+            .title {
+                font-size: 1.5em;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+                padding: 8px 12px;
+            }
+            
+            .instruction {
+                font-size: 0.9em;
+                padding: 12px;
+            }
+            
+            .item-group {
+                min-width: 160px;
+                padding: 12px;
+            }
+            
+            .items-display {
+                max-width: 140px;
+            }
+            
+            .item {
+                font-size: 1.8em;
+            }
+            
+            .number-option {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8em;
+                border-width: 3px;
+            }
+            
+            .item-label {
+                font-size: 0.9em;
+            }
+            
+            /* Cải thiện đường nối trên điện thoại */
+            .connection-line {
+                height: 6px;
+                border-radius: 3px;
+            }
+        }
+
+        /* Đặc biệt cho điện thoại nhỏ (iPhone SE2, Samsung Galaxy S8, etc.) */
+        @media (max-width: 375px) {
+            body {
+                padding: 5px;
+            }
+            
+            .worksheet {
+                padding: 10px;
+                border-radius: 15px;
+            }
+            
+            .title {
+                font-size: 1.3em;
+                margin-bottom: 10px;
+            }
+            
+            .subtitle {
+                font-size: 0.9em;
+                padding: 6px 10px;
+                margin-bottom: 8px;
+            }
+            
+            .instruction {
+                font-size: 0.8em;
+                padding: 10px;
+                margin: 15px 0;
+            }
+            
+            .matching-container {
+                gap: 20px;
+                margin: 20px 0;
+            }
+            
+            .left-column, .right-column {
+                gap: 15px;
+            }
+            
+            .item-group {
+                min-width: 140px;
+                padding: 10px;
+                gap: 6px;
+            }
+            
+            .items-display {
+                max-width: 120px;
+                gap: 4px;
+            }
+            
+            .item {
+                font-size: 1.5em;
+            }
+            
+            .number-option {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+                border-width: 3px;
+            }
+            
+            .item-label {
+                font-size: 0.8em;
+            }
+            
+            .progress-container {
+                margin: 15px 0;
+            }
+            
+            .progress-bar {
+                height: 16px;
+                margin: 6px 0;
+            }
+            
+            .progress-text {
+                font-size: 0.9em;
+                margin-top: 5px;
+            }
+            
+            .reset-button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+                margin: 8px auto 0;
+            }
+            
+            .completion-message {
+                font-size: 1.1em;
+                margin: 12px 0;
+                padding: 10px;
+            }
+        }
+
+        /* Đặc biệt cho điện thoại rất nhỏ */
+        @media (max-width: 320px) {
+            .worksheet {
+                padding: 8px;
+            }
+            
+            .title {
+                font-size: 1.2em;
+            }
+            
+            .subtitle {
+                font-size: 0.8em;
+                padding: 5px 8px;
+            }
+            
+            .instruction {
+                font-size: 0.75em;
+                padding: 8px;
+            }
+            
+            .item-group {
+                min-width: 120px;
+                padding: 8px;
+            }
+            
+            .items-display {
+                max-width: 100px;
+            }
+            
+            .item {
+                font-size: 1.3em;
+            }
+            
+            .number-option {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3em;
+            }
+            
+            .item-label {
+                font-size: 0.75em;
+            }
+        }
+        
+        .item-group {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 20px;
+            border-radius: 20px;
+            border: 4px solid;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            min-width: 250px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .item-group:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .item-group-1 { border-color: #f44336; background: linear-gradient(135deg, #ffebee, #ffcdd2); }
+        .item-group-2 { border-color: #ff6b9d; background: linear-gradient(135deg, #fce4ec, #f8bbd9); }
+        .item-group-3 { border-color: #ff9800; background: linear-gradient(135deg, #fff3e0, #ffcc02); }
+        .item-group-4 { border-color: #4caf50; background: linear-gradient(135deg, #e8f5e8, #c8e6c9); }
+        .item-group-5 { border-color: #9c27b0; background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+        
+        .items-display {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 220px;
+        }
+        
+        .item {
+            font-size: 2.8em;
+            animation: bounce 2s infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .item:nth-child(1) { animation-delay: 0s; }
+        .item:nth-child(2) { animation-delay: 0.2s; }
+        .item:nth-child(3) { animation-delay: 0.4s; }
+        .item:nth-child(4) { animation-delay: 0.6s; }
+        .item:nth-child(5) { animation-delay: 0.8s; }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+        
+        .item-label {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+        
+        .number-option {
+            width: 90px;
+            height: 90px;
+            border: 5px solid #2196f3;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8em;
+            font-weight: bold;
+            color: #1976d2;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .number-option:hover {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Touch-friendly styles cho điện thoại */
+        @media (hover: none) and (pointer: coarse) {
+            .item-group:hover {
+                transform: none;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            }
+            
+            .number-option:hover {
+                transform: none;
+            }
+            
+            .item-group:active {
+                transform: scale(0.95);
+            }
+            
+            .number-option:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Cải thiện touch target size cho điện thoại */
+        @media (max-width: 768px) {
+            .item-group {
+                min-height: 80px;
+            }
+            
+            .number-option {
+                min-height: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .item-group {
+                min-height: 70px;
+            }
+            
+            .number-option {
+                min-height: 60px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .item-group {
+                min-height: 60px;
+            }
+            
+            .number-option {
+                min-height: 50px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .item-group {
+                min-height: 55px;
+            }
+            
+            .number-option {
+                min-height: 45px;
+            }
+        }
+
+        /* Tối ưu cho màn hình dọc trên điện thoại */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .worksheet {
+                margin: 0;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+            
+            .header {
+                margin-bottom: 20px;
+                margin-top: 15px;
+            }
+            
+            .matching-container {
+                margin: 20px 0;
+            }
+        }
+
+        @media (max-width: 375px) and (orientation: portrait) {
+            .worksheet {
+                padding: 8px;
+            }
+            
+            .header {
+                margin-bottom: 15px;
+                margin-top: 10px;
+            }
+            
+            .matching-container {
+                margin: 15px 0;
+            }
+        }
+        
+        .connection-line {
+            position: absolute;
+            height: 4px;
+            background: #4caf50;
+            border-radius: 2px;
+            transform-origin: left center;
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .connection-line.active {
+            opacity: 1;
+            animation: drawLine 0.8s ease-out forwards;
+            width: var(--line-width, 0px);
+        }
+
+        @keyframes drawLine {
+            from { width: 0; }
+            to { width: var(--line-width); }
+        }
+        
+        .matched {
+            background: linear-gradient(135deg, #c8e6c9, #a5d6a7) !important;
+            border-color: #4caf50 !important;
+            color: #2e7d32 !important;
+            pointer-events: none;
+        }
+        
+        .item-group.matched {
+            border-color: #4caf50 !important;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9) !important;
+        }
+        
+        .celebration {
+            position: absolute;
+            font-size: 2em;
+            animation: celebrate 2s ease-out forwards;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        @keyframes celebrate {
+            0% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+            100% { opacity: 0; transform: translateY(-100px) scale(1.5) rotate(360deg); }
+        }
+        
+        .progress-container { margin: 30px 0; }
+        
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #81c784, #a5d6a7);
+            width: 0%;
+            transition: width 1s ease;
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Responsive cho progress bar */
+        @media (max-width: 768px) {
+            .progress-container {
+                margin: 20px 0;
+            }
+            
+            .progress-bar {
+                height: 20px;
+            }
+            
+            .progress-text {
+                font-size: 1.1em;
+                margin-top: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .progress-container {
+                margin: 15px 0;
+            }
+            
+            .progress-bar {
+                height: 18px;
+            }
+            
+            .progress-text {
+                font-size: 1em;
+                margin-top: 6px;
+            }
+        }
+        
+        .completion-message {
+            text-align: center;
+            font-size: 2em;
+            color: #4caf50;
+            font-weight: bold;
+            margin: 30px 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            padding: 20px;
+            border-radius: 20px;
+            border: 3px solid #4caf50;
+            display: none; /* Initially hidden */
+        }
+        
+        .completion-message.show {
+            opacity: 1;
+            display: block;
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive cho completion message */
+        @media (max-width: 768px) {
+            .completion-message {
+                font-size: 1.6em;
+                margin: 20px 0;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .completion-message {
+                font-size: 1.3em;
+                margin: 15px 0;
+                padding: 12px;
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .reset-button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #ff6b9d, #ffa726);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .reset-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive cho nút reset */
+        @media (max-width: 768px) {
+            .reset-button {
+                padding: 12px 25px;
+                font-size: 1.2em;
+                margin: 15px auto 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reset-button {
+                padding: 10px 20px;
+                font-size: 1em;
+                margin: 10px auto 0;
+            }
+        }
+        
+        .decoration {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        
+        .star-1 { top: 60px; right: 60px; font-size: 3em; color: #ffd700; }
+        .star-2 { bottom: 60px; left: 60px; font-size: 2.5em; color: #ff69b4; }
+        .cloud-1 { top: 120px; left: 80px; font-size: 2.8em; color: #87ceeb; animation-delay: 1s; }
+        .rainbow { top: 80px; right: 120px; font-size: 2.5em; color: #ff6b9d; animation-delay: 2s; }
+        .sun { bottom: 120px; right: 80px; font-size: 3.2em; color: #ffa726; animation-delay: 0.5s; }
+
+        /* Ẩn decoration trên điện thoại nhỏ để tiết kiệm không gian */
+        @media (max-width: 480px) {
+            .decoration {
+                display: none;
+            }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV5EBZTLVF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HV5EBZTLVF');
+</script>
+</head>
+<body>
+    <div class="worksheet">
+        <div class="star-1 decoration">⭐</div>
+        <div class="star-2 decoration">💫</div>
+        <div class="cloud-1 decoration">☁️</div>
+        <div class="rainbow decoration">🌈</div>
+        <div class="sun decoration">☀️</div>
+        
+        <div class="header">
+            <h1 class="title">🌟 Mini Game Đếm 1 2 3 4 5 🌟</h1>
+            <p class="subtitle">Bé hãy đếm số hình và nối với số tương ứng nhé!</p>
+        </div>
+        
+        <div class="instruction">
+            🎯 <strong>Hướng dẫn:</strong> Nhấn vào nhóm hình ảnh, sau đó nhấn vào số tương ứng để nối!
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Tiến độ: 0/5</div>
+        </div>
+        
+        <div class="completion-message" id="completionMessage">
+            🎉 Xuất sắc! Bé đã hoàn thành tất cả! 🎉
+        </div>
+        
+        <div class="matching-container" id="matchingContainer">
+            <div class="left-column">
+                <div class="item-group item-group-1" data-value="1"><div class="items-display"><div class="item">🍎</div></div><div class="item-label">quả táo</div></div>
+                <div class="item-group item-group-2" data-value="2"><div class="items-display"><div class="item">🌸</div><div class="item">🌸</div></div><div class="item-label">bông hoa</div></div>
+                <div class="item-group item-group-3" data-value="3"><div class="items-display"><div class="item">🍊</div><div class="item">🍊</div><div class="item">🍊</div></div><div class="item-label">quả cam</div></div>
+                <div class="item-group item-group-4" data-value="4"><div class="items-display"><div class="item">🍉</div><div class="item">🍉</div><div class="item">🍉</div><div class="item">🍉</div></div><div class="item-label">quả dưa đỏ</div></div>
+                <div class="item-group item-group-5" data-value="5"><div class="items-display"><div class="item">🍓</div><div class="item">🍓</div><div class="item">🍓</div><div class="item">🍓</div><div class="item">🍓</div></div><div class="item-label">quả dâu tây</div></div>
+            </div>
+            
+            <div class="right-column">
+                <div class="number-option" data-value="3">3</div>
+                <div class="number-option" data-value="5">5</div>
+                <div class="number-option" data-value="1">1</div>
+                <div class="number-option" data-value="2">2</div>
+                <div class="number-option" data-value="4">4</div>
+            </div>
+        </div>
+        
+        <button class="reset-button" id="resetBtn">Làm lại 🔄</button>
+    </div>
+
+    <script>
+        let selectedItemGroup = null;
+        let matches = 0;
+        const totalMatches = 5;
+
+        const leftColumn = document.querySelector('.left-column');
+        const rightColumn = document.querySelector('.right-column');
+        const itemGroups = document.querySelectorAll('.item-group');
+        const numberOptions = document.querySelectorAll('.number-option');
+        
+        function selectItemGroup(element) {
+            if (element.classList.contains('matched')) return;
+            
+            document.querySelectorAll('.item-group').forEach(group => {
+                if (!group.classList.contains('matched')) {
+                    group.style.transform = '';
+                    group.style.boxShadow = '';
+                }
+            });
+            
+            selectedItemGroup = { element, value: parseInt(element.dataset.value) };
+            element.style.transform = 'scale(1.05)';
+            element.style.boxShadow = '0 15px 35px rgba(0,0,0,0.3)';
+        }
+        
+        function selectNumber(element) {
+            if (element.classList.contains('matched')) return;
+            
+            if (!selectedItemGroup) {
+                showMessage('🎯 Hãy chọn một nhóm hình ảnh trước nhé!');
+                return;
+            }
+            
+            const value = parseInt(element.dataset.value);
+
+            if (selectedItemGroup.value === value) {
+                // Correct match
+                createConnection(selectedItemGroup.element, element);
+                
+                selectedItemGroup.element.classList.add('matched');
+                element.classList.add('matched');
+                
+                showCelebration(element);
+                showCelebration(selectedItemGroup.element);
+                
+                matches++;
+                updateProgress();
+                
+                selectedItemGroup.element.style.transform = '';
+                selectedItemGroup.element.style.boxShadow = '';
+                selectedItemGroup = null;
+                
+                if (matches === totalMatches) {
+                    setTimeout(showCompletion, 1000);
+                }
+                
+            } else {
+                // Wrong match
+                element.style.animation = 'shake 0.6s ease';
+                selectedItemGroup.element.style.animation = 'shake 0.6s ease';
+                
+                setTimeout(() => {
+                    element.style.animation = '';
+                    if (selectedItemGroup && selectedItemGroup.element) {
+                         selectedItemGroup.element.style.animation = '';
+                         selectedItemGroup.element.style.transform = '';
+                         selectedItemGroup.element.style.boxShadow = '';
+                    }
+                    selectedItemGroup = null;
+                }, 600);
+                
+                showMessage('❌ Thử lại nhé! Hãy đếm kỹ số lượng.');
+            }
+        }
+        
+        function createConnection(from, to) {
+            const line = document.createElement('div');
+            line.className = 'connection-line';
+            
+            const containerRect = document.getElementById('matchingContainer').getBoundingClientRect();
+            const fromRect = from.getBoundingClientRect();
+            const toRect = to.getBoundingClientRect();
+            
+            const fromX = fromRect.right - containerRect.left;
+            const fromY = fromRect.top + fromRect.height / 2 - containerRect.top;
+            const toX = toRect.left - containerRect.left;
+            const toY = toRect.top + toRect.height / 2 - containerRect.top;
+            
+            const distance = Math.hypot(toX - fromX, toY - fromY);
+            const angle = Math.atan2(toY - fromY, toX - fromX) * 180 / Math.PI;
+            
+            line.style.left = fromX + 'px';
+            line.style.top = fromY + 'px';
+            line.style.setProperty('--line-width', distance + 'px');
+            line.style.transform = `rotate(${angle}deg)`;
+            
+            document.getElementById('matchingContainer').appendChild(line);
+            
+            setTimeout(() => line.classList.add('active'), 10);
+        }
+        
+        function showCelebration(element) {
+            const celebrations = ['🎉', '⭐', '✨', '🌟', '💫', '🎊', '🎈', '🌈'];
+            const container = element.offsetParent;
+            const containerRect = container.getBoundingClientRect();
+
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    const celebration = document.createElement('div');
+                    celebration.className = 'celebration';
+                    celebration.textContent = celebrations[Math.floor(Math.random() * celebrations.length)];
+                    
+                    const rect = element.getBoundingClientRect();
+                    celebration.style.left = (rect.left - containerRect.left + Math.random() * rect.width) + 'px';
+                    celebration.style.top = (rect.top - containerRect.top + Math.random() * rect.height) + 'px';
+                    
+                    container.appendChild(celebration);
+                    setTimeout(() => celebration.remove(), 2000);
+                }, i * 150);
+            }
+        }
+        
+        function updateProgress() {
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            const percentage = (matches / totalMatches) * 100;
+            
+            progressFill.style.width = percentage + '%';
+            progressText.textContent = `Tiến độ: ${matches}/${totalMatches}`;
+        }
+        
+        function showCompletion() {
+            document.getElementById('completionMessage').classList.add('show');
+            // Grand finale confetti
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const celebration = document.createElement('div');
+                    celebration.className = 'celebration';
+                    celebration.textContent = ['🎉', '🎊', '⭐'][Math.floor(Math.random() * 3)];
+                    celebration.style.left = Math.random() * 100 + 'vw';
+                    celebration.style.top = Math.random() * 100 + 'vh';
+                    celebration.style.position = 'fixed';
+                    celebration.style.zIndex = '1000';
+                    celebration.style.fontSize = (Math.random() * 2 + 2) + 'em';
+                    document.body.appendChild(celebration);
+                    setTimeout(() => celebration.remove(), 3000);
+                }, i * 100);
+            }
+        }
+        
+        function showMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.style.cssText = `
+                position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                background: rgba(0,0,0,0.85); color: white; padding: 25px 35px;
+                border-radius: 20px; font-size: 1.6em; z-index: 1000;
+                animation: fadeIn 0.3s ease; border: 3px solid #ff9800;
+                max-width: 90vw; text-align: center; word-wrap: break-word;
+            `;
+            messageDiv.textContent = message;
+            document.body.appendChild(messageDiv);
+            setTimeout(() => messageDiv.remove(), 2500);
+        }
+
+        // --- Chức năng mới: Xáo trộn và Làm lại ---
+
+        // Hàm xáo trộn các phần tử con của một element cha
+        function shuffleChildren(parent) {
+            let children = Array.from(parent.children);
+            for (let i = children.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [children[i], children[j]] = [children[j], children[i]];
+            }
+            // Xóa hết các con hiện tại và thêm lại theo thứ tự đã xáo trộn
+            parent.innerHTML = ''; 
+            children.forEach(child => parent.appendChild(child));
+        }
+
+        // Hàm khởi tạo hoặc reset bài tập
+        function initializeGame() {
+            // Xáo trộn cả 2 cột
+            shuffleChildren(leftColumn);
+            shuffleChildren(rightColumn);
+
+            // Đặt lại trạng thái
+            matches = 0;
+            selectedItemGroup = null;
+            updateProgress();
+
+            // Ẩn thông báo hoàn thành
+            document.getElementById('completionMessage').classList.remove('show');
+
+            // Xóa các đường nối cũ
+            document.querySelectorAll('.connection-line').forEach(line => line.remove());
+
+            // Xóa trạng thái 'matched' và các style cũ
+            document.querySelectorAll('.item-group, .number-option').forEach(el => {
+                el.classList.remove('matched');
+                el.style.transform = '';
+                el.style.boxShadow = '';
+                el.style.animation = '';
+                el.style.pointerEvents = 'auto';
+            });
+        }
+        
+        // Thêm các Event Listener
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeGame(); // Khởi tạo game khi tải trang
+
+            itemGroups.forEach(group => group.addEventListener('click', () => selectItemGroup(group)));
+            numberOptions.forEach(num => num.addEventListener('click', () => selectNumber(num)));
+            document.getElementById('resetBtn').addEventListener('click', initializeGame);
+        });
+        
+        // Thêm keyframes cho animation vào thẻ head
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0) scale(1.05); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-8px) scale(1.05); }
+                20%, 40%, 60%, 80% { transform: translateX(8px) scale(1.05); }
+            }
+            .item-group.matched:hover, .number-option.matched:hover { transform: none; box-shadow: none; }
+            @keyframes fadeIn {
+                0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
