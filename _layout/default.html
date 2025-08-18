@@ -5,55 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
   
-  <!-- MathJax Configuration - PHẢI ĐẶT TRƯỚC KHI LOAD MATHJAX -->
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true,
-        processEnvironments: true,
-        processRefs: true,
-        tags: 'ams',
-        macros: {
-          // Thêm các macro toán học thường dùng
-          R: "\\mathbb{R}",
-          N: "\\mathbb{N}",
-          Z: "\\mathbb{Z}",
-          Q: "\\mathbb{Q}",
-          C: "\\mathbb{C}",
-          vec: ["\\overrightarrow{#1}", 1],
-          dfrac: ["\\frac{#1}{#2}", 2]
-        }
-      },
-      svg: {
-        fontCache: 'global'
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-        ignoreHtmlClass: 'tex2jax_ignore',
-        processHtmlClass: 'tex2jax_process'
-      },
-      startup: {
-        ready() {
-          MathJax.startup.defaultReady();
-          console.log('MathJax is loaded and ready!');
-        }
-      }
-    };
-  </script>
-  
-  <!-- Load MathJax -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  
-  <!-- CSS Styles -->
+  <!-- Custom CSS -->
   <style>
     :root {
       --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       --text-primary: #333;
       --content-bg: #ffffff;
       --shadow: rgba(0, 0, 0, 0.1);
+      --accent-color: #667eea;
     }
     
     * {
@@ -77,25 +36,28 @@
       right: 0;
       background-color: rgba(242, 242, 242, 0.95);
       backdrop-filter: blur(10px);
-      padding: 10px 20px;
+      padding: 15px 20px;
       border-bottom: 1px solid #ccc;
       z-index: 9999;
       margin-bottom: 20px;
+      border-radius: 8px;
     }
     
     .top-bar a {
       text-decoration: none;
       color: #333;
-      font-weight: bold;
+      font-weight: 500;
       margin-right: 20px;
-      padding: 8px 12px;
-      border-radius: 5px;
+      padding: 8px 16px;
+      border-radius: 6px;
       transition: all 0.3s ease;
+      display: inline-block;
     }
     
     .top-bar a:hover {
-      background-color: #667eea;
+      background-color: var(--accent-color);
       color: white;
+      transform: translateY(-2px);
     }
     
     .content {
@@ -107,16 +69,15 @@
       margin: 0 auto;
     }
     
-    /* MathJax Styling */
+    /* MathJax specific styles */
     .MathJax {
       font-size: 1.1em !important;
     }
     
     .MathJax_Display {
-      margin: 1em 0 !important;
+      margin: 1.2em 0 !important;
     }
     
-    /* Đảm bảo các công thức toán hiển thị đúng */
     mjx-container[jax="CHTML"] {
       line-height: 0;
     }
@@ -124,34 +85,54 @@
     mjx-container[jax="CHTML"][display="true"] {
       display: block;
       text-align: center;
-      margin: 1em 0;
+      margin: 1.2em 0;
     }
     
-    /* Styling cho nội dung toán học */
+    /* Styling cho bài tập toán */
     .math-problem {
-      margin: 20px 0;
-      padding: 15px;
-      border-left: 4px solid #667eea;
+      margin: 25px 0;
+      padding: 20px;
+      border-left: 4px solid var(--accent-color);
       background-color: #f8f9fa;
       border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .math-problem h3 {
+      margin-top: 0;
+      color: var(--accent-color);
     }
     
     .answer-options {
-      margin: 10px 0;
-      padding-left: 20px;
+      margin: 15px 0;
+      padding-left: 0;
+      list-style: none;
     }
     
     .answer-options li {
-      margin: 5px 0;
+      margin: 8px 0;
+      padding: 8px 12px;
+      background-color: #ffffff;
+      border: 1px solid #e9ecef;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+    
+    .answer-options li:hover {
+      background-color: #e3f2fd;
     }
     
     .correct-answer {
       color: #28a745;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #d4edda;
+      border-radius: 4px;
+      border-left: 4px solid #28a745;
     }
     
-    /* Responsive */
+    /* Responsive Design */
     @media (max-width: 768px) {
       body {
         padding: 10px;
@@ -162,20 +143,41 @@
       }
       
       .top-bar {
-        padding: 10px;
+        padding: 12px 15px;
       }
       
       .top-bar a {
-        margin-right: 10px;
+        margin-right: 12px;
         font-size: 14px;
+        padding: 6px 12px;
+      }
+      
+      .math-problem {
+        padding: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .top-bar a {
+        display: block;
+        margin: 5px 0;
+        text-align: center;
       }
     }
   </style>
+  
+  <!-- Include head-custom nếu có -->
+  {% if site.head_custom %}
+    {% include head-custom.html %}
+  {% else %}
+    {% include_relative _includes/head-custom.html %}
+  {% endif %}
 </head>
 <body>
   <div class="top-bar">
     <a href="/">🏠 Trang chủ</a>
     <a href="/about">📖 Giới thiệu</a>
+    <a href="/categories">📚 Danh mục</a>
     <a href="/contact">📧 Liên hệ</a>
   </div>
   
@@ -183,30 +185,26 @@
     {{ content }}
   </div>
   
-  <!-- Script để đảm bảo MathJax hoạt động tốt -->
+  <!-- Script để hỗ trợ MathJax -->
   <script>
-    // Chờ DOM load xong
+    // Đảm bảo MathJax render sau khi DOM ready
     document.addEventListener('DOMContentLoaded', function() {
-      // Nếu MathJax đã sẵn sáng, render lại
       if (window.MathJax && window.MathJax.typesetPromise) {
         window.MathJax.typesetPromise().then(() => {
-          console.log('MathJax typeset completed!');
+          console.log('✅ MathJax rendering completed');
         }).catch((err) => {
-          console.error('MathJax typeset failed:', err);
+          console.error('❌ MathJax rendering error:', err);
         });
       }
     });
     
-    // Hàm để render MathJax khi có nội dung mới (nếu cần)
-    function renderMath() {
+    // Utility function để re-render MathJax khi cần
+    window.refreshMath = function() {
       if (window.MathJax && window.MathJax.typesetPromise) {
         return window.MathJax.typesetPromise();
       }
       return Promise.resolve();
-    }
-    
-    // Expose function globally nếu cần
-    window.renderMath = renderMath;
+    };
   </script>
 </body>
 </html>
