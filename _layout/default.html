@@ -1,76 +1,13 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title | default: site.title }}</title>
-    
-    <!-- MathJax 3.x - Simple Configuration -->
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        
-        h1, h2, h3 {
-            color: #333;
-            border-bottom: 2px solid #007cba;
-            padding-bottom: 10px;
-        }
-        
-        .content {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        /* Basic MathJax styling */
-        .MathJax {
-            outline: none !important;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
 </head>
 <body>
-    <h1>{{ page.title | default: site.title }}</h1>
-    
-    <div class="content">
-        {{ content }}
-    </div>
-    
-    <script>
-        // Simple MathJax check
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                if (typeof MathJax !== 'undefined') {
-                    console.log('MathJax loaded successfully');
-                    if (MathJax.typesetPromise) {
-                        MathJax.typesetPromise().then(() => {
-                            console.log('MathJax typesetting completed');
-                        });
-                    }
-                } else {
-                    console.error('MathJax failed to load');
-                }
-            }, 2000);
-        });
-    </script>
+  {{ content }}
 </body>
 </html>
