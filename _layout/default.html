@@ -1,3 +1,4 @@
+<!-- File: _layouts/default.html -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -5,206 +6,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
   
-  <!-- Custom CSS -->
+  <!-- Include MathJax config -->
+  {% include head-custom.html %}
+  
   <style>
     :root {
       --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       --text-primary: #333;
-      --content-bg: #ffffff;
-      --shadow: rgba(0, 0, 0, 0.1);
-      --accent-color: #667eea;
-    }
-    
-    * {
-      box-sizing: border-box;
     }
     
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg-gradient);
       min-height: 100vh;
-      margin: 0;
       padding: 20px;
       color: var(--text-primary);
-      line-height: 1.6;
+      margin: 0;
     }
     
     .top-bar {
       position: sticky;
       top: 0;
       left: 0;
-      right: 0;
-      background-color: rgba(242, 242, 242, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 15px 20px;
+      width: 100%;
+      background-color: #f2f2f2;
+      padding: 10px;
+      font-family: sans-serif;
       border-bottom: 1px solid #ccc;
       z-index: 9999;
-      margin-bottom: 20px;
-      border-radius: 8px;
     }
     
     .top-bar a {
       text-decoration: none;
       color: #333;
-      font-weight: 500;
-      margin-right: 20px;
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      display: inline-block;
+      font-weight: bold;
+      margin-right: 15px;
     }
     
     .top-bar a:hover {
-      background-color: var(--accent-color);
-      color: white;
-      transform: translateY(-2px);
+      color: #667eea;
     }
     
     .content {
-      background-color: var(--content-bg);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 32px var(--shadow);
-      max-width: 1200px;
-      margin: 0 auto;
+      margin-top: 60px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     
-    /* MathJax specific styles */
+    /* MathJax styling */
     .MathJax {
       font-size: 1.1em !important;
     }
     
-    .MathJax_Display {
-      margin: 1.2em 0 !important;
+    /* Để các công thức trong class arithmatex hiển thị đúng */
+    .arithmatex {
+      /* MathJax sẽ process các element có class này */
     }
     
-    mjx-container[jax="CHTML"] {
-      line-height: 0;
-    }
-    
-    mjx-container[jax="CHTML"][display="true"] {
-      display: block;
-      text-align: center;
-      margin: 1.2em 0;
-    }
-    
-    /* Styling cho bài tập toán */
-    .math-problem {
-      margin: 25px 0;
-      padding: 20px;
-      border-left: 4px solid var(--accent-color);
-      background-color: #f8f9fa;
-      border-radius: 0 8px 8px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    
-    .math-problem h3 {
-      margin-top: 0;
-      color: var(--accent-color);
-    }
-    
-    .answer-options {
-      margin: 15px 0;
-      padding-left: 0;
-      list-style: none;
-    }
-    
-    .answer-options li {
-      margin: 8px 0;
-      padding: 8px 12px;
-      background-color: #ffffff;
-      border: 1px solid #e9ecef;
-      border-radius: 4px;
-      transition: background-color 0.2s ease;
-    }
-    
-    .answer-options li:hover {
-      background-color: #e3f2fd;
-    }
-    
-    .correct-answer {
-      color: #28a745;
-      font-weight: bold;
-      margin-top: 15px;
-      padding: 10px;
-      background-color: #d4edda;
-      border-radius: 4px;
-      border-left: 4px solid #28a745;
-    }
-    
-    /* Responsive Design */
     @media (max-width: 768px) {
       body {
         padding: 10px;
       }
       
       .content {
-        padding: 20px;
-      }
-      
-      .top-bar {
-        padding: 12px 15px;
-      }
-      
-      .top-bar a {
-        margin-right: 12px;
-        font-size: 14px;
-        padding: 6px 12px;
-      }
-      
-      .math-problem {
+        margin-top: 50px;
         padding: 15px;
       }
     }
-    
-    @media (max-width: 480px) {
-      .top-bar a {
-        display: block;
-        margin: 5px 0;
-        text-align: center;
-      }
-    }
   </style>
-  
-  <!-- Include head-custom nếu có -->
-  {% if site.head_custom %}
-    {% include head-custom.html %}
-  {% else %}
-    {% include_relative _includes/head-custom.html %}
-  {% endif %}
 </head>
 <body>
   <div class="top-bar">
-    <a href="/">🏠 Trang chủ</a>
-    <a href="/about">📖 Giới thiệu</a>
-    <a href="/categories">📚 Danh mục</a>
-    <a href="/contact">📧 Liên hệ</a>
+    <a href="/">Trang chủ</a>
+    <a href="/about">Giới thiệu</a>
   </div>
   
   <div class="content">
     {{ content }}
   </div>
-  
-  <!-- Script để hỗ trợ MathJax -->
-  <script>
-    // Đảm bảo MathJax render sau khi DOM ready
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.MathJax && window.MathJax.typesetPromise) {
-        window.MathJax.typesetPromise().then(() => {
-          console.log('✅ MathJax rendering completed');
-        }).catch((err) => {
-          console.error('❌ MathJax rendering error:', err);
-        });
-      }
-    });
-    
-    // Utility function để re-render MathJax khi cần
-    window.refreshMath = function() {
-      if (window.MathJax && window.MathJax.typesetPromise) {
-        return window.MathJax.typesetPromise();
-      }
-      return Promise.resolve();
-    };
-  </script>
 </body>
 </html>
