@@ -25,3 +25,26 @@ table tr:nth-child(even) {
 table tr:hover {
   background-color: #f0f0f0;
 }
+
+ .top-bar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  padding: 10px;
+  font-family: sans-serif;
+  border-bottom: 1px solid #ccc;
+  z-index: 9999; /* đảm bảo nằm trên các thành phần khác */
+}
+      .top-bar a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+          margin-right: 15px; /* khoảng cách giữa các link */
+      }
+        .content {
+    margin-top: 60px; /* đẩy nội dung xuống để không bị thanh top-bar che mất */
+    background-color: #fff; /* màu nền nội dung */
+}
+
