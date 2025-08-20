@@ -87,4 +87,4 @@ Bằng cách ghi nhớ thời gian đến và rời nhà bạn, cộng với th�
 
 Ngoài ra, các em học sinh tham khảo cách vẽ sơ đồ như hình dưới đây:
 
-[](T5TuduyQuestion5.jpg)
+![](T5TuduyQuestion5.jpg)
