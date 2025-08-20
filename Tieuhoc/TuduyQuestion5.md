@@ -84,3 +84,7 @@ Bài toán này dựa trên giả định rằng thời gian di chuyển đi và
 **Đáp án:**
 
 Bằng cách ghi nhớ thời gian đến và rời nhà bạn, cộng với thời gian di chuyển ước tính, người đó có thể tính được thời gian hiện tại và đặt đồng hồ đúng giờ.
+
+Ngoài ra, các em học sinh tham khảo cách vẽ sơ đồ như hình dưới đây:
+
+[](T5TuduyQuestion5.jpg)
