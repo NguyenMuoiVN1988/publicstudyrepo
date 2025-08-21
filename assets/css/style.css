@@ -46,5 +46,9 @@ table tr:hover {
         .content {
     margin-top: 60px; /* đẩy nội dung xuống để không bị thanh top-bar che mất */
     background-color: #fff; /* màu nền nội dung */
+    max-width: 700px; /* giới hạn chiều rộng tối đa */
+    word-wrap: break-word; /* tự động xuống dòng khi dài quá */
+    white-space: normal; /* cho phép xuống dòng bình thường */
+    padding: 20px; /* tùy chọn thêm padding cho dễ nhìn */
 }
 
