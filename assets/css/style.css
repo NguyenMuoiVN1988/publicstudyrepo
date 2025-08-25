@@ -51,4 +51,13 @@ table tr:hover {
     white-space: normal; /* cho phép xuống dòng bình thường */
     padding: 20px; /* tùy chọn thêm padding cho dễ nhìn */
 }
+/* Markdown style */
+.content h1, .content h2, .content h3 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  margin-top: 1.5em;
+}
 
+.content p, .content li {
+  font-size: 18px;
+}
