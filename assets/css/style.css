@@ -1,3 +1,13 @@
+body {
+  font-family: "Merriweather", "Noto Serif", "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.7;
+  background: #fdfdfd;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
 /* Làm đẹp bảng trong Markdown */
 table {
   border-collapse: collapse;
