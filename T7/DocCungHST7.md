@@ -7,10 +7,11 @@ title: Đọc sách cùng học sinh
 ## Bài 1. Tập hợp $\mathbb{Q}$ các số hữu tỉ.
 Ví dụ: Nhiệt độ đo được: $-1,3; -0,5; 0,3; -3,1$ ở Pha Đin; Mộc Châu, Đồng Văn, Sa Pa.
 Thông tin nhiệt độ lúc 13h ngày 24 tháng 1 năm 2016. Nhiệt độ thấp (rét) ở các tỉnh phía bắc.
-Trong toán học thì ta thường quan tâm tới con số: $-1,3; -0,5; 0,3; -3,1$
+Trong toán học thì ta thường quan tâm tới con số: $-1,3; -0,5; 0,3; -3,1$.
+
 Các con số, chúng ta đã học: 
 - Số tự nhiên: $\mathbb{N}=\{0;1;2;3;\dots \}$ (có 1 số nước trên thế giới thì lại là từ $\{1;2;3;\dots \}$ bắt đầu từ 1.)
-- Số nguyên: $\mathbb{Z} =\{\dots; -2;-1;0;1;2;\dots \}$ (Bổ sung các số giống số tự nhiên nhưng có dấu "-" đằng trước -> giải quyết vấn đề gì: Phép trừ: Trong số tự nhiên $1-2$ không thực hiện được, nhưng giờ thì $1-2=-1$)  
+- Số nguyên: $\mathbb{Z} =\\{\dots; -2;-1;0;1;2;\dots \\}$ (Bổ sung các số giống số tự nhiên nhưng có dấu "-" đằng trước -> giải quyết vấn đề gì: Phép trừ: Trong số tự nhiên $1-2$ không thực hiện được, nhưng giờ thì $1-2=-1$)  
 ### I. Số hữu tỉ
 - *Số hữu tỉ* là số được viết dưới dạng phân số $\dfrac{a}{b},$ với $a,b\in \mathbb{Z}, b\neq 0$.
 - Tập hợp các số hữu tỉ được kí hiệu là $\mathbb{Q}$.
