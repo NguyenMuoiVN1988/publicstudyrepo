@@ -62,6 +62,7 @@ g) Nếu $a\in \mathbb{Z}$ thì $a\notin \mathbb{Q}$
 
 **Trả lời:**
 a) Đúng; b) Đúng; c) Sai; d) Sai; e) Sai; g) Sai
+
 Mục tiêu: Sẽ làm rõ nghĩa của bài 2. (Sự khác nhau giữa các tập hợp)
 
 Bài 1 sách kết nối: gộp cả 3 nội dung trên vào 1 bài.
