@@ -4,7 +4,7 @@ title: "Public Study"
 
 
 ## Toán 12.
-![Tổng hợp tài liệu Toán 12](Toan12.md)
+[Tổng hợp tài liệu Toán 12](Toan12.md)
 
 | Đọc sách cùng học sinh | Giải đáp và bình luận|
 |-----|-----|
