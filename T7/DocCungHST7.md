@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Đọc sách cùng học sinh
-----
+---
 
 # Chương 1. Số hữu tỉ
 ## Bài 1. Tập hợp $\mathbb{Q}$ các số hữu tỉ.
