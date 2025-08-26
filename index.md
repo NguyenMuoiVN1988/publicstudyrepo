@@ -6,6 +6,7 @@ title: "Public Study"
 ## Toán 12.
 ## Tổng hợp tài liệu
 [Chương 1 Bài 1](T12/T12C1B1.md)
+
 [Chương 1 Bài 2](T12/T12C1B2.md)
 
 | Đọc sách cùng học sinh | Giải đáp và bình luận|
