@@ -73,3 +73,31 @@ table tr:hover {
 .content p, .content li {
   font-size: 18px;
 }
+/* Footnote styles */
+.footnotes {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #ddd;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.footnotes ol {
+  margin-left: 1.2em;
+  padding-left: 0.5em;
+}
+
+.footnotes li {
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+
+.footnotes a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+.footnotes a:hover {
+  text-decoration: underline;
+}
+
