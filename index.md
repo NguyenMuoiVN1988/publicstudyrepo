@@ -30,7 +30,7 @@ title: "Public Study"
 |[Chuyển động: Câu hỏi 1](Tieuhoc/TuduyQuestion1.md)| [Đếm: Câu hỏi 1](Tieuhoc/TieuHocDemQuestion1.md)|
 |----|----|
 [Chuyển động: Câu hỏi 2](Tieuhoc/TuduyQuestion2.md)|[18/8/2025 Hiệu tỷ: Câu hỏi 1](Tieuhoc/TieuHocHieuTy.md) |
-|[Chuyển động: Câu hỏi 3](Tieuhoc/TuduyQuestion3.md)| |
+|[Chuyển động: Câu hỏi 3](Tieuhoc/TuduyQuestion3.md)| [Chuyển động: Câu hỏi 8. Vận tốc trung bình](Tieuhoc/TuduyQuestion8.md) |
 |[Chuyển động: Câu hỏi 4](Tieuhoc/TuduyQuestion4.md)| |
 |[Chuyển động - Thời gian: Câu hỏi 5](Tieuhoc/TuduyQuestion5.md)| |
  
