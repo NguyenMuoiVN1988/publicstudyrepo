@@ -9,6 +9,8 @@ title: "Public Study"
 
 [Chương 1 Bài 2](T12/T12C1B2.md)
 
+[Chương 1 Bài 3](T12/T12C1B3.md)
+
 | Đọc sách cùng học sinh | Giải đáp và bình luận|
 |-----|-----|
 |[ Ngày 07/08/2025: Ôn tập thống kê lớp 10, lớp 11](T12/ontapthongke10va11.md) |[ Ngày 07/08/2025: Giá Trị lớn nhất, nhỏ nhất trong Oxyz](T12/MinMaxKhoangCachOxyz.md)|
