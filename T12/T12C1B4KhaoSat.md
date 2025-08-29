@@ -324,12 +324,12 @@ Xác định đồ thị của hàm số hữu tỉ: $y = \dfrac{x^2 + 3}{x + 1}
 ##### Ví dụ 6.1. 
 Cho hàm số bậc ba $y = ax^3 + bx^2 + cx + d$ có đồ thị như hình vẽ. Trong các hệ số $a, b, c, d$, có bao nhiêu giá trị dương?
 
-![](2982025T12C1B4D6VD1.png)
+![](2982025T12C1B4D6VD1.png){: width="200"}
 
 ##### Ví dụ 6.2. 
  Cho hàm số hữu tỉ $y = ax + 2 + \dfrac{b}{x+c}$ có đồ thị như hình bên. Tính $P = a + b + c$.
 
-![](2982025T12C1B4D6VD2.png)
+![](2982025T12C1B4D6VD2.png){: width="200"}
 
 ### Dạng 7. Đọc đồ thị của đạo hàm
 
@@ -347,17 +347,17 @@ Cho hàm số bậc ba $y = ax^3 + bx^2 + cx + d$ có đồ thị như hình v�
 #### Ví dụ 7.1. 
  Cho hàm số $y = f(x)$ liên tục trên $\mathbb{R}$, $y = f'(x)$ có đồ thị trong hình dưới đây. Lập bảng xét dấu của $y = f'(x)$?
 
-![](2982025T12C1B4D7VD1.png)
+![](2982025T12C1B4D7VD1.png){: width="200"}
 
 #### Ví dụ 7.2. 
  Cho hàm số $y = f(x)$ liên tục trên $\mathbb{R}$, $y = f'(x)$ có đồ thị dưới đây. Tìm điểm cực đại của hàm số đã cho.
 
-![](2982025T12C1B4D7VD2.png)
+![](2982025T12C1B4D7VD2.png){: width="200"}
 
 #### Ví dụ 7.3. 
  Cho hàm số $f(x)$ có đạo hàm trên $\mathbb{R}$ và hàm số $y = f'(x)$ có đồ thị như hình vẽ. Xác định giá trị lớn nhất của hàm số $g(x) = f(2x-1) - 2x + 1$ trên $[0;1]$.
 
-![](2982025T12C1B4D7VD3.png)
+![](2982025T12C1B4D7VD3.png){: width="200"}
 
 ### Dạng 8. Sự tương giao
 
