@@ -239,3 +239,157 @@ Cho hàm số $y=\dfrac{ax-1}{2x+b}$ có bảng biến thiên như hình bên d�
 Cho hàm số hữu tỉ $y=\dfrac{2x^2+ax+b}{cx-2}$ có đồ thị như hình bên dưới. Viết công thức của hàm số.
 
 ![](2025-08-28-09-34-02.png){: width="200"}
+
+### Dạng 5. Nhận dạng đồ thị - bảng biến thiên khi biết hàm số
+
+#### Phương pháp
+**Vận dụng các kiến thức liên quan:** Đơn điệu, Cực trị, Đường tiệm cận
+
+**Bước 1:** Tập xác định.
+
+** Bước 2:** Sự biến thiên
+
+-  Chiều biến thiên.
+
+- Cực trị.
+
+-  Đường tiệm cận.
+
+-  Điểm đi qua.
+
+** Bước 3:** Kết luận đồ thị
+
+##### Ví dụ 5.1.
+Xác định bảng biến thiên của hàm số: $y = -x^3 - 3x^2 + 9x - 9$
+
+##### Ví dụ 5.2.
+Xác định đồ thị của hàm số hữu tỉ: $y = \dfrac{x^2 + 3}{x + 1}$
+
+### Dạng 6. Xác định dấu – giá trị các hệ số
+
+#### Phương pháp
+
+##### Loại 1. Hàm đa thức bậc ba
+**Dạng hàm:** $y = f(x) = ax^3 + bx^2 + cx + d$ ($a \neq 0$)
+
+**Bước 1:** Nhìn vào nhánh ngoài cùng của đồ thị để xác định dấu của hệ số $a$.
+
+**Bước 2:** Điểm cắt trục tung: xác định dấu hệ số $d$.
+
+**Bước 3:** Nhìn vào hai điểm cực trị (nếu có) ta biết nghiệm của phương trình $y' = 0$ tương đương với $3ax^2 + 2bx + c = 0$.
+
+   
+- Nếu đồ thị hàm số không có điểm cực trị: $\Delta' = b^2 - 3ac \leq 0.$
+
+- Nếu đồ thị hàm số có hai điểm cực trị:
+  - Các điểm cực trị $x_1, x_2$ của hàm số là hai nghiệm của phương trình $y' = 0$
+  - **Khi đó:**
+
+    - $x_1 + x_2 = -\dfrac{2b}{3a}$ và $x_1x_2 = \dfrac{c}{3a}$ (công thức Vi-ét)
+
+    - Dựa vào vị trí của $x_1, x_2$ để suy luận các phép tính $x_1 + x_2$ và $x_1x_2$ mang dấu gì.
+
+    - Nếu không cho tọa độ rõ ràng, ước lượng khoảng cách từ O tới các điểm $x_1, x_2$.
+
+**Bước 4:** Xác định tọa độ các điểm đã cho.
+
+**Bước 5:** Dựa vào điểm uốn:
+
+- Là tâm đối xứng của đồ thị hàm số.
+
+- $x_u$ là nghiệm của phương trình $y^{\prime\prime} = 0$.
+
+- Điểm uốn là trung điểm của đoạn thẳng nối hai điểm cực trị.
+
+**Nhận xét:**
+
+- Bảng biến thiên mô phỏng đồ thị hàm số
+
+- Cách đọc bảng biến thiên giống như cách đọc đồ thị
+
+##### Loại 2. Hàm phân thức
+
+**Dạng hàm:** $y = \dfrac{ax + b}{cx + d}$ và $y = \dfrac{ax^2 + bx + c}{dx + e}$
+
+**Bước 1:** Xác định các đường tiệm cận:
+
+- Dùng công thức tính nhanh (định nghĩa) để tìm mối quan hệ giữa các hệ số.
+
+- **Lưu ý:** Giao điểm của hai đường tiệm cận là tâm đối xứng của đồ thị hàm số
+
+**Bước 2:** Xác định các điểm thuộc đồ thị hàm số: giao với các trục tọa độ, cực trị.
+
+**Bước 3:** Từ hình dáng đồ thị (bảng biến thiên), xác định dấu của đạo hàm dựa vào các khoảng đồng biến/nghịch biến. Từ đó xác định dấu của các hệ số.
+
+##### Ví dụ 6.1. 
+Cho hàm số bậc ba $y = ax^3 + bx^2 + cx + d$ có đồ thị như hình vẽ. Trong các hệ số $a, b, c, d$, có bao nhiêu giá trị dương?
+
+![](2982025T12C1B4D6VD1.png)
+
+##### Ví dụ 6.2. 
+ Cho hàm số hữu tỉ $y = ax + 2 + \dfrac{b}{x+c}$ có đồ thị như hình bên. Tính $P = a + b + c$.
+
+![](2982025T12C1B4D6VD2.png)
+
+### Dạng 7. Đọc đồ thị của đạo hàm
+
+#### Phương pháp
+Để xác định tính đơn điệu, cực trị, giá trị min/max của hàm số $y = f(x)$, $g(x) = f(u(x))$ hoặc $g(x) = g(f(x))$ khi cho đồ thị (hoặc bảng biến thiên) của đạo hàm $y = f^\prime (x)$ hoặc $y = f^\prime (u(x))$.
+
+**Bước 1:** Tính $g'(x)$
+
+- **Lưu ý:** Nếu $g(x) = f(u(x))$ thì $g'(x) = u'(x) \cdot f^\prime(u(x))$
+
+**Bước 2:** Giải $g'(x) = 0$ để tìm các điểm tới hạn $x_1, x_2, ..., x_n$ hoặc các điểm mà $g'(x)$ không xác định.
+
+**Bước 3:** Lập bảng xét dấu của $g'(x)$. Từ đó lập bảng biến thiên của hàm số $y = g(x)$. Cuối cùng sử dụng bảng biến thiên để xác định các tính chất như tính đơn điệu, cực trị (cực tiểu/cực đại cục bộ), giá trị min/max.
+
+#### Ví dụ 7.1. 
+ Cho hàm số $y = f(x)$ liên tục trên $\mathbb{R}$, $y = f'(x)$ có đồ thị trong hình dưới đây. Lập bảng xét dấu của $y = f'(x)$?
+
+![](2982025T12C1B4D7VD1.png)
+
+#### Ví dụ 7.2. 
+ Cho hàm số $y = f(x)$ liên tục trên $\mathbb{R}$, $y = f'(x)$ có đồ thị dưới đây. Tìm điểm cực đại của hàm số đã cho.
+
+![](2982025T12C1B4D7VD2.png)
+
+#### Ví dụ 7.3. 
+ Cho hàm số $f(x)$ có đạo hàm trên $\mathbb{R}$ và hàm số $y = f'(x)$ có đồ thị như hình vẽ. Xác định giá trị lớn nhất của hàm số $g(x) = f(2x-1) - 2x + 1$ trên $[0;1]$.
+
+![](2982025T12C1B4D7VD3.png)
+
+### Dạng 8. Sự tương giao
+
+#### Phương pháp:
+
+*Các hàm số* $y = f(x)$, $y = g(x)$ *có đồ thị lần lượt là các đường* $(C_1)$, $(C_2)$, *khi đó:*
+
+* Số nghiệm của phương trình $f(x) = g(x)$ chính là số giao điểm của các đồ thị $(C_1)$, $(C_2)$.
+
+* Số giao điểm của các đường $(C_1)$, $(C_2)$ chính là số nghiệm của phương trình $f(x) = g(x)$.
+
+#### Ví dụ 8.1. 
+Có bao nhiêu giá trị nguyên dương của tham số $m$ để đồ thị của hàm số $y = 3x^3 - 9x + 3(m-1)$ giao với trục hoành tại hai điểm phân biệt?
+
+#### Ví dụ 8.2. 
+Có tất cả bao nhiêu giá trị thực của tham số $m$ để đồ thị của hàm số $y = x^3 - 3x^2 + (2m^2 + 1)x + m - 3$ và parabol $y = 2x^2 + x - m - 2$ có hai giao điểm phân biệt và tổng hoành độ hai giao điểm đó là $3$?
+
+### Dạng 9. Bài toán thực tế liên môn đưa về khảo sát hàm số
+
+#### Phương pháp
+**Bước 1:** Xác định yếu tố chọn làm ẩn, chỉ ra điều kiện (nếu có).
+
+**Bước 2:** Xây dựng phương trình hàm số từ các dữ kiện của bài toán.
+
+**Bước 3:** Giải bài toán liên quan đến hàm số và kết luận.
+
+#### Ví dụ 9.1. 
+Nhiệt độ $T$ của một người trong cơn bệnh được cho bởi công thức $T(t) = -0,1t^2 + 1,2t + 98,6$ $(0 \leq t \leq 11)$, trong đó $T$ là nhiệt độ (°F – Fahrenheit) theo thời gian $t$ trong ngày. Biết rằng $°C = \dfrac{°F - 32}{1,8}$. Hỏi độ chênh lệch (theo độ $°C$) giữa nhiệt độ lớn nhất và nhiệt độ thấp nhất trong một ngày là bao nhiêu?
+
+#### Ví dụ 9.2. 
+Một sợi dây kim loại dài 60 cm được cắt thành hai đoạn. Đoạn dây thứ nhất uốn thành hình vuông cạnh $a$, đoạn dây thứ hai uốn thành đường tròn bán kính $r$. Để tổng diện tích của hình vuông và hình tròn là nhỏ nhất thì tỉ số $\dfrac{a}{r}$ bằng bao nhiêu?
+
+#### Ví dụ 9.3. 
+Một cơ sở sản xuất khăn mặt có giá bán hiện tại là 30.000 đồng/chiếc, bán được trung bình 3.000 chiếc/tháng. Chi phí sản xuất cố định là 18.000 đồng/chiếc. Qua nghiên cứu thị trường, người ta thấy rằng cứ tăng giá 1.000 đồng thì số lượng bán giảm 100 chiếc/tháng. Hỏi cơ sở nên bán với giá bao nhiêu để có lợi nhuận cao nhất?
+
