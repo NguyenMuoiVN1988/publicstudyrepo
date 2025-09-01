@@ -1,4 +1,5 @@
 ---
+layout: default
 title: "Public Study"
 ---
 
@@ -12,6 +13,8 @@ title: "Public Study"
 [Chương 1 Bài 3](T12/T12C1B3.md)
 
 [Chương 1 Bài 4](T12/T12C1B4KhaoSat.md)
+
+[1/9/2025 Kiểm tra Chương 1 Bài 1](T12/T12TestC1B1.md)
 
 | Đọc sách cùng học sinh | Giải đáp và bình luận|
 |-----|-----|
