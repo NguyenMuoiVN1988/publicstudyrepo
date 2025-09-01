@@ -1,3 +1,8 @@
+---
+layout: default
+title: Phiếu kiểm tra Chương 1 Bài 1
+---
+
 # Chương 1. Ứng dụng đạo hàm
 ## Bài 1. Tính đơn điệu và cực trị của hàm số
 
