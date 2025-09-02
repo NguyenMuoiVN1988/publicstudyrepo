@@ -1,3 +1,8 @@
+---
+layout: default
+title: Phiếu kiểm tra C1B2. Max - Min của hàm số
+---
+
 # Chương 1. Ứng dụng hàm số
 ## Bài 2. Max - Min của hàm số
 
