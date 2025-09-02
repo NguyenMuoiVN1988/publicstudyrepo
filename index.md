@@ -6,15 +6,17 @@ title: "Public Study"
 
 ## Toán 12.
 ## Tổng hợp tài liệu
-[Chương 1 Bài 1](T12/T12C1B1.md)
 
-[Chương 1 Bài 2](T12/T12C1B2.md)
+| [Chương 1 Bài 1](T12/T12C1B1.md)| [1/9/2025 Kiểm tra Chương 1 Bài 1](T12/T12TestC1B1.md) |
+|----|---|
+| [Chương 1 Bài 2](T12/T12C1B2.md) | [2/9/2025 Kiểm tra Chương 1 Bài 2](T12/T12TestC1B2F.md)|
 
 [Chương 1 Bài 3](T12/T12C1B3.md)
 
 [Chương 1 Bài 4](T12/T12C1B4KhaoSat.md)
 
-[1/9/2025 Kiểm tra Chương 1 Bài 1](T12/T12TestC1B1.md)
+
+
 
 | Đọc sách cùng học sinh | Giải đáp và bình luận|
 |-----|-----|
