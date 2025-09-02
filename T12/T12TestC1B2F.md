@@ -141,13 +141,13 @@ Một vật chuyển động theo quy luật $s(t) = -\frac{1}{3}t^3 + 6t^2$ v�
 #### Câu 12
 Tìm các giá trị của tham số m để giá trị nhỏ nhất của hàm số $y = \frac{x-m^2+m}{x+1}$ trên đoạn $[0;1]$ bằng -2.
 
-- [ ] A. $\begin{cases} m = -1 \\ m = -2 \end{cases}$
+- [ ] A. $\begin{cases} m = -1 \\\ m = -2 \end{cases}$
 
-- [ ] B. $\begin{cases} m = 1 \\ m = 2 \end{cases}$
+- [ ] B. $\begin{cases} m = 1 \\\ m = 2 \end{cases}$
 
-- [ ] C. $\begin{cases} m = 1 \\ m = -2 \end{cases}$
+- [ ] C. $\begin{cases} m = 1 \\\ m = -2 \end{cases}$
 
-- [x] D. $\begin{cases} m = -1 \\ m = 2 \end{cases}$
+- [x] D. $\begin{cases} m = -1 \\\ m = 2 \end{cases}$
 
 ### Câu 1
 Cho đồ thị hàm số $y = f'(x)$ như hình vẽ bên dưới. Xét tính đúng sai của các khẳng định sau:
