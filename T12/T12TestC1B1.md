@@ -135,7 +135,7 @@ Cho hàm số $y = f(x)$ xác định trên $\mathbb{R}$ và có bảng biến t
 - [T] Hàm số đồng biến trên khoảng $(7;+\infty)$.
 - [T] $f(1) < f(3)$.
 - [F] Hàm số nghịch biến trên khoảng $(1;7)$.
-- [F] Phương trình $f'(3x-1)=0$ nhận $x = \frac{2}{3}$ làm nghiệm.
+- [T] Phương trình $f'(3x-1)=0$ nhận $x = \frac{2}{3}$ làm nghiệm.
 
 
 #### Câu 2
