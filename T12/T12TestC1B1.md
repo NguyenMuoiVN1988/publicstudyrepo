@@ -144,7 +144,7 @@ Cho hàm số $y = \frac{2x+1}{-x+1}$. Xét tính đúng sai của các khẳng 
 - [T] Hàm số đồng biến trên khoảng $(-\infty; 1)$
 - [F] Hàm số nghịch biến trên khoảng $(2; +\infty)$
 - [T] Hàm số đồng biến trên khoảng $(2025; 2029)$
-- [F] Hàm số đồng biến trên $\mathbb{R} \setminus \{1\}$
+- [F] Hàm số đồng biến trên $\mathbb{R} \setminus \\{1\\}$
 
 
 
