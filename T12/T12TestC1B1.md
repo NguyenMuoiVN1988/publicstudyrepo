@@ -55,7 +55,7 @@ Một vật có phương trình quãng đường tính theo thời gian là $s(t
 
 
 #### Câu 5
-Cho hàm số $y = -\frac{x^3}{3} + x^2 + 4$. Hàm số đồng biến trên khoảng nào trong các khoảng sau đây?
+Cho hàm số $y = -\frac{x^3}{3} + x^2 + 4$. Hàm số nghịch biến trên khoảng nào trong các khoảng sau đây?
 
 - [ ] $(0; 2)$
 - [x] $(-\infty; 0)\cup (2; +\infty)$
