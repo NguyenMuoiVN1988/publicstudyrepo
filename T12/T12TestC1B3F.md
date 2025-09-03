@@ -1,3 +1,7 @@
+---
+layout: default
+title: Kiểm tra Toán 12 Chương 1 Bài 3
+---
 # Chương 1. Ứng dụng đạo hàm
 ## Bài 3. Tiệm cận của đồ thị hàm số
 
@@ -197,6 +201,7 @@ Hai loài cùng tồn tại trong cùng một hệ sinh thái. Sau $t$ năm, s�
 Cho hàm số $y = \frac{mx^2 + (m^2 + m + 2)x + m^2 + 3}{x + 1}$. Tìm $m \in \mathbb{R}$ để khoảng cách từ gốc $O$ đến tiệm cận xiên hoặc ngang là nhỏ nhất.
 
 Đáp án: 2.
+
 
 
 
