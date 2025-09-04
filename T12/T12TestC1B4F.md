@@ -1,3 +1,8 @@
+---
+layout: default
+title: Phiếu kiểm tra Toán 12 Chương 1 Bài 4
+---
+
 # Chương 1. Ứng dụng đạo hàm
 ## Bài 4. Khảo Sát Sự Biến Thiên Và Vẽ Đồ Thị Hàm Số 
 
@@ -201,3 +206,4 @@ Trong tiết học Toán, giáo viên phát cho 4 tổ một tấm bìa hình vu
 ![](2025-09-04-14-24-40.png)
 
 Đáp án: 45.
+
