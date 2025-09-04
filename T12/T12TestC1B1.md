@@ -213,3 +213,52 @@ Gọi $(a;b)$ là khoảng thời gian gia tốc của tàu con thoi sẽ tăng 
 ![](2025-09-01-13-34-33.png)
 
 Đáp án: 149.
+
+## Giải đáp chi tiết một số câu
+
+### Câu 4 (Eval)
+
+a) [T] vì $f'(x)\gt 0, \forall x\in (-\infty;0)\cup(2;+\infty)$
+
+b) [F] vì $g'(x)=2-3f(x).$
+$x\in (0;2)$ nên $f'(x)\lt 0$ kéo theo $g^{\prime} (x)>0\forall x\in (0;2)$ nên $g(x)$ đồng biến.
+
+c) [F] vì $t=\sin^2(x)\in [0;1]$, hàm số $f(t)$ nghịch biến trên $[0;2]$ do đó $f(0)\gt f(1)\gt f(\frac{3}{2})$ nên $f(\sin^{2}(x))\lt f(\frac{3}{2})$.
+
+d) $y'=-3f(2-3x)$, $x\in (0;2)$ nên $2-3x\in (-4;2)$. Đặt $t=2-3x$
+$f(t), t\in (-4;2)$. $f'(t)>0, -4<t<0$ có $y'=-3f'(t)<0, -4<t<0$.
+$f'(t)<0, 0<t<2$ nên $y'=-3f'(t)>0, t\in (0;2)$
+$y'$ Có 2 dấu +; - nên vừa đồng biến, vừa nghịch biến trên khoảng $(0;2)$. Đáp án là sai.
+
+### Câu 5 (Fill)
+
+$y'=x^2-2(m+1)x+(m^2+2m)$
+$y'<0, \forall x\in(-1;1)$ tương đương với $\begin{cases}\triangle >0 \\ x_{1}\leq -1 \leq 1\leq x_2 \end{cases}$
+$y'(-1)\le 0$ và $y'(1)\le 0$. Ta có: $1+2(m+1)+(m^2+2m)\le 0$ và $1-2(m+1)+m^2+2m\le 0$.
+Thu gọn:
+- $1+2(m+1)+(m^2+2m)\le 0$ tương đương $m^2+4m+3\le 0$ tương đương $(m+1)(m+3)\le 0$
+Vậy $m\in [-3;-1]$. (1)
+- $1-2(m+1)+m^2+2m\le 0$ tương đương $m^2-1\le 0$ nên $m\in [-1;1]$.  (2)
+Kết hợp: (1) và (2) nên $m=-1$.
+
+### Câu 1 (Eval)
+
+d)[T] $f'(3x-1)=0$ thì $3x-1\in \{1;3;7\}$
+$x\in \{\frac{2}{3}; \frac{4}{3}; \frac{8}{3}\}$.
+
+### Câu 4 (Fill)
+
+Gọi số khách là $x\in \mathbb{N}$
+
+Ta có hàm $f(x)=\begin{cases}5x,\, x\leq 30 \\ x\Big(5-(x-30).a:1000\Big), \, 31\le x\le 45 \end{cases}$
+$f'(x)=\begin{cases} 5, x\le 30 \\ \Big(5-(x-30).a:1000)+x\Big(0-a:1000)\Big), \, 31\le x\le 45 \end{cases}$
+
+Hàm số $f(x)$ đồng biến $x\in [31;38]$ (1)
+
+nghĩa là $f'(x)=\Big(5-(x-30).a:1000)+x\Big(0-a:1000)\Big)>0$ với $x\in [31;38]$.
+
+$f'(x)=x(\frac{-2a}{1000})+5+\frac{30a}{1000}>0$
+
+Khi $x\leq \left( 5+\frac{30a}{1000} \right):\frac{(2a)}{1000}$ (2)
+
+Từ (1) và (2) thì $38 \le \left( 5+\frac{30a}{1000} \right):\frac{(2a)}{1000}$.
