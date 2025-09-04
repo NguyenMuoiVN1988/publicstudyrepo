@@ -87,7 +87,7 @@ Qua phần này: Ta cần có kĩ năng: Vẽ trục số; biểu diễn số tr
 Rút ra khái niệm tổng quát:
 - Trên trục số, hai số hữu tỉ (phân biệt) có điểm biễn nằm về hai phía của điểm gốc $0$ và cách đều điểm gốc $0$ được gọi là hai số đối nhau.
 - Số đối của số hữu tỉ $a$, kí hiệu là $-a$.
-- Số đói của số $0$ là số $0$.
+- Số đối của số $0$ là số $0$.
   
 - Nhận xét: Số đối của số $-a$ là số $a$, tức là $-(-a)=a.$ (<span style="color:red">Ở lớp 6: $- - - - -a =-a$; $- - - -a=a$ thu gọn các dấu "$-$": Nếu số dấu "$-$" lẻ thì rút 1 dấu, số dấu "$-$" là chẵn thì không còn dấu "$-$" </span>)
 - Chú ý: $a+b=0$ thì $a$ được là số đối của $b$.
