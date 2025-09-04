@@ -5,7 +5,7 @@ title: Đọc sách cùng học sinh
 
 # Chương 1. Số hữu tỉ
 ## Bài 1. Tập hợp $\mathbb{Q}$ các số hữu tỉ.
-Ví dụ: Nhiệt độ đo được: $-1,3; -0,5; 0,3; -3,1$ ở Pha Đin; Mộc Châu, Đồng Văn, Sa Pa.
+Ví dụ: Nhiệt độ đo được: $-1,3$; $-0,5$; $0,3$; $-3,1$ ở Pha Đin; Mộc Châu, Đồng Văn, Sa Pa.
 Thông tin nhiệt độ lúc 13h ngày 24 tháng 1 năm 2016. Nhiệt độ thấp (rét) ở các tỉnh phía bắc.
 Trong toán học thì ta thường quan tâm tới con số: $-1,3; -0,5; 0,3; -3,1$.
 
@@ -41,7 +41,7 @@ e) $-7,3\fbox{?}\mathbb{Q}$
 g) $3\dfrac{2}{9}\fbox{?}\mathbb{Q}$
 
 **Trả lời:**
-a) $\in$; b) $\notin$; c) $\in$; d) $\in$; e) $\in$; f) $\in$
+a) $\in$; b) $\notin$; c) $\notin$; d) $\in$; e) $\in$; f) $\in$
 
 Mục tiêu của bài này: Phân biệt các tập số: $\mathbb{N} \subset \mathbb{Z}\subset \mathbb{Q}.$
 Số âm thì không phải là số tự nhiên;
@@ -74,7 +74,9 @@ Bài 1 sách kết nối: gộp cả 3 nội dung trên vào 1 bài.
 - Số nguyên: Trục số (trục dọc và trục ngang): đoạn $OA$ có độ dài bằng 1 thì  điểm $A$ biểu diễn số $1$ hoặc $-1$; đoạn $OB$ có độ dài bằng $2$ thì biểu diễn số $2$ hoặc $-2$ phụ thuộc vào chiều.
 - Biểu diễn số trên trục số: dựa trên quy ước hình học: $O$ biểu diễn số $0$ và có đoạn 1 đơn vị để biểu diễn số 1. Từ đó ta có chiều dương, chiều âm.
 - Biểu diễn phân số: Thì phân số sinh ra để giải quyết phép toán $\div$, khi đó ta phải chia nhỏ các đoạn ra.
+  
 Ví dụ: $\dfrac{3}{2}=1+\dfrac{1}{2}$; $\dfrac{-3}{2}=-1+\dfrac{-1}{2}$  
+
 - Biểu diễn phân số: Thì đưa ra được khái niệm số lớn, số bé: Số lớn là số nằm bên phải của số bé (trục số nằm ngang hoặc $a\gt b$ nếu $a-b\gt 0$)
 
 Qua phần này: Ta cần có kĩ năng: Vẽ trục số; biểu diễn số trên trục số.
@@ -86,5 +88,6 @@ Rút ra khái niệm tổng quát:
 - Trên trục số, hai số hữu tỉ (phân biệt) có điểm biễn nằm về hai phía của điểm gốc $0$ và cách đều điểm gốc $0$ được gọi là hai số đối nhau.
 - Số đối của số hữu tỉ $a$, kí hiệu là $-a$.
 - Số đói của số $0$ là số $0$.
--Nhận xét: Số đối của số $-a$ là số $a$, tức là $-(-a)=a.$ (<span style="color:red">Ở lớp 6: $-----a =-a; ----a=a$ thu gọn các dấu "$-$": Nếu số dấu "$-$" lẻ thì rút 1 dấu, số dấu "$-$" là chẵn thì không còn dấu "$-$" </span>)
+  
+- Nhận xét: Số đối của số $-a$ là số $a$, tức là $-(-a)=a.$ (<span style="color:red">Ở lớp 6: $- - - - -a =-a$; $- - - -a=a$ thu gọn các dấu "$-$": Nếu số dấu "$-$" lẻ thì rút 1 dấu, số dấu "$-$" là chẵn thì không còn dấu "$-$" </span>)
 - Chú ý: $a+b=0$ thì $a$ được là số đối của $b$.
