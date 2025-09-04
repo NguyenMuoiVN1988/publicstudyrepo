@@ -7,7 +7,7 @@ title: Toán 6 Chương 1 Bài 2 Số tự nhiên (NC)
 ## Số tự nhiên
 ### Luyện tập
 #### Bài 1.
-Cho tập hợp $D = \{0; 1; 2; 3; \dots ; 20\}$
+Cho tập hợp $D = \\{ 0; 1; 2; 3; \dots ; 20 \\}$
 
 a) Viết tập hợp D bằng cách chỉ ra tính chất đặc trưng cho các phần tử của nó.
  
@@ -36,7 +36,7 @@ b) Có giá trị nhỏ nhất.
 #### Bài 6.
 Viết các tập hợp sau bằng cách liệt kê các phần tử của chúng:
 
-a) Tập hợp A các số tự nhiên x mà .
+a) Tập hợp A các số tự nhiên $x$ mà $x+2=1$.
  
 b) Tập hợp B các số tự nhiên x mà $x + 5 = 5$.
 
