@@ -1,10 +1,14 @@
+---
+layouts: default
+title: Tính ngược từ cuối
+---
 # MỘT SỐ BÀI TOÁN TÍNH NGƯỢC TỪ CUỐI LÊN
 
 Bài 1
 Mạnh, Hùng, Dũng, Minh có một số quyển vở. Mạnh lấy $\dfrac{1}{3}$ số vở để dùng, Hùng lấy $\dfrac{1}{3}$ số vở còn lại để dùng, tiếp theo Dũng cũng lấy $\dfrac{1}{3}$ số vở còn lại. Cuối cùng Minh dùng nốt 8 quyển. Hỏi lúc đầu cả 4 bạn có bao nhiêu quyển ?
 
 **Giải:** Ta có sơ đồ minh họa quá trình chia vở:
-![Sơ đồ minh họa quá trình chia vở](./image/NguocTuCuoi/picture.svg)
+![Sơ đồ minh họa quá trình chia vở](picture.svg)
 
 Số vở còn lại sau khi Dũng lấy (Minh dùng) là 8 quyển.
 
@@ -22,7 +26,7 @@ Cuối cùng còn lại 10 quả.
 Hỏi lúc đầu người đó có bao nhiêu quả cam?
 
 **Giải:** Ta có sơ đồ minh họa quá trình bán cam:
-![Sơ đồ minh họa quá trình bán cam](./image/NguocTuCuoi/pictureBai2_1.png)
+![Sơ đồ minh họa quá trình bán cam](pictureBai2_1.png)
 
 Số cam còn lại sau khi bán lần 2 là: $(10 + 1) \times 2 = \mathbf{22}$ (quả). 
 
@@ -40,7 +44,7 @@ Hỏi đàn gà nhà Lan có tất cả bao nhiêu con ?
 
 Ta có sơ đồ minh họa quá trình bán gà:
 
-![Sơ đồ minh họa quá trình bán gà](./image/NguocTuCuoi/pictureBai3.png)
+![Sơ đồ minh họa quá trình bán gà](pictureBai3.png)
 
 Số gà còn lại sau khi bán lần 1 (trước khi bán tuần này) là: $(6 + \dfrac{1}{4}) \times 4 = 25$ (con). 
 
@@ -56,7 +60,7 @@ Cuối cùng còn lại 5 em chưa tham gia. Hỏi lớp 5A có bao nhiêu học
 
 **Giải:** Ta có sơ đồ các bước giải ngược:
 
-![Sơ đồ các bước giải ngược](./image/NguocTuCuoi/pictureBai4.png)
+![Sơ đồ các bước giải ngược](pictureBai4.png)
 
 Số em học sinh còn lại sau khi tham gia ngày thứ ba là: $(5 + 1) : 3 \times 5 = 10$ (em).
 
@@ -77,7 +81,7 @@ như vậy là hết. Hỏi quầy đã bán tất cả bao nhiêu mét vải ?
 
 **Giải:** Ta có sơ đồ minh họa quá trình bán vải:
 
-![Sơ đồ minh họa quá trình bán vải](./image/NguocTuCuoi/pictureBai5.png)
+![Sơ đồ minh họa quá trình bán vải](pictureBai5.png)
 
 
 
@@ -125,3 +129,4 @@ Hỏi dì Út đã bán tất cả bao nhiêu quả trứng?
     Người con út được $\dfrac{1}{5}$ gia tài còn lại và 6000 đồng còn lại.
 
 Hỏi cả gia tài của người cha có bao nhiêu tiền và mỗi người con được chia bao nhiêu?
+
