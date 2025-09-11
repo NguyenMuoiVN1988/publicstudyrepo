@@ -38,6 +38,7 @@ title: "Public Study"
 |---|---|
 | [Ngày 07/08/2025: Chương 1. Bài 1. Phương trình và hệ phương trình bậc nhất hai ẩn](T9/C1B1.md)| |
 | [Ngày 10/08/2025: C1B3. Gải bài toán bằng cách lập hệ phương trình](T9/T9C1Ba3.md)| |
+| [Ngày 11/09/2025: CD Rút gọn và các ý phụ](T9/T9C3B5.html)| |
 
 ## Toán 7
 [Đọc sách cùng học sinh](T7/DocCungHST7.md)
