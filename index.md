@@ -13,7 +13,7 @@ title: "Public Study"
 | [Chương 1 Bài 3](T12/T12C1B3.md) | [3/9/2025 Kiểm tra Chương 1 Bài 3](T12/T12TestC1B3F.md)|
 | [Chương 1 Bài 4](T12/T12C1B4KhaoSat.md) | [4/9/2025 Kiểm tra Chương 1 Bài 4](T12/T12TestC1B4F.md)|
 | [Chương 2 Bài 1](T12/T12C2B1.md)| |
-
+| [Chương 2 Bài 2](T12/T12C2B2.md)| |
 
 
 
