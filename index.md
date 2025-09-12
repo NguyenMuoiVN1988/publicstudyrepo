@@ -25,6 +25,9 @@ title: "Public Study"
 | [ Ngày 10/08/2025 C2B1. Vector trong không gian](T12/C2Bai1VecTorTrongKhongGian.md)| |
 | [Ngày 15/08/2025 Luyện tập Min Max trong Oxyz](T12/T12LuyenTapMinMaxOxyz.md) | |
 
+## Toán 11
+[12/9/2025](T11/T11C1B3.html)
+
 ## Toán 10
 
 [Ngày 05/09/2025 Chương 1 Bài 1. Mệnh đề](T10/T10C1B1.md)
