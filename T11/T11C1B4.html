@@ -1,0 +1,118 @@
+---
+layout: default
+title: T11C1B4 Phương trình lượng giác bậc hai
+---
+<h2 id="a-dang">A. DẠNG PHƯƠNG TRÌNH</h2>
+  <p>Phương trình có dạng tổng quát là:</p>
+  $$at^{2}+bt+c=0 \quad (a \ne 0)$$
+  <p>Trong đó, <strong>t</strong> là một trong các hàm số lượng giác như $\sin x, \cos x, \tan x, \cot x, \sin(\alpha x+\beta)$, ...</p>
+  <p><strong>Phương pháp giải:</strong></p>
+  <ol>
+    <li>Đặt ẩn phụ $t$ là hàm số lượng giác có trong phương trình.</li>
+    <li>Đặt điều kiện cho ẩn phụ $t$ (nếu có). Ví dụ: $t = \sin x$ hoặc $t = \cos x$ thì điều kiện là $-1 \le t \le 1$.</li>
+    <li>Giải phương trình bậc hai $at^2+bt+c=0$ để tìm $t$.</li>
+    <li>So sánh các giá trị $t$ tìm được với điều kiện ban đầu. Loại các nghiệm không thỏa mãn.</li>
+    <li>Với mỗi giá trị $t$ thỏa mãn, ta giải phương trình lượng giác cơ bản để tìm $x$.</li>
+  </ol>
+
+  <hr>
+
+  <h2 id="b-bai-tap">B. BÀI TẬP VÀ LỜI GIẢI</h2>
+
+  <h3><strong>1.34</strong> Giải các phương trình sau:</h3>
+  
+  <p><strong>a/ $2 \cos^{2}x-3 \cos x+1=0$</strong></p>
+  <p>Đặt $t = \cos x$. Điều kiện: $-1 \le t \le 1$.<br>
+  Phương trình trở thành: $2t^2 - 3t + 1 = 0$.<br>
+  Ta thấy $a+b+c = 2-3+1=0$, nên phương trình có hai nghiệm:
+  $t_1 = 1$ (nhận) và $t_2 = \frac{c}{a} = \frac{1}{2}$ (nhận).</p>
+  <ul>
+    <li>Với $t=1 \implies \cos x = 1 \iff x = k2\pi, (k \in \mathbb{Z})$.</li>
+    <li>Với $t=\frac{1}{2} \implies \cos x = \frac{1}{2} \iff x = \pm\frac{\pi}{3} + k2\pi, (k \in \mathbb{Z})$.</li>
+  </ul>
+  <p>Vậy nghiệm của phương trình là $x=k2\pi$ và $x=\pm\frac{\pi}{3}+k2\pi$, với $k \in \mathbb{Z}$.</p>
+  
+  <p><strong>b/ $\cos^{2}x+\sin x+1=0$</strong></p>
+  <p>Ta có $\cos^2 x = 1 - \sin^2 x$. Phương trình tương đương:<br>
+  $(1 - \sin^2 x) + \sin x + 1 = 0 \iff -\sin^2 x + \sin x + 2 = 0 \iff \sin^2 x - \sin x - 2 = 0$.<br>
+  Đặt $t = \sin x$. Điều kiện: $-1 \le t \le 1$.<br>
+  Phương trình trở thành: $t^2 - t - 2 = 0$.<br>
+  Giải ra ta được $t_1 = -1$ (nhận) và $t_2 = 2$ (loại).<br>
+  Với $t=-1 \implies \sin x = -1 \iff x = -\frac{\pi}{2} + k2\pi, (k \in \mathbb{Z})$.</p>
+
+  <p><strong>c/ $2 \sin^{2}x+5 \sin x-3=0$</strong></p>
+  <p>Đặt $t = \sin x$. Điều kiện: $-1 \le t \le 1$.<br>
+  Phương trình trở thành: $2t^2 + 5t - 3 = 0$.<br>
+  Giải ra ta được $t_1 = \frac{1}{2}$ (nhận) và $t_2 = -3$ (loại).<br>
+  Với $t=\frac{1}{2} \implies \sin x = \frac{1}{2} \iff \left[ \begin{array}{l} x = \frac{\pi}{6} + k2\pi \\ x = \pi - \frac{\pi}{6} + k2\pi \end{array} \right. \iff \left[ \begin{array}{l} x = \frac{\pi}{6} + k2\pi \\ x = \frac{5\pi}{6} + k2\pi \end{array} \right., (k \in \mathbb{Z})$.</p>
+  
+  <p><strong>d/ $\cot^{2}3x-\cot 3x-2=0$</strong></p>
+  <p>Điều kiện: $3x \ne k\pi \iff x \ne \frac{k\pi}{3}$.<br>
+  Đặt $t = \cot 3x$.<br>
+  Phương trình trở thành: $t^2 - t - 2 = 0$.<br>
+  Giải ra ta được $t_1 = -1$ và $t_2 = 2$.<br>
+  <ul>
+    <li>Với $t=-1 \implies \cot 3x = -1 \iff 3x = -\frac{\pi}{4} + k\pi \iff x = -\frac{\pi}{12} + \frac{k\pi}{3}, (k \in \mathbb{Z})$.</li>
+    <li>Với $t=2 \implies \cot 3x = 2 \iff 3x = \text{arccot}(2) + k\pi \iff x = \frac{\text{arccot}(2)}{3} + \frac{k\pi}{3}, (k \in \mathbb{Z})$.</li>
+  </ul>
+
+  <hr>
+  
+  <h3><strong>1.35</strong> Giải các phương trình sau:</h3>
+  
+  <p><strong>a/ $2 \cos^{2}x+\sqrt{2}\cos x-2=0$</strong></p>
+  <p>Đặt $t = \cos x$. Điều kiện: $-1 \le t \le 1$.<br>
+  Phương trình trở thành: $2t^2 + \sqrt{2}t - 2 = 0$.<br>
+  $\Delta = (\sqrt{2})^2 - 4(2)(-2) = 2 + 16 = 18 \implies \sqrt{\Delta} = 3\sqrt{2}$.<br>
+  $t_1 = \frac{-\sqrt{2} + 3\sqrt{2}}{4} = \frac{2\sqrt{2}}{4} = \frac{\sqrt{2}}{2}$ (nhận).<br>
+  $t_2 = \frac{-\sqrt{2} - 3\sqrt{2}}{4} = -\sqrt{2}$ (loại vì $-\sqrt{2} < -1$).<br>
+  Với $t = \frac{\sqrt{2}}{2} \implies \cos x = \frac{\sqrt{2}}{2} \iff x = \pm\frac{\pi}{4} + k2\pi, (k \in \mathbb{Z})$.</p>
+
+  <p><strong>b/ $\cos 2x+\cos x+1=0$</strong></p>
+  <p>Sử dụng công thức nhân đôi: $\cos 2x = 2\cos^2 x - 1$.<br>
+  Phương trình tương đương: $(2\cos^2 x - 1) + \cos x + 1 = 0 \iff 2\cos^2 x + \cos x = 0$.<br>
+  $\iff \cos x (2\cos x + 1) = 0$.<br>
+  $\iff \left[ \begin{array}{l} \cos x = 0 \\ \cos x = -\frac{1}{2} \end{array} \right. \iff \left[ \begin{array}{l} x = \frac{\pi}{2} + k\pi \\ x = \pm\frac{2\pi}{3} + k2\pi \end{array} \right., (k \in \mathbb{Z})$.</p>
+
+  <p><strong>c/ $\cos 2x-5 \sin x-3=0$</strong></p>
+  <p>Sử dụng công thức: $\cos 2x = 1 - 2\sin^2 x$.<br>
+  Phương trình tương đương: $(1 - 2\sin^2 x) - 5\sin x - 3 = 0 \iff -2\sin^2 x - 5\sin x - 2 = 0$.<br>
+  $\iff 2\sin^2 x + 5\sin x + 2 = 0$.<br>
+  Đặt $t = \sin x, -1 \le t \le 1$. Phương trình trở thành: $2t^2 + 5t + 2 = 0$.<br>
+  Giải ra ta được $t_1 = -\frac{1}{2}$ (nhận) và $t_2 = -2$ (loại).<br>
+  Với $t = -\frac{1}{2} \implies \sin x = -\frac{1}{2} \iff \left[ \begin{array}{l} x = -\frac{\pi}{6} + k2\pi \\ x = \frac{7\pi}{6} + k2\pi \end{array} \right., (k \in \mathbb{Z})$.</p>
+
+  <p><strong>d/ $5 \tan x-2 \cot x-3=0$</strong></p>
+  <p>Điều kiện: $x \ne \frac{k\pi}{2}, (k \in \mathbb{Z})$.<br>
+  Sử dụng $\cot x = \frac{1}{\tan x}$. Phương trình trở thành:<br>
+  $5\tan x - \frac{2}{\tan x} - 3 = 0$.<br>
+  Quy đồng và khử mẫu: $5\tan^2 x - 3\tan x - 2 = 0$.<br>
+  Đặt $t = \tan x$. Phương trình: $5t^2 - 3t - 2 = 0$.<br>
+  Giải ra ta được $t_1 = 1$ và $t_2 = -\frac{2}{5}$.<br>
+  <ul>
+      <li>Với $t=1 \implies \tan x = 1 \iff x = \frac{\pi}{4} + k\pi, (k \in \mathbb{Z})$.</li>
+      <li>Với $t=-\frac{2}{5} \implies \tan x = -\frac{2}{5} \iff x = \arctan(-\frac{2}{5}) + k\pi, (k \in \mathbb{Z})$.</li>
+  </ul>
+
+  <hr>
+
+  <h3><strong>1.36</strong> Giải các phương trình lượng giác sau:</h3>
+
+  <p><strong>a/ $\sin^{2}\frac{x}{2}-2 \cos\frac{x}{2}+2=0$</strong></p>
+  <p>Sử dụng $\sin^2\frac{x}{2} = 1 - \cos^2\frac{x}{2}$.<br>
+  Phương trình tương đương: $(1 - \cos^2\frac{x}{2}) - 2\cos\frac{x}{2} + 2 = 0 \iff -\cos^2\frac{x}{2} - 2\cos\frac{x}{2} + 3 = 0$.<br>
+  $\iff \cos^2\frac{x}{2} + 2\cos\frac{x}{2} - 3 = 0$.<br>
+  Đặt $t = \cos\frac{x}{2}, -1 \le t \le 1$. Phương trình $t^2+2t-3=0$.<br>
+  Giải ra $t_1 = 1$ (nhận) và $t_2 = -3$ (loại).<br>
+  Với $t=1 \implies \cos\frac{x}{2} = 1 \iff \frac{x}{2} = k2\pi \iff x = k4\pi, (k \in \mathbb{Z})$.</p>
+
+  <p><strong>b/ $\cos x+5 \sin\frac{x}{2}-3=0$</strong></p>
+  <p>Sử dụng công thức hạ bậc: $\cos x = 1 - 2\sin^2\frac{x}{2}$.<br>
+  Phương trình tương đương: $(1 - 2\sin^2\frac{x}{2}) + 5\sin\frac{x}{2} - 3 = 0 \iff -2\sin^2\frac{x}{2} + 5\sin\frac{x}{2} - 2 = 0$.<br>
+  $\iff 2\sin^2\frac{x}{2} - 5\sin\frac{x}{2} + 2 = 0$.<br>
+  Đặt $t = \sin\frac{x}{2}, -1 \le t \le 1$. Phương trình $2t^2-5t+2=0$.<br>
+  Giải ra $t_1 = 2$ (loại) và $t_2 = \frac{1}{2}$ (nhận).<br>
+  Với $t=\frac{1}{2} \implies \sin\frac{x}{2} = \frac{1}{2} \iff \left[ \begin{array}{l} \frac{x}{2} = \frac{\pi}{6} + k2\pi \\ \frac{x}{2} = \frac{5\pi}{6} + k2\pi \end{array} \right. \iff \left[ \begin{array}{l} x = \frac{\pi}{3} + k4\pi \\ x = \frac{5\pi}{3} + k4\pi \end{array} \right., (k \in \mathbb{Z})$.</p>
+
+  <p>Phần lời giải cho các bài tập còn lại sẽ được cập nhật sớm. Các em hãy thử tự giải quyết dựa trên các phương pháp đã học nhé!</p>
+
