@@ -41,6 +41,7 @@ title: "Public Study"
 | [Ngày 11/09/2025: CD Rút gọn và các ý phụ](T9/T9C3B5.html)| |
 |[Ngày 11/09/2025: CD Toán lời văn](T9/T9CDLoiVan.html)| |
 | [Ngày 11/09/2025: CD Hàm số bậc hai và Viet](T9/T9CDHamSoBac2.html)| |
+| [Ngày 12/09/2025: CD Hình học không gian](T9/T9CDHHKG.html)| |
 
 ## Toán 7
 [Đọc sách cùng học sinh](T7/DocCungHST7.md)
