@@ -1,0 +1,153 @@
+---
+layout: default
+title: T11 Chương 1. Bài 3. Phương trình lượng giác cơ bản
+---
+
+<h1>§ 3 PHƯƠNG TRÌNH LƯỢNG GIÁC CƠ BẢN</h1>
+
+<h2>A. LÝ THUYẾT</h2>
+
+<h3>1. Phương trình $sin~x = m$</h3>
+
+<p>Xét phương trình $sin~x = m$.</p>
+
+<ul>
+<li>Với $|m| > 1$, phương trình $sin~x = m$ vô nghiệm.</li>
+<li>Với $|m| \le 1$, tồn tại số $\alpha$ sao cho $sin~\alpha = m$.
+    <p>$sin~x = m \Leftrightarrow sin~x = sin~\alpha \Leftrightarrow \begin{cases} x = \alpha + k2\pi \\ x = \pi - \alpha + k2\pi \end{cases} (k \in \mathbb{Z})$</p>
+</li>
+</ul>
+
+<p><strong>Chú ý:</strong> Với mỗi $m$ cho trước mà $|m| \le 1$, phương trình $sin~x = m$ có đúng một nghiệm trong đoạn $[-\frac{\pi}{2}; \frac{\pi}{2}]$. Người ta thường kí hiệu nghiệm đó là $arcsin~m$. Khi đó:
+$sin~x = m \Leftrightarrow \left[ \begin{matrix} x = arcsin~m + k2\pi \\ x = \pi - arcsin~m + k2\pi \end{matrix} \right. (k \in \mathbb{Z})$</p>
+
+<hr>
+
+<h3>2. Phương trình $cos~x = m$</h3>
+
+<ul>
+<li>Với $|m| > 1$, phương trình $cos~x = m$ vô nghiệm.</li>
+<li>Với $|m| \le 1$, tồn tại số $\alpha$ sao cho $cos~\alpha = m$.
+    <p>$cos~x = m \Leftrightarrow cos~x = cos~\alpha \Leftrightarrow \begin{cases} x = \alpha + k2\pi \\ x = -\alpha + k2\pi \end{cases} (k \in \mathbb{Z})$</p>
+</li>
+</ul>
+
+<p><strong>Chú ý:</strong> Với mỗi $m$ cho trước mà $|m| \le 1$, phương trình $cos~x = m$ có đúng một nghiệm trong đoạn $[0; \pi]$. Người ta thường kí hiệu nghiệm đó là $arccos~m$. Khi đó:
+$cos~x = m \Leftrightarrow \left[ \begin{matrix} x = arccos~m + k2\pi \\ x = -arccos~m + k2\pi \end{matrix} \right. (k \in \mathbb{Z})$</p>
+
+<hr>
+
+<h3>3. Phương trình $tan~x = m, cot~x = m$</h3>
+
+<p>Các phương trình trên luôn có nghiệm. Với mọi số thực $\alpha$, ta có:</p>
+<ul>
+<li>$tan~x = tan~\alpha \Leftrightarrow x = \alpha + k\pi (k \in \mathbb{Z})$</li>
+<li>$cot~x = cot~\alpha \Leftrightarrow x = \alpha + k\pi (k \in \mathbb{Z})$</li>
+</ul>
+
+<p><strong>Chú ý:</strong></p>
+<p>i) Với mọi số $m$ cho trước, phương trình $tan~x = m$ có duy nhất một nghiệm trong khoảng $(-\frac{\pi}{2}; \frac{\pi}{2})$. Người ta thường kí hiệu nghiệm đó là $arctan~m$. Khi đó:
+$tan~x = m \Leftrightarrow x = arctan~m + k\pi (k \in \mathbb{Z})$</p>
+
+<p>ii) Với mọi số $m$ cho trước, phương trình $cot~x = m$ có duy nhất một nghiệm trong khoảng $(0; \pi)$. Người ta thường kí hiệu nghiệm đó là $arccot~m$. Khi đó:
+$cot~x = m \Leftrightarrow x = arccot~m + k\pi (k \in \mathbb{Z})$</p>
+
+<hr>
+
+<h3>Công thức nghiệm của phương trình lượng giác</h3>
+<p>(trong điều kiện biểu thức có nghĩa)</p>
+<ul>
+<li>$sin~u = sin~v \Leftrightarrow \left[ \begin{matrix} u = v + k2\pi \\ u = \pi - v + k2\pi \end{matrix} \right.$</li>
+<li>$cos~u = cos~v \Leftrightarrow \left[ \begin{matrix} u = v + k2\pi \\ u = -v + k2\pi \end{matrix} \right.$</li>
+<li>$tan~u = tan~v \Leftrightarrow u = v + k\pi$</li>
+<li>$cot~u = cot~v \Leftrightarrow u = v + k\pi$</li>
+</ul>
+<p>Với $k \in \mathbb{Z}$.</p>
+
+<hr>
+
+<h3>Một số trường hợp đặc biệt</h3>
+<ul>
+<li>$sin~u = 1 \Leftrightarrow u = \frac{\pi}{2} + k2\pi$</li>
+<li>$sin~u = -1 \Leftrightarrow u = -\frac{\pi}{2} + k2\pi$</li>
+<li>$sin~u = 0 \Leftrightarrow u = k\pi$</li>
+<li>$cos~u = 1 \Leftrightarrow u = k2\pi$</li>
+<li>$cos~u = -1 \Leftrightarrow u = \pi + k2\pi$</li>
+<li>$cos~u = 0 \Leftrightarrow u = \frac{\pi}{2} + k\pi$</li>
+<li>$tan~u = 0 \Leftrightarrow u = k\pi$</li>
+<li>$cot~u = 0 \Leftrightarrow u = \frac{\pi}{2} + k\pi$</li>
+</ul>
+
+<hr>
+
+<h2>B. BÀI TẬP</h2>
+
+<p><strong>1.23</strong> Giải phương trình:</p>
+<p>a) $sin~x = sin\frac{\pi}{6}$</p>
+<p>b) $2~sin~x + \sqrt{2} = 0$</p>
+<p>c) $sin(x - 2) = \frac{2}{3}$</p>
+<p>d) $sin(x + 20^{\circ}) = sin~60^{\circ}$</p>
+<p>e) $cos~x = cos\frac{\pi}{4}$</p>
+<p>f) $2~cos~2x + 1 = 0$</p>
+<p>g) $cos(2x + 15^{\circ}) = -\frac{\sqrt{2}}{2}$</p>
+<p>h) $tan~3x = -\frac{1}{\sqrt{3}}$</p>
+<p>i) $tan(4x + 2) = 3$</p>
+<p>j) $tan(2x + 10^{\circ}) = tan~60^{\circ}$</p>
+<p>k) $cot~4x = \sqrt{3}$</p>
+<p>l) $cot(x + 2) = 1$</p>
+
+<p><strong>1.24</strong> Giải phương trình:</p>
+<p>a) $sin(2x - \frac{\pi}{5}) = sin(\frac{\pi}{5} + x)$</p>
+<p>b) $cos(2x + 1) = cos(2x - 1)$</p>
+<p>c) $tan\frac{2x+1}{6} + tan\frac{1}{3} = 0$</p>
+<p>d) $sin~3x = cos~2x$</p>
+
+<p><strong>1.25</strong> Giải các phương trình sau:</p>
+<p>a) $cos^2{2x} = \frac{1}{4}$</p>
+<p>b) $4~cos^2{2x} - 3 = 0$</p>
+<p>c) $cos^2(2x - \frac{\pi}{4}) = sin^2x$</p>
+<p>d) $cos^2{3x} + sin^2{2x} = 1$</p>
+
+<p><strong>1.26</strong> Tìm các nghiệm của phương trình sau trong khoảng đã cho:</p>
+<p>a) $2~sin~2x + 1 = 0$ với $0 < x < \pi$</p>
+<p>b) $cot(x - 5) = \sqrt{3}$ với $-\pi < x < \pi$</p>
+
+<p><strong>1.27</strong> Giải các phương trình sau:</p>
+<p>a) $sin~x + cos~x = 1$</p>
+<p>b) $sin^4x - cos^4x = 1$</p>
+<p>c) $sin^4x + cos^4x = 1$</p>
+<p>d) $sin^3x~cos~x - cos^3x~sin~x = \frac{\sqrt{2}}{8}$</p>
+
+<p><strong>1.28</strong> Giải các phương trình sau:</p>
+<p>a) $cos^2x - \sqrt{3}sin~x~cos~x = 0$</p>
+<p>b) $\sqrt{3}cos~x + sin~2x = 0$</p>
+<p>c) $8~sin~x \cdot cos~x \cdot cos~2x = cos~8(\frac{\pi}{16} - x)$</p>
+<p>d) $sin^4(x + \frac{\pi}{2}) - sin^4x = sin~4x$</p>
+
+<p><strong>1.29</strong> Giải phương trình:</p>
+<p>a) $cos~7x \cdot cos~x = cos~5x \cdot cos~3x$</p>
+<p>b) $cos~4x + sin~3x \cdot cos~x = sin~x \cdot cos~3x$</p>
+<p>c) $1 + cos~x + cos~2x + cos~3x = 0$</p>
+<p>d) $sin^2x + sin^2{2x} + sin^2{3x} + sin^2{4x} = 2$</p>
+
+<p><strong>1.30</strong> Giải các phương trình sau:</p>
+<p>a) $sin~2x~sin~5x = sin~3x~sin~4x$</p>
+<p>b) $sin~x + sin~2x + sin~3x + sin~4x = 0$</p>
+<p>c) $sin^2x + sin^2{3x} = 2~sin^2{2x}$</p>
+<p>d) $sin~x + sin~3x + sin~5x = cos~x + cos~3x + cos~5x$</p>
+
+<p><strong>1.31</strong> Tìm tập xác định của mỗi hàm số sau:</p>
+<p>a) $y = tan~x$</p>
+<p>b) $y = cot~2x$</p>
+<p>c) $y = \frac{2~cos~x + 1}{2~cos~x - 1}$</p>
+<p>d) $y = \frac{sin(2 - x)}{cos~2x - cos~x}$</p>
+<p>e) $y = \frac{tan~x}{1 + tan~x}$</p>
+<p>f) $y = \frac{1}{\sqrt{3}cot~2x + 1}$</p>
+
+<p><strong>1.32</strong> Giải phương trình:</p>
+<p>a) $\frac{2~cos~2x}{1 - sin~2x} = 0$</p>
+<p>b) $\frac{tan~x - \sqrt{3}}{2~cos~x + 1} = 0$</p>
+<p>c) $sin~3x~cot~x = 0$</p>
+<p>d) $tan~3x = tan~x$</p>
+
+<p><strong>1.33</strong> Tìm nghiệm thuộc khoảng $(0; \pi)$ của phương trình $4~cos~3x~cos~2x + 2~cos~3x + 1 = 0$.</p>
