@@ -26,7 +26,7 @@ title: "Public Study"
 | [Ngày 15/08/2025 Luyện tập Min Max trong Oxyz](T12/T12LuyenTapMinMaxOxyz.md) | |
 
 ## Toán 11
-[12/9/2025](T11/T11C1B3.html)
+[12/9/2025 C1B3. Phương trình lượng giác](T11/T11C1B3.html)
 
 ## Toán 10
 
