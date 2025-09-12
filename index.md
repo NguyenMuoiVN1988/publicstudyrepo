@@ -43,6 +43,8 @@ title: "Public Study"
 
 [Ngày 05/09/2025 Chương 1 Bài 2. Tập hợp](T10/T10C1B2.html)
 
+[Ngày 12/09/2025 Chương 6 Bài 1. Hàm số](T10/T10C6B1.html)
+
 
 ## Toán 9
 
