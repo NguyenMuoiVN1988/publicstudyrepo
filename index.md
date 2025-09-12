@@ -45,6 +45,8 @@ title: "Public Study"
 
 [Ngày 12/09/2025 Chương 6 Bài 1. Hàm số](T10/T10C6B1.html)
 
+[Ngày 12/09/2025 Chương 6 Bài 2. Hàm số bậc nhất](T10/T10C6B2.html)
+
 
 ## Toán 9
 
