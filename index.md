@@ -27,6 +27,7 @@ title: "Public Study"
 
 ## Toán 11
 [12/9/2025 C1B3. Phương trình lượng giác](T11/T11C1B3.html)
+[12/9/2025 C1B4. Phương trình lượng giác bậc 2](T11/T11C1B4.html)
 
 ## Toán 10
 
