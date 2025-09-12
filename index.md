@@ -30,6 +30,9 @@ title: "Public Study"
 
 [12/9/2025 C1B4. Phương trình lượng giác bậc 2](T11/T11C1B4.html)
 
+[12/9/2025 C1B4. Phương trình lượng giác bậc nhất với sin và cos](T11/T11C1B5.html)
+
+
 ## Toán 10
 
 [Ngày 05/09/2025 Chương 1 Bài 1. Mệnh đề](T10/T10C1B1.md)
