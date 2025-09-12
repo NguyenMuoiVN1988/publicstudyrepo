@@ -41,7 +41,7 @@ title: "Public Study"
 
 [Ngày 05/09/2025 Chương 1 Bài 1. Mệnh đề](T10/T10C1B1.md)
 
-[Ngày 05/09/2025 Chương 1 Bài 2. Tập hợp](T10/T10C1B2.md)
+[Ngày 05/09/2025 Chương 1 Bài 2. Tập hợp](T10/T10C1B2.html)
 
 
 ## Toán 9
