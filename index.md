@@ -30,9 +30,12 @@ title: "Public Study"
 
 [12/9/2025 C1B4. Phương trình lượng giác bậc 2](T11/T11C1B4.html)
 
-[12/9/2025 C1B4. Phương trình lượng giác bậc nhất với sin và cos](T11/T11C1B5.html)
+[12/9/2025 C1B5. Phương trình lượng giác bậc nhất với sin và cos](T11/T11C1B5.html)
 
-[12/9/2025 C1B4. Phương trình lượng giác bậc hai với sin và cos](T11/T11C1B6.html)
+[12/9/2025 C1B6. Phương trình lượng giác bậc hai với sin và cos](T11/T11C1B6.html)
+
+[12/9/2025 C1B7. Phương trình lượng giác bậc hai với sin và cos](T11/T11C1B7.html)
+
 
 ## Toán 10
 
