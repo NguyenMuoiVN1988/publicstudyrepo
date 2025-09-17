@@ -12,9 +12,14 @@ title: "Public Study"
 | [Chương 1 Bài 2](T12/T12C1B2.md) | [2/9/2025 Kiểm tra Chương 1 Bài 2](T12/T12TestC1B2F.md)|
 | [Chương 1 Bài 3](T12/T12C1B3.md) | [3/9/2025 Kiểm tra Chương 1 Bài 3](T12/T12TestC1B3F.md)|
 | [Chương 1 Bài 4](T12/T12C1B4KhaoSat.md) | [4/9/2025 Kiểm tra Chương 1 Bài 4](T12/T12TestC1B4F.md)|
-| [Chương 2 Bài 1](T12/T12C2B1.md)|[Chương 3 Bài 1](T12/T12C3B1.html) |
-| [Chương 2 Bài 2](T12/T12C2B2.md)| [Chương 3 Bài 2](T12/T12C3B2.html)|
-| [Ngày 10 tháng 09 năm 2025 Chương 2 Bài 3](T12/T12C2B3.html)| [Chương 4 Bài 1](T12/T12C4B1.html)|
+| [Chương 2 Bài 1](T12/T12C2B1.md)| |
+| [Chương 2 Bài 2](T12/T12C2B2.md)| |
+| [Ngày 10 tháng 09 năm 2025 Chương 2 Bài 3](T12/T12C2B3.html)| |
+| [Chương 3 Bài 1](T12/T12C3B1.html)| |
+|[Chương 3 Bài 2](T12/T12C3B2.html) | |
+|[Chương 4 Bài 1](T12/T12C4B1.html)| |
+| [Chương 4 Bài 1](T12/T12C4B2.html)| |
+
 
 
 
