@@ -73,7 +73,8 @@ title: "Public Study"
 | [T8 Chương 1 Bài 2](T8/T8C1B2.html)| |
 | [T8 Chương 1 Bài 3](T8/T8C1B3.html)| |
 | [T8 Chương 1 Bài 4](T8/T8C1B4.html)| |
-
+| [T8 Chương 1 Bài 5](T8/T8C1B5.html)| |
+| [T8 Chương 1 Bài 6](T8/T8C1B6.html)| |
 
 ## Toán 7
 [Đọc sách cùng học sinh](T7/DocCungHST7.md)
