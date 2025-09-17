@@ -18,7 +18,8 @@ title: "Public Study"
 | [Chương 3 Bài 1](T12/T12C3B1.html)| |
 |[Chương 3 Bài 2](T12/T12C3B2.html) | |
 |[Chương 4 Bài 1](T12/T12C4B1.html)| |
-| [Chương 4 Bài 1](T12/T12C4B2.html)| |
+| [Chương 4 Bài 2](T12/T12C4B2.html)| |
+
 
 
 
