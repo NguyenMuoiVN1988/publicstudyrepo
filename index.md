@@ -65,6 +65,15 @@ title: "Public Study"
 | [Ngày 11/09/2025: CD Hàm số bậc hai và Viet](T9/T9CDHamSoBac2.html)| |
 | [Ngày 12/09/2025: CD Hình học không gian](T9/T9CDHHKG.html)| |
 
+## Toán 8
+|Phiếu bài học từng buổi| |
+|---|---|
+| [T8 Chương 1 Bài 1](T8/T8C1B1.html)| |
+| [T8 Chương 1 Bài 2](T8/T8C1B2.html)| |
+| [T8 Chương 1 Bài 3](T8/T8C1B3.html)| |
+| [T8 Chương 1 Bài 4](T8/T8C1B4.html)| |
+
+
 ## Toán 7
 [Đọc sách cùng học sinh](T7/DocCungHST7.md)
 
