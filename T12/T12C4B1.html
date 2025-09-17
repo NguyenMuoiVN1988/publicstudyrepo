@@ -1,0 +1,216 @@
+---
+layout: default
+title: T12C3B3 Nguyên hàm và tích phân
+---
+<h2>Bài 1. Nguyên hàm</h2>
+  <hr>
+
+  <h2>A. KIẾN THỨC CƠ BẢN</h2>
+
+  <h3>1. Nguyên hàm</h3>
+  <p><strong>Định nghĩa:</strong></p>
+  <blockquote>
+    <p>$\int f(x)dx = F(x) + C \Leftrightarrow F'(x) = f(x)$</p>
+  </blockquote>
+  <p><strong>Tính chất:</strong></p>
+  <ul>
+    <li>1. $\int f'(x)dx = f(x) + C$</li>
+    <li>2. $\int kf(x)dx = k\int f(x)dx$</li>
+    <li>3. $\int [f(x) \pm g(x)]dx = \int f(x)dx \pm \int g(x)dx$</li>
+  </ul>
+
+  <p><strong>Bảng nguyên hàm cơ bản:</strong></p>
+  <ul>
+    <li>$\int 0 dx = C$</li>
+    <li>$\int dx = x+C$</li>
+    <li>$\int x^{\alpha}dx = \frac{x^{\alpha+1}}{\alpha+1} + C$</li>
+    <li>$\int \frac{dx}{x} = \ln|x| + C$</li>
+    <li>$\int e^{x}dx = e^{x} + C$</li>
+    <li>$\int a^{x}dx = \frac{a^{x}}{\ln a} + C \quad (a>0, a \ne 1)$</li>
+    <li>$\int \cos x dx = \sin x + C$</li>
+    <li>$\int \sin x dx = -\cos x + C$</li>
+    <li>$\int \frac{1}{\cos^{2}x}dx = \tan x + C$</li>
+    <li>$\int \frac{1}{\sin^{2}x}dx = -\cot x + C$</li>
+  </ul>
+
+  <h3>2. Tích phân</h3>
+  <p><strong>Định nghĩa:</strong></p>
+  <blockquote>
+    <p>$\int_{a}^{b}f(x)dx = F(x)|_{a}^{b} = F(b) - F(a)$</p>
+  </blockquote>
+  <p><strong>Tính chất:</strong></p>
+  <ul>
+    <li>1. $\int_{a}^{a}f(x)dx = 0$</li>
+    <li>2. $\int_{a}^{b}f(x)dx = -\int_{b}^{a}f(x)dx$</li>
+    <li>3. $\int_{a}^{b}kf(x)dx = k\int_{a}^{b}f(x)dx$</li>
+    <li>4. $\int_{a}^{b}[f(x) \pm g(x)]dx = \int_{a}^{b}f(x)dx \pm \int_{a}^{b}g(x)dx$</li>
+    <li>5. $\int_{a}^{b}f(x)dx = \int_{a}^{c}f(x)dx + \int_{c}^{b}f(x)dx \quad (a\lt c\lt b)$</li>
+  </ul>
+
+  <h3>3. Các phương pháp tìm nguyên hàm, tính tích phân</h3>
+  <ul>
+    <li><strong>Dạng 1:</strong> Tìm nguyên hàm, tính tích phân bằng định nghĩa.</li>
+    <li><strong>Dạng 2:</strong> Xác định nguyên hàm, tính tích phân bằng phương pháp đổi biến số.</li>
+    <li><strong>Dạng 3:</strong> Xác định nguyên hàm, tính tích phân bằng phương pháp nguyên hàm từng phần.</li>
+  </ul>
+  <hr>
+
+  <h2>B. KỸ NĂNG CƠ BẢN</h2>
+  <ul>
+    <li>Áp dụng định nghĩa, tính chất, bảng nguyên hàm để tìm nguyên hàm, tính tích phân.</li>
+    <li>Áp dụng phương pháp đổi biến số, phương pháp từng phần để tính tích phân.</li>
+    <li>Sử dụng máy tính cầm tay để giải bài tập về nguyên hàm, tích phân.</li>
+  </ul>
+  <hr>
+
+  <h2>C. BÀI TẬP</h2>
+
+  <h3>Dạng 1: Áp dụng ĐN, tính chất, bảng nguyên hàm để tìm nguyên hàm, tính tích phân</h3>
+  <h4>Bài 1. Tìm nguyên hàm của các hàm số.</h4>
+  <ol type="a">
+    <li>$f(x)=\frac{(x^{2}-1)^{2}}{x^{2}}$</li>
+    <li>$f(x)=\sqrt{x}+\sqrt[3]{x}+\sqrt[4]{x}$</li>
+    <li>$f(x)=\frac{1}{\sqrt{x}}-\frac{2}{\sqrt[3]{x}}$</li>
+    <li>$f(x)=\frac{(\sqrt{x}-1)^{2}}{x}$</li>
+    <li>$f(x)=\frac{x-1}{\sqrt[3]{x}}$</li>
+    <li>$f(x)=2\sin^{2}\frac{x}{2}$</li>
+    <li>$f(x)=\tan^{2}x = \frac{1}{\cos^{2}x}-1$</li>
+    <li>$f(x)=e^{2x}+1$</li>
+  </ol>
+  <h4>Bài 2. Tìm nguyên hàm của các hàm số sau:</h4>
+  <ol type="a">
+    <li>$\int(x^{4}-3x^{2}+2x+1)dx$</li>
+    <li>$\int(x+1)(x-2)dx$</li>
+    <li>$\int\frac{1}{x^{2}-3x+2}dx$</li>
+    <li>$\int(\frac{1}{\cos^{2}x}-2x+e^{x})dx$</li>
+    <li>$\int(\cos 3x - 5\sin x)dx$</li>
+    <li>$\int\sin^{2}\frac{x}{2}dx$</li>
+  </ol>
+  <h4>Bài 3. Tìm hàm số $f(x)$ biết:</h4>
+  <ol type="a">
+    <li>$f'(x)=2x+1$ và $f(1)=5$</li>
+    <li>$f'(x) = 2 - x²$ và $f(2)=7/3$</li>
+  </ol>
+  <h4>Bài 4. Tính các tích phân sau:</h4>
+  <ol type="a">
+    <li>$\int_{0}^{1}(x^{3}-1)dx$</li>
+    <li>$\int_{1}^{2}\frac{x^{2}+4x}{x}dx$</li>
+    <li>$\int_{0}^{1}(e^{x}+2)dx$</li>
+  </ol>
+  <h4>Bài 5. Tính các tích phân sau:</h4>
+  <ol type="a">
+    <li>$\int_{0}^{\frac{\pi}{2}}(\cos x-3\sin x)dx$</li>
+    <li>$\int_{0}^{\frac{\pi}{2}}(3+\cos 2x)dx$</li>
+    <li>$\int_{0}^{\frac{\pi}{2}}(2\cos x-\sin 2x)dx$</li>
+    <li>$\int_{0}^{\frac{\pi}{2}}\sin 3x \cos x dx$</li>
+  </ol>
+  <h4>Bài 6. Tính các tích phân sau:</h4>
+  <ol type="a">
+    <li>$\int_{0}^{2}|x^{2}-1|dx$</li>
+    <li>$\int_{-\frac{\pi}{2}}^{\frac{\pi}{3}}|\sin x|dx$</li>
+    <li>$\int_{0}^{\frac{\pi}{2}}\sqrt{(\cos x-\sin x)^{2}}dx$</li>
+  </ol>
+  
+  <h3>DẠNG 2. PHƯƠNG PHÁP ĐỔI BIẾN SỐ</h3>
+  <h5>A. KIẾN THỨC CƠ BẢN:</h5>
+  <p><strong>1. Nguyên hàm</strong></p>
+  <p>Tính $I=\int f[u(x)].u^{\prime}(x)dx$ bằng cách đặt $t=u(x)$.</p>
+  <p>Đặt $t=u(x)\Rightarrow dt=u^{\prime}(x)dx$.</p>
+  <p>$I=\int f[u(x)].u^{\prime}(x)dx=\int f(t)dt$</p>
+  <p><strong>2. Tính tích phân</strong> $\int_{a}^{b}f[\varphi(x)]\varphi^{\prime}(x)dx$ <strong>bằng phương pháp đổi biến.</strong></p>
+  <ol>
+    <li><strong>Bước 1:</strong> Đặt $t=\varphi(x)\Rightarrow dt=\varphi^{\prime}(x).dx$</li>
+    <li><strong>Bước 2:</strong> Đổi cận: $x=a\Rightarrow t=\varphi(a)$; $x=b\Rightarrow t=\varphi(b)$</li>
+    <li><strong>Bước 3:</strong> Viết tích phân đã cho theo biến mới, cận mới rồi tính tích phân tìm được.</li>
+  </ol>
+
+  <h5>B. KỸ NĂNG CƠ BẢN</h5>
+  <ul>
+    <li>Biết cách đặt ẩn phụ.</li>
+    <li>Biết biểu diễn nguyên hàm theo ẩn phụ, đổi cận đối với tích phân.</li>
+    <li>Biết sử dụng tính chất, công thức vào giải toán.</li>
+  </ul>
+  
+  <h5>C. BÀI TẬP</h5>
+  <p><strong>1. NGUYÊN HÀM</strong></p>
+  <h6>Bài 1. Tìm nguyên hàm của các hàm số sau:</h6>
+  <ol type="a">
+    <li>$\int\sqrt{x^{2}+1}.xdx$</li>
+    <li>$\int(x^{3}+5)^{4}x^{2}dx$</li>
+    <li>$\int\frac{x}{x^{2}+5}dx$</li>
+    <li>$\int\frac{dx}{\sqrt{2x-1}}$</li>
+    <li>$\int(x-1)e^{x^{2}-2x+3}dx$</li>
+  </ol>
+  <h6>Bài 4. Tìm nguyên hàm của các hàm số sau:</h6>
+  <ol type="a">
+    <li>$\int\frac{\sin x}{\cos^{5}x}dx$</li>
+    <li>$\int \cot xdx=\int\frac{\cos x}{\sin x}dx$</li>
+    <li>$\int\frac{\sin x}{\sqrt[3]{\cos^{2}x}}dx=\int\frac{\sin x}{\cos^{\frac{2}{3}}x}dx$</li>
+    <li>$\int(1+\cot^{2}2x)e^{\cot 2x}dx$</li>
+  </ol>
+  
+  <p><strong>2. TÍCH PHÂN</strong></p>
+  <h6>Bài 1. Tính các tích phân sau :</h6>
+  <ol type="a">
+    <li>$A=\int_{0}^{1}x\sqrt{1+x^{2}}dx$</li>
+    <li>$B=\int_{0}^{1}x^{3}(x^{4}-1)^{5}dx$</li>
+    <li>$C=\int_{1}^{2}\frac{e^{x}dx}{e^{x}-1}$</li>
+    <li>$D=\int_{0}^{2}\sqrt{4-x^{2}}xdx$</li>
+    <li>$E=\int_{1}^{4}\frac{e^{\sqrt{x}}}{\sqrt{x}}dx$</li>
+    <li>$F=\int_{0}^{\frac{\pi}{2}}\frac{\sin 2x}{1+\sin^{2}x}dx$</li>
+    <li>$G=\int_{0}^{\ln 2}(e^{x}-1)^{2}.e^{x}dx$ (Đề thi TN năm 2011-2012)</li>
+  </ol>
+
+  <h3>DẠNG 3. PHƯƠNG PHÁP TÍNH TÍCH PHÂN TỪNG PHẦN</h3>
+  <h5>A. KIẾN THỨC CƠ BẢN</h5>
+  <h6>1. Nguyên hàm</h6>
+  <p>Nếu $u(x)$ và $v(x)$ là hai hàm số có đạo hàm liên tục trên I:</p>
+  $$ \int u(x).v'(x)dx = u(x).v(x) - \int v(x).u'(x)dx $$
+  <p>Hay:</p>
+  $$ \int u dv = uv - \int v du \quad (\text{với } du = u'(x)dx, dv = v'(x)dx) $$
+  <h6>2. Tính tích phân từng phần</h6>
+  $$ \int_{a}^{b} u(x)v'(x)dx = u(x)v(x)|_{a}^{b} - \int_{a}^{b} v(x)u'(x)dx $$
+  <hr>
+
+  <h5>B. KỸ NĂNG CƠ BẢN</h5>
+  <p><strong>Phân dạng</strong></p>
+  <ul>
+    <li><strong>Dạng 1:</strong> $\int_{a}^{b} P(x) \begin{bmatrix} \sin(ax) \\ \cos(ax) \\ e^{ax} \end{bmatrix} dx$<br>
+    Đặt: $u = P(x),\, dv = \begin{bmatrix} \sin(ax) \\ \cos(ax) \\ e^{ax} \end{bmatrix} dx$</li>
+    <li><strong>Dạng 2:</strong> $\int_{a}^{b} f(x) \ln(ax) dx$<br>
+    Đặt: $\begin{cases} u = \ln(ax) \\ dv = f(x)dx \end{cases} \Rightarrow \begin{cases} du = \frac{dx}{x} \\ v = \int f(x)dx \end{cases}$</li>
+    <li><strong>Dạng 3:</strong> $\int_{a}^{b} e^{ax} \begin{bmatrix} \sin(bx) \\ \cos(bx) \end{bmatrix} dx$<br>
+    Đặt: $\begin{cases} u = e^{ax} \\ dv = \sin(bx)dx \text{ (hoặc } \cos(bx)dx) \end{cases}$</li>
+  </ul>
+  <hr>
+
+  <h5>C. BÀI TẬP</h5>
+  <h6>1. NGUYÊN HÀM</h6>
+  <p><strong>Bài 1: Tìm nguyên hàm của các hàm số sau:</strong></p>
+  <ol type="a">
+    <li>$I = \int x \sin x dx$</li>
+    <li>$I = \int (x-1)e^x dx$</li>
+    <li>$I = \int x \ln x dx$</li>
+    <li>$I = \int (1-x) \cos x dx$</li>
+  </ol>
+  <p><strong>Bài 2: Tìm nguyên hàm của các hàm số sau:</strong></p>
+  <ol type="a">
+    <li>$I = \int (1-2x)e^x dx$</li>
+    <li>$I = \int \sqrt{x} \ln x dx$</li>
+    <li>$I = \int \frac{x}{\sin^2 x} dx$</li>
+    <li>$I = \int (2x+3)e^{-x} dx$</li>
+  </ol>
+  <hr>
+  <h6>2. TÍCH PHÂN</h6>
+  <p><strong>Bài 1: Tính các tích phân sau:</strong></p>
+  <ol type="a">
+    <li>$I = \int_{0}^{\frac{\pi}{2}} x \cos x dx$</li>
+    <li>$J = \int_{1}^{e} x \ln x dx$</li>
+    <li>$K = \int_{0}^{1} x e^x dx$</li>
+  </ol>
+  <p><strong>Bài 2: Tính các tích phân sau:</strong></p>
+  <ol type="a">
+    <li>$A = \int_{0}^{\frac{\pi}{4}} \frac{x}{\cos^2 x} dx$</li>
+    <li>$B = \int_{0}^{1} x e^{2x} dx$</li>
+    <li>$C = \int_{0}^{\frac{\pi}{2}} x^2 \cos x dx$</li>
+  </ol>
