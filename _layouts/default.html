@@ -4,6 +4,17 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7955123676826897"
      crossorigin="anonymous"></script>
   <meta charset="utf-8" />
+  {% if page.tags %}
+  <meta name="keywords" content="{{ page.tags | join: ', ' }}">
+{% endif %}
+
+{% if page.description %}
+  <meta name="description" content="{{ page.description | strip_html | escape }}">
+{% elsif page.excerpt %}
+  <meta name="description" content="{{ page.excerpt | strip_html | escape }}">
+{% else %}
+  <meta name="description" content="{{ page.title | escape }}">
+{% endif %}
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ page.title }} | {{ site.title }}</title>
   <!-- Nhúng font Google (đặt ở đây) -->
