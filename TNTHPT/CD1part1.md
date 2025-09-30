@@ -17,26 +17,26 @@ tags: [Phương trình, Bất phương trình, Ôn thi THPT, Lượng giác, Tó
 
 * Với $\|m\| \le 1$, gọi $\alpha$ là số thực thuộc đoạn $[-\frac{\pi}{2}; \frac{\pi}{2}]$ sao cho $\sin(\alpha) = m$. Khi đó, ta có:
 
-$\sin(x) = m \Leftrightarrow \sin(x) = \sin(\alpha) \Leftrightarrow \left[ \begin{array}{l} x = \alpha + k2\pi \\ x = \pi - \alpha + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
+$\sin(x) = m \Leftrightarrow \sin(x) = \sin(\alpha) \Leftrightarrow \left[ \begin{array}{l} x = \alpha + k2\pi \\\ x = \pi - \alpha + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
 
 Chú ý:
 * Một số trường hợp đặc biệt:
     * $\sin(x) = 1 \Leftrightarrow x = \frac{\pi}{2} + k2\pi (k \in \mathbb{Z})$
     * $\sin(x) = -1 \Leftrightarrow x = -\frac{\pi}{2} + k2\pi (k \in \mathbb{Z})$
     * $\sin(x) = 0 \Leftrightarrow x = k\pi (k \in \mathbb{Z})$
-* Nếu $x$ có đơn vị là độ: $\sin(x) = \sin(a^{\circ}) \Leftrightarrow \begin{bmatrix} x = a^{\circ} + k360^{\circ} \\ x = 180^{\circ} - a^{\circ} + k360^{\circ} \end{bmatrix} (k \in \mathbb{Z})$.
+* Nếu $x$ có đơn vị là độ: $\sin(x) = \sin(a^{\circ}) \Leftrightarrow \begin{bmatrix} x = a^{\circ} + k360^{\circ} \\\ x = 180^{\circ} - a^{\circ} + k360^{\circ} \end{bmatrix} (k \in \mathbb{Z})$.
 
 b) Phương trình $\cos(x) = m$ (2)
 * Với $\|m\| > 1$, phương trình (2) vô nghiệm.
 * Với $\|m\| \le 1$, gọi $\alpha$ là số thực thuộc đoạn $[0; \pi]$ sao cho $\cos(\alpha) = m$. Khi đó, ta có:
-    $\cos(x) = m \Leftrightarrow \cos(x) = \cos(\alpha) \Leftrightarrow \left[ \begin{array}{l} x = \alpha + k2\pi \\ x = -\alpha + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
+    $\cos(x) = m \Leftrightarrow \cos(x) = \cos(\alpha) \Leftrightarrow \left[ \begin{array}{l} x = \alpha + k2\pi \\\ x = -\alpha + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
 
 Chú ý:
 * Một số trường hợp đặc biệt:
     * $\cos(x) = 1 \Leftrightarrow x = k2\pi (k \in \mathbb{Z})$
     * $\cos(x) = -1 \Leftrightarrow x = \pi + k2\pi (k \in \mathbb{Z})$
     * $\cos(x) = 0 \Leftrightarrow x = \frac{\pi}{2} + k\pi (k \in \mathbb{Z})$
-* Nếu $x$ có đơn vị là độ: $\cos(x) = cos(a^{\circ}) \Leftrightarrow \left[ \begin{array}{l} x = a^{\circ} + k360^{\circ} \\ x = -a^{\circ} + k360^{\circ} \end{array} \right. (k \in \mathbb{Z})$.
+* Nếu $x$ có đơn vị là độ: $\cos(x) = cos(a^{\circ}) \Leftrightarrow \left[ \begin{array}{l} x = a^{\circ} + k360^{\circ} \\\ x = -a^{\circ} + k360^{\circ} \end{array} \right. (k \in \mathbb{Z})$.
 
 c) Phương trình $\tan(x) = m$
 * Gọi $\alpha$ là số thực thuộc khoảng $(-\frac{\pi}{2}; \frac{\pi}{2})$ sao cho $\tan(\alpha) = m$. Khi đó, ta có:
@@ -49,8 +49,8 @@ d) Phương trình $\cot(x) = m$
 * Nếu $x$ có đơn vị là độ: $\cot(x) = \cot(a^{\circ}) \Leftrightarrow x = a^{\circ} + k180^{\circ} (k \in \mathbb{Z})$.
 
 2. Phương trình lượng giác đưa về dạng cơ bản
-* $\sin(f(x)) = \sin(g(x)) \Leftrightarrow \left[ \begin{array}{l} f(x) = g(x) + k2\pi \\ f(x) = \pi - g(x) + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
-* $\cos(f(x)) = \cos(g(x)) \Leftrightarrow \left[ \begin{array}{l} f(x) = g(x) + k2\pi \\ f(x) = -g(x) + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
+* $\sin(f(x)) = \sin(g(x)) \Leftrightarrow \left[ \begin{array}{l} f(x) = g(x) + k2\pi \\\ f(x) = \pi - g(x) + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
+* $\cos(f(x)) = \cos(g(x)) \Leftrightarrow \left[ \begin{array}{l} f(x) = g(x) + k2\pi \\\ f(x) = -g(x) + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
 
 ---
 
@@ -64,26 +64,26 @@ Với $a > 0, a \ne 1$ thì:
 #### Phương trình lôgarit
 Với $a > 0, a \ne 1$ thì:
 * $\log_{a}f(x) = b \Leftrightarrow f(x) = a^{b}$.
-* $\log_{a}f(x) = \log_{a}g(x) \Leftrightarrow \begin{cases} f(x) = g(x) \\ f(x)\gt 0 \\ g(x) \gt 0 \end{cases}$.
+* $\log_{a}f(x) = \log_{a}g(x) \Leftrightarrow \begin{cases} f(x) = g(x) \\\ f(x)\gt 0 \\\ g(x) \gt 0 \end{cases}$.
 
 #### Bất phương trình mũ
 Với $a > 0, a \ne 1$:
 * Xét bất phương trình $a^{f(x)} > b$:
     * Nếu $b \le 0$, tập nghiệm là tập xác định của $f(x)$.
-    * Nếu $b > 0$ và $a > 1$ thì $f(x) > \log_{a}b$.
-    * Nếu $b > 0$ và $0 < a < 1$ thì $f(x) < \log_{a}b$.
-* Xét bất phương trình $a^{f(x)} > a^{g(x)}$:
-    * Nếu $a > 1$ thì $f(x) > g(x)$.
-    * Nếu $0 < a < 1$ thì $f(x) < g(x)$.
+    * Nếu $b > 0$ và $a > 1$ thì $f(x) \gt \log_{a}b$.
+    * Nếu $b > 0$ và $0 < a < 1$ thì $f(x) \lt \log_{a}b$.
+* Xét bất phương trình $a^{f(x)} \gt a^{g(x)}$:
+    * Nếu $a > 1$ thì $f(x) \gt g(x)$.
+    * Nếu $0 < a < 1$ thì $f(x) \lt g(x)$.
 
 #### Bất phương trình lôgarit
 Với $a > 0, a \ne 1$:
-* Xét bất phương trình $\log_{a}f(x) > b$:
-    * Nếu $a > 1$ thì $f(x) > a^{b}$.
-    * Nếu $0 < a < 1$ thì $0 < f(x) < a^{b}$.
-* Xét bất phương trình $\log_{a}f(x) > \log_{a}g(x)$:
-    * Nếu $a > 1$ thì $f(x) > g(x) > 0$.
-    * Nếu $0 < a < 1$ thì $0 < f(x) < g(x)$.
+* Xét bất phương trình $\log_{a}f(x) \gt b$:
+    * Nếu $a \gt 1$ thì $f(x) \gt a^{b}$.
+    * Nếu $0 \lt a \lt 1$ thì $0 \lt f(x) \lt a^{b}$.
+* Xét bất phương trình $\log_{a}f(x) \gt \log_{a}g(x)$:
+    * Nếu $a \gt 1$ thì $f(x) \gt g(x) \gt 0$.
+    * Nếu $0 \lt a \lt 1$ thì $0 \lt f(x) \lt g(x)$.
 
 
 ## Phần Ví dụ
@@ -103,7 +103,7 @@ D. $x=-\frac{\pi}{2}+2k\pi$ và $x=\frac{5\pi}{3}+k2\pi(k\in\mathbb{Z})$.
 
 Lời giải: Chọn A
 Ta có: $\sin(x+\frac{\pi}{3})=-\frac{\sqrt{3}}{2} \Leftrightarrow \sin(x+\frac{\pi}{3})=\sin(-\frac{\pi}{3})$
-$\Leftrightarrow \left[ \begin{array}{l} x+\frac{\pi}{3} = -\frac{\pi}{3} + k2\pi \\ x+\frac{\pi}{3} = \pi-(-\frac{\pi}{3}) + k2\pi \end{array} \right. \Leftrightarrow \left[ \begin{array}{l} x = -\frac{2\pi}{3} + k2\pi \\ x = \pi + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
+$\Leftrightarrow \left[ \begin{array}{l} x+\frac{\pi}{3} = -\frac{\pi}{3} + k2\pi \\\ x+\frac{\pi}{3} = \pi-(-\frac{\pi}{3}) + k2\pi \end{array} \right. \Leftrightarrow \left[ \begin{array}{l} x = -\frac{2\pi}{3} + k2\pi \\\ x = \pi + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
 
 #### Ví dụ 2. 
 Tổng các nghiệm của phương trình $3^{x^{2}-2x}=81$ là:
@@ -177,7 +177,7 @@ $\implies$ ĐÚNG
 d) Nghiệm của phương trình đã cho là: $x=-\frac{\pi}{4}+k\pi$ và $x=\frac{\pi}{12}+k\frac{\pi}{3}(k\in\mathbb{Z})$.
 
 Từ câu c: $\cos(4x+\frac{\pi}{2})=\cos(2x)$
-$\Leftrightarrow \left[ \begin{array}{l} 4x+\frac{\pi}{2} = 2x+k2\pi \\ 4x+\frac{\pi}{2} = -2x+k2\pi \end{array} \right. \Leftrightarrow \left[ \begin{array}{l} 2x = -\frac{\pi}{2}+k2\pi \\ 6x = -\frac{\pi}{2}+k2\pi \end{array} \right. \Leftrightarrow \left[ \begin{array}{l} x = -\frac{\pi}{4}+k\pi \\ x = -\frac{\pi}{12}+k\frac{\pi}{3} \end{array} \right. (k \in \mathbb{Z})$.
+$\Leftrightarrow \left[ \begin{array}{l} 4x+\frac{\pi}{2} = 2x+k2\pi \\\ 4x+\frac{\pi}{2} = -2x+k2\pi \end{array} \right. \Leftrightarrow \left[ \begin{array}{l} 2x = -\frac{\pi}{2}+k2\pi \\\ 6x = -\frac{\pi}{2}+k2\pi \end{array} \right. \Leftrightarrow \left[ \begin{array}{l} x = -\frac{\pi}{4}+k\pi \\\ x = -\frac{\pi}{12}+k\frac{\pi}{3} \end{array} \right. (k \in \mathbb{Z})$.
 So với đáp án, nghiệm thứ hai không khớp.
 $\implies$ SAI
 
