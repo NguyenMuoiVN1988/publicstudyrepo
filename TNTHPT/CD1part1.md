@@ -24,7 +24,7 @@ Chú ý:
     * $\sin(x) = 1 \Leftrightarrow x = \frac{\pi}{2} + k2\pi (k \in \mathbb{Z})$
     * $\sin(x) = -1 \Leftrightarrow x = -\frac{\pi}{2} + k2\pi (k \in \mathbb{Z})$
     * $\sin(x) = 0 \Leftrightarrow x = k\pi (k \in \mathbb{Z})$
-* Nếu $x$ có đơn vị là độ: $\sin(x) = \sin(a^{\circ}) \Leftrightarrow \begin{bmatrix} x = a^{\circ} + k360^{\circ} \\\ x = 180^{\circ} - a^{\circ} + k360^{\circ} \end{bmatrix} (k \in \mathbb{Z})$.
+* Nếu $x$ có đơn vị là độ: $\sin(x) = \sin(a^{\circ}) \Leftrightarrow \left[ \begin{array}{l} x = a^{\circ} + k360^{\circ} \\\ x = 180^{\circ} - a^{\circ} + k360^{\circ} \end{array}\right. (k \in \mathbb{Z})$.
 
 b) Phương trình $\cos(x) = m$ (2)
 * Với $\|m\| > 1$, phương trình (2) vô nghiệm.
