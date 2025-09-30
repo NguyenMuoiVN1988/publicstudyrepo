@@ -3,6 +3,8 @@ layout: default
 title: "Public Study"
 ---
 
+## TNTHPT
+[30/9/2025: CD1 Chuyên đề Phương trình và Bất phương trình](TNTHPT/CD1part1.md)
 
 ## Toán 12.
 ## Tổng hợp tài liệu
