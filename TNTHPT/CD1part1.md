@@ -12,8 +12,10 @@ tags: [Phương trình, Bất phương trình, Ôn thi THPT, Lượng giác, Tó
 #### Phương trình lượng giác cơ bản
 
 #####  Phương trình $\sin(x) = m$ (1)
-* Với $|m| \gt 1$, phương trình (1) vô nghiệm.
-* Với $|m| \le 1$, gọi $\alpha$ là số thực thuộc đoạn $[-\frac{\pi}{2}; \frac{\pi}{2}]$ sao cho $\sin(\alpha) = m$. Khi đó, ta có:
+
+* Với $\|m\| \gt 1$, phương trình (1) vô nghiệm.
+
+* Với $\|m\| \le 1$, gọi $\alpha$ là số thực thuộc đoạn $[-\frac{\pi}{2}; \frac{\pi}{2}]$ sao cho $\sin(\alpha) = m$. Khi đó, ta có:
 
 $\sin(x) = m \Leftrightarrow \sin(x) = \sin(\alpha) \Leftrightarrow \left[ \begin{array}{l} x = \alpha + k2\pi \\ x = \pi - \alpha + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
 
@@ -25,8 +27,8 @@ Chú ý:
 * Nếu $x$ có đơn vị là độ: $\sin(x) = \sin(a^{\circ}) \Leftrightarrow \begin{bmatrix} x = a^{\circ} + k360^{\circ} \\ x = 180^{\circ} - a^{\circ} + k360^{\circ} \end{bmatrix} (k \in \mathbb{Z})$.
 
 b) Phương trình $\cos(x) = m$ (2)
-* Với $|m| > 1$, phương trình (2) vô nghiệm.
-* Với $|m| \le 1$, gọi $\alpha$ là số thực thuộc đoạn $[0; \pi]$ sao cho $\cos(\alpha) = m$. Khi đó, ta có:
+* Với $\|m\| > 1$, phương trình (2) vô nghiệm.
+* Với $\|m\| \le 1$, gọi $\alpha$ là số thực thuộc đoạn $[0; \pi]$ sao cho $\cos(\alpha) = m$. Khi đó, ta có:
     $\cos(x) = m \Leftrightarrow \cos(x) = \cos(\alpha) \Leftrightarrow \left[ \begin{array}{l} x = \alpha + k2\pi \\ x = -\alpha + k2\pi \end{array} \right. (k \in \mathbb{Z})$.
 
 Chú ý:
