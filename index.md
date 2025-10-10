@@ -6,6 +6,9 @@ title: "Public Study"
 ## TNTHPT
 [30/9/2025: CD1 Chuyên đề Phương trình và Bất phương trình](TNTHPT/CD1part1.md)
 
+## Thi vào 10
+[10/9/2025: Câu 5 Đề thi vào 10 Hà Nội](T9/T9CDC5THIVAO10.html)
+
 ## Toán 12.
 ## Tổng hợp tài liệu
 
