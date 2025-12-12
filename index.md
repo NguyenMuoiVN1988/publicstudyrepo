@@ -80,7 +80,7 @@ title: "Public Study"
 |Phiếu bài học từng buổi| |
 |---|---|
 | [T8 Chương 1 Bài 1](T8/T8C1B1.html)| [12/12/2025: Toán 8, Thales](T8/thalettheorem.html) |
-| [T8 Chương 1 Bài 2](T8/T8C1B2.html)| |
+| [T8 Chương 1 Bài 2](T8/T8C1B2.html)| [12/12/2025: Toán 8, Hệ quả Thales](T8/thalesdao.html) |
 | [T8 Chương 1 Bài 3](T8/T8C1B3.html)| |
 | [T8 Chương 1 Bài 4](T8/T8C1B4.html)| |
 | [T8 Chương 1 Bài 5](T8/T8C1B5.html)| |
