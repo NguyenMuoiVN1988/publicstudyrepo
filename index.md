@@ -9,6 +9,9 @@ title: "Public Study"
 ## Thi vào 10
 [10/9/2025: Câu 5 Đề thi vào 10 Hà Nội](T9/T9CDC5THIVAO10.html)
 
+## Tư duy
+[12/12/2025: Tư duy 1](tuduy/tuduy1.html)
+
 ## Toán 12.
 ## Tổng hợp tài liệu
 
