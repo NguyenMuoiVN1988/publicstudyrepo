@@ -94,6 +94,9 @@ title: "Public Study"
 
 [Ngày 12/12/2025: Toán 6 Luyện tập phân số](T6/T6PhanSo.html)
 
+[Ngày 12/12/2025: Toán 6 Số đo góc (NC)](T6/T6HinhHoc.html)
+
+
 ## Tiểu học: Toán tư duy
 
 |[Chuyển động: Câu hỏi 1](Tieuhoc/TuduyQuestion1.md)| [Đếm: Câu hỏi 1](Tieuhoc/TieuHocDemQuestion1.md)|
