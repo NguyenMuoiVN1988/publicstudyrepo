@@ -108,4 +108,6 @@ title: "Public Study"
 
 ### Toán 5 cơ bản
 [Phiếu luyện tập cơ bản Tuần 1 và 2](T5/T5CBTuan1and2.html)
+
+[Phiếu luyện tập cơ bản Tuần 1 và 2](T5/T5CBTuan3and4.html)
  
