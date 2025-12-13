@@ -92,6 +92,8 @@ title: "Public Study"
 ## Toán 6
 [Ngày 04/09/2025: Toán 6 Chương 1 Bài 2: Số tự nhiên (NC)](T6/T6TaphopNC.md)
 
+[Ngày 12/12/2025: Toán 6 Luyện tập phân số](T6/T6PhanSo.html)
+
 ## Tiểu học: Toán tư duy
 
 |[Chuyển động: Câu hỏi 1](Tieuhoc/TuduyQuestion1.md)| [Đếm: Câu hỏi 1](Tieuhoc/TieuHocDemQuestion1.md)|
