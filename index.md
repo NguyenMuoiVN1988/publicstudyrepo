@@ -105,4 +105,7 @@ title: "Public Study"
 |[Chuyển động: Câu hỏi 3](Tieuhoc/TuduyQuestion3.md)| [Chuyển động: Câu hỏi 8. Vận tốc trung bình](Tieuhoc/TuduyQuestion8.md) |
 |[Chuyển động: Câu hỏi 4](Tieuhoc/TuduyQuestion4.md)| [27/8/2025 Đếm: Câu hỏi 2](Tieuhoc/TieuHocDemQuestion2.md)|
 |[Chuyển động - Thời gian: Câu hỏi 5](Tieuhoc/TuduyQuestion5.md)|[4/9/2025 Tính ngược từ cuối](Tieuhoc/T4CDNguocTuDuoi.md) |
+
+### Toán 5 cơ bản
+[Phiếu luyện tập cơ bản Tuần 1 và 2](T5/T5CBTuan1and2.html)
  
