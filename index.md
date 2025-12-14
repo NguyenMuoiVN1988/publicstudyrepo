@@ -96,6 +96,8 @@ title: "Public Study"
 
 [Ngày 12/12/2025: Toán 6 Số đo góc (NC)](T6/T6HinhHoc.html)
 
+[Ngày 14/12/2025: T6 Nâng cao: CÁC PHÉP TÍNH VỀ SỐ TỰ NHIÊN](T6/T6NCTaiLieuChuyenToan1.html)
+
 
 ## Tiểu học: Toán tư duy
 
