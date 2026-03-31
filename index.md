@@ -90,6 +90,9 @@ title: "Public Study"
 [Đọc sách cùng học sinh](T7/DocCungHST7.md)
 
 ## Toán 6
+
+[Ngày 31/3/2026: T6 Cơ bản: Chương 3: Phép cộng và trừ số nguyên](T6/T6C3B2CongTruSoNguyen.html)
+
 [Ngày 04/09/2025: Toán 6 Chương 1 Bài 2: Số tự nhiên (NC)](T6/T6TaphopNC.md)
 
 [Ngày 12/12/2025: Toán 6 Luyện tập phân số](T6/T6PhanSo.html)
@@ -97,6 +100,8 @@ title: "Public Study"
 [Ngày 12/12/2025: Toán 6 Số đo góc (NC)](T6/T6HinhHoc.html)
 
 [Ngày 14/12/2025: T6 Nâng cao: CÁC PHÉP TÍNH VỀ SỐ TỰ NHIÊN](T6/T6NCTaiLieuChuyenToan1.html)
+
+
 
 
 ## Tiểu học: Toán tư duy
