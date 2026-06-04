@@ -145,6 +145,9 @@ details > div {
 - [C1B3: Giải bài toán bằng cách lập hệ phương trình](T9/T9C1Ba3.md)
 - [C3B5: Rút gọn căn thức và các ý phụ](T9/T9C3B5.html)
 
+**Trắc nghiệm tương tác**
+- [C1 – Chủ đề 1: Phương trình quy về bậc nhất (29 câu)](T9/TN/T9TNC1B1CD1_quiz.html)
+
 **Chuyên đề**
 - [Toán lời văn](T9/T9CDLoiVan.html)
 - [Hàm số bậc hai và hệ thức Viet](T9/T9CDHamSoBac2.html)

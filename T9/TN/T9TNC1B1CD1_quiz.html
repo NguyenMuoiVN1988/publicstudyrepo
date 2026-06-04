@@ -1,0 +1,495 @@
+---
+layout: default
+title: "Trắc nghiệm T9 – Phương trình quy về bậc nhất (Chủ đề 1)"
+description: Bài trắc nghiệm tương tác phương trình tích và phương trình chứa ẩn ở mẫu – Toán 9 Chương 1
+tags: [Toán 9, trắc nghiệm, phương trình tích, phương trình chứa ẩn ở mẫu]
+---
+
+<style>
+#quiz-wrap { max-width: 780px; margin: 0 auto; font-family: inherit; }
+#quiz-header { background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 6px; padding: 14px 18px; margin-bottom: 18px; }
+#quiz-header h2 { margin: 0 0 6px; font-size: 1.15em; color: #1e3a8a; }
+#quiz-header p  { margin: 0; font-size: 0.9em; color: #475569; }
+#progress-bar   { font-size: 0.9em; color: #64748b; margin-bottom: 12px; }
+
+.section-title {
+  margin: 24px 0 10px;
+  font-size: 1em;
+  background: #f1f5f9;
+  border-left: 3px solid #94a3b8;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #334155;
+}
+
+.qcard {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+}
+.qcard.correct { border-color: #22c55e; background: #f0fdf4; }
+.qcard.wrong   { border-color: #ef4444; background: #fef2f2; }
+
+.qnum  { font-size: 0.78em; color: #94a3b8; margin: 0 0 4px; font-weight: 600; letter-spacing: .04em; }
+.qtext { margin: 0 0 10px; font-size: 0.97em; line-height: 1.6; }
+
+.options { display: flex; flex-direction: column; gap: 6px; }
+.opt-label {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 7px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.93em;
+  line-height: 1.5;
+  transition: background 0.15s, border-color 0.15s;
+}
+.opt-label:hover { background: #f8fafc; border-color: #94a3b8; }
+.opt-label input[type="radio"] { margin-top: 3px; flex-shrink: 0; accent-color: #3b82f6; }
+.opt-key { font-weight: 700; min-width: 18px; color: #3b82f6; flex-shrink: 0; }
+
+.opt-label.opt-correct { background: #dcfce7; border-color: #22c55e; }
+.opt-label.opt-wrong   { background: #fee2e2; border-color: #ef4444; }
+.opt-label.opt-correct .opt-key { color: #15803d; }
+.opt-label.opt-wrong   .opt-key { color: #dc2626; }
+
+.solution {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #fefce8;
+  border-left: 3px solid #eab308;
+  border-radius: 4px;
+  font-size: 0.88em;
+  line-height: 1.6;
+  color: #422006;
+}
+
+#quiz-footer { text-align: center; margin: 24px 0 12px; display: flex; gap: 12px; justify-content: center; }
+#btn-submit, #btn-reset {
+  padding: 10px 32px;
+  border: none; border-radius: 8px;
+  font-size: 1em; font-weight: 600;
+  cursor: pointer; transition: opacity 0.2s;
+}
+#btn-submit { background: #3b82f6; color: #fff; }
+#btn-submit:hover { opacity: 0.88; }
+#btn-reset  { background: #64748b; color: #fff; display: none; }
+#btn-reset:hover  { opacity: 0.88; }
+
+#quiz-result {
+  display: none;
+  background: #f0fdf4;
+  border: 2px solid #22c55e;
+  border-radius: 10px;
+  padding: 18px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#quiz-result h3 { margin: 0 0 6px; color: #15803d; }
+#quiz-result p  { margin: 0; font-size: 0.9em; color: #475569; }
+.score-big { font-size: 2.2em; font-weight: 800; color: #16a34a; }
+
+@media (max-width: 600px) {
+  .qcard { padding: 12px; }
+  .opt-label { font-size: 0.87em; }
+}
+</style>
+
+<div id="quiz-wrap">
+  <div id="quiz-header">
+    <h2>Trắc nghiệm – Chủ đề 1: Phương trình quy về bậc nhất một ẩn</h2>
+    <p>Toán 9 · Chương 1 · 29 câu · Chọn đáp án đúng rồi bấm <strong>Nộp bài</strong></p>
+  </div>
+
+  <div id="progress-bar">Đã trả lời: <span id="answered">0</span>/29 câu</div>
+
+  <div id="quiz-result">
+    <div class="score-big" id="score-big"></div>
+    <h3 id="score-label"></h3>
+    <p id="score-detail"></p>
+  </div>
+
+  <div id="quiz-body"></div>
+
+  <div id="quiz-footer">
+    <button id="btn-submit" onclick="submitQuiz()">Nộp bài</button>
+    <button id="btn-reset"  onclick="resetQuiz()">Làm lại</button>
+  </div>
+</div>
+
+<script>
+const LABELS = ['A','B','C','D'];
+
+const questions = [
+  // ── DẠNG 1: PHƯƠNG TRÌNH TÍCH ──────────────────────────────
+  {
+    sec: "Dạng 1: Phương trình tích",
+    q:   "Phương trình $(4 + 2x)(x - 1) = 0$ có nghiệm là:",
+    opts:["$x = 1;\\ x = 2$",
+          "$x = -2;\\ x = 1$",
+          "$x = -1;\\ x = 2$",
+          "$x = 1;\\ x = \\dfrac{1}{2}$"],
+    ans: 1,
+    sol: "$(4+2x)(x-1)=0 \\Leftrightarrow 4+2x=0$ hoặc $x-1=0 \\Leftrightarrow x=-2$ hoặc $x=1$."
+  },
+  {
+    sec: null,
+    q:   "Các nghiệm của phương trình $(2 + 6x)(-x^2 - 4) = 0$ là:",
+    opts:["$x = 2$",
+          "$x = -2$",
+          "$x = -\\dfrac{1}{2};\\ x = 2$",
+          "$x = -\\dfrac{1}{3}$"],
+    ans: 3,
+    sol: "Vì $-x^2-4=-(x^2+4)<0$ với mọi $x$, nên $2+6x=0 \\Leftrightarrow x=-\\dfrac{1}{3}$."
+  },
+  {
+    sec: null,
+    q:   "Phương trình $(x - 1)(x - 2)(x - 3) = 0$ có số nghiệm là:",
+    opts:["$1$","$2$","$3$","$4$"],
+    ans: 2,
+    sol: "$x-1=0$ hoặc $x-2=0$ hoặc $x-3=0$, cho ba nghiệm phân biệt $x\\in\\{1;2;3\\}$."
+  },
+  {
+    sec: null,
+    q:   "Tổng các nghiệm của phương trình $(x^2 - 4)(x + 6)(x - 8) = 0$ là:",
+    opts:["$1$","$2$","$3$","$4$"],
+    ans: 1,
+    sol: "$(x-2)(x+2)(x+6)(x-8)=0$ cho 4 nghiệm $2;-2;-6;8$. Tổng $=2+(-2)+(-6)+8=2$."
+  },
+  {
+    sec: null,
+    q:   "Chọn khẳng định đúng về phương trình $8x(3x - 5) = 6(3x - 5)$:",
+    opts:["Có hai nghiệm trái dấu",
+          "Có hai nghiệm cùng dương",
+          "Có hai nghiệm cùng âm",
+          "Có một nghiệm duy nhất"],
+    ans: 1,
+    sol: "$(3x-5)(8x-6)=0 \\Leftrightarrow x=\\dfrac{5}{3}$ hoặc $x=\\dfrac{3}{4}$. Hai nghiệm đều dương."
+  },
+  {
+    sec: null,
+    q:   "Tích các nghiệm của phương trình $x^3 + 4x^2 + x - 6 = 0$ là:",
+    opts:["$1$","$2$","$-6$","$6$"],
+    ans: 3,
+    sol: "$x^3+4x^2+x-6=(x-1)(x+2)(x+3)$. Nghiệm: $1;-2;-3$. Tích $=(-2)\\cdot(-3)\\cdot 1=6$."
+  },
+  {
+    sec: null,
+    q:   "Nghiệm lớn nhất của phương trình $(x^2 - 1)(2x - 1) = (x^2 - 1)(x + 3)$ là:",
+    opts:["$2$","$1$","$-1$","$4$"],
+    ans: 3,
+    sol: "$(x^2-1)(x-4)=0 \\Leftrightarrow x=\\pm 1$ hoặc $x=4$. Nghiệm lớn nhất là $4$."
+  },
+  {
+    sec: null,
+    q:   "Nghiệm nhỏ nhất của phương trình $(2x + 1)^2 - (x - 1)^2 = 0$ là:",
+    opts:["$0$","$2$","$3$","$-2$"],
+    ans: 3,
+    sol: "$(x+2)(3x)=0 \\Leftrightarrow x=-2$ hoặc $x=0$. Nghiệm nhỏ nhất là $-2$."
+  },
+  {
+    sec: null,
+    q:   "Tập nghiệm của phương trình $(x^2 + x)(x^2 + x + 1) = 6$ là:",
+    opts:["$S = \\{-1;\\ -2\\}$",
+          "$S = \\{1;\\ 2\\}$",
+          "$S = \\{1;\\ -2\\}$",
+          "$S = \\{-1;\\ 2\\}$"],
+    ans: 2,
+    sol: "Đặt $t=x^2+x$: $t(t+1)=6 \\Rightarrow t=2$ (cho $x=1$ hoặc $x=-2$) hoặc $t=-3$ (vô nghiệm thực)."
+  },
+  {
+    sec: null,
+    q:   "Tìm $m$ để phương trình $(2m - 5)x - 2m^2 + 8 = 43$ có nghiệm $x = -7$:",
+    opts:["$m = 0$ hoặc $m = 7$",
+          "$m = 1$ hoặc $m = -7$",
+          "$m = 0$ hoặc $m = -7$",
+          "$m = -7$"],
+    ans: 2,
+    sol: "Thay $x=-7$: $-2m(m+7)=0 \\Leftrightarrow m=0$ hoặc $m=-7$."
+  },
+  {
+    sec: null,
+    q:   "Tập nghiệm của phương trình $(5x^2 - 2x + 10)^2 = (3x^2 + 10x - 8)^2$ là:",
+    opts:["$S = \\left\\{\\dfrac{1}{2};\\ 3\\right\\}$",
+          "$S = \\left\\{\\dfrac{1}{2};\\ -3\\right\\}$",
+          "$S = \\left\\{-\\dfrac{1}{2};\\ 3\\right\\}$",
+          "$S = \\left\\{-\\dfrac{1}{2};\\ -3\\right\\}$"],
+    ans: 2,
+    sol: "$A=B \\Rightarrow x=3$. &nbsp; $A=-B \\Rightarrow x=-\\dfrac{1}{2}$."
+  },
+  {
+    sec: null,
+    q:   "Biết $(x^2 - 1)^2 = 4x + 1$ có nghiệm lớn nhất là $x_0$. Chọn khẳng định đúng:",
+    opts:["$x_0 = 3$","$x_0 < 2$","$x_0 > 1$","$x_0 < 0$"],
+    ans: 2,
+    sol: "Phân tích: nghiệm chỉ là $x=0$ và $x=2$. Nghiệm lớn nhất $x_0=2>1$."
+  },
+  {
+    sec: null,
+    q:   "Cho PT(1): $x(x^2-4x+5)=0$ và PT(2): $(x^2-1)(x^2+4x+5)=0$. Chọn khẳng định <strong>đúng</strong>:",
+    opts:["PT(1) có một nghiệm, PT(2) có hai nghiệm",
+          "PT(1) có hai nghiệm, PT(2) có một nghiệm",
+          "Hai PT đều có hai nghiệm",
+          "Hai PT đều vô nghiệm"],
+    ans: 0,
+    sol: "PT(1): $x^2-4x+5>0$ nên chỉ $x=0$ (1 nghiệm). PT(2): $x^2+4x+5>0$ nên $x^2-1=0 \\Rightarrow x=\\pm 1$ (2 nghiệm)."
+  },
+  {
+    sec: null,
+    q:   "Số nghiệm của phương trình $(x^2 + 9)(x - 1) = (x^2 + 9)(x + 3)$ là:",
+    opts:["$2$","$1$","$0$","$3$"],
+    ans: 2,
+    sol: "$(x^2+9)(-4)=0$ vô nghiệm vì $x^2+9>0$ và $-4\\ne 0$."
+  },
+  {
+    sec: null,
+    q:   "Tập nghiệm của phương trình $(x^2 - x - 1)(x^2 - x + 1) = 3$ là:",
+    opts:["$S = \\{-1;\\ -2\\}$",
+          "$S = \\{1;\\ 2\\}$",
+          "$S = \\{1;\\ -2\\}$",
+          "$S = \\{-1;\\ 2\\}$"],
+    ans: 3,
+    sol: "Đặt $u=x^2-x$: $u^2-1=3 \\Rightarrow u=\\pm 2$. $u=2$: $x=2$ hoặc $x=-1$. $u=-2$: vô nghiệm."
+  },
+
+  // ── DẠNG 2: PHƯƠNG TRÌNH CHỨA ẨN Ở MẪU ───────────────────
+  {
+    sec: "Dạng 2: Phương trình chứa ẩn ở mẫu",
+    q:   "Điều kiện xác định của phương trình $\\dfrac{1}{x-2} + 3 = \\dfrac{3-x}{x-2}$ là:",
+    opts:["$x \\neq 3$","$x \\neq 2$","$x \\neq -3$","$x \\neq -2$"],
+    ans: 1,
+    sol: "Mẫu thức $x-2\\ne 0 \\Leftrightarrow x\\ne 2$."
+  },
+  {
+    sec: null,
+    q:   "Điều kiện xác định của phương trình $\\dfrac{x}{x-2} - \\dfrac{2x}{x^2-1} = 0$ là:",
+    opts:["$x \\neq -1;\\ x \\neq -2$",
+          "$x \\neq 0$",
+          "$x \\neq 2$ và $x \\neq \\pm 1$",
+          "$x \\neq -2;\\ x \\neq 1$"],
+    ans: 2,
+    sol: "$x-2\\ne 0$ và $(x-1)(x+1)\\ne 0 \\Rightarrow x\\ne 2$ và $x\\ne\\pm 1$."
+  },
+  {
+    sec: null,
+    q:   "Phương trình $\\dfrac{6x}{9 - x^2} = \\dfrac{x}{x+3} - \\dfrac{3}{3-x}$ có nghiệm là:",
+    opts:["$x = -3$","$x = -2$","Vô nghiệm","Vô số nghiệm"],
+    ans: 2,
+    sol: "Giải ra $x=-3$ nhưng vi phạm ĐKXĐ ($x\\ne\\pm 3$). Phương trình vô nghiệm."
+  },
+  {
+    sec: null,
+    q:   "Trong các khẳng định sau, số khẳng định <strong>đúng</strong> là bao nhiêu?<br>(a) TS của $\\dfrac{x^2+3x}{x}=0$ là $\\{0;-3\\}$.<br>(b) TS của $\\dfrac{x^2-4}{x-2}=0$ là $\\{-2\\}$.<br>(c) TS của $\\dfrac{x-8}{x-7}=\\dfrac{1}{7-x}+8$ là $\\{0\\}$.",
+    opts:["$1$","$2$","$0$","$3$"],
+    ans: 0,
+    sol: "(a) Sai: ĐKXĐ $x\\ne 0$ nên $S=\\{-3\\}$. (b) <strong>Đúng</strong>. (c) Sai: PT vô nghiệm. Chỉ 1 khẳng định đúng."
+  },
+  {
+    sec: null,
+    q:   "Số nghiệm của phương trình $\\dfrac{x-5}{x-1} + \\dfrac{2}{x-3} = 1$ là:",
+    opts:["$3$","$2$","$0$","$1$"],
+    ans: 3,
+    sol: "Quy đồng và rút gọn: $x=5$ (thoả ĐKXĐ). Có 1 nghiệm."
+  },
+  {
+    sec: null,
+    q:   "Phương trình $\\dfrac{3x-5}{x-1} - \\dfrac{2x-5}{x-2} = 1$ có số nghiệm là:",
+    opts:["$1$","$2$","$0$","$3$"],
+    ans: 0,
+    sol: "Quy đồng và rút gọn: $x=3$ (thoả ĐKXĐ). Có 1 nghiệm."
+  },
+  {
+    sec: null,
+    q:   "Bạn Long giải phương trình $\\dfrac{1}{x-1} - \\dfrac{7}{x-2} = \\dfrac{-1}{(x-1)(2-x)}$ sai từ bước nào?<br><em>Bước 1: ĐKXĐ $x\\ne 1; x\\ne 2$. Bước 2: Quy đồng mẫu chung $(x-1)(x-2)$ (xử lý VT đúng, VP sai dấu). Bước 3: Khử mẫu, ra $x=1$.</em>",
+    opts:["Bước 1","Bước 2","Bước 3","Bạn Long giải đúng"],
+    ans: 1,
+    sol: "Long quy đồng VP sai: $\\dfrac{-1}{(x-1)(2-x)} = \\dfrac{1}{(x-1)(x-2)}$, không phải $\\dfrac{-1}{(x-1)(x-2)}$. Sai từ Bước 2."
+  },
+  {
+    sec: null,
+    q:   "Cho $A = 1 + \\dfrac{1}{2+x}$ và $B = \\dfrac{12}{x^3 + 8}$. Tìm $x$ sao cho $A = B$:",
+    opts:["$x = 0$","$x = 1$","$x = -1$","$x = 0;\\ x = 1$"],
+    ans: 3,
+    sol: "Rút gọn và giải: $x(x-1)(x+2)=0$. Loại $x=-2$ (vi phạm ĐKXĐ). Còn $x=0$ và $x=1$."
+  },
+  {
+    sec: null,
+    q:   "So sánh PT1: $\\dfrac{1}{x} + \\dfrac{2}{x-2} = 0$ và PT2: $\\dfrac{x-1}{x+2} - \\dfrac{x}{x-2} = \\dfrac{5x-2}{4-x^2}$:",
+    opts:["Hai PT có cùng điều kiện xác định",
+          "Hai PT có cùng số nghiệm",
+          "PT2 có nhiều nghiệm hơn PT1",
+          "PT2 có ít nghiệm hơn PT1"],
+    ans: 2,
+    sol: "PT1: 1 nghiệm ($x=\\dfrac{2}{3}$). PT2: vô số nghiệm (đồng nhất thức). PT2 nhiều hơn."
+  },
+  {
+    sec: null,
+    q:   "Biết $x_0$ là nghiệm nhỏ nhất của phương trình:<br>$\\dfrac{1}{x^2+4x+3}+\\dfrac{1}{x^2+8x+15}+\\dfrac{1}{x^2+12x+35}+\\dfrac{1}{x^2+16x+63}=\\dfrac{1}{5}$<br>Chọn khẳng định đúng về $x_0$:",
+    opts:["$x_0 > 0$","$x_0 < -5$","$x_0 = -10$","$x_0 > 5$"],
+    ans: 1,
+    sol: "Dùng phân số từng phần: $(x+1)(x+9)=20 \\Rightarrow x=1$ hoặc $x=-11$. Nghiệm nhỏ nhất $x_0=-11<-5$."
+  },
+  {
+    sec: null,
+    q:   "Số nghiệm của phương trình $\\dfrac{x^2+3x+2}{x+3} - \\dfrac{x^2+2x+1}{x-1} = \\dfrac{4x+4}{x^2+2x-3}$ là:",
+    opts:["$2$","$1$","$4$","$3$"],
+    ans: 1,
+    sol: "Đặt thừa số chung $(x+1)$: nghiệm $x=-1$ (thoả ĐKXĐ) và $x=-3$ (loại). Có 1 nghiệm."
+  },
+  {
+    sec: null,
+    q:   "Tổng bình phương các nghiệm của phương trình:<br>$\\dfrac{1}{x^2+3x+2}+\\dfrac{1}{x^2+5x+6}+\\dfrac{1}{x^2+7x+12}+\\dfrac{1}{x^2+9x+20}=\\dfrac{1}{3}$<br>là:",
+    opts:["$-48$","$48$","$-50$","$50$"],
+    ans: 3,
+    sol: "Dùng phân số từng phần: $(x+1)(x+5)=12 \\Rightarrow x=1$ hoặc $x=-7$. Tổng bình phương $=1+49=50$."
+  },
+  {
+    sec: null,
+    q:   "Phương trình $\\dfrac{a}{1+bx} = \\dfrac{b}{1+ax}$ ($a,b\\ne 0$) vô nghiệm khi:",
+    opts:["$a = b$","$a = 2b$","$a = -2b$","$a = -b$"],
+    ans: 3,
+    sol: "Khử mẫu: $(a-b)(a+b)x=-(a-b)$. Nếu $a\\ne b$: vô nghiệm khi $a+b=0$, tức $a=-b$."
+  },
+  {
+    sec: null,
+    q:   "Tập nghiệm của phương trình:<br>$\\dfrac{1}{x^2+4x+3}+\\dfrac{1}{x^2+8x+15}+\\dfrac{1}{x^2+12x+35}+\\dfrac{1}{x^2+16x+63}=\\dfrac{1}{5}$<br>là:",
+    opts:["Vô nghiệm",
+          "Vô số nghiệm thuộc $\\mathbb{R}$",
+          "$x = 1;\\ x = -11$",
+          "$x = 1;\\ x = 11;\\ x = -11$"],
+    ans: 2,
+    sol: "$(x+1)(x+9)=20 \\Leftrightarrow x=1$ hoặc $x=-11$, cả hai đều thoả ĐKXĐ."
+  }
+];
+
+// ── Xây giao diện ────────────────────────────────────────────
+function buildQuiz() {
+  const body = document.getElementById('quiz-body');
+  let html = '';
+  let lastSec = '';
+
+  questions.forEach((q, i) => {
+    if (q.sec && q.sec !== lastSec) {
+      html += `<div class="section-title">${q.sec}</div>`;
+      lastSec = q.sec;
+    }
+    html += `
+      <div class="qcard" id="qcard-${i}">
+        <div class="qnum">Câu ${i + 1}</div>
+        <div class="qtext">${q.q}</div>
+        <div class="options">
+          ${q.opts.map((opt, j) => `
+            <label class="opt-label" id="lbl-${i}-${j}">
+              <input type="radio" name="q${i}" value="${j}" onchange="onAnswer()">
+              <span class="opt-key">${LABELS[j]}.</span>
+              <span>${opt}</span>
+            </label>
+          `).join('')}
+        </div>
+        <div class="solution" id="sol-${i}" style="display:none">
+          💡 ${q.sol}
+        </div>
+      </div>`;
+  });
+
+  body.innerHTML = html;
+
+  // Render toán học sau khi thêm HTML
+  if (window.MathJax) {
+    MathJax.typesetPromise([body]).catch(console.error);
+  }
+}
+
+// ── Cập nhật bộ đếm ──────────────────────────────────────────
+function onAnswer() {
+  const count = questions.filter((_, i) =>
+    document.querySelector(`input[name="q${i}"]:checked`)
+  ).length;
+  document.getElementById('answered').textContent = count;
+}
+
+// ── Nộp bài ──────────────────────────────────────────────────
+function submitQuiz() {
+  let correct = 0;
+  const sols = [];
+
+  questions.forEach((q, i) => {
+    const sel = document.querySelector(`input[name="q${i}"]:checked`);
+    const chosen = sel ? parseInt(sel.value) : -1;
+    const card  = document.getElementById(`qcard-${i}`);
+    const solEl = document.getElementById(`sol-${i}`);
+
+    // Khoá input
+    document.querySelectorAll(`input[name="q${i}"]`).forEach(el => el.disabled = true);
+
+    // Tô màu
+    if (chosen === q.ans) {
+      correct++;
+      card.classList.add('correct');
+      document.getElementById(`lbl-${i}-${q.ans}`).classList.add('opt-correct');
+    } else {
+      card.classList.add('wrong');
+      if (chosen >= 0)
+        document.getElementById(`lbl-${i}-${chosen}`).classList.add('opt-wrong');
+      document.getElementById(`lbl-${i}-${q.ans}`).classList.add('opt-correct');
+    }
+
+    // Hiện lời giải
+    solEl.style.display = 'block';
+    sols.push(solEl);
+  });
+
+  // Kết quả tổng
+  const pct = Math.round(correct / questions.length * 100);
+  const result = document.getElementById('quiz-result');
+  document.getElementById('score-big').textContent   = `${correct}/${questions.length}`;
+  document.getElementById('score-label').textContent  = `Đúng ${pct}%`;
+  document.getElementById('score-detail').textContent =
+    pct >= 80 ? '🎉 Xuất sắc! Tiếp tục phát huy nhé.' :
+    pct >= 50 ? '👍 Khá tốt! Xem lại các câu sai và thử lại.' :
+                '📖 Cần ôn luyện thêm. Xem lời giải từng câu bên dưới.';
+
+  result.style.display = 'block';
+  document.getElementById('btn-submit').style.display = 'none';
+  document.getElementById('btn-reset').style.display  = 'inline-block';
+
+  // Render toán học trong lời giải
+  if (window.MathJax) {
+    MathJax.typesetPromise(sols).catch(console.error);
+  }
+
+  // Cuộn lên kết quả
+  result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// ── Làm lại ──────────────────────────────────────────────────
+function resetQuiz() {
+  questions.forEach((_, i) => {
+    document.querySelectorAll(`input[name="q${i}"]`).forEach(el => {
+      el.checked = false;
+      el.disabled = false;
+    });
+    const card = document.getElementById(`qcard-${i}`);
+    card.classList.remove('correct', 'wrong');
+    LABELS.forEach((__, j) => {
+      const lbl = document.getElementById(`lbl-${i}-${j}`);
+      if (lbl) lbl.classList.remove('opt-correct', 'opt-wrong');
+    });
+    document.getElementById(`sol-${i}`).style.display = 'none';
+  });
+
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('btn-submit').style.display   = 'inline-block';
+  document.getElementById('btn-reset').style.display    = 'none';
+  document.getElementById('answered').textContent = '0';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Khởi động ────────────────────────────────────────────────
+window.addEventListener('load', function () {
+  buildQuiz();
+});
+</script>
