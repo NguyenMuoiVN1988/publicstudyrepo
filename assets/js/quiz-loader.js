@@ -99,11 +99,11 @@
 
   // ── Chuyển markdown cơ bản → HTML (không đụng nội dung trong $...$) ─────────
   function md(text) {
-    // Tách phần math và phần text để tránh thay thế nhầm bên trong LaTeX
-    return text.replace(/(\$[^$]*\$|\$\$[^$]*\$\$)|(\*\*([^*]+?)\*\*)/g,
-      (match, math, bold, boldContent) => {
-        if (math)  return math;           // giữ nguyên math
-        if (bold)  return `<strong>${boldContent}</strong>`;
+    return text.replace(/(\$[^$]*\$|\$\$[^$]*\$\$)|(!\[([^\]]*)\]\(([^)]+)\))|(\*\*([^*]+?)\*\*)/g,
+      (match, math, img, alt, src, bold, boldContent) => {
+        if (math) return math;
+        if (img)  return `<img src="${src}" alt="${alt}" style="max-width:100%;border-radius:4px;margin:4px 0">`;
+        if (bold) return `<strong>${boldContent}</strong>`;
         return match;
       }
     );

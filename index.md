@@ -147,6 +147,7 @@ details > div {
 
 **Trắc nghiệm tương tác**
 - [C1 – Chủ đề 1: Phương trình quy về bậc nhất (29 câu)](T9/TN/T9TNC1B1CD1_quiz.html)
+- [C1 – Chủ đề 2: Phương trình bậc nhất 2 ẩn](T9/TN/T9TNC1B1CD2_quiz.html)
 
 **Chuyên đề**
 - [Toán lời văn](T9/T9CDLoiVan.html)
