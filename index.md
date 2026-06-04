@@ -3,9 +3,42 @@ layout: default
 title: "Public Study"
 ---
 
-## Tiểu học
+<style>
+details {
+  margin: 6px 0;
+  border-left: 3px solid #4a90d9;
+  border-radius: 4px;
+  padding: 2px 0 2px 14px;
+}
+summary {
+  cursor: pointer;
+  font-size: 1.15em;
+  font-weight: bold;
+  padding: 8px 4px;
+  list-style: none;
+  user-select: none;
+}
+summary::-webkit-details-marker { display: none; }
+summary::before {
+  content: "▶ ";
+  font-size: 0.75em;
+  color: #4a90d9;
+}
+details[open] > summary::before {
+  content: "▼ ";
+}
+details div {
+  padding: 4px 0 8px 8px;
+}
+</style>
 
-### Toán tư duy
+---
+
+<details>
+<summary>Tiểu học</summary>
+<div markdown="1">
+
+#### Toán tư duy
 
 **Chuyển động**
 - [Câu hỏi 1](Tieuhoc/TuduyQuestion1.md)
@@ -23,13 +56,18 @@ title: "Public Study"
 - [Hiệu tỷ: Câu hỏi 1](Tieuhoc/TieuHocHieuTy.md)
 - [Tính ngược từ cuối](Tieuhoc/T4CDNguocTuDuoi.md)
 
-### Toán 5 cơ bản
+#### Toán 5 cơ bản
 - [Phiếu luyện tập Tuần 1 và 2](T5/T5CBTuan1and2.html)
 - [Phiếu luyện tập Tuần 3 và 4](T5/T5CBTuan3and4.html)
 
+</div>
+</details>
+
 ---
 
-## Toán 6
+<details>
+<summary>Toán 6</summary>
+<div markdown="1">
 
 **Cơ bản**
 - [Chương 1: Số tự nhiên](T6/T6TaphopNC.md)
@@ -40,14 +78,25 @@ title: "Public Study"
 **Nâng cao**
 - [Các phép tính về số tự nhiên – Chuyên Toán](T6/T6NCTaiLieuChuyenToan1.html)
 
+</div>
+</details>
+
 ---
 
-## Toán 7
+<details>
+<summary>Toán 7</summary>
+<div markdown="1">
+
 - [Đọc sách cùng học sinh](T7/DocCungHST7.md)
 
+</div>
+</details>
+
 ---
 
-## Toán 8
+<details>
+<summary>Toán 8</summary>
+<div markdown="1">
 
 **Chương 1: Đại số đa thức**
 - [Bài 1: Đơn thức](T8/T8C1B1.html)
@@ -61,9 +110,14 @@ title: "Public Study"
 - [Định lý Thales](T8/thalettheorem.html)
 - [Hệ quả định lý Thales](T8/thalesdao.html)
 
+</div>
+</details>
+
 ---
 
-## Toán 9
+<details>
+<summary>Toán 9</summary>
+<div markdown="1">
 
 **Đại số**
 - [C1B1: Phương trình và hệ phương trình bậc nhất hai ẩn](T9/C1B1.md)
@@ -79,18 +133,28 @@ title: "Public Study"
 - [Câu 5 Đề thi vào 10 Hà Nội](T9/T9CDC5THIVAO10.html)
 - [Rút gọn – Ôn thi chuyên sư phạm](onthivao10/csprutgon1.html)
 
+</div>
+</details>
+
 ---
 
-## Toán 10
+<details>
+<summary>Toán 10</summary>
+<div markdown="1">
 
 - [C1B1: Mệnh đề](T10/T10C1B1.md)
 - [C1B2: Tập hợp](T10/T10C1B2.html)
 - [C6B1: Hàm số](T10/T10C6B1.html)
 - [C6B2: Hàm số bậc nhất](T10/T10C6B2.html)
 
+</div>
+</details>
+
 ---
 
-## Toán 11
+<details>
+<summary>Toán 11</summary>
+<div markdown="1">
 
 **Chương 1: Phương trình lượng giác**
 - [Bài 3: Phương trình lượng giác cơ bản](T11/T11C1B3.html)
@@ -99,9 +163,14 @@ title: "Public Study"
 - [Bài 6: Phương trình thuần nhất bậc hai](T11/T11C1B6.html)
 - [Bài 7: Luyện tập tổng hợp](T11/T11C1B7.html)
 
+</div>
+</details>
+
 ---
 
-## Toán 12
+<details>
+<summary>Toán 12</summary>
+<div markdown="1">
 
 **Chương 1**
 
@@ -129,12 +198,27 @@ title: "Public Study"
 - [Bài 1: Nguyên hàm và tích phân](T12/T12C4B1.html)
 - [Bài 2: Ứng dụng hình học của tích phân](T12/T12C4B2.html)
 
+</div>
+</details>
+
 ---
 
-## TNTHPT
+<details>
+<summary>TNTHPT</summary>
+<div markdown="1">
+
 - [CD1: Chuyên đề Phương trình và Bất phương trình](TNTHPT/CD1part1.md)
 
+</div>
+</details>
+
 ---
 
-## Tư duy
+<details>
+<summary>Tư duy</summary>
+<div markdown="1">
+
 - [Tư duy 1](tuduy/tuduy1.html)
+
+</div>
+</details>
