@@ -111,8 +111,8 @@
 
   // ── Parser: đọc raw markdown → mảng câu hỏi ─────────────────────────────────
   function parseMarkdown(rawText) {
-    // 1. Thu thập tiêu đề sections (###)
-    const sectionRe = /^###\s+(.+)$/gm;
+    // 1. Thu thập tiêu đề sections (## hoặc ###, không phân biệt số dấu #)
+    const sectionRe = /^#{2,4}\s+(.+)$/gm;
     const sections  = [];
     let sm;
     while ((sm = sectionRe.exec(rawText)) !== null) {
@@ -120,17 +120,18 @@
     }
 
     // 2. Thu thập vị trí và metadata của các <!-- @question -->
-    const commentRe = /<!--\s*@question\s+([^>]*?)-->/g;
+    //    Cho phép có hoặc không có khoảng trắng xung quanh @question
+    const commentRe = /<!--\s*@question\s*([\s\S]*?)-->/g;
     const markers   = [];
     let cm;
     while ((cm = commentRe.exec(rawText)) !== null) {
-      const ansM = cm[1].match(/\bans=([A-D])\b/);
-      // section gần nhất trước câu hỏi này
+      // ans= chấp nhận cả hoa lẫn thường (A/a … D/d)
+      const ansM = cm[1].match(/\bans\s*=\s*([A-Da-d])\b/);
       const sec  = [...sections].reverse().find(s => s.pos < cm.index);
       markers.push({
         start:   cm.index,
         end:     cm.index + cm[0].length,
-        ans:     ansM ? ansM[1] : 'A',
+        ans:     ansM ? ansM[1].toUpperCase() : 'A',
         section: sec ? sec.title : null
       });
     }
@@ -161,11 +162,19 @@
 
     const lines = block.split('\n');
 
-    // Tìm các dòng đáp án A. B. C. D.
+    // Tìm các dòng đáp án — rất forgiving:
+    //   • Chấp nhận hoa/thường: A/a … D/d
+    //   • Chấp nhận dấu "." hoặc ")" sau chữ cái
+    //   • Khoảng trắng sau dấu là tuỳ chọn (0 hoặc nhiều)
+    //   • Cho phép dòng có indent (tab/space) ở đầu
+    const optRe  = /^([A-Da-d])\s*[.)]\s*([\s\S]*)/;
     const optMap = {};
     lines.forEach((line, idx) => {
-      const m = line.trimStart().match(/^([A-D])\.\s+([\s\S]*)/);
-      if (m) optMap[m[1]] = { idx, text: m[2].trim() };
+      const m = line.trimStart().match(optRe);
+      if (m) {
+        const key = m[1].toUpperCase();
+        if (!optMap[key]) optMap[key] = { idx, text: m[2].trim() };
+      }
     });
     if (Object.keys(optMap).length < 4) return null;
 
@@ -173,17 +182,25 @@
     const firstOptIdx = Math.min(...idxArr);
     const lastOptIdx  = Math.max(...idxArr);
 
-    // Câu hỏi: các dòng trước đáp án A đầu tiên
+    // Câu hỏi: tất cả dòng trước đáp án đầu tiên
+    //   • Xoá tiền tố "**Câu N.**" nếu có (linh hoạt với số, dấu cách)
     const qLines = lines.slice(0, firstOptIdx).map(l => l.trim()).filter(Boolean);
-    const qRaw   = qLines.join('\n').replace(/^\*\*Câu\s*\d+\.\*\*\s*/, '');
+    const qRaw   = qLines.join('\n')
+      .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')  // **Câu 1.** hoặc **Câu 1:**
+      .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '');                 // Câu 1. (không bold)
     const qHtml  = qRaw.split('\n').map(md).join('<br>');
 
     // Đáp án A–D
     const opts = ['A','B','C','D'].map(k => md(optMap[k]?.text || ''));
 
-    // Lời giải: các dòng sau đáp án D
+    // Lời giải: tất cả dòng sau đáp án cuối
+    //   • Xoá tiền tố "**Lời giải.**" hoặc "Lời giải:" nếu có
     const solLines = lines.slice(lastOptIdx + 1).map(l => l.trim()).filter(Boolean);
-    const solHtml  = md(solLines.join(' ').replace(/^\*\*Lời giải\.\*\*\s*/, ''));
+    const solHtml  = md(
+      solLines.join(' ')
+        .replace(/^\*\*\s*Lời giải\s*[.:]\s*\*\*\s*/i, '')
+        .replace(/^Lời giải\s*[.:]\s*/i, '')
+    );
 
     return { q: qHtml, opts, ans: ansIdx, sol: solHtml };
   }
