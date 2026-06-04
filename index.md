@@ -5,30 +5,51 @@ title: "Public Study"
 
 <style>
 details {
-  margin: 6px 0;
-  border-left: 3px solid #4a90d9;
-  border-radius: 4px;
-  padding: 2px 0 2px 14px;
+  margin: 8px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 summary {
   cursor: pointer;
-  font-size: 1.15em;
+  font-size: 1.1em;
   font-weight: bold;
-  padding: 8px 4px;
+  padding: 10px 16px;
   list-style: none;
   user-select: none;
+  color: #333;
+  transition: background 0.2s;
 }
 summary::-webkit-details-marker { display: none; }
 summary::before {
   content: "▶ ";
   font-size: 0.75em;
-  color: #4a90d9;
 }
 details[open] > summary::before {
   content: "▼ ";
 }
-details div {
-  padding: 4px 0 8px 8px;
+
+/* Màu nền cho từng lớp khi đóng */
+details:nth-of-type(1)  > summary { background: #fde8e8; } /* Tiểu học  – hồng nhạt  */
+details:nth-of-type(2)  > summary { background: #fef3e2; } /* Toán 6    – cam nhạt   */
+details:nth-of-type(3)  > summary { background: #fefce8; } /* Toán 7    – vàng nhạt  */
+details:nth-of-type(4)  > summary { background: #ecfdf5; } /* Toán 8    – xanh lá    */
+details:nth-of-type(5)  > summary { background: #e0f7f4; } /* Toán 9    – xanh ngọc  */
+details:nth-of-type(6)  > summary { background: #eff6ff; } /* Toán 10   – xanh dương */
+details:nth-of-type(7)  > summary { background: #f5f3ff; } /* Toán 11   – tím nhạt   */
+details:nth-of-type(8)  > summary { background: #fdf4ff; } /* Toán 12   – tím lavender*/
+details:nth-of-type(9)  > summary { background: #fff1f2; } /* TNTHPT    – đỏ hồng    */
+details:nth-of-type(10) > summary { background: #f1f5f9; } /* Tư duy    – xám xanh   */
+
+/* Khi mở ra: nền trắng, chữ đen */
+details[open] > summary {
+  background: #ffffff !important;
+  color: #111111;
+  border-bottom: 1px solid #e5e7eb;
+}
+details > div {
+  padding: 8px 0 12px 16px;
+  background: #ffffff;
 }
 </style>
 
