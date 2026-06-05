@@ -206,6 +206,12 @@ details > div {
 | [Bài 3](T12/T12C1B3.md) | [Kiểm tra Bài 3](T12/T12TestC1B3F.md) |
 | [Bài 4: Khảo sát hàm số](T12/T12C1B4KhaoSat.md) | [Kiểm tra Bài 4](T12/T12TestC1B4F.md) |
 
+**Trắc nghiệm tương tác – Chương 1**
+- [C1B1 – Dạng 1–3: Hàm đa thức, phân thức, căn thức (15 câu)](T12/TN/C1/T12C1B1D123.html)
+- [C1B1 – Dạng 4–6: Hàm lượng giác, mũ, lôgarit (22 câu)](T12/TN/C1/T12C1B1D456.html)
+- [C1B1 – Dạng 7–9: Giá trị tuyệt đối, biết f'(x), đồ thị/BBT (15 câu)](T12/TN/C1/T12C1B1D789.html)
+- [C1B1 – Dạng 10–15: Hàm hợp, tìm tham số, bài toán thực tế (25 câu)](T12/TN/C1/T12C1B1D101112131415.html)
+
 **Chương 2: Hình học không gian – Oxyz**
 - [Bài 1: Vector trong không gian](T12/T12C2B1.md)
 - [Bài 2](T12/T12C2B2.md)
