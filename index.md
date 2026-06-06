@@ -187,7 +187,7 @@ details > div {
 - [Bài 1: Giá trị lượng giác](T11/C1/BaiGiang/T11C1B1.html)
 
 *Phương trình lượng giác*
-- [Bài 3: Phương trình lượng giác cơ bản](T11/T11C1B3.html)
+
 - [Bài 4: Phương trình lượng giác bậc hai](T11/T11C1B4.html)
 - [Bài 5: Phương trình bậc nhất với sin và cos](T11/T11C1B5.html)
 - [Bài 6: Phương trình thuần nhất bậc hai](T11/T11C1B6.html)
