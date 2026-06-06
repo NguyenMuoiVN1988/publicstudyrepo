@@ -1,0 +1,57 @@
+<div id="loading" style="color:#888; font-style:italic;">Đang tải bài giảng…</div>
+<div id="error" style="color:#c0392b; display:none;"></div>
+<div id="content"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  function protectMath(md) {
+    var store = [];
+    function mark(m) {
+      store.push(m);
+      return '<span data-mpl="' + (store.length - 1) + '"></span>';
+    }
+    md = md.replace(/\$\$[\s\S]*?\$\$/g, mark);
+    md = md.replace(/\\\[[\s\S]*?\\\]/g, mark);
+    md = md.replace(/\$[^\$\n]+?\$/g, mark);
+    md = md.replace(/\\\([\s\S]*?\\\)/g, mark);
+    return { md: md, store: store };
+  }
+
+  function restoreMath(html, store) {
+    return html.replace(/<span data-mpl="(\d+)"[^>]*><\/span>/g, function(_, i) {
+      var math = store[parseInt(i)];
+      return math.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    });
+  }
+
+  function runMathJax(el) {
+    if (!window.MathJax) return;
+    if (typeof MathJax.typesetPromise === 'function') {
+      MathJax.typesetPromise([el]).catch(function(e) { console.warn('MathJax:', e); });
+    } else if (MathJax.startup && MathJax.startup.promise) {
+      MathJax.startup.promise.then(function() {
+        MathJax.typesetPromise([el]).catch(function(e) { console.warn('MathJax:', e); });
+      });
+    }
+  }
+
+  fetch("{{ include.url }}")
+    .then(function(res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.text();
+    })
+    .then(function(md) {
+      var saved = protectMath(md);
+      var html = restoreMath(marked.parse(saved.md), saved.store);
+      var el = document.getElementById("content");
+      el.innerHTML = html;
+      document.getElementById("loading").style.display = "none";
+      runMathJax(el);
+    })
+    .catch(function(err) {
+      document.getElementById("loading").style.display = "none";
+      var errEl = document.getElementById("error");
+      errEl.style.display = "block";
+      errEl.textContent = "Không thể tải bài giảng: " + err.message;
+    });
+</script>
