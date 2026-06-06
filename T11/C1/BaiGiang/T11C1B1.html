@@ -11,14 +11,44 @@ tags: [Toán 11, lượng giác, giá trị lượng giác, Chương 1]
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
+  // Bảo vệ biểu thức toán khỏi bị marked.js xử lý sai
+  function protectMath(md) {
+    var store = [];
+    // Giữ nguyên thứ tự: $$...$$ trước $...$, \[...\] trước \(...\)
+    md = md.replace(/\$\$[\s\S]*?\$\$/g, function(m) {
+      store.push(m); return '\x02MATH' + (store.length - 1) + '\x03';
+    });
+    md = md.replace(/\$[^\$\n]+?\$/g, function(m) {
+      store.push(m); return '\x02MATH' + (store.length - 1) + '\x03';
+    });
+    md = md.replace(/\\\[[\s\S]*?\\\]/g, function(m) {
+      store.push(m); return '\x02MATH' + (store.length - 1) + '\x03';
+    });
+    md = md.replace(/\\\([\s\S]*?\\\)/g, function(m) {
+      store.push(m); return '\x02MATH' + (store.length - 1) + '\x03';
+    });
+    return { md: md, store: store };
+  }
+
+  function restoreMath(html, store) {
+    return html.replace(/\x02MATH(\d+)\x03/g, function(_, i) {
+      return store[parseInt(i)];
+    });
+  }
+
   fetch("https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T11/C1/BaiGiang_Bai1_GiaTriLuongGiac.md")
     .then(function(res) {
       if (!res.ok) throw new Error("HTTP " + res.status);
       return res.text();
     })
     .then(function(md) {
+      var protected = protectMath(md);
+      var html = restoreMath(marked.parse(protected.md), protected.store);
+      var el = document.getElementById("content");
+      el.innerHTML = html;
       document.getElementById("loading").style.display = "none";
-      document.getElementById("content").innerHTML = marked.parse(md);
+      // Yêu cầu MathJax render lại phần nội dung vừa chèn vào
+      if (window.MathJax) MathJax.typesetPromise([el]);
     })
     .catch(function(err) {
       document.getElementById("loading").style.display = "none";
