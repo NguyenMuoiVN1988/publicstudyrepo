@@ -11,29 +11,38 @@ tags: [Toán 11, lượng giác, giá trị lượng giác, Chương 1]
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
-  // Bảo vệ biểu thức toán khỏi bị marked.js xử lý sai
   function protectMath(md) {
     var store = [];
-    // Giữ nguyên thứ tự: $$...$$ trước $...$, \[...\] trước \(...\)
-    md = md.replace(/\$\$[\s\S]*?\$\$/g, function(m) {
-      store.push(m); return '\x02MATH' + (store.length - 1) + '\x03';
-    });
-    md = md.replace(/\$[^\$\n]+?\$/g, function(m) {
-      store.push(m); return '\x02MATH' + (store.length - 1) + '\x03';
-    });
-    md = md.replace(/\\\[[\s\S]*?\\\]/g, function(m) {
-      store.push(m); return '\x02MATH' + (store.length - 1) + '\x03';
-    });
-    md = md.replace(/\\\([\s\S]*?\\\)/g, function(m) {
-      store.push(m); return '\x02MATH' + (store.length - 1) + '\x03';
-    });
+    function mark(m) {
+      store.push(m);
+      return '<span data-mpl="' + (store.length - 1) + '"></span>';
+    }
+    // Thứ tự quan trọng: $$...$$ và \[...\] trước $...$ và \(...\)
+    md = md.replace(/\$\$[\s\S]*?\$\$/g, mark);
+    md = md.replace(/\\\[[\s\S]*?\\\]/g, mark);
+    md = md.replace(/\$[^\$\n]+?\$/g, mark);
+    md = md.replace(/\\\([\s\S]*?\\\)/g, mark);
     return { md: md, store: store };
   }
 
   function restoreMath(html, store) {
-    return html.replace(/\x02MATH(\d+)\x03/g, function(_, i) {
-      return store[parseInt(i)];
+    // Dùng regex khớp cả thẻ self-closing lẫn thẻ rỗng mà marked có thể xuất ra
+    return html.replace(/<span data-mpl="(\d+)"[^>]*><\/span>/g, function(_, i) {
+      var math = store[parseInt(i)];
+      // Escape < > để browser không parse LaTeX thành HTML tag khi gán innerHTML
+      return math.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     });
+  }
+
+  function runMathJax(el) {
+    if (!window.MathJax) return;
+    if (typeof MathJax.typesetPromise === 'function') {
+      MathJax.typesetPromise([el]).catch(function(e) { console.warn('MathJax:', e); });
+    } else if (MathJax.startup && MathJax.startup.promise) {
+      MathJax.startup.promise.then(function() {
+        MathJax.typesetPromise([el]).catch(function(e) { console.warn('MathJax:', e); });
+      });
+    }
   }
 
   fetch("https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T11/C1/BaiGiang_Bai1_GiaTriLuongGiac.md")
@@ -42,18 +51,17 @@ tags: [Toán 11, lượng giác, giá trị lượng giác, Chương 1]
       return res.text();
     })
     .then(function(md) {
-      var protected = protectMath(md);
-      var html = restoreMath(marked.parse(protected.md), protected.store);
+      var saved = protectMath(md);
+      var html = restoreMath(marked.parse(saved.md), saved.store);
       var el = document.getElementById("content");
       el.innerHTML = html;
       document.getElementById("loading").style.display = "none";
-      // Yêu cầu MathJax render lại phần nội dung vừa chèn vào
-      if (window.MathJax) MathJax.typesetPromise([el]);
+      runMathJax(el);
     })
     .catch(function(err) {
       document.getElementById("loading").style.display = "none";
-      var el = document.getElementById("error");
-      el.style.display = "block";
-      el.textContent = "Không thể tải bài giảng: " + err.message;
+      var errEl = document.getElementById("error");
+      errEl.style.display = "block";
+      errEl.textContent = "Không thể tải bài giảng: " + err.message;
     });
 </script>
