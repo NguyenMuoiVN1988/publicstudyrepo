@@ -1,0 +1,29 @@
+---
+layout: default
+title: T11 C1B1. Giá Trị Lượng Giác
+description: Bài giảng về giá trị lượng giác – Toán 11 Chương 1 Bài 1
+tags: [Toán 11, lượng giác, giá trị lượng giác, Chương 1]
+---
+
+<div id="loading" style="color:#888; font-style:italic;">Đang tải bài giảng…</div>
+<div id="error" style="color:#c0392b; display:none;"></div>
+<div id="content"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  fetch("https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T11/C1/BaiGiang_Bai1_GiaTriLuongGiac.md")
+    .then(function(res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.text();
+    })
+    .then(function(md) {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("content").innerHTML = marked.parse(md);
+    })
+    .catch(function(err) {
+      document.getElementById("loading").style.display = "none";
+      var el = document.getElementById("error");
+      el.style.display = "block";
+      el.textContent = "Không thể tải bài giảng: " + err.message;
+    });
+</script>
