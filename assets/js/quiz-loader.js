@@ -55,6 +55,18 @@
     .ql-text { font-size: 0.96em; line-height: 1.65; margin-bottom: 10px; }
     .ql-opts { display: flex; flex-direction: column; gap: 6px; }
 
+    /* ── Bảng số liệu ── */
+    .ql-table {
+      border-collapse: collapse; margin: 10px 0; width: auto;
+      font-size: 0.92em; display: block; overflow-x: auto;
+    }
+    .ql-table th, .ql-table td {
+      border: 1px solid #cbd5e1; padding: 6px 12px;
+      text-align: center; white-space: nowrap;
+    }
+    .ql-table thead th { background: #eff6ff; color: #1e3a8a; font-weight: 600; }
+    .ql-table tbody td:first-child { background: #f8fafc; font-weight: 600; text-align: left; }
+
     .ql-opt {
       display: flex; align-items: flex-start; gap: 10px;
       padding: 7px 10px; border: 1px solid #e2e8f0; border-radius: 6px;
@@ -145,6 +157,65 @@
     );
   }
 
+  // ── Bảng markdown (GFM) → <table> ───────────────────────────────────────────
+  // Dòng phân cách kiểu | --- | :--: | ---: |
+  function isTableSep(line) {
+    return /^\s*\|?(?:\s*:?-+:?\s*\|)+\s*:?-*:?\s*$/.test(line) &&
+           line.includes('-') && line.includes('|');
+  }
+  function isTableRow(line) {
+    return line.includes('|');
+  }
+  function splitCells(row) {
+    let r = row.trim();
+    if (r.startsWith('|')) r = r.slice(1);
+    if (r.endsWith('|'))   r = r.slice(0, -1);
+    return r.split('|').map(c => md(c.trim()));
+  }
+  function buildTable(headerLine, bodyLines) {
+    const head = splitCells(headerLine);
+    let html = '<table class="ql-table"><thead><tr>';
+    head.forEach(c => html += `<th>${c}</th>`);
+    html += '</tr></thead><tbody>';
+    bodyLines.forEach(line => {
+      const cells = splitCells(line);
+      html += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
+    });
+    return html + '</tbody></table>';
+  }
+
+  // Chuyển một khối văn bản nhiều dòng → HTML, nhận diện bảng markdown.
+  // Các dòng văn bản thường nối bằng <br>; bảng dựng thành <table>.
+  function renderRich(raw) {
+    const lines = raw.split('\n');
+    const out   = [];
+    let buf     = [];   // gom các dòng văn bản liên tiếp
+
+    const flush = () => {
+      if (buf.length) { out.push(buf.map(md).join('<br>')); buf = []; }
+    };
+
+    let i = 0;
+    while (i < lines.length) {
+      if (isTableRow(lines[i]) && i + 1 < lines.length && isTableSep(lines[i + 1])) {
+        flush();
+        const header = lines[i];
+        i += 2;                       // bỏ qua dòng tiêu đề + dòng phân cách
+        const body = [];
+        while (i < lines.length && isTableRow(lines[i]) && lines[i].trim() !== '') {
+          body.push(lines[i]);
+          i++;
+        }
+        out.push(buildTable(header, body));
+      } else {
+        buf.push(lines[i]);
+        i++;
+      }
+    }
+    flush();
+    return out.join('');
+  }
+
   // ── Parser: đọc raw markdown → mảng câu hỏi ─────────────────────────────────
   function parseMarkdown(rawText) {
     // 1. Thu thập tiêu đề sections (## hoặc ###)
@@ -223,7 +294,7 @@
     const qRaw   = qLines.join('\n')
       .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')
       .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '');
-    const qHtml  = qRaw.split('\n').map(md).join('<br>');
+    const qHtml  = renderRich(qRaw);
 
     const opts = ['A','B','C','D'].map(k => md(optMap[k]?.text || ''));
 
@@ -253,7 +324,7 @@
     const qRaw   = qLines.join('\n')
       .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')
       .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '');
-    const qHtml  = qRaw.split('\n').map(md).join('<br>');
+    const qHtml  = renderRich(qRaw);
 
     const solLines = solIdx >= 0
       ? lines.slice(solIdx).map(l => l.trim()).filter(Boolean)
