@@ -40,6 +40,7 @@ details:nth-of-type(7)  > summary { background: #f5f3ff; } /* Toán 11   – tí
 details:nth-of-type(8)  > summary { background: #fdf4ff; } /* Toán 12   – tím lavender*/
 details:nth-of-type(9)  > summary { background: #fff1f2; } /* TNTHPT    – đỏ hồng    */
 details:nth-of-type(10) > summary { background: #f1f5f9; } /* Tư duy    – xám xanh   */
+details:nth-of-type(11) > summary { background: #fef9c3; } /* mục thứ 11 – vàng kem  */
 
 /* Khi mở ra: nền trắng, chữ đen */
 details[open] > summary {
@@ -52,6 +53,18 @@ details > div {
   background: #ffffff;
 }
 </style>
+
+---
+
+<details>
+<summary>HSA – Đánh giá năng lực ĐHQG Hà Nội</summary>
+<div markdown="1">
+
+**Trắc nghiệm tương tác**
+- [Đề Minh Họa 2025 – Phần Toán & Xử lí số liệu](HSA/2025MinhHoa.html)
+
+</div>
+</details>
 
 ---
 

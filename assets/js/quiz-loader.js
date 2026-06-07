@@ -1,18 +1,26 @@
 /**
  * quiz-loader.js
- * Engine đọc file .md từ raw GitHub, parse câu hỏi, dựng giao diện trắc nghiệm.
+ * Engine đọc file .md từ raw URL, parse câu hỏi, dựng giao diện trắc nghiệm.
  *
  * Cách dùng:
  *   QuizLoader.init({ mdUrl, containerId, title })
  *
- * Định dạng .md cần có:
- *   <!-- @question id=... ans=B cat=... -->
+ * Định dạng .md hỗ trợ hai loại câu hỏi:
+ *
+ * Trắc nghiệm (MC):
+ *   <!-- @question id=... type=mc ans=B cat=... -->
  *   **Câu N.** Nội dung câu hỏi
  *   A. Đáp án A
  *   B. Đáp án B
  *   C. Đáp án C
  *   D. Đáp án D
  *   **Lời giải.** Giải thích...
+ *
+ * Điền đáp án (SA):
+ *   <!-- @question id=... type=sa ans=2 cat=... -->
+ *   <!-- @question id=... type=sa ans=0,2|0.2|1/5 cat=... -->
+ *   **Câu N.** Nội dung câu hỏi
+ *   **Lời giải.** Giải thích... **Đáp số: 2.**
  */
 
 (function (global) {
@@ -62,6 +70,33 @@
     .ql-opt.ql-opt-correct .ql-key { color: #15803d; }
     .ql-opt.ql-opt-wrong   .ql-key { color: #dc2626; }
 
+    /* ── SA (Short Answer / Điền đáp án) ── */
+    .ql-sa-badge {
+      display: inline-block; background: #dbeafe; color: #1e40af;
+      font-size: 0.7em; padding: 1px 8px; border-radius: 10px;
+      font-weight: 600; letter-spacing: .04em; vertical-align: middle;
+      margin-left: 6px;
+    }
+    .ql-sa-wrap {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin: 6px 0 4px;
+    }
+    .ql-sa-label { font-size: 0.9em; color: #475569; white-space: nowrap; }
+    .ql-sa-input {
+      border: 1.5px solid #94a3b8; border-radius: 6px;
+      padding: 6px 12px; font-size: 0.96em; outline: none;
+      width: 220px; max-width: 100%;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .ql-sa-input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+    }
+    .ql-sa-input:disabled { background: #f1f5f9; color: #475569; cursor: default; }
+    .ql-sa-result { font-size: 0.9em; font-weight: 600; }
+    .ql-sa-result.ql-correct-text { color: #16a34a; }
+    .ql-sa-result.ql-wrong-text   { color: #dc2626; }
+
     .ql-sol {
       margin-top: 10px; padding: 8px 12px;
       background: #fefce8; border-left: 3px solid #eab308;
@@ -86,6 +121,7 @@
     @media (max-width: 600px) {
       .ql-card { padding: 12px; }
       .ql-opt  { font-size: .86em; }
+      .ql-sa-input { width: 180px; }
     }
   `;
 
@@ -111,7 +147,7 @@
 
   // ── Parser: đọc raw markdown → mảng câu hỏi ─────────────────────────────────
   function parseMarkdown(rawText) {
-    // 1. Thu thập tiêu đề sections (## hoặc ###, không phân biệt số dấu #)
+    // 1. Thu thập tiêu đề sections (## hoặc ###)
     const sectionRe = /^#{2,4}\s+(.+)$/gm;
     const sections  = [];
     let sm;
@@ -120,34 +156,40 @@
     }
 
     // 2. Thu thập vị trí và metadata của các <!-- @question -->
-    //    Cho phép có hoặc không có khoảng trắng xung quanh @question
     const commentRe = /<!--\s*@question\s*([\s\S]*?)-->/g;
     const markers   = [];
     let cm;
     while ((cm = commentRe.exec(rawText)) !== null) {
-      // ans= chấp nhận cả hoa lẫn thường (A/a … D/d)
-      const ansM = cm[1].match(/\bans\s*=\s*([A-Da-d])\b/);
-      const sec  = [...sections].reverse().find(s => s.pos < cm.index);
+      const typeM  = cm[1].match(/\btype\s*=\s*(\w+)/i);
+      const qType  = typeM ? typeM[1].toLowerCase() : 'mc';
+      // Regex bắt ans= cho cả MC (ans=A) lẫn SA (ans=0,2|0.2|1/5)
+      const ansM   = cm[1].match(/\bans\s*=\s*([^\s>]+)/);
+      const ansRaw = ansM ? ansM[1].replace(/-->?$/, '').trim()
+                          : (qType === 'mc' ? 'A' : '0');
+      const sec    = [...sections].reverse().find(s => s.pos < cm.index);
       markers.push({
         start:   cm.index,
         end:     cm.index + cm[0].length,
-        ans:     ansM ? ansM[1].toUpperCase() : 'A',
+        type:    qType,
+        ans:     ansRaw,
         section: sec ? sec.title : null
       });
     }
 
     // 3. Parse từng block giữa hai marker liên tiếp
-    const questions  = [];
+    const questions   = [];
     let   lastSection = null;
 
     for (let i = 0; i < markers.length; i++) {
       const blockStart = markers[i].end;
       const blockEnd   = i + 1 < markers.length ? markers[i + 1].start : rawText.length;
       const block      = rawText.slice(blockStart, blockEnd);
-      const q          = parseBlock(block, markers[i].ans);
+
+      const q = markers[i].type === 'sa'
+        ? parseSaBlock(block, markers[i].ans)
+        : parseMcBlock(block, markers[i].ans);
       if (!q) continue;
 
-      // Gắn tên section chỉ khi section đổi (để hiển thị header 1 lần)
       q.section    = markers[i].section !== lastSection ? markers[i].section : null;
       lastSection  = markers[i].section;
       questions.push(q);
@@ -156,17 +198,12 @@
     return questions;
   }
 
-  function parseBlock(block, ansLetter) {
-    const ansIdx = 'ABCD'.indexOf(ansLetter);
+  // ── Parse block câu hỏi trắc nghiệm (MC) ────────────────────────────────────
+  function parseMcBlock(block, ansLetter) {
+    const ansIdx = 'ABCD'.indexOf(ansLetter.toUpperCase());
     if (ansIdx < 0) return null;
 
-    const lines = block.split('\n');
-
-    // Tìm các dòng đáp án — rất forgiving:
-    //   • Chấp nhận hoa/thường: A/a … D/d
-    //   • Chấp nhận dấu "." hoặc ")" sau chữ cái
-    //   • Khoảng trắng sau dấu là tuỳ chọn (0 hoặc nhiều)
-    //   • Cho phép dòng có indent (tab/space) ở đầu
+    const lines  = block.split('\n');
     const optRe  = /^([A-Da-d])\s*[.)]\s*([\s\S]*)/;
     const optMap = {};
     lines.forEach((line, idx) => {
@@ -182,19 +219,14 @@
     const firstOptIdx = Math.min(...idxArr);
     const lastOptIdx  = Math.max(...idxArr);
 
-    // Câu hỏi: tất cả dòng trước đáp án đầu tiên
-    //   • Xoá tiền tố "**Câu N.**" nếu có (linh hoạt với số, dấu cách)
     const qLines = lines.slice(0, firstOptIdx).map(l => l.trim()).filter(Boolean);
     const qRaw   = qLines.join('\n')
-      .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')  // **Câu 1.** hoặc **Câu 1:**
-      .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '');                 // Câu 1. (không bold)
+      .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')
+      .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '');
     const qHtml  = qRaw.split('\n').map(md).join('<br>');
 
-    // Đáp án A–D
     const opts = ['A','B','C','D'].map(k => md(optMap[k]?.text || ''));
 
-    // Lời giải: tất cả dòng sau đáp án cuối
-    //   • Xoá tiền tố "**Lời giải.**" hoặc "Lời giải:" nếu có
     const solLines = lines.slice(lastOptIdx + 1).map(l => l.trim()).filter(Boolean);
     const solHtml  = md(
       solLines.join(' ')
@@ -205,16 +237,80 @@
     return { q: qHtml, opts, ans: ansIdx, sol: solHtml };
   }
 
+  // ── Parse block câu hỏi điền đáp án (SA) ────────────────────────────────────
+  function parseSaBlock(block, ansRaw) {
+    // ans có thể là "2", "0,2|0.2|1/5", "99,87|99.87|784/785", …
+    const acceptedAnswers = ansRaw.split('|').map(a => a.trim()).filter(Boolean);
+    if (!acceptedAnswers.length) return null;
+
+    const lines = block.split('\n');
+
+    // Tìm dòng bắt đầu lời giải: dòng bắt đầu bằng **Lời giải
+    const solIdx = lines.findIndex(l => /^\s*\*\*\s*lời giải/i.test(l));
+    const endIdx = solIdx >= 0 ? solIdx : lines.length;
+
+    const qLines = lines.slice(0, endIdx).map(l => l.trim()).filter(Boolean);
+    const qRaw   = qLines.join('\n')
+      .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')
+      .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '');
+    const qHtml  = qRaw.split('\n').map(md).join('<br>');
+
+    const solLines = solIdx >= 0
+      ? lines.slice(solIdx).map(l => l.trim()).filter(Boolean)
+      : [];
+    const solHtml  = md(
+      solLines.join(' ')
+        .replace(/^\*\*\s*Lời giải\s*[.:]\s*\*\*\s*/i, '')
+        .replace(/^Lời giải\s*[.:]\s*/i, '')
+    );
+
+    return { type: 'sa', q: qHtml, acceptedAnswers, sol: solHtml };
+  }
+
+  // ── Kiểm tra đáp án SA (chấp nhận nhiều dạng viết) ──────────────────────────
+  function checkSaAnswer(userInput, acceptedAnswers) {
+    const normalize = s => s.trim()
+      .replace(/\s+/g, '')
+      .replace(/[≈~]/g, '')
+      .replace(/%$/, '')      // bỏ dấu % ở cuối
+      .toLowerCase()
+      .replace(/,/g, '.');    // thống nhất dấu thập phân
+
+    const nUser = normalize(userInput);
+    if (nUser === '') return false;
+
+    return acceptedAnswers.some(ans => {
+      const nAns = normalize(ans);
+      if (nUser === nAns) return true;
+      // So sánh số học để chấp nhận các dạng tương đương (0.2 = 0.20)
+      const uNum = parseFloat(nUser);
+      const aNum = parseFloat(nAns);
+      if (!isNaN(uNum) && !isNaN(aNum) && Math.abs(uNum - aNum) < 1e-9) return true;
+      return false;
+    });
+  }
+
   // ── Dựng giao diện quiz ───────────────────────────────────────────────────────
   const LABELS = ['A','B','C','D'];
 
   function render(container, questions, title) {
-    const total = questions.length;
+    const total   = questions.length;
+    const saCount = questions.filter(q => q.type === 'sa').length;
+    const mcCount = total - saCount;
+
+    let typeDesc;
+    if (mcCount && saCount)
+      typeDesc = `${mcCount} trắc nghiệm · ${saCount} điền đáp án`;
+    else if (saCount)
+      typeDesc = 'Điền kết quả vào ô trống';
+    else
+      typeDesc = 'Chọn đáp án đúng';
+
     let html = `
       <div class="ql-wrap">
         <div class="ql-header">
           <h2>${title}</h2>
-          <p>${total} câu · Chọn đáp án đúng rồi bấm <strong>Nộp bài</strong></p>
+          <p>${total} câu · ${typeDesc} rồi bấm <strong>Nộp bài</strong></p>
         </div>
         <div class="ql-progress">Đã trả lời: <span id="ql-answered">0</span>/${total} câu</div>
         <div class="ql-result" id="ql-result" style="display:none">
@@ -227,20 +323,36 @@
 
     questions.forEach((q, i) => {
       if (q.section) html += `<div class="ql-section">${q.section}</div>`;
-      html += `
-        <div class="ql-card" id="ql-card-${i}">
-          <div class="ql-num">Câu ${i + 1}</div>
-          <div class="ql-text">${q.q}</div>
-          <div class="ql-opts">
-            ${q.opts.map((opt, j) => `
-              <label class="ql-opt" id="ql-lbl-${i}-${j}">
-                <input type="radio" name="ql-q${i}" value="${j}">
-                <span class="ql-key">${LABELS[j]}.</span>
-                <span>${opt}</span>
-              </label>`).join('')}
-          </div>
-          <div class="ql-sol" id="ql-sol-${i}" style="display:none">💡 ${q.sol}</div>
-        </div>`;
+
+      if (q.type === 'sa') {
+        html += `
+          <div class="ql-card" id="ql-card-${i}">
+            <div class="ql-num">Câu ${i + 1}<span class="ql-sa-badge">Điền</span></div>
+            <div class="ql-text">${q.q}</div>
+            <div class="ql-sa-wrap">
+              <span class="ql-sa-label">Đáp án:</span>
+              <input type="text" class="ql-sa-input" id="ql-sa-${i}"
+                     placeholder="Nhập kết quả…" autocomplete="off">
+              <span class="ql-sa-result" id="ql-sa-result-${i}"></span>
+            </div>
+            <div class="ql-sol" id="ql-sol-${i}" style="display:none">💡 ${q.sol}</div>
+          </div>`;
+      } else {
+        html += `
+          <div class="ql-card" id="ql-card-${i}">
+            <div class="ql-num">Câu ${i + 1}</div>
+            <div class="ql-text">${q.q}</div>
+            <div class="ql-opts">
+              ${q.opts.map((opt, j) => `
+                <label class="ql-opt" id="ql-lbl-${i}-${j}">
+                  <input type="radio" name="ql-q${i}" value="${j}">
+                  <span class="ql-key">${LABELS[j]}.</span>
+                  <span>${opt}</span>
+                </label>`).join('')}
+            </div>
+            <div class="ql-sol" id="ql-sol-${i}" style="display:none">💡 ${q.sol}</div>
+          </div>`;
+      }
     });
 
     html += `
@@ -254,51 +366,77 @@
 
     container.innerHTML = html;
 
-    // Gắn sự kiện
+    // Hàm đếm số câu đã trả lời (đóng kín qua questions)
+    function updateProgress() {
+      let count = 0;
+      questions.forEach((q, i) => {
+        if (q.type === 'sa') {
+          const inp = document.getElementById(`ql-sa-${i}`);
+          if (inp && inp.value.trim() !== '') count++;
+        } else {
+          if (document.querySelector(`input[name="ql-q${i}"]:checked`)) count++;
+        }
+      });
+      document.getElementById('ql-answered').textContent = count;
+    }
+
     container.querySelectorAll('input[type="radio"]').forEach(inp =>
       inp.addEventListener('change', updateProgress)
     );
+    container.querySelectorAll('.ql-sa-input').forEach(inp =>
+      inp.addEventListener('input', updateProgress)
+    );
+
     document.getElementById('ql-submit').addEventListener('click', () => submit(questions));
     document.getElementById('ql-reset' ).addEventListener('click', () => reset(questions));
 
     typeset(container);
   }
 
-  // ── Đếm số câu đã trả lời ───────────────────────────────────────────────────
-  function updateProgress() {
-    const total = document.querySelectorAll('[id^="ql-card-"]').length;
-    let count = 0;
-    for (let i = 0; i < total; i++)
-      if (document.querySelector(`input[name="ql-q${i}"]:checked`)) count++;
-    document.getElementById('ql-answered').textContent = count;
-  }
-
   // ── Nộp bài ─────────────────────────────────────────────────────────────────
   function submit(questions) {
     let correct = 0;
-    const solEls = [];
 
     questions.forEach((q, i) => {
-      const sel    = document.querySelector(`input[name="ql-q${i}"]:checked`);
-      const chosen = sel ? parseInt(sel.value) : -1;
-      const card   = document.getElementById(`ql-card-${i}`);
-      const solEl  = document.getElementById(`ql-sol-${i}`);
+      const card  = document.getElementById(`ql-card-${i}`);
+      const solEl = document.getElementById(`ql-sol-${i}`);
 
-      document.querySelectorAll(`input[name="ql-q${i}"]`).forEach(el => el.disabled = true);
+      if (q.type === 'sa') {
+        const inp       = document.getElementById(`ql-sa-${i}`);
+        const userInput = inp ? inp.value.trim() : '';
+        if (inp) inp.disabled = true;
 
-      if (chosen === q.ans) {
-        correct++;
-        card.classList.add('ql-correct');
-        document.getElementById(`ql-lbl-${i}-${q.ans}`).classList.add('ql-opt-correct');
+        const isOk  = checkSaAnswer(userInput, q.acceptedAnswers);
+        const resEl = document.getElementById(`ql-sa-result-${i}`);
+
+        if (isOk) {
+          correct++;
+          card.classList.add('ql-correct');
+          resEl.textContent = '✓ Đúng';
+          resEl.className   = 'ql-sa-result ql-correct-text';
+        } else {
+          card.classList.add('ql-wrong');
+          resEl.textContent = `✗ Sai — đáp án: ${q.acceptedAnswers[0]}`;
+          resEl.className   = 'ql-sa-result ql-wrong-text';
+        }
       } else {
-        card.classList.add('ql-wrong');
-        if (chosen >= 0)
-          document.getElementById(`ql-lbl-${i}-${chosen}`).classList.add('ql-opt-wrong');
-        document.getElementById(`ql-lbl-${i}-${q.ans}`).classList.add('ql-opt-correct');
+        const sel    = document.querySelector(`input[name="ql-q${i}"]:checked`);
+        const chosen = sel ? parseInt(sel.value) : -1;
+        document.querySelectorAll(`input[name="ql-q${i}"]`).forEach(el => el.disabled = true);
+
+        if (chosen === q.ans) {
+          correct++;
+          card.classList.add('ql-correct');
+          document.getElementById(`ql-lbl-${i}-${q.ans}`).classList.add('ql-opt-correct');
+        } else {
+          card.classList.add('ql-wrong');
+          if (chosen >= 0)
+            document.getElementById(`ql-lbl-${i}-${chosen}`).classList.add('ql-opt-wrong');
+          document.getElementById(`ql-lbl-${i}-${q.ans}`).classList.add('ql-opt-correct');
+        }
       }
 
       solEl.style.display = 'block';
-      solEls.push(solEl);
     });
 
     const pct    = Math.round(correct / questions.length * 100);
@@ -320,17 +458,25 @@
 
   // ── Làm lại ─────────────────────────────────────────────────────────────────
   function reset(questions) {
-    questions.forEach((_, i) => {
-      document.querySelectorAll(`input[name="ql-q${i}"]`).forEach(el => {
-        el.checked = false; el.disabled = false;
-      });
+    questions.forEach((q, i) => {
       const card = document.getElementById(`ql-card-${i}`);
       card.classList.remove('ql-correct', 'ql-wrong');
-      LABELS.forEach((__, j) => {
-        const lbl = document.getElementById(`ql-lbl-${i}-${j}`);
-        if (lbl) lbl.classList.remove('ql-opt-correct', 'ql-opt-wrong');
-      });
       document.getElementById(`ql-sol-${i}`).style.display = 'none';
+
+      if (q.type === 'sa') {
+        const inp = document.getElementById(`ql-sa-${i}`);
+        if (inp) { inp.value = ''; inp.disabled = false; }
+        const resEl = document.getElementById(`ql-sa-result-${i}`);
+        if (resEl) { resEl.textContent = ''; resEl.className = 'ql-sa-result'; }
+      } else {
+        document.querySelectorAll(`input[name="ql-q${i}"]`).forEach(el => {
+          el.checked = false; el.disabled = false;
+        });
+        LABELS.forEach((__, j) => {
+          const lbl = document.getElementById(`ql-lbl-${i}-${j}`);
+          if (lbl) lbl.classList.remove('ql-opt-correct', 'ql-opt-wrong');
+        });
+      }
     });
 
     document.getElementById('ql-result').style.display  = 'none';
@@ -348,12 +494,6 @@
   }
 
   // ── API công khai ────────────────────────────────────────────────────────────
-  /**
-   * QuizLoader.init({ mdUrl, containerId, title })
-   *   mdUrl       : URL raw GitHub của file .md (raw.githubusercontent.com/...)
-   *   containerId : id của div chứa quiz
-   *   title       : tiêu đề hiển thị
-   */
   async function init({ mdUrl, containerId, title }) {
     injectStyle();
     const container = document.getElementById(containerId);
