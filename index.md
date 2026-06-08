@@ -182,6 +182,9 @@ details > div {
 - [Câu 5 Đề thi vào 10 Hà Nội](T9/T9CDC5THIVAO10.html)
 - [Rút gọn – Ôn thi chuyên sư phạm](onthivao10/csprutgon1.html)
 
+**Lời giải phiếu bài tập**
+- [C1B1: Phương trình và hệ phương trình bậc nhất hai ẩn](T9/2026PhieuBT/LGC1B1.html)
+
 </div>
 </details>
 

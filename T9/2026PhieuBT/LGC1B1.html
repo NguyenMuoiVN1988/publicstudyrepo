@@ -1,0 +1,272 @@
+---
+layout: default
+title: Toán 9 - Phương trình & hệ phương trình bậc nhất hai ẩn
+description: Lý thuyết và bài tập có lời giải về phương trình bậc nhất hai ẩn, hệ hai phương trình bậc nhất hai ẩn - kết nối lý thuyết với từng lời giải, dành cho học sinh lớp 9.
+tags: [Toán 9, phương trình bậc nhất hai ẩn, hệ phương trình, đại số, chuyên đề]
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  /* ----- Tiêu đề trang ----- */
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  /* ----- Tiêu đề mục lớn ----- */
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  /* ----- Hộp lý thuyết ----- */
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+
+  /* ----- Khung "nhận biết / mẹo" ----- */
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  /* ----- Thẻ mỗi bài tập ----- */
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  /* ----- Khối lời giải ----- */
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+
+  /* ----- Cầu nối lý thuyết → lời giải ----- */
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  /* ----- Câu trả lời nhấn mạnh & bẫy ----- */
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  /* ----- Chú ý cuối bài ----- */
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Phương trình &amp; hệ phương trình bậc nhất hai ẩn</h1>
+    <p>Lý thuyết cô đọng • 3 dạng bài có lời giải • mỗi lời giải đều nối thẳng về ô lý thuyết tương ứng.</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-pt">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Nhận biết phương trình &amp; hệ phương trình bậc nhất hai ẩn</h3>
+    <ul>
+      <li><b>Phương trình bậc nhất hai ẩn</b> $x, y$ có dạng $ax + by = c$, trong đó $a, b, c$ là số đã biết và $a, b$ <b>không đồng thời bằng 0</b> $(a^2 + b^2 \neq 0)$.</li>
+      <li><b>Hệ hai phương trình bậc nhất hai ẩn</b> gồm <b>hai</b> phương trình bậc nhất hai ẩn:
+        $\begin{cases} ax + by = c \\ a'x + b'y = c' \end{cases}$</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Cách nhận biết</b> — phải đủ <b>cả 3</b> dấu hiệu:
+      <ol style="margin:6px 0 0; padding-left:20px;">
+        <li>mỗi ẩn $x, y$ đều có bậc 1 (không có $x^2, y^2, \sqrt{x}, \dfrac{1}{x}\dots$);</li>
+        <li><b>không</b> có tích hai ẩn dạng $xy$;</li>
+        <li>hai hệ số $a, b$ không cùng bằng 0.</li>
+      </ol>
+      Vi phạm một dấu hiệu là <span class="no">loại</span>. Ví dụ $x^2 + y = 3$ và $3x - 2xy = 0$ đều bị loại.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-nghiem">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Nhận biết nghiệm của phương trình &amp; hệ</h3>
+    <ul>
+      <li><b>Nghiệm của phương trình</b> $ax + by = c$ là cặp số $(x_0; y_0)$ làm cho $ax_0 + by_0 = c$ (đẳng thức đúng).</li>
+      <li><b>Nghiệm của hệ</b> là cặp số $(x_0; y_0)$ <b>đồng thời</b> là nghiệm của cả hai phương trình.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Cách nhận biết</b>: thay cặp số $(x_0; y_0)$ vào từng phương trình rồi so hai vế. Là nghiệm của hệ <b>chỉ khi</b> nghiệm đúng <b>cả hai</b> phương trình — chỉ cần một phương trình sai là <span class="no">loại</span>.
+    </div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Nhận biết phương trình và nghiệm của phương trình bậc nhất hai ẩn</h3>
+    <div class="de">
+      <p>Cho các phương trình: $2x - 3y = 6$ (1); $\;0x + 5y = -10$ (2); $\;4x + 0y = 0$ (3); $\;x^2 + y = 3$ (4); $\;3x - 2xy + 1 = 0$ (5).</p>
+      <p><b>a)</b> Phương trình nào là bậc nhất hai ẩn? Chỉ ra hệ số $a, b, c$.</p>
+      <p><b>b)</b> Với các cặp $(3; 0)$, $(0; -2)$, $(1; 1)$, $(5; -2)$: cặp nào là nghiệm của (1)? của (2)?</p>
+      <p><b>c)</b> Tìm nghiệm tổng quát và nêu cách vẽ đường thẳng biểu diễn tập nghiệm của (1).</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-pt"><b>Dùng Lý thuyết 1:</b> kiểm tra dạng $ax + by = c$ với $a, b$ không cùng bằng 0, ẩn bậc 1, không có $xy$.</a>
+      <p><b>a)</b></p>
+      <ul>
+        <li>(1) $2x - 3y = 6$: <span class="yes">là</span> bậc nhất hai ẩn, $a = 2,\ b = -3,\ c = 6$.</li>
+        <li>(2) $0x + 5y = -10$: <span class="yes">là</span>, $a = 0,\ b = 5,\ c = -10$ (vì $a = 0$ nhưng $b \neq 0$).</li>
+        <li>(3) $4x + 0y = 0$: <span class="yes">là</span>, $a = 4,\ b = 0,\ c = 0$.</li>
+        <li>(4) $x^2 + y = 3$: <span class="no">không</span>, vì có $x^2$ (bậc hai).</li>
+        <li>(5) $3x - 2xy + 1 = 0$: <span class="no">không</span>, vì có tích $xy$.</li>
+      </ul>
+
+      <a class="link" href="#lt-nghiem"><b>Dùng Lý thuyết 2:</b> thay từng cặp số vào, so hai vế của phương trình.</a>
+      <p><b>b) Phương trình (1):</b> $2x - 3y = 6$</p>
+      <ul>
+        <li>$(3; 0)$: $2\cdot 3 - 3\cdot 0 = 6$ → <span class="yes">là nghiệm</span>.</li>
+        <li>$(0; -2)$: $2\cdot 0 - 3\cdot(-2) = 6$ → <span class="yes">là nghiệm</span>.</li>
+        <li>$(1; 1)$: $2\cdot 1 - 3\cdot 1 = -1 \neq 6$ → <span class="no">không</span>.</li>
+        <li>$(5; -2)$: $2\cdot 5 - 3\cdot(-2) = 16 \neq 6$ → <span class="no">không</span>.</li>
+      </ul>
+      <p>Vậy nghiệm của (1) là $(3; 0)$ và $(0; -2)$.</p>
+      <p><b>Phương trình (2):</b> $0x + 5y = -10 \Leftrightarrow y = -2$ (không phụ thuộc $x$).</p>
+      <ul>
+        <li>$(0; -2)$ và $(5; -2)$ có $y = -2$ → <span class="yes">là nghiệm</span>.</li>
+        <li>$(3; 0)$ và $(1; 1)$ có $y \neq -2$ → <span class="no">không</span>.</li>
+      </ul>
+      <p>Vậy nghiệm của (2) là $(0; -2)$ và $(5; -2)$.</p>
+
+      <p><b>c)</b> Từ (1): $2x - 3y = 6 \Rightarrow y = \dfrac{2x - 6}{3}$.</p>
+      <p>Nghiệm tổng quát: <span class="key">$\begin{cases} x \in \mathbb{R} \\ y = \dfrac{2x - 6}{3} \end{cases}$</span></p>
+      <p><b>Cách vẽ đường thẳng $2x - 3y = 6$</b> — tìm giao điểm với hai trục:</p>
+      <ul>
+        <li>$x = 0 \Rightarrow y = -2$, được $A(0; -2)$ trên $Oy$.</li>
+        <li>$y = 0 \Rightarrow x = 3$, được $B(3; 0)$ trên $Ox$.</li>
+      </ul>
+      <p>Vẽ đường thẳng đi qua $A(0; -2)$ và $B(3; 0)$ — đó là đường biểu diễn tập nghiệm của (1).</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Nhận biết và kiểm tra nghiệm của hệ hai phương trình bậc nhất hai ẩn</h3>
+    <div class="de">
+      <p>Cho các hệ:</p>
+      <p>$$\text{(I)}\begin{cases} x - 2y = 1 \\ 2x + y = 7 \end{cases} \qquad \text{(II)}\begin{cases} 3x^2 + y = 4 \\ x - y = 1 \end{cases} \qquad \text{(III)}\begin{cases} 0x + 0y = 5 \\ 2x - 3y = 1 \end{cases}$$</p>
+      <p><b>a)</b> Hệ nào là hệ hai phương trình bậc nhất hai ẩn? Vì sao?</p>
+      <p><b>b)</b> Cặp $(3; 1)$ có là nghiệm của hệ (I) không?</p>
+      <p><b>c)</b> Tìm $m$ để $(2; -1)$ là nghiệm của hệ $\begin{cases} mx - y = 5 \\ 3x + 2my = 4 \end{cases}$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-pt"><b>Dùng Lý thuyết 1:</b> hệ phải gồm hai phương trình, mỗi cái đều là bậc nhất hai ẩn.</a>
+      <p><b>a)</b></p>
+      <ul>
+        <li><b>Hệ (I):</b> cả hai $x - 2y = 1$ và $2x + y = 7$ đều bậc nhất hai ẩn → <span class="yes">là</span> hệ bậc nhất hai ẩn.</li>
+        <li><b>Hệ (II):</b> $3x^2 + y = 4$ có $x^2$ → <span class="no">không</span>.</li>
+        <li><b>Hệ (III):</b> $0x + 0y = 5$ có $a = b = 0$ → <span class="no">không</span>.</li>
+      </ul>
+
+      <a class="link" href="#lt-nghiem"><b>Dùng Lý thuyết 2:</b> là nghiệm của hệ ⇔ đúng cả hai phương trình.</a>
+      <p><b>b)</b> Thay $(3; 1)$ vào hệ (I):</p>
+      <ul>
+        <li>PT 1: $x - 2y = 3 - 2\cdot 1 = 1$ ✓</li>
+        <li>PT 2: $2x + y = 2\cdot 3 + 1 = 7$ ✓</li>
+      </ul>
+      <p>Thỏa <b>đồng thời</b> cả hai → $(3; 1)$ <span class="yes">là một nghiệm</span> của hệ (I).</p>
+
+      <p><b>c)</b> Thay $(2; -1)$ vào từng phương trình:</p>
+      <ul>
+        <li>PT 1: $2m + 1 = 5 \Rightarrow m = 2$.</li>
+        <li>PT 2: $6 - 2m = 4 \Rightarrow m = 1$.</li>
+      </ul>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> hai phương trình cho hai giá trị $m$ khác nhau ($m = 2$ và $m = 1$). Vì cặp số phải đúng <b>đồng thời</b> cả hai mà không có $m$ chung → <span class="no">không tồn tại $m$</span>. Chỉ tìm $m$ từ một phương trình là chưa đủ.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Bài toán thực tế — thiết lập phương trình và hệ phương trình</h3>
+    <div class="de">
+      <p>Bạn An mua hai loại vở quyên góp: loại A giá 12 000 đ/quyển, loại B giá 15 000 đ/quyển.</p>
+      <p><b>a)</b> Gọi $x, y$ là số quyển loại A, B. Viết phương trình bậc nhất hai ẩn biết tổng tiền là 360 000 đồng.</p>
+      <p><b>b)</b> Biết An mua tất cả 26 quyển. Lập hệ hai phương trình bậc nhất hai ẩn.</p>
+      <p><b>c)</b> Cặp $(10; 16)$ có thỏa hệ ở câu b không? Nêu ý nghĩa thực tiễn.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-pt"><b>Dùng Lý thuyết 1:</b> chuyển dữ kiện thực tế thành dạng $ax + by = c$; nhớ đặt điều kiện và rút gọn.</a>
+      <p>Điều kiện: $x, y \in \mathbb{N}$.</p>
+      <p><b>a)</b> Tổng tiền: $12000x + 15000y = 360000$. Chia hai vế cho $3000$:</p>
+      <p style="text-align:center"><span class="key">$4x + 5y = 120$</span></p>
+      <p><b>b)</b> Tổng số vở 26 quyển: $x + y = 26$. Kết hợp câu a:</p>
+      <p>$$\begin{cases} x + y = 26 \\ 4x + 5y = 120 \end{cases}$$</p>
+
+      <a class="link" href="#lt-nghiem"><b>Dùng Lý thuyết 2:</b> kiểm tra cặp số có đúng cả hai phương trình của hệ không.</a>
+      <p><b>c)</b> Thay $(10; 16)$:</p>
+      <ul>
+        <li>PT 1: $x + y = 10 + 16 = 26$ ✓</li>
+        <li>PT 2: $4\cdot 10 + 5\cdot 16 = 40 + 80 = 120$ ✓</li>
+      </ul>
+      <p>Thỏa cả hai → <span class="yes">là nghiệm</span> của hệ.</p>
+      <p><b>Ý nghĩa thực tiễn:</b> An mua <b>10 quyển loại A</b> và <b>16 quyển loại B</b>, tổng 26 quyển đúng với 360 000 đồng.</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Luôn kiểm tra kĩ bậc của ẩn và điều kiện $a, b$ không đồng thời bằng 0; tích dạng $xy$ là bẫy bậc hai.</li>
+      <li>Một cặp $(x; y)$ là nghiệm của hệ ⇔ phải thỏa <b>đồng thời cả hai</b> phương trình cùng lúc.</li>
+      <li>Với bài toán thực tế: bắt buộc <b>đặt điều kiện cho ẩn</b> và nên <b>rút gọn hệ số</b> cho dễ tính.</li>
+    </ul>
+  </div>
+
+</div>
