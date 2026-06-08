@@ -63,6 +63,13 @@ details > div {
 **Trắc nghiệm tương tác**
 - [Đề Minh Họa 2025 – Phần Toán & Xử lí số liệu](HSA/2025MinhHoa.html)
 
+**Chuyên đề ôn tập**
+
+*Chuyên đề 1: Bất phương trình & hệ bất phương trình bậc nhất hai ẩn*
+- [Bài giảng: Lý thuyết, ví dụ và quy hoạch tuyến tính](HSA/CDOnTap/CD1/CD1.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (13 câu)](HSA/CDOnTap/CD1/TestCD1Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (14 câu)](HSA/CDOnTap/CD1/TestCD1Part2.html)
+
 </div>
 </details>
 
