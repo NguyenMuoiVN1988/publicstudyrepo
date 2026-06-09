@@ -185,6 +185,7 @@ details > div {
 
 **Lời giải phiếu bài tập**
 - [C1B1: Phương trình và hệ phương trình bậc nhất hai ẩn](T9/2026PhieuBT/LGC1B1.html)
+- [C1B2: Giải hệ phương trình bậc nhất hai ẩn](T9/2026PhieuBT/LGC1B2.html)
 
 </div>
 </details>

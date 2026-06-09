@@ -1,0 +1,279 @@
+---
+layout: default
+title: Toán 9 - Giải hệ phương trình bậc nhất hai ẩn
+description: Lý thuyết và bài tập có lời giải về giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp thế và phương pháp cộng trừ đại số - kết nối lý thuyết với từng lời giải, dành cho học sinh lớp 9.
+tags: [Toán 9, hệ phương trình, phương pháp thế, phương pháp cộng đại số, đại số, chuyên đề]
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  /* ----- Tiêu đề trang ----- */
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  /* ----- Tiêu đề mục lớn ----- */
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  /* ----- Hộp lý thuyết ----- */
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul, .lgc .theory ol { margin:6px 0; padding-left:20px; }
+
+  /* ----- Khung "nhận biết / mẹo" ----- */
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  /* ----- Thẻ mỗi bài tập ----- */
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  /* ----- Khối lời giải ----- */
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+
+  /* ----- Cầu nối lý thuyết → lời giải ----- */
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  /* ----- Câu trả lời nhấn mạnh & bẫy ----- */
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  /* ----- Chú ý cuối bài ----- */
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  /* ----- Bảng tóm tắt ----- */
+  .lgc .tomtat { background:#f6f4fb; border:1px solid #ddd6ee;
+    border-left:5px solid #6f57b0; border-radius:12px;
+    padding:14px 18px; margin:14px 0; }
+  .lgc .tomtat .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:#6f57b0; margin:0 0 8px; }
+  .lgc .tbl-wrap { overflow-x:auto; margin:12px 0; }
+  .lgc .tbl { border-collapse:collapse; width:100%; min-width:420px;
+    background:#fff; font-size:.96rem; }
+  .lgc .tbl th, .lgc .tbl td { border:1px solid #d8d0ec;
+    padding:9px 12px; text-align:center; }
+  .lgc .tbl th { background:#6f57b0; color:#fff;
+    font-family:'Quicksand',sans-serif; font-weight:700; }
+  .lgc .tbl td:first-child, .lgc .tbl th:first-child { text-align:left; }
+  .lgc .tbl tbody tr:nth-child(even) { background:#faf8fe; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Giải hệ phương trình bậc nhất hai ẩn</h1>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-giaihe">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Giải hệ là gì &amp; số nghiệm của hệ</h3>
+    <ul>
+      <li><b>Giải hệ</b> là tìm tất cả các nghiệm (cặp số) thỏa mãn <b>đồng thời</b> cả hai phương trình.</li>
+      <li>Một hệ có thể có <b>nghiệm duy nhất</b>, <b>vô số nghiệm</b>, hoặc <b>vô nghiệm</b>.</li>
+    </ul>
+    <div class="tip">
+      ⚖️ <b>Nhận biết số nghiệm</b> — sau khi biến đổi khử một ẩn:
+      <ul style="margin:6px 0 0; padding-left:20px;">
+        <li>còn lại phương trình giải ra giá trị cụ thể → <b>nghiệm duy nhất</b>;</li>
+        <li>được $0 = 0$ (luôn đúng) → hệ <b>vô số nghiệm</b>;</li>
+        <li>được dạng vô lí như $0 = 5$ → hệ <b>vô nghiệm</b>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="theory" id="lt-the">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Phương pháp thế</h3>
+    <p style="margin:0 0 6px;">Rút một ẩn từ một phương trình theo ẩn còn lại, rồi <b>thế</b> vào phương trình kia để được phương trình một ẩn.</p>
+    <ol>
+      <li>Từ một phương trình, biểu diễn ẩn này theo ẩn kia (ưu tiên ẩn có hệ số $1$ hoặc $-1$).</li>
+      <li>Thế vào phương trình còn lại, giải ra một ẩn.</li>
+      <li>Thay ngược lại tìm ẩn kia rồi kết luận.</li>
+    </ol>
+  </div>
+
+  <div class="theory" id="lt-cong">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Phương pháp cộng (trừ) đại số</h3>
+    <p style="margin:0 0 6px;">Nhân hai phương trình với số thích hợp để một ẩn có hệ số <b>bằng nhau</b> hoặc <b>đối nhau</b>, rồi cộng/trừ vế với vế để <b>khử</b> ẩn đó.</p>
+    <ol>
+      <li>Nhân để hệ số của một ẩn đối nhau / bằng nhau.</li>
+      <li>Cộng (nếu đối nhau) hoặc trừ (nếu bằng nhau) vế với vế, được phương trình một ẩn.</li>
+      <li>Giải và thay ngược lại để kết luận.</li>
+    </ol>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Giải hệ phương trình bằng phương pháp thế</h3>
+    <div class="de">
+      <p><b>a)</b> $\begin{cases} x + 2y = 5 \\ 3x - y = 8 \end{cases}$</p>
+      <p><b>b)</b> $\begin{cases} 3x - 5y = -2 \\ -5x + y = -4 \end{cases}$</p>
+      <p><b>c)</b> $\begin{cases} 2x + 3y = 5 \\ 3x - 2y = 1 \end{cases}$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-the"><b>Dùng Lý thuyết 2:</b> rút ẩn có hệ số $1$ hoặc $-1$ để thế cho khỏi dính phân số.</a>
+
+      <p><b>a)</b> Từ phương trình 1: $x = 5 - 2y$. Thế vào phương trình 2:</p>
+      <p>$$3(5 - 2y) - y = 8 \Rightarrow 15 - 6y - y = 8 \Rightarrow -7y = -7 \Rightarrow y = 1.$$</p>
+      <p>Suy ra $x = 5 - 2\cdot 1 = 3$. Nghiệm: <span class="key">$(x; y) = (3; 1)$</span>.</p>
+
+      <p><b>b)</b> Từ phương trình 2: $y = 5x - 4$. Thế vào phương trình 1:</p>
+      <p>$$3x - 5(5x - 4) = -2 \Rightarrow 3x - 25x + 20 = -2 \Rightarrow -22x = -22 \Rightarrow x = 1.$$</p>
+      <p>Suy ra $y = 5\cdot 1 - 4 = 1$. Nghiệm: <span class="key">$(x; y) = (1; 1)$</span>.</p>
+
+      <p><b>c)</b> Từ phương trình 1: $x = \dfrac{5 - 3y}{2}$. Thế vào phương trình 2:</p>
+      <p>$$3\cdot\dfrac{5 - 3y}{2} - 2y = 1 \Rightarrow \dfrac{15 - 9y}{2} - 2y = 1 \Rightarrow 15 - 9y - 4y = 2 \Rightarrow -13y = -13 \Rightarrow y = 1.$$</p>
+      <p>Suy ra $x = \dfrac{5 - 3}{2} = 1$. Nghiệm: <span class="key">$(x; y) = (1; 1)$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Lưu ý câu c:</b> không ẩn nào có hệ số $1$ hoặc $-1$ nên khi rút sẽ ra phân số — đây là dấu hiệu nên cân nhắc <b>phương pháp cộng</b> (xem Bài 2) cho gọn hơn.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Giải hệ phương trình bằng phương pháp cộng (trừ) đại số</h3>
+    <div class="de">
+      <p><b>a)</b> $\begin{cases} x + 2y = 4 \\ 3x - 2y = 4 \end{cases}$</p>
+      <p><b>b)</b> $\begin{cases} 2x - 5y = -2 \\ 2x + 7y = 10 \end{cases}$</p>
+      <p><b>c)</b> $\begin{cases} 2x + 3y = -1 \\ 3x - 2y = 5 \end{cases}$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cong"><b>Dùng Lý thuyết 3:</b> đối nhau thì cộng, bằng nhau thì trừ; nếu chưa đối/bằng thì nhân thêm số cho phù hợp.</a>
+
+      <p><b>a)</b> Hệ số của $y$ đã đối nhau → cộng vế với vế:</p>
+      <p>$$(x + 2y) + (3x - 2y) = 4 + 4 \Rightarrow 4x = 8 \Rightarrow x = 2.$$</p>
+      <p>Thay vào phương trình 1: $2 + 2y = 4 \Rightarrow y = 1$. Nghiệm: <span class="key">$(2; 1)$</span>.</p>
+
+      <p><b>b)</b> Hệ số của $x$ giống nhau → trừ vế với vế:</p>
+      <p>$$(2x + 7y) - (2x - 5y) = 10 - (-2) \Rightarrow 12y = 12 \Rightarrow y = 1.$$</p>
+      <p>Thay vào phương trình 1: $2x - 5 = -2 \Rightarrow x = \dfrac{3}{2}$. Nghiệm: <span class="key">$\left(\dfrac{3}{2}; 1\right)$</span>.</p>
+
+      <p><b>c)</b> Nhân phương trình 1 với $2$, phương trình 2 với $3$ để hệ số của $y$ đối nhau:</p>
+      <p>$$\begin{cases} 4x + 6y = -2 \\ 9x - 6y = 15 \end{cases}$$</p>
+      <p>Cộng vế với vế: $13x = 13 \Rightarrow x = 1$. Thay vào phương trình 1 gốc: $2 + 3y = -1 \Rightarrow y = -1$. Nghiệm: <span class="key">$(1; -1)$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Giải hệ chứa tham số — chọn phương pháp phù hợp</h3>
+    <div class="de">
+      <p>Cho hệ phương trình $\begin{cases} mx + 4y = 10 - m \\ x + my = 4 \end{cases}$</p>
+      <p>Giải hệ trong các trường hợp: <b>a)</b> $m = 3$; &nbsp; <b>b)</b> $m = 2$; &nbsp; <b>c)</b> $m = -2$.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-the"><b>Dùng Lý thuyết 2 &amp; 3:</b> thay giá trị $m$ vào hệ rồi chọn phương pháp; lưu ý kiểm tra số nghiệm.</a>
+
+      <p><b>a) $m = 3$:</b> Hệ trở thành $\begin{cases} 3x + 4y = 7 \\ x + 3y = 4 \end{cases}$</p>
+      <p>Phương pháp thế — từ phương trình 2: $x = 4 - 3y$. Thế vào phương trình 1:</p>
+      <p>$$3(4 - 3y) + 4y = 7 \Rightarrow 12 - 9y + 4y = 7 \Rightarrow -5y = -5 \Rightarrow y = 1.$$</p>
+      <p>Suy ra $x = 4 - 3 = 1$. Nghiệm: <span class="key">$(1; 1)$</span> — <span class="yes">nghiệm duy nhất</span>.</p>
+
+      <p><b>b) $m = 2$:</b> Hệ trở thành $\begin{cases} 2x + 4y = 8 \\ x + 2y = 4 \end{cases}$</p>
+      <p>Phương trình 1 chia cho $2$ được $x + 2y = 4$, <b>trùng</b> với phương trình 2 → hệ <span class="yes">có vô số nghiệm</span>.</p>
+      <p>Nghiệm tổng quát: <span class="key">$\begin{cases} y \in \mathbb{R} \\ x = 4 - 2y \end{cases}$</span></p>
+
+      <p><b>c) $m = -2$:</b> Hệ trở thành $\begin{cases} -2x + 4y = 12 \\ x - 2y = 4 \end{cases}$</p>
+      <p>Phương trình 1 chia cho $-2$ được $x - 2y = -6$, trong khi phương trình 2 là $x - 2y = 4$.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> hai vế trái giống nhau ($x - 2y$) nhưng vế phải mâu thuẫn ($-6 \neq 4$) → dạng vô lí $\Rightarrow$ hệ <span class="no">vô nghiệm</span>. Đừng nhầm với câu b: trùng nhau là vô số nghiệm, còn mâu thuẫn vế phải là vô nghiệm.
+      </div>
+
+      <div class="tomtat">
+        <p class="h">📊 Tóm tắt ba trường hợp</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead>
+              <tr><th>$m$</th><th>Sau khi biến đổi</th><th>Kết luận</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$m = 3$</td><td>$-5y = -5$ (giải được)</td><td>Nghiệm duy nhất $(1; 1)$</td></tr>
+              <tr><td>$m = 2$</td><td>Hai PT trùng nhau ($0 = 0$)</td><td>Vô số nghiệm</td></tr>
+              <tr><td>$m = -2$</td><td>$-6 = 4$ (vô lí)</td><td>Vô nghiệm</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Phương pháp thế:</b> ưu tiên khi hệ có hệ số bằng $1$ hoặc $-1$ để rút ẩn ra không bị dính phân số.</li>
+      <li><b>Phương pháp cộng:</b> ưu tiên khi hệ số phức tạp — nhân thêm số thích hợp để đưa về hệ số đối nhau rồi cộng vế với vế.</li>
+      <li><b>Đọc số nghiệm:</b> ra giá trị cụ thể → nghiệm duy nhất; ra $0 = 0$ → vô số nghiệm; ra dạng vô lí ($0 = 5$) → vô nghiệm.</li>
+      <li><b>Nguyên tắc vàng:</b> luôn bấm máy tính cầm tay trước để biết trước đáp số, giúp chủ động kiểm soát và tránh sai dấu khi biến đổi.</li>
+    </ul>
+  </div>
+
+</div>
