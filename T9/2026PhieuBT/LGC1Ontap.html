@@ -1,0 +1,325 @@
+---
+layout: default
+title: Toán 9 - Ôn tập cuối chương I (Phương trình & hệ phương trình bậc nhất hai ẩn)
+description: Hệ thống hóa kiến thức và bài tập có lời giải ôn tập cuối chương I - giải hệ phương trình biến đổi phức tạp, đặt ẩn phụ, cân bằng phản ứng hóa học, toán thực tế - dành cho học sinh lớp 9.
+tags: [Toán 9, ôn tập chương, hệ phương trình, đặt ẩn phụ, toán thực tế, đại số, chuyên đề]
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  /* ----- Tiêu đề trang ----- */
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  /* ----- Tiêu đề mục lớn ----- */
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  /* ----- Hộp lý thuyết ----- */
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul, .lgc .theory ol { margin:6px 0; padding-left:20px; }
+
+  /* ----- Khung "nhận biết / mẹo" ----- */
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  /* ----- Thẻ mỗi bài tập ----- */
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  /* ----- Khối lời giải ----- */
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .loigiai .cau { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--indigo); margin:14px 0 4px; }
+
+  /* ----- Cầu nối lý thuyết → lời giải ----- */
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  /* ----- Câu trả lời nhấn mạnh & bẫy ----- */
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  /* ----- Chú ý cuối bài ----- */
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  /* ----- Bảng tóm tắt ----- */
+  .lgc .tomtat { background:#f6f4fb; border:1px solid #ddd6ee;
+    border-left:5px solid #6f57b0; border-radius:12px;
+    padding:14px 18px; margin:14px 0; }
+  .lgc .tomtat .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:#6f57b0; margin:0 0 8px; }
+  .lgc .tbl-wrap { overflow-x:auto; margin:12px 0; }
+  .lgc .tbl { border-collapse:collapse; width:100%; min-width:420px;
+    background:#fff; font-size:.96rem; }
+  .lgc .tbl th, .lgc .tbl td { border:1px solid #d8d0ec;
+    padding:9px 12px; text-align:center; }
+  .lgc .tbl th { background:#6f57b0; color:#fff;
+    font-family:'Quicksand',sans-serif; font-weight:700; }
+  .lgc .tbl td:first-child, .lgc .tbl th:first-child { text-align:left; }
+  .lgc .tbl tbody tr:nth-child(even) { background:#faf8fe; }
+  .lgc .tbl tr.tong td { background:#efe9fb; font-weight:700; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập cuối chương I</h1>
+    <p>Phương trình &amp; hệ phương trình bậc nhất hai ẩn</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-soNghiem">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Hệ thống hóa — ý nghĩa hình học của nghiệm</h3>
+    <ul>
+      <li>Phương trình bậc nhất hai ẩn $ax + by = c$ ($a, b$ không cùng $0$) luôn có <b>vô số nghiệm</b>, tập nghiệm là một <b>đường thẳng</b> trên mặt phẳng $Oxy$.</li>
+      <li>Nghiệm của hệ là <b>giao điểm</b> của hai đường thẳng đó.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Đọc số nghiệm theo vị trí hai đường thẳng:</b> cắt nhau → <b>1 nghiệm</b>; song song → <b>vô nghiệm</b>; trùng nhau → <b>vô số nghiệm</b>.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-bienDoi">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Xử lí hệ biến đổi phức tạp &amp; đặt ẩn phụ</h3>
+    <ul>
+      <li><b>Hệ chứa biểu thức cồng kềnh</b> (nhân đa thức, phân số): <b>khai triển – quy đồng – thu gọn</b> về dạng $ax + by = c$ rồi giải.</li>
+      <li><b>Hệ chứa ẩn ở mẫu hoặc lũy thừa</b> ($\dfrac{1}{x},\ (2x+1)^2,\ x^3\dots$): <b>đặt ẩn phụ</b> để đưa về hệ bậc nhất, giải xong <b>quay lại</b> tìm ẩn gốc và đối chiếu điều kiện.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-thucTe">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Vận dụng — lập hệ cho bài toán thực tế</h3>
+    <p style="margin:0;">Nhận dạng bài toán (chuyển động, năng suất, phần trăm, hình học, cân bằng phản ứng…) → <b>chọn ẩn, đặt điều kiện</b> → lập đủ <b>hai</b> phương trình → giải và <b>đối chiếu</b>.</p>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Hệ có biểu thức cồng kềnh — khai triển, quy đồng</h3>
+    <div class="de">
+      <p><b>a)</b> $\begin{cases} -2(x+1) + 3(y-2) = 0 \\ 3x - 2(y+1) = 3 \end{cases}$</p>
+      <p><b>b)</b> $\begin{cases} \dfrac{3-x}{2} - \dfrac{y+2}{3} = \dfrac{5}{6} \\ 3x - y = 1 \end{cases}$</p>
+      <p><b>c)</b> $\begin{cases} (3-x)(y+1) + (x+2)(y-1) = 0 \\ 2x + 3y = -5 \end{cases}$</p>
+      <p><b>d)</b> $\begin{cases} (2x-1)(y+1) - 2(x+2)(y-5) = 20 \\ \dfrac{3-x}{5} - \dfrac{1-y}{2} = \dfrac{3}{10} \end{cases}$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bienDoi"><b>Dùng Lý thuyết 2:</b> khai triển/quy đồng đưa về dạng $ax + by = c$ rồi dùng cộng đại số.</a>
+
+      <p class="cau">Câu a)</p>
+      <ul>
+        <li>PT1: $-2(x+1) + 3(y-2) = 0 \Rightarrow -2x + 3y = 8$.</li>
+        <li>PT2: $3x - 2(y+1) = 3 \Rightarrow 3x - 2y = 5$.</li>
+      </ul>
+      <p>Nhân PT1 với $3$, PT2 với $2$ rồi cộng: $5y = 34 \Rightarrow y = \dfrac{34}{5}$. Từ PT2: $x = \dfrac{31}{5}$. Nghiệm: <span class="key">$\left(\dfrac{31}{5}; \dfrac{34}{5}\right)$</span>.</p>
+
+      <p class="cau">Câu b)</p>
+      <p>Quy đồng PT1 (nhân $6$): $3(3-x) - 2(y+2) = 5 \Rightarrow 3x + 2y = 0$.</p>
+      <p>Hệ $\begin{cases} 3x + 2y = 0 \\ 3x - y = 1 \end{cases}$ trừ vế với vế: $3y = -1 \Rightarrow y = -\dfrac{1}{3}$, suy ra $x = \dfrac{2}{9}$. Nghiệm: <span class="key">$\left(\dfrac{2}{9}; -\dfrac{1}{3}\right)$</span>.</p>
+
+      <p class="cau">Câu c)</p>
+      <p>Khai triển PT1: $(3-x)(y+1) + (x+2)(y-1) = -2x + 5y + 1 = 0 \Rightarrow 2x - 5y = 1$.</p>
+      <p>Hệ $\begin{cases} 2x - 5y = 1 \\ 2x + 3y = -5 \end{cases}$ trừ vế với vế: $-8y = 6 \Rightarrow y = -\dfrac{3}{4}$, suy ra $x = -\dfrac{11}{8}$. Nghiệm: <span class="key">$\left(-\dfrac{11}{8}; -\dfrac{3}{4}\right)$</span>.</p>
+
+      <p class="cau">Câu d)</p>
+      <p>Khai triển PT1: $(2x-1)(y+1) - 2(x+2)(y-5) = 12x - 5y + 19 = 20 \Rightarrow 12x - 5y = 1$.</p>
+      <p>Quy đồng PT2 (nhân $10$): $2(3-x) - 5(1-y) = 3 \Rightarrow 2x - 5y = -2$.</p>
+      <p>Hệ $\begin{cases} 12x - 5y = 1 \\ 2x - 5y = -2 \end{cases}$ trừ vế với vế: $10x = 3 \Rightarrow x = \dfrac{3}{10}$, suy ra $y = \dfrac{13}{25}$. Nghiệm: <span class="key">$\left(\dfrac{3}{10}; \dfrac{13}{25}\right)$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Hệ chứa ẩn ở mẫu / lũy thừa — đặt ẩn phụ</h3>
+    <div class="de">
+      <p><b>a)</b> $\begin{cases} \dfrac{1}{x} - \dfrac{3}{y} = -2 \\ \dfrac{2}{x} + \dfrac{1}{y} = 3 \end{cases}$</p>
+      <p><b>b)</b> $\begin{cases} (2x+1)^2 - 3(y+1) = 1 \\ 2(2x+1)^2 - y = 8 \end{cases}$</p>
+      <p><b>c)</b> $\begin{cases} \dfrac{2}{x+1} - \dfrac{5}{y-2} = -3 \\ \dfrac{-1}{x+1} + \dfrac{3}{y-2} = 2 \end{cases}$</p>
+      <p><b>d)</b> $\begin{cases} 3x^3 - (2y-5)^3 = 23 \\ 2x^3 + 3(2y-5)^3 = 19 \end{cases}$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bienDoi"><b>Dùng Lý thuyết 2:</b> đặt ẩn phụ đưa về hệ bậc nhất, giải xong nhớ quay lại ẩn gốc và đối chiếu điều kiện.</a>
+
+      <p class="cau">Câu a)</p>
+      <p>Điều kiện $x, y \neq 0$. Đặt $a = \dfrac{1}{x},\ b = \dfrac{1}{y}$: $\begin{cases} a - 3b = -2 \\ 2a + b = 3 \end{cases}$</p>
+      <p>Từ PT2: $b = 3 - 2a$, thế vào PT1: $7a - 9 = -2 \Rightarrow a = 1,\ b = 1$. Suy ra $x = 1,\ y = 1$. Nghiệm: <span class="key">$(1; 1)$</span>.</p>
+
+      <p class="cau">Câu b)</p>
+      <p>Đặt $u = (2x+1)^2 \geq 0$: $\begin{cases} u - 3y = 4 \\ 2u - y = 8 \end{cases}$ giải được $y = 0,\ u = 4$.</p>
+      <p>$(2x+1)^2 = 4 \Rightarrow 2x + 1 = \pm 2 \Rightarrow x = \dfrac{1}{2}$ hoặc $x = -\dfrac{3}{2}$. Nghiệm: <span class="key">$\left(\dfrac{1}{2}; 0\right)$ và $\left(-\dfrac{3}{2}; 0\right)$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> $u = (2x+1)^2$ là bình phương nên cho <b>hai</b> giá trị $x$. Đừng quên dấu $\pm$ khi khai căn → bài này có $2$ nghiệm chứ không phải $1$.
+      </div>
+
+      <p class="cau">Câu c)</p>
+      <p>Điều kiện $x \neq -1,\ y \neq 2$. Đặt $a = \dfrac{1}{x+1},\ b = \dfrac{1}{y-2}$: $\begin{cases} 2a - 5b = -3 \\ -a + 3b = 2 \end{cases}$ giải được $a = 1,\ b = 1$.</p>
+      <p>$\dfrac{1}{x+1} = 1 \Rightarrow x = 0$; $\dfrac{1}{y-2} = 1 \Rightarrow y = 3$. Nghiệm: <span class="key">$(0; 3)$</span>.</p>
+
+      <p class="cau">Câu d)</p>
+      <p>Đặt $p = x^3,\ q = (2y-5)^3$: $\begin{cases} 3p - q = 23 \\ 2p + 3q = 19 \end{cases}$ giải được $p = 8,\ q = 1$.</p>
+      <p>$x^3 = 8 \Rightarrow x = 2$; $(2y-5)^3 = 1 \Rightarrow 2y - 5 = 1 \Rightarrow y = 3$. Nghiệm: <span class="key">$(2; 3)$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Vận dụng liên môn — cân bằng phương trình hóa học</h3>
+    <div class="de">
+      <p><b>a)</b> $x\text{Fe} + y\text{Cl}_2 \rightarrow 2\text{FeCl}_3$</p>
+      <p><b>b)</b> $x\text{C}_3\text{H}_8 + y\text{O}_2 \rightarrow 3\text{CO}_2 + 4\text{H}_2\text{O}$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-thucTe"><b>Dùng Lý thuyết 3:</b> mỗi nguyên tố phải bằng số nguyên tử ở hai vế → mỗi nguyên tố cho một phương trình.</a>
+
+      <p class="cau">Câu a)</p>
+      <ul>
+        <li>Fe: $x = 2$.</li>
+        <li>Cl: $2y = 2\cdot 3 = 6 \Rightarrow y = 3$.</li>
+      </ul>
+      <p>Vậy $x = 2,\ y = 3$: <span class="key">$2\text{Fe} + 3\text{Cl}_2 \rightarrow 2\text{FeCl}_3$</span>.</p>
+
+      <p class="cau">Câu b)</p>
+      <ul>
+        <li>C: $3x = 3 \Rightarrow x = 1$.</li>
+        <li>H: $8x = 2\cdot 4 = 8 \Rightarrow x = 1$ (phù hợp).</li>
+        <li>O: $2y = 3\cdot 2 + 4 = 10 \Rightarrow y = 5$.</li>
+      </ul>
+      <p>Vậy $x = 1,\ y = 5$: <span class="key">$\text{C}_3\text{H}_8 + 5\text{O}_2 \rightarrow 3\text{CO}_2 + 4\text{H}_2\text{O}$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Toán thực tế — tỉ lệ phần trăm đỗ</h3>
+    <div class="de">
+      <p>Hai trường THCS có tất cả $500$ học sinh dự thi vào lớp 10. Trường thứ nhất có $90\%$ đỗ, trường thứ hai có $70\%$ đỗ, cả hai trường có $448$ học sinh đỗ. Hỏi mỗi trường có bao nhiêu học sinh dự thi?</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-thucTe"><b>Dùng Lý thuyết 3:</b> chọn ẩn là số dự thi mỗi trường; phương trình tổng dự thi và tổng đỗ.</a>
+      <p>Gọi số dự thi trường 1 là $x$, trường 2 là $y$ ($x, y \in \mathbb{N}^*$).</p>
+      <p>Hệ: $\begin{cases} x + y = 500 \\ 0{,}9x + 0{,}7y = 448 \end{cases}$ Từ PT1: $y = 500 - x$, thế vào PT2: $0{,}2x + 350 = 448 \Rightarrow x = 490$, suy ra $y = 10$.</p>
+      <p>Đối chiếu (thỏa mãn). Vậy trường thứ nhất có <span class="key">$490$ học sinh</span>, trường thứ hai có <span class="key">$10$ học sinh</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 5 ---------- -->
+  <div class="bai">
+    <h3><span class="num">5</span> Toán thực tế — giá niêm yết và giảm giá</h3>
+    <div class="de">
+      <p>Một hiệu sách giảm $25\%$ mỗi cây bút và $15\%$ mỗi quyển vở so với giá niêm yết. Bạn Minh mua $30$ quyển vở và $20$ cây bút, đưa $450\,000$ đồng và được trả lại $9\,000$ đồng. Tính giá niêm yết mỗi quyển vở và mỗi cây bút, biết tổng tiền nếu không giảm giá là $540\,000$ đồng.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-thucTe"><b>Dùng Lý thuyết 3:</b> giảm $15\%$ → còn $0{,}85$; giảm $25\%$ → còn $0{,}75$. Tiền thực trả $= $ tiền đưa $-$ tiền thối.</a>
+      <p>Gọi giá niêm yết mỗi quyển vở là $v$, mỗi cây bút là $b$ (đồng), $v, b > 0$. Tiền thực trả: $450\,000 - 9\,000 = 441\,000$ đồng.</p>
+      <ul>
+        <li>Không giảm: $30v + 20b = 540\,000 \Leftrightarrow 3v + 2b = 54\,000$.</li>
+        <li>Sau giảm: $30\cdot 0{,}85v + 20\cdot 0{,}75b = 441\,000 \Leftrightarrow 17v + 10b = 294\,000$.</li>
+      </ul>
+      <p>Hệ: $\begin{cases} 3v + 2b = 54\,000 \\ 17v + 10b = 294\,000 \end{cases}$ Nhân PT1 với $5$ rồi trừ khỏi PT2: $2v = 24\,000 \Rightarrow v = 12\,000$, suy ra $b = 9\,000$.</p>
+      <p>Đối chiếu (thỏa mãn). Vậy giá niêm yết mỗi quyển vở là <span class="key">$12\,000$ đồng</span>, mỗi cây bút là <span class="key">$9\,000$ đồng</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 6 ---------- -->
+  <div class="bai">
+    <h3><span class="num">6</span> Toán hình học — diện tích hình chữ nhật</h3>
+    <div class="de">
+      <p>Cho một hình chữ nhật. Nếu tăng chiều dài $10$ m, tăng chiều rộng $5$ m thì diện tích tăng $500$ m². Nếu giảm chiều dài $15$ m và giảm chiều rộng $9$ m thì diện tích giảm $600$ m². Tính chiều dài, chiều rộng ban đầu.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-thucTe"><b>Dùng Lý thuyết 3:</b> diện tích $= $ dài $\times$ rộng; khai triển rồi rút gọn (phần $xy$ triệt tiêu).</a>
+      <p>Gọi chiều dài là $x$, chiều rộng là $y$ (m), điều kiện $x > 15,\ y > 9$.</p>
+      <ul>
+        <li>$(x+10)(y+5) = xy + 500 \Rightarrow 5x + 10y + 50 = 500 \Rightarrow x + 2y = 90$.</li>
+        <li>$(x-15)(y-9) = xy - 600 \Rightarrow -9x - 15y + 135 = -600 \Rightarrow 3x + 5y = 245$.</li>
+      </ul>
+      <p>Hệ: $\begin{cases} x + 2y = 90 \\ 3x + 5y = 245 \end{cases}$ Từ PT1: $x = 90 - 2y$, thế vào PT2: $270 - y = 245 \Rightarrow y = 25$, suy ra $x = 40$.</p>
+      <p>Đối chiếu: $x = 40 > 15,\ y = 25 > 9$ (thỏa mãn). Vậy chiều dài <span class="key">$40$ m</span>, chiều rộng <span class="key">$25$ m</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Với hệ chứa biểu thức cồng kềnh (nhân đa thức, phân số): <b>khai triển – quy đồng – thu gọn</b> về dạng $ax + by = c$ trước rồi mới giải.</li>
+      <li>Với hệ chứa ẩn ở mẫu hoặc lũy thừa: nên <b>đặt ẩn phụ</b> để đưa về hệ bậc nhất, giải xong nhớ <b>quay lại tìm ẩn gốc</b> và đối chiếu điều kiện.</li>
+      <li>Khi khai căn / mở lũy thừa chẵn (như $(2x+1)^2$), đừng quên dấu $\pm$ → có thể sinh thêm nghiệm.</li>
+      <li>Bài toán thực tế: luôn <b>đặt điều kiện cho ẩn</b> và <b>đối chiếu</b> nghiệm trước khi kết luận.</li>
+    </ul>
+  </div>
+
+</div>

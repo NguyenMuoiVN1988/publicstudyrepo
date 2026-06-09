@@ -186,6 +186,8 @@ details > div {
 **Lời giải phiếu bài tập**
 - [C1B1: Phương trình và hệ phương trình bậc nhất hai ẩn](T9/2026PhieuBT/LGC1B1.html)
 - [C1B2: Giải hệ phương trình bậc nhất hai ẩn](T9/2026PhieuBT/LGC1B2.html)
+- [C1B3: Giải bài toán bằng cách lập hệ phương trình](T9/2026PhieuBT/LGC1B3.html)
+- [C1 Ôn tập: Ôn tập cuối chương I](T9/2026PhieuBT/LGC1Ontap.html)
 
 </div>
 </details>

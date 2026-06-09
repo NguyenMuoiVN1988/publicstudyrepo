@@ -1,0 +1,316 @@
+---
+layout: default
+title: Toán 9 - Giải bài toán bằng cách lập hệ phương trình
+description: Lý thuyết và bài tập có lời giải về giải bài toán bằng cách lập hệ phương trình bậc nhất hai ẩn (toán chuyển động, năng suất, phần trăm, số học, hình học) - kết nối lý thuyết với từng lời giải, dành cho học sinh lớp 9.
+tags: [Toán 9, lập hệ phương trình, toán đố, toán chuyển động, năng suất, đại số, chuyên đề]
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  /* ----- Tiêu đề trang ----- */
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  /* ----- Tiêu đề mục lớn ----- */
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  /* ----- Hộp lý thuyết ----- */
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul, .lgc .theory ol { margin:6px 0; padding-left:20px; }
+
+  /* ----- Khung "nhận biết / mẹo" ----- */
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  /* ----- Thẻ mỗi bài tập ----- */
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  /* ----- Khối lời giải ----- */
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+
+  /* ----- Cầu nối lý thuyết → lời giải ----- */
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  /* ----- Câu trả lời nhấn mạnh & bẫy ----- */
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  /* ----- Chú ý cuối bài ----- */
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  /* ----- Bảng tóm tắt bài toán ----- */
+  .lgc .tomtat { background:#f6f4fb; border:1px solid #ddd6ee;
+    border-left:5px solid #6f57b0; border-radius:12px;
+    padding:14px 18px; margin:14px 0; }
+  .lgc .tomtat .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:#6f57b0; margin:0 0 8px; }
+  .lgc .tbl-wrap { overflow-x:auto; margin:12px 0; }
+  .lgc .tbl { border-collapse:collapse; width:100%; min-width:420px;
+    background:#fff; font-size:.96rem; }
+  .lgc .tbl th, .lgc .tbl td { border:1px solid #d8d0ec;
+    padding:9px 12px; text-align:center; }
+  .lgc .tbl th { background:#6f57b0; color:#fff;
+    font-family:'Quicksand',sans-serif; font-weight:700; }
+  .lgc .tbl td:first-child, .lgc .tbl th:first-child { text-align:left; }
+  .lgc .tbl tbody tr:nth-child(even) { background:#faf8fe; }
+  .lgc .tbl tr.tong td { background:#efe9fb; font-weight:700; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Giải bài toán bằng cách lập hệ phương trình</h1>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-3buoc">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Quy trình 3 bước</h3>
+    <ol>
+      <li><b>Chọn ẩn và đặt điều kiện:</b> gọi các đại lượng chưa biết là $x, y$, ghi rõ đơn vị và điều kiện ($x, y > 0$; số người/đồ vật là số tự nhiên…).</li>
+      <li><b>Lập hệ:</b> dựa vào dữ kiện đề bài, biểu diễn mối quan hệ giữa các đại lượng thành <b>hai</b> phương trình.</li>
+      <li><b>Giải và kết luận:</b> giải hệ, <b>đối chiếu</b> nghiệm với điều kiện (ghi "thỏa mãn"/"loại") rồi trả lời câu hỏi của đề.</li>
+    </ol>
+  </div>
+
+  <div class="theory" id="lt-dang">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Nhận dạng &amp; cách lập phương trình theo dạng toán</h3>
+    <ul>
+      <li><b>Chuyển động:</b> dùng $S = v\cdot t$; ngược chiều thì <b>cộng</b> quãng đường, cùng chiều/đuổi nhau thì <b>trừ</b>.</li>
+      <li><b>Làm chung – làm riêng (năng suất):</b> coi cả công việc là $1$ đơn vị, mỗi đơn vị thời gian làm được $\dfrac{1}{x}$ công việc; cộng các phần việc lại bằng $1$.</li>
+      <li><b>Phần trăm/tăng giảm:</b> "vượt mức $25\%$" nghĩa là nhân $1{,}25$; "giảm $15\%$" nghĩa là còn $0{,}85$ giá trị.</li>
+      <li><b>Số học/hình học:</b> dùng quan hệ "thương – số dư" ($a = bq + r$), công thức chu vi – diện tích.</li>
+    </ul>
+    <div class="tip">
+      ⚠️ <b>Luôn đổi về cùng đơn vị</b> (vd phút → giờ) trước khi lập phương trình.
+    </div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Toán số học — thương và số dư</h3>
+    <div class="de">
+      <p>Tìm hai số tự nhiên, biết tổng của chúng bằng $112$ và nếu lấy số lớn chia cho số nhỏ thì được thương là $4$, số dư là $2$.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dang"><b>Dùng Lý thuyết 2:</b> quan hệ "thương – số dư" cho công thức $a = bq + r$.</a>
+      <p>Gọi số lớn là $x$, số nhỏ là $y$ ($x, y \in \mathbb{N},\ y > 2$ vì số dư là $2$).</p>
+      <ul>
+        <li>Tổng hai số bằng $112$: $x + y = 112$.</li>
+        <li>Số lớn chia số nhỏ được thương $4$, dư $2$: $x = 4y + 2$.</li>
+      </ul>
+      <p>Hệ: $\begin{cases} x + y = 112 \\ x = 4y + 2 \end{cases}$</p>
+      <p>Thế phương trình 2 vào phương trình 1: $(4y + 2) + y = 112 \Rightarrow 5y = 110 \Rightarrow y = 22$. Suy ra $x = 4\cdot 22 + 2 = 90$.</p>
+      <p>Đối chiếu: $x = 90,\ y = 22 \in \mathbb{N}$, $y = 22 > 2$ (thỏa mãn). Vậy hai số cần tìm là <span class="key">$90$ và $22$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Toán chuyển động — hai xe ngược chiều</h3>
+    <div class="de">
+      <p>Hai xe khởi hành cùng lúc từ hai tỉnh A và B cách nhau $120$ km, đi ngược chiều và gặp nhau sau $3$ giờ. Nếu xe thứ nhất xuất phát trước xe thứ hai $2$ giờ $40$ phút thì hai xe gặp nhau khi xe thứ hai đi được $1$ giờ. Tìm tốc độ mỗi xe.</p>
+    </div>
+
+    <div class="tomtat">
+      <p class="h">📊 Tóm tắt bằng bảng</p>
+      <p>Gọi tốc độ xe 1 là $x$, xe 2 là $y$ (km/h). Mỗi trường hợp gặp nhau cho một phương trình "tổng quãng đường $= 120$".</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Trường hợp</th><th>Thời gian xe 1</th><th>Thời gian xe 2</th><th>Phương trình</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cùng xuất phát</td><td>$3$ h</td><td>$3$ h</td><td>$3x + 3y = 120$</td></tr>
+            <tr><td>Xe 1 đi trước $2$h$40'$</td><td>$\dfrac{11}{3}$ h</td><td>$1$ h</td><td>$\dfrac{11}{3}x + y = 120$</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dang"><b>Dùng Lý thuyết 2:</b> ngược chiều → tổng quãng đường bằng khoảng cách; nhớ đổi $2$h$40'=\dfrac{8}{3}$ h.</a>
+      <p>Gọi tốc độ xe thứ nhất là $x$, xe thứ hai là $y$ (km/h), điều kiện $x, y > 0$.</p>
+      <p><b>Trường hợp 1:</b> gặp nhau sau $3$ giờ, tổng quãng đường $120$ km:</p>
+      <p>$$3x + 3y = 120 \Leftrightarrow x + y = 40.$$</p>
+      <p><b>Trường hợp 2:</b> $2$h$40' = \dfrac{8}{3}$ giờ. Xe 2 đi $1$ giờ thì gặp, lúc đó xe 1 đã đi $1 + \dfrac{8}{3} = \dfrac{11}{3}$ giờ:</p>
+      <p>$$\dfrac{11}{3}x + 1\cdot y = 120.$$</p>
+      <p>Hệ: $\begin{cases} x + y = 40 \\ \dfrac{11}{3}x + y = 120 \end{cases}$ Trừ vế với vế: $\dfrac{8}{3}x = 80 \Rightarrow x = 30$, suy ra $y = 10$.</p>
+      <p>Đối chiếu (thỏa mãn). Vậy tốc độ xe thứ nhất là <span class="key">$30$ km/h</span>, xe thứ hai là <span class="key">$10$ km/h</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Toán chuyển động — xuôi/ngược dòng (đặt ẩn phụ)</h3>
+    <div class="de">
+      <p>Một ca nô xuôi dòng $66$ km và ngược dòng $54$ km hết tất cả $4$ giờ. Lần khác xuôi dòng $11$ km và ngược dòng $18$ km hết tất cả $1$ giờ. Tính tốc độ ca nô khi xuôi dòng và ngược dòng (tốc độ dòng nước và tốc độ riêng không đổi).</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dang"><b>Dùng Lý thuyết 2:</b> thời gian $= \dfrac{\text{quãng đường}}{\text{tốc độ}}$; ẩn nằm ở mẫu nên đặt ẩn phụ $\dfrac1x, \dfrac1y$.</a>
+      <p>Gọi tốc độ xuôi dòng là $x$, ngược dòng là $y$ (km/h), điều kiện $x > y > 0$. Ta có hệ:</p>
+      <p>$$\begin{cases} \dfrac{66}{x} + \dfrac{54}{y} = 4 \\ \dfrac{11}{x} + \dfrac{18}{y} = 1 \end{cases}$$</p>
+      <p>Đặt $a = \dfrac{1}{x},\ b = \dfrac{1}{y}$ ($a, b > 0$):</p>
+      <p>$$\begin{cases} 66a + 54b = 4 \\ 11a + 18b = 1 \end{cases}$$</p>
+      <p>Nhân PT2 với $3$: $33a + 54b = 3$. Trừ khỏi PT1: $33a = 1 \Rightarrow a = \dfrac{1}{33}$. Thay vào PT2: $\dfrac{1}{3} + 18b = 1 \Rightarrow b = \dfrac{1}{27}$.</p>
+      <p>Suy ra $x = \dfrac{1}{a} = 33,\ y = \dfrac{1}{b} = 27$.</p>
+      <p>Đối chiếu: $x = 33 > y = 27 > 0$ (thỏa mãn). Vậy tốc độ xuôi dòng <span class="key">$33$ km/h</span>, ngược dòng <span class="key">$27$ km/h</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Toán năng suất — vượt mức phần trăm</h3>
+    <div class="de">
+      <p>Tháng đầu hai tổ sản xuất được $300$ chi tiết máy. Tháng thứ hai tổ I vượt mức $25\%$, tổ II vượt mức $20\%$ nên cả hai tổ làm được $370$ chi tiết. Hỏi tháng đầu mỗi tổ làm được bao nhiêu chi tiết máy?</p>
+    </div>
+
+    <div class="tomtat">
+      <p class="h">📊 Tóm tắt bằng bảng</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Tổ</th><th>Tháng đầu</th><th>Tháng hai</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tổ I</td><td>$x$</td><td>$1{,}25x$</td></tr>
+            <tr><td>Tổ II</td><td>$y$</td><td>$1{,}20y$</td></tr>
+            <tr class="tong"><td>Tổng</td><td>$x + y = 300$</td><td>$1{,}25x + 1{,}2y = 370$</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dang"><b>Dùng Lý thuyết 2:</b> vượt mức $25\%$ → nhân $1{,}25$; vượt $20\%$ → nhân $1{,}2$.</a>
+      <p>Gọi số chi tiết tổ I, tổ II làm tháng đầu là $x, y$ ($x, y \in \mathbb{N}^*$).</p>
+      <p>Hệ: $\begin{cases} x + y = 300 \\ 1{,}25x + 1{,}2y = 370 \end{cases}$</p>
+      <p>Từ PT1: $y = 300 - x$. Thế vào PT2: $1{,}25x + 1{,}2(300 - x) = 370 \Rightarrow 0{,}05x = 10 \Rightarrow x = 200$, suy ra $y = 100$.</p>
+      <p>Đối chiếu (thỏa mãn). Vậy tháng đầu tổ I làm <span class="key">$200$ chi tiết</span>, tổ II làm <span class="key">$100$ chi tiết</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 5 ---------- -->
+  <div class="bai">
+    <h3><span class="num">5</span> Toán chia nhóm — thừa/thiếu chỗ</h3>
+    <div class="de">
+      <p>Một trường tổ chức cho học sinh đi tham quan bằng ô tô. Xếp mỗi xe $40$ học sinh thì thừa $5$ học sinh; xếp mỗi xe $41$ học sinh thì xe cuối thiếu $3$ học sinh. Hỏi có bao nhiêu học sinh và bao nhiêu ô tô?</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-3buoc"><b>Dùng Lý thuyết 1:</b> chọn ẩn là số xe và số học sinh; mỗi cách xếp cho một phương trình.</a>
+      <p>Gọi số ô tô là $x$ (xe), số học sinh là $y$, $x, y \in \mathbb{N}^*$.</p>
+      <ul>
+        <li>Xếp $40$ HS/xe thì thừa $5$: $y = 40x + 5$.</li>
+        <li>Xếp $41$ HS/xe thì xe cuối thiếu $3$ (cần $41x$ chỗ nhưng thiếu $3$ HS): $y = 41x - 3$.</li>
+      </ul>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> "xe cuối thiếu $3$ học sinh" nghĩa là <b>còn thiếu</b> $3$ HS mới đủ $41x$ chỗ, nên $y = 41x - 3$ (không phải $+3$). Đọc kĩ "thừa" hay "thiếu" để đặt dấu cho đúng.
+      </div>
+      <p>Hệ: $\begin{cases} y = 40x + 5 \\ y = 41x - 3 \end{cases}$ Cho hai vế bằng nhau: $40x + 5 = 41x - 3 \Rightarrow x = 8$, suy ra $y = 325$.</p>
+      <p>Đối chiếu (thỏa mãn). Vậy có <span class="key">$8$ ô tô</span> và <span class="key">$325$ học sinh</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 6 ---------- -->
+  <div class="bai">
+    <h3><span class="num">6</span> Toán hình học — diện tích hình chữ nhật</h3>
+    <div class="de">
+      <p>Cho một hình chữ nhật. Nếu tăng mỗi cạnh lên $1$ cm thì diện tích tăng $13$ cm². Nếu giảm chiều dài $2$ cm, chiều rộng $1$ cm thì diện tích giảm $15$ cm². Tính chiều dài và chiều rộng.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dang"><b>Dùng Lý thuyết 2:</b> diện tích HCN $= $ dài $\times$ rộng; khai triển rồi rút gọn (phần $xy$ sẽ triệt tiêu).</a>
+      <p>Gọi chiều dài là $x$, chiều rộng là $y$ (cm), điều kiện $x > 2,\ y > 1$.</p>
+      <ul>
+        <li>$(x+1)(y+1) = xy + 13 \Rightarrow x + y + 1 = 13 \Rightarrow x + y = 12$.</li>
+        <li>$(x-2)(y-1) = xy - 15 \Rightarrow -x - 2y + 2 = -15 \Rightarrow x + 2y = 17$.</li>
+      </ul>
+      <p>Hệ: $\begin{cases} x + y = 12 \\ x + 2y = 17 \end{cases}$ Trừ vế với vế: $y = 5$, suy ra $x = 7$.</p>
+      <p>Đối chiếu: $x = 7 > 2,\ y = 5 > 1$ (thỏa mãn). Vậy chiều dài <span class="key">$7$ cm</span>, chiều rộng <span class="key">$5$ cm</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Điều kiện của ẩn:</b> phải sát thực tế (con người, đồ vật là số tự nhiên; tốc độ, thời gian chỉ cần $x, y > 0$).</li>
+      <li><b>Đồng nhất đơn vị đo:</b> luôn đổi mọi số liệu về cùng một đơn vị (ví dụ đổi phút ra giờ) trước khi lập phương trình.</li>
+      <li><b>Đối chiếu và kết luận:</b> ra nghiệm xong bắt buộc ghi rõ "Thỏa mãn" hoặc "Loại" theo điều kiện ban đầu trước khi kết luận.</li>
+      <li><b>Mẹo lập hệ:</b> gọi ẩn xong hãy <b>kẻ bảng tóm tắt</b> — mỗi hàng là một đối tượng/trường hợp, mỗi cột là một đại lượng; mỗi quan hệ "tổng" cho một phương trình.</li>
+    </ul>
+  </div>
+
+</div>
