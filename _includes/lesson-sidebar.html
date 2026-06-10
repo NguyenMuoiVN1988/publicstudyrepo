@@ -1,0 +1,24 @@
+{%- comment -%}
+  Mục lục dọc theo "chủ đề nhỏ". Trang chỉ cần khai báo `series: <khóa>`
+  trong front matter; dữ liệu lấy từ _data/series.yml.
+  Desktop: cột dọc cố định bên trái. Điện thoại: ẩn, mở bằng nút 📚.
+{%- endcomment -%}
+{%- if page.series -%}
+{%- assign s = site.data.series[page.series] -%}
+{%- if s -%}
+<input type="checkbox" id="lsToggle" class="ls-toggle" hidden>
+<label for="lsToggle" class="ls-fab" title="Mục lục bài học" aria-label="Mở mục lục bài học">📚</label>
+<label for="lsToggle" class="ls-backdrop"></label>
+<nav class="ls-nav" aria-label="Mục lục bài học">
+  <div class="ls-head">
+    <span>{{ s.label }}</span>
+    <label for="lsToggle" class="ls-close" title="Đóng" aria-label="Đóng mục lục">✕</label>
+  </div>
+  <ul>
+    {%- for it in s.items -%}
+    <li><a href="{{ it.url | relative_url }}"{% if page.url == it.url %} class="active" aria-current="page"{% endif %}>{{ it.title }}</a></li>
+    {%- endfor -%}
+  </ul>
+</nav>
+{%- endif -%}
+{%- endif -%}

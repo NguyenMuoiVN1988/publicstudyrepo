@@ -1,0 +1,17 @@
+# Mục lục dọc theo "chủ đề nhỏ" (chương) cho từng môn/lớp.
+# Mỗi trang khai báo `series: <khóa>` trong front matter để hiện mục lục này.
+# Thêm bài mới: chỉ cần thêm 1 dòng vào đúng nhóm bên dưới.
+
+t7-c1:
+  label: "Toán 7 · Chương 1 — Số hữu tỉ"
+  items:
+    - title: "Bài 1. Tập hợp các số hữu tỉ"
+      url: /T7/2026PhieuBT/LGC1B1.html
+    - title: "Bài 2. Cộng, trừ, nhân, chia số hữu tỉ"
+      url: /T7/2026PhieuBT/LGC1B2.html
+    - title: "Bài 3. Lũy thừa với số mũ tự nhiên của một số hữu tỉ"
+      url: /T7/2026PhieuBT/LGC1B3.html
+    - title: "Bài 4. Thứ tự thực hiện phép tính · Quy tắc chuyển vế"
+      url: /T7/2026PhieuBT/LGC1B4.html
+    - title: "Trắc nghiệm: Bốn phép toán trên số hữu tỉ"
+      url: /T7/T7C1/T7C1CD1.html

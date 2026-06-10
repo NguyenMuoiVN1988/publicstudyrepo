@@ -101,3 +101,96 @@ table tr:hover {
   text-decoration: underline;
 }
 
+
+/* ============================================================
+   Mục lục dọc theo chủ đề nhỏ (lesson sidebar)
+   - Mặc định (điện thoại/màn hình hẹp): ẩn, mở bằng nút 📚.
+   - Màn hình rộng (≥1240px): cột dọc cố định bên trái.
+   ============================================================ */
+.ls-nav {
+  position: fixed;
+  top: 0;
+  left: -310px;            /* ẩn ngoài lề trái */
+  width: 280px;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(40, 50, 60, .18);
+  padding: 16px 14px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 15px;
+  z-index: 10000;
+  transition: left .25s ease;
+}
+.ls-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 700;
+  color: #3f5d9e;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eef2fb;
+}
+.ls-close { cursor: pointer; color: #5b6b7a; font-size: 18px; flex: none; }
+.ls-nav ul { list-style: none; margin: 0; padding: 0; }
+.ls-nav li { margin: 3px 0; }
+.ls-nav a {
+  display: block;
+  padding: 9px 11px;
+  border-radius: 9px;
+  text-decoration: none;
+  color: #28323c;
+  line-height: 1.45;
+}
+.ls-nav a:hover { background: #eef2fb; }
+.ls-nav a.active { background: #3f5d9e; color: #fff; font-weight: 700; }
+
+/* Nút mở mục lục (chỉ hiện ở màn hình hẹp) */
+.ls-fab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #3f5d9e;
+  color: #fff;
+  font-size: 22px;
+  box-shadow: 0 6px 16px rgba(63, 93, 158, .45);
+  cursor: pointer;
+  z-index: 10001;
+}
+.ls-backdrop { display: none; }
+
+/* Khi mở: trượt sidebar vào + phủ nền mờ */
+.ls-toggle:checked ~ .ls-nav { left: 0; }
+.ls-toggle:checked ~ .ls-backdrop {
+  display: block;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .35);
+  z-index: 9999;
+}
+
+/* Màn hình rộng: hiện cột dọc cố định, ẩn nút mở */
+@media (min-width: 1240px) {
+  .ls-fab, .ls-backdrop { display: none !important; }
+  .ls-nav {
+    left: 16px;
+    top: 70px;
+    height: auto;
+    max-height: calc(100vh - 90px);
+    border: 1px solid #e2e8ee;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(40, 50, 60, .08);
+    transition: none;
+  }
+  .ls-close { display: none; }
+}
