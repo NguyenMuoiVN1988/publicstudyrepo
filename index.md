@@ -134,6 +134,9 @@ details > div {
 
 - [Đọc sách cùng học sinh](T7/DocCungHST7.md)
 
+**Trắc nghiệm tương tác**
+- [C1 – Chủ đề 1: Bốn phép toán trên tập số hữu tỉ (16 câu)](T7/T7C1/T7C1CD1.html)
+
 </div>
 </details>
 
