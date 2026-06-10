@@ -26,6 +26,15 @@
 (function (global) {
   'use strict';
 
+  // ── Cấu hình lưu kết quả về Google Sheets ───────────────────────────────────
+  // Bật cho từng bài bằng QuizLoader.init({ ..., saveResults: true, quizId: '...' })
+  const SHEETS_CFG = {
+    clientId : '863578042809-89aquohsaidajpiv7npi8l35kbcjtg82.apps.googleusercontent.com',
+    webAppUrl: 'https://script.google.com/macros/s/AKfycbwinWVx3kxHEvTSChxtPe69-4s4QH1_ggbRvOZV53-kA2zfVE09GLF4AuHPVqnRH1FMXQ/exec'
+  };
+  let cfg  = { saveResults: false, quizId: '' };
+  let auth = { token: null, name: '', email: '' };
+
   // ── CSS (inject một lần vào <head>) ──────────────────────────────────────────
   const STYLE = `
     .ql-wrap { max-width: 780px; margin: 0 auto; }
@@ -130,6 +139,16 @@
     .ql-btn-submit:hover { opacity: .88; }
     .ql-btn-reset  { background: #64748b; color: #fff; }
     .ql-btn-reset:hover  { opacity: .88; }
+    /* ── Đăng nhập Google & trạng thái lưu kết quả ── */
+    .ql-auth {
+      background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px;
+      padding: 12px 16px; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    }
+    .ql-auth.ql-auth-done { background: #f0fdf4; border-color: #86efac; }
+    .ql-auth-note { margin: 0; font-size: .88em; color: #92400e; }
+    .ql-auth-ok   { margin: 0; font-size: .9em;  color: #166534; }
+    .ql-save-status { margin-top: 8px !important; font-size: .88em; font-weight: 600; }
     @media (max-width: 600px) {
       .ql-card { padding: 12px; }
       .ql-opt  { font-size: .86em; }
@@ -361,6 +380,95 @@
     });
   }
 
+  // ── Đăng nhập Google (Google Identity Services) ─────────────────────────────
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function decodeJwtPayload(jwt) {
+    try {
+      const b64  = jwt.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+      const json = decodeURIComponent(atob(b64).split('').map(c =>
+        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+      return JSON.parse(json);
+    } catch (e) { return {}; }
+  }
+
+  function setupGoogleSignIn() {
+    const start = () => {
+      google.accounts.id.initialize({
+        client_id: SHEETS_CFG.clientId,
+        callback : onGoogleSignIn
+      });
+      const btn = document.getElementById('ql-gsi-btn');
+      if (btn) google.accounts.id.renderButton(btn, { theme: 'outline', size: 'large' });
+    };
+
+    if (window.google && google.accounts && google.accounts.id) { start(); return; }
+
+    const s = document.createElement('script');
+    s.src = 'https://accounts.google.com/gsi/client';
+    s.async = true;
+    s.defer = true;
+    s.onload  = start;
+    s.onerror = () => {
+      const note = document.querySelector('.ql-auth-note');
+      if (note) note.textContent = '⚠ Không tải được trang đăng nhập Google. Hãy kiểm tra kết nối mạng rồi tải lại trang.';
+    };
+    document.head.appendChild(s);
+  }
+
+  function onGoogleSignIn(res) {
+    auth.token = res.credential;
+    const p    = decodeJwtPayload(res.credential);
+    auth.name  = p.name  || '';
+    auth.email = p.email || '';
+
+    const authEl = document.getElementById('ql-auth');
+    if (authEl) {
+      authEl.classList.add('ql-auth-done');
+      authEl.innerHTML =
+        `<p class="ql-auth-ok">✓ Đang làm bài: <strong>${escapeHtml(auth.name)}</strong>` +
+        ` (${escapeHtml(auth.email)}) — kết quả sẽ được lưu khi nộp bài.</p>`;
+    }
+  }
+
+  // ── Gửi kết quả về Google Sheets qua Apps Script ────────────────────────────
+  function sendResult(score, total, answers) {
+    const statusEl = document.getElementById('ql-save-status');
+    if (statusEl) statusEl.textContent = '💾 Đang lưu kết quả…';
+
+    // Content-Type text/plain để tránh CORS preflight (Apps Script không trả lời OPTIONS)
+    fetch(SHEETS_CFG.webAppUrl, {
+      method : 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body   : JSON.stringify({
+        token : auth.token,
+        quizId: cfg.quizId,
+        score : score,
+        total : total,
+        answers: answers
+      })
+    })
+      .then(r => r.json())
+      .then(d => {
+        if (!statusEl) return;
+        if (d.ok) {
+          statusEl.textContent = `✓ Đã lưu kết quả cho ${auth.email}`;
+          statusEl.style.color = '#15803d';
+        } else {
+          statusEl.textContent = '⚠ Không lưu được kết quả: ' + (d.error || 'lỗi không rõ');
+          statusEl.style.color = '#b45309';
+        }
+      })
+      .catch(() => {
+        if (!statusEl) return;
+        statusEl.textContent = '⚠ Không lưu được kết quả (lỗi mạng). Em hãy chụp màn hình điểm gửi thầy/cô.';
+        statusEl.style.color = '#b45309';
+      });
+  }
+
   // ── Dựng giao diện quiz ───────────────────────────────────────────────────────
   const LABELS = ['A','B','C','D'];
 
@@ -383,11 +491,17 @@
           <h2>${title}</h2>
           <p>${total} câu · ${typeDesc} rồi bấm <strong>Nộp bài</strong></p>
         </div>
+        ${cfg.saveResults ? `
+        <div class="ql-auth" id="ql-auth">
+          <div id="ql-gsi-btn"></div>
+          <p class="ql-auth-note">🔒 Em hãy đăng nhập Google trước khi làm bài để kết quả được lưu lại.</p>
+        </div>` : ''}
         <div class="ql-progress">Đã trả lời: <span id="ql-answered">0</span>/${total} câu</div>
         <div class="ql-result" id="ql-result" style="display:none">
           <div class="ql-score-big" id="ql-score-big"></div>
           <h3 id="ql-score-label"></h3>
           <p  id="ql-score-detail"></p>
+          <p class="ql-save-status" id="ql-save-status"></p>
         </div>
         <div id="ql-body">
     `;
@@ -461,12 +575,22 @@
     document.getElementById('ql-submit').addEventListener('click', () => submit(questions));
     document.getElementById('ql-reset' ).addEventListener('click', () => reset(questions));
 
+    if (cfg.saveResults) setupGoogleSignIn();
+
     typeset(container);
   }
 
   // ── Nộp bài ─────────────────────────────────────────────────────────────────
   function submit(questions) {
+    if (cfg.saveResults && !auth.token) {
+      alert('Em hãy đăng nhập Google (nút ở đầu trang) trước khi nộp bài để kết quả được lưu lại nhé!');
+      const authEl = document.getElementById('ql-auth');
+      if (authEl) authEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
     let correct = 0;
+    const answers = [];
 
     questions.forEach((q, i) => {
       const card  = document.getElementById(`ql-card-${i}`);
@@ -476,6 +600,7 @@
         const inp       = document.getElementById(`ql-sa-${i}`);
         const userInput = inp ? inp.value.trim() : '';
         if (inp) inp.disabled = true;
+        answers.push(userInput || '-');
 
         const isOk  = checkSaAnswer(userInput, q.acceptedAnswers);
         const resEl = document.getElementById(`ql-sa-result-${i}`);
@@ -494,6 +619,7 @@
         const sel    = document.querySelector(`input[name="ql-q${i}"]:checked`);
         const chosen = sel ? parseInt(sel.value) : -1;
         document.querySelectorAll(`input[name="ql-q${i}"]`).forEach(el => el.disabled = true);
+        answers.push(chosen >= 0 ? LABELS[chosen] : '-');
 
         if (chosen === q.ans) {
           correct++;
@@ -523,6 +649,8 @@
     document.getElementById('ql-submit').style.display = 'none';
     document.getElementById('ql-reset' ).style.display = 'inline-block';
 
+    if (cfg.saveResults) sendResult(correct, questions.length, answers);
+
     typeset(document.getElementById('ql-body'));
     result.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
@@ -550,6 +678,8 @@
       }
     });
 
+    const saveStatus = document.getElementById('ql-save-status');
+    if (saveStatus) saveStatus.textContent = '';
     document.getElementById('ql-result').style.display  = 'none';
     document.getElementById('ql-submit').style.display  = 'inline-block';
     document.getElementById('ql-reset' ).style.display  = 'none';
@@ -565,7 +695,9 @@
   }
 
   // ── API công khai ────────────────────────────────────────────────────────────
-  async function init({ mdUrl, containerId, title }) {
+  async function init({ mdUrl, containerId, title, quizId, saveResults }) {
+    cfg.saveResults = !!saveResults;
+    cfg.quizId      = quizId || title || location.pathname;
     injectStyle();
     const container = document.getElementById(containerId);
     if (!container) { console.error('QuizLoader: không tìm thấy #' + containerId); return; }
