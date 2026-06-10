@@ -494,7 +494,7 @@
         ${cfg.saveResults ? `
         <div class="ql-auth" id="ql-auth">
           <div id="ql-gsi-btn"></div>
-          <p class="ql-auth-note">🔒 Em hãy đăng nhập Google trước khi làm bài để kết quả được lưu lại.</p>
+          <p class="ql-auth-note">🔒 Đăng nhập Google để kết quả được lưu lại. Không đăng nhập vẫn làm bài được, nhưng điểm sẽ không được ghi nhận.</p>
         </div>` : ''}
         <div class="ql-progress">Đã trả lời: <span id="ql-answered">0</span>/${total} câu</div>
         <div class="ql-result" id="ql-result" style="display:none">
@@ -582,13 +582,6 @@
 
   // ── Nộp bài ─────────────────────────────────────────────────────────────────
   function submit(questions) {
-    if (cfg.saveResults && !auth.token) {
-      alert('Em hãy đăng nhập Google (nút ở đầu trang) trước khi nộp bài để kết quả được lưu lại nhé!');
-      const authEl = document.getElementById('ql-auth');
-      if (authEl) authEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
-
     let correct = 0;
     const answers = [];
 
@@ -649,7 +642,17 @@
     document.getElementById('ql-submit').style.display = 'none';
     document.getElementById('ql-reset' ).style.display = 'inline-block';
 
-    if (cfg.saveResults) sendResult(correct, questions.length, answers);
+    if (cfg.saveResults) {
+      if (auth.token) {
+        sendResult(correct, questions.length, answers);
+      } else {
+        const statusEl = document.getElementById('ql-save-status');
+        if (statusEl) {
+          statusEl.textContent = '⚠ Kết quả không được lưu vì chưa đăng nhập.';
+          statusEl.style.color = '#b45309';
+        }
+      }
+    }
 
     typeset(document.getElementById('ql-body'));
     result.scrollIntoView({ behavior: 'smooth', block: 'center' });
