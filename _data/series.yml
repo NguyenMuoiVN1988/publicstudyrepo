@@ -15,3 +15,33 @@ t7-c1:
       url: /T7/2026PhieuBT/LGC1B4.html
     - title: "Trắc nghiệm: Bốn phép toán trên số hữu tỉ"
       url: /T7/T7C1/T7C1CD1.html
+
+t9-c1:
+  label: "Toán 9 · Chương 1 — Phương trình & hệ phương trình bậc nhất hai ẩn"
+  items:
+    - title: "Bài 1. Phương trình & hệ phương trình bậc nhất hai ẩn"
+      url: /T9/2026PhieuBT/LGC1B1.html
+    - title: "Bài 2. Giải hệ phương trình bậc nhất hai ẩn"
+      url: /T9/2026PhieuBT/LGC1B2.html
+    - title: "Bài 3. Giải bài toán bằng cách lập hệ phương trình"
+      url: /T9/2026PhieuBT/LGC1B3.html
+    - title: "Ôn tập cuối chương I"
+      url: /T9/2026PhieuBT/LGC1Ontap.html
+    - title: "Trắc nghiệm CĐ1: Phương trình quy về bậc nhất"
+      url: /T9/TN/T9TNC1B1CD1_quiz.html
+    - title: "Trắc nghiệm CĐ2: Phương trình bậc nhất hai ẩn"
+      url: /T9/TN/T9TNC1B1CD2_quiz.html
+    - title: "Trắc nghiệm CĐ3: Hệ hai phương trình bậc nhất hai ẩn"
+      url: /T9/TN/T9TNC1CD3_quiz.html
+
+t12-c1b1:
+  label: "Toán 12 · Chương 1 — Đơn điệu & Cực trị"
+  items:
+    - title: "Dạng 1–3: Hàm đa thức, phân thức, căn thức"
+      url: /T12/TN/C1/T12C1B1D123.html
+    - title: "Dạng 4–6: Hàm lượng giác, mũ, lôgarit"
+      url: /T12/TN/C1/T12C1B1D456.html
+    - title: "Dạng 7–9: Giá trị tuyệt đối, biết f′(x), đồ thị/BBT"
+      url: /T12/TN/C1/T12C1B1D789.html
+    - title: "Dạng 10–15: Hàm hợp, tìm tham số, bài toán thực tế"
+      url: /T12/TN/C1/T12C1B1D101112131415.html
