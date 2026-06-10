@@ -1,0 +1,364 @@
+---
+layout: default
+title: Toán 7 - Bài 1. Tập hợp các số hữu tỉ
+description: Lý thuyết trọng tâm và lời giải chi tiết Bài 1 Tập hợp các số hữu tỉ (Toán 7 - Chương 1) - nhận biết số hữu tỉ, biểu diễn trên trục số, so sánh và sắp xếp số hữu tỉ.
+tags: [Toán 7, số hữu tỉ, tập hợp số, so sánh số hữu tỉ, chương 1]
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  .lgc .hero { background:linear-gradient(135deg,#a23b52,#b07a12);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(162,59,82,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--rose); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  .lgc .tbl-wrap { overflow-x:auto; margin:12px 0; }
+  .lgc .tbl { border-collapse:collapse; width:100%; min-width:420px;
+    background:#fff; font-size:.96rem; }
+  .lgc .tbl th, .lgc .tbl td { border:1px solid #d8d0ec;
+    padding:9px 12px; text-align:center; }
+  .lgc .tbl th { background:#6f57b0; color:#fff;
+    font-family:'Quicksand',sans-serif; font-weight:700; }
+  .lgc .tbl td:first-child, .lgc .tbl th:first-child { text-align:left; }
+  .lgc .tbl tbody tr:nth-child(even) { background:#faf8fe; }
+
+  .lgc .numline { background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:10px; margin:14px 0; text-align:center; }
+  .lgc .numline svg { max-width:100%; height:auto; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 1. Tập hợp các số hữu tỉ</h1>
+    <p>Toán 7 — Chương 1: Số hữu tỉ · Lời giải chi tiết kèm lý thuyết trọng tâm</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-sht">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Số hữu tỉ và quan hệ giữa các tập hợp số</h3>
+    <ul>
+      <li><b>Số hữu tỉ</b> là số viết được dưới dạng phân số $\dfrac{a}{b}$ với $a, b \in \mathbb{Z}$ và <b>$b \neq 0$</b>. Tập hợp số hữu tỉ kí hiệu là $\mathbb{Q}$.</li>
+      <li>Quan hệ bao hàm: $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}$ (mọi số tự nhiên đều là số nguyên, mọi số nguyên đều là số hữu tỉ).</li>
+      <li>Số thập phân, hỗn số đều là số hữu tỉ vì viết được thành phân số: $2{,}5 = \dfrac{5}{2}$, $\;3\dfrac{2}{5} = \dfrac{17}{5}$.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Cách nhận biết</b>: một số là số hữu tỉ khi đưa được về dạng $\dfrac{a}{b}$ với tử, mẫu là <b>số nguyên</b> và <b>mẫu khác 0</b>. Mẫu bằng 0 (như $\dfrac{3}{0}$) thì <span class="no">không xác định</span> ⇒ không là số hữu tỉ.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-bieudien">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Phân số bằng nhau · Số đối · Biểu diễn trên trục số</h3>
+    <ul>
+      <li><b>Hai phân số bằng nhau:</b> $\dfrac{a}{b} = \dfrac{c}{d} \Leftrightarrow a\cdot d = b\cdot c$. Nên đưa về phân số tối giản, <b>mẫu dương</b> để dễ so sánh.</li>
+      <li><b>Số đối</b> của số hữu tỉ $x$ là $-x$; trên trục số, $x$ và $-x$ nằm hai bên gốc $O$, cách đều $O$.</li>
+      <li><b>Biểu diễn trên trục số:</b> chia mỗi đoạn đơn vị thành phần bằng nhau theo mẫu số, rồi đếm theo tử số (âm sang trái, dương sang phải).</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-sosanh">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>So sánh số hữu tỉ · Số hữu tỉ âm, dương</h3>
+    <ul>
+      <li><b>Số hữu tỉ dương</b> là số $> 0$; <b>số hữu tỉ âm</b> là số $< 0$. Riêng số $0$ <b>không âm cũng không dương</b>.</li>
+      <li>Phân số $\dfrac{a}{b}$ (mẫu dương) là dương khi $a > 0$, là âm khi $a < 0$.</li>
+      <li><b>So sánh:</b> đưa hai số về phân số <b>cùng mẫu dương</b> rồi so sánh tử; hoặc đưa về số thập phân.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Mẹo nhanh</b>: số âm luôn nhỏ hơn số dương và nhỏ hơn 0. Với hai số âm, số nào có giá trị tuyệt đối lớn hơn thì <b>nhỏ hơn</b>.
+    </div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Lời giải bài tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Nhận biết số hữu tỉ</h3>
+    <div class="de">
+      <p>Khoanh tròn vào các số hữu tỉ:
+      $3\dfrac{2}{5};\ -\dfrac{13}{17};\ \dfrac{-2}{7};\ \dfrac{0}{3};\ 2{,}5;\ \dfrac{7}{-5};\ 0{,}625;\ \dfrac{5}{4};\ -92;\ 0;\ \dfrac{-8}{-8};\ \dfrac{2{,}61}{4{,}3};\ \dfrac{3}{0}$</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sht"><b>Dùng Lý thuyết 1:</b> số hữu tỉ phải đưa được về $\dfrac{a}{b}$ với $a,b\in\mathbb{Z},\ b\neq 0$.</a>
+      <p><span class="yes">Là số hữu tỉ</span> (đưa được về phân số mẫu khác 0):</p>
+      <ul>
+        <li>$3\dfrac{2}{5}=\dfrac{17}{5}$; $\;-\dfrac{13}{17}$; $\;\dfrac{-2}{7}$; $\;\dfrac{0}{3}=0$; $\;2{,}5=\dfrac{5}{2}$; $\;\dfrac{7}{-5}$;</li>
+        <li>$0{,}625=\dfrac{5}{8}$; $\;\dfrac{5}{4}$; $\;-92=\dfrac{-92}{1}$; $\;0$; $\;\dfrac{-8}{-8}=1$; $\;\dfrac{2{,}61}{4{,}3}=\dfrac{261}{430}$.</li>
+      </ul>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> $\dfrac{2{,}61}{4{,}3}$ trông như không phải số hữu tỉ vì tử, mẫu là số thập phân — nhưng nhân cả tử và mẫu với 100 ta được $\dfrac{261}{430}$ (tử, mẫu nguyên) nên <span class="yes">vẫn là số hữu tỉ</span>. Ngược lại, $\dfrac{3}{0}$ có mẫu bằng 0 nên <span class="no">không xác định ⇒ không là số hữu tỉ</span>.
+      </div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Điền kí hiệu $\in,\ \notin$</h3>
+    <div class="de">
+      <p>Điền kí hiệu thích hợp ($\in$ hoặc $\notin$) vào ô trống.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sht"><b>Dùng Lý thuyết 1:</b> $\mathbb{N}$ là số tự nhiên ($0,1,2,\dots$); $\mathbb{Z}$ là số nguyên; $\mathbb{Q}$ là số hữu tỉ; $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}$.</a>
+      <ul>
+        <li>a) $-5 \in \mathbb{Z}$ &nbsp;&nbsp; b) $-3{,}5 \notin \mathbb{Z}$ (không nguyên) &nbsp;&nbsp; c) $0 \in \mathbb{N}$</li>
+        <li>d) $\dfrac{1}{5} \in \mathbb{Q}$ &nbsp;&nbsp; e) $-\dfrac{0}{8}=0 \in \mathbb{Q}$ &nbsp;&nbsp; f) $-5 \notin \mathbb{N}$ (số âm)</li>
+        <li>g) $\dfrac{-4}{3} \in \mathbb{Q}$ &nbsp;&nbsp; h) $\dfrac{-2}{5} \notin \mathbb{Z}$ &nbsp;&nbsp; i) $-\dfrac{1}{3} \notin \mathbb{Z}$ &nbsp;&nbsp; j) $-\dfrac{4}{7} \in \mathbb{Q}$</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Tìm số nguyên $x$ để là số hữu tỉ</h3>
+    <div class="de">
+      <p>Tìm số nguyên $x$ để các số sau là số hữu tỉ: a) $\dfrac{x}{7}$; &nbsp; b) $\dfrac{-5}{2x}$; &nbsp; c) $\dfrac{-2}{2x-4}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sht"><b>Dùng Lý thuyết 1:</b> điều kiện cốt lõi là <b>mẫu khác 0</b>.</a>
+      <ul>
+        <li><b>a)</b> $\dfrac{x}{7}$ có mẫu $7 \neq 0$ với mọi $x$ ⇒ là số hữu tỉ với <span class="key">mọi $x \in \mathbb{Z}$</span>.</li>
+        <li><b>b)</b> Cần $2x \neq 0 \Rightarrow x \neq 0$. Vậy <span class="key">$x \in \mathbb{Z},\ x \neq 0$</span>.</li>
+        <li><b>c)</b> Cần $2x-4 \neq 0 \Rightarrow x \neq 2$. Vậy <span class="key">$x \in \mathbb{Z},\ x \neq 2$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Biểu diễn trên trục số</h3>
+    <div class="de">
+      <p>Biểu diễn các số hữu tỉ $\dfrac{-1}{4};\ \dfrac{-3}{-4};\ \dfrac{3}{-4}$ trên cùng một trục số.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bieudien"><b>Dùng Lý thuyết 2:</b> rút gọn về mẫu dương, chia mỗi đơn vị thành 4 phần bằng nhau.</a>
+      <p>Rút gọn: $\dfrac{-3}{-4}=\dfrac{3}{4}$ (dương), $\ \dfrac{3}{-4}=-\dfrac{3}{4}$ (âm). Vậy cần biểu diễn ba điểm $-\dfrac{3}{4},\ -\dfrac{1}{4},\ \dfrac{3}{4}$.</p>
+      <p>Chia mỗi đoạn đơn vị (từ 0 đến 1 và từ $-1$ đến 0) thành <b>4 phần bằng nhau</b>, mỗi phần là $\dfrac{1}{4}$:</p>
+      <div class="numline">
+        <svg viewBox="0 0 600 90" width="600" height="90" role="img" aria-label="Trục số biểu diễn -3/4, -1/4, 3/4">
+          <line x1="40" y1="55" x2="560" y2="55" stroke="#5b6b7a" stroke-width="2"/>
+          <polygon points="560,55 549,50 549,60" fill="#5b6b7a"/>
+          <!-- ticks at quarters from -1 to 1 : x = 300 + v*220, v in {-1,-.75,-.5,-.25,0,.25,.5,.75,1} -->
+          <g stroke="#9aa7b3" stroke-width="1">
+            <line x1="80" y1="49" x2="80" y2="61"/><line x1="135" y1="51" x2="135" y2="59"/>
+            <line x1="190" y1="51" x2="190" y2="59"/><line x1="245" y1="51" x2="245" y2="59"/>
+            <line x1="300" y1="47" x2="300" y2="63"/><line x1="355" y1="51" x2="355" y2="59"/>
+            <line x1="410" y1="51" x2="410" y2="59"/><line x1="465" y1="51" x2="465" y2="59"/>
+            <line x1="520" y1="49" x2="520" y2="61"/>
+          </g>
+          <g fill="#5b6b7a" font-size="13" font-family="Quicksand,sans-serif" text-anchor="middle">
+            <text x="80" y="78">-1</text><text x="300" y="78">0</text><text x="520" y="78">1</text>
+          </g>
+          <!-- highlighted points -->
+          <g fill="#a23b52">
+            <circle cx="135" cy="55" r="5"/><circle cx="245" cy="55" r="5"/><circle cx="465" cy="55" r="5"/>
+          </g>
+          <g fill="#a23b52" font-size="13" font-weight="700" font-family="Quicksand,sans-serif" text-anchor="middle">
+            <text x="135" y="32">-3/4</text><text x="245" y="32">-1/4</text><text x="465" y="32">3/4</text>
+          </g>
+        </svg>
+      </div>
+      <p>Hai điểm $-\dfrac{3}{4}$ và $\dfrac{3}{4}$ là <b>số đối</b> của nhau nên đối xứng qua gốc $O$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 5 -->
+  <div class="bai">
+    <h3><span class="num">5</span> Phân số biểu diễn cùng một số hữu tỉ</h3>
+    <div class="de">
+      <p>Cho các phân số $\dfrac{-9}{6};\ \dfrac{-14}{21};\ \dfrac{4}{-6};\ \dfrac{12}{-20}$. Những phân số nào biểu diễn số hữu tỉ $\dfrac{2}{-3}$?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bieudien"><b>Dùng Lý thuyết 2:</b> rút gọn từng phân số về tối giản, mẫu dương rồi so với $\dfrac{2}{-3}=-\dfrac{2}{3}$.</a>
+      <ul>
+        <li>$\dfrac{-9}{6}=-\dfrac{3}{2}$ → <span class="no">khác</span></li>
+        <li>$\dfrac{-14}{21}=-\dfrac{2}{3}$ → <span class="yes">bằng $-\dfrac{2}{3}$</span></li>
+        <li>$\dfrac{4}{-6}=-\dfrac{2}{3}$ → <span class="yes">bằng $-\dfrac{2}{3}$</span></li>
+        <li>$\dfrac{12}{-20}=-\dfrac{3}{5}$ → <span class="no">khác</span></li>
+      </ul>
+      <p>Vậy <span class="key">$\dfrac{-14}{21}$ và $\dfrac{4}{-6}$</span> biểu diễn số hữu tỉ $\dfrac{2}{-3}$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 6 -->
+  <div class="bai">
+    <h3><span class="num">6</span> Số hữu tỉ âm, dương</h3>
+    <div class="de">
+      <p>Trong các số sau, số nào là số hữu tỉ âm, dương, số nào không âm cũng không dương?
+      $-\dfrac{5}{7};\ \dfrac{4}{-9};\ \dfrac{-3}{-8};\ \dfrac{0}{5};\ \dfrac{-14}{9};\ \dfrac{5}{-8};\ \dfrac{-0}{-8}$</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sosanh"><b>Dùng Lý thuyết 3:</b> đưa về mẫu dương; tử dương ⇒ dương, tử âm ⇒ âm, tử bằng 0 ⇒ số 0.</a>
+      <ul>
+        <li><b>Dương:</b> $\dfrac{-3}{-8}=\dfrac{3}{8}$.</li>
+        <li><b>Âm:</b> $-\dfrac{5}{7};\ \dfrac{4}{-9}=-\dfrac{4}{9};\ \dfrac{-14}{9};\ \dfrac{5}{-8}=-\dfrac{5}{8}$.</li>
+        <li><b>Không âm cũng không dương:</b> $\dfrac{0}{5}=0$ và $\dfrac{-0}{-8}=0$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 7 -->
+  <div class="bai">
+    <h3><span class="num">7</span> Biện luận dấu theo tham số</h3>
+    <div class="de">
+      <p>Cho số hữu tỉ $x=\dfrac{2a-1}{2}$. Với giá trị nào của $a$ thì: a) $x$ dương; b) $x$ âm; c) $x$ không dương cũng không âm?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sosanh"><b>Dùng Lý thuyết 3:</b> mẫu $2>0$ nên dấu của $x$ phụ thuộc dấu của tử $2a-1$.</a>
+      <ul>
+        <li><b>a)</b> $x$ dương $\Leftrightarrow 2a-1>0 \Leftrightarrow$ <span class="key">$a>\dfrac{1}{2}$</span>.</li>
+        <li><b>b)</b> $x$ âm $\Leftrightarrow 2a-1<0 \Leftrightarrow$ <span class="key">$a<\dfrac{1}{2}$</span>.</li>
+        <li><b>c)</b> $x=0 \Leftrightarrow 2a-1=0 \Leftrightarrow$ <span class="key">$a=\dfrac{1}{2}$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 8 -->
+  <div class="bai">
+    <h3><span class="num">8</span> So sánh các số hữu tỉ</h3>
+    <div class="de">
+      <p>So sánh: a) $\dfrac{7}{8}$ và $\dfrac{11}{12}$; &nbsp; b) $\dfrac{-2}{15}$ và $\dfrac{3}{20}$; &nbsp; c) $\dfrac{-17}{16}$ và $\dfrac{-2}{3}$; &nbsp; d) $\dfrac{-9}{21}$ và $\dfrac{27}{-63}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sosanh"><b>Dùng Lý thuyết 3:</b> quy đồng về cùng mẫu dương rồi so sánh tử; chú ý mẹo âm – dương.</a>
+      <ul>
+        <li><b>a)</b> Quy đồng mẫu 24: $\dfrac{7}{8}=\dfrac{21}{24}$, $\dfrac{11}{12}=\dfrac{22}{24}$ ⇒ <span class="key">$\dfrac{7}{8}<\dfrac{11}{12}$</span>.</li>
+        <li><b>b)</b> $\dfrac{-2}{15}<0<\dfrac{3}{20}$ ⇒ <span class="key">$\dfrac{-2}{15}<\dfrac{3}{20}$</span> (âm nhỏ hơn dương).</li>
+        <li><b>c)</b> Quy đồng mẫu 48: $\dfrac{-17}{16}=\dfrac{-51}{48}$, $\dfrac{-2}{3}=\dfrac{-32}{48}$; vì $-51<-32$ ⇒ <span class="key">$\dfrac{-17}{16}<\dfrac{-2}{3}$</span>.</li>
+        <li><b>d)</b> $\dfrac{-9}{21}=-\dfrac{3}{7}$ và $\dfrac{27}{-63}=-\dfrac{3}{7}$ ⇒ <span class="key">$\dfrac{-9}{21}=\dfrac{27}{-63}$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 9 -->
+  <div class="bai">
+    <h3><span class="num">9</span> Sắp xếp theo thứ tự</h3>
+    <div class="de">
+      <p>Sắp xếp theo thứ tự từ lớn đến bé: $\dfrac{-10}{8};\ \dfrac{5}{12};\ 0;\ \dfrac{-19}{19};\ \dfrac{2}{-10};\ \dfrac{17}{15};\ 1$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sosanh"><b>Dùng Lý thuyết 3:</b> đổi về số thập phân để dễ sắp xếp.</a>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Số</th><th>$\dfrac{17}{15}$</th><th>$1$</th><th>$\dfrac{5}{12}$</th><th>$0$</th><th>$\dfrac{2}{-10}$</th><th>$\dfrac{-19}{19}$</th><th>$\dfrac{-10}{8}$</th></tr></thead>
+          <tbody><tr><td>Giá trị</td><td>$\approx1{,}13$</td><td>$1$</td><td>$\approx0{,}42$</td><td>$0$</td><td>$-0{,}2$</td><td>$-1$</td><td>$-1{,}25$</td></tr></tbody>
+        </table>
+      </div>
+      <p>Thứ tự từ lớn đến bé:</p>
+      <p style="text-align:center"><span class="key">$\dfrac{17}{15}>1>\dfrac{5}{12}>0>\dfrac{2}{-10}>\dfrac{-19}{19}>\dfrac{-10}{8}$</span></p>
+    </div>
+  </div>
+
+  <!-- BÀI 10 -->
+  <div class="bai">
+    <h3><span class="num">10</span> Bài toán thực tế</h3>
+    <div class="de">
+      <p>Lớp 7B có $\dfrac{4}{5}$ số học sinh thích học Toán, $\dfrac{7}{10}$ thích học Văn, $\dfrac{23}{25}$ thích học Tiếng Anh. Môn nào được nhiều bạn yêu thích nhất?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sosanh"><b>Dùng Lý thuyết 3:</b> so sánh ba phân số bằng cách quy đồng về cùng mẫu dương.</a>
+      <p>Quy đồng mẫu chung $50$: $\;\dfrac{4}{5}=\dfrac{40}{50}$, $\;\dfrac{7}{10}=\dfrac{35}{50}$, $\;\dfrac{23}{25}=\dfrac{46}{50}$.</p>
+      <p>Vì $\dfrac{46}{50}>\dfrac{40}{50}>\dfrac{35}{50}$ nên môn <span class="key">Tiếng Anh</span> được nhiều bạn lớp 7B yêu thích nhất.</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Số $\dfrac{a}{b}$ chỉ là số hữu tỉ khi <b>$b \neq 0$</b>; mẫu bằng 0 là vô nghĩa.</li>
+      <li>Số thập phân, hỗn số, tỉ số của hai số thập phân... đều là số hữu tỉ vì viết được thành $\dfrac{a}{b}$ (tử, mẫu nguyên).</li>
+      <li>So sánh số hữu tỉ: đưa về <b>cùng mẫu dương</b> rồi so sánh tử, hoặc đổi sang số thập phân.</li>
+      <li>Số $0$ <b>không âm cũng không dương</b>; hai số đối nhau đối xứng qua gốc $O$ trên trục số.</li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,212 @@
+---
+layout: default
+title: Toán 7 - Bài 3. Lũy thừa với số mũ tự nhiên của một số hữu tỉ
+description: Lời giải chi tiết Bài 3 Lũy thừa với số mũ tự nhiên của một số hữu tỉ (Toán 7 - Chương 1) - tính lũy thừa, viết dưới dạng lũy thừa, nhân chia lũy thừa cùng cơ số, tìm cơ số và số mũ.
+tags: [Toán 7, lũy thừa, số hữu tỉ, số mũ tự nhiên, chương 1]
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  .lgc .hero { background:linear-gradient(135deg,#a23b52,#b07a12);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(162,59,82,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--rose); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 3. Lũy thừa với số mũ tự nhiên của một số hữu tỉ</h1>
+    <p>Toán 7 — Chương 1: Số hữu tỉ · Lời giải chi tiết kèm lý thuyết trọng tâm</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-dn">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Định nghĩa và các quy tắc lũy thừa</h3>
+    <ul>
+      <li><b>Định nghĩa:</b> $x^n=\underbrace{x\cdot x\cdots x}_{n\text{ thừa số}}$ ($n\in\mathbb{N},\ n>1$); $\;x^1=x$, $\;x^0=1$ (với $x\neq0$).</li>
+      <li>Lũy thừa của thương: $\left(\dfrac{a}{b}\right)^n=\dfrac{a^n}{b^n}$.</li>
+      <li>Các quy tắc: $x^m\cdot x^n=x^{m+n}$; $\;x^m:x^n=x^{m-n}$; $\;(x^m)^n=x^{m\cdot n}$.</li>
+      <li>Mũ âm (mở rộng): $x^{-n}=\dfrac{1}{x^n}$, ví dụ $2^{-2}=\dfrac{1}{4}$.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Mẹo:</b> đưa các số về <b>cùng cơ số nguyên tố</b> ($4=2^2$, $9=3^2$, $25=5^2$, $15=3\cdot5$…) rồi áp dụng quy tắc cộng/trừ số mũ.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-dau">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Dấu của lũy thừa · Tổng các lũy thừa chẵn</h3>
+    <ul>
+      <li>Lũy thừa <b>mũ chẵn</b> luôn <b>không âm</b>: $x^{2k}\ge0$ với mọi $x$.</li>
+      <li>Lũy thừa <b>mũ lẻ</b> cùng dấu với cơ số.</li>
+      <li><b>Tổng các lũy thừa mũ chẵn bằng 0</b> thì <b>từng</b> hạng tử phải bằng 0: $A^2+B^2=0 \Leftrightarrow A=0$ và $B=0$.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Lời giải bài tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Tính lũy thừa</h3>
+    <div class="de">
+      <p>Tính: $\left(-\dfrac{2}{3}\right)^3$; &nbsp; $\left(-1\dfrac{3}{4}\right)^2$; &nbsp; $(-0{,}6)^4$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dn"><b>Dùng Lý thuyết 1:</b> $\left(\dfrac{a}{b}\right)^n=\dfrac{a^n}{b^n}$; chú ý dấu theo mũ chẵn/lẻ.</a>
+      <ul>
+        <li>$\left(-\dfrac{2}{3}\right)^3=\dfrac{(-2)^3}{3^3}=$ <span class="key">$-\dfrac{8}{27}$</span> (mũ lẻ ⇒ giữ dấu âm).</li>
+        <li>$\left(-1\dfrac{3}{4}\right)^2=\left(-\dfrac{7}{4}\right)^2=\dfrac{49}{16}=$ <span class="key">$\dfrac{49}{16}$</span> (mũ chẵn ⇒ dương).</li>
+        <li>$(-0{,}6)^4=(0{,}6)^4=\left(\dfrac{3}{5}\right)^4=\dfrac{81}{625}=$ <span class="key">$0{,}1296$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Viết dưới dạng lũy thừa</h3>
+    <div class="de">
+      <p>Viết số hữu tỉ $\dfrac{81}{625}$ dưới dạng một lũy thừa. Nêu tất cả các cách viết.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dn"><b>Dùng Lý thuyết 1:</b> phân tích tử, mẫu thành lũy thừa rồi gộp; nhớ cơ số âm cũng cho kết quả dương nếu mũ chẵn.</a>
+      <p>Ta có $81=3^4$ và $625=5^4$, nên $\dfrac{81}{625}=\dfrac{3^4}{5^4}=\left(\dfrac{3}{5}\right)^4$.</p>
+      <p>Mặt khác $81=9^2$, $625=25^2$, nên $\dfrac{81}{625}=\left(\dfrac{9}{25}\right)^2$. Các cách viết:</p>
+      <p style="text-align:center"><span class="key">$\left(\dfrac{3}{5}\right)^4=\left(-\dfrac{3}{5}\right)^4=\left(\dfrac{9}{25}\right)^2=\left(-\dfrac{9}{25}\right)^2$</span></p>
+      <div class="trap"><b>⚠️ Lưu ý:</b> vì các số mũ đều <b>chẵn</b> nên cơ số âm $\left(-\dfrac{3}{5}\right),\left(-\dfrac{9}{25}\right)$ vẫn cho kết quả dương — đừng bỏ sót các cách viết với dấu trừ.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Tính giá trị biểu thức</h3>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dn"><b>Dùng Lý thuyết 1:</b> đưa về cùng cơ số rồi cộng/trừ số mũ.</a>
+      <p><b>a)</b> $\dfrac{(-3)^{10}\cdot15^5}{25^3\cdot(-9)^7}$. Phân tích: $(-3)^{10}=3^{10}$; $\;15^5=3^5\cdot5^5$; $\;25^3=5^6$; $\;(-9)^7=-(3^2)^7=-3^{14}$.</p>
+      <p>$=\dfrac{3^{10}\cdot3^5\cdot5^5}{5^6\cdot(-3^{14})}=\dfrac{3^{15}\cdot5^5}{-3^{14}\cdot5^6}=-3^{1}\cdot5^{-1}=$ <span class="key">$-\dfrac{3}{5}$</span>.</p>
+      <p><b>b)</b> $2^3+3\cdot\left(\dfrac{1}{9}\right)^0-2^{-2}\cdot4+\left[(-2)^2:\dfrac{1}{2}\right]\cdot8$</p>
+      <p>$=8+3\cdot1-\dfrac{1}{4}\cdot4+\big[4\cdot2\big]\cdot8=8+3-1+8\cdot8=8+3-1+64=$ <span class="key">$74$</span>.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Tìm x, y</h3>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dau"><b>Dùng Lý thuyết 2:</b> bình phương bằng số dương cho <b>hai</b> giá trị (±); tổng các lũy thừa chẵn bằng 0 thì từng hạng tử bằng 0.</a>
+      <p><b>a)</b> $(x-1{,}5)^2=9 \Rightarrow x-1{,}5=\pm3 \Rightarrow$ <span class="key">$x=4{,}5$</span> hoặc <span class="key">$x=-1{,}5$</span>.</p>
+      <p><b>b)</b> $(x+1{,}5)^2+(y-2{,}5)^{10}=0$. Hai số hạng đều mũ chẵn nên $\ge0$; tổng bằng 0 ⇒ mỗi số hạng bằng 0:</p>
+      <p>$x+1{,}5=0$ và $y-2{,}5=0 \Rightarrow$ <span class="key">$x=-1{,}5$</span> và <span class="key">$y=2{,}5$</span>.</p>
+      <p><b>c)</b> $2^{-2}\cdot2^x+2\cdot2^x=9\cdot2^6$. Đặt thừa số chung $2^x$:</p>
+      <p>$2^x\left(2^{-2}+2\right)=2^x\cdot\dfrac{9}{4}=9\cdot2^6 \Rightarrow 2^x=9\cdot2^6\cdot\dfrac{4}{9}=2^6\cdot2^2=2^8 \Rightarrow$ <span class="key">$x=8$</span>.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 5 -->
+  <div class="bai">
+    <h3><span class="num">5</span> Tìm số mũ n</h3>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dn"><b>Dùng Lý thuyết 1:</b> đưa các vế về cùng cơ số rồi so sánh số mũ.</a>
+      <p><b>a)</b> $49<7^n<343 \Leftrightarrow 7^2<7^n<7^3 \Leftrightarrow 2<n<3$.</p>
+      <div class="trap"><b>⚠️ Kết luận câu a:</b> không có số nguyên $n$ nào nằm <b>chặt</b> giữa 2 và 3, mà $7^n$ chỉ nhận các giá trị $\dots,49,343,\dots$ — <span class="no">không có giá trị $n\in\mathbb{Z}$ thỏa mãn</span>.</div>
+      <p><b>b)</b> $9<9^n\le243$. Đưa về cơ số 3: $9^n=3^{2n}$, $\;9=3^2$, $\;243=3^5$.</p>
+      <p>$3^2<3^{2n}\le3^5 \Leftrightarrow 2<2n\le5 \Leftrightarrow 1<n\le2{,}5 \Rightarrow$ <span class="key">$n=2$</span>.</p>
+      <p><b>c)</b> $121\ge11^n\ge1 \Leftrightarrow 11^2\ge11^n\ge11^0 \Leftrightarrow 0\le n\le2 \Rightarrow$ <span class="key">$n\in\{0;1;2\}$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>$x^m\cdot x^n=x^{m+n}$; $\;x^m:x^n=x^{m-n}$; $\;(x^m)^n=x^{mn}$; $\;\left(\dfrac{a}{b}\right)^n=\dfrac{a^n}{b^n}$.</li>
+      <li>Lũy thừa mũ <b>chẵn</b> luôn không âm; mũ <b>lẻ</b> cùng dấu với cơ số.</li>
+      <li>Tổng các lũy thừa mũ chẵn bằng 0 thì <b>từng</b> hạng tử phải bằng 0.</li>
+      <li>$A^2=k>0$ luôn cho <b>hai</b> nghiệm $A=\pm\sqrt{k}$ — đừng quên nghiệm âm.</li>
+    </ul>
+  </div>
+
+</div>

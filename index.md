@@ -137,6 +137,12 @@ details > div {
 **Trắc nghiệm tương tác**
 - [C1 – Chủ đề 1: Bốn phép toán trên tập số hữu tỉ (16 câu)](T7/T7C1/T7C1CD1.html)
 
+**Lời giải phiếu bài tập**
+- [C1B1: Tập hợp các số hữu tỉ](T7/2026PhieuBT/LGC1B1.html)
+- [C1B2: Cộng, trừ, nhân, chia số hữu tỉ](T7/2026PhieuBT/LGC1B2.html)
+- [C1B3: Lũy thừa với số mũ tự nhiên của một số hữu tỉ](T7/2026PhieuBT/LGC1B3.html)
+- [C1B4: Thứ tự thực hiện các phép tính. Quy tắc chuyển vế](T7/2026PhieuBT/LGC1B4.html)
+
 </div>
 </details>
 
