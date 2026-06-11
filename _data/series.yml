@@ -33,6 +33,167 @@ t9-c1:
       url: /T9/TN/T9TNC1B1CD2_quiz.html
     - title: "Trắc nghiệm CĐ3: Hệ hai phương trình bậc nhất hai ẩn"
       url: /T9/TN/T9TNC1CD3_quiz.html
+    - title: "Trắc nghiệm CĐ3 – Phần 2: Hệ phương trình chứa tham số"
+      url: /T9/TN/T9TNC1CD3Part2.html
+    - group: "Trắc nghiệm CĐ4: Giải bài toán bằng cách lập hệ phương trình (25 câu · 8 phần)"
+      items:
+        - title: "Phần 1/8: bài toán về số có hai chữ số"
+          url: /T9/TN/T9TNC1CD4Part1.html
+        - title: "Phần 2/8: bài toán chuyển động, bài toán năng suất, phần trăm"
+          url: /T9/TN/T9TNC1CD4Part2.html
+        - title: "Phần 3/8: bài toán chuyển động, ca nô xuôi dòng – ngược dòng"
+          url: /T9/TN/T9TNC1CD4Part3.html
+        - title: "Phần 4/8: bài toán chuyển động"
+          url: /T9/TN/T9TNC1CD4Part4.html
+        - title: "Phần 5/8: hai vòi nước chảy chung bể, làm chung công việc…"
+          url: /T9/TN/T9TNC1CD4Part5.html
+        - title: "Phần 6/8: bài toán năng suất, phần trăm, bài toán có nội dung hình học"
+          url: /T9/TN/T9TNC1CD4Part6.html
+        - title: "Phần 7/8: bài toán có nội dung hình học, bài toán phân chia số lượng"
+          url: /T9/TN/T9TNC1CD4Part7.html
+        - title: "Phần 8/8: bài toán phân chia số lượng, bài toán năng suất, phần trăm…"
+          url: /T9/TN/T9TNC1CD4Part8.html
+
+t9-c2:
+  label: "Toán 9 · Chương 2 — Bất đẳng thức & Bất phương trình bậc nhất một ẩn"
+  items:
+    - group: "CĐ5 · Dạng 1: Thứ tự & phép cộng, BĐT cơ bản (Phần 1–6)"
+      items:
+        - title: "Phần 1/17: liên hệ giữa thứ tự và phép cộng"
+          url: /T9/TN/T9TNC2BDTCD5Part1.html
+        - title: "Phần 2/17: liên hệ giữa thứ tự và phép cộng"
+          url: /T9/TN/T9TNC2BDTCD5Part2.html
+        - title: "Phần 3/17: liên hệ giữa thứ tự và phép cộng"
+          url: /T9/TN/T9TNC2BDTCD5Part3.html
+        - title: "Phần 4/17: liên hệ giữa thứ tự và phép cộng"
+          url: /T9/TN/T9TNC2BDTCD5Part4.html
+        - title: "Phần 5/17: liên hệ giữa thứ tự và phép cộng, bất đẳng thức kinh điển"
+          url: /T9/TN/T9TNC2BDTCD5Part5.html
+        - title: "Phần 6/17: bất đẳng thức kinh điển"
+          url: /T9/TN/T9TNC2BDTCD5Part6.html
+    - group: "CĐ5 · Dạng 2: Thứ tự & phép nhân, BĐT kinh điển (Phần 7–13)"
+      items:
+        - title: "Phần 7/17: liên hệ giữa thứ tự và phép nhân"
+          url: /T9/TN/T9TNC2BDTCD5Part7.html
+        - title: "Phần 8/17: liên hệ giữa thứ tự và phép nhân"
+          url: /T9/TN/T9TNC2BDTCD5Part8.html
+        - title: "Phần 9/17: liên hệ giữa thứ tự và phép nhân"
+          url: /T9/TN/T9TNC2BDTCD5Part9.html
+        - title: "Phần 10/17: liên hệ giữa thứ tự và phép nhân, bất đẳng thức kinh điển"
+          url: /T9/TN/T9TNC2BDTCD5Part10.html
+        - title: "Phần 11/17: bất đẳng thức kinh điển"
+          url: /T9/TN/T9TNC2BDTCD5Part11.html
+        - title: "Phần 12/17: bất đẳng thức kinh điển"
+          url: /T9/TN/T9TNC2BDTCD5Part12.html
+        - title: "Phần 13/17: bất đẳng thức kinh điển, giải bất phương trình bậc nhất một ẩn"
+          url: /T9/TN/T9TNC2BDTCD5Part13.html
+    - group: "CĐ5 · Dạng 3: Bất phương trình bậc nhất một ẩn (Phần 14–17)"
+      items:
+        - title: "Phần 14/17: giải bất phương trình bậc nhất một ẩn, liên hệ giữa thứ tự và phép nhân"
+          url: /T9/TN/T9TNC2BDTCD5Part14.html
+        - title: "Phần 15/17: giải bất phương trình bậc nhất một ẩn"
+          url: /T9/TN/T9TNC2BDTCD5Part15.html
+        - title: "Phần 16/17: giải bất phương trình bậc nhất một ẩn"
+          url: /T9/TN/T9TNC2BDTCD5Part16.html
+        - title: "Phần 17/17: giải bất phương trình bậc nhất một ẩn, bất đẳng thức kinh điển"
+          url: /T9/TN/T9TNC2BDTCD5Part17.html
+t9-c3:
+  label: "Toán 9 · Chương 3 — Căn bậc hai & Căn thức bậc hai"
+  items:
+    - group: "CĐ6: Căn bậc hai & căn thức bậc hai (29 câu · 9 phần)"
+      items:
+        - title: "Phần 1/9: căn bậc hai số học"
+          url: /T9/TN/T9TNC3CD6Part1.html
+        - title: "Phần 2/9: tìm điều kiện xác định của căn thức, so sánh các căn thức"
+          url: /T9/TN/T9TNC3CD6Part2.html
+        - title: "Phần 3/9: tính căn của bình phương (dùng giá trị tuyệt đối)"
+          url: /T9/TN/T9TNC3CD6Part3.html
+        - title: "Phần 4/9: tìm điều kiện xác định của căn thức, rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD6Part4.html
+        - title: "Phần 5/9: tìm điều kiện xác định của căn thức, tính giá trị biểu thức"
+          url: /T9/TN/T9TNC3CD6Part5.html
+        - title: "Phần 6/9: giải phương trình chứa căn, khai căn biểu thức dạng a ± 2 căn b"
+          url: /T9/TN/T9TNC3CD6Part6.html
+        - title: "Phần 7/9: khai căn biểu thức dạng a ± 2 căn b, rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD6Part7.html
+        - title: "Phần 8/9: giải phương trình chứa căn"
+          url: /T9/TN/T9TNC3CD6Part8.html
+        - title: "Phần 9/9: giải phương trình chứa căn, rút gọn biểu thức chứa căn…"
+          url: /T9/TN/T9TNC3CD6Part9.html
+    - group: "CĐ7 · Dạng 1: Khai căn – phép nhân, phép chia (Phần 1–11)"
+      items:
+        - title: "Phần 1/34: khai căn bậc hai và phép nhân, phép chia"
+          url: /T9/TN/T9TNC3CD7Part1.html
+        - title: "Phần 2/34: khai căn bậc hai và phép nhân, phép chia"
+          url: /T9/TN/T9TNC3CD7Part2.html
+        - title: "Phần 3/34: khai căn bậc hai và phép nhân, phép chia"
+          url: /T9/TN/T9TNC3CD7Part3.html
+        - title: "Phần 4/34: khai căn bậc hai và phép nhân, phép chia, rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part4.html
+        - title: "Phần 5/34: rút gọn biểu thức chứa căn, tính giá trị biểu thức"
+          url: /T9/TN/T9TNC3CD7Part5.html
+        - title: "Phần 6/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part6.html
+        - title: "Phần 7/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part7.html
+        - title: "Phần 8/34: rút gọn biểu thức chứa căn, giải phương trình chứa căn"
+          url: /T9/TN/T9TNC3CD7Part8.html
+        - title: "Phần 9/34: rút gọn biểu thức chứa căn, tính giá trị biểu thức"
+          url: /T9/TN/T9TNC3CD7Part9.html
+        - title: "Phần 10/34: rút gọn biểu thức chứa căn, giải phương trình chứa căn"
+          url: /T9/TN/T9TNC3CD7Part10.html
+        - title: "Phần 11/34: giải phương trình chứa căn, đưa thừa số ra ngoài/vào trong dấu căn"
+          url: /T9/TN/T9TNC3CD7Part11.html
+    - group: "CĐ7 · Dạng 2: Đưa thừa số, trục căn thức (Phần 12–22)"
+      items:
+        - title: "Phần 12/34: đưa thừa số ra ngoài/vào trong dấu căn"
+          url: /T9/TN/T9TNC3CD7Part12.html
+        - title: "Phần 13/34: đưa thừa số ra ngoài/vào trong dấu căn, so sánh các căn thức"
+          url: /T9/TN/T9TNC3CD7Part13.html
+        - title: "Phần 14/34: so sánh các căn thức, đưa thừa số ra ngoài/vào trong dấu căn"
+          url: /T9/TN/T9TNC3CD7Part14.html
+        - title: "Phần 15/34: đưa thừa số ra ngoài/vào trong dấu căn, trục căn thức ở mẫu"
+          url: /T9/TN/T9TNC3CD7Part15.html
+        - title: "Phần 16/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part16.html
+        - title: "Phần 17/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part17.html
+        - title: "Phần 18/34: trục căn thức ở mẫu"
+          url: /T9/TN/T9TNC3CD7Part18.html
+        - title: "Phần 19/34: trục căn thức ở mẫu, tính giá trị biểu thức"
+          url: /T9/TN/T9TNC3CD7Part19.html
+        - title: "Phần 20/34: tính giá trị biểu thức, rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part20.html
+        - title: "Phần 21/34: giải phương trình chứa căn"
+          url: /T9/TN/T9TNC3CD7Part21.html
+        - title: "Phần 22/34: giải phương trình chứa căn, tính giá trị biểu thức…"
+          url: /T9/TN/T9TNC3CD7Part22.html
+    - group: "CĐ7 · Dạng 3: Rút gọn biểu thức chứa căn (Phần 23–34)"
+      items:
+        - title: "Phần 23/34: rút gọn biểu thức chứa căn, tính giá trị biểu thức"
+          url: /T9/TN/T9TNC3CD7Part23.html
+        - title: "Phần 24/34: tính giá trị biểu thức, rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part24.html
+        - title: "Phần 25/34: tính giá trị biểu thức, rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part25.html
+        - title: "Phần 26/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part26.html
+        - title: "Phần 27/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part27.html
+        - title: "Phần 28/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part28.html
+        - title: "Phần 29/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part29.html
+        - title: "Phần 30/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part30.html
+        - title: "Phần 31/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part31.html
+        - title: "Phần 32/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part32.html
+        - title: "Phần 33/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part33.html
+        - title: "Phần 34/34: rút gọn biểu thức chứa căn"
+          url: /T9/TN/T9TNC3CD7Part34.html
 
 t12-c1b1:
   label: "Toán 12 · Chương 1 — Đơn điệu & Cực trị"

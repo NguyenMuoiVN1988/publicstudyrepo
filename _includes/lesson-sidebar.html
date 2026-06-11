@@ -2,6 +2,10 @@
   Mục lục dọc theo "chủ đề nhỏ". Trang chỉ cần khai báo `series: <khóa>`
   trong front matter; dữ liệu lấy từ _data/series.yml.
   Desktop: cột dọc cố định bên trái. Điện thoại: ẩn, mở bằng nút 📚.
+
+  Hai kiểu mục trong items:
+    - title/url            : link thường (1 dòng)
+    - group + items con    : nhóm thu gọn <details>; tự mở khi chứa trang hiện tại
 {%- endcomment -%}
 {%- if page.series -%}
 {%- assign s = site.data.series[page.series] -%}
@@ -16,7 +20,24 @@
   </div>
   <ul>
     {%- for it in s.items -%}
+    {%- if it.group -%}
+    {%- assign open = false -%}
+    {%- for sub in it.items -%}
+      {%- if page.url == sub.url -%}{%- assign open = true -%}{%- endif -%}
+    {%- endfor -%}
+    <li class="ls-group">
+      <details{% if open %} open{% endif %}>
+        <summary>{{ it.group }}</summary>
+        <ul>
+          {%- for sub in it.items -%}
+          <li><a href="{{ sub.url | relative_url }}"{% if page.url == sub.url %} class="active" aria-current="page"{% endif %}>{{ sub.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </details>
+    </li>
+    {%- else -%}
     <li><a href="{{ it.url | relative_url }}"{% if page.url == it.url %} class="active" aria-current="page"{% endif %}>{{ it.title }}</a></li>
+    {%- endif -%}
     {%- endfor -%}
   </ul>
 </nav>
