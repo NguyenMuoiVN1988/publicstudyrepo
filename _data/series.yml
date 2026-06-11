@@ -45,3 +45,21 @@ t12-c1b1:
       url: /T12/TN/C1/T12C1B1D789.html
     - title: "Dạng 10–15: Hàm hợp, tìm tham số, bài toán thực tế"
       url: /T12/TN/C1/T12C1B1D101112131415.html
+
+hsa-cd1:
+  label: "HSA · Chuyên đề 1 — Bất phương trình & hệ BPT bậc nhất hai ẩn"
+  items:
+    - title: "Bài giảng: Lý thuyết, ví dụ & quy hoạch tuyến tính"
+      url: /HSA/CDOnTap/CD1/CD1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD1/TestCD1Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD1/TestCD1Part2.html
+
+hsa-cd2:
+  label: "HSA · Chuyên đề 2 — Hàm số bậc hai"
+  items:
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD2/TestCD2Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD2/TestCD2Part2.html
