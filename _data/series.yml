@@ -234,3 +234,13 @@ hsa-cd3:
       url: /HSA/CDOnTap/CD3/TestCD3Part1.html
     - title: "Trắc nghiệm – Đề ôn tập số 02 (câu 21–40)"
       url: /HSA/CDOnTap/CD3/TestCD3Part2.html
+
+hsa-cd4:
+  label: "HSA · Chuyên đề 4 — Phương pháp toạ độ trong mặt phẳng"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD4/CD4.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (17 câu)"
+      url: /HSA/CDOnTap/CD4/TestCD4Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (20 câu)"
+      url: /HSA/CDOnTap/CD4/TestCD4Part2.html
