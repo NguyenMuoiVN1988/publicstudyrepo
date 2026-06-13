@@ -74,6 +74,11 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 01 (18 câu)](HSA/CDOnTap/CD2/TestCD2Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD2/TestCD2Part2.html)
 
+*Chuyên đề 3: Hệ thức lượng trong tam giác và Vectơ*
+- [Bài giảng: Lý thuyết và 13 ví dụ có lời giải](HSA/CDOnTap/CD3/CD3.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD3/TestCD3Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD3/TestCD3Part2.html)
+
 </div>
 </details>
 

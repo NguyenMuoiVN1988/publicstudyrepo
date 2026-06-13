@@ -224,3 +224,13 @@ hsa-cd2:
       url: /HSA/CDOnTap/CD2/TestCD2Part1.html
     - title: "Trắc nghiệm – Đề ôn tập số 02"
       url: /HSA/CDOnTap/CD2/TestCD2Part2.html
+
+hsa-cd3:
+  label: "HSA · Chuyên đề 3 — Hệ thức lượng trong tam giác và Vectơ"
+  items:
+    - title: "Bài giảng: Lý thuyết & 13 ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD3/CD3.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (câu 1–20)"
+      url: /HSA/CDOnTap/CD3/TestCD3Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (câu 21–40)"
+      url: /HSA/CDOnTap/CD3/TestCD3Part2.html

@@ -372,10 +372,12 @@
     return acceptedAnswers.some(ans => {
       const nAns = normalize(ans);
       if (nUser === nAns) return true;
-      // So sánh số học để chấp nhận các dạng tương đương (0.2 = 0.20)
-      const uNum = parseFloat(nUser);
-      const aNum = parseFloat(nAns);
-      if (!isNaN(uNum) && !isNaN(aNum) && Math.abs(uNum - aNum) < 1e-9) return true;
+      // So sánh số học để chấp nhận các dạng tương đương (0.2 = 0.20).
+      // Chỉ áp dụng khi CẢ HAI là số thuần tuý — tránh parseFloat("6/17") = 6
+      // khiến "6" bị chấm đúng cho đáp án "6/17" hay "95.7" cho "95.7;4.5".
+      const numRe = /^[+-]?(\d+\.?\d*|\.\d+)$/;
+      if (numRe.test(nUser) && numRe.test(nAns) &&
+          Math.abs(parseFloat(nUser) - parseFloat(nAns)) < 1e-9) return true;
       return false;
     });
   }
