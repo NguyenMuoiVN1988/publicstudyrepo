@@ -1,1 +1,5 @@
 .DS_Store
+
+# Thư mục cá nhân, không bao giờ push lên GitHub
+/Claude/
+/PhieuBT/
