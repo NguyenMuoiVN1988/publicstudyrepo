@@ -217,7 +217,7 @@ series: t9-c2
 
   <!-- ---------- BÀI 2 ---------- -->
   <div class="bai">
-    <h3><span class="num">2</span> Đưa phương trình bậc hai về phương trình tích</h3>
+    <h3><span class="num">2</span> Giải phương trình bậc hai (2 cách: tách hạng tử &amp; hằng đẳng thức)</h3>
     <div class="de">
       <p>Giải các phương trình sau:</p>
       <p><b>a)</b> $3x^{2} - 11x + 6 = 0$ &nbsp;&nbsp; <b>b)</b> $-2x^{2} + 5x - 3 = 0$</p>
@@ -228,38 +228,70 @@ series: t9-c2
       <p class="h">🔑 Lời giải</p>
       <a class="link" href="#lt-tich"><b>Dùng Lý thuyết 1:</b> phân tích vế trái thành nhân tử rồi đưa về phương trình tích.</a>
       <div class="tip">
-        🔍 <b>Mẹo tách hạng tử giữa</b> cho $ax^2 + bx + c$: tìm hai số có <b>tích bằng $a\cdot c$</b> và <b>tổng bằng $b$</b>, rồi tách $bx$ thành hai hạng tử và nhóm nhân tử chung.
+        🔍 <b>Cách 1 — Tách hạng tử giữa</b> cho $ax^2 + bx + c$: tìm hai số có <b>tích bằng $a\cdot c$</b> và <b>tổng bằng $b$</b>, rồi tách $bx$ thành hai hạng tử và nhóm nhân tử chung.<br>
+        🔍 <b>Cách 2 — Dùng hằng đẳng thức</b> (đưa về dạng $A^2 = B^2$): chia hai vế cho $a$ để hệ số $x^2$ bằng $1$, chuyển hằng số sang phải, <b>thêm bớt $\left(\dfrac{b}{2a}\right)^2$</b> để vế trái thành bình phương $\left(x + \dfrac{b}{2a}\right)^2$. Khi vế phải là số không âm $= k^2$ thì $A^2 = B^2 \iff A = B$ hoặc $A = -B$.
       </div>
 
-      <p><b>a)</b> $3x^{2} - 11x + 6 = 0$. Ở đây $a\cdot c = 3\cdot 6 = 18$, cần hai số tích $18$, tổng $-11$ là $-9$ và $-2$.</p>
+      <h4 style="margin:14px 0 4px;color:#3f5d9e">a) $3x^{2} - 11x + 6 = 0$</h4>
+      <p><b>Cách 1 (tách hạng tử):</b> $a\cdot c = 3\cdot 6 = 18$, cần hai số tích $18$, tổng $-11$ là $-9$ và $-2$.</p>
       <p>$$\begin{aligned}
         & 3x^{2} - 9x - 2x + 6 = 0\\
         \iff{}& 3x(x - 3) - 2(x - 3) = 0\\
         \iff{}& (x - 3)(3x - 2) = 0.
       \end{aligned}$$</p>
+      <p><b>Cách 2 (hằng đẳng thức):</b> chia hai vế cho $3$ rồi tạo bình phương đủ.</p>
+      <p>$$\begin{aligned}
+        & 3x^{2} - 11x + 6 = 0\\
+        \iff{}& x^{2} - \dfrac{11}{3}x + 2 = 0\\
+        \iff{}& \left(x - \dfrac{11}{6}\right)^{2} = \left(\dfrac{11}{6}\right)^{2} - 2 = \dfrac{49}{36}\\
+        \iff{}& \left(x - \dfrac{11}{6}\right)^{2} = \left(\dfrac{7}{6}\right)^{2}\\
+        \iff{}& x - \dfrac{11}{6} = \dfrac{7}{6} \ \text{hoặc}\ x - \dfrac{11}{6} = -\dfrac{7}{6}.
+      \end{aligned}$$</p>
       <p>$\Rightarrow x = 3$ hoặc $x = \dfrac{2}{3}$. Vậy <span class="key">$x = 3;\ x = \dfrac{2}{3}$</span>.</p>
 
-      <p><b>b)</b> $-2x^{2} + 5x - 3 = 0 \iff 2x^{2} - 5x + 3 = 0$ (đổi dấu hai vế). Cần hai số tích $2\cdot 3 = 6$, tổng $-5$ là $-2$ và $-3$.</p>
+      <h4 style="margin:18px 0 4px;color:#3f5d9e">b) $-2x^{2} + 5x - 3 = 0$</h4>
+      <p><b>Cách 1 (tách hạng tử):</b> $-2x^{2} + 5x - 3 = 0 \iff 2x^{2} - 5x + 3 = 0$ (đổi dấu hai vế). Cần hai số tích $2\cdot 3 = 6$, tổng $-5$ là $-2$ và $-3$.</p>
       <p>$$\begin{aligned}
         & 2x^{2} - 2x - 3x + 3 = 0\\
         \iff{}& 2x(x - 1) - 3(x - 1) = 0\\
         \iff{}& (x - 1)(2x - 3) = 0.
       \end{aligned}$$</p>
-      <p>$\Rightarrow x = 1$ hoặc $x = \dfrac{3}{2}$. Vậy <span class="key">$x = 1;\ x = \dfrac{3}{2}$</span>.</p>
+      <p><b>Cách 2 (hằng đẳng thức):</b> từ $2x^{2} - 5x + 3 = 0$, chia hai vế cho $2$.</p>
+      <p>$$\begin{aligned}
+        & x^{2} - \dfrac{5}{2}x + \dfrac{3}{2} = 0\\
+        \iff{}& \left(x - \dfrac{5}{4}\right)^{2} = \left(\dfrac{5}{4}\right)^{2} - \dfrac{3}{2} = \dfrac{1}{16}\\
+        \iff{}& \left(x - \dfrac{5}{4}\right)^{2} = \left(\dfrac{1}{4}\right)^{2}\\
+        \iff{}& x - \dfrac{5}{4} = \dfrac{1}{4} \ \text{hoặc}\ x - \dfrac{5}{4} = -\dfrac{1}{4}.
+      \end{aligned}$$</p>
+      <p>$\Rightarrow x = \dfrac{3}{2}$ hoặc $x = 1$. Vậy <span class="key">$x = 1;\ x = \dfrac{3}{2}$</span>.</p>
 
-      <p><b>c)</b> $x^{2} + 2x - 3 = 0$. Hai số tích $-3$, tổng $2$ là $3$ và $-1$:</p>
+      <h4 style="margin:18px 0 4px;color:#3f5d9e">c) $x^{2} + 2x - 3 = 0$</h4>
+      <p><b>Cách 1 (tách hạng tử):</b> hai số tích $-3$, tổng $2$ là $3$ và $-1$:</p>
       <p>$$\begin{aligned}
         & x^{2} + 3x - x - 3 = 0\\
         \iff{}& x(x + 3) - (x + 3) = 0\\
         \iff{}& (x + 3)(x - 1) = 0.
       \end{aligned}$$</p>
-      <p>$\Rightarrow x = -3$ hoặc $x = 1$. Vậy <span class="key">$x = -3;\ x = 1$</span>.</p>
+      <p><b>Cách 2 (hằng đẳng thức):</b> hệ số $x^2$ đã bằng $1$, chỉ cần dồn về bình phương.</p>
+      <p>$$\begin{aligned}
+        & x^{2} + 2x - 3 = 0\\
+        \iff{}& (x + 1)^{2} = 3 + 1 = 4 = 2^{2}\\
+        \iff{}& x + 1 = 2 \ \text{hoặc}\ x + 1 = -2.
+      \end{aligned}$$</p>
+      <p>$\Rightarrow x = 1$ hoặc $x = -3$. Vậy <span class="key">$x = -3;\ x = 1$</span>.</p>
 
-      <p><b>d)</b> $x^{2} - 4x - 5 = 0$. Hai số tích $-5$, tổng $-4$ là $-5$ và $1$:</p>
+      <h4 style="margin:18px 0 4px;color:#3f5d9e">d) $x^{2} - 4x - 5 = 0$</h4>
+      <p><b>Cách 1 (tách hạng tử):</b> hai số tích $-5$, tổng $-4$ là $-5$ và $1$:</p>
       <p>$$\begin{aligned}
         & x^{2} - 5x + x - 5 = 0\\
         \iff{}& x(x - 5) + (x - 5) = 0\\
         \iff{}& (x - 5)(x + 1) = 0.
+      \end{aligned}$$</p>
+      <p><b>Cách 2 (hằng đẳng thức):</b></p>
+      <p>$$\begin{aligned}
+        & x^{2} - 4x - 5 = 0\\
+        \iff{}& (x - 2)^{2} = 5 + 4 = 9 = 3^{2}\\
+        \iff{}& x - 2 = 3 \ \text{hoặc}\ x - 2 = -3.
       \end{aligned}$$</p>
       <p>$\Rightarrow x = 5$ hoặc $x = -1$. Vậy <span class="key">$x = 5;\ x = -1$</span>.</p>
     </div>
@@ -420,7 +452,7 @@ series: t9-c2
     <ul>
       <li><b>Phương trình tích</b> $A\cdot B = 0 \iff A = 0$ hoặc $B = 0$: muốn dùng được phải đưa một vế về $0$; giải từng nhân tử rồi <b>gộp nghiệm</b>.</li>
       <li>Nhân tử là <b>hằng số khác 0</b> (như số $2$) hay <b>luôn dương</b> (như $x^2 + 2024$) thì không cho nghiệm — đừng xét.</li>
-      <li><b>Tách hạng tử giữa</b> để phân tích $ax^2 + bx + c$: tìm hai số có tích $a\cdot c$ và tổng $b$.</li>
+      <li><b>Giải phương trình bậc hai có 2 cách:</b> (1) <b>tách hạng tử giữa</b> — tìm hai số có tích $a\cdot c$ và tổng $b$; (2) <b>hằng đẳng thức</b> — đưa về $\left(x + \dfrac{b}{2a}\right)^2 = k^2$ rồi dùng $A^2 = B^2 \iff A = \pm B$. Cách 2 luôn dùng được, kể cả khi không nhẩm được nghiệm đẹp.</li>
       <li><b>Đặt ẩn phụ:</b> giải ra ẩn phụ $t$ xong <b>bắt buộc trả về ẩn $x$</b>, kẻo thiếu nghiệm.</li>
       <li><b>Phương trình chứa ẩn ở mẫu:</b> luôn <b>đặt ĐKXĐ (mẫu $\neq 0$)</b> và <b>đối chiếu</b> để loại nghiệm vi phạm — đây là lỗi sai hay gặp nhất.</li>
       <li><b>Bài toán lập phương trình:</b> đặt điều kiện cho ẩn, <b>thống nhất đơn vị</b> (đổi $1$ giờ $30$ phút $= 1{,}5$ giờ), kẻ bảng để tìm quan hệ và đối chiếu nghiệm với thực tế.</li>
