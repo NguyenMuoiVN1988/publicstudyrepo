@@ -1,0 +1,358 @@
+---
+layout: default
+title: Toán 9 - Bất đẳng thức và tính chất
+description: Lý thuyết và bài tập có lời giải về bất đẳng thức, liên hệ thứ tự với phép cộng, phép nhân và tính chất bắc cầu - kết nối lý thuyết với từng lời giải, dành cho học sinh lớp 9.
+tags: [Toán 9, bất đẳng thức, tính chất bất đẳng thức, so sánh, đại số, chuyên đề]
+series: t9-c2
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  /* ----- Tiêu đề trang ----- */
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  /* ----- Tiêu đề mục lớn ----- */
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  /* ----- Hộp lý thuyết ----- */
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+
+  /* ----- Khung "nhận biết / mẹo" ----- */
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  /* ----- Thẻ mỗi bài tập ----- */
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  /* ----- Khối lời giải ----- */
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+
+  /* ----- Cầu nối lý thuyết → lời giải ----- */
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  /* ----- Câu trả lời nhấn mạnh & bẫy ----- */
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  /* ----- Chú ý cuối bài ----- */
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  /* ----- Hoạt hình trục số ----- */
+  .lgc .graph-demo { background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:14px; margin:16px 0 4px; text-align:center; }
+  .lgc .graph-demo canvas { max-width:100%; height:auto;
+    background:#fcfdff; border-radius:8px; }
+  .lgc .graph-cap { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); min-height:1.5em; margin:12px 0 2px; font-size:.95rem; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bất đẳng thức và tính chất</h1>
+    <p>Nhận biết bất đẳng thức · Liên hệ thứ tự với phép cộng, phép nhân · Tính chất bắc cầu</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-bdt">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Bất đẳng thức và các kí hiệu</h3>
+    <ul>
+      <li>Hệ thức dạng $a \lt b$, $a \gt b$, $a \le b$, $a \ge b$ được gọi là <b>bất đẳng thức</b>; $a$ là vế trái, $b$ là vế phải.</li>
+      <li>Theo định nghĩa: $a \lt b \iff a - b \lt 0$ và $a \gt b \iff a - b \gt 0$.</li>
+      <li>$a \le b$ nghĩa là "$a \lt b$ hoặc $a = b$"; tương tự với $a \ge b$.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Cùng chiều:</b> hai bất đẳng thức gọi là <b>cùng chiều</b> nếu cùng dùng dấu $\lt $ (hoặc cùng $\gt $). Nhiều tính chất chỉ áp dụng cho các bất đẳng thức cùng chiều.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-cong">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Liên hệ thứ tự với phép cộng</h3>
+    <ul>
+      <li>Khi <b>cộng cùng một số $c$</b> vào hai vế của một bất đẳng thức thì được bất đẳng thức mới <b>cùng chiều</b>: $\;a \lt b \Rightarrow a + c \lt b + c$.</li>
+      <li>Điều này đúng với mọi số $c$ (dương, âm hay $0$).</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Dùng để:</b> so sánh hai biểu thức chỉ khác nhau ở phần "cộng thêm", hoặc dời một hạng tử để đưa về dạng dễ so sánh.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-nhan">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Liên hệ thứ tự với phép nhân</h3>
+    <ul>
+      <li>Nhân (hoặc chia) hai vế với cùng một <b>số dương</b> $\Rightarrow$ <b>giữ nguyên chiều</b>: nếu $c \gt 0$ và $a \lt b$ thì $ac \lt bc$.</li>
+      <li>Nhân (hoặc chia) hai vế với cùng một <b>số âm</b> $\Rightarrow$ <b>đổi chiều</b>: nếu $c \lt 0$ và $a \lt b$ thì $ac \gt bc$.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Nhớ nhất:</b> nhân/chia với <b>số âm phải đổi chiều</b> bất đẳng thức. Đây là chỗ học sinh hay quên.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-baccau">
+    <span class="tag">📖 Lý thuyết 4</span>
+    <h3>Tính chất bắc cầu</h3>
+    <ul>
+      <li>Nếu $a \lt b$ và $b \lt c$ thì $a \lt c$.</li>
+      <li>Dùng một đại lượng "trung gian" để nối hai bước so sánh thành một kết luận.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Bài tập liên quan đến phép cộng</h3>
+    <div class="de">
+      <p><b>a)</b> Chứng minh $2023 + (-2^{29}) \gt 2022 + (-2^{29})$.</p>
+      <p><b>b)</b> So sánh hai số $-3 + 23^{50}$ và $-2 + 23^{50}$.</p>
+      <p><b>c)</b> Cho hai số $a$ và $b$ thỏa mãn $a \lt b$. Chứng tỏ $a + 3 \lt b + 5$.</p>
+      <p><b>d)</b> Cho hai số $m$ và $n$ thỏa mãn $m \gt n$. Chứng tỏ $m + 5 \gt n + 4$.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cong"><b>Dùng Lý thuyết 2:</b> cộng cùng một số vào hai vế giữ nguyên chiều bất đẳng thức.</a>
+
+      <p><b>a)</b> Ta có $2023 \gt 2022$. Cộng cùng số $-2^{29}$ vào hai vế (giữ chiều):</p>
+      <p>$2023 + (-2^{29}) \gt 2022 + (-2^{29})$ (đpcm).</p>
+
+      <p><b>b)</b> Ta có $-3 \lt -2$. Cộng cùng số $23^{50}$ vào hai vế (giữ chiều):</p>
+      <p>$-3 + 23^{50} \lt -2 + 23^{50}$. Vậy <span class="key">$-3 + 23^{50} \lt -2 + 23^{50}$</span>.</p>
+
+      <p><b>c)</b> Từ $a \lt b$, cộng $3$ vào hai vế: $a + 3 \lt b + 3$. &nbsp;(1)</p>
+      <p>Mặt khác $3 \lt 5$ nên cộng $b$ vào hai vế: $b + 3 \lt b + 5$. &nbsp;(2)</p>
+      <a class="link" href="#lt-baccau"><b>Dùng Lý thuyết 4:</b> nối (1) và (2) bằng tính chất bắc cầu.</a>
+      <p>Từ (1) và (2): $a + 3 \lt b + 3 \lt b + 5 \Rightarrow a + 3 \lt b + 5$ (đpcm).</p>
+
+      <p><b>d)</b> Từ $m \gt n$, cộng $5$ vào hai vế: $m + 5 \gt n + 5$. &nbsp;(1)</p>
+      <p>Mà $n + 5 \gt n + 4$ (vì $5 \gt 4$). &nbsp;(2)</p>
+      <p>Bắc cầu (1), (2): $m + 5 \gt n + 5 \gt n + 4 \Rightarrow m + 5 \gt n + 4$ (đpcm).</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Bài tập liên quan đến phép nhân</h3>
+    <div class="de">
+      <p><b>a)</b> Không thực hiện phép tính, hãy so sánh $1962 \cdot 12$ và $1963 \cdot 12$.</p>
+      <p><b>b)</b> Không thực hiện phép tính, hãy so sánh $47 \cdot (-19)$ và $50 \cdot (-19)$.</p>
+      <p><b>c)</b> Cho hai số $a$, $b$ thỏa mãn $a^{2} \gt b^{2} \gt 0$. Chứng tỏ $5a^{2} \gt 4b^{2}$.</p>
+      <p><b>d)</b> Cho biết $-10m \le -10n$, hãy so sánh $m$ và $n$.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nhan"><b>Dùng Lý thuyết 3:</b> nhân/chia số dương giữ chiều, số âm đổi chiều.</a>
+
+      <p><b>a)</b> Ta có $1962 \lt 1963$. Nhân hai vế với số dương $12$ (giữ chiều):</p>
+      <p>$1962 \cdot 12 \lt 1963 \cdot 12$. Vậy <span class="key">$1962 \cdot 12 \lt 1963 \cdot 12$</span>.</p>
+
+      <p><b>b)</b> Ta có $47 \lt 50$. Nhân hai vế với số <b>âm</b> $-19$:</p>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> nhân với số âm phải <b>đổi chiều</b> bất đẳng thức. Vì vậy $47 \cdot (-19) \,{\color{#a23b52}{\gt }}\, 50 \cdot (-19)$, chứ không phải dấu $\lt $.
+      </div>
+      <p>Vậy <span class="key">$47 \cdot (-19) \gt 50 \cdot (-19)$</span>.</p>
+
+      <p><b>c)</b> Từ $a^{2} \gt b^{2}$, nhân hai vế với số dương $5$ (giữ chiều): $5a^{2} \gt 5b^{2}$. &nbsp;(1)</p>
+      <p>Vì $b^{2} \gt 0$ nên $5b^{2} \gt 4b^{2}$. &nbsp;(2)</p>
+      <a class="link" href="#lt-baccau"><b>Dùng Lý thuyết 4:</b> bắc cầu (1) và (2).</a>
+      <p>$5a^{2} \gt 5b^{2} \gt 4b^{2} \Rightarrow 5a^{2} \gt 4b^{2}$ (đpcm).</p>
+
+      <p><b>d)</b> Từ $-10m \le -10n$, chia hai vế cho số <b>âm</b> $-10$ (đổi chiều):</p>
+      <p>$\dfrac{-10m}{-10} \ge \dfrac{-10n}{-10} \iff m \ge n$. Vậy <span class="key">$m \ge n$</span>.</p>
+    </div>
+
+    <div class="graph-demo">
+      <canvas id="nlCanvas" width="540" height="170" aria-label="Hoạt hình nhân hai vế với số âm thì đổi chiều bất đẳng thức"></canvas>
+      <p class="graph-cap" id="nlCap">Nhân hai vế với số âm → đổi chiều</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Cộng</b> cùng một số vào hai vế: luôn <b>giữ nguyên chiều</b> bất đẳng thức.</li>
+      <li><b>Nhân (hoặc chia)</b> hai vế với cùng <b>số dương</b>: giữ chiều; với cùng <b>số âm</b>: <b>đổi chiều</b> — đây là bẫy hay gặp nhất.</li>
+      <li><b>Tính chất bắc cầu:</b> $a \lt b$ và $b \lt c \Rightarrow a \lt c$ — dùng một đại lượng trung gian để nối hai bước.</li>
+      <li>Khi cần, dùng <b>định nghĩa</b> $a \lt b \iff a - b \lt 0$ để chứng minh từ gốc.</li>
+      <li>Khi so sánh "không tính cụ thể", hãy nhìn xem hai vế <b>khác nhau ở chỗ nào</b> (cộng thêm số nào, nhân với số nào) rồi áp đúng tính chất.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var canvas = document.getElementById('nlCanvas');
+  if (!canvas) return;
+  var cap = document.getElementById('nlCap');
+  var ctx = canvas.getContext('2d');
+
+  var W = 540, H = 170;
+  var dpr = window.devicePixelRatio || 1;
+  canvas.width = W * dpr; canvas.height = H * dpr;
+  canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+  ctx.scale(dpr, dpr);
+
+  // Trục số: x ∈ [-5, 5]
+  var xmin = -5, xmax = 5;
+  var axisY = 95;
+  var PX = function (x) { return 30 + (x - xmin) / (xmax - xmin) * (W - 60); };
+
+  // a = -2 (< b),  b = 3 ;  sau khi ×(-1): a -> 2, b -> -3
+  var aStart = -2, bStart = 3, aEnd = 2, bEnd = -3;
+
+  function drawAxis() {
+    ctx.strokeStyle = '#5b6b7a';
+    ctx.lineWidth = 1.6;
+    ctx.beginPath(); ctx.moveTo(PX(xmin), axisY); ctx.lineTo(PX(xmax), axisY); ctx.stroke();
+    // mũi tên phải
+    ctx.fillStyle = '#5b6b7a';
+    ctx.beginPath(); ctx.moveTo(PX(xmax), axisY); ctx.lineTo(PX(xmax) - 9, axisY - 5);
+    ctx.lineTo(PX(xmax) - 9, axisY + 5); ctx.fill();
+    // vạch và số
+    ctx.fillStyle = '#9aa7b3';
+    ctx.font = '12px Quicksand, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (var x = xmin; x <= xmax; x++) {
+      ctx.strokeStyle = '#cfd8e0'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(PX(x), axisY - 4); ctx.lineTo(PX(x), axisY + 4); ctx.stroke();
+      ctx.fillText(String(x), PX(x), axisY + 8);
+    }
+  }
+
+  function drawPoint(x, label, color) {
+    ctx.fillStyle = color;
+    ctx.beginPath(); ctx.arc(PX(x), axisY, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.font = 'bold 15px Quicksand, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+    ctx.fillText(label, PX(x), axisY - 12);
+  }
+
+  // phase 0: a<b ban đầu | phase 1: đang trượt | phase 2: kết quả -a > -b
+  function render(a, b, phase) {
+    ctx.clearRect(0, 0, W, H);
+    drawAxis();
+    drawPoint(a, 'a', '#3f5d9e');
+    drawPoint(b, 'b', '#a23b52');
+    // dòng chữ quan hệ ở đáy
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.font = 'bold 16px Quicksand, sans-serif';
+    if (phase === 0) { ctx.fillStyle = '#1f7a72'; ctx.fillText('a < b', W / 2, 150); }
+    else if (phase === 2) { ctx.fillStyle = '#a23b52'; ctx.fillText('(-1)·a > (-1)·b  →  đổi chiều', W / 2, 150); }
+  }
+
+  function setCap(txt) {
+    cap.innerHTML = txt;
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([cap]);
+  }
+
+  var timers = [], raf = null, running = false;
+  function clearAll() {
+    timers.forEach(clearTimeout); timers = [];
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+  }
+  function animateFlip() {
+    var dur = 1100, start = performance.now();
+    function frame(now) {
+      var t = Math.min(1, (now - start) / dur);
+      var a = aStart + (aEnd - aStart) * t;
+      var b = bStart + (bEnd - bStart) * t;
+      render(a, b, t < 1 ? 1 : 2);
+      if (t < 1) raf = requestAnimationFrame(frame);
+    }
+    raf = requestAnimationFrame(frame);
+  }
+  function cycle() {
+    if (!running) return;
+    clearAll();
+    render(aStart, bStart, 0);
+    setCap('Ban đầu $a = -2 \lt b = 3$');
+    timers.push(setTimeout(function () {
+      setCap('Nhân hai vế với $-1$: hai điểm phản chiếu qua gốc $O$');
+      animateFlip();
+    }, 2200));
+    timers.push(setTimeout(function () {
+      setCap('Kết quả: $-a = 2 \gt -b = -3$ → bất đẳng thức đã <b>đổi chiều</b>');
+    }, 3600));
+    timers.push(setTimeout(cycle, 6200));
+  }
+  function start() { if (running) return; running = true; cycle(); }
+  function stop() { running = false; clearAll(); render(aStart, bStart, 0); setCap('Nhân hai vế với số âm → đổi chiều'); }
+
+  render(aStart, bStart, 0);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+    }, { threshold: 0.25 }).observe(canvas);
+  } else {
+    start();
+  }
+})();
+</script>

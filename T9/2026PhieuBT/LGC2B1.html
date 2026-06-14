@@ -1,0 +1,382 @@
+---
+layout: default
+title: Toán 9 - Phương trình quy về phương trình bậc nhất một ẩn
+description: Lý thuyết và bài tập có lời giải về phương trình tích, phương trình chứa ẩn ở mẫu và giải bài toán bằng cách lập phương trình - kết nối lý thuyết với từng lời giải, dành cho học sinh lớp 9.
+tags: [Toán 9, phương trình tích, phương trình chứa ẩn ở mẫu, lập phương trình, đại số, chuyên đề]
+series: t9-c2
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  /* ----- Tiêu đề trang ----- */
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  /* ----- Tiêu đề mục lớn ----- */
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  /* ----- Hộp lý thuyết ----- */
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+
+  /* ----- Khung "nhận biết / mẹo" ----- */
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  /* ----- Thẻ mỗi bài tập ----- */
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  /* ----- Khối lời giải ----- */
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+
+  /* ----- Cầu nối lý thuyết → lời giải ----- */
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  /* ----- Câu trả lời nhấn mạnh & bẫy ----- */
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  /* ----- Chú ý cuối bài ----- */
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  /* ----- Bảng tóm tắt bài toán ----- */
+  .lgc .tomtat { background:#f6f4fb; border:1px solid #ddd6ee;
+    border-left:5px solid #6f57b0; border-radius:12px;
+    padding:14px 18px; margin:14px 0; }
+  .lgc .tomtat .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:#6f57b0; margin:0 0 8px; }
+  .lgc .tbl-wrap { overflow-x:auto; margin:12px 0; }
+  .lgc .tbl { border-collapse:collapse; width:100%; min-width:420px;
+    background:#fff; font-size:.96rem; }
+  .lgc .tbl th, .lgc .tbl td { border:1px solid #d8d0ec;
+    padding:9px 12px; text-align:center; }
+  .lgc .tbl th { background:#6f57b0; color:#fff;
+    font-family:'Quicksand',sans-serif; font-weight:700; }
+  .lgc .tbl td:first-child, .lgc .tbl th:first-child { text-align:left; }
+  .lgc .tbl tbody tr:nth-child(even) { background:#faf8fe; }
+  .lgc .tbl tr.tong td { background:#efe9fb; font-weight:700; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Phương trình quy về phương trình bậc nhất một ẩn</h1>
+    <p>Phương trình tích · Phương trình chứa ẩn ở mẫu · Giải bài toán bằng cách lập phương trình</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-tich">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Phương trình tích</h3>
+    <ul>
+      <li><b>Định nghĩa:</b> phương trình tích là phương trình có một vế là <b>tích các nhân tử</b>, vế kia <b>bằng 0</b>.</li>
+      <li><b>Cách giải:</b> $A(x)\cdot B(x) = 0 \iff A(x) = 0$ <b>hoặc</b> $B(x) = 0$. Giải lần lượt từng phương trình con rồi <b>gộp tất cả nghiệm</b> lại.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Lưu ý khi dùng:</b>
+      <ol style="margin:6px 0 0; padding-left:20px;">
+        <li>Muốn dùng quy tắc "tích bằng 0", một vế <b>phải bằng 0</b>. Nếu chưa, hãy <b>chuyển hết về một vế</b> rồi <b>phân tích thành nhân tử</b>.</li>
+        <li>Nhân tử là <b>hằng số khác 0</b> (ví dụ số $2$) thì <b>không cho nghiệm</b> — bỏ qua.</li>
+        <li>Nhân tử luôn dương như $x^2 + 2024 > 0$ thì <b>vô nghiệm</b> — không xét.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="theory" id="lt-mau">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Phương trình chứa ẩn ở mẫu</h3>
+    <ul>
+      <li><b>Bước 1.</b> Tìm <b>điều kiện xác định</b> (ĐKXĐ): cho tất cả các mẫu <b>khác 0</b>.</li>
+      <li><b>Bước 2.</b> <b>Quy đồng</b> mẫu hai vế rồi <b>khử mẫu</b>, đưa về phương trình không còn ẩn ở mẫu.</li>
+      <li><b>Bước 3.</b> Giải phương trình vừa nhận được.</li>
+      <li><b>Bước 4.</b> <b>Đối chiếu ĐKXĐ</b>: nghiệm nào vi phạm thì <b>loại</b>; phần còn lại mới là nghiệm.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Nhớ kĩ:</b> giá trị tìm được mà làm cho một mẫu bằng 0 thì <span class="no">không phải nghiệm</span>. Quên đối chiếu ĐKXĐ là lỗi sai phổ biến nhất ở dạng này.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-laptp">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Giải bài toán bằng cách lập phương trình</h3>
+    <ul>
+      <li><b>Bước 1.</b> <b>Chọn ẩn</b>, đặt <b>điều kiện</b> cho ẩn và biểu diễn các đại lượng chưa biết theo ẩn.</li>
+      <li><b>Bước 2.</b> Dựa vào quan hệ trong đề, <b>lập phương trình</b>.</li>
+      <li><b>Bước 3.</b> Giải phương trình, <b>đối chiếu điều kiện</b> và trả lời.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Mẹo:</b> với toán chuyển động, năng suất… hãy <b>kẻ bảng</b> theo các đại lượng (quãng đường $=$ vận tốc $\times$ thời gian) và <b>thống nhất đơn vị</b> trước khi lập phương trình.
+    </div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Giải phương trình tích</h3>
+    <div class="de">
+      <p>Giải các phương trình sau:</p>
+      <p><b>a)</b> $(x - 3)(3x + 2) = 0$ &nbsp;&nbsp; <b>b)</b> $(x^{2} + 2024)(6x - 3) = 0$</p>
+      <p><b>c)</b> $\left( \dfrac{3}{4}x - 2 \right)\left( \dfrac{5}{3}x + 1 \right) = 0$ &nbsp;&nbsp; <b>d)</b> $2(x + 4)(2x - 3) = 0$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tich"><b>Dùng Lý thuyết 1:</b> tích bằng 0 khi và chỉ khi một trong các nhân tử bằng 0.</a>
+      <p><b>a)</b> $(x - 3)(3x + 2) = 0 \iff x - 3 = 0$ hoặc $3x + 2 = 0$.</p>
+      <ul>
+        <li>$x - 3 = 0 \Rightarrow x = 3$.</li>
+        <li>$3x + 2 = 0 \Rightarrow x = -\dfrac{2}{3}$.</li>
+      </ul>
+      <p>Vậy phương trình có hai nghiệm <span class="key">$x = 3$ và $x = -\dfrac{2}{3}$</span>.</p>
+
+      <p><b>b)</b> $(x^{2} + 2024)(6x - 3) = 0$.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> nhân tử $x^{2} + 2024 \ge 2024 > 0$ với mọi $x$ nên <span class="no">không bao giờ bằng 0</span>. Đừng mất công giải $x^2 + 2024 = 0$ (vô nghiệm). Chỉ còn xét nhân tử kia.
+      </div>
+      <p>$6x - 3 = 0 \Rightarrow x = \dfrac{1}{2}$. Vậy phương trình có nghiệm duy nhất <span class="key">$x = \dfrac{1}{2}$</span>.</p>
+
+      <p><b>c)</b> $\left( \dfrac{3}{4}x - 2 \right)\left( \dfrac{5}{3}x + 1 \right) = 0 \iff \dfrac{3}{4}x - 2 = 0$ hoặc $\dfrac{5}{3}x + 1 = 0$.</p>
+      <ul>
+        <li>$\dfrac{3}{4}x = 2 \Rightarrow x = 2 \cdot \dfrac{4}{3} = \dfrac{8}{3}$.</li>
+        <li>$\dfrac{5}{3}x = -1 \Rightarrow x = -1 \cdot \dfrac{3}{5} = -\dfrac{3}{5}$.</li>
+      </ul>
+      <p>Vậy <span class="key">$x = \dfrac{8}{3}$ và $x = -\dfrac{3}{5}$</span>.</p>
+
+      <p><b>d)</b> $2(x + 4)(2x - 3) = 0$.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> thừa số $2$ là hằng số khác 0 nên <span class="no">không cho nghiệm</span>; chia hai vế cho $2$ là bỏ được nó. Phương trình tương đương $(x + 4)(2x - 3) = 0$.
+      </div>
+      <ul>
+        <li>$x + 4 = 0 \Rightarrow x = -4$.</li>
+        <li>$2x - 3 = 0 \Rightarrow x = \dfrac{3}{2}$.</li>
+      </ul>
+      <p>Vậy <span class="key">$x = -4$ và $x = \dfrac{3}{2}$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Đưa phương trình bậc hai về phương trình tích</h3>
+    <div class="de">
+      <p>Giải các phương trình sau:</p>
+      <p><b>a)</b> $3x^{2} - 11x + 6 = 0$ &nbsp;&nbsp; <b>b)</b> $-2x^{2} + 5x - 3 = 0$</p>
+      <p><b>c)</b> $x^{2} + 2x - 3 = 0$ &nbsp;&nbsp; <b>d)</b> $x^{2} - 4x - 5 = 0$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tich"><b>Dùng Lý thuyết 1:</b> phân tích vế trái thành nhân tử rồi đưa về phương trình tích.</a>
+      <div class="tip">
+        🔍 <b>Mẹo tách hạng tử giữa</b> cho $ax^2 + bx + c$: tìm hai số có <b>tích bằng $a\cdot c$</b> và <b>tổng bằng $b$</b>, rồi tách $bx$ thành hai hạng tử và nhóm nhân tử chung.
+      </div>
+
+      <p><b>a)</b> $3x^{2} - 11x + 6 = 0$. Ở đây $a\cdot c = 3\cdot 6 = 18$, cần hai số tích $18$, tổng $-11$ là $-9$ và $-2$.</p>
+      <p>$3x^{2} - 9x - 2x + 6 = 0 \iff 3x(x - 3) - 2(x - 3) = 0 \iff (x - 3)(3x - 2) = 0$.</p>
+      <p>$\Rightarrow x = 3$ hoặc $x = \dfrac{2}{3}$. Vậy <span class="key">$x = 3;\ x = \dfrac{2}{3}$</span>.</p>
+
+      <p><b>b)</b> $-2x^{2} + 5x - 3 = 0 \iff 2x^{2} - 5x + 3 = 0$ (đổi dấu hai vế). Cần hai số tích $2\cdot 3 = 6$, tổng $-5$ là $-2$ và $-3$.</p>
+      <p>$2x^{2} - 2x - 3x + 3 = 0 \iff 2x(x - 1) - 3(x - 1) = 0 \iff (x - 1)(2x - 3) = 0$.</p>
+      <p>$\Rightarrow x = 1$ hoặc $x = \dfrac{3}{2}$. Vậy <span class="key">$x = 1;\ x = \dfrac{3}{2}$</span>.</p>
+
+      <p><b>c)</b> $x^{2} + 2x - 3 = 0$. Hai số tích $-3$, tổng $2$ là $3$ và $-1$:</p>
+      <p>$x^{2} + 3x - x - 3 = 0 \iff x(x + 3) - (x + 3) = 0 \iff (x + 3)(x - 1) = 0$.</p>
+      <p>$\Rightarrow x = -3$ hoặc $x = 1$. Vậy <span class="key">$x = -3;\ x = 1$</span>.</p>
+
+      <p><b>d)</b> $x^{2} - 4x - 5 = 0$. Hai số tích $-5$, tổng $-4$ là $-5$ và $1$:</p>
+      <p>$x^{2} - 5x + x - 5 = 0 \iff x(x - 5) + (x - 5) = 0 \iff (x - 5)(x + 1) = 0$.</p>
+      <p>$\Rightarrow x = 5$ hoặc $x = -1$. Vậy <span class="key">$x = 5;\ x = -1$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Phương pháp đặt ẩn phụ</h3>
+    <div class="de">
+      <p>Giải các phương trình sau:</p>
+      <p><b>a)</b> $(x^{2} - 5x)^{2} + 10(x^{2} - 5x) + 24 = 0$</p>
+      <p><b>b)</b> $(x^{2} + 5x)^{2} - 2(x^{2} + 5x) = 24$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tich"><b>Dùng Lý thuyết 1:</b> đặt ẩn phụ để hạ bậc, đưa về phương trình tích theo ẩn phụ, rồi quay lại tìm $x$.</a>
+
+      <p><b>a)</b> Đặt $t = x^{2} - 5x$. Phương trình thành $t^{2} + 10t + 24 = 0$.</p>
+      <p>Tách: $t^{2} + 6t + 4t + 24 = 0 \iff t(t + 6) + 4(t + 6) = 0 \iff (t + 6)(t + 4) = 0$.</p>
+      <p>$\Rightarrow t = -6$ hoặc $t = -4$. <b>Trả lại ẩn</b> $x$:</p>
+      <ul>
+        <li>$t = -4$: $x^{2} - 5x + 4 = 0 \iff (x - 1)(x - 4) = 0 \Rightarrow x = 1;\ x = 4$.</li>
+        <li>$t = -6$: $x^{2} - 5x + 6 = 0 \iff (x - 2)(x - 3) = 0 \Rightarrow x = 2;\ x = 3$.</li>
+      </ul>
+      <p>Vậy tập nghiệm <span class="key">$x \in \{1;\ 2;\ 3;\ 4\}$</span>.</p>
+
+      <p><b>b)</b> Đặt $t = x^{2} + 5x$. Phương trình thành $t^{2} - 2t = 24 \iff t^{2} - 2t - 24 = 0$.</p>
+      <p>Tách: $t^{2} - 6t + 4t - 24 = 0 \iff t(t - 6) + 4(t - 6) = 0 \iff (t - 6)(t + 4) = 0$.</p>
+      <p>$\Rightarrow t = 6$ hoặc $t = -4$. <b>Trả lại ẩn</b> $x$:</p>
+      <ul>
+        <li>$t = 6$: $x^{2} + 5x - 6 = 0 \iff (x - 1)(x + 6) = 0 \Rightarrow x = 1;\ x = -6$.</li>
+        <li>$t = -4$: $x^{2} + 5x + 4 = 0 \iff (x + 1)(x + 4) = 0 \Rightarrow x = -1;\ x = -4$.</li>
+      </ul>
+      <p>Vậy tập nghiệm <span class="key">$x \in \{1;\ -6;\ -1;\ -4\}$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Lưu ý:</b> giải xong ẩn phụ $t$ <b>phải trả về ẩn $x$</b>; dừng ở $t$ là thiếu nghiệm. Mỗi giá trị $t$ thường cho thêm các nghiệm $x$ mới.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Phương trình chứa ẩn ở mẫu</h3>
+    <div class="de">
+      <p>Giải các phương trình sau:</p>
+      <p><b>a)</b> $\dfrac{7x + 7}{x - 1} = \dfrac{2}{3}$ &nbsp;&nbsp; <b>b)</b> $\dfrac{2}{1 + x} = \dfrac{1}{3 - 7x}$</p>
+      <p><b>c)</b> $\dfrac{1}{x - 2} + 3 = \dfrac{3 - x}{x - 2}$</p>
+      <p><b>d)</b> $\dfrac{14}{3x - 12} - \dfrac{2 + x}{x - 4} = \dfrac{3}{8 - 2x} - \dfrac{5}{6}$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-mau"><b>Dùng Lý thuyết 2:</b> tìm ĐKXĐ → khử mẫu → giải → đối chiếu ĐKXĐ.</a>
+
+      <p><b>a)</b> ĐKXĐ: $x \neq 1$. Khử mẫu (nhân chéo):</p>
+      <p>$3(7x + 7) = 2(x - 1) \iff 21x + 21 = 2x - 2 \iff 19x = -23 \iff x = -\dfrac{23}{19}$.</p>
+      <p>Giá trị $x = -\dfrac{23}{19} \neq 1$ <span class="yes">thỏa ĐKXĐ</span>. Vậy <span class="key">$x = -\dfrac{23}{19}$</span>.</p>
+
+      <p><b>b)</b> ĐKXĐ: $x \neq -1$ và $x \neq \dfrac{3}{7}$. Nhân chéo:</p>
+      <p>$2(3 - 7x) = 1 \cdot (1 + x) \iff 6 - 14x = 1 + x \iff 5 = 15x \iff x = \dfrac{1}{3}$.</p>
+      <p>$x = \dfrac{1}{3}$ <span class="yes">thỏa ĐKXĐ</span>. Vậy <span class="key">$x = \dfrac{1}{3}$</span>.</p>
+
+      <p><b>c)</b> ĐKXĐ: $x \neq 2$. Quy đồng theo mẫu chung $x - 2$:</p>
+      <p>$\dfrac{1}{x - 2} + \dfrac{3(x - 2)}{x - 2} = \dfrac{3 - x}{x - 2} \iff 1 + 3(x - 2) = 3 - x$.</p>
+      <p>$\iff 3x - 5 = 3 - x \iff 4x = 8 \iff x = 2$.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> $x = 2$ <b>vi phạm ĐKXĐ</b> ($x \neq 2$) nên <span class="no">bị loại</span>. Phương trình <span class="no">vô nghiệm</span>. Nếu quên đối chiếu ĐKXĐ sẽ kết luận sai là $x = 2$.
+      </div>
+
+      <p><b>d)</b> Phân tích các mẫu: $3x - 12 = 3(x - 4)$; &nbsp; $8 - 2x = -2(x - 4)$. ĐKXĐ: $x \neq 4$.</p>
+      <p>Nhân cả hai vế với mẫu chung $6(x - 4)$:</p>
+      <ul>
+        <li>$\dfrac{14}{3(x-4)}\cdot 6(x-4) = 28$</li>
+        <li>$-\dfrac{2+x}{x-4}\cdot 6(x-4) = -6(2 + x) = -12 - 6x$</li>
+        <li>$\dfrac{3}{-2(x-4)}\cdot 6(x-4) = -9$</li>
+        <li>$-\dfrac{5}{6}\cdot 6(x-4) = -5(x - 4) = -5x + 20$</li>
+      </ul>
+      <p>Phương trình trở thành: $28 - 12 - 6x = -9 - 5x + 20 \iff 16 - 6x = 11 - 5x$.</p>
+      <p>$\iff 16 - 11 = 6x - 5x \iff x = 5$. Giá trị $x = 5 \neq 4$ <span class="yes">thỏa ĐKXĐ</span>.</p>
+      <p>Vậy <span class="key">$x = 5$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 5 ---------- -->
+  <div class="bai">
+    <h3><span class="num">5</span> Bài toán thực tế — giải bằng cách lập phương trình</h3>
+    <div class="de">
+      <p>Một người đi xe đạp từ tỉnh A đến tỉnh B cách nhau $50\text{ km}$. Sau đó $1$ giờ $30$ phút, một xe máy cũng đi từ tỉnh A đến tỉnh B và đến sớm hơn $1$ giờ. Tính vận tốc của mỗi xe, biết vận tốc xe máy gấp $2{,}5$ lần vận tốc xe đạp.</p>
+    </div>
+
+    <div class="tomtat">
+      <p class="h">📊 Tóm tắt bài toán bằng bảng</p>
+      <p>Gọi vận tốc xe đạp là $x$ (km/h, $x > 0$) thì vận tốc xe máy là $2{,}5x$. Mỗi hàng là một xe; dùng công thức <b>thời gian $=$ quãng đường $\div$ vận tốc</b>.</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Đối tượng</th><th>Quãng đường (km)</th><th>Vận tốc (km/h)</th><th>Thời gian (giờ)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Xe đạp</td><td>$50$</td><td>$x$</td><td>$\dfrac{50}{x}$</td></tr>
+            <tr><td>Xe máy</td><td>$50$</td><td>$2{,}5x$</td><td>$\dfrac{50}{2{,}5x} = \dfrac{20}{x}$</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Xe máy <b>xuất phát muộn hơn</b> $1{,}5$ giờ mà lại <b>đến sớm hơn</b> $1$ giờ, nên thời gian đi của xe đạp nhiều hơn xe máy: $\;1{,}5 + 1 = 2{,}5$ (giờ).</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-laptp"><b>Dùng Lý thuyết 3:</b> chọn ẩn, đặt điều kiện, lập phương trình từ quan hệ thời gian, giải và đối chiếu.</a>
+      <p>Gọi vận tốc xe đạp là $x$ (km/h), điều kiện $x > 0$. Vận tốc xe máy là $2{,}5x$ (km/h).</p>
+      <p>Thời gian xe đạp đi: $\dfrac{50}{x}$ giờ; thời gian xe máy đi: $\dfrac{20}{x}$ giờ.</p>
+      <p>Vì xe đạp đi lâu hơn xe máy $2{,}5$ giờ, ta có phương trình:</p>
+      <p style="text-align:center"><span class="key">$\dfrac{50}{x} - \dfrac{20}{x} = 2{,}5$</span></p>
+      <p>$\iff \dfrac{30}{x} = 2{,}5 \iff x = \dfrac{30}{2{,}5} = 12$.</p>
+      <p>$x = 12 > 0$ thỏa điều kiện. Khi đó vận tốc xe máy là $2{,}5 \cdot 12 = 30$ (km/h).</p>
+      <p><b>Kiểm tra:</b> xe đạp đi $\dfrac{50}{12} \approx 4{,}17$ giờ; xe máy đi $\dfrac{50}{30} \approx 1{,}67$ giờ; chênh lệch đúng $2{,}5$ giờ. ✓</p>
+      <p><b>Kết luận:</b> vận tốc xe đạp là <span class="yes">$12$ km/h</span>, vận tốc xe máy là <span class="yes">$30$ km/h</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Phương trình tích</b> $A\cdot B = 0 \iff A = 0$ hoặc $B = 0$: muốn dùng được phải đưa một vế về $0$; giải từng nhân tử rồi <b>gộp nghiệm</b>.</li>
+      <li>Nhân tử là <b>hằng số khác 0</b> (như số $2$) hay <b>luôn dương</b> (như $x^2 + 2024$) thì không cho nghiệm — đừng xét.</li>
+      <li><b>Tách hạng tử giữa</b> để phân tích $ax^2 + bx + c$: tìm hai số có tích $a\cdot c$ và tổng $b$.</li>
+      <li><b>Đặt ẩn phụ:</b> giải ra ẩn phụ $t$ xong <b>bắt buộc trả về ẩn $x$</b>, kẻo thiếu nghiệm.</li>
+      <li><b>Phương trình chứa ẩn ở mẫu:</b> luôn <b>đặt ĐKXĐ (mẫu $\neq 0$)</b> và <b>đối chiếu</b> để loại nghiệm vi phạm — đây là lỗi sai hay gặp nhất.</li>
+      <li><b>Bài toán lập phương trình:</b> đặt điều kiện cho ẩn, <b>thống nhất đơn vị</b> (đổi $1$ giờ $30$ phút $= 1{,}5$ giờ), kẻ bảng để tìm quan hệ và đối chiếu nghiệm với thực tế.</li>
+    </ul>
+  </div>
+
+</div>
