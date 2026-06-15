@@ -89,6 +89,11 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 01 (18 câu)](HSA/CDOnTap/CD5/TestCD5Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (18 câu)](HSA/CDOnTap/CD5/TestCD5Part2.html)
 
+*Chuyên đề 6: Dãy số, cấp số cộng, cấp số nhân*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD6/CD6.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD6/TestCD6Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD6/TestCD6Part2.html)
+
 </div>
 </details>
 
