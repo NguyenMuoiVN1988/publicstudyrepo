@@ -94,6 +94,11 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD6/TestCD6Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD6/TestCD6Part2.html)
 
+*Chuyên đề 7: Giới hạn. Hàm số liên tục*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD7/CD7.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD7/TestCD7Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD7/TestCD7Part2.html)
+
 </div>
 </details>
 
