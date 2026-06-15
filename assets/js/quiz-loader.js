@@ -118,6 +118,13 @@
     .ql-sa-result.ql-correct-text { color: #16a34a; }
     .ql-sa-result.ql-wrong-text   { color: #dc2626; }
 
+    /* ── Cloze (câu nhiều ý: mỗi ý là mc / sa / đúng-sai) ── */
+    .ql-sub {
+      margin: 12px 0 4px; padding: 8px 0 4px 12px;
+      border-left: 2px solid #e2e8f0;
+    }
+    .ql-sub-prompt { font-size: 0.93em; line-height: 1.6; margin-bottom: 6px; color: #334155; }
+
     .ql-sol {
       margin-top: 10px; padding: 8px 12px;
       background: #fefce8; border-left: 3px solid #eab308;
@@ -275,9 +282,11 @@
       const blockEnd   = i + 1 < markers.length ? markers[i + 1].start : rawText.length;
       const block      = rawText.slice(blockStart, blockEnd);
 
-      const q = markers[i].type === 'sa'
-        ? parseSaBlock(block, markers[i].ans)
-        : parseMcBlock(block, markers[i].ans);
+      const q = markers[i].type === 'cloze'
+        ? parseClozeBlock(block)
+        : markers[i].type === 'sa'
+          ? parseSaBlock(block, markers[i].ans)
+          : parseMcBlock(block, markers[i].ans);
       if (!q) continue;
 
       q.section    = markers[i].section !== lastSection ? markers[i].section : null;
@@ -355,6 +364,94 @@
     );
 
     return { type: 'sa', q: qHtml, acceptedAnswers, sol: solHtml };
+  }
+
+  // ── Parse block câu hỏi nhiều ý (cloze) ─────────────────────────────────────
+  // Thân câu: phần đầu là đề chung, mỗi ý con mở bằng <!-- @sub type=.. ans=.. -->
+  //   type=sa  → ô điền ;  type=mc → 4 phương án A–D ;  type=tf → Đúng/Sai.
+  // **Lời giải.** (nếu có) đặt ở cuối, là lời giải chung cho cả câu.
+  function stripCau(raw) {
+    return raw.split('\n').map(l => l.trim()).filter(Boolean).join('\n')
+      .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')
+      .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '');
+  }
+
+  function parseSub(type, ansRaw, body) {
+    type = (type || 'sa').toLowerCase();
+    const ans = (ansRaw || '').replace(/-->?$/, '').trim();
+
+    if (type === 'mc') {
+      const lines = body.split('\n');
+      const optRe = /^([A-Da-d])\s*[.)]\s*([\s\S]*)/;
+      const optMap = {};
+      lines.forEach((line, idx) => {
+        const m = line.trimStart().match(optRe);
+        if (m) { const k = m[1].toUpperCase(); if (!optMap[k]) optMap[k] = { idx, text: m[2].trim() }; }
+      });
+      const order = ['A','B','C','D'].filter(k => optMap[k]);
+      if (order.length < 2) return null;
+      const firstOptIdx = Math.min(...order.map(k => optMap[k].idx));
+      const prompt = renderRich(lines.slice(0, firstOptIdx).map(l => l.trim()).filter(Boolean).join('\n'));
+      return {
+        kind: 'mc', prompt,
+        opts: order.map(k => md(optMap[k].text)),
+        optKeys: order,
+        ans: order.indexOf(ans.toUpperCase())
+      };
+    }
+
+    if (type === 'tf' || type === 'ds') {
+      const prompt = renderRich(body.split('\n').map(l => l.trim()).filter(Boolean).join('\n'));
+      const up = ans.toUpperCase();
+      const correct = (up.startsWith('Đ') || up === 'D' || up === 'T' || up === 'TRUE') ? 'D' : 'S';
+      return { kind: 'tf', prompt, ans: correct };
+    }
+
+    // mặc định: sa
+    const accepted = ans.split('|').map(s => s.trim()).filter(Boolean);
+    const prompt = renderRich(body.split('\n').map(l => l.trim()).filter(Boolean).join('\n'));
+    return { kind: 'sa', prompt, acceptedAnswers: accepted };
+  }
+
+  function parseClozeBlock(block) {
+    const subRe = /<!--\s*@sub\s*([\s\S]*?)-->/g;
+    const subMarks = [];
+    let m;
+    while ((m = subRe.exec(block)) !== null) {
+      const typeM = m[1].match(/\btype\s*=\s*(\w+)/i);
+      const ansM  = m[1].match(/\bans\s*=\s*([^\s>]+)/);
+      subMarks.push({
+        start: m.index, end: m.index + m[0].length,
+        type: typeM ? typeM[1] : 'sa',
+        ans:  ansM ? ansM[1] : ''
+      });
+    }
+    if (!subMarks.length) return null;
+
+    const qHtml = renderRich(stripCau(block.slice(0, subMarks[0].start)));
+
+    const subs = [];
+    let sol = '';
+    for (let k = 0; k < subMarks.length; k++) {
+      const bodyStart = subMarks[k].end;
+      const bodyEnd   = k + 1 < subMarks.length ? subMarks[k + 1].start : block.length;
+      let body = block.slice(bodyStart, bodyEnd);
+
+      if (k === subMarks.length - 1) {            // tách **Lời giải.** chung ở ý cuối
+        const lines  = body.split('\n');
+        const solIdx = lines.findIndex(l => /^\s*\*\*\s*lời giải/i.test(l));
+        if (solIdx >= 0) {
+          sol = md(lines.slice(solIdx).join(' ')
+            .replace(/^\s*\*\*\s*Lời giải\s*[.:]\s*\*\*\s*/i, '')
+            .replace(/^\s*Lời giải\s*[.:]\s*/i, ''));
+          body = lines.slice(0, solIdx).join('\n');
+        }
+      }
+      const sub = parseSub(subMarks[k].type, subMarks[k].ans, body);
+      if (sub) subs.push(sub);
+    }
+    if (!subs.length) return null;
+    return { type: 'cloze', q: qHtml, subs, sol };
   }
 
   // ── Kiểm tra đáp án SA (chấp nhận nhiều dạng viết) ──────────────────────────
@@ -474,13 +571,19 @@
   // ── Dựng giao diện quiz ───────────────────────────────────────────────────────
   const LABELS = ['A','B','C','D'];
 
+  // Số ô chấm điểm của 1 câu: MC/SA = 1, cloze = số ý con.
+  function gapCount(q) { return q.type === 'cloze' ? q.subs.length : 1; }
+
   function render(container, questions, title) {
     const total   = questions.length;
     const saCount = questions.filter(q => q.type === 'sa').length;
-    const mcCount = total - saCount;
+    const clozeCount = questions.filter(q => q.type === 'cloze').length;
+    const mcCount = total - saCount - clozeCount;
 
     let typeDesc;
-    if (mcCount && saCount)
+    if (clozeCount)
+      typeDesc = 'gồm câu nhiều ý (trắc nghiệm · điền · đúng/sai)';
+    else if (mcCount && saCount)
       typeDesc = `${mcCount} trắc nghiệm · ${saCount} điền đáp án`;
     else if (saCount)
       typeDesc = 'Điền kết quả vào ô trống';
@@ -524,6 +627,47 @@
             </div>
             <div class="ql-sol" id="ql-sol-${i}" style="display:none">💡 ${q.sol}</div>
           </div>`;
+      } else if (q.type === 'cloze') {
+        html += `
+          <div class="ql-card" id="ql-card-${i}">
+            <div class="ql-num">Câu ${i + 1}<span class="ql-sa-badge">Nhiều ý</span></div>
+            <div class="ql-text">${q.q}</div>`;
+        q.subs.forEach((s, j) => {
+          html += `<div class="ql-sub" id="ql-sub-${i}-${j}">`;
+          if (s.prompt) html += `<div class="ql-sub-prompt">${s.prompt}</div>`;
+          if (s.kind === 'sa') {
+            html += `
+              <div class="ql-sa-wrap">
+                <span class="ql-sa-label">Đáp án:</span>
+                <input type="text" class="ql-sa-input" id="ql-sa-${i}-${j}"
+                       placeholder="Nhập kết quả…" autocomplete="off">
+                <span class="ql-sa-result" id="ql-sa-result-${i}-${j}"></span>
+              </div>`;
+          } else if (s.kind === 'tf') {
+            html += `
+              <div class="ql-opts">
+                ${['Đúng','Sai'].map((t, k) => `
+                  <label class="ql-opt" id="ql-lbl-${i}-${j}-${k}">
+                    <input type="radio" name="ql-q${i}-${j}" value="${k}">
+                    <span>${t}</span>
+                  </label>`).join('')}
+              </div>`;
+          } else {
+            html += `
+              <div class="ql-opts">
+                ${s.opts.map((opt, k) => `
+                  <label class="ql-opt" id="ql-lbl-${i}-${j}-${k}">
+                    <input type="radio" name="ql-q${i}-${j}" value="${k}">
+                    <span class="ql-key">${s.optKeys[k]}.</span>
+                    <span>${opt}</span>
+                  </label>`).join('')}
+              </div>`;
+          }
+          html += `</div>`;
+        });
+        html += `
+            <div class="ql-sol" id="ql-sol-${i}" style="display:none">💡 ${q.sol}</div>
+          </div>`;
       } else {
         html += `
           <div class="ql-card" id="ql-card-${i}">
@@ -560,6 +704,15 @@
         if (q.type === 'sa') {
           const inp = document.getElementById(`ql-sa-${i}`);
           if (inp && inp.value.trim() !== '') count++;
+        } else if (q.type === 'cloze') {
+          const done = q.subs.every((s, j) => {
+            if (s.kind === 'sa') {
+              const inp = document.getElementById(`ql-sa-${i}-${j}`);
+              return inp && inp.value.trim() !== '';
+            }
+            return !!document.querySelector(`input[name="ql-q${i}-${j}"]:checked`);
+          });
+          if (done) count++;
         } else {
           if (document.querySelector(`input[name="ql-q${i}"]:checked`)) count++;
         }
@@ -610,7 +763,7 @@
           resEl.textContent = `✗ Sai — đáp án: ${q.acceptedAnswers[0]}`;
           resEl.className   = 'ql-sa-result ql-wrong-text';
         }
-      } else {
+      } else if (q.type !== 'cloze') {
         const sel    = document.querySelector(`input[name="ql-q${i}"]:checked`);
         const chosen = sel ? parseInt(sel.value) : -1;
         document.querySelectorAll(`input[name="ql-q${i}"]`).forEach(el => el.disabled = true);
@@ -628,12 +781,52 @@
         }
       }
 
+      if (q.type === 'cloze') {
+        const subAns = [];
+        let nRight = 0;
+        q.subs.forEach((s, j) => {
+          if (s.kind === 'sa') {
+            const inp = document.getElementById(`ql-sa-${i}-${j}`);
+            const ui  = inp ? inp.value.trim() : '';
+            if (inp) inp.disabled = true;
+            subAns.push(ui || '-');
+            const resEl = document.getElementById(`ql-sa-result-${i}-${j}`);
+            if (checkSaAnswer(ui, s.acceptedAnswers)) {
+              correct++; nRight++;
+              resEl.textContent = '✓ Đúng';
+              resEl.className = 'ql-sa-result ql-correct-text';
+            } else {
+              resEl.textContent = `✗ Sai — đáp án: ${s.acceptedAnswers[0]}`;
+              resEl.className = 'ql-sa-result ql-wrong-text';
+            }
+          } else {
+            const ansIdx = s.kind === 'tf' ? (s.ans === 'D' ? 0 : 1) : s.ans;
+            const sel    = document.querySelector(`input[name="ql-q${i}-${j}"]:checked`);
+            const chosen = sel ? parseInt(sel.value) : -1;
+            document.querySelectorAll(`input[name="ql-q${i}-${j}"]`).forEach(el => el.disabled = true);
+            subAns.push(s.kind === 'tf' ? (chosen === 0 ? 'Đ' : chosen === 1 ? 'S' : '-')
+                                        : (chosen >= 0 ? s.optKeys[chosen] : '-'));
+            if (chosen === ansIdx) {
+              correct++; nRight++;
+              document.getElementById(`ql-lbl-${i}-${j}-${ansIdx}`).classList.add('ql-opt-correct');
+            } else {
+              if (chosen >= 0)
+                document.getElementById(`ql-lbl-${i}-${j}-${chosen}`).classList.add('ql-opt-wrong');
+              document.getElementById(`ql-lbl-${i}-${j}-${ansIdx}`).classList.add('ql-opt-correct');
+            }
+          }
+        });
+        answers.push(subAns.join(' | '));
+        card.classList.add(nRight === q.subs.length ? 'ql-correct' : 'ql-wrong');
+      }
+
       solEl.style.display = 'block';
     });
 
-    const pct    = Math.round(correct / questions.length * 100);
+    const totalGaps = questions.reduce((s, q) => s + gapCount(q), 0);
+    const pct    = Math.round(correct / totalGaps * 100);
     const result = document.getElementById('ql-result');
-    document.getElementById('ql-score-big'   ).textContent = `${correct}/${questions.length}`;
+    document.getElementById('ql-score-big'   ).textContent = `${correct}/${totalGaps}`;
     document.getElementById('ql-score-label' ).textContent = `Đúng ${pct}%`;
     document.getElementById('ql-score-detail').textContent =
       pct >= 80 ? '🎉 Xuất sắc! Tiếp tục phát huy.' :
@@ -646,7 +839,7 @@
 
     if (cfg.saveResults) {
       if (auth.token) {
-        sendResult(correct, questions.length, answers);
+        sendResult(correct, totalGaps, answers);
       } else {
         const statusEl = document.getElementById('ql-save-status');
         if (statusEl) {
@@ -672,6 +865,24 @@
         if (inp) { inp.value = ''; inp.disabled = false; }
         const resEl = document.getElementById(`ql-sa-result-${i}`);
         if (resEl) { resEl.textContent = ''; resEl.className = 'ql-sa-result'; }
+      } else if (q.type === 'cloze') {
+        q.subs.forEach((s, j) => {
+          if (s.kind === 'sa') {
+            const inp = document.getElementById(`ql-sa-${i}-${j}`);
+            if (inp) { inp.value = ''; inp.disabled = false; }
+            const resEl = document.getElementById(`ql-sa-result-${i}-${j}`);
+            if (resEl) { resEl.textContent = ''; resEl.className = 'ql-sa-result'; }
+          } else {
+            document.querySelectorAll(`input[name="ql-q${i}-${j}"]`).forEach(el => {
+              el.checked = false; el.disabled = false;
+            });
+            const nOpt = s.kind === 'tf' ? 2 : s.opts.length;
+            for (let k = 0; k < nOpt; k++) {
+              const lbl = document.getElementById(`ql-lbl-${i}-${j}-${k}`);
+              if (lbl) lbl.classList.remove('ql-opt-correct', 'ql-opt-wrong');
+            }
+          }
+        });
       } else {
         document.querySelectorAll(`input[name="ql-q${i}"]`).forEach(el => {
           el.checked = false; el.disabled = false;
