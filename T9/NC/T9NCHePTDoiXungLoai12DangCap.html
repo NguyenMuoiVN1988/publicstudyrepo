@@ -1,0 +1,289 @@
+---
+layout: default
+title: Toán 9 NC - Hệ phương trình đối xứng loại I, loại II và hệ đẳng cấp
+description: Chuyên đề nâng cao lớp 9 về các hệ phương trình cơ bản - hệ đối xứng loại I (ẩn S, P), hệ đối xứng loại II (trừ vế tạo nhân tử x - y), hệ có yếu tố đẳng cấp; lý thuyết, phương pháp và thí dụ minh họa có lời giải chi tiết.
+tags: [Toán 9, nâng cao, hệ phương trình, đối xứng loại I, đối xứng loại II, đẳng cấp, đại số]
+series: t9-nc
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .src { color:var(--soft); font-style:italic; font-size:.88rem; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .step { margin:8px 0; overflow-x:auto; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Các hệ phương trình cơ bản (Nâng cao)</h1>
+    <p>Hệ đối xứng loại I · Hệ đối xứng loại II · Hệ có yếu tố đẳng cấp</p>
+  </div>
+
+  <!-- ===================== I. ĐỐI XỨNG LOẠI I ===================== -->
+  <div class="sec">I. Hệ đối xứng loại I</div>
+
+  <div class="theory" id="lt-dx1">
+    <span class="tag">📖 Lý thuyết &amp; Phương pháp</span>
+    <h3>Hệ đối xứng loại I — đặt ẩn $S = x+y$, $P = xy$</h3>
+    <ul>
+      <li>Hệ có dạng $\begin{cases} f(x,y)=0 \\ g(x,y)=0 \end{cases}$ với $f,g$ là <b>đa thức đối xứng</b>: $f(x,y)=f(y,x)$, $g(x,y)=g(y,x)$. Đổi chỗ $x,y$ thì hệ không đổi.</li>
+      <li><b>Tính chất:</b> nếu $(x_0;y_0)$ là nghiệm thì $(y_0;x_0)$ cũng là nghiệm.</li>
+      <li><b>Phương pháp:</b> đặt $S=x+y$, $P=xy$; giải tìm $S,P$ rồi $x,y$ là nghiệm của $X^2 - SX + P = 0$ (điều kiện $S^2 \ge 4P$).</li>
+    </ul>
+    <div class="tip">🔍 <b>Hằng đẳng thức theo $S,P$:</b> $x^2+y^2 = S^2-2P$; $\;x^2 \pm xy + y^2 = S^2 \mp P \cdot(\text{hệ số})$ (cụ thể $S^2-3P$ và $S^2-P$); $\;x^3+y^3 = S^3 - 3PS$; $\;\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{S}{P}$; $\;\dfrac{x}{y}+\dfrac{y}{x}=\dfrac{S^2-2P}{P}$.</div>
+  </div>
+
+  <!-- THÍ DỤ 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Thí dụ 1</h3>
+    <div class="de"><p>Giải hệ phương trình $\begin{cases} x+y+xy=-1 \\ x^2+y^2-xy=7 \end{cases}$</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dx1"><b>Đặt $S=x+y,\ P=xy$</b> rồi đưa hệ về ẩn $S,P$.</a>
+      <p class="step">Hệ $\iff \begin{cases} S+P=-1 \\ S^2-3P=7 \end{cases} \iff \left[\begin{array}{l} S=1,\ P=-2 \\ S=-4,\ P=3 \end{array}\right.$</p>
+      <ul>
+        <li><b>TH1:</b> $\begin{cases} x+y=1 \\ xy=-2 \end{cases} \Rightarrow (x;y)=(-1;2)$ hoặc $(2;-1)$.</li>
+        <li><b>TH2:</b> $\begin{cases} x+y=-4 \\ xy=3 \end{cases} \Rightarrow (x;y)=(-1;-3)$ hoặc $(-3;-1)$.</li>
+      </ul>
+      <p>Vậy tập nghiệm: <span class="key">$(-1;2),\ (2;-1),\ (-1;-3),\ (-3;-1)$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Thí dụ 2</h3>
+    <div class="de"><p>Giải hệ phương trình $\begin{cases} x^3+x^3y^3+y^3=17 \\ x+xy+y=5 \end{cases}$</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dx1"><b>Đặt $a=x+y,\ b=xy$</b>, dùng $x^3+y^3=a^3-3ab$.</a>
+      <p class="step">Hệ $\iff \begin{cases} a^3+b^3-3ab=17 \\ a+b=5 \end{cases} \iff \begin{cases} a=5-b \\ (b-2)(b-3)=0 \end{cases} \iff \begin{cases} a=3\\ b=2 \end{cases} \text{ hoặc } \begin{cases} a=2\\ b=3 \end{cases}$</p>
+      <ul>
+        <li>$\begin{cases} x+y=3 \\ xy=2 \end{cases} \Rightarrow (y-1)(y-2)=0 \Rightarrow (x;y)=(2;1)$ hoặc $(1;2)$.</li>
+        <li>$\begin{cases} x+y=2 \\ xy=3 \end{cases} \Rightarrow y^2-2y+3=0$ <b>vô nghiệm</b>.</li>
+      </ul>
+      <p>Vậy nghiệm: <span class="key">$(x;y)=(1;2),\ (2;1)$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Thí dụ 3</h3>
+    <div class="de">
+      <p>Giải hệ phương trình $\begin{cases} xy(x+y)=2 \\ x^3+y^3+x^3y^3+7(x+1)(y+1)=31 \end{cases}$</p>
+      <p class="src">(Trích đề Chuyên KHTN Hà Nội năm 2018–2019)</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dx1"><b>Đặt $a=x+y,\ b=xy$</b> với $ab=2$.</a>
+      <p class="step">Đưa về $\begin{cases} ab=2 \\ a^3-3ab+b^3+7(a+b+1)=31 \end{cases}$, suy ra
+      $(a+b)^3 - 6(a+b) - 6 + 7(a+b) - 24 = 0$.</p>
+      <p class="step">$\iff (a+b)^3+(a+b)-30=0 \iff (a+b-3)\big[(a+b)^2+3(a+b)+10\big]=0$.</p>
+      <p>Vì $(a+b)^2+3(a+b)+10 \gt 0$ nên $a+b=3$. Kết hợp $ab=2$ và $a^2 \ge 4b$ được $\begin{cases} a=2 \\ b=1 \end{cases} \Rightarrow \begin{cases} x+y=2 \\ xy=1 \end{cases} \Rightarrow x=y=1$.</p>
+      <p>Vậy hệ có nghiệm duy nhất <span class="key">$(x;y)=(1;1)$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== II. ĐỐI XỨNG LOẠI II ===================== -->
+  <div class="sec">II. Hệ đối xứng loại II</div>
+
+  <div class="theory" id="lt-dx2">
+    <span class="tag">📖 Lý thuyết &amp; Phương pháp</span>
+    <h3>Hệ đối xứng loại II — trừ vế tạo nhân tử $(x-y)$</h3>
+    <ul>
+      <li>Hệ có dạng $\begin{cases} f(x,y)=0 \\ f(y,x)=0 \end{cases}$ với $f$ <b>không</b> đối xứng: đổi chỗ $x,y$ ở phương trình (1) thì được phương trình (2). Ví dụ $\begin{cases} x^2-2y=1 \\ y^2-2x=1 \end{cases}$.</li>
+      <li><b>Phương pháp:</b> trừ từng vế hai phương trình, đưa về tích $(x-y)\cdot A(x,y)=0 \iff \left[\begin{array}{l} x=y \\ A(x,y)=0 \end{array}\right.$</li>
+    </ul>
+    <div class="tip">🔍 <b>Hằng đẳng thức / liên hợp hay dùng:</b> $a^2-b^2=(a+b)(a-b)$; $\;a^3\pm b^3=(a\pm b)(a^2\mp ab+b^2)$; $\;\sqrt{a}-\sqrt{b}=\dfrac{a-b}{\sqrt{a}+\sqrt{b}}$; $\;\sqrt[3]{a}-\sqrt[3]{b}=\dfrac{a-b}{\sqrt[3]{a^2}+\sqrt[3]{ab}+\sqrt[3]{b^2}}$.</div>
+  </div>
+
+  <!-- THÍ DỤ 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Thí dụ 4</h3>
+    <div class="de"><p>Giải hệ phương trình $\begin{cases} x^2+\sqrt{x}=2y \\ y^2+\sqrt{y}=2x \end{cases}$</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dx2"><b>Trừ vế</b> để tách nhân tử $\sqrt{x}-\sqrt{y}$.</a>
+      <p>Điều kiện $x,y \ge 0$. Trừ hai phương trình:</p>
+      <p class="step">$\big(\sqrt{x}-\sqrt{y}\big)\big[(\sqrt{x}+\sqrt{y})(x+y)+1+2(\sqrt{x}+\sqrt{y})\big]=0 \iff x=y$ (do ngoặc vuông $\gt 0$).</p>
+      <p class="step">Khi $x=y$: $x^2+\sqrt{x}=2x \iff \sqrt{x}\,(\sqrt{x}-1)(x+\sqrt{x}-1)=0 \iff \left[\begin{array}{l} x=0 \\ x=1 \\ x=\dfrac{3-\sqrt5}{2} \end{array}\right.$</p>
+      <p>Vậy hệ có $3$ cặp nghiệm: <span class="key">$(0;0),\ (1;1),\ \left(\dfrac{3-\sqrt5}{2};\dfrac{3-\sqrt5}{2}\right)$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 5 -->
+  <div class="bai">
+    <h3><span class="num">5</span> Thí dụ 5</h3>
+    <div class="de"><p>Giải hệ phương trình $\begin{cases} x^3+3x-1+\sqrt{2x+1}=y \\ y^3+3y-1+\sqrt{2y+1}=x \end{cases}$</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dx2"><b>Trừ vế</b> kết hợp liên hợp căn.</a>
+      <p>Điều kiện $x,y \ge -\dfrac12$; xét $x+y \ne -1$. Trừ hai phương trình:</p>
+      <p class="step">$(x-y)\Big[x^2+xy+y^2+4+\dfrac{2}{\sqrt{2x+1}+\sqrt{2y+1}}\Big]=0 \iff x=y$.</p>
+      <p class="step">Khi $x=y$: $x^3+2x-1+\sqrt{2x+1}=0 \iff x\Big[x^2+1+\dfrac{2}{\sqrt{2x+1}+1}\Big]=0 \iff x=0$.</p>
+      <p>Vậy hệ có nghiệm duy nhất <span class="key">$x=y=0$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 6 -->
+  <div class="bai">
+    <h3><span class="num">6</span> Thí dụ 6</h3>
+    <div class="de"><p>Giải hệ phương trình $\begin{cases} (x-1)(y^2+6)=y(x^2+1) \\ (y-1)(x^2+6)=x(y^2+1) \end{cases}$</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dx2"><b>Trừ vế</b> để tách $(x-y)$, sau đó <b>cộng vế</b> cho trường hợp còn lại.</a>
+      <p class="step">Khai triển rồi trừ vế: $(x-y)(x+y-2xy+7)=0 \iff \left[\begin{array}{l} x=y \\ x+y-2xy+7=0 \end{array}\right.$</p>
+      <ul>
+        <li><b>Nếu $x=y$:</b> $x^2-5x+6=0 \Rightarrow (x;y)=(2;2)$ hoặc $(3;3)$.</li>
+        <li><b>Nếu $x+y-2xy+7=0$</b> $\iff (1-2x)(1-2y)=15$. Cộng hai phương trình: $(2x-5)^2+(2y-5)^2=2$.
+          Đặt $a=2x-5,\ b=2y-5$:
+          <p class="step">$\begin{cases} a^2+b^2=2 \\ (a+4)(b+4)=15 \end{cases} \iff \left[\begin{array}{l} a+b=0,\ ab=-1 \\ a+b=-8,\ ab=31 \end{array}\right.$</p>
+          TH1 $\Rightarrow (x;y)=(3;2),(2;3)$; TH2 vô nghiệm.</li>
+      </ul>
+      <p>Vậy nghiệm: <span class="key">$(2;2),\ (3;3),\ (2;3),\ (3;2)$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== III. ĐẲNG CẤP ===================== -->
+  <div class="sec">III. Hệ có yếu tố đẳng cấp</div>
+
+  <div class="theory" id="lt-dc">
+    <span class="tag">📖 Lý thuyết &amp; Phương pháp</span>
+    <h3>Hệ đẳng cấp — đặt $t=\dfrac{x}{y}$</h3>
+    <ul>
+      <li>Là hệ mà khi <b>nhân hoặc chia</b> hai phương trình cho nhau tạo ra phương trình <b>đẳng cấp bậc $n$</b>: $a_1x^n+a_kx^{n-k}y^k+\dots+a_ny^n=0$.</li>
+      <li>Xét $y=0$ (thay tìm $x$); với $y\ne 0$ đặt $t=\dfrac{x}{y}$ đưa về phương trình một ẩn $t$.</li>
+    </ul>
+    <div class="tip">🔍 <b>Mẹo:</b> nếu hai vế phải là hằng số, hãy nhân chéo (hoặc nhân hệ số thích hợp rồi trừ) để khử hằng số, thu về phương trình thuần bậc $n$ theo $x,y$.</div>
+  </div>
+
+  <!-- THÍ DỤ 7 -->
+  <div class="bai">
+    <h3><span class="num">7</span> Thí dụ 7</h3>
+    <div class="de">
+      <p>Giải hệ phương trình $\begin{cases} 2x^2+3xy+y^2=12 \\ x^2-xy+3y^2=11 \end{cases}$</p>
+      <p class="src">(Trích đề thi thử Chuyên Nguyễn Huệ năm 2015–2016)</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dc"><b>Khử hằng số</b> để tạo phương trình đẳng cấp bậc 2, rồi đặt $t=\dfrac{x}{y}$.</a>
+      <p class="step">Nhân $(1)$ với $11$, $(2)$ với $12$ rồi trừ: $10x^2+45xy-25y^2=0 \iff 2x^2+9xy-5y^2=0$.</p>
+      <p class="step">$y\ne 0$, chia $y^2$ và đặt $t=\dfrac{x}{y}$: $\;2t^2+9t-5=0 \iff (2t-1)(t+5)=0 \iff \left[\begin{array}{l} t=\frac12 \\ t=-5 \end{array}\right.$</p>
+      <ul>
+        <li>$x=\dfrac{y}{2}$ thay vào (1): $y^2=4 \Rightarrow (x;y)=(1;2),(-1;-2)$.</li>
+        <li>$x=-5y$ thay vào (1): $36y^2=12 \Rightarrow (x;y)=\left(-\dfrac{5\sqrt3}{3};\dfrac{\sqrt3}{3}\right),\left(\dfrac{5\sqrt3}{3};-\dfrac{\sqrt3}{3}\right)$.</li>
+      </ul>
+      <p>Vậy nghiệm: <span class="key">$(1;2),\ (-1;-2),\ \left(-\dfrac{5\sqrt3}{3};\dfrac{\sqrt3}{3}\right),\ \left(\dfrac{5\sqrt3}{3};-\dfrac{\sqrt3}{3}\right)$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 8 -->
+  <div class="bai">
+    <h3><span class="num">8</span> Thí dụ 8</h3>
+    <div class="de">
+      <p>Giải hệ phương trình $\begin{cases} x^2-2y^2=-1 \\ 2x^3-y^3=2y-x \end{cases}$</p>
+      <p class="src">(Trích đề Chuyên Vũng Tàu năm 2019–2020)</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dc"><b>Nhân chéo</b> tạo phương trình đẳng cấp bậc 3.</a>
+      <p class="step">$2x^3-y^3=(x^2-2y^2)(x-2y) \iff x^3+2x^2y+2xy^2-5y^3=0 \iff (x-y)(x^2+3xy+5y^2)=0$.</p>
+      <ul>
+        <li><b>TH1:</b> $x=y$ thay vào (1) $\Rightarrow x=y=\pm 1$.</li>
+        <li><b>TH2:</b> $x^2+3xy+5y^2=\left(x+\dfrac32 y\right)^2+\dfrac{11}{4}y^2=0 \Rightarrow x=y=0$ (thử lại không thỏa).</li>
+      </ul>
+      <p>Vậy hệ có hai nghiệm: <span class="key">$(1;1),\ (-1;-1)$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 9 -->
+  <div class="bai">
+    <h3><span class="num">9</span> Thí dụ 9</h3>
+    <div class="de">
+      <p>Giải hệ phương trình $\begin{cases} x^2=(2-y)(2+y) \\ 2x^3=(x+y)(4-xy) \end{cases}$</p>
+      <p class="src">(Trích đề Chuyên Quảng Ninh năm 2019–2020)</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dc"><b>Thế hằng số</b> $4=x^2+y^2$ để tạo dạng đẳng cấp.</a>
+      <p class="step">Hệ $\iff \begin{cases} x^2+y^2=4 \\ 2x^3=(x+y)(4-xy) \end{cases}$. Thế $4=x^2+y^2$:</p>
+      <p class="step">$2x^3=(x+y)(x^2-xy+y^2)=x^3+y^3 \iff x^3=y^3 \iff x=y$.</p>
+      <p>Thay $x=y$ vào (1): $x^2=2 \Rightarrow x=\pm\sqrt2$. Vậy nghiệm: <span class="key">$\big(\sqrt2;\sqrt2\big),\ \big(-\sqrt2;-\sqrt2\big)$</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Đối xứng loại I:</b> đặt $S=x+y$, $P=xy$; luôn kiểm tra điều kiện $S^2 \ge 4P$ trước khi kết luận nghiệm.</li>
+      <li><b>Đối xứng loại II:</b> trừ vế để có nhân tử $(x-y)$; phần còn lại thường $\gt 0$ nên dẫn tới $x=y$. Khi cần, cộng vế để xử lý trường hợp $x \ne y$.</li>
+      <li><b>Đẳng cấp:</b> khử/thế hằng số để đưa về phương trình thuần bậc $n$, rồi đặt $t=\dfrac{x}{y}$ (nhớ xét riêng $y=0$).</li>
+    </ul>
+  </div>
+
+</div>
