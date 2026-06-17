@@ -1,0 +1,459 @@
+---
+layout: default
+title: Toán 9 - Ôn tập chương II (Phương trình & bất phương trình bậc nhất một ẩn)
+description: Lời giải ôn tập chương II Toán 9 - phương trình tích, phương trình chứa ẩn ở mẫu, lập phương trình, chứng minh bất đẳng thức, giải bất phương trình và bài toán thực tế, kết nối lý thuyết với từng lời giải.
+tags: [Toán 9, ôn tập chương 2, phương trình, bất phương trình, bất đẳng thức, đại số, chuyên đề]
+series: t9-c2
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  /* ----- Tiêu đề trang ----- */
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  /* ----- Tiêu đề mục lớn ----- */
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  /* ----- Hộp lý thuyết ----- */
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+
+  /* ----- Khung "nhận biết / mẹo" ----- */
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  /* ----- Thẻ mỗi bài tập ----- */
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  /* ----- Khối lời giải ----- */
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+
+  /* ----- Cầu nối lý thuyết → lời giải ----- */
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  /* ----- Câu trả lời nhấn mạnh & bẫy ----- */
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  /* ----- Chú ý cuối bài ----- */
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  /* ----- Bảng tóm tắt bài toán ----- */
+  .lgc .tomtat { background:#f6f4fb; border:1px solid #ddd6ee;
+    border-left:5px solid #6f57b0; border-radius:12px;
+    padding:14px 18px; margin:14px 0; }
+  .lgc .tomtat .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:#6f57b0; margin:0 0 8px; }
+  .lgc .tbl-wrap { overflow-x:auto; margin:12px 0; }
+  .lgc .tbl { border-collapse:collapse; width:100%; min-width:420px;
+    background:#fff; font-size:.96rem; }
+  .lgc .tbl th, .lgc .tbl td { border:1px solid #d8d0ec;
+    padding:9px 12px; text-align:center; }
+  .lgc .tbl th { background:#6f57b0; color:#fff;
+    font-family:'Quicksand',sans-serif; font-weight:700; }
+  .lgc .tbl td:first-child, .lgc .tbl th:first-child { text-align:left; }
+  .lgc .tbl tbody tr:nth-child(even) { background:#faf8fe; }
+  .lgc .tbl tr.tong td { background:#efe9fb; font-weight:700; }
+
+  /* ----- Hoạt hình trục số ----- */
+  .lgc .graph-demo { background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:14px; margin:16px 0 4px; text-align:center; }
+  .lgc .graph-demo canvas { max-width:100%; height:auto;
+    background:#fcfdff; border-radius:8px; }
+  .lgc .graph-cap { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); min-height:1.5em; margin:12px 0 2px; font-size:.95rem; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương II</h1>
+    <p>Phương trình tích &amp; chứa ẩn ở mẫu · Lập phương trình · Bất đẳng thức · Bất phương trình · Bài toán thực tế</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-pt">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Phương trình tích &amp; phương trình chứa ẩn ở mẫu</h3>
+    <ul>
+      <li><b>Phương trình tích:</b> $A \cdot B = 0 \iff A = 0$ hoặc $B = 0$ — giải lần lượt từng nhân tử rồi gộp nghiệm.</li>
+      <li><b>Phương trình chứa ẩn ở mẫu:</b> bắt buộc <b>đặt điều kiện xác định</b> (mẫu khác $0$), quy đồng khử mẫu, giải rồi <b>loại</b> nghiệm vi phạm điều kiện.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Mẹo:</b> tam thức $x^2 + bx + c$ tách thành $(x + m)(x + n)$ với $m + n = b$ và $m \cdot n = c$.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-lappt">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Giải bài toán bằng cách lập phương trình</h3>
+    <ul>
+      <li>Gọi ẩn (kèm <b>điều kiện</b> và đơn vị) → biểu diễn các đại lượng theo ẩn → lập phương trình → giải → đối chiếu điều kiện và kết luận.</li>
+      <li>Với bài <b>phần trăm</b>: "tăng $p\%$" của giá trị $V$ nghĩa là <b>tăng thêm</b> $\dfrac{p}{100}\cdot V$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-bdt">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Bất đẳng thức — tính chất &amp; tổng bình phương</h3>
+    <ul>
+      <li><b>Cộng</b> cùng một số vào hai vế: giữ chiều. <b>Nhân/chia</b> với số dương: giữ chiều; với số âm: <b>đổi chiều</b>. <b>Bắc cầu:</b> $a \gt b,\ b \gt c \Rightarrow a \gt c$.</li>
+      <li>Chứng minh $M \ge 0$: biến đổi $M$ về <b>tổng các bình phương</b>, vì $(\,\cdot\,)^2 \ge 0$ với mọi giá trị.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Hằng đẳng thức hay dùng:</b> $u^2 \pm 2uv + v^2 = (u \pm v)^2 \ge 0$.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-bpt">
+    <span class="tag">📖 Lý thuyết 4</span>
+    <h3>Bất phương trình bậc nhất một ẩn</h3>
+    <ul>
+      <li>Dùng quy tắc <b>chuyển vế</b> (đổi dấu) và quy tắc <b>nhân/chia</b> để đưa về dạng $x \gt m$, $x \lt m$, $x \ge m$, $x \le m$.</li>
+      <li>Bất phương trình chứa mẫu: mẫu là <b>số dương</b> nên khử mẫu <b>giữ chiều</b>; chia cho hệ số <b>âm</b> của $x$ thì <b>đổi chiều</b>.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Giải phương trình (tích, chứa ẩn ở mẫu)</h3>
+    <div class="de">
+      <p>Giải các phương trình sau:</p>
+      <p><b>a)</b> $(x - 3)(2x + 1) = 0$ &nbsp;&nbsp; <b>b)</b> $x^{2} + 7x + 12 = 0$</p>
+      <p><b>c)</b> $\dfrac{2x - 5}{x + 5} = 3$ &nbsp;&nbsp; <b>d)</b> $\dfrac{1}{x} + \dfrac{2}{x - 2} = 0$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-pt"><b>Dùng Lý thuyết 1:</b> tích bằng 0 ⇔ một nhân tử bằng 0; phương trình chứa mẫu phải đặt điều kiện.</a>
+
+      <p><b>a)</b> $(x - 3)(2x + 1) = 0 \iff x - 3 = 0$ hoặc $2x + 1 = 0$.</p>
+      <p>Vậy <span class="key">$x = 3$</span> hoặc <span class="key">$x = -\dfrac{1}{2}$</span>.</p>
+
+      <p><b>b)</b> $x^{2} + 7x + 12 = 0 \iff (x + 3)(x + 4) = 0$ (vì $3 + 4 = 7,\ 3\cdot 4 = 12$).</p>
+      <p>Vậy <span class="key">$x = -3$</span> hoặc <span class="key">$x = -4$</span>.</p>
+
+      <p><b>c)</b> Điều kiện: $x \neq -5$. Khi đó:</p>
+      <p>$\dfrac{2x - 5}{x + 5} = 3 \Rightarrow 2x - 5 = 3(x + 5) \iff 2x - 5 = 3x + 15 \iff x = -20$.</p>
+      <p>$x = -20$ thỏa điều kiện. Vậy <span class="key">$x = -20$</span>.</p>
+
+      <p><b>d)</b> Điều kiện: $x \neq 0$ và $x \neq 2$. Quy đồng (nhân hai vế với $x(x - 2)$):</p>
+      <p>$(x - 2) + 2x = 0 \iff 3x - 2 = 0 \iff x = \dfrac{2}{3}$.</p>
+      <p>$x = \dfrac{2}{3}$ thỏa điều kiện. Vậy <span class="key">$x = \dfrac{2}{3}$</span>.</p>
+
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> với phương trình chứa ẩn ở mẫu, <b>đặt điều kiện trước</b> và <b>đối chiếu</b> nghiệm sau khi giải — nghiệm trùng giá trị làm mẫu bằng 0 phải bị loại.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Giải bài toán bằng cách lập phương trình</h3>
+    <div class="de">
+      <p>Năm ngoái tổng số dân hai tỉnh A và B là $4$ triệu người. Năm nay dân số tỉnh A tăng $1{,}2\%$, tỉnh B tăng $1{,}1\%$; tổng số dân cả hai tỉnh năm nay là $4\,045\,000$ người. Tính số dân mỗi tỉnh năm ngoái.</p>
+    </div>
+
+    <div class="tomtat">
+      <p class="h">📊 Tóm tắt bài toán bằng bảng</p>
+      <p>Gọi $x$ là số dân tỉnh A năm ngoái (người), $0 \lt x \lt 4\,000\,000$. Khi đó dân tỉnh B năm ngoái là $4\,000\,000 - x$.</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Tỉnh</th><th>Năm ngoái (người)</th><th>Tỉ lệ tăng</th><th>Tăng thêm (người)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tỉnh A</td><td>$x$</td><td>$1{,}2\%$</td><td>$0{,}012\,x$</td></tr>
+            <tr><td>Tỉnh B</td><td>$4\,000\,000 - x$</td><td>$1{,}1\%$</td><td>$0{,}011\,(4\,000\,000 - x)$</td></tr>
+            <tr class="tong"><td>Tổng tăng</td><td>—</td><td>—</td><td>$45\,000$</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Vì tổng số dân năm nay $4\,045\,000$ hơn năm ngoái $4\,000\,000$ là <b>$45\,000$ người</b> nên cột "Tăng thêm" cho ta phương trình.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-lappt"><b>Dùng Lý thuyết 2:</b> "tăng $p\%$" $=$ tăng thêm $\dfrac{p}{100}$ lần số dân năm ngoái; lập phương trình theo phần tăng.</a>
+      <p>Phần tăng của hai tỉnh bằng $4\,045\,000 - 4\,000\,000 = 45\,000$:</p>
+      <p>$$0{,}012\,x + 0{,}011\,(4\,000\,000 - x) = 45\,000$$</p>
+      <p>$\iff 0{,}012x + 44\,000 - 0{,}011x = 45\,000 \iff 0{,}001x = 1\,000 \iff x = 1\,000\,000$.</p>
+      <p>$x = 1\,000\,000$ thỏa điều kiện. Vậy năm ngoái tỉnh A có <span class="key">$1\,000\,000$ người</span>, tỉnh B có <span class="key">$3\,000\,000$ người</span>.</p>
+      <p><b>Kiểm tra:</b> $1\,000\,000 \cdot 1{,}2\% = 12\,000$; $3\,000\,000 \cdot 1{,}1\% = 33\,000$; tổng tăng $= 45\,000$ ✓.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Chứng minh, so sánh bất đẳng thức</h3>
+    <div class="de">
+      <p><b>a)</b> Cho $a \gt b$. Chứng tỏ $5a + 4 \gt 5b + 2$.</p>
+      <p><b>b)</b> Cho $x \gt y$. Chứng tỏ $7 - 6x \lt 9 - 6y$.</p>
+      <p><b>c)</b> Với $x, y$ bất kì, chứng minh $x^{2} + y^{2} + 9 \ge 6y$.</p>
+      <p><b>d)</b> Với $x, y$ bất kì, chứng minh $x^{2} + y^{2} + 5 \ge 4x - 2y$.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bdt"><b>Dùng Lý thuyết 3:</b> a, b dùng tính chất cộng/nhân + bắc cầu; c, d đưa về tổng bình phương.</a>
+
+      <p><b>a)</b> Từ $a \gt b$, nhân hai vế với $5 \gt 0$: $5a \gt 5b$, cộng $4$: $5a + 4 \gt 5b + 4$. &nbsp;(1)</p>
+      <p>Mà $5b + 4 \gt 5b + 2$ (vì $4 \gt 2$). &nbsp;(2)</p>
+      <p>Bắc cầu (1), (2): $5a + 4 \gt 5b + 4 \gt 5b + 2 \Rightarrow 5a + 4 \gt 5b + 2$ (đpcm).</p>
+
+      <p><b>b)</b> Từ $x \gt y$, nhân hai vế với $-6$ (<b>đổi chiều</b>): $-6x \lt -6y$, cộng $7$: $7 - 6x \lt 7 - 6y$. &nbsp;(1)</p>
+      <p>Mà $7 - 6y \lt 9 - 6y$ (vì $7 \lt 9$). &nbsp;(2)</p>
+      <p>Bắc cầu (1), (2): $7 - 6x \lt 7 - 6y \lt 9 - 6y \Rightarrow 7 - 6x \lt 9 - 6y$ (đpcm).</p>
+
+      <p><b>c)</b> Xét hiệu: $x^{2} + y^{2} + 9 - 6y = x^{2} + (y^{2} - 6y + 9) = x^{2} + (y - 3)^{2} \ge 0$.</p>
+      <p>Vậy $x^{2} + y^{2} + 9 \ge 6y$ (đpcm). Dấu "$=$" khi <span class="key">$x = 0,\ y = 3$</span>.</p>
+
+      <p><b>d)</b> Xét hiệu: $x^{2} + y^{2} + 5 - 4x + 2y = (x^{2} - 4x + 4) + (y^{2} + 2y + 1) = (x - 2)^{2} + (y + 1)^{2} \ge 0$.</p>
+      <p>Vậy $x^{2} + y^{2} + 5 \ge 4x - 2y$ (đpcm). Dấu "$=$" khi <span class="key">$x = 2,\ y = -1$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — Giải bất phương trình</h3>
+    <div class="de">
+      <p>Giải các bất phương trình sau:</p>
+      <p><b>a)</b> $5(3x - 2) - 7x \gt 6(x - 3) + 2$ &nbsp;&nbsp; <b>b)</b> $9x + 2(x - 5) \gt 15x - 2$</p>
+      <p><b>c)</b> $\dfrac{2x - 3}{3} - \dfrac{2 - 4x}{5} \ge \dfrac{2x - 1}{15}$ &nbsp;&nbsp; <b>d)</b> $\dfrac{3x - 5}{4} + \dfrac{x - 1}{-3} \le \dfrac{2x + 1}{6}$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bpt"><b>Dùng Lý thuyết 4:</b> khử mẫu (mẫu dương, giữ chiều), chuyển vế đổi dấu, chia số âm thì đổi chiều.</a>
+
+      <p><b>a)</b> $15x - 10 - 7x \gt 6x - 18 + 2 \iff 8x - 10 \gt 6x - 16 \iff 2x \gt -6$</p>
+      <p>$\iff$ <span class="key">$x \gt -3$</span>.</p>
+
+      <p><b>b)</b> $9x + 2x - 10 \gt 15x - 2 \iff 11x - 10 \gt 15x - 2 \iff -4x \gt 8$</p>
+      <p>Chia cho $-4$ (<b>đổi chiều</b>): <span class="key">$x \lt -2$</span>.</p>
+
+      <p><b>c)</b> Nhân hai vế với $15 \gt 0$: $5(2x - 3) - 3(2 - 4x) \ge 2x - 1$</p>
+      <p>$\iff 10x - 15 - 6 + 12x \ge 2x - 1 \iff 22x - 21 \ge 2x - 1 \iff 20x \ge 20 \iff$ <span class="key">$x \ge 1$</span>.</p>
+
+      <p><b>d)</b> Lưu ý $\dfrac{x - 1}{-3} = -\dfrac{x - 1}{3}$. Nhân hai vế với $12 \gt 0$:</p>
+      <p>$3(3x - 5) - 4(x - 1) \le 2(2x + 1) \iff 9x - 15 - 4x + 4 \le 4x + 2$</p>
+      <p>$\iff 5x - 11 \le 4x + 2 \iff$ <span class="key">$x \le 13$</span>.</p>
+
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> câu d) có mẫu $-3$ — hãy đưa dấu trừ ra trước ($\tfrac{x-1}{-3} = -\tfrac{x-1}{3}$) rồi mới quy đồng, tránh nhầm dấu. Câu b) chia cho số âm nhớ <b>đổi chiều</b>.
+      </div>
+    </div>
+
+    <div class="graph-demo">
+      <canvas id="nlCanvas" width="540" height="150" aria-label="Hoạt hình biểu diễn tập nghiệm x < -2 trên trục số"></canvas>
+      <p class="graph-cap" id="nlCap">Biểu diễn tập nghiệm $x \lt -2$ (câu b) trên trục số</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 5 ---------- -->
+  <div class="bai">
+    <h3><span class="num">5</span> Dạng 5 — Bài toán thực tế vận dụng</h3>
+    <div class="de">
+      <p>Chi phí để loại bỏ $x\%$ tảo độc khỏi hồ là $C(x) = \dfrac{50x}{100 - x}$ (triệu đồng), với $0 \le x \lt 100$. Nếu bỏ ra $450$ triệu đồng thì loại bỏ được tối đa bao nhiêu phần trăm tảo độc?</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bpt"><b>Dùng Lý thuyết 4:</b> "bỏ ra $450$ triệu" nghĩa là chi phí không vượt quá $450$, tức $C(x) \le 450$.</a>
+      <p>Với $0 \le x \lt 100$ thì $100 - x \gt 0$. Ta giải:</p>
+      <p>$\dfrac{50x}{100 - x} \le 450$. Nhân hai vế với $(100 - x) \gt 0$ (giữ chiều):</p>
+      <p>$50x \le 450(100 - x) \iff 50x \le 45\,000 - 450x \iff 500x \le 45\,000 \iff x \le 90$.</p>
+      <p>Kết hợp điều kiện $0 \le x \lt 100$, được $0 \le x \le 90$.</p>
+      <p>Vậy với $450$ triệu đồng, người ta loại bỏ được <span class="key">tối đa $90\%$</span> loại tảo độc.</p>
+      <div class="trap">
+        <b>⚠️ Lưu ý:</b> nhờ $100 - x \gt 0$ nên khi nhân hai vế với mẫu, bất phương trình <b>giữ nguyên chiều</b>. Nếu mẫu có thể âm thì phải xét dấu trước khi nhân.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Phương trình tích:</b> $A\cdot B = 0 \iff A = 0$ hoặc $B = 0$. <b>Chứa ẩn ở mẫu:</b> luôn đặt điều kiện và loại nghiệm vi phạm.</li>
+      <li><b>Lập phương trình:</b> gọi ẩn kèm điều kiện; "tăng $p\%$" $=$ tăng thêm $\dfrac{p}{100}$ lần giá trị ban đầu.</li>
+      <li><b>Chứng minh BĐT:</b> xét hiệu rồi đưa về <b>tổng các bình phương</b> $(\,\cdot\,)^2 \ge 0$; nêu rõ dấu "$=$" xảy ra khi nào.</li>
+      <li><b>Giải BPT:</b> nhân/chia với <b>số âm</b> phải <b>đổi chiều</b>; mẫu dương thì khử mẫu giữ chiều.</li>
+      <li><b>Bài toán thực tế:</b> dịch "bỏ ra / không quá / tối đa" $\to \le$, "ít nhất / tối thiểu" $\to \ge$, rồi đối chiếu với điều kiện.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var canvas = document.getElementById('nlCanvas');
+  if (!canvas) return;
+  var cap = document.getElementById('nlCap');
+  var ctx = canvas.getContext('2d');
+
+  var W = 540, H = 150;
+  var dpr = window.devicePixelRatio || 1;
+  canvas.width = W * dpr; canvas.height = H * dpr;
+  canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+  ctx.scale(dpr, dpr);
+
+  // Trục số: x ∈ [-6, 4]; nghiệm x < -2 (mốc rỗng, tô sang trái)
+  var xmin = -6, xmax = 4, x0 = -2;
+  var axisY = 80;
+  var PX = function (x) { return 30 + (x - xmin) / (xmax - xmin) * (W - 60); };
+
+  function drawAxis() {
+    ctx.strokeStyle = '#5b6b7a';
+    ctx.lineWidth = 1.6;
+    ctx.beginPath(); ctx.moveTo(PX(xmin), axisY); ctx.lineTo(PX(xmax), axisY); ctx.stroke();
+    // mũi tên phải (chiều dương trục)
+    ctx.fillStyle = '#5b6b7a';
+    ctx.beginPath(); ctx.moveTo(PX(xmax), axisY); ctx.lineTo(PX(xmax) - 9, axisY - 5);
+    ctx.lineTo(PX(xmax) - 9, axisY + 5); ctx.fill();
+    // vạch và số
+    ctx.fillStyle = '#9aa7b3';
+    ctx.font = '12px Quicksand, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (var x = xmin; x <= xmax; x++) {
+      ctx.strokeStyle = '#cfd8e0'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(PX(x), axisY - 4); ctx.lineTo(PX(x), axisY + 4); ctx.stroke();
+      ctx.fillText(String(x), PX(x), axisY + 8);
+    }
+  }
+
+  // t: 0 → 1 là tỉ lệ phần tô lan sang trái
+  function render(t) {
+    ctx.clearRect(0, 0, W, H);
+    drawAxis();
+    // tia nghiệm x < -2 tô dần sang trái
+    var xEnd = x0 + (xmin - x0) * t;
+    ctx.strokeStyle = '#1f7a72';
+    ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.moveTo(PX(x0), axisY); ctx.lineTo(PX(xEnd), axisY); ctx.stroke();
+    if (t >= 1) {
+      // mũi tên cuối tia nghiệm (sang trái)
+      ctx.fillStyle = '#1f7a72';
+      ctx.beginPath(); ctx.moveTo(PX(xmin), axisY); ctx.lineTo(PX(xmin) + 9, axisY - 5);
+      ctx.lineTo(PX(xmin) + 9, axisY + 5); ctx.fill();
+    }
+    // mốc x = -2 — chấm RỖNG (vì dấu "<" không lấy bằng)
+    ctx.fillStyle = '#fcfdff';
+    ctx.beginPath(); ctx.arc(PX(x0), axisY, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#a23b52'; ctx.lineWidth = 2.4;
+    ctx.beginPath(); ctx.arc(PX(x0), axisY, 6, 0, Math.PI * 2); ctx.stroke();
+    ctx.fillStyle = '#a23b52';
+    ctx.font = 'bold 15px Quicksand, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+    ctx.fillText('-2', PX(x0), axisY - 12);
+  }
+
+  function setCap(txt) {
+    cap.innerHTML = txt;
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([cap]);
+  }
+
+  var timers = [], raf = null, running = false;
+  function clearAll() {
+    timers.forEach(clearTimeout); timers = [];
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+  }
+  function animateFill() {
+    var dur = 1100, start = performance.now();
+    function frame(now) {
+      var t = Math.min(1, (now - start) / dur);
+      render(t);
+      if (t < 1) raf = requestAnimationFrame(frame);
+    }
+    raf = requestAnimationFrame(frame);
+  }
+  function cycle() {
+    if (!running) return;
+    clearAll();
+    render(0);
+    setCap('Đặt mốc $x = -2$ (chấm rỗng vì dấu $\\lt$ không lấy bằng)');
+    timers.push(setTimeout(function () {
+      setCap('Tô tia sang trái: mọi $x \\lt -2$ đều là nghiệm');
+      animateFill();
+    }, 1800));
+    timers.push(setTimeout(function () {
+      setCap('Tập nghiệm: $x \\lt -2$');
+    }, 3200));
+    timers.push(setTimeout(cycle, 5600));
+  }
+  function start() { if (running) return; running = true; cycle(); }
+  function stop() { running = false; clearAll(); render(1); setCap('Biểu diễn tập nghiệm $x \\lt -2$ trên trục số'); }
+
+  render(1);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+    }, { threshold: 0.25 }).observe(canvas);
+  } else {
+    start();
+  }
+})();
+</script>

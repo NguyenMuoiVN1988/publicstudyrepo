@@ -1,0 +1,458 @@
+---
+layout: default
+title: Toán 9 - Bất phương trình bậc nhất một ẩn
+description: Lý thuyết và bài tập có lời giải về bất phương trình bậc nhất một ẩn - giải bất phương trình, bất phương trình chứa mẫu, so sánh biểu thức và bài toán thực tế, kết nối lý thuyết với từng lời giải, dành cho học sinh lớp 9.
+tags: [Toán 9, bất phương trình bậc nhất một ẩn, quy tắc chuyển vế, quy tắc nhân, đại số, chuyên đề]
+series: t9-c2
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  /* ----- Tiêu đề trang ----- */
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  /* ----- Tiêu đề mục lớn ----- */
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  /* ----- Hộp lý thuyết ----- */
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+
+  /* ----- Khung "nhận biết / mẹo" ----- */
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  /* ----- Thẻ mỗi bài tập ----- */
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  /* ----- Khối lời giải ----- */
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+
+  /* ----- Cầu nối lý thuyết → lời giải ----- */
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  /* ----- Câu trả lời nhấn mạnh & bẫy ----- */
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  /* ----- Chú ý cuối bài ----- */
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  /* ----- Hoạt hình trục số ----- */
+  .lgc .graph-demo { background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:14px; margin:16px 0 4px; text-align:center; }
+  .lgc .graph-demo canvas { max-width:100%; height:auto;
+    background:#fcfdff; border-radius:8px; }
+  .lgc .graph-cap { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); min-height:1.5em; margin:12px 0 2px; font-size:.95rem; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bất phương trình bậc nhất một ẩn</h1>
+    <p>Giải bất phương trình · Bất phương trình chứa mẫu · So sánh biểu thức · Bài toán thực tế</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-bpt">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Bất phương trình bậc nhất một ẩn</h3>
+    <ul>
+      <li><b>Bất phương trình bậc nhất một ẩn</b> $x$ có dạng $ax + b \gt 0$ (hoặc $ax + b \lt 0$, $ax + b \ge 0$, $ax + b \le 0$), trong đó $a, b$ là số đã biết và $a \neq 0$.</li>
+      <li><b>Nghiệm</b> của bất phương trình là giá trị của ẩn làm cho bất phương trình đúng. <b>Giải</b> bất phương trình là tìm tất cả các nghiệm đó.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Cách nhận biết:</b> sau khi thu gọn, ẩn $x$ phải có <b>bậc 1</b> và hệ số $a \neq 0$. Mục tiêu khi giải là đưa về một trong các dạng $x \gt m$, $x \lt m$, $x \ge m$, $x \le m$.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-chuyenve">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Quy tắc chuyển vế</h3>
+    <ul>
+      <li>Khi chuyển một hạng tử từ vế này sang vế kia của bất phương trình, ta phải <b>đổi dấu</b> hạng tử đó.</li>
+      <li>Quy tắc này <b>không làm đổi chiều</b> bất phương trình (giống như cộng cùng một số vào hai vế).</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-nhan">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Quy tắc nhân (chia) với một số</h3>
+    <ul>
+      <li>Nhân (hoặc chia) hai vế với cùng một <b>số dương</b> $\Rightarrow$ <b>giữ nguyên chiều</b> bất phương trình.</li>
+      <li>Nhân (hoặc chia) hai vế với cùng một <b>số âm</b> $\Rightarrow$ <b>đổi chiều</b> bất phương trình.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Nhớ nhất:</b> bước cuối cùng thường là chia hai vế cho hệ số $a$ của $x$. Nếu $a \lt 0$ thì <b>phải đổi chiều</b> — đây là chỗ hay sai nhất.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-mau">
+    <span class="tag">📖 Lý thuyết 4</span>
+    <h3>Bất phương trình chứa mẫu — đưa về bậc nhất</h3>
+    <ul>
+      <li>Quy đồng rồi <b>khử mẫu</b>: vì các mẫu số ở đây đều là <b>số dương</b> nên khi nhân hai vế với mẫu chung, bất phương trình <b>giữ nguyên chiều</b>.</li>
+      <li>Với bất phương trình có tích hoặc bình phương: <b>khai triển, thu gọn</b>; thường các hạng tử bậc hai ($x^2$) ở hai vế triệt tiêu, đưa về bậc nhất.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Mẹo:</b> khai triển hết rồi chuyển tất cả về một vế. Nếu $x^2$ còn lại thì kiểm tra lại — đề dạng này luôn để $x^2$ triệt tiêu.
+    </div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Giải bất phương trình bậc nhất một ẩn</h3>
+    <div class="de">
+      <p>Giải các bất phương trình sau:</p>
+      <p><b>a)</b> $3(2x - 3) \ge 4(2 - x) + 13$ &nbsp;&nbsp; <b>b)</b> $6x - 1 - (3x + 9) \le 8x - 7 - (2x - 1)$</p>
+      <p><b>c)</b> $8x + 17 - 3(2x + 3) \le 10(x + 2)$ &nbsp;&nbsp; <b>d)</b> $4(2 - 3x) - (5 - x) \gt 11 - x$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-chuyenve"><b>Dùng Lý thuyết 2 &amp; 3:</b> khai triển, chuyển vế đổi dấu, rồi chia cho hệ số của $x$ (chia số âm thì đổi chiều).</a>
+
+      <p><b>a)</b> $3(2x - 3) \ge 4(2 - x) + 13 \iff 6x - 9 \ge 21 - 4x$</p>
+      <p>$\iff 6x + 4x \ge 21 + 9 \iff 10x \ge 30 \iff$ <span class="key">$x \ge 3$</span>.</p>
+
+      <p><b>b)</b> Thu gọn hai vế: $6x - 1 - 3x - 9 \le 8x - 7 - 2x + 1 \iff 3x - 10 \le 6x - 6$</p>
+      <p>$\iff 3x - 6x \le -6 + 10 \iff -3x \le 4$. Chia hai vế cho $-3$ (<b>đổi chiều</b>):</p>
+      <p><span class="key">$x \ge -\dfrac{4}{3}$</span>.</p>
+
+      <p><b>c)</b> $8x + 17 - 6x - 9 \le 10x + 20 \iff 2x + 8 \le 10x + 20$</p>
+      <p>$\iff 2x - 10x \le 20 - 8 \iff -8x \le 12$. Chia cho $-8$ (<b>đổi chiều</b>): <span class="key">$x \ge -\dfrac{3}{2}$</span>.</p>
+
+      <p><b>d)</b> $8 - 12x - 5 + x \gt 11 - x \iff 3 - 11x \gt 11 - x$</p>
+      <p>$\iff -11x + x \gt 11 - 3 \iff -10x \gt 8$. Chia cho $-10$ (<b>đổi chiều</b>): <span class="key">$x \lt -\dfrac{4}{5}$</span>.</p>
+
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> ở các câu b), c), d) hệ số cuối của $x$ là <b>số âm</b> nên khi chia phải <b>đổi chiều</b> bất phương trình. Quên đổi chiều là lỗi phổ biến nhất của dạng này.
+      </div>
+    </div>
+
+    <div class="graph-demo">
+      <canvas id="nlCanvas" width="540" height="150" aria-label="Hoạt hình biểu diễn tập nghiệm x ≥ 3 trên trục số"></canvas>
+      <p class="graph-cap" id="nlCap">Biểu diễn tập nghiệm $x \ge 3$ trên trục số</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Bất phương trình có chứa mẫu số</h3>
+    <div class="de">
+      <p>Giải các bất phương trình sau:</p>
+      <p><b>a)</b> $\dfrac{2x - 1}{3} \lt \dfrac{x + 6}{2}$ &nbsp;&nbsp; <b>b)</b> $\dfrac{5(x - 1)}{6} - 1 \ge \dfrac{2(x + 1)}{3}$</p>
+      <p><b>c)</b> $2 + \dfrac{3(x + 1)}{8} \le 3 - \dfrac{x - 1}{4}$ &nbsp;&nbsp; <b>d)</b> $\dfrac{3x + 5}{2} - 1 \le \dfrac{x + 2}{3} + x$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-mau"><b>Dùng Lý thuyết 4:</b> quy đồng và khử mẫu (mẫu dương nên giữ chiều), rồi giải như bậc nhất.</a>
+
+      <p><b>a)</b> Nhân hai vế với $6 \gt 0$: $2(2x - 1) \lt 3(x + 6) \iff 4x - 2 \lt 3x + 18$</p>
+      <p>$\iff x \lt 20$. Vậy <span class="key">$x \lt 20$</span>.</p>
+
+      <p><b>b)</b> Nhân hai vế với $6$: $5(x - 1) - 6 \ge 4(x + 1) \iff 5x - 11 \ge 4x + 4$</p>
+      <p>$\iff x \ge 15$. Vậy <span class="key">$x \ge 15$</span>.</p>
+
+      <p><b>c)</b> Nhân hai vế với $8$: $16 + 3(x + 1) \le 24 - 2(x - 1)$</p>
+      <p>$\iff 3x + 19 \le 26 - 2x \iff 5x \le 7 \iff$ <span class="key">$x \le \dfrac{7}{5}$</span>.</p>
+
+      <p><b>d)</b> Nhân hai vế với $6$: $3(3x + 5) - 6 \le 2(x + 2) + 6x$</p>
+      <p>$\iff 9x + 9 \le 8x + 4 \iff x \le -5$. Vậy <span class="key">$x \le -5$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Đưa về bậc nhất (khai triển tích, bình phương)</h3>
+    <div class="de">
+      <p>Giải các bất phương trình sau:</p>
+      <p><b>a)</b> $(2x + 3)(2x - 1) \gt 4x(x + 2)$ &nbsp;&nbsp; <b>b)</b> $5(x - 1) - x(7 - x) \lt x^{2}$</p>
+      <p><b>c)</b> $(x - 1)^{2} + (x - 3)^{2} \gt x^{2} + (x + 1)^{2}$ &nbsp;&nbsp; <b>d)</b> $\dfrac{(2x - 1)^{2}}{8} \lt \dfrac{(3 - x)^{2}}{2}$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-mau"><b>Dùng Lý thuyết 4:</b> khai triển hai vế; các hạng tử $x^2$ sẽ triệt tiêu, đưa về bậc nhất.</a>
+
+      <p><b>a)</b> $4x^{2} + 4x - 3 \gt 4x^{2} + 8x \iff 4x - 3 \gt 8x \iff -4x \gt 3$</p>
+      <p>Chia cho $-4$ (<b>đổi chiều</b>): <span class="key">$x \lt -\dfrac{3}{4}$</span>.</p>
+
+      <p><b>b)</b> $5x - 5 - 7x + x^{2} \lt x^{2} \iff x^{2} - 2x - 5 \lt x^{2} \iff -2x - 5 \lt 0$</p>
+      <p>$\iff -2x \lt 5$. Chia cho $-2$ (<b>đổi chiều</b>): <span class="key">$x \gt -\dfrac{5}{2}$</span>.</p>
+
+      <p><b>c)</b> Vế trái $= 2x^{2} - 8x + 10$; vế phải $= 2x^{2} + 2x + 1$.</p>
+      <p>$2x^{2} - 8x + 10 \gt 2x^{2} + 2x + 1 \iff -8x + 10 \gt 2x + 1 \iff -10x \gt -9$</p>
+      <p>Chia cho $-10$ (<b>đổi chiều</b>): <span class="key">$x \lt \dfrac{9}{10}$</span>.</p>
+
+      <p><b>d)</b> Nhân hai vế với $8 \gt 0$: $(2x - 1)^{2} \lt 4(3 - x)^{2}$</p>
+      <p>$\iff 4x^{2} - 4x + 1 \lt 4x^{2} - 24x + 36 \iff -4x + 1 \lt -24x + 36$</p>
+      <p>$\iff 20x \lt 35 \iff$ <span class="key">$x \lt \dfrac{7}{4}$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — So sánh giá trị của hai biểu thức</h3>
+    <div class="de">
+      <p>Với những giá trị nào của $x$ thì:</p>
+      <p><b>a)</b> Giá trị của $7 - 3(x + 1)$ <b>không nhỏ hơn</b> giá trị của $2(x - 3) - 4$.</p>
+      <p><b>b)</b> Giá trị của $\dfrac{x + 2}{3} - x + 1$ <b>lớn hơn</b> giá trị của $x + 3$.</p>
+      <p><b>c)</b> Giá trị của $(x + 1)^{2} - 4$ <b>không lớn hơn</b> giá trị của $(x - 3)^{2}$.</p>
+      <p><b>d)</b> Giá trị của $5(3x - 2) - 7x$ <b>lớn hơn</b> giá trị của $6(x - 3) + 2$.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <div class="trap">
+        <b>⚠️ Dịch đề:</b> "không nhỏ hơn" nghĩa là $\ge$; "không lớn hơn" nghĩa là $\le$; "lớn hơn" là $\gt$. Dịch sai dấu là hỏng cả bài.
+      </div>
+
+      <p><b>a)</b> $7 - 3(x + 1) \ge 2(x - 3) - 4 \iff 4 - 3x \ge 2x - 10$</p>
+      <p>$\iff -5x \ge -14$. Chia cho $-5$ (<b>đổi chiều</b>): <span class="key">$x \le \dfrac{14}{5}$</span>.</p>
+
+      <p><b>b)</b> $\dfrac{x + 2}{3} - x + 1 \gt x + 3$. Nhân hai vế với $3$:</p>
+      <p>$(x + 2) - 3x + 3 \gt 3x + 9 \iff -2x + 5 \gt 3x + 9 \iff -5x \gt 4$</p>
+      <p>Chia cho $-5$ (<b>đổi chiều</b>): <span class="key">$x \lt -\dfrac{4}{5}$</span>.</p>
+
+      <p><b>c)</b> $(x + 1)^{2} - 4 \le (x - 3)^{2} \iff x^{2} + 2x - 3 \le x^{2} - 6x + 9$</p>
+      <p>$\iff 2x - 3 \le -6x + 9 \iff 8x \le 12 \iff$ <span class="key">$x \le \dfrac{3}{2}$</span>.</p>
+
+      <p><b>d)</b> $5(3x - 2) - 7x \gt 6(x - 3) + 2 \iff 8x - 10 \gt 6x - 16$</p>
+      <p>$\iff 2x \gt -6 \iff$ <span class="key">$x \gt -3$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 5 ---------- -->
+  <div class="bai">
+    <h3><span class="num">5</span> Dạng 5 — Bất phương trình biến đổi đặc biệt</h3>
+    <div class="de">
+      <p>Giải các bất phương trình sau:</p>
+      <p><b>a)</b> $\dfrac{x + 1987}{2002} + \dfrac{x + 1988}{2003} \gt \dfrac{x + 1989}{2004} + \dfrac{x + 1990}{2005}$</p>
+      <p><b>b)</b> $\dfrac{x - 1}{99} + \dfrac{x - 3}{97} + \dfrac{x - 5}{95} \lt \dfrac{x - 2}{98} + \dfrac{x - 4}{96} + \dfrac{x - 6}{94}$</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nhan"><b>Mẹo — bớt 1 ở mỗi phân thức:</b> trừ $1$ vào mỗi hạng tử (tổng cộng trừ cùng một số ở mỗi vế nên giữ chiều), để xuất hiện <b>tử chung</b>.</a>
+
+      <p><b>a)</b> Trừ $1$ vào từng phân thức (mỗi vế có $2$ hạng tử, trừ tổng cộng $2$ ở mỗi vế — giữ chiều). Mỗi tử trở thành $x - 15$:</p>
+      <p>$(x - 15)\!\left(\dfrac{1}{2002} + \dfrac{1}{2003} - \dfrac{1}{2004} - \dfrac{1}{2005}\right) \gt 0$.</p>
+      <p>Vì $\dfrac{1}{2002} \gt \dfrac{1}{2004}$ và $\dfrac{1}{2003} \gt \dfrac{1}{2005}$ nên ngoặc là số <b>dương</b>. Chia cho số dương đó (giữ chiều): $x - 15 \gt 0$.</p>
+      <p>Vậy <span class="key">$x \gt 15$</span>.</p>
+
+      <p><b>b)</b> Trừ $1$ vào từng phân thức (mỗi vế $3$ hạng tử — giữ chiều). Mỗi tử trở thành $x - 100$:</p>
+      <p>$(x - 100)\!\left(\dfrac{1}{99} + \dfrac{1}{97} + \dfrac{1}{95} - \dfrac{1}{98} - \dfrac{1}{96} - \dfrac{1}{94}\right) \lt 0$.</p>
+      <p>Vì $\dfrac{1}{99} \lt \dfrac{1}{98}$, $\dfrac{1}{97} \lt \dfrac{1}{96}$, $\dfrac{1}{95} \lt \dfrac{1}{94}$ nên ngoặc là số <b>âm</b>. Chia cho số âm (<b>đổi chiều</b>): $x - 100 \gt 0$.</p>
+      <p>Vậy <span class="key">$x \gt 100$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 6 ---------- -->
+  <div class="bai">
+    <h3><span class="num">6</span> Dạng 6 — Ứng dụng thực tế</h3>
+    <div class="de">
+      <p><b>a)</b> Một hãng taxi có giá mở cửa là $15$ nghìn đồng và $12$ nghìn đồng cho mỗi kilômét tiếp theo. Với $200$ nghìn đồng thì đi được tối đa bao nhiêu kilômét (làm tròn đến hàng đơn vị)?</p>
+      <p><b>b)</b> Một ngân hàng áp dụng lãi suất gửi tiết kiệm kì hạn $1$ tháng là $0{,}4\%$. Muốn có tiền lãi hằng tháng ít nhất $3$ triệu đồng thì số tiền gửi ít nhất là bao nhiêu (làm tròn đến triệu đồng)?</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bpt"><b>Dùng Lý thuyết 1:</b> gọi ẩn, đặt điều kiện, lập bất phương trình từ dữ kiện "tối đa / ít nhất".</a>
+
+      <p><b>a)</b> Gọi $x$ là số kilômét đi được $(x \gt 0)$. Tổng tiền phải trả là $15 + 12x$ (nghìn đồng), không vượt quá $200$:</p>
+      <p>$15 + 12x \le 200 \iff 12x \le 185 \iff x \le \dfrac{185}{12} \approx 15{,}42$.</p>
+      <p>Vì $x$ là số kilômét nguyên lớn nhất thỏa mãn nên hành khách đi được <span class="key">tối đa $15$ km</span>.</p>
+
+      <p><b>b)</b> Gọi $x$ là số tiền gửi (triệu đồng, $x \gt 0$). Tiền lãi mỗi tháng là $0{,}4\% \cdot x = 0{,}004x$, cần ít nhất $3$ triệu:</p>
+      <p>$0{,}004x \ge 3 \iff x \ge \dfrac{3}{0{,}004} = 750$.</p>
+      <p>Vậy phải gửi <span class="key">ít nhất $750$ triệu đồng</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Quy tắc chuyển vế:</b> chuyển hạng tử qua vế kia phải <b>đổi dấu</b>, không đổi chiều bất phương trình.</li>
+      <li><b>Quy tắc nhân/chia:</b> với <b>số dương</b> giữ chiều, với <b>số âm</b> phải <b>đổi chiều</b> — bẫy lớn nhất, đặc biệt ở bước chia cho hệ số $a \lt 0$.</li>
+      <li><b>Chứa mẫu:</b> mẫu là số dương nên khử mẫu không đổi chiều; <b>tích/bình phương</b>: khai triển để $x^2$ triệt tiêu, đưa về bậc nhất.</li>
+      <li><b>So sánh biểu thức:</b> dịch đúng từ ngữ — "không nhỏ hơn" $=\ge$, "không lớn hơn" $=\le$, "lớn hơn" $=\gt$.</li>
+      <li><b>Bài toán thực tế:</b> luôn <b>đặt điều kiện cho ẩn</b>, dịch "tối đa / nhiều nhất" $\to \le$, "ít nhất / tối thiểu" $\to \ge$, rồi đối chiếu nghiệm với thực tế (làm tròn cho hợp lí).</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var canvas = document.getElementById('nlCanvas');
+  if (!canvas) return;
+  var cap = document.getElementById('nlCap');
+  var ctx = canvas.getContext('2d');
+
+  var W = 540, H = 150;
+  var dpr = window.devicePixelRatio || 1;
+  canvas.width = W * dpr; canvas.height = H * dpr;
+  canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+  ctx.scale(dpr, dpr);
+
+  // Trục số: x ∈ [-2, 8]; nghiệm x ≥ 3 (mốc đặc, tô sang phải)
+  var xmin = -2, xmax = 8, x0 = 3;
+  var axisY = 80;
+  var PX = function (x) { return 30 + (x - xmin) / (xmax - xmin) * (W - 60); };
+
+  function drawAxis() {
+    ctx.strokeStyle = '#5b6b7a';
+    ctx.lineWidth = 1.6;
+    ctx.beginPath(); ctx.moveTo(PX(xmin), axisY); ctx.lineTo(PX(xmax), axisY); ctx.stroke();
+    // mũi tên phải
+    ctx.fillStyle = '#5b6b7a';
+    ctx.beginPath(); ctx.moveTo(PX(xmax), axisY); ctx.lineTo(PX(xmax) - 9, axisY - 5);
+    ctx.lineTo(PX(xmax) - 9, axisY + 5); ctx.fill();
+    // vạch và số
+    ctx.fillStyle = '#9aa7b3';
+    ctx.font = '12px Quicksand, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (var x = xmin; x <= xmax; x++) {
+      ctx.strokeStyle = '#cfd8e0'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(PX(x), axisY - 4); ctx.lineTo(PX(x), axisY + 4); ctx.stroke();
+      ctx.fillText(String(x), PX(x), axisY + 8);
+    }
+  }
+
+  // t: 0 → 1 là tỉ lệ phần tô lan sang phải
+  function render(t) {
+    ctx.clearRect(0, 0, W, H);
+    drawAxis();
+    // tia nghiệm x ≥ 3 tô dần sang phải
+    var xEnd = x0 + (xmax - x0) * t;
+    ctx.strokeStyle = '#1f7a72';
+    ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.moveTo(PX(x0), axisY); ctx.lineTo(PX(xEnd), axisY); ctx.stroke();
+    if (t >= 1) {
+      // mũi tên cuối tia nghiệm
+      ctx.fillStyle = '#1f7a72';
+      ctx.beginPath(); ctx.moveTo(PX(xmax), axisY); ctx.lineTo(PX(xmax) - 9, axisY - 5);
+      ctx.lineTo(PX(xmax) - 9, axisY + 5); ctx.fill();
+    }
+    // mốc x = 3 — chấm đặc (vì có dấu "=")
+    ctx.fillStyle = '#a23b52';
+    ctx.beginPath(); ctx.arc(PX(x0), axisY, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#a23b52';
+    ctx.font = 'bold 15px Quicksand, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+    ctx.fillText('3', PX(x0), axisY - 12);
+  }
+
+  function setCap(txt) {
+    cap.innerHTML = txt;
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([cap]);
+  }
+
+  var timers = [], raf = null, running = false;
+  function clearAll() {
+    timers.forEach(clearTimeout); timers = [];
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+  }
+  function animateFill() {
+    var dur = 1100, start = performance.now();
+    function frame(now) {
+      var t = Math.min(1, (now - start) / dur);
+      render(t);
+      if (t < 1) raf = requestAnimationFrame(frame);
+    }
+    raf = requestAnimationFrame(frame);
+  }
+  function cycle() {
+    if (!running) return;
+    clearAll();
+    render(0);
+    setCap('Đặt mốc $x = 3$ (chấm đặc vì có dấu $\\ge$)');
+    timers.push(setTimeout(function () {
+      setCap('Tô tia sang phải: mọi $x \\ge 3$ đều là nghiệm');
+      animateFill();
+    }, 1800));
+    timers.push(setTimeout(function () {
+      setCap('Tập nghiệm: $x \\ge 3$');
+    }, 3200));
+    timers.push(setTimeout(cycle, 5600));
+  }
+  function start() { if (running) return; running = true; cycle(); }
+  function stop() { running = false; clearAll(); render(1); setCap('Biểu diễn tập nghiệm $x \\ge 3$ trên trục số'); }
+
+  render(1);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+    }, { threshold: 0.25 }).observe(canvas);
+  } else {
+    start();
+  }
+})();
+</script>
