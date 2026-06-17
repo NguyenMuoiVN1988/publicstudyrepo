@@ -1,0 +1,152 @@
+---
+layout: default
+title: Toán 9 - Biến đổi đơn giản và rút gọn biểu thức chứa căn thức bậc hai
+description: Lời giải bài tập biến đổi và rút gọn biểu thức chứa căn thức bậc hai lớp 9 - cộng trừ căn đồng dạng và trục căn thức ở mẫu, kết nối lý thuyết với từng lời giải.
+tags: [Toán 9, căn đồng dạng, trục căn thức, rút gọn căn, đại số, chuyên đề]
+series: t9-c3
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Biến đổi đơn giản &amp; rút gọn biểu thức chứa căn thức bậc hai</h1>
+    <p>Cộng trừ căn đồng dạng · Trục căn thức ở mẫu</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-dongdang">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Căn đồng dạng</h3>
+    <ul>
+      <li>$m\sqrt{a} \pm n\sqrt{a} = (m \pm n)\sqrt{a}$.</li>
+      <li>Trước hết <b>đưa thừa số ra ngoài dấu căn</b> ($\sqrt{a^{2}b} = |a|\sqrt{b}$) để các căn thức cùng phần căn, rồi mới cộng trừ.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-truc">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Trục căn thức ở mẫu</h3>
+    <ul>
+      <li>$\dfrac{A}{\sqrt{B}} = \dfrac{A\sqrt{B}}{B}$ (với $B > 0$).</li>
+      <li>$\dfrac{C}{\sqrt{A} \pm B} = \dfrac{C(\sqrt{A} \mp B)}{A - B^{2}}$ và $\dfrac{C}{\sqrt{A} \pm \sqrt{B}} = \dfrac{C(\sqrt{A} \mp \sqrt{B})}{A - B}$ — nhân tử &amp; mẫu với <b>biểu thức liên hợp</b>.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Căn đồng dạng</h3>
+    <div class="de"><p>Rút gọn: a) $6\sqrt{12} - 2\sqrt{48} + 5\sqrt{75}$; b) $2\sqrt{5} - 3\sqrt{125} + \sqrt{80}$; c) $3\sqrt{2} - 2\sqrt{8} + \sqrt{50} - 4\sqrt{32}$; d) $\sqrt{128} - 3\sqrt{32} + 2\sqrt{200} - 3\sqrt{98}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dongdang"><b>Dùng Lý thuyết 1:</b> đưa thừa số ra ngoài để mọi căn cùng phần căn, rồi gộp hệ số.</a>
+      <ul>
+        <li>a) $= 6\cdot 2\sqrt{3} - 2\cdot 4\sqrt{3} + 5\cdot 5\sqrt{3} = 12\sqrt{3} - 8\sqrt{3} + 25\sqrt{3} = $ <span class="key">$29\sqrt{3}$</span>.</li>
+        <li>b) $= 2\sqrt{5} - 3\cdot 5\sqrt{5} + 4\sqrt{5} = 2\sqrt{5} - 15\sqrt{5} + 4\sqrt{5} = $ <span class="key">$-9\sqrt{5}$</span>.</li>
+        <li>c) $= 3\sqrt{2} - 2\cdot 2\sqrt{2} + 5\sqrt{2} - 4\cdot 4\sqrt{2} = 3\sqrt{2} - 4\sqrt{2} + 5\sqrt{2} - 16\sqrt{2} = $ <span class="key">$-12\sqrt{2}$</span>.</li>
+        <li>d) $= 8\sqrt{2} - 3\cdot 4\sqrt{2} + 2\cdot 10\sqrt{2} - 3\cdot 7\sqrt{2} = 8\sqrt{2} - 12\sqrt{2} + 20\sqrt{2} - 21\sqrt{2} = $ <span class="key">$-5\sqrt{2}$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Trục căn thức ở mẫu</h3>
+    <div class="de"><p>Trục căn thức: a) $\dfrac{5}{\sqrt{75}}$; b) $\dfrac{-3}{2-\sqrt{10}}$; c) $\dfrac{5}{\sqrt{7}-\sqrt{5}}$; d) $\dfrac{\sqrt{2}+2}{3+\sqrt{2}}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-truc"><b>Dùng Lý thuyết 2:</b> nhân với biểu thức liên hợp (hoặc với $\sqrt{B}$) để khử căn ở mẫu.</a>
+      <ul>
+        <li>a) $\dfrac{5}{\sqrt{75}} = \dfrac{5}{5\sqrt{3}} = \dfrac{1}{\sqrt{3}} = $ <span class="key">$\dfrac{\sqrt{3}}{3}$</span>.</li>
+        <li>b) $\dfrac{-3}{2-\sqrt{10}} = \dfrac{-3(2+\sqrt{10})}{(2-\sqrt{10})(2+\sqrt{10})} = \dfrac{-3(2+\sqrt{10})}{4-10} = \dfrac{-3(2+\sqrt{10})}{-6} = $ <span class="key">$\dfrac{2+\sqrt{10}}{2}$</span>.</li>
+        <li>c) $\dfrac{5}{\sqrt{7}-\sqrt{5}} = \dfrac{5(\sqrt{7}+\sqrt{5})}{7-5} = $ <span class="key">$\dfrac{5(\sqrt{7}+\sqrt{5})}{2}$</span>.</li>
+        <li>d) $\dfrac{\sqrt{2}+2}{3+\sqrt{2}} = \dfrac{(\sqrt{2}+2)(3-\sqrt{2})}{9-2} = \dfrac{3\sqrt{2}-2+6-2\sqrt{2}}{7} = $ <span class="key">$\dfrac{\sqrt{2}+4}{7}$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> liên hợp của $a - \sqrt{b}$ là $a + \sqrt{b}$ (đổi dấu căn) — sau khi nhân, mẫu thành $a^{2} - b$, chú ý dấu khi $a^{2} - b < 0$.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Luôn <b>đưa thừa số ra ngoài dấu căn</b> trước khi cộng trừ căn đồng dạng.</li>
+      <li>Trục căn thức: mẫu một căn thì nhân $\sqrt{B}$; mẫu có tổng/hiệu căn thì nhân <b>liên hợp</b>.</li>
+      <li>Sau khi trục, nhớ <b>rút gọn</b> dấu và phân số ở kết quả.</li>
+    </ul>
+  </div>
+
+</div>

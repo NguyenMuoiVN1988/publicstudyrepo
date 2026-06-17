@@ -237,6 +237,11 @@ details > div {
 - [C2B2: Bất đẳng thức và tính chất](T9/2026PhieuBT/LGC2B2.html)
 - [C2B3: Bất phương trình bậc nhất một ẩn](T9/2026PhieuBT/LGC2B3.html)
 - [C2B4: Ôn tập chương II](T9/2026PhieuBT/LGC2B4.html)
+- [C3B1: Căn bậc hai và căn thức bậc hai](T9/2026PhieuBT/LGC3B1.html)
+- [C3B2: Khai căn bậc hai với phép nhân và phép chia](T9/2026PhieuBT/LGC3B2.html)
+- [C3B3: Biến đổi đơn giản và rút gọn biểu thức chứa căn thức bậc hai](T9/2026PhieuBT/LGC3B3.html)
+- [C3B4: Căn bậc ba và căn thức bậc ba](T9/2026PhieuBT/LGC3B4.html)
+- [C3B5: Ôn tập chương III](T9/2026PhieuBT/LGC3B5.html)
 
 </div>
 </details>

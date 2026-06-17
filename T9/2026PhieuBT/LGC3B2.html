@@ -1,0 +1,176 @@
+---
+layout: default
+title: Toán 9 - Khai căn bậc hai với phép nhân và phép chia
+description: Lời giải bài tập khai căn bậc hai lớp 9 - căn bậc hai của một bình phương, khai phương một tích, khai phương một thương, kết nối lý thuyết với từng lời giải.
+tags: [Toán 9, khai phương, căn bậc hai một tích, căn bậc hai một thương, đại số, chuyên đề]
+series: t9-c3
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Khai căn bậc hai với phép nhân và phép chia</h1>
+    <p>Căn bậc hai của một bình phương · Khai phương một tích · Khai phương một thương</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-bp">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Căn bậc hai của một bình phương</h3>
+    <ul>
+      <li>$\sqrt{A^{2}} = |A|$: bằng $A$ nếu $A \ge 0$, bằng $-A$ nếu $A < 0$.</li>
+      <li>Đặc biệt $(\sqrt{A})^{2} = A$ với $A \ge 0$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-tich">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Khai phương một tích</h3>
+    <ul>
+      <li>Với $a, b \ge 0$: $\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}$ và $\sqrt{a^{2}b} = |a|\sqrt{b}$.</li>
+    </ul>
+    <div class="tip">🔍 <b>Mẹo:</b> với hiệu hai bình phương dưới căn, dùng $\sqrt{m^{2} - n^{2}} = \sqrt{(m-n)(m+n)}$ rồi khai phương.</div>
+  </div>
+
+  <div class="theory" id="lt-thuong">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Khai phương một thương</h3>
+    <ul>
+      <li>Với $a \ge 0,\ b > 0$: $\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}$ và $\sqrt{\dfrac{a}{b^{2}}} = \dfrac{\sqrt{a}}{|b|}$.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Căn bậc hai của một bình phương</h3>
+    <div class="de"><p>Tính: a) $\sqrt{16}$; b) $\sqrt{(-2)^{2}}$; c) $(\sqrt{19})^{2}$; d) $\sqrt{13^{2}}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bp"><b>Dùng Lý thuyết 1:</b> $\sqrt{A^{2}} = |A|$ và $(\sqrt{A})^{2} = A$.</a>
+      <ul>
+        <li>a) $\sqrt{16} = \sqrt{4^{2}} = $ <span class="key">$4$</span>.</li>
+        <li>b) $\sqrt{(-2)^{2}} = |-2| = $ <span class="key">$2$</span>.</li>
+        <li>c) $(\sqrt{19})^{2} = $ <span class="key">$19$</span>.</li>
+        <li>d) $\sqrt{13^{2}} = |13| = $ <span class="key">$13$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> $\sqrt{(-2)^{2}} = 2$ (lấy giá trị tuyệt đối), <span class="no">không phải</span> $-2$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Khai phương một tích</h3>
+    <div class="de"><p>Tính: a) $\sqrt{36 \cdot 0,81}$; b) $\sqrt{5^{4} \cdot (-13)^{2}}$; c) $\sqrt{5} \cdot \sqrt{80}$; d) $\sqrt{65^{2} - 16^{2}}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tich"><b>Dùng Lý thuyết 2:</b> $\sqrt{ab} = \sqrt{a}\,\sqrt{b}$; với hiệu bình phương phân tích thành tích.</a>
+      <ul>
+        <li>a) $\sqrt{36 \cdot 0,81} = \sqrt{36} \cdot \sqrt{0,81} = 6 \cdot 0,9 = $ <span class="key">$5,4$</span>.</li>
+        <li>b) $\sqrt{5^{4} \cdot (-13)^{2}} = 5^{2} \cdot |-13| = 25 \cdot 13 = $ <span class="key">$325$</span>.</li>
+        <li>c) $\sqrt{5} \cdot \sqrt{80} = \sqrt{400} = $ <span class="key">$20$</span>.</li>
+        <li>d) $\sqrt{65^{2} - 16^{2}} = \sqrt{(65-16)(65+16)} = \sqrt{49 \cdot 81} = 7 \cdot 9 = $ <span class="key">$63$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Khai phương một thương</h3>
+    <div class="de"><p>Tính: a) $\sqrt{\dfrac{49}{81}}$; b) $\sqrt{0,81 : 0,36}$; c) $\sqrt{\dfrac{170}{1,7}}$; d) $\sqrt{\dfrac{26^{2}-17^{2}}{688}}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-thuong"><b>Dùng Lý thuyết 3:</b> $\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}$; rút gọn phân số dưới căn trước khi khai phương.</a>
+      <ul>
+        <li>a) $\sqrt{\dfrac{49}{81}} = \dfrac{\sqrt{49}}{\sqrt{81}} = $ <span class="key">$\dfrac{7}{9}$</span>.</li>
+        <li>b) $\sqrt{0,81 : 0,36} = \sqrt{\dfrac{0,81}{0,36}} = \dfrac{0,9}{0,6} = $ <span class="key">$1,5$</span>.</li>
+        <li>c) $\sqrt{\dfrac{170}{1,7}} = \sqrt{100} = $ <span class="key">$10$</span>.</li>
+        <li>d) $26^{2} - 17^{2} = (26-17)(26+17) = 9 \cdot 43 = 387$; mà $688 = 16 \cdot 43$ nên $\dfrac{387}{688} = \dfrac{9}{16}$. Vậy $\sqrt{\dfrac{387}{688}} = \sqrt{\dfrac{9}{16}} = $ <span class="key">$\dfrac{3}{4}$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>$\sqrt{A^{2}} = |A|$ — luôn kiểm tra dấu của $A$ trước khi bỏ căn.</li>
+      <li>Khai phương tích/thương: tách thành tích (thương) các căn rồi rút gọn; ưu tiên <b>rút gọn phân số trước</b>.</li>
+      <li>Hiệu hai bình phương: $\sqrt{m^{2} - n^{2}} = \sqrt{(m-n)(m+n)}$ giúp tính nhanh mà không cần bình phương lớn.</li>
+    </ul>
+  </div>
+
+</div>

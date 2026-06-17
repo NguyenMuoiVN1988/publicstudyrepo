@@ -1,0 +1,194 @@
+---
+layout: default
+title: Toán 9 - Ôn tập chương III (Căn bậc hai và căn bậc ba)
+description: Lời giải ôn tập chương III Toán 9 - rút gọn biểu thức số chứa căn, rút gọn và chứng minh biểu thức chứa biến, giải phương trình chứa căn, bất đẳng thức và cực trị.
+tags: [Toán 9, ôn tập căn bậc hai, phương trình chứa căn, rút gọn biểu thức, bất đẳng thức, chuyên đề]
+series: t9-c3
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương III</h1>
+    <p>Rút gọn biểu thức số &amp; chứa biến · Phương trình chứa căn · Bất đẳng thức, cực trị</p>
+  </div>
+
+  <div class="sec">✨ Phương pháp trọng tâm</div>
+
+  <div class="theory" id="lt-canlong">
+    <span class="tag">📖 Phương pháp 1</span>
+    <h3>Phá căn lồng hai lớp</h3>
+    <ul>
+      <li>Đưa biểu thức dưới căn về bình phương: $m \pm 2\sqrt{ab} = (\sqrt{a} \pm \sqrt{b})^{2}$ với $a + b = m$, rồi dùng $\sqrt{A^{2}} = |A|$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-anphu">
+    <span class="tag">📖 Phương pháp 2</span>
+    <h3>Đặt ẩn phụ &amp; rút gọn biểu thức chứa biến</h3>
+    <ul>
+      <li>Với căn $\sqrt{x-1}$, đặt $t = \sqrt{x-1} \ge 0 \Rightarrow x = t^{2} + 1$ để đưa về đa thức.</li>
+      <li>Biểu thức chứa biến: đặt điều kiện, phân tích nhân tử ($x - \sqrt{x} = \sqrt{x}(\sqrt{x}-1)$, $x - 9 = (\sqrt{x}-3)(\sqrt{x}+3)$) rồi rút gọn.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-bdt">
+    <span class="tag">📖 Phương pháp 3</span>
+    <h3>Bất đẳng thức &amp; cực trị</h3>
+    <ul>
+      <li>Đưa về tổng bình phương, dùng $(a-b)^{2} \ge 0$; bất đẳng thức Minkowski (vectơ) $|\vec u| + |\vec v| \ge |\vec u + \vec v|$.</li>
+      <li>Đánh giá tổng bằng kĩ thuật "làm trội/làm giảm" và khử liên tiếp (telescoping).</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Rút gọn, tính biểu thức số chứa căn</h3>
+    <div class="de"><p>a) $3\sqrt{8}-\sqrt{18}+5\sqrt{\tfrac{1}{2}}+\sqrt{50}$; b) $\dfrac{2}{\sqrt{2}}+\dfrac{1}{\sqrt{3}-\sqrt{2}}-\dfrac{2}{\sqrt{3}-1}$; c) $\sqrt{13+\sqrt{48}}+\sqrt{37-2\sqrt{300}}$; d) $\sqrt{12-6\sqrt{3}}+\sqrt{21-12\sqrt{3}}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-canlong"><b>a, b dùng đồng dạng &amp; trục căn; c, d dùng Phương pháp 1 (phá căn lồng).</b></a>
+      <ul>
+        <li>a) $= 6\sqrt{2}-3\sqrt{2}+\dfrac{5\sqrt{2}}{2}+5\sqrt{2} = \left(6-3+\tfrac{5}{2}+5\right)\sqrt{2} = $ <span class="key">$\dfrac{21\sqrt{2}}{2}$</span>.</li>
+        <li>b) $\dfrac{2}{\sqrt{2}}=\sqrt{2}$; $\dfrac{1}{\sqrt{3}-\sqrt{2}}=\sqrt{3}+\sqrt{2}$; $\dfrac{2}{\sqrt{3}-1}=\sqrt{3}+1$. Cộng: $\sqrt{2}+(\sqrt{3}+\sqrt{2})-(\sqrt{3}+1) = $ <span class="key">$2\sqrt{2}-1$</span>.</li>
+        <li>c) $13+\sqrt{48}=13+4\sqrt{3}=(2\sqrt{3}+1)^{2}$; $37-2\sqrt{300}=37-20\sqrt{3}=(5-2\sqrt{3})^{2}$. Tổng $=(2\sqrt{3}+1)+(5-2\sqrt{3}) = $ <span class="key">$6$</span>.</li>
+        <li>d) $12-6\sqrt{3}=(3-\sqrt{3})^{2}$; $21-12\sqrt{3}=(2\sqrt{3}-3)^{2}$. Tổng $=(3-\sqrt{3})+(2\sqrt{3}-3) = $ <span class="key">$\sqrt{3}$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> khi phá $\sqrt{(2\sqrt{3}-3)^{2}}$ phải lấy $|2\sqrt{3}-3| = 2\sqrt{3}-3$ vì $2\sqrt{3}\approx 3,46 > 3$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Rút gọn &amp; chứng minh biểu thức chứa biến</h3>
+    <div class="de"><p>a) Rút gọn $A=\dfrac{\sqrt{x}}{\sqrt{x}-1}-\dfrac{2\sqrt{x}-1}{x-\sqrt{x}}$; b) Rút gọn $A=\dfrac{\sqrt{x}}{\sqrt{x}+3}+\dfrac{2\sqrt{x}}{\sqrt{x}-3}-\dfrac{3x+9}{x-9}$; c) CM $A=\dfrac{9x-6\sqrt{x}+1}{3\sqrt{x}-1}+\dfrac{x-\sqrt{x}}{\sqrt{x}-1}-4\sqrt{x}+2013$ không đổi; d) CM đẳng thức.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-anphu"><b>Dùng Phương pháp 2:</b> phân tích nhân tử rồi rút gọn.</a>
+      <ul>
+        <li>a) $x-\sqrt{x}=\sqrt{x}(\sqrt{x}-1)$. Quy đồng: $A=\dfrac{x-(2\sqrt{x}-1)}{\sqrt{x}(\sqrt{x}-1)}=\dfrac{(\sqrt{x}-1)^{2}}{\sqrt{x}(\sqrt{x}-1)} = $ <span class="key">$\dfrac{\sqrt{x}-1}{\sqrt{x}}$</span>.</li>
+        <li>b) Tử chung: $\sqrt{x}(\sqrt{x}-3)+2\sqrt{x}(\sqrt{x}+3)-(3x+9)=3\sqrt{x}-9=3(\sqrt{x}-3)$. Vậy $A=\dfrac{3(\sqrt{x}-3)}{(\sqrt{x}-3)(\sqrt{x}+3)} = $ <span class="key">$\dfrac{3}{\sqrt{x}+3}$</span>.</li>
+        <li>c) $\dfrac{(3\sqrt{x}-1)^{2}}{3\sqrt{x}-1}=3\sqrt{x}-1$; $\dfrac{\sqrt{x}(\sqrt{x}-1)}{\sqrt{x}-1}=\sqrt{x}$. Vậy $A=(3\sqrt{x}-1)+\sqrt{x}-4\sqrt{x}+2013 = $ <span class="key">$2012$</span> — không phụ thuộc $x$.</li>
+        <li>d) Vế trái $=\dfrac{\sqrt{x}(\sqrt{x}+2)}{\sqrt{x}-1}\cdot\dfrac{\sqrt{x}-1}{\sqrt{x}(\sqrt{x}+2)^{2}}=\dfrac{1}{\sqrt{x}+2}$ (vì $x\sqrt{x}+4x+4\sqrt{x}=\sqrt{x}(\sqrt{x}+2)^{2}$). <span class="key">Đẳng thức được chứng minh.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Giải phương trình chứa căn</h3>
+    <div class="de"><p>a) $\sqrt{x+2\sqrt{x-1}}=x$; b) $\sqrt{x+2}-\sqrt{2x-3}=\sqrt{3x-5}$; c) $\sqrt{x+3+4\sqrt{x-1}}+\sqrt{x+8-6\sqrt{x-1}}=5$; d) $x^{2}+9x+20=2\sqrt{3x+10}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-anphu"><b>a, c đặt $t=\sqrt{x-1}\ge 0$; b bình phương có điều kiện; d đưa về tích bình phương.</b></a>
+      <ul>
+        <li>a) ĐK $x\ge 1$. Đặt $t=\sqrt{x-1}\ge 0,\ x=t^{2}+1$: $x+2\sqrt{x-1}=(t+1)^{2}$, nên PT thành $t+1=t^{2}+1\Rightarrow t^{2}-t=0\Rightarrow t=0$ hoặc $t=1$. Vậy <span class="key">$x=1$ hoặc $x=2$</span> (đều thỏa).</li>
+        <li>b) ĐK $x\ge\tfrac{5}{3}$. Chuyển vế: $\sqrt{x+2}=\sqrt{2x-3}+\sqrt{3x-5}$, bình phương $\Rightarrow 5-2x=\sqrt{(2x-3)(3x-5)}$ (cần $x\le\tfrac{5}{2}$), bình phương tiếp $\Rightarrow 2x^{2}+x-10=0\Rightarrow x=2$ hoặc $x=-2,5$ (loại). Thử lại: <span class="key">$x=2$</span>.</li>
+        <li>c) ĐK $x\ge 1$. Đặt $t=\sqrt{x-1}\ge 0$: $\sqrt{(t+2)^{2}}+\sqrt{(t-3)^{2}}=(t+2)+|t-3|=5$. Với $0\le t\le 3$ đẳng thức luôn đúng $\Rightarrow$ <span class="key">$1\le x\le 10$</span>.</li>
+        <li>d) ĐK $x\ge-\tfrac{10}{3}$. Bình phương: $(x^{2}+9x+20)^{2}=4(3x+10)$, biến đổi thành $(x+3)^{2}(x^{2}+12x+40)=0$. Vì $x^{2}+12x+40=(x+6)^{2}+4>0$ nên <span class="key">$x=-3$</span> (thử lại đúng).</li>
+      </ul>
+      <div class="trap"><b>⚠️ Lưu ý:</b> mỗi lần bình phương đều phải kèm điều kiện vế phải $\ge 0$ và <b>thử lại</b> nghiệm vào phương trình gốc để loại nghiệm ngoại lai.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — Bất đẳng thức, giá trị nhỏ nhất – lớn nhất</h3>
+    <div class="de"><p>a) Min $A=\dfrac{x+3\sqrt{x-1}+1}{x+4\sqrt{x-1}+2}$ ($x\ge 1$); b) Min $B=\dfrac{\sqrt{1+a^{2}}\sqrt{1+b^{2}}}{1+ab}$ ($a,b>0$); c) CM $A=\sum_{k=1}^{2012}\dfrac{1}{\sqrt{k}}>2(\sqrt{2013}-1)$; d) CM $\sqrt{1-x^{2}}+\sqrt{1-y^{2}}+\sqrt{1-z^{2}}\le\sqrt{9-(x+y+z)^{2}}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bdt"><b>Dùng Phương pháp 3:</b> đặt ẩn phụ, tổng bình phương, làm trội &amp; Minkowski.</a>
+      <ul>
+        <li>a) Đặt $t=\sqrt{x-1}\ge 0$: tử $=(t+1)(t+2)$, mẫu $=(t+1)(t+3)$, nên $A=\dfrac{t+2}{t+3}=1-\dfrac{1}{t+3}$. Vì $t\ge 0$ nên $A\ge 1-\dfrac{1}{3}=\dfrac{2}{3}$. <span class="key">$\min A=\dfrac{2}{3}$</span> khi $t=0$, tức $x=1$.</li>
+        <li>b) $B^{2}=\dfrac{(1+a^{2})(1+b^{2})}{(1+ab)^{2}}$; mà $(1+a^{2})(1+b^{2})-(1+ab)^{2}=(a-b)^{2}\ge 0$ nên $B^{2}\ge 1\Rightarrow B\ge 1$. <span class="key">$\min B=1$</span> khi $a=b$.</li>
+        <li>c) Làm trội: $\dfrac{1}{\sqrt{k}}>\dfrac{2}{\sqrt{k+1}+\sqrt{k}}=2(\sqrt{k+1}-\sqrt{k})$. Cộng $k=1\ldots 2012$ (khử liên tiếp): $A>2(\sqrt{2013}-\sqrt{1})=2(\sqrt{2013}-1)$. <span class="key">Điều phải chứng minh.</span></li>
+        <li>d) Xét ba vectơ đơn vị $\vec u=(x,\sqrt{1-x^{2}}),\ \vec v=(y,\sqrt{1-y^{2}}),\ \vec w=(z,\sqrt{1-z^{2}})$, mỗi vectơ có độ dài $1$. Theo bất đẳng thức Minkowski: $|\vec u|+|\vec v|+|\vec w|\ge|\vec u+\vec v+\vec w|$, tức $3\ge\sqrt{(x+y+z)^{2}+S^{2}}$ với $S$ là vế trái. Suy ra $S^{2}\le 9-(x+y+z)^{2}$. <span class="key">Điều phải chứng minh.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Phá căn lồng: nhận dạng $m\pm 2\sqrt{ab}=(\sqrt{a}\pm\sqrt{b})^{2}$ rồi lấy $\sqrt{A^{2}}=|A|$.</li>
+      <li>Biểu thức chứa biến: đặt điều kiện, phân tích nhân tử, rút gọn; "không phụ thuộc biến" nghĩa là sau rút gọn không còn biến.</li>
+      <li>Phương trình chứa căn: đặt điều kiện + ẩn phụ $t=\sqrt{\cdot}\ge 0$, luôn thử lại nghiệm.</li>
+      <li>Cực trị/BĐT: tổng bình phương $(a-b)^{2}\ge 0$, làm trội với khử liên tiếp, và Minkowski cho các căn dạng $\sqrt{1-x^{2}}$.</li>
+    </ul>
+  </div>
+
+</div>
