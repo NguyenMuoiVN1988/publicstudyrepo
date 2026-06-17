@@ -235,6 +235,8 @@ details > div {
 - [C1 Ôn tập: Ôn tập cuối chương I](T9/2026PhieuBT/LGC1Ontap.html)
 - [C2B1: Phương trình quy về phương trình bậc nhất một ẩn](T9/2026PhieuBT/LGC2B1.html)
 - [C2B2: Bất đẳng thức và tính chất](T9/2026PhieuBT/LGC2B2.html)
+- [C2B3: Bất phương trình bậc nhất một ẩn](T9/2026PhieuBT/LGC2B3.html)
+- [C2B4: Ôn tập chương II](T9/2026PhieuBT/LGC2B4.html)
 
 </div>
 </details>
