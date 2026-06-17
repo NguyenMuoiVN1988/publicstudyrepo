@@ -224,6 +224,9 @@ details > div {
 - [Hàm số bậc hai và hệ thức Viet](T9/T9CDHamSoBac2.html)
 - [Hình học không gian](T9/T9CDHHKG.html)
 
+**Nâng cao**
+- [Hệ phương trình đối xứng loại I, loại II và hệ đẳng cấp](T9/NC/T9NCHePTDoiXungLoai12DangCap.html)
+
 **Ôn thi vào 10**
 - [Câu 5 Đề thi vào 10 Hà Nội](T9/T9CDC5THIVAO10.html)
 - [Rút gọn – Ôn thi chuyên sư phạm](onthivao10/csprutgon1.html)
