@@ -1,0 +1,335 @@
+---
+layout: default
+title: Toán 9 NC - Hệ phương trình bậc nhất hai ẩn chứa tham số
+description: Chuyên đề nâng cao lớp 9 - hệ phương trình bậc nhất hai ẩn chứa tham số; tìm tham số để hệ nhận nghiệm cho trước, để nghiệm thỏa hệ thức, để biểu thức nghiệm đạt GTNN/GTLN, giải và biện luận, tìm tham số nguyên để nghiệm nguyên; 12 thí dụ có lời giải chi tiết.
+tags: [Toán 9, nâng cao, hệ phương trình, tham số, biện luận, nghiệm nguyên, đại số]
+series: t9-nc
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .src { color:var(--soft); font-style:italic; font-size:.88rem; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .step { margin:8px 0; overflow-x:auto; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Hệ phương trình bậc nhất hai ẩn chứa tham số (Nâng cao)</h1>
+    <p>Tìm tham số theo nghiệm cho trước · Nghiệm thỏa hệ thức · GTNN–GTLN · Giải và biện luận · Nghiệm nguyên</p>
+  </div>
+
+  <!-- ===================== PHƯƠNG PHÁP CHUNG ===================== -->
+  <div class="sec">✨ Phương pháp chung</div>
+
+  <div class="theory" id="lt-chung">
+    <span class="tag">📖 Định hướng</span>
+    <h3>Bốn dạng quen thuộc</h3>
+    <ul>
+      <li><b>Hệ nhận $(x_0;y_0)$ làm nghiệm:</b> thay $x=x_0,\,y=y_0$ vào hệ, được hệ (hoặc phương trình) theo tham số rồi giải.</li>
+      <li><b>Nghiệm thỏa điều kiện cho trước:</b> tìm nghiệm $(x;y)$ <i>theo tham số</i> $\to$ thay vào điều kiện, lập phương trình chỉ chứa tham số $\to$ giải và kết luận.</li>
+      <li><b>Biểu thức của nghiệm đạt GTNN/GTLN:</b> biểu diễn biểu thức đó theo tham số, đưa về dạng $A^2+k$ rồi đánh giá.</li>
+      <li><b>Giải và biện luận:</b> rút một ẩn, đưa hệ về phương trình dạng $a\cdot x = b$ rồi xét các trường hợp $a\ne 0$ (nghiệm duy nhất), $a=0,\,b\ne 0$ (vô nghiệm), $a=0,\,b=0$ (vô số nghiệm).</li>
+    </ul>
+  </div>
+
+  <!-- ===================== DẠNG 1 ===================== -->
+  <div class="sec">I. Dạng 1 — Tìm tham số để hệ nhận một cặp số cho trước làm nghiệm</div>
+
+  <div class="theory" id="lt-d1">
+    <span class="tag">📖 Định hướng</span>
+    <h3>Thay nghiệm vào hệ</h3>
+    <ul>
+      <li>$(x_0;y_0)$ là nghiệm $\Leftrightarrow$ thay vào hệ thì <b>cả hai</b> phương trình đều đúng. Khi đó ta thu được hệ phương trình mới mà <b>ẩn chính là tham số</b>.</li>
+    </ul>
+  </div>
+
+  <!-- THÍ DỤ 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Thí dụ 1</h3>
+    <div class="de"><p>Cho hệ $\begin{cases} (m-1)x+ny=3 \\ 2mx+y=2 \end{cases}$ ($m,n$ là tham số). Tìm $m,n$ để hệ có nghiệm $(1;2)$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d1"><b>Thay $x=1,\,y=2$</b> vào hệ.</a>
+      <p class="step">$\begin{cases} (m-1)\cdot 1 + n\cdot 2 = 3 \\ 2m\cdot 1 + 2 = 2 \end{cases} \iff \begin{cases} m+2n=4 \\ 2m=0 \end{cases} \iff \begin{cases} m=0 \\ n=2 \end{cases}$</p>
+      <p>Vậy <span class="key">$m=0,\ n=2$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Thí dụ 2</h3>
+    <div class="de"><p>Cho hệ $\begin{cases} 2mx-7ny=6 \\ mx+ny=12 \end{cases}$ ($m,n$ là tham số). Tìm $m,n$ để hệ có nghiệm $(1;2)$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d1"><b>Thay $x=1,\,y=2$</b> vào hệ.</a>
+      <p class="step">$\begin{cases} 2m-14n=6 \\ m+2n=12 \end{cases} \iff \begin{cases} m-7n=3 \\ m+2n=12 \end{cases}$</p>
+      <p class="step">Trừ vế: $9n=9 \Rightarrow n=1 \Rightarrow m=12-2=10$.</p>
+      <p>Vậy <span class="key">$m=10,\ n=1$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Thí dụ 3</h3>
+    <div class="de"><p>Cho hệ $\begin{cases} 4x+ay=6 \\ bx-2ay=8 \end{cases}$. Tìm các hệ số $a,b$ để hệ có nghiệm là: a) $(1;-1)$; b) $(-2;3)$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d1"><b>Thay từng cặp nghiệm</b> vào hệ rồi giải theo $a,b$.</a>
+      <p class="step"><b>a)</b> Thay $x=1,\,y=-1$: $\begin{cases} 4-a=6 \\ b+2a=8 \end{cases} \iff \begin{cases} a=-2 \\ b=8-2a=12 \end{cases}$. Vậy <span class="key">$a=-2,\ b=12$</span>.</p>
+      <p class="step"><b>b)</b> Thay $x=-2,\,y=3$: $\begin{cases} -8+3a=6 \\ -2b-6a=8 \end{cases} \iff \begin{cases} a=\dfrac{14}{3} \\ b=-3a-4=-18 \end{cases}$. Vậy <span class="key">$a=\dfrac{14}{3},\ b=-18$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== DẠNG 2 ===================== -->
+  <div class="sec">II. Dạng 2 — Tìm tham số để nghiệm của hệ thỏa mãn một hệ thức cho trước</div>
+
+  <div class="theory" id="lt-d2">
+    <span class="tag">📖 Định hướng</span>
+    <h3>Giải hệ theo tham số rồi thế vào điều kiện</h3>
+    <ul>
+      <li>Vì hai phương trình đều bậc nhất, ta <b>giải hệ bình thường</b> (thế hoặc cộng đại số) để tìm $x,y$ theo tham số.</li>
+      <li>Thay $x,y$ vừa tìm vào hệ thức ràng buộc $\to$ được một phương trình chỉ chứa tham số $\to$ giải.</li>
+    </ul>
+  </div>
+
+  <!-- THÍ DỤ 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Thí dụ 4</h3>
+    <div class="de"><p>Tìm $m$ để hệ $\begin{cases} x+y=3 \\ 2x-y=2m+5 \end{cases}$ có nghiệm $(x;y)$ sao cho $x=2y$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d2"><b>Giải hệ theo $m$</b> rồi áp điều kiện $x=2y$.</a>
+      <p class="step">Cộng hai phương trình: $3x=2m+8 \Rightarrow x=\dfrac{2m+8}{3}$, suy ra $y=3-x=\dfrac{1-2m}{3}$.</p>
+      <p class="step">$x=2y \iff \dfrac{2m+8}{3}=2\cdot\dfrac{1-2m}{3} \iff 2m+8=2-4m \iff 6m=-6 \iff m=-1$.</p>
+      <p>Khi đó $(x;y)=(2;1)$. Vậy <span class="key">$m=-1$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 5 -->
+  <div class="bai">
+    <h3><span class="num">5</span> Thí dụ 5</h3>
+    <div class="de"><p>Tìm $m$ để hệ $\begin{cases} x-2y=1 \\ 3x-4y=m+3 \end{cases}$ có nghiệm $(x;y)$ sao cho $x-y=2$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d2"><b>Rút $x=1+2y$</b> rồi thế.</a>
+      <p class="step">Thế vào phương trình hai: $3(1+2y)-4y=m+3 \iff 2y=m \iff y=\dfrac{m}{2}$, suy ra $x=1+m$.</p>
+      <p class="step">$x-y=2 \iff (1+m)-\dfrac{m}{2}=2 \iff 1+\dfrac{m}{2}=2 \iff m=2$.</p>
+      <p>Khi đó $(x;y)=(3;1)$. Vậy <span class="key">$m=2$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 6 -->
+  <div class="bai">
+    <h3><span class="num">6</span> Thí dụ 6</h3>
+    <div class="de"><p>Xác định hệ số $a$ để hệ $\begin{cases} x+2y=7 \\ 3x+2y=2a+1 \end{cases}$ có nghiệm $(x;y)$ thỏa mãn $x+2=y$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d2"><b>Trừ hai phương trình</b> để tìm $x$ theo $a$.</a>
+      <p class="step">Lấy phương trình hai trừ phương trình một: $2x=2a-6 \Rightarrow x=a-3$, suy ra $y=\dfrac{7-x}{2}=\dfrac{10-a}{2}$.</p>
+      <p class="step">$x+2=y \iff (a-3)+2=\dfrac{10-a}{2} \iff 2a-2=10-a \iff 3a=12 \iff a=4$.</p>
+      <p>Khi đó $(x;y)=(1;3)$. Vậy <span class="key">$a=4$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 7 -->
+  <div class="bai">
+    <h3><span class="num">7</span> Thí dụ 7</h3>
+    <div class="de"><p>Cho hệ $\begin{cases} 3x-y=2m+3 \\ x+2y=3m+1 \end{cases}$. Tìm $m$ để hệ có nghiệm $(x;y)$ thỏa mãn $x+y=5$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d2"><b>Rút $y=3x-(2m+3)$</b> rồi thế.</a>
+      <p class="step">Thế vào phương trình hai: $x+2\big(3x-2m-3\big)=3m+1 \iff 7x=7m+7 \iff x=m+1$, suy ra $y=3(m+1)-(2m+3)=m$.</p>
+      <p class="step">$x+y=5 \iff (m+1)+m=5 \iff 2m=4 \iff m=2$.</p>
+      <p>Khi đó $(x;y)=(3;2)$. Vậy <span class="key">$m=2$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== DẠNG 3 ===================== -->
+  <div class="sec">III. Dạng 3 — Tìm tham số để biểu thức của nghiệm đạt GTNN, GTLN</div>
+
+  <div class="theory" id="lt-d3">
+    <span class="tag">📖 Định hướng</span>
+    <h3>Biểu diễn biểu thức theo tham số rồi đánh giá</h3>
+    <ul>
+      <li>Hệ luôn có nghiệm duy nhất (vì hai phương trình bậc nhất "độc lập"). Tìm nghiệm theo tham số, lập biểu thức cần xét rồi dùng bất đẳng thức $A^2\ge 0$.</li>
+      <li><b>Mẹo:</b> đôi khi biểu thức cần tìm ($x+y$) đã <i>lộ ngay</i> trên một phương trình của hệ — hãy quan sát trước khi giải!</li>
+    </ul>
+  </div>
+
+  <!-- THÍ DỤ 8 -->
+  <div class="bai">
+    <h3><span class="num">8</span> Thí dụ 8</h3>
+    <div class="de"><p>Tìm $m$ để hệ $\begin{cases} x+y=m^2+2 \\ 3x+5y=2m^2 \end{cases}$ có nghiệm $(x;y)$ sao cho giá trị $x+y$ nhỏ nhất.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d3"><b>Quan sát:</b> $x+y$ chính là vế trái của phương trình thứ nhất!</a>
+      <p class="step">Hệ luôn có nghiệm duy nhất (vì $\dfrac{1}{3}\ne\dfrac{1}{5}$). Khi đó ngay từ phương trình đầu: $x+y=m^2+2$.</p>
+      <p class="step">Vì $m^2\ge 0$ nên $x+y=m^2+2\ge 2$. Dấu "$=$" xảy ra $\iff m=0$.</p>
+      <p>Khi $m=0$ thì hệ thành $\begin{cases} x+y=2 \\ 3x+5y=0 \end{cases}\Rightarrow (x;y)=(5;-3)$. Vậy $\min(x+y)=2$ tại <span class="key">$m=0$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 9 -->
+  <div class="bai">
+    <h3><span class="num">9</span> Thí dụ 9</h3>
+    <div class="de"><p>Tìm $m$ để hệ $\begin{cases} 2x+y=5m^2-1 \\ x-2y=m^2 \end{cases}$ có nghiệm $(x;y)$ sao cho giá trị $x+y$ nhỏ nhất.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d3"><b>Giải hệ theo $m$</b> rồi lập $x+y$.</a>
+      <p class="step">Từ phương trình hai: $x=m^2+2y$. Thế vào phương trình một: $2(m^2+2y)+y=5m^2-1 \iff 5y=3m^2-1 \iff y=\dfrac{3m^2-1}{5}$.</p>
+      <p class="step">Suy ra $x=\dfrac{11m^2-2}{5}$, do đó $x+y=\dfrac{14m^2-3}{5}$.</p>
+      <p class="step">Vì $m^2\ge 0$ nên $x+y=\dfrac{14m^2-3}{5}\ge -\dfrac{3}{5}$. Dấu "$=$" xảy ra $\iff m=0$.</p>
+      <p>Vậy $\min(x+y)=-\dfrac{3}{5}$ tại <span class="key">$m=0$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== DẠNG 4 ===================== -->
+  <div class="sec">IV. Dạng 4 — Giải và biện luận; tìm tham số nguyên để nghiệm nguyên</div>
+
+  <div class="theory" id="lt-d4">
+    <span class="tag">📖 Định hướng</span>
+    <h3>Quy về phương trình $a\cdot x=b$</h3>
+    <ul>
+      <li><b>Giải và biện luận:</b> rút một ẩn, đưa về phương trình một ẩn dạng $a(m)\cdot x=b(m)$ rồi xét: $a\ne 0$ (nghiệm duy nhất); $a=0,b\ne 0$ (vô nghiệm); $a=0,b=0$ (vô số nghiệm).</li>
+      <li><b>Nghiệm nguyên:</b> sau khi tìm nghiệm duy nhất, tách $x,y$ thành <i>nguyên cộng phân số</i> dạng $\dfrac{k}{m+c}$, rồi cho $(m+c)$ là <b>ước</b> của $k$.</li>
+    </ul>
+  </div>
+
+  <!-- THÍ DỤ 10 -->
+  <div class="bai">
+    <h3><span class="num">10</span> Thí dụ 10</h3>
+    <div class="de"><p>Giải và biện luận các hệ phương trình sau:</p>
+      <p>a) $\begin{cases} mx-y=2m \\ 4x-my=m+6 \end{cases}$ &nbsp;&nbsp; b) $\begin{cases} mx+y=3m-1 \\ x+my=m+1 \end{cases}$</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d4"><b>Rút một ẩn</b> rồi đưa về phương trình $a\cdot x=b$.</a>
+      <p class="step"><b>a)</b> Từ phương trình một: $y=mx-2m$. Thế vào phương trình hai:</p>
+      <p class="step">$4x-m(mx-2m)=m+6 \iff (4-m^2)x=-2m^2+m+6 \iff (2-m)(2+m)\,x=(2m+3)(2-m)$.</p>
+      <ul>
+        <li>$m\ne 2$ và $m\ne -2$: nghiệm duy nhất $x=\dfrac{2m+3}{m+2},\ y=mx-2m=\dfrac{-m}{m+2}$.</li>
+        <li>$m=2$: phương trình thành $0\cdot x=0$ $\Rightarrow$ <b>vô số nghiệm</b>, nghiệm tổng quát $\{(x;\,2x-4)\mid x\in\mathbb{R}\}$.</li>
+        <li>$m=-2$: phương trình thành $0\cdot x=-4$ (vô lí) $\Rightarrow$ <b>hệ vô nghiệm</b>.</li>
+      </ul>
+      <p class="step"><b>b)</b> Từ phương trình một: $y=3m-1-mx$. Thế vào phương trình hai:</p>
+      <p class="step">$x+m(3m-1-mx)=m+1 \iff (1-m^2)x=-3m^2+2m+1 \iff (1-m)(1+m)\,x=(3m+1)(1-m)$.</p>
+      <ul>
+        <li>$m\ne 1$ và $m\ne -1$: nghiệm duy nhất $x=\dfrac{3m+1}{m+1},\ y=\dfrac{m-1}{m+1}$.</li>
+        <li>$m=1$: phương trình thành $0\cdot x=0$ $\Rightarrow$ <b>vô số nghiệm</b>, nghiệm tổng quát $\{(x;\,2-x)\mid x\in\mathbb{R}\}$.</li>
+        <li>$m=-1$: phương trình thành $0\cdot x=-4$ (vô lí) $\Rightarrow$ <b>hệ vô nghiệm</b>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 11 -->
+  <div class="bai">
+    <h3><span class="num">11</span> Thí dụ 11</h3>
+    <div class="de"><p>Tìm $m$ nguyên để hệ phương trình sau có nghiệm duy nhất là nghiệm nguyên:</p>
+      <p>a) $\begin{cases} mx+2y=m+1 \\ 2x+my=2m-1 \end{cases}$ &nbsp;&nbsp; b) $\begin{cases} (m+1)x-2y=m-1 \\ m^2x-y=m^2+2m \end{cases}$</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d4"><b>Tìm nghiệm duy nhất theo $m$</b> rồi cho mẫu là ước của tử dư.</a>
+      <p class="step"><b>a)</b> Giải hệ (với $m\ne\pm 2$ để có nghiệm duy nhất):
+      $x=\dfrac{m-1}{m+2}=1-\dfrac{3}{m+2},\quad y=\dfrac{2m+1}{m+2}=2-\dfrac{3}{m+2}$.</p>
+      <p class="step">$x,y\in\mathbb{Z} \iff \dfrac{3}{m+2}\in\mathbb{Z} \iff (m+2)\mid 3 \iff m+2\in\{\pm 1;\pm 3\}$.</p>
+      <p>$\Rightarrow m\in\{-1;-3;1;-5\}$ (đều thỏa $m\ne\pm 2$). Vậy <span class="key">$m\in\{-5;-3;-1;1\}$</span>.</p>
+      <p class="step"><b>b)</b> Giải hệ (với $m\ne 1$ để có nghiệm duy nhất):
+      $x=\dfrac{m+1}{m-1}=1+\dfrac{2}{m-1},\quad y=\dfrac{2m}{m-1}=2+\dfrac{2}{m-1}$.</p>
+      <p class="step">$x,y\in\mathbb{Z} \iff (m-1)\mid 2 \iff m-1\in\{\pm 1;\pm 2\}$.</p>
+      <p>$\Rightarrow m\in\{2;0;3;-1\}$. Vậy <span class="key">$m\in\{-1;0;2;3\}$</span>.</p>
+    </div>
+  </div>
+
+  <!-- THÍ DỤ 12 -->
+  <div class="bai">
+    <h3><span class="num">12</span> Thí dụ 12</h3>
+    <div class="de"><p>Cho hệ $\begin{cases} x+my=m+1 \\ mx+y=3m-1 \end{cases}$ ($m$ là tham số). Tìm số nguyên $m$ để hệ có nghiệm duy nhất $(x;y)$ mà $x,y$ đều nguyên.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-d4"><b>Điều kiện nghiệm duy nhất</b> rồi tách phần nguyên.</a>
+      <p class="step">Hệ có nghiệm duy nhất $\iff 1\cdot 1-m\cdot m\ne 0 \iff m\ne\pm 1$. Khi đó giải hệ:</p>
+      <p class="step">$x=\dfrac{3m+1}{m+1}=3-\dfrac{2}{m+1},\quad y=\dfrac{m-1}{m+1}=1-\dfrac{2}{m+1}$.</p>
+      <p class="step">$x,y\in\mathbb{Z} \iff (m+1)\mid 2 \iff m+1\in\{\pm 1;\pm 2\} \iff m\in\{0;-2;1;-3\}$.</p>
+      <p>Loại $m=1$ (làm hệ không có nghiệm duy nhất). Vậy <span class="key">$m\in\{-3;-2;0\}$</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Dạng 1:</b> "có nghiệm $(x_0;y_0)$" nghĩa là thay vào <b>cả hai</b> phương trình — nhớ kiểm tra lại nghiệm sau khi tìm được tham số.</li>
+      <li><b>Dạng 2:</b> phải giải hệ ra $x,y$ <i>theo tham số</i> trước, rồi mới thế vào hệ thức ràng buộc; đừng nhầm hệ thức ràng buộc với phương trình của hệ.</li>
+      <li><b>Dạng 3:</b> luôn quan sát xem biểu thức cần tối ưu có sẵn trên một phương trình không; nếu không, đưa về dạng $\dfrac{A m^2 + B}{C}$ rồi dùng $m^2\ge 0$.</li>
+      <li><b>Dạng 4:</b> khi biện luận, đừng quên hai trường hợp $a=0$ (phân biệt vô nghiệm và vô số nghiệm); khi tìm nghiệm nguyên, nhớ <b>loại</b> các giá trị làm hệ mất tính duy nhất.</li>
+    </ul>
+  </div>
+
+</div>

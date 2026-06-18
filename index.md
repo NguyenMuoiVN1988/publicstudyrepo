@@ -227,6 +227,7 @@ details > div {
 **Nâng cao**
 - [Hệ phương trình đối xứng loại I, loại II và hệ đẳng cấp](T9/NC/T9NCHePTDoiXungLoai12DangCap.html)
 - [Kĩ thuật thế trong giải hệ phương trình](T9/NC/T9NCHePTKiThuatThe.html)
+- [Hệ phương trình bậc nhất hai ẩn chứa tham số](T9/NC/T9NCHePTBacNhatThamSo.html)
 
 **Ôn thi vào 10**
 - [Câu 5 Đề thi vào 10 Hà Nội](T9/T9CDC5THIVAO10.html)
