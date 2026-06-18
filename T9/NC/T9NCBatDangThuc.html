@@ -1,0 +1,345 @@
+---
+layout: default
+title: Toán 9 NC - Bất đẳng thức
+description: Chuyên đề nâng cao lớp 9 - Bất đẳng thức; chứng minh bằng biến đổi tương đương, bất đẳng thức trong tam giác, phương pháp làm trội, bất đẳng thức Cô-si và ứng dụng tìm GTLN, GTNN; 14 bài tập có lời giải chi tiết.
+tags: [Toán 9, nâng cao, bất đẳng thức, Cô-si, làm trội, GTLN, GTNN, tam giác, đại số]
+series: t9-nc
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .src { color:var(--soft); font-style:italic; font-size:.88rem; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .part { font-weight:700; color:var(--indigo); }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .step { margin:8px 0; overflow-x:auto; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bất đẳng thức (Nâng cao)</h1>
+    <p>Biến đổi tương đương · BĐT trong tam giác · Phương pháp làm trội · Bất đẳng thức Cô-si · GTLN–GTNN</p>
+  </div>
+
+  <!-- ===================== KIẾN THỨC ===================== -->
+  <div class="sec">✨ Kiến thức cần nhớ</div>
+  <div class="theory" id="lt-chung">
+    <span class="tag">📖 Công cụ chính</span>
+    <ul>
+      <li>$A^2 \ge 0$; &nbsp; $A^2+B^2 \ge 2AB$ (dấu $=$ khi $A=B$).</li>
+      <li><b>Cô-si</b> ($a,b \ge 0$): $\dfrac{a+b}{2} \ge \sqrt{ab}$, dấu $=$ khi $a=b$; mở rộng cho $n$ số không âm: $a_1+\dots+a_n \ge n\sqrt[n]{a_1\cdots a_n}$.</li>
+      <li>Hệ quả hay dùng: $\dfrac{1}{a}+\dfrac{1}{b} \ge \dfrac{4}{a+b}$; &nbsp; $\dfrac{1}{a}+\dfrac{1}{b}+\dfrac{1}{c} \ge \dfrac{9}{a+b+c}$ (với $a,b,c \gt 0$).</li>
+      <li>BĐT tam giác: nếu $a,b,c$ là ba cạnh thì $a+b\gt c,\ b+c\gt a,\ c+a\gt b$.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== PHẦN II ===================== -->
+  <div class="sec">II. Chứng minh BĐT bằng biến đổi tương đương</div>
+
+  <div class="theory" id="lt-bd">
+    <span class="tag">📖 Định hướng</span>
+    <ul>
+      <li>Đưa BĐT cần chứng minh về dạng tổng các bình phương $\ge 0$, hoặc xuất phát từ $A^2\ge 0$ rồi cộng/nhân các BĐT cùng chiều.</li>
+    </ul>
+  </div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Bài 1</h3>
+    <div class="de"><p>Cho $a,b,c,d,e \in \mathbb{R}$. Chứng minh các BĐT sau.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step"><span class="part">a)</span> Từ $a^2+b^2\ge 2ab,\ b^2+c^2\ge 2bc,\ c^2+a^2\ge 2ca$, cộng vế: $2(a^2+b^2+c^2)\ge 2(ab+bc+ca)$, suy ra $a^2+b^2+c^2\ge ab+bc+ca$. Dấu $=$ khi $a=b=c$.</p>
+      <p class="step"><span class="part">b)</span> Tương đương $\tfrac12\big[(a-b)^2+(a-1)^2+(b-1)^2\big]\ge 0$ (luôn đúng). Dấu $=$ khi $a=b=1$.</p>
+      <p class="step"><span class="part">c)</span> $(a-1)^2+(b-1)^2+(c-1)^2\ge 0 \Rightarrow a^2+b^2+c^2+3\ge 2(a+b+c)$. Dấu $=$ khi $a=b=c=1$.</p>
+      <p class="step"><span class="part">d)</span> Xét $(a-b+c)^2\ge 0 \iff a^2+b^2+c^2-2ab-2bc+2ca\ge 0 \iff a^2+b^2+c^2\ge 2(ab+bc-ca)$. Dấu $=$ khi $b=a+c$.</p>
+      <p class="step"><span class="part">e)</span> Chuyển vế, biểu thức $=(a^2-b^2)^2+(a-c)^2+(a-1)^2\ge 0$. Dấu $=$ khi $a=c=1,\ b=\pm 1$.</p>
+      <p class="step"><span class="part">f)</span> Dùng $\left(\dfrac{a}{2}-b+c\right)^2\ge 0$ khai triển ra ngay $\dfrac{a^2}{4}+b^2+c^2\ge ab-ac+2bc$.</p>
+      <p class="step"><span class="part">g)</span> Ta có $a^2(1+b^2)+b^2(1+c^2)+c^2(1+a^2)=(a^2+b^2+c^2)+(a^2b^2+b^2c^2+c^2a^2)$. Áp dụng Cô-si cho $6$ số không âm $a^2,b^2,c^2,a^2b^2,b^2c^2,c^2a^2$: tổng $\ge 6\sqrt[6]{a^6b^6c^6}=6|abc|\ge 6abc$. Dấu $=$ khi $a=b=c=1$.</p>
+      <p class="step"><span class="part">h)</span> $\left(\dfrac{a}{2}-b\right)^2+\left(\dfrac{a}{2}-c\right)^2+\left(\dfrac{a}{2}-d\right)^2+\left(\dfrac{a}{2}-e\right)^2\ge 0$ khai triển cho $a^2+b^2+c^2+d^2+e^2\ge a(b+c+d+e)$. Dấu $=$ khi $b=c=d=e=\dfrac{a}{2}$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Bài 2</h3>
+    <div class="de"><p>Cho $a,b,c \in \mathbb{R}$. Chứng minh các BĐT sau.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step"><span class="part">a)</span> $\dfrac{a^2+b^2}{2}-\left(\dfrac{a+b}{2}\right)^2=\dfrac{(a-b)^2}{4}\ge 0$ và $\left(\dfrac{a+b}{2}\right)^2-ab=\dfrac{(a-b)^2}{4}\ge 0$. Dấu $=$ khi $a=b$.</p>
+      <p class="step"><span class="part">b)</span> $\dfrac{a^3+b^3}{2}-\left(\dfrac{a+b}{2}\right)^3=\dfrac{3(a-b)^2(a+b)}{8}\ge 0$ (vì $a+b\ge 0$). Dấu $=$ khi $a=b$.</p>
+      <p class="step"><span class="part">c)</span> $a^4+b^4-a^3b-ab^3=(a-b)(a^3-b^3)=(a-b)^2(a^2+ab+b^2)\ge 0$. Dấu $=$ khi $a=b$.</p>
+      <p class="step"><span class="part">d)</span> $a^4-4a+3=(a-1)^2\big[(a+1)^2+2\big]\ge 0$. Dấu $=$ khi $a=1$.</p>
+      <p class="step"><span class="part">e)</span> $a^3+b^3+c^3-3abc=\dfrac12(a+b+c)\big[(a-b)^2+(b-c)^2+(c-a)^2\big]\ge 0$ (do $a,b,c\gt 0$). Dấu $=$ khi $a=b=c$.</p>
+      <p class="step"><span class="part">f)</span> Nhân hai vế với $a^2b^2\gt 0$, đưa về $a^8+b^8-a^6b^2-a^2b^6=(a^2-b^2)^2(a^4+a^2b^2+b^4)\ge 0$. Dấu $=$ khi $a^2=b^2$.</p>
+      <p class="step"><span class="part">g)</span> Quy đồng (mẫu dương vì $ab\ge 1$): hiệu hai vế $=\dfrac{(a-b)^2(ab-1)}{(1+ab)(1+a^2)(1+b^2)}\ge 0$. Dấu $=$ khi $a=b$.</p>
+      <p class="step"><span class="part">h)</span> Khai triển, hiệu hai vế $=ab\big[a^4+b^4-a^3b-ab^3\big]=ab(a-b)^2(a^2+ab+b^2)\ge 0$ (do $ab\gt 0$). Dấu $=$ khi $a=b$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Bài 3</h3>
+    <div class="de"><p>Chứng minh $a^2+b^2\ge 2ab$ (1). Áp dụng (1):</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step">(1) là $(a-b)^2\ge 0$.</p>
+      <p class="step"><span class="part">a)</span> $a^4+b^4\ge 2a^2b^2,\ c^4+d^4\ge 2c^2d^2$, và $a^2b^2+c^2d^2\ge 2abcd$. Suy ra $a^4+b^4+c^4+d^4\ge 2(a^2b^2+c^2d^2)\ge 4abcd$. Dấu $=$ khi $a=b=c=d$.</p>
+      <p class="step"><span class="part">b)</span> $a^2+1\ge 2|a|$ (tương tự với $b,c$). Nhân lại: $(a^2+1)(b^2+1)(c^2+1)\ge 8|abc|\ge 8abc$. Dấu $=$ khi $|a|=|b|=|c|=1$.</p>
+      <p class="step"><span class="part">c)</span> $a^2+4\ge 2\sqrt{4a^2}=4|a|$ (tương tự). Nhân lại: tích $\ge 256|abcd|\ge 256abcd$. Dấu $=$ khi $|a|=|b|=|c|=|d|=2$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Bài 4</h3>
+    <div class="de"><p>Cho $a,b,c,d\gt 0$. Chứng minh nếu $\dfrac{a}{b}\lt 1$ thì $\dfrac{a}{b}\lt \dfrac{a+c}{b+c}$ (1). Áp dụng (1):</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step">(1): $\dfrac{a+c}{b+c}-\dfrac{a}{b}=\dfrac{c(b-a)}{b(b+c)}\gt 0$ vì $b\gt a$.</p>
+      <p class="step"><span class="part">a)</span> <b>Cận trên:</b> $\dfrac{a}{a+b}\lt \dfrac{a+c}{a+b+c}$ (thêm $c$); tương tự rồi cộng lại được tổng $\lt \dfrac{2(a+b+c)}{a+b+c}=2$. <b>Cận dưới:</b> $\dfrac{a}{a+b}\gt \dfrac{a}{a+b+c}$; cộng lại được tổng $\gt 1$.</p>
+      <p class="step"><span class="part">b)</span> Tương tự: mỗi hạng tử $\gt \dfrac{a}{a+b+c+d}$ nên tổng $\gt 1$; và mỗi hạng tử $\lt \dfrac{a+d}{a+b+c+d}$ (thêm ẩn còn thiếu) nên tổng $\lt 2$.</p>
+      <p class="step"><span class="part">c)</span> Viết $\dfrac{a+b}{a+b+c}=1-\dfrac{c}{a+b+c}$. Tổng $=4-\Big(\dfrac{c}{a+b+c}+\dfrac{d}{b+c+d}+\dfrac{a}{c+d+a}+\dfrac{b}{d+a+b}\Big)$. Phần trong ngoặc có dạng câu b) nên thuộc khoảng $(1;2)$, suy ra tổng thuộc $(2;3)$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 5 -->
+  <div class="bai">
+    <h3><span class="num">5</span> Bài 5</h3>
+    <div class="de"><p>Cho $a,b\ge 0$: $a^3+b^3\ge ab(a+b)$ (1). Áp dụng (1) (với $a,b,c\gt 0$):</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step">(1): $a^3+b^3-a^2b-ab^2=(a+b)(a-b)^2\ge 0$.</p>
+      <p class="step"><span class="part">a)</span> $a^3+b^3+abc\ge ab(a+b)+abc=ab(a+b+c)$, nên $\dfrac{1}{a^3+b^3+abc}\le \dfrac{1}{ab(a+b+c)}=\dfrac{c}{abc(a+b+c)}$. Cộng ba BĐT: tổng $\le \dfrac{a+b+c}{abc(a+b+c)}=\dfrac{1}{abc}$. Dấu $=$ khi $a=b=c$.</p>
+      <p class="step"><span class="part">b)</span> Vì $abc=1$ nên $a^3+b^3+1=a^3+b^3+abc\ge ab(a+b+c)$, suy ra $\dfrac{1}{a^3+b^3+1}\le \dfrac{c}{abc(a+b+c)}=\dfrac{c}{a+b+c}$. Cộng lại $\le 1$. Dấu $=$ khi $a=b=c=1$.</p>
+      <p class="step"><span class="part">c)</span> Đặt $a=x^3,b=y^3,c=z^3$ ($x,y,z\gt 0,\ xyz=1$). Khi đó $a+b+1=x^3+y^3+xyz\ge xy(x+y+z)$, nên $\dfrac{1}{a+b+1}\le \dfrac{z}{x+y+z}$. Cộng lại $\le 1$. Dấu $=$ khi $a=b=c=1$.</p>
+    </div>
+  </div>
+
+  <!-- ===================== PHẦN III ===================== -->
+  <div class="sec">III. Bất đẳng thức trong tam giác</div>
+
+  <!-- BÀI 6 -->
+  <div class="bai">
+    <h3><span class="num">6</span> Bài 6</h3>
+    <div class="de"><p>Cho $a,b,c$ là độ dài ba cạnh của một tam giác. Chứng minh:</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step"><span class="part">a)</span> Vế trái $a^2+b^2+c^2\ge ab+bc+ca$ chính là Bài 1a. Vế phải: từ $a\lt b+c$ nhân $a\gt 0$ được $a^2\lt ab+ac$; tương tự rồi cộng lại: $a^2+b^2+c^2\lt 2(ab+bc+ca)$.</p>
+      <p class="step"><span class="part">b)</span> Đặt $x=b+c-a,\ y=c+a-b,\ z=a+b-c$ (đều $\gt 0$). Khi đó $a=\dfrac{y+z}{2},\ b=\dfrac{z+x}{2},\ c=\dfrac{x+y}{2}$. Theo Cô-si $a\ge \sqrt{yz},\ b\ge \sqrt{zx},\ c\ge \sqrt{xy}$, nhân lại $abc\ge xyz=(a+b-c)(b+c-a)(a+c-b)$. Dấu $=$ khi $a=b=c$.</p>
+      <p class="step"><span class="part">c)</span> Theo công thức Heron, $2a^2b^2+2b^2c^2+2c^2a^2-a^4-b^4-c^4=(a+b+c)(a+b-c)(b+c-a)(c+a-b)$. Bốn thừa số đều dương nên biểu thức $\gt 0$.</p>
+      <p class="step"><span class="part">d)</span> Xét hiệu $\Delta=a(b-c)^2+b(c-a)^2+c(a+b)^2-(a^3+b^3+c^3)$. Khai triển và rút gọn:</p>
+      <p class="step">$\Delta=(a^2b+ab^2)+(a^2c+ac^2)+(b^2c+bc^2)-2abc-(a^3+b^3+c^3)=(a+b-c)(a+c-b)(b+c-a)$.</p>
+      <p class="step">Vì $a,b,c$ là ba cạnh tam giác nên cả ba thừa số đều dương, do đó $\Delta\gt 0$, tức $a(b-c)^2+b(c-a)^2+c(a+b)^2\gt a^3+b^3+c^3$.</p>
+      <div class="trap"><b>Lưu ý:</b> điều kiện "ba cạnh tam giác" là cốt yếu. Bỏ điều kiện này thì BĐT sai, ví dụ $a=3,b=1,c=1$ cho $\Delta=3\cdot 3\cdot(-1)\lt 0$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 7 -->
+  <div class="bai">
+    <h3><span class="num">7</span> Bài 7</h3>
+    <div class="de"><p>Cho $a,b,c$ là độ dài ba cạnh của một tam giác. Chứng minh:</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step"><span class="part">a)</span> Ba số $\dfrac{1}{a+b},\dfrac{1}{b+c},\dfrac{1}{c+a}$ dương; cần kiểm tra BĐT tam giác cho số lớn nhất (ứng với mẫu nhỏ nhất). Dùng $\dfrac{1}{x}+\dfrac{1}{y}\ge \dfrac{4}{x+y}$:
+      $\dfrac{1}{a+b}+\dfrac{1}{b+c}\ge \dfrac{4}{a+2b+c}$. Ta chứng minh $\dfrac{4}{a+2b+c}\gt \dfrac{1}{c+a}$, tức $4(c+a)\gt a+2b+c \iff 3(a+c)\gt 2b$, đúng vì $b\lt a+c$. Vậy tổng hai cạnh bất kì luôn lớn hơn cạnh còn lại.</p>
+      <p class="step"><span class="part">b)</span> Đặt $x=a+b-c,\ y=b+c-a,\ z=c+a-b\gt 0$ thì $x+y=2b,\ y+z=2c,\ z+x=2a$. Dùng $\dfrac{1}{x}+\dfrac{1}{y}\ge \dfrac{4}{x+y}$:
+      $\dfrac{1}{x}+\dfrac{1}{y}\ge \dfrac{2}{b},\ \dfrac{1}{y}+\dfrac{1}{z}\ge \dfrac{2}{c},\ \dfrac{1}{z}+\dfrac{1}{x}\ge \dfrac{2}{a}$. Cộng lại: $\dfrac{1}{x}+\dfrac{1}{y}+\dfrac{1}{z}\ge \dfrac{1}{a}+\dfrac{1}{b}+\dfrac{1}{c}$.</p>
+      <div class="trap"><b>Lưu ý:</b> dấu $=$ xảy ra khi $a=b=c$ (tam giác đều), nên chính xác là dấu $\ge$; BĐT cho dạng strict $\gt$ đúng khi tam giác không đều.</div>
+    </div>
+  </div>
+
+  <!-- ===================== PHẦN IV ===================== -->
+  <div class="sec">IV. Phương pháp làm trội</div>
+
+  <div class="theory" id="lt-troi">
+    <span class="tag">📖 Định hướng</span>
+    <ul>
+      <li>Khử liên tiếp: $u_k=a_k-a_{k+1}\Rightarrow \sum u_k=a_1-a_{n+1}$.</li>
+    </ul>
+  </div>
+
+  <!-- BÀI 8 -->
+  <div class="bai">
+    <h3><span class="num">8</span> Bài 8</h3>
+    <div class="de"><p>Chứng minh với mọi số tự nhiên $n\gt 1$:</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step"><span class="part">a)</span> Đặt $S=\dfrac{1}{n+1}+\dfrac{1}{n+2}+\dots+\dfrac{1}{2n}$ ($n$ số hạng). <b>Cận dưới:</b> mỗi hạng tử $\gt \dfrac{1}{2n}$ nên $S\gt n\cdot\dfrac{1}{2n}=\dfrac12$. <b>Cận trên:</b> ghép $\dfrac{1}{n+k}$ với $\dfrac{1}{2n+1-k}$ (tổng mẫu $=3n+1$, tích mẫu $\ge 2n(n+1)$):
+      $2S=\sum_{k=1}^{n}\dfrac{3n+1}{(n+k)(2n+1-k)}\le \dfrac{n(3n+1)}{2n(n+1)}=\dfrac{3n+1}{2(n+1)}$, suy ra $S\le \dfrac{3n+1}{4(n+1)}\lt \dfrac{3}{4}$.</p>
+      <p class="step"><span class="part">b)</span> $\dfrac{1}{\sqrt{k}}=\dfrac{2}{2\sqrt{k}}\gt \dfrac{2}{\sqrt{k}+\sqrt{k+1}}=2(\sqrt{k+1}-\sqrt{k})$. Cộng từ $k=1$ đến $n$ (khử liên tiếp): tổng $\gt 2(\sqrt{n+1}-1)$.</p>
+      <p class="step"><span class="part">c)</span> Với $k\ge 2$: $\dfrac{1}{k^2}\lt \dfrac{1}{(k-1)k}=\dfrac{1}{k-1}-\dfrac{1}{k}$. Cộng lại: $1+\sum_{k=2}^{n}\dfrac{1}{k^2}\lt 1+\Big(1-\dfrac{1}{n}\Big)=2-\dfrac{1}{n}\lt 2$.</p>
+      <p class="step"><span class="part">d)</span> $\dfrac{1}{(k-1)k}=\dfrac{1}{k-1}-\dfrac{1}{k}$. Cộng từ $k=2$ đến $n$: tổng $=1-\dfrac{1}{n}\lt 1$.</p>
+    </div>
+  </div>
+
+  <!-- ===================== PHẦN V ===================== -->
+  <div class="sec">V. Chứng minh BĐT bằng bất đẳng thức Cô-si</div>
+
+  <!-- BÀI 9 -->
+  <div class="bai">
+    <h3><span class="num">9</span> Bài 9</h3>
+    <div class="de"><p>Cho $a,b,c\ge 0$ (các câu có mẫu thì $\gt 0$). Chứng minh:</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step"><span class="part">a)</span> $a+b\ge 2\sqrt{ab},\ b+c\ge 2\sqrt{bc},\ c+a\ge 2\sqrt{ca}$; nhân lại: $(a+b)(b+c)(c+a)\ge 8\sqrt{a^2b^2c^2}=8abc$. Dấu $=$ khi $a=b=c$.</p>
+      <p class="step"><span class="part">b)</span> $\dfrac{bc}{a}+\dfrac{ca}{b}\ge 2c,\ \dfrac{ca}{b}+\dfrac{ab}{c}\ge 2a,\ \dfrac{ab}{c}+\dfrac{bc}{a}\ge 2b$; cộng lại và chia $2$: $\dfrac{bc}{a}+\dfrac{ca}{b}+\dfrac{ab}{c}\ge a+b+c$.</p>
+      <p class="step"><span class="part">c)</span> Từ $\dfrac{1}{a+b}\le \dfrac14\Big(\dfrac1a+\dfrac1b\Big)$ suy ra $\dfrac{ab}{a+b}\le \dfrac{a+b}{4}$; cộng ba câu: tổng $\le \dfrac{2(a+b+c)}{4}=\dfrac{a+b+c}{2}$.</p>
+      <p class="step"><span class="part">d)</span> (Nesbitt) Cộng $3$ vào hai vế: $\sum\dfrac{a}{b+c}+3=(a+b+c)\sum\dfrac{1}{b+c}\ge (a+b+c)\cdot\dfrac{9}{2(a+b+c)}=\dfrac92$, suy ra $\sum\dfrac{a}{b+c}\ge \dfrac32$. Dấu $=$ khi $a=b=c$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 10 -->
+  <div class="bai">
+    <h3><span class="num">10</span> Bài 10</h3>
+    <div class="de"><p>Cho $a,b,c\gt 0$. Chứng minh:</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step"><span class="part">a)</span> Theo BĐT Bunhiacopxki: $\big(a^3+b^3+c^3\big)\Big(\dfrac1a+\dfrac1b+\dfrac1c\Big)\ge \Big(\sqrt{a^3\cdot\tfrac1a}+\sqrt{b^3\cdot\tfrac1b}+\sqrt{c^3\cdot\tfrac1c}\Big)^2=(a+b+c)^2$.</p>
+      <p class="step"><span class="part">b)</span> Hiệu hai vế $=2(a^3+b^3+c^3)-\sum_{\text{sym}}a^2b=(a+b)(a-b)^2+(b+c)(b-c)^2+(c+a)(c-a)^2\ge 0$.</p>
+      <p class="step"><span class="part">c)</span> Từ b) và $a^2+b^2+c^2\ge \dfrac{(a+b+c)^2}{3}$: $3(a^3+b^3+c^3)\ge (a+b+c)(a^2+b^2+c^2)\ge \dfrac{(a+b+c)^3}{3}$, suy ra $9(a^3+b^3+c^3)\ge (a+b+c)^3$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 11 -->
+  <div class="bai">
+    <h3><span class="num">11</span> Bài 11</h3>
+    <div class="de"><p>Cho $a,b\gt 0$: $\dfrac1a+\dfrac1b\ge \dfrac{4}{a+b}$ (1). Áp dụng (1) (với $a,b,c\gt 0$):</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step">(1): $\dfrac1a+\dfrac1b-\dfrac{4}{a+b}=\dfrac{(a-b)^2}{ab(a+b)}\ge 0$.</p>
+      <p class="step"><span class="part">a)</span> $\dfrac{1}{a+b}\le \dfrac14\Big(\dfrac1a+\dfrac1b\Big)$, cộng ba câu: $2\sum\dfrac{1}{a+b}\le \dfrac{2}{4}\cdot 2\Big(\dfrac1a+\dfrac1b+\dfrac1c\Big)=\dfrac1a+\dfrac1b+\dfrac1c$.</p>
+      <p class="step"><span class="part">b)</span> $\dfrac{1}{2a+b+c}=\dfrac{1}{(a+b)+(a+c)}\le \dfrac14\Big(\dfrac{1}{a+b}+\dfrac{1}{a+c}\Big)$; cộng vòng và nhân $2$: $2\sum\dfrac{1}{2a+b+c}\le \sum\dfrac{1}{a+b}$.</p>
+      <p class="step"><span class="part">c)</span> Áp dụng liên tiếp (1): $\dfrac{1}{2a+b+c}\le \dfrac14\Big(\dfrac{1}{a+b}+\dfrac{1}{a+c}\Big)\le \dfrac{1}{16}\Big(\dfrac2a+\dfrac1b+\dfrac1c\Big)$. Cộng vòng: $\sum\dfrac{1}{2a+b+c}\le \dfrac{1}{16}\cdot 4\Big(\dfrac1a+\dfrac1b+\dfrac1c\Big)=\dfrac{4}{16}=1$ (do giả thiết $\dfrac1a+\dfrac1b+\dfrac1c=4$). Dấu $=$ khi $a=b=c=\dfrac34$.</p>
+      <p class="step"><span class="part">d)</span> $p-a=\dfrac{b+c-a}{2}$,… Dùng (1): $\dfrac{1}{p-a}+\dfrac{1}{p-b}\ge \dfrac{4}{(p-a)+(p-b)}=\dfrac{4}{c}$ (vì $2p=a+b+c$). Tương tự rồi cộng: $2\sum\dfrac{1}{p-a}\ge 4\Big(\dfrac1a+\dfrac1b+\dfrac1c\Big)$, suy ra $\sum\dfrac{1}{p-a}\ge 2\Big(\dfrac1a+\dfrac1b+\dfrac1c\Big)$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 12 -->
+  <div class="bai">
+    <h3><span class="num">12</span> Bài 12</h3>
+    <div class="de"><p>Cho $a,b,c\gt 0$: $\dfrac1a+\dfrac1b+\dfrac1c\ge \dfrac{9}{a+b+c}$ (1). Áp dụng (1):</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step">(1) suy từ $(a+b+c)\Big(\dfrac1a+\dfrac1b+\dfrac1c\Big)\ge 9$ (Cô-si). Dấu $=$ khi $a=b=c$.</p>
+      <p class="step"><span class="part">a)</span> $\sum\dfrac{1}{a+b}\ge \dfrac{9}{2(a+b+c)}$ và $a^2+b^2+c^2\ge \dfrac{(a+b+c)^2}{3}$, nhân lại: $\big(a^2+b^2+c^2\big)\sum\dfrac{1}{a+b}\ge \dfrac{(a+b+c)^2}{3}\cdot\dfrac{9}{2(a+b+c)}=\dfrac32(a+b+c)$.</p>
+      <p class="step"><span class="part">b)</span> $P=\sum\Big(1-\dfrac{1}{x+1}\Big)=3-\sum\dfrac{1}{x+1}$. Vì $\sum\dfrac{1}{x+1}\ge \dfrac{9}{(x+y+z)+3}=\dfrac{9}{4}$ nên $P\le 3-\dfrac94=\dfrac34$. Vậy $\max P=\dfrac34$ khi $x=y=z=\dfrac13$.</p>
+      <p class="step"><span class="part">c)</span> Vì $(a^2+2bc)+(b^2+2ca)+(c^2+2ab)=(a+b+c)^2\le 1$, theo (1): $P\ge \dfrac{9}{(a+b+c)^2}\ge 9$. Vậy $\min P=9$ khi $a=b=c=\dfrac13$.</p>
+      <p class="step"><span class="part">d)</span> Vì $(a^2+b^2+c^2)+2(ab+bc+ca)=(a+b+c)^2=1$, áp dụng (1) cho ba số $a^2+b^2+c^2,\ ab+bc+ca,\ ab+bc+ca$:
+      $\dfrac{1}{a^2+b^2+c^2}+\dfrac{2}{ab+bc+ca}\ge \dfrac{9}{1}=9$. Mặt khác $\dfrac1{ab}+\dfrac1{bc}+\dfrac1{ca}\ge \dfrac{9}{ab+bc+ca}$ và $ab+bc+ca\le \dfrac13$, nên $\dfrac1{ab}+\dfrac1{bc}+\dfrac1{ca}-\dfrac{2}{ab+bc+ca}\ge \dfrac{7}{ab+bc+ca}\ge 21$. Cộng lại:
+      $\dfrac{1}{a^2+b^2+c^2}+\dfrac1{ab}+\dfrac1{bc}+\dfrac1{ca}\ge 9+21=30$. Dấu $=$ khi $a=b=c=\dfrac13$.</p>
+    </div>
+  </div>
+
+  <!-- ===================== PHẦN VI ===================== -->
+  <div class="sec">VI. Tìm GTNN, GTLN bằng bất đẳng thức Cô-si</div>
+
+  <div class="theory" id="lt-minmax">
+    <span class="tag">📖 Định hướng</span>
+    <ul>
+      <li><b>Tìm GTNN của tổng:</b> tách để tích các số hạng là hằng số rồi dùng Cô-si.</li>
+      <li><b>Tìm GTLN của tích:</b> tạo tổng các thừa số là hằng số rồi dùng Cô-si.</li>
+    </ul>
+  </div>
+
+  <!-- BÀI 13 -->
+  <div class="bai">
+    <h3><span class="num">13</span> Bài 13 — Tìm giá trị nhỏ nhất</h3>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step"><span class="part">a)</span> $y=\dfrac{x}{2}+\dfrac{18}{x}\ge 2\sqrt{\dfrac{x}{2}\cdot\dfrac{18}{x}}=2\sqrt{9}=6$. <span class="key">$\min y=6$</span> khi $x=6$.</p>
+      <p class="step"><span class="part">b)</span> $y=\dfrac{x-1}{2}+\dfrac{2}{x-1}+\dfrac12\ge 2\sqrt{1}+\dfrac12=\dfrac52$. <span class="key">$\min y=\dfrac52$</span> khi $x=3$.</p>
+      <p class="step"><span class="part">c)</span> $y=\dfrac{3(x+1)}{2}+\dfrac{1}{x+1}-\dfrac32\ge 2\sqrt{\dfrac32}-\dfrac32=\sqrt6-\dfrac32$. <span class="key">$\min y=\sqrt6-\dfrac32$</span> khi $x=\dfrac{\sqrt6}{3}-1$.</p>
+      <p class="step"><span class="part">d)</span> $y=\dfrac{2x-1}{6}+\dfrac{5}{2x-1}+\dfrac16\ge 2\sqrt{\dfrac56}+\dfrac16=\dfrac{\sqrt{30}}{3}+\dfrac16$. <span class="key">$\min y=\dfrac{\sqrt{30}}{3}+\dfrac16$</span> khi $x=\dfrac{1+\sqrt{30}}{2}$.</p>
+      <p class="step"><span class="part">e)</span> $y=\dfrac{1}{1-x}+\dfrac{5}{x}-1\ge \dfrac{(1+\sqrt5)^2}{(1-x)+x}-1=(6+2\sqrt5)-1=5+2\sqrt5$ (BĐT cộng mẫu). <span class="key">$\min y=5+2\sqrt5$</span> khi $x=\dfrac{5-\sqrt5}{4}$.</p>
+      <p class="step"><span class="part">f)</span> $y=x+\dfrac{1}{x^2}=\dfrac{x}{2}+\dfrac{x}{2}+\dfrac{1}{x^2}\ge 3\sqrt[3]{\dfrac{x}{2}\cdot\dfrac{x}{2}\cdot\dfrac{1}{x^2}}=\dfrac{3}{\sqrt[3]{4}}=\dfrac{3\sqrt[3]{2}}{2}$. <span class="key">$\min y=\dfrac{3\sqrt[3]{2}}{2}$</span> khi $x=\sqrt[3]{2}$.</p>
+      <p class="step"><span class="part">g)</span> $y=\dfrac{(x+2)^2}{x}=x+4+\dfrac{4}{x}\ge 4+2\sqrt{4}=8$. <span class="key">$\min y=8$</span> khi $x=2$.</p>
+      <p class="step"><span class="part">h)</span> $y=\dfrac{x^2}{3}+\dfrac{x^2}{3}+\dfrac{x^2}{3}+\dfrac{1}{x^3}+\dfrac{1}{x^3}\ge 5\sqrt[5]{\dfrac{x^6}{27}\cdot\dfrac{1}{x^6}}=\dfrac{5}{\sqrt[5]{27}}$. <span class="key">$\min y=\dfrac{5}{\sqrt[5]{27}}$</span> khi $x=\sqrt[5]{3}$.</p>
+      <div class="trap"><b>Lưu ý câu a):</b> $2\sqrt9=6$ (không phải $3$); giá trị nhỏ nhất là $6$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 14 -->
+  <div class="bai">
+    <h3><span class="num">14</span> Bài 14 — Tìm giá trị lớn nhất</h3>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p class="step"><span class="part">a)</span> $y=(x+3)(5-x)\le \left(\dfrac{(x+3)+(5-x)}{2}\right)^2=16$. <span class="key">$\max y=16$</span> khi $x=1$.</p>
+      <p class="step"><span class="part">b)</span> $y=x(6-x)\le \left(\dfrac{6}{2}\right)^2=9$. <span class="key">$\max y=9$</span> khi $x=3$.</p>
+      <p class="step"><span class="part">c)</span> $y=\dfrac12(2x+6)(5-2x)\le \dfrac12\left(\dfrac{11}{2}\right)^2=\dfrac{121}{8}$. <span class="key">$\max y=\dfrac{121}{8}$</span> khi $x=-\dfrac14$.</p>
+      <p class="step"><span class="part">d)</span> $2y=(2x+5)(10-2x)\le \left(\dfrac{15}{2}\right)^2=\dfrac{225}{4}$, nên $y\le \dfrac{225}{8}$. <span class="key">$\max y=\dfrac{225}{8}$</span> khi $x=\dfrac54$.</p>
+      <p class="step"><span class="part">e)</span> $y=3(2x+1)(5-2x)\le 3\left(\dfrac{6}{2}\right)^2=27$. <span class="key">$\max y=27$</span> khi $x=1$.</p>
+      <p class="step"><span class="part">f)</span> $y=\dfrac{x}{x^2+2}=\dfrac{1}{x+\dfrac{2}{x}}\le \dfrac{1}{2\sqrt2}=\dfrac{\sqrt2}{4}$. <span class="key">$\max y=\dfrac{\sqrt2}{4}$</span> khi $x=\sqrt2$.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Phần lớn BĐT đối xứng đều quy về tổng các bình phương $\ge 0$; luôn ghi rõ điều kiện dấu $=$ để dùng cho bài GTLN/GTNN.</li>
+      <li>Hai bổ đề cực mạnh: $\dfrac1a+\dfrac1b\ge \dfrac{4}{a+b}$ và $\dfrac1a+\dfrac1b+\dfrac1c\ge \dfrac{9}{a+b+c}$ — dùng cho hầu hết các bài có tổng nghịch đảo.</li>
+      <li>Khi dùng Cô-si để tìm GTLN/GTNN, phải <b>kiểm tra dấu $=$ có nằm trong miền xác định</b> hay không.</li>
+      <li>BĐT tam giác (Bài 6, 7) chỉ đúng nhờ điều kiện $a+b\gt c,\dots$; mất điều kiện này BĐT có thể sai.</li>
+    </ul>
+  </div>
+
+</div>
