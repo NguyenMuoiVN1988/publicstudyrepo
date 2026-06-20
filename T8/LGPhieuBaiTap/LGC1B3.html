@@ -1,0 +1,174 @@
+---
+layout: default
+title: Toán 8 - Phép cộng và phép trừ đa thức
+description: Lời giải chi tiết phiếu bài tập Bài 3 Phép cộng và phép trừ đa thức - Toán 8: tính tổng, hiệu các đa thức nhiều biến và tìm đa thức thoả mãn đẳng thức. Kết nối lý thuyết với từng lời giải.
+tags: [Toán 8, cộng trừ đa thức, đa thức nhiều biến, bỏ ngoặc, đại số]
+series: t8-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Phép cộng và phép trừ đa thức — Lời giải chi tiết</h1>
+    <p>Toán 8 · Chương 1: Đa thức nhiều biến · Bài 3</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-congtru">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Cộng, trừ hai đa thức</h3>
+    <ul>
+      <li>Cộng (hay trừ) hai đa thức: nối hai đa thức bởi dấu ``$+$'' (hay ``$-$''), <b>bỏ ngoặc</b> rồi <b>thu gọn</b>.</li>
+      <li><b>Quy tắc dấu khi bỏ ngoặc:</b> ngoặc đứng sau dấu ``$+$'' giữ nguyên dấu; ngoặc đứng sau dấu ``$-$'' thì <b>đổi dấu tất cả</b> các hạng tử bên trong.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Mẹo:</b> gom các hạng tử theo từng nhóm phần biến rồi cộng/trừ hệ số. Viết kết quả gọn,
+      đỡ sót hạng tử.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-timdt">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Tìm đa thức chưa biết</h3>
+    <ul>
+      <li>Coi đa thức cần tìm như một ``số hạng'' rồi <b>chuyển vế</b>:</li>
+      <li>$M + B = T \Rightarrow M = T - B$; &nbsp; $M - B = T \Rightarrow M = T + B$;
+      &nbsp; $C + A = B \Rightarrow C = B - A$.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Tính tổng, hiệu của các đa thức</h3>
+    <div class="de">
+      <p><b>a)</b> $A=x^2y+x^3-xy^2+2$ và $B=x^3+xy^2-x^2y-7$. Tính $A+B$ và $A-B$.</p>
+      <p><b>b)</b> $(x^2-xy+y^2)-(-x^2+7xy-5y^2)$</p>
+      <p><b>c)</b> $M=2x^3-2x^2y+xy+1$; $N=3x^2y+2xy-2$; $P=x^3-x^2y-3xy+1$. Tính $M+N+P$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congtru"><b>Dùng Lý thuyết 1:</b> bỏ ngoặc (đổi dấu sau dấu trừ) rồi gom hạng tử đồng dạng.</a>
+      <p><b>a)</b> $A+B = (x^2y-x^2y)+(x^3+x^3)+(-xy^2+xy^2)+(2-7) = $ <span class="key">$2x^3-5$</span>.</p>
+      <p>$A-B = (x^2y+x^2y)+(x^3-x^3)+(-xy^2-xy^2)+(2+7) = $ <span class="key">$2x^2y-2xy^2+9$</span>.</p>
+      <p><b>b)</b> Bỏ ngoặc (đổi dấu): $x^2-xy+y^2+x^2-7xy+5y^2 = $ <span class="key">$2x^2-8xy+6y^2$</span>.</p>
+      <p><b>c)</b> Cộng theo nhóm: $x^3$: $2+1=3$; $\;x^2y$: $-2+3-1=0$; $\;xy$: $1+2-3=0$; hằng: $1-2+1=0$.</p>
+      <p>$M+N+P = $ <span class="key">$3x^3$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy ở $A-B$:</b> dấu trừ áp lên <b>cả</b> $B$, nên $-(-x^2y)=+x^2y$ và $-(+xy^2)=-xy^2$.
+        Quên đổi dấu một hạng tử là sai ngay.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Tìm đa thức thoả mãn đẳng thức</h3>
+    <div class="de">
+      <p><b>a)</b> Tìm $A$ biết $6x^2-3xy^2+A=x^2+y^2-2xy^2$.</p>
+      <p><b>b)</b> Tìm $B$ biết $B-(2xy-4y^2)=5xy+x^2-7y^2$.</p>
+      <p><b>c)</b> Cho $A=4x^2+3y^2-5xy$; $B=3x^2+2y^2+2x^2y^2$. Tìm $C$ sao cho $C+A=B$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-timdt"><b>Dùng Lý thuyết 2:</b> chuyển vế để cô lập đa thức cần tìm rồi thu gọn.</a>
+      <p><b>a)</b> $A=(x^2+y^2-2xy^2)-(6x^2-3xy^2) = x^2-6x^2+y^2-2xy^2+3xy^2$.</p>
+      <p>$A = $ <span class="key">$-5x^2+xy^2+y^2$</span>.</p>
+      <p><b>b)</b> $B=(5xy+x^2-7y^2)+(2xy-4y^2) = x^2+7xy-11y^2$.</p>
+      <p>$B = $ <span class="key">$x^2+7xy-11y^2$</span>.</p>
+      <p><b>c)</b> $C=B-A=(3x^2+2y^2+2x^2y^2)-(4x^2+3y^2-5xy)$.</p>
+      <p>$C = $ <span class="key">$2x^2y^2-x^2+5xy-y^2$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy ở câu b:</b> $B-(2xy-4y^2)=\dots$ nên $B=\dots+(2xy-4y^2)$ — cộng lại đúng dấu trong ngoặc,
+        $-(-4y^2)$ khi chuyển vế thành $-4y^2$ cộng vào. Kết quả $-7y^2-4y^2=-11y^2$.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Bỏ ngoặc sau dấu ``$-$''</b> ⟹ đổi dấu <b>mọi</b> hạng tử trong ngoặc — đây là lỗi sai phổ biến nhất.</li>
+      <li>Cộng/trừ xong phải <b>thu gọn</b>; nên gom theo từng nhóm phần biến để khỏi sót.</li>
+      <li><b>Tìm đa thức chưa biết:</b> chuyển vế đúng dấu — ``$+$'' chuyển thành ``$-$'' và ngược lại.</li>
+    </ul>
+  </div>
+
+</div>

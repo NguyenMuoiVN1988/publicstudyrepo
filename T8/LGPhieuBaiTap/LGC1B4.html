@@ -1,0 +1,194 @@
+---
+layout: default
+title: Toán 8 - Phép nhân đa thức
+description: Lời giải chi tiết phiếu bài tập Bài 4 Phép nhân đa thức - Toán 8: nhân đơn thức với đơn thức, đơn thức với đa thức, đa thức với đa thức; tính giá trị, tìm x, chứng minh và biểu thức không phụ thuộc biến.
+tags: [Toán 8, nhân đa thức, nhân đơn thức, đa thức nhiều biến, đại số]
+series: t8-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Phép nhân đa thức — Lời giải chi tiết</h1>
+    <p>Toán 8 · Chương 1: Đa thức nhiều biến · Bài 4</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-quytac">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Quy tắc nhân</h3>
+    <ul>
+      <li><b>Đơn thức $\times$ đơn thức:</b> nhân hai hệ số, nhân hai phần biến (cộng số mũ cùng biến).</li>
+      <li><b>Đơn thức $\times$ đa thức:</b> nhân đơn thức với <b>từng</b> hạng tử của đa thức rồi cộng lại.</li>
+      <li><b>Đa thức $\times$ đa thức:</b> mỗi hạng tử của đa thức này nhân với <b>từng</b> hạng tử của đa thức kia rồi cộng các tích.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Cẩn thận dấu</b> khi nhân với hạng tử mang dấu ``$-$''; nhân xong <b>thu gọn</b> các hạng tử đồng dạng.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-ungdung">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Ứng dụng: tính giá trị, tìm $x$, chứng minh</h3>
+    <ul>
+      <li><b>Tính giá trị / tìm $x$:</b> nhân, rút gọn về dạng đơn giản nhất rồi mới thay số hoặc giải.</li>
+      <li><b>Không phụ thuộc biến:</b> rút gọn — nếu kết quả là <b>hằng số</b> (không còn biến) thì giá trị không phụ thuộc biến.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Nhân hai đơn thức (tìm tích và bậc)</h3>
+    <div class="de">
+      <p><b>a)</b> $-\dfrac{1}{2}x^2y$ và $2xy^3$. &nbsp; <b>b)</b> $2x^3y$ và $-\dfrac{1}{4}x^3y^5$. &nbsp;
+      <b>c)</b> $\left(\dfrac{1}{2}x^2y^3\right)^2$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-quytac"><b>Dùng Lý thuyết 1:</b> nhân hệ số, cộng số mũ; bậc = tổng số mũ các biến.</a>
+      <p><b>a)</b> $\left(-\dfrac{1}{2}\cdot 2\right)x^{2+1}y^{1+3} = -x^3y^4$ — bậc <span class="key">$7$</span>.</p>
+      <p><b>b)</b> $\left(2\cdot\left(-\dfrac{1}{4}\right)\right)x^{3+3}y^{1+5} = -\dfrac{1}{2}x^6y^6$ — bậc <span class="key">$12$</span>.</p>
+      <p><b>c)</b> $\left(\dfrac{1}{2}\right)^2 x^{2\cdot 2}y^{3\cdot 2} = \dfrac{1}{4}x^4y^6$ — bậc <span class="key">$10$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Nhân đơn thức với đa thức</h3>
+    <div class="de">
+      <p><b>a)</b> $(-2x^2)(x^2-2x+3)\cdot\dfrac{1}{2}$</p>
+      <p><b>b)</b> Rút gọn $x(x^2+1)-3x(3x-2x^2)$</p>
+      <p><b>c)</b> Tính giá trị $A=2x(3x^2+5)-x(3x-x^2)-x^2$ tại $x=2$.</p>
+      <p><b>d)</b> Tìm $x$ biết $-2x(x+3)+x(2x-1)=10$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-quytac"><b>Dùng Lý thuyết 1:</b> nhân vào từng hạng tử, để ý dấu, rồi thu gọn.</a>
+      <p><b>a)</b> $(-2x^2)(x^2-2x+3)=-2x^4+4x^3-6x^2$; nhân $\dfrac{1}{2}$: <span class="key">$-x^4+2x^3-3x^2$</span>.</p>
+      <p><b>b)</b> $x^3+x-9x^2+6x^3 = $ <span class="key">$7x^3-9x^2+x$</span>.</p>
+      <p><b>c)</b> $A=(6x^3+10x)+(-3x^2+x^3)-x^2 = 7x^3-4x^2+10x$.</p>
+      <p>Tại $x=2$: $A=7\cdot 8-4\cdot 4+10\cdot 2 = 56-16+20 = $ <span class="key">$60$</span>.</p>
+      <p><b>d)</b> $-2x^2-6x+2x^2-x = 10 \Rightarrow -7x=10 \Rightarrow x = $ <span class="key">$-\dfrac{10}{7}$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy ở câu d:</b> $-2x^2$ và $+2x^2$ triệt tiêu, đừng giữ lại bậc hai. Phương trình thực ra là
+        bậc nhất $-7x=10$.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Nhân đa thức với đa thức</h3>
+    <div class="de">
+      <p><b>a)</b> $(-2x+1)\left(2x^2-\dfrac{1}{3}x+2\right)$</p>
+      <p><b>b)</b> Chứng minh $(3x+2y)(5x-y)-y^2=15x^2+7xy-3y^2$.</p>
+      <p><b>c)</b> Chứng tỏ $-5x(5x-2)+(5x+1)(5x-1)-10x$ không phụ thuộc vào giá trị của biến.</p>
+      <p><b>d)</b> Tìm $x$ biết $(x+2)(x+3)-(x-2)(x+5)=6$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-quytac"><b>Dùng Lý thuyết 1</b> để khai triển; <b>Lý thuyết 2</b> cho câu c (không phụ thuộc biến) và câu d (tìm $x$).</a>
+      <p><b>a)</b> $-2x\cdot\!\left(2x^2-\dfrac{1}{3}x+2\right)+1\cdot\!\left(2x^2-\dfrac{1}{3}x+2\right)
+      = -4x^3+\dfrac{2}{3}x^2-4x+2x^2-\dfrac{1}{3}x+2$.</p>
+      <p>Thu gọn: <span class="key">$-4x^3+\dfrac{8}{3}x^2-\dfrac{13}{3}x+2$</span>.</p>
+      <p><b>b)</b> $(3x+2y)(5x-y)=15x^2-3xy+10xy-2y^2=15x^2+7xy-2y^2$.</p>
+      <p>Trừ $y^2$: $15x^2+7xy-2y^2-y^2 = 15x^2+7xy-3y^2$ — đúng bằng vế phải. <span class="yes">(đpcm)</span></p>
+      <p><b>c)</b> $-5x(5x-2)=-25x^2+10x$; $\;(5x+1)(5x-1)=25x^2-1$. Cộng với $-10x$:</p>
+      <p>$-25x^2+10x+25x^2-1-10x = $ <span class="key">$-1$</span> (hằng số) ⟹ không phụ thuộc biến.</p>
+      <p><b>d)</b> $(x+2)(x+3)=x^2+5x+6$; $\;(x-2)(x+5)=x^2+3x-10$.</p>
+      <p>Hiệu: $(x^2+5x+6)-(x^2+3x-10)=2x+16$. Cho $2x+16=6 \Rightarrow x = $ <span class="key">$-5$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy ở câu c:</b> dấu hằng đẳng thức $(5x+1)(5x-1)=25x^2-1$ (hiệu hai bình phương). Khai triển sai dấu
+        sẽ không triệt tiêu được $x^2$.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Nhân là nhân với <b>từng hạng tử</b>; sai sót hay gặp nhất là <b>quên một tích</b> hoặc <b>nhầm dấu</b>.</li>
+      <li>Luôn <b>thu gọn</b> sau khi nhân; nhiều bài tìm $x$ rút gọn xong chỉ còn <b>bậc nhất</b>.</li>
+      <li><b>Không phụ thuộc biến</b> ⟺ rút gọn ra <b>hằng số</b>; với chứng minh đẳng thức, khai triển một vế rồi so với vế kia.</li>
+    </ul>
+  </div>
+
+</div>

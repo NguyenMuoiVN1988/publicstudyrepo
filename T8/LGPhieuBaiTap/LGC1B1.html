@@ -1,0 +1,288 @@
+---
+layout: default
+title: Toán 8 - Đơn thức (Đa thức nhiều biến)
+description: Lời giải chi tiết phiếu bài tập Bài 1 Đơn thức - Toán 8: nhận dạng đơn thức, thu gọn, hệ số, phần biến, bậc, đơn thức đồng dạng, cộng trừ và tính giá trị. Kết nối lý thuyết với từng lời giải.
+tags: [Toán 8, đơn thức, đơn thức đồng dạng, đa thức nhiều biến, đại số]
+series: t8-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+
+  /* ----- Tiêu đề trang ----- */
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+
+  /* ----- Tiêu đề mục lớn ----- */
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+
+  /* ----- Hộp lý thuyết ----- */
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+
+  /* ----- Khung "nhận biết / mẹo" ----- */
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+
+  /* ----- Thẻ mỗi bài tập ----- */
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+
+  /* ----- Khối lời giải ----- */
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+
+  /* ----- Cầu nối lý thuyết → lời giải ----- */
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+
+  /* ----- Câu trả lời nhấn mạnh & bẫy ----- */
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+
+  /* ----- Chú ý cuối bài ----- */
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Đơn thức — Lời giải chi tiết</h1>
+    <p>Toán 8 · Chương 1: Đa thức nhiều biến · Bài 1</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-donthuc">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Đơn thức — thu gọn, hệ số, phần biến, bậc</h3>
+    <ul>
+      <li><b>Đơn thức</b> là biểu thức đại số chỉ gồm một số, hoặc một biến, hoặc có dạng <b>tích</b> của những số và biến.</li>
+      <li><b>Đơn thức thu gọn</b>: mỗi biến chỉ xuất hiện một lần, đã nâng lên luỹ thừa với số mũ nguyên dương; phần số là <b>hệ số</b>, phần còn lại là <b>phần biến</b>.</li>
+      <li><b>Bậc</b> của đơn thức (hệ số $\neq 0$) là <b>tổng số mũ</b> của tất cả các biến.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Cách nhận biết đơn thức</b>: chỉ có phép <b>nhân</b> và <b>luỹ thừa</b> giữa số với biến.
+      Hễ xuất hiện phép <b>cộng/trừ</b> ($1-2x$), hay <b>biến nằm dưới mẫu</b> ($\dfrac{5}{2x}$),
+      hay <b>tích chứa tổng</b> ($x(y+1)=xy+x$) thì <span class="no">không phải</span> đơn thức.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-dongdang">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Đơn thức đồng dạng — cộng, trừ</h3>
+    <ul>
+      <li><b>Hai đơn thức đồng dạng</b>: đều có hệ số khác $0$ và có <b>cùng phần biến</b> (giống nhau cả tên biến lẫn số mũ).</li>
+      <li>Cộng (hay trừ) các đơn thức đồng dạng: <b>cộng (trừ) các hệ số</b>, <b>giữ nguyên phần biến</b>.</li>
+    </ul>
+    <div class="tip">
+      🔍 Sắp xếp lại biến theo thứ tự để dễ so sánh: $\dfrac{3}{2}yzx^2 = \dfrac{3}{2}x^2yz$ nên đồng dạng với $x^2yz$.
+      Chỉ cần khác một số mũ là <span class="no">không</span> đồng dạng.
+    </div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Nhận dạng — thu gọn — bậc của đơn thức</h3>
+    <div class="de">
+      <p><b>a)</b> Trong $12x^2y$; $\;x(y+1)$; $\;1-2x$; $\;18$; $\;\dfrac{5}{2x}$, biểu thức nào là đơn thức?</p>
+      <p><b>b)</b> Cho biết hệ số, phần biến của: $\dfrac{1}{3}xy^3$; $\;-\dfrac{3}{4}x^2y^2$; $\;5x^2y$.</p>
+      <p><b>c)</b> Thu gọn $2xy\cdot\dfrac{4}{5}x^2y^3\cdot 10xyz$.</p>
+      <p><b>d)</b> Xác định bậc của $-4a^2x(-2bxy)^2\left(-\dfrac{1}{4}x^2y^3\right)$ với $a,b$ là hằng số.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-donthuc"><b>Dùng Lý thuyết 1:</b> đơn thức chỉ gồm tích của số và biến; bậc = tổng số mũ các biến.</a>
+
+      <p><b>a)</b></p>
+      <ul>
+        <li>$12x^2y$ → <span class="yes">là đơn thức</span> (tích số $\times$ biến).</li>
+        <li>$18$ → <span class="yes">là đơn thức</span> (một số).</li>
+        <li>$x(y+1)=xy+x$ → <span class="no">không</span> (chứa tổng).</li>
+        <li>$1-2x$ → <span class="no">không</span> (có phép trừ).</li>
+        <li>$\dfrac{5}{2x}$ → <span class="no">không</span> (biến ở mẫu).</li>
+      </ul>
+      <p>Vậy có hai đơn thức: <span class="key">$12x^2y$ và $18$</span>.</p>
+
+      <p><b>b)</b></p>
+      <ul>
+        <li>$\dfrac{1}{3}xy^3$: hệ số $\dfrac{1}{3}$, phần biến $xy^3$.</li>
+        <li>$-\dfrac{3}{4}x^2y^2$: hệ số $-\dfrac{3}{4}$, phần biến $x^2y^2$.</li>
+        <li>$5x^2y$: hệ số $5$, phần biến $x^2y$.</li>
+      </ul>
+
+      <p><b>c)</b> Nhân các hệ số, cộng số mũ của từng biến:</p>
+      <p>Hệ số: $2\cdot\dfrac{4}{5}\cdot 10 = \dfrac{80}{5}=16$; &nbsp; biến: $x^{1+2+1}y^{1+3+1}z = x^4y^5z$.</p>
+      <p>$2xy\cdot\dfrac{4}{5}x^2y^3\cdot 10xyz = $ <span class="key">$16x^4y^5z$</span>.</p>
+
+      <p><b>d)</b> Trước hết $(-2bxy)^2 = 4b^2x^2y^2$. Khi đó:</p>
+      <p>Hệ số: $(-4a^2)\cdot 4b^2\cdot\left(-\dfrac{1}{4}\right) = 4a^2b^2$; &nbsp; biến: $x^{1+2+2}y^{2+3}=x^5y^5$.</p>
+      <p>Đơn thức $= 4a^2b^2x^5y^5$. Vì $a,b$ là hằng số nên bậc tính theo $x,y$:
+      bậc $= 5+5 = $ <span class="key">$10$</span>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Đơn thức đồng dạng</h3>
+    <div class="de">
+      <p><b>a)</b> Sắp xếp thành từng nhóm đồng dạng:
+      $\dfrac{5}{4}x^2y;\ x^2y^2;\ -\dfrac{1}{2}x^2y;\ -2xy^2;\ x^2y;\ -\dfrac{2}{5}xy^2;\ 6x^2y^2.$</p>
+      <p><b>b)</b> Trong $-3xyz$; $\dfrac{2}{3}x^2yz$; $\dfrac{3}{2}yzx^2$; $4x^2y$, đơn thức nào đồng dạng với $-3x^2yz$?</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dongdang"><b>Dùng Lý thuyết 2:</b> đồng dạng ⇔ giống nhau toàn bộ phần biến (cùng tên biến và cùng số mũ).</a>
+
+      <p><b>a)</b> Gom theo phần biến:</p>
+      <ul>
+        <li>Phần biến $x^2y$: $\;\dfrac{5}{4}x^2y;\ -\dfrac{1}{2}x^2y;\ x^2y$.</li>
+        <li>Phần biến $x^2y^2$: $\;x^2y^2;\ 6x^2y^2$.</li>
+        <li>Phần biến $xy^2$: $\;-2xy^2;\ -\dfrac{2}{5}xy^2$.</li>
+      </ul>
+
+      <p><b>b)</b> Phần biến cần có là $x^2yz$:</p>
+      <ul>
+        <li>$\dfrac{2}{3}x^2yz$ → <span class="yes">đồng dạng</span>.</li>
+        <li>$\dfrac{3}{2}yzx^2 = \dfrac{3}{2}x^2yz$ → <span class="yes">đồng dạng</span>.</li>
+        <li>$-3xyz$ (phần biến $xyz$) và $4x^2y$ (phần biến $x^2y$) → <span class="no">không</span>.</li>
+      </ul>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> $\dfrac{3}{2}yzx^2$ viết lộn xộn dễ làm tưởng khác $-3x^2yz$. Hãy <b>sắp xếp lại biến</b>
+        theo thứ tự $x,y,z$ trước khi so sánh.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Cộng, trừ đơn thức đồng dạng</h3>
+    <div class="de">
+      <p>Tính: <b>a)</b> $2x^2y+\dfrac{2}{3}x^2y$; &nbsp; <b>b)</b> $3xy^2z^3-7xy^2z^3$; &nbsp;
+      <b>c)</b> $3xy^2+\dfrac{1}{4}xy^2+\left(-\dfrac{1}{2}\right)xy^2$.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dongdang"><b>Dùng Lý thuyết 2:</b> cộng/trừ hệ số, giữ nguyên phần biến.</a>
+      <p><b>a)</b> $\left(2+\dfrac{2}{3}\right)x^2y = $ <span class="key">$\dfrac{8}{3}x^2y$</span>.</p>
+      <p><b>b)</b> $(3-7)xy^2z^3 = $ <span class="key">$-4xy^2z^3$</span>.</p>
+      <p><b>c)</b> $\left(3+\dfrac{1}{4}-\dfrac{1}{2}\right)xy^2 = \dfrac{11}{4}xy^2$. &nbsp; (vì $\dfrac{1}{4}-\dfrac{1}{2}=-\dfrac{1}{4}$, còn $3-\dfrac{1}{4}=\dfrac{11}{4}$.)</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Tìm đơn thức $M$</h3>
+    <div class="de">
+      <p><b>a)</b> $2x^4y^3+M=-3x^4y^3$. &nbsp; <b>b)</b> $2x^3y^3-M=4x^3y^3$.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dongdang"><b>Dùng Lý thuyết 2:</b> chuyển vế (đổi dấu) rồi cộng/trừ các hệ số đồng dạng.</a>
+      <p><b>a)</b> $M=-3x^4y^3-2x^4y^3 = $ <span class="key">$-5x^4y^3$</span>.</p>
+      <p><b>b)</b> $M=2x^3y^3-4x^3y^3 = $ <span class="key">$-2x^3y^3$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy dấu ở câu b:</b> từ $2x^3y^3-M=4x^3y^3$ suy ra $M = 2x^3y^3-4x^3y^3$ (không phải $4-2$).
+        Sai dấu sẽ ra $+2x^3y^3$.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 5 ---------- -->
+  <div class="bai">
+    <h3><span class="num">5</span> Tính giá trị của đơn thức</h3>
+    <div class="de">
+      <p><b>a)</b> $P=2011x^2y+12x^2y-2015x^2y$ tại $x=-1$; $y=2$.</p>
+      <p><b>b)</b> $A=\left(\dfrac{2}{3}x^2y^2\right)\left(\dfrac{-6}{5}x^4y^3\right)$. Thu gọn, tìm bậc rồi tính $A$ tại $x=-1$; $y=-2$.</p>
+    </div>
+
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-donthuc"><b>Dùng Lý thuyết 1:</b> luôn <b>thu gọn trước</b> rồi mới thay số.</a>
+      <p><b>a)</b> $P=(2011+12-2015)x^2y = 8x^2y$.</p>
+      <p>Tại $x=-1$, $y=2$: $P = 8\cdot(-1)^2\cdot 2 = 8\cdot 1\cdot 2 = $ <span class="key">$16$</span>.</p>
+
+      <p><b>b)</b> Thu gọn: hệ số $\dfrac{2}{3}\cdot\dfrac{-6}{5} = -\dfrac{4}{5}$; biến $x^{2+4}y^{2+3}=x^6y^5$.</p>
+      <p>$A = -\dfrac{4}{5}x^6y^5$, bậc $= 6+5 = $ <span class="key">$11$</span>.</p>
+      <p>Tại $x=-1$, $y=-2$: $x^6=(-1)^6=1$, $y^5=(-2)^5=-32$, nên</p>
+      <p>$A = -\dfrac{4}{5}\cdot 1\cdot(-32) = $ <span class="key">$\dfrac{128}{5}$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy dấu:</b> $(-1)^6 = 1$ (mũ chẵn) nhưng $(-2)^5 = -32$ (mũ lẻ giữ dấu âm).
+        Hai dấu âm nhân nhau cho kết quả <b>dương</b> $\dfrac{128}{5}$.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Thu gọn trước tiên:</b> nhân các hệ số, cộng số mũ của cùng một biến — rồi mới đọc hệ số, phần biến, bậc.</li>
+      <li><b>Đồng dạng</b> đòi hỏi <b>cùng phần biến</b> (kể cả số mũ); chỉ cộng/trừ được khi đồng dạng. Sắp xếp biến theo thứ tự để tránh nhầm.</li>
+      <li><b>Bậc</b> của đơn thức = tổng số mũ các biến; chữ làm <b>hằng số</b> ($a,b$) không tính vào bậc.</li>
+      <li><b>Tính giá trị:</b> cẩn thận dấu khi biến âm — mũ chẵn cho kết quả dương, mũ lẻ giữ dấu.</li>
+    </ul>
+  </div>
+
+</div>

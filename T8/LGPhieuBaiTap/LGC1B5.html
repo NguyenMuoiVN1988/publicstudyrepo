@@ -1,0 +1,173 @@
+---
+layout: default
+title: Toán 8 - Phép chia đa thức cho đơn thức
+description: Lời giải chi tiết phiếu bài tập Bài 5 Phép chia đa thức cho đơn thức - Toán 8: chia đơn thức cho đơn thức, điều kiện chia hết, chia đa thức cho đơn thức, tìm đa thức và tính giá trị.
+tags: [Toán 8, chia đa thức, chia đơn thức, chia hết, đa thức nhiều biến]
+series: t8-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Phép chia đa thức cho đơn thức — Lời giải chi tiết</h1>
+    <p>Toán 8 · Chương 1: Đa thức nhiều biến · Bài 5</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-chiadon">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Chia đơn thức cho đơn thức</h3>
+    <ul>
+      <li><b>Điều kiện chia hết:</b> $A \,\vdots\, B$ khi <b>mỗi biến</b> của $B$ đều có mặt trong $A$ với
+      số mũ <b>không nhỏ hơn</b> số mũ trong $B$.</li>
+      <li><b>Cách chia:</b> chia hệ số cho hệ số; với mỗi biến, <b>trừ số mũ</b> (số mũ trong $A$ trừ số mũ trong $B$); nhân các kết quả.</li>
+    </ul>
+    <div class="tip">
+      🔍 Nhớ $(-x)^{2k}=x^{2k}$, $(-x)^{2k+1}=-x^{2k+1}$ và để ý <b>dấu</b> khi chia cho số âm.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-chiada">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Chia đa thức cho đơn thức</h3>
+    <ul>
+      <li>$A \,\vdots\, B$ nếu <b>mọi hạng tử</b> của $A$ đều chia hết cho $B$.</li>
+      <li><b>Cách chia:</b> chia <b>từng hạng tử</b> của $A$ cho $B$ rồi cộng các kết quả lại.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Chia đơn thức cho đơn thức</h3>
+    <div class="de">
+      <p><b>a)</b> $19t^8:(3t)^2$ &nbsp; <b>b)</b> $(-4x^3y^5):\left(-\dfrac{1}{2}x^3y\right)$ &nbsp;
+      <b>c)</b> $x^{94}:x^{17}:x^{65}$</p>
+      <p><b>d)</b> Tìm điều kiện của $n$ để $A=14x^8y^n$ chia hết cho $B=-7x^7y^4$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-chiadon"><b>Dùng Lý thuyết 1:</b> chia hệ số, trừ số mũ từng biến; chú ý điều kiện chia hết.</a>
+      <p><b>a)</b> $(3t)^2=9t^2$, nên $19t^8:9t^2 = $ <span class="key">$\dfrac{19}{9}t^6$</span>.</p>
+      <p><b>b)</b> Hệ số $(-4):\left(-\dfrac{1}{2}\right)=8$; biến $x^{3-3}y^{5-1}=y^4$. Kết quả <span class="key">$8y^4$</span>.</p>
+      <p><b>c)</b> $x^{94-17-65}=$ <span class="key">$x^{12}$</span>.</p>
+      <p><b>d)</b> Cần $x^8\,\vdots\,x^7$ (đúng) và $y^n\,\vdots\,y^4$, tức $n\ge 4$. Vậy <span class="key">$n\ge 4$, $n\in\mathbb{N}$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy ở câu b:</b> $(-4):\left(-\dfrac{1}{2}\right) = (-4)\cdot(-2)=8$ (chia cho phân số là nhân nghịch đảo),
+        không phải $-2$. Hai dấu âm cho thương <b>dương</b>.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Chia đa thức cho đơn thức</h3>
+    <div class="de">
+      <p><b>a)</b> $(4x^2y^3-9x^2y^2+25xy^4):2xy^2$</p>
+      <p><b>b)</b> Tìm đa thức $M$ biết $5x^3\cdot M=25x^6-30x^5+10x^3$.</p>
+      <p><b>c)</b> Tính giá trị $A=(15x^5y^3-10x^3y^2+20x^4y^4):5x^2y^2$ tại $x=-1$; $y=2$.</p>
+      <p><b>d)</b> Tìm $x$ biết $(25x^2-10x):(-5x)-3(x-2)=4$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-chiada"><b>Dùng Lý thuyết 2:</b> chia từng hạng tử cho đơn thức rồi cộng kết quả.</a>
+      <p><b>a)</b> $\dfrac{4x^2y^3}{2xy^2}-\dfrac{9x^2y^2}{2xy^2}+\dfrac{25xy^4}{2xy^2} = $
+      <span class="key">$2xy-\dfrac{9}{2}x+\dfrac{25}{2}y^2$</span>.</p>
+      <p><b>b)</b> $M=(25x^6-30x^5+10x^3):5x^3 = $ <span class="key">$5x^3-6x^2+2$</span>.</p>
+      <p><b>c)</b> $A=\dfrac{15x^5y^3}{5x^2y^2}-\dfrac{10x^3y^2}{5x^2y^2}+\dfrac{20x^4y^4}{5x^2y^2} = 3x^3y-2x+4x^2y^2$.</p>
+      <p>Tại $x=-1$, $y=2$: $A=3(-1)^3\cdot 2-2(-1)+4(-1)^2\cdot 2^2 = -6+2+16 = $ <span class="key">$12$</span>.</p>
+      <p><b>d)</b> $(25x^2-10x):(-5x) = -5x+2$. Khi đó $-5x+2-3(x-2)=4$:</p>
+      <p>$-5x+2-3x+6=4 \Rightarrow -8x+8=4 \Rightarrow x = $ <span class="key">$\dfrac{1}{2}$</span>.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy ở câu d:</b> $-10x:(-5x)=+2$ (dấu dương). Quên dấu sẽ ra $-2$ và sai cả phương trình.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Chia là trừ số mũ</b> (cùng biến); chia hệ số cho hệ số. Chia cho phân số $=$ nhân với nghịch đảo.</li>
+      <li><b>Chia đa thức cho đơn thức</b>: chia <b>từng hạng tử</b> — đừng bỏ sót hạng tử nào và giữ đúng dấu.</li>
+      <li><b>Điều kiện chia hết</b>: mỗi biến của số chia phải có trong số bị chia với số mũ không nhỏ hơn.</li>
+    </ul>
+  </div>
+
+</div>
