@@ -195,6 +195,14 @@ details > div {
 - [Định lý Thales](T8/thalettheorem.html)
 - [Hệ quả định lý Thales](T8/thalesdao.html)
 
+**Lời giải phiếu bài tập**
+- [C1B1: Đơn thức](T8/LGPhieuBaiTap/LGC1B1.html)
+- [C1B2: Đa thức](T8/LGPhieuBaiTap/LGC1B2.html)
+- [C1B3: Phép cộng và phép trừ đa thức](T8/LGPhieuBaiTap/LGC1B3.html)
+- [C1B4: Phép nhân đa thức](T8/LGPhieuBaiTap/LGC1B4.html)
+- [C1B5: Phép chia đa thức cho đơn thức](T8/LGPhieuBaiTap/LGC1B5.html)
+- [C1B6: Ôn tập chương – Đa thức nhiều biến](T8/LGPhieuBaiTap/LGC1B6.html)
+
 </div>
 </details>
 
