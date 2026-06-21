@@ -1,0 +1,186 @@
+---
+layout: default
+title: Toán 9 - Hệ thức giữa cạnh và góc trong tam giác vuông
+description: "Lời giải bài tập hệ thức giữa cạnh và góc trong tam giác vuông lớp 9 - tính cạnh và góc, giải tam giác vuông và các bài toán thực tế cần cẩu, hải đăng, góc nâng góc hạ."
+tags: [Toán 9, hệ thức lượng, giải tam giác vuông, cạnh và góc, hình học, chuyên đề]
+series: t9-c4
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Hệ thức giữa cạnh và góc trong tam giác vuông</h1>
+    <p>Tính cạnh và góc · Giải tam giác vuông · Ứng dụng thực tế</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-hethuc">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Hệ thức giữa cạnh và góc</h3>
+    <ul>
+      <li>Tam giác $ABC$ vuông tại $A$, $BC=a$ (huyền), $AC=b$, $AB=c$. Mỗi cạnh góc vuông bằng:</li>
+      <li>cạnh huyền $\times$ sin góc đối $=$ cạnh huyền $\times$ cos góc kề: $b=a\sin B=a\cos C$; $c=a\sin C=a\cos B$.</li>
+      <li>cạnh góc vuông kia $\times$ tan góc đối $=\times$ cot góc kề: $b=c\tan B=c\cot C$; $c=b\tan C=b\cot B$.</li>
+    </ul>
+    <div class="tip">🔍 <b>Ghi nhớ:</b> "cạnh góc vuông = huyền × sin(góc đối)" là công thức dùng nhiều nhất.</div>
+  </div>
+
+  <div class="theory" id="lt-giai">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Giải tam giác vuông</h3>
+    <ul>
+      <li><b>Giải tam giác vuông</b> là tìm tất cả các cạnh và góc còn lại khi biết hai yếu tố (trong đó có ít nhất một cạnh).</li>
+      <li>Công cụ: định lí Pythagore $a^2=b^2+c^2$, tổng hai góc nhọn $=90^\circ$, và các hệ thức cạnh–góc ở Lý thuyết 1.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-ungdung">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Góc nâng — góc hạ trong bài toán thực tế</h3>
+    <ul>
+      <li><b>Góc nâng (góc nâng cao):</b> góc giữa tia nhìn lên một vật và phương nằm ngang.</li>
+      <li><b>Góc hạ (góc hạ thấp):</b> góc giữa tia nhìn xuống một vật và phương nằm ngang. Góc hạ bằng góc nâng tại vật (so le trong).</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Tính cạnh và góc của tam giác vuông</h3>
+    <div class="de"><p>a) $\triangle ABC$ vuông tại $A$, $AC=10$, $\widehat{C}=34^\circ$: tính $AB$. b) cạnh huyền $BC=10$, $\widehat{C}=41^\circ$: tính hai cạnh góc vuông. c) $BC=11$, $\widehat{B}=38^\circ$, $\widehat{C}=30^\circ$, $AN\perp BC$: tính $AN$. d) $BC=6$, $\widehat{B}=60^\circ$, $\widehat{C}=40^\circ$: tính $CH$, $AC$, diện tích.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-hethuc"><b>Dùng Lý thuyết 1:</b> liên hệ cạnh đã biết với cạnh cần tìm qua sin/cos/tan của góc đã cho.</a>
+      <ul>
+        <li>a) $AB$ là cạnh đối $\widehat{C}$, $AC$ là cạnh kề: $AB=AC\tan34^\circ=10\tan34^\circ\approx\mathbf{6{,}75}$.</li>
+        <li>b) $AB=BC\sin C=10\sin41^\circ\approx\mathbf{6{,}56}$; $AC=BC\cos C=10\cos41^\circ\approx\mathbf{7{,}55}$.</li>
+        <li>c) $AN$ là đường cao; $BN=\dfrac{AN}{\tan B}$, $CN=\dfrac{AN}{\tan C}$ và $BN+CN=BC$ nên
+        $AN(\cot38^\circ+\cot30^\circ)=11\Rightarrow AN=\dfrac{11}{1{,}280+1{,}732}\approx\mathbf{3{,}65}$.</li>
+        <li>d) $\widehat{A}=80^\circ$. Đường cao $CH=BC\sin B=6\sin60^\circ\approx\mathbf{5{,}20}$.
+        $AC=\dfrac{BC\sin B}{\sin A}=\dfrac{6\sin60^\circ}{\sin80^\circ}\approx\mathbf{5{,}28}$; $AB=\dfrac{6\sin40^\circ}{\sin80^\circ}\approx3{,}92$;
+        $S=\dfrac12\,AB\cdot CH\approx\dfrac12\cdot3{,}92\cdot5{,}20\approx\mathbf{10{,}2}$.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c, d:</b> tam giác <b>không vuông</b>, phải hạ đường cao $AN$ (hoặc $CH$) để tạo ra tam giác vuông rồi mới áp dụng hệ thức.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Giải tam giác vuông</h3>
+    <div class="de"><p>a) $\triangle ABC$ vuông $A$, $AB=5$, $AC=8$. b) $\triangle OPQ$ vuông $O$, $\widehat{P}=36^\circ$, $PQ=7$. c) $\triangle ABC$ vuông $A$, $\widehat{B}=35^\circ$, $BC=40$. d) $\triangle ABC$ vuông $A$, $AB=6$, $BC=7$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-giai"><b>Dùng Lý thuyết 2:</b> Pythagore + tổng hai góc nhọn $=90^\circ$ + hệ thức cạnh–góc.</a>
+      <ul>
+        <li>a) $BC=\sqrt{5^2+8^2}=\sqrt{89}\approx\mathbf{9{,}43}$; $\tan B=\dfrac{8}{5}=1{,}6\Rightarrow\widehat{B}\approx\mathbf{58^\circ}$, $\widehat{C}\approx\mathbf{32^\circ}$.</li>
+        <li>b) $\widehat{Q}=54^\circ$; $OQ=PQ\sin P=7\sin36^\circ\approx\mathbf{4{,}11}$; $OP=PQ\cos P=7\cos36^\circ\approx\mathbf{5{,}66}$.</li>
+        <li>c) $\widehat{C}=55^\circ$; $AC=BC\sin B=40\sin35^\circ\approx\mathbf{22{,}94}$; $AB=BC\cos B=40\cos35^\circ\approx\mathbf{32{,}77}$.</li>
+        <li>d) $AC=\sqrt{7^2-6^2}=\sqrt{13}\approx\mathbf{3{,}61}$; $\cos B=\dfrac{6}{7}\Rightarrow\widehat{B}\approx\mathbf{31^\circ}$, $\widehat{C}\approx\mathbf{59^\circ}$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Toán ứng dụng</h3>
+    <div class="de"><p>a) Tay cẩu $AB=16\,$m nghiêng $42^\circ$ so phương ngang; tính $BC$ (dây cáp thẳng đứng từ $B$). b) Người ở độ cao $54\,$m nhìn ô tô với góc hạ $40^\circ$; ô tô cách tòa nhà bao xa? c) Hải đăng cao $75\,$m, hai góc hạ $30^\circ$ và $45^\circ$; thuyền đi được bao nhiêu mét? d) $PQ=300\,$m, $\widehat{BPA}=14^\circ$, $\widehat{BQA}=42^\circ$; tính $h=AB$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ungdung"><b>Dùng Lý thuyết 3:</b> đưa góc hạ về góc trong tam giác vuông; với hai vị trí quan sát, lấy hiệu hai khoảng cách ngang.</a>
+      <ul>
+        <li>a) $B$ cao hơn mặt nước $BC=AB\sin42^\circ=16\sin42^\circ\approx\mathbf{10{,}7\,\text{m}}$.</li>
+        <li>b) Khoảng cách ngang $=\dfrac{54}{\tan40^\circ}\approx\mathbf{64\,\text{m}}$.</li>
+        <li>c) Khoảng cách ứng với $45^\circ$ là $75$; ứng với $30^\circ$ là $\dfrac{75}{\tan30^\circ}=75\sqrt3$.
+        Quãng đường $=75\sqrt3-75=75(\sqrt3-1)\approx\mathbf{54{,}9\,\text{m}}$.</li>
+        <li>d) $BP=\dfrac{h}{\tan14^\circ}$, $BQ=\dfrac{h}{\tan42^\circ}$, $BP-BQ=PQ$:
+        $h(\cot14^\circ-\cot42^\circ)=300\Rightarrow h=\dfrac{300}{4{,}011-1{,}111}\approx\mathbf{103{,}4\,\text{m}}$.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c, d:</b> mỗi góc cho một khoảng cách ngang riêng; quãng đường thuyền/đáy tháp là <b>hiệu</b> hai khoảng cách đó, đừng nhầm thành tổng.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Cạnh góc vuông $=$ huyền $\times\sin$(góc đối) $=$ huyền $\times\cos$(góc kề).</li>
+      <li>Giải tam giác vuông: cần đủ hai yếu tố (ít nhất một cạnh); kiểm tra lại bằng tổng góc $=90^\circ$.</li>
+      <li>Tam giác không vuông: hạ đường cao để tạo tam giác vuông rồi mới dùng hệ thức.</li>
+      <li>Góc hạ $=$ góc nâng tại vật; bài hai vị trí quan sát thường lấy hiệu hai khoảng cách ngang.</li>
+    </ul>
+  </div>
+
+</div>

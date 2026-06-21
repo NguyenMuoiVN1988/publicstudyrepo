@@ -1,0 +1,203 @@
+---
+layout: default
+title: Toán 9 - Ôn tập chương Hệ thức lượng trong tam giác vuông
+description: "Lời giải đề ôn tập chương hệ thức lượng trong tam giác vuông lớp 9 - phần trắc nghiệm và tự luận: tỉ số lượng giác, giải tam giác vuông, tìm góc và các bài toán thực tế."
+tags: [Toán 9, ôn tập chương, hệ thức lượng, tam giác vuông, trắc nghiệm, hình học]
+series: t9-c4
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương — Hệ thức lượng trong tam giác vuông</h1>
+    <p>Trắc nghiệm · Tự luận: tỉ số lượng giác, giải tam giác vuông, toán thực tế</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Lý thuyết trọng tâm cần nhớ</div>
+
+  <div class="theory" id="lt-tslg">
+    <span class="tag">📖 Nhắc lại 1</span>
+    <h3>Tỉ số lượng giác &amp; góc phụ nhau</h3>
+    <ul>
+      <li>$\sin\alpha=\dfrac{\text{đối}}{\text{huyền}}$, $\cos\alpha=\dfrac{\text{kề}}{\text{huyền}}$, $\tan\alpha=\dfrac{\text{đối}}{\text{kề}}$, $\cot\alpha=\dfrac{\text{kề}}{\text{đối}}$; $\sin^2\alpha+\cos^2\alpha=1$.</li>
+      <li>Hai góc phụ nhau: $\sin(90^\circ-\alpha)=\cos\alpha$, $\tan(90^\circ-\alpha)=\cot\alpha$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-hethuc">
+    <span class="tag">📖 Nhắc lại 2</span>
+    <h3>Hệ thức cạnh – góc &amp; giải tam giác vuông</h3>
+    <ul>
+      <li>$\triangle ABC$ vuông tại $A$: $b=a\sin B=a\cos C$, $c=a\sin C=a\cos B$; $b=c\tan B$, $c=b\tan C$.</li>
+      <li>Giải tam giác vuông: kết hợp Pythagore, tổng hai góc nhọn $=90^\circ$ và các hệ thức trên.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== TRẮC NGHIỆM ===================== -->
+  <div class="sec">✍ Phần I — Trắc nghiệm</div>
+
+  <div class="bai">
+    <h3><span class="num">I</span> Đáp án &amp; giải thích nhanh</h3>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tslg"><b>Dùng Nhắc lại 1 &amp; 2:</b> mỗi câu quy về một tam giác vuông rồi áp dụng tỉ số lượng giác / hệ thức.</a>
+      <ul>
+        <li><b>Câu 1.</b> $AB=\sqrt{8^2-6^2}=\sqrt{28}=2\sqrt7$; $\tan C=\dfrac{AB}{AC}=\dfrac{2\sqrt7}{6}\approx0{,}88$. ⟹ <span class="ans">C. $0{,}88$</span>.</li>
+        <li><b>Câu 2.</b> Ghép góc phụ nhau: $\tan20^\circ\tan70^\circ=\tan40^\circ\tan50^\circ=\tan30^\circ\tan60^\circ=1$, tích $=1$. ⟹ <span class="ans">B. $1$</span>.</li>
+        <li><b>Câu 3.</b> Khoảng cách $=\dfrac{149}{\tan27^\circ}\approx292$. ⟹ <span class="ans">A. $292\,$m</span>.</li>
+        <li><b>Câu 4.</b> $NP=MI(\cot70^\circ+\cot38^\circ)=11{,}5(0{,}364+1{,}280)\approx18{,}9$. ⟹ <span class="ans">B. $18{,}9\,$cm</span>.</li>
+        <li><b>Câu 5.</b> Chân thang cách tường $=3\sin40^\circ\approx1{,}9$. ⟹ <span class="ans">A. $1{,}9\,$m</span>.</li>
+        <li><b>Câu 6.</b> Quãng đường $3$ phút $=450\cdot\dfrac{3}{60}=22{,}5$; độ cao $=22{,}5\sin30^\circ=11{,}25$. ⟹ <span class="ans">D. $11{,}25\,$km</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu 5:</b> góc cho là góc giữa thang và <b>bờ tường</b> (phương thẳng đứng), nên khoảng cách chân thang–tường dùng $\sin$. Nếu là góc với mặt đất thì mới dùng $\cos$.</div>
+    </div>
+  </div>
+
+  <!-- ===================== TỰ LUẬN ===================== -->
+  <div class="sec">✍ Phần II — Tự luận</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Tìm số đo góc nhọn</h3>
+    <div class="de"><p>Tìm $\alpha$ (đến phút) biết: a) $\sin\alpha=0{,}25$; b) $\cos\alpha=0{,}75$; c) $\tan\alpha=1$; d) $\cot\alpha=2$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tslg"><b>Dùng Nhắc lại 1:</b> dùng phím nghịch đảo; với $\cot$ đổi sang $\tan=\dfrac{1}{\cot}$.</a>
+      <ul>
+        <li>a) $\alpha=\sin^{-1}0{,}25\approx\mathbf{14^\circ29'}$.</li>
+        <li>b) $\alpha=\cos^{-1}0{,}75\approx\mathbf{41^\circ25'}$.</li>
+        <li>c) $\tan\alpha=1\Rightarrow\alpha=\mathbf{45^\circ}$.</li>
+        <li>d) $\cot\alpha=2\Rightarrow\tan\alpha=0{,}5\Rightarrow\alpha\approx\mathbf{26^\circ34'}$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Tỉ số lượng giác từ một tỉ số đã biết</h3>
+    <div class="de"><p>Cho $\sin\alpha=0{,}8$; tính $\cos\alpha,\tan\alpha,\cot\alpha$. Cho $\triangle ABC$ vuông $A$, $AB=18$, $AC=24$; tính các tỉ số lượng giác của góc $B$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tslg"><b>Dùng Nhắc lại 1:</b> $\sin^2\alpha+\cos^2\alpha=1$ và $\tan=\dfrac{\sin}{\cos}$.</a>
+      <ul>
+        <li>$\cos\alpha=\sqrt{1-0{,}8^2}=\sqrt{0{,}36}=\mathbf{0{,}6}$; $\tan\alpha=\dfrac{0{,}8}{0{,}6}=\mathbf{\dfrac43}$; $\cot\alpha=\mathbf{\dfrac34}$.</li>
+        <li>$BC=\sqrt{18^2+24^2}=\sqrt{900}=30$. Với góc $B$: $\sin B=\dfrac{AC}{BC}=\dfrac{24}{30}=\mathbf{0{,}8}$; $\cos B=\dfrac{18}{30}=\mathbf{0{,}6}$; $\tan B=\dfrac{24}{18}=\mathbf{\dfrac43}$; $\cot B=\mathbf{\dfrac34}$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Tính giá trị biểu thức &amp; chứng minh</h3>
+    <div class="de"><p>a) $A=4-\sin^2 45^\circ+2\cos^2 60^\circ-3\cot^2 45^\circ$; b) $B=\tan45^\circ\cos30^\circ\cot30^\circ$; c) $C=\sin15^\circ+\sin75^\circ-\cos15^\circ-\cos75^\circ+\sin30^\circ$; d) chứng minh $\dfrac{AC}{AB}=\dfrac{\sin B}{\sin C}$ với $\triangle ABC$ vuông tại $A$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tslg"><b>Dùng Nhắc lại 1:</b> thay góc đặc biệt; câu c dùng góc phụ nhau.</a>
+      <ul>
+        <li>a) $A=4-\left(\dfrac{\sqrt2}{2}\right)^2+2\left(\dfrac12\right)^2-3(1)^2=4-\dfrac12+\dfrac12-3=\mathbf{1}$.</li>
+        <li>b) $B=1\cdot\dfrac{\sqrt3}{2}\cdot\sqrt3=\mathbf{\dfrac32}$.</li>
+        <li>c) Vì $\sin75^\circ=\cos15^\circ$ và $\cos75^\circ=\sin15^\circ$ nên $\sin15^\circ+\sin75^\circ-\cos15^\circ-\cos75^\circ=0$; còn lại $C=\sin30^\circ=\mathbf{\dfrac12}$.</li>
+        <li>d) $\sin B=\dfrac{AC}{BC}$, $\sin C=\dfrac{AB}{BC}$ ⟹ $\dfrac{\sin B}{\sin C}=\dfrac{AC/BC}{AB/BC}=\dfrac{AC}{AB}$ (đpcm).</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> nhận ra ngay các cặp góc phụ nhau ($15^\circ$–$75^\circ$) để triệt tiêu, đừng bấm máy từng số rồi cộng (dễ sai số).</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Giải tam giác vuông &amp; ứng dụng</h3>
+    <div class="de"><p>a) $\triangle OPQ$ vuông $O$, $\widehat{P}=39^\circ$, $PQ=10$: giải tam giác. b) $PQ=203$, góc hạ $38^\circ$ và $44^\circ$: tính chiều cao tháp. c) Hai tàu từ $A$ theo hướng lệch $60^\circ$, tốc độ $20$ và $15$ hải lí/giờ; sau $1{,}5$ giờ hai tàu cách nhau bao nhiêu?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-hethuc"><b>Dùng Nhắc lại 2:</b> hệ thức cạnh–góc; câu c dùng định lí côsin.</a>
+      <ul>
+        <li>a) $\widehat{Q}=51^\circ$; $OQ=PQ\sin P=10\sin39^\circ\approx\mathbf{6{,}29}$; $OP=PQ\cos P=10\cos39^\circ\approx\mathbf{7{,}77}$.</li>
+        <li>b) Gọi $h$ là chiều cao; khoảng cách ngang $h\cot38^\circ$ và $h\cot44^\circ$, hiệu bằng $PQ$:
+        $h(\cot38^\circ-\cot44^\circ)=203\Rightarrow h=\dfrac{203}{1{,}280-1{,}036}\approx\mathbf{830{,}5\,\text{m}}$.</li>
+        <li>c) $AB=20\cdot1{,}5=30$, $AC=15\cdot1{,}5=22{,}5$. Định lí côsin:
+        $BC^2=30^2+22{,}5^2-2\cdot30\cdot22{,}5\cos60^\circ=731{,}25\Rightarrow BC\approx\mathbf{27{,}04}$ hải lí.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> hai tàu tạo góc $60^\circ$ <b>không vuông</b>, nên không dùng Pythagore mà phải dùng định lí côsin $BC^2=AB^2+AC^2-2\,AB\cdot AC\cos A$.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Nếu không nói gì thêm thì làm tròn đến hàng phần mười hoặc đến phút.</li>
+      <li>Phân biệt góc với mặt đất (dùng $\cos$ cho cạnh ngang) và góc với tường/phương thẳng đứng (dùng $\sin$).</li>
+      <li>Bài hai vị trí quan sát: chiều cao bằng $PQ$ chia cho <b>hiệu</b> hai côtang của góc.</li>
+      <li>Tam giác không vuông: dùng định lí côsin hoặc hạ đường cao tạo tam giác vuông.</li>
+    </ul>
+  </div>
+
+</div>

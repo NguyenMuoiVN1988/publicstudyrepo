@@ -256,6 +256,9 @@ details > div {
 - [C3B3: Biến đổi đơn giản và rút gọn biểu thức chứa căn thức bậc hai](T9/2026PhieuBT/LGC3B3.html)
 - [C3B4: Căn bậc ba và căn thức bậc ba](T9/2026PhieuBT/LGC3B4.html)
 - [C3B5: Ôn tập chương III](T9/2026PhieuBT/LGC3B5.html)
+- [C4B1: Tỉ số lượng giác của góc nhọn](T9/2026PhieuBT/LGC4B1.html)
+- [C4B2: Hệ thức giữa cạnh và góc trong tam giác vuông](T9/2026PhieuBT/LGC4B2.html)
+- [C4B3: Ôn tập chương IV (Hệ thức lượng trong tam giác vuông)](T9/2026PhieuBT/LGC4B3.html)
 
 </div>
 </details>
