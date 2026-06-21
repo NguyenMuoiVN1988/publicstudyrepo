@@ -105,6 +105,11 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD8/TestCD8Part2.html)
 - [Trắc nghiệm – Đề ôn tập số 03 (20 câu)](HSA/CDOnTap/CD8/TestCD8Part3.html)
 
+*Chuyên đề 9: Quan hệ song song*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD9/CD9.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD9/TestCD9Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (14 câu)](HSA/CDOnTap/CD9/TestCD9Part2.html)
+
 </div>
 </details>
 
