@@ -1,0 +1,236 @@
+---
+layout: default
+title: Toán 11 - Bài 3. Hàm số lượng giác
+description: "Lý thuyết và bài tập có lời giải về hàm số lượng giác - tìm tập xác định, xét tính chẵn lẻ, tính tuần hoàn và chu kì, tìm giá trị lớn nhất và nhỏ nhất, dành cho học sinh lớp 11."
+tags: [Toán 11, hàm số lượng giác, tập xác định, chẵn lẻ, tuần hoàn, GTLN GTNN]
+series: t11-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 3. Hàm số lượng giác</h1>
+    <p>Tập xác định · tính chẵn lẻ · tính tuần hoàn và chu kì · giá trị lớn nhất – nhỏ nhất.</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-txd">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Tập xác định của hàm số lượng giác</h3>
+    <ul>
+      <li>$y=\sin x$ và $y=\cos x$ xác định với mọi $x\in\mathbb{R}$.</li>
+      <li>$y=\tan x$ xác định khi $\cos x\neq0\Leftrightarrow x\neq\dfrac{\pi}{2}+k\pi$.</li>
+      <li>$y=\cot x$ xác định khi $\sin x\neq0\Leftrightarrow x\neq k\pi$.</li>
+      <li>Có căn bậc hai: biểu thức trong căn $\ge0$; có phân thức: mẫu $\neq0$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-chanle">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Hàm số chẵn, hàm số lẻ</h3>
+    <ul>
+      <li>Trước hết kiểm tra tập xác định $D$ <b>đối xứng</b> (nếu $x\in D$ thì $-x\in D$).</li>
+      <li>$f$ <b>chẵn</b> nếu $f(-x)=f(x)$; $f$ <b>lẻ</b> nếu $f(-x)=-f(x)$.</li>
+      <li>Nhớ: $\sin,\tan,\cot$ là hàm lẻ, $\cos$ là hàm chẵn — dùng để xét dấu khi thay $-x$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-tuanhoan">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Tính tuần hoàn — chu kì</h3>
+    <ul>
+      <li>$f$ tuần hoàn nếu tồn tại $T\neq0$ sao cho $x\pm T\in D$ và $f(x+T)=f(x)$ với mọi $x\in D$; số $T>0$ nhỏ nhất là <b>chu kì</b>.</li>
+      <li>$y=\sin x,\ y=\cos x$ tuần hoàn chu kì $2\pi$; $y=\tan x,\ y=\cot x$ tuần hoàn chu kì $\pi$.</li>
+      <li>$y=A\sin\omega x,\ y=A\cos\omega x$ tuần hoàn chu kì $T=\left|\dfrac{2\pi}{\omega}\right|$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-gtln">
+    <span class="tag">📖 Lý thuyết 4</span>
+    <h3>Tập giá trị — GTLN, GTNN</h3>
+    <ul>
+      <li>$-1\le\sin x\le1$, $-1\le\cos x\le1$, suy ra $0\le|\sin x|,|\cos x|\le1$.</li>
+      <li>$-\sqrt{a^2+b^2}\le a\sin x+b\cos x\le\sqrt{a^2+b^2}$.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Mẹo:</b> đưa về một hàm lượng giác rồi <b>đặt ẩn phụ</b> $t=\sin x$ (hoặc $\cos x$) với $t\in[-1;1]$,
+      chuyển bài toán thành tìm GTLN–GTNN của tam thức bậc hai theo $t$ trên đoạn $[-1;1]$.
+    </div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Tìm tập xác định</h3>
+    <div class="de">
+      <p><b>a)</b> $y=\dfrac{1-\cos x}{\sin x}$. &nbsp; <b>b)</b> $y=\cot3x$.</p>
+      <p><b>c)</b> $y=\sqrt{1-\cos4x}$. &nbsp; <b>d)</b> $y=\sqrt{\dfrac{1+\cos2x}{1-\sin2x}}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-txd"><b>Dùng Lý thuyết 1:</b> mẫu $\neq0$, biểu thức trong căn $\ge0$; nhớ $\sin x=0\Leftrightarrow x=k\pi$.</a>
+      <p><b>a)</b> ĐK $\sin x\neq0\Leftrightarrow x\neq k\pi$. Vậy $D=\mathbb{R}\setminus\{k\pi\mid k\in\mathbb{Z}\}$.</p>
+      <p><b>b)</b> $\cot3x$ xác định khi $\sin3x\neq0\Leftrightarrow 3x\neq k\pi\Leftrightarrow x\neq\dfrac{k\pi}{3}$. Vậy $D=\mathbb{R}\setminus\Big\{\dfrac{k\pi}{3}\Big\}$.</p>
+      <p><b>c)</b> Vì $\cos4x\le1$ nên $1-\cos4x\ge0$ với mọi $x$. Vậy $D=\mathbb{R}$.</p>
+      <p><b>d)</b> Ta có $1+\cos2x=2\cos^2x\ge0$ và $1-\sin2x=(\sin x-\cos x)^2\ge0$, nên phân thức luôn $\ge0$ khi mẫu khác $0$.</p>
+      <p>ĐK: $1-\sin2x\neq0\Leftrightarrow(\sin x-\cos x)^2\neq0\Leftrightarrow\tan x\neq1\Leftrightarrow x\neq\dfrac{\pi}{4}+k\pi$.</p>
+      <p>Vậy $D=\mathbb{R}\setminus\Big\{\dfrac{\pi}{4}+k\pi\Big\}$.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy câu c:</b> đừng vội giải bất phương trình $1-\cos4x\ge0$ — hãy nhớ $\cos$ luôn $\le1$ nên điều kiện đúng với mọi $x$.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Xét tính chẵn, lẻ</h3>
+    <div class="de">
+      <p><b>a)</b> $y=\dfrac{\cos2x}{x^3}$. &nbsp; <b>b)</b> $y=x-\sin3x$.</p>
+      <p><b>c)</b> $y=\tan x+2\sin x$. &nbsp; <b>d)</b> $y=\sin x\cos^3x$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-chanle"><b>Dùng Lý thuyết 2:</b> kiểm tra $D$ đối xứng rồi tính $f(-x)$.</a>
+      <p><b>a)</b> $D=\mathbb{R}\setminus\{0\}$ đối xứng. $f(-x)=\dfrac{\cos(-2x)}{(-x)^3}=\dfrac{\cos2x}{-x^3}=-f(x)$ → hàm <b>lẻ</b>.</p>
+      <p><b>b)</b> $D=\mathbb{R}$. $f(-x)=-x-\sin(-3x)=-x+\sin3x=-(x-\sin3x)=-f(x)$ → hàm <b>lẻ</b>.</p>
+      <p><b>c)</b> $D=\mathbb{R}\setminus\{\tfrac{\pi}{2}+k\pi\}$ đối xứng. $f(-x)=\tan(-x)+2\sin(-x)=-\tan x-2\sin x=-f(x)$ → hàm <b>lẻ</b>.</p>
+      <p><b>d)</b> $D=\mathbb{R}$. $f(-x)=\sin(-x)\cos^3(-x)=-\sin x\cos^3x=-f(x)$ → hàm <b>lẻ</b>.</p>
+      <div class="trap">
+        <b>⚠️ Lưu ý:</b> luôn xét $D$ đối xứng <b>trước</b>. Nếu $D$ không đối xứng thì kết luận ngay “không chẵn, không lẻ”, khỏi cần tính $f(-x)$.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Tính tuần hoàn — chu kì</h3>
+    <div class="de">
+      <p><b>a)</b> Chứng minh $y=\cos x$ tuần hoàn với chu kì $T=2\pi$.</p>
+      <p><b>b)</b> Chứng minh $y=\tan x$ tuần hoàn với chu kì $T=\pi$.</p>
+      <p><b>c)</b> Chứng minh $y=x+\sin x$ không tuần hoàn.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tuanhoan"><b>Dùng Lý thuyết 3:</b> chứng tỏ $f(x+T)=f(x)$ rồi chứng minh $T$ là số dương nhỏ nhất.</a>
+      <p><b>a)</b> Hàm xác định trên $\mathbb{R}$, $x\pm2\pi\in\mathbb{R}$ và $\cos(x+2\pi)=\cos x$ với mọi $x$ → $2\pi$ là một chu kì.</p>
+      <p>Giả sử có $0<T<2\pi$ với $\cos(x+T)=\cos x\ \forall x$. Cho $x=0$: $\cos T=1\Rightarrow T=k2\pi$, mâu thuẫn với $0<T<2\pi$. Vậy chu kì là $T=2\pi$.</p>
+      <p><b>b)</b> Trên $D=\mathbb{R}\setminus\{\tfrac{\pi}{2}+k\pi\}$ ta có $\tan(x+\pi)=\tan x\ \forall x\in D$ → $\pi$ là một chu kì.</p>
+      <p>Giả sử có $0<T<\pi$ với $\tan(x+T)=\tan x$. Cho $x=0$: $\tan T=0\Rightarrow T=k\pi$, mâu thuẫn. Vậy chu kì là $T=\pi$.</p>
+      <p><b>c)</b> Giả sử tồn tại $T>0$ sao cho $f(x+T)=f(x)\ \forall x$, tức</p>
+      <p>$(x+T)+\sin(x+T)=x+\sin x\Rightarrow\sin(x+T)-\sin x=-T\ \forall x$.</p>
+      <p>Vế trái $=2\cos\!\big(x+\tfrac{T}{2}\big)\sin\tfrac{T}{2}$ thay đổi theo $x$ (nhận cả giá trị dương lẫn âm khi $\sin\tfrac{T}{2}\neq0$), không thể luôn bằng hằng số $-T<0$. Còn nếu $\sin\tfrac{T}{2}=0$ thì $-T=0$, mâu thuẫn $T>0$.</p>
+      <p>Vậy không tồn tại $T$ → hàm số <b>không tuần hoàn</b>.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Giá trị lớn nhất — giá trị nhỏ nhất</h3>
+    <div class="de">
+      <p><b>a)</b> $y=2+3|\cos x|$. &nbsp; <b>b)</b> $y=3\cos^2x+4\cos2x$.</p>
+      <p><b>c)</b> $y=\cos x+\sin x$. &nbsp; <b>d)</b> $y=\cos^2x+2\sin x+2$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-gtln"><b>Dùng Lý thuyết 4:</b> chặn theo $|\sin|,|\cos|\le1$, công thức $a\sin x+b\cos x$, hoặc đặt ẩn phụ.</a>
+      <p><b>a)</b> $0\le|\cos x|\le1\Rightarrow2\le y\le5$. Vậy $\min y=2$ (khi $\cos x=0$), $\max y=5$ (khi $|\cos x|=1$).</p>
+      <p><b>b)</b> Hạ bậc $\cos^2x=\dfrac{1+\cos2x}{2}$:</p>
+      <p>$y=\dfrac32+\dfrac32\cos2x+4\cos2x=\dfrac32+\dfrac{11}{2}\cos2x$. Vì $-1\le\cos2x\le1$:</p>
+      <p>$\min y=\dfrac32-\dfrac{11}{2}=-4$ (khi $\cos2x=-1$), $\max y=\dfrac32+\dfrac{11}{2}=7$ (khi $\cos2x=1$).</p>
+      <p><b>c)</b> $y=\cos x+\sin x=\sqrt2\sin\!\big(x+\tfrac{\pi}{4}\big)$. Vậy $-\sqrt2\le y\le\sqrt2$: $\min y=-\sqrt2$, $\max y=\sqrt2$.</p>
+      <p><b>d)</b> $y=(1-\sin^2x)+2\sin x+2=-\sin^2x+2\sin x+3$. Đặt $t=\sin x\in[-1;1]$:</p>
+      <p>$g(t)=-t^2+2t+3=-(t-1)^2+4$ đồng biến trên $[-1;1]$. Do đó $\min y=g(-1)=0$ (khi $\sin x=-1$), $\max y=g(1)=4$ (khi $\sin x=1$).</p>
+      <div class="trap">
+        <b>⚠️ Bẫy câu d:</b> $-(t-1)^2+4$ có đỉnh tại $t=1$ <b>nằm ở mép phải</b> của $[-1;1]$, nên GTLN đạt tại $t=1$, GTNN tại $t=-1$ — phải xét trên đoạn, không lấy đỉnh parabol tuỳ tiện.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>TXĐ: $\tan x$ loại $\tfrac{\pi}{2}+k\pi$, $\cot x$ loại $k\pi$; biểu thức trong căn $\ge0$, mẫu $\neq0$.</li>
+      <li>Xét chẵn lẻ: kiểm tra $D$ đối xứng trước, rồi mới tính $f(-x)$.</li>
+      <li>Chứng minh chu kì: vừa chỉ ra $f(x+T)=f(x)$, vừa chứng minh $T$ là số dương nhỏ nhất (thường thay $x=0$).</li>
+      <li>GTLN–GTNN: hạ bậc / đưa về $a\sin x+b\cos x$ hoặc đặt $t=\sin x\in[-1;1]$ rồi khảo sát tam thức trên đoạn.</li>
+    </ul>
+  </div>
+
+</div>

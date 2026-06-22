@@ -1,0 +1,256 @@
+---
+layout: default
+title: Toán 11 - Bài 2. Công thức lượng giác
+description: "Lý thuyết và bài tập có lời giải về công thức lượng giác - công thức cộng, nhân đôi, hạ bậc, biến đổi tích thành tổng và tổng thành tích, dành cho học sinh lớp 11."
+tags: [Toán 11, lượng giác, công thức cộng, nhân đôi, hạ bậc, đại số]
+series: t11-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 2. Công thức lượng giác</h1>
+    <p>Công thức cộng · nhân đôi – hạ bậc · biến đổi tích ↔ tổng · kết hợp để rút gọn, chứng minh.</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-cong">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Công thức cộng</h3>
+    <ul>
+      <li>$\cos(a\pm b)=\cos a\cos b\mp\sin a\sin b$ &nbsp;(dấu <b>ngược</b> với dấu trong ngoặc).</li>
+      <li>$\sin(a\pm b)=\sin a\cos b\pm\cos a\sin b$ &nbsp;(dấu <b>cùng</b>).</li>
+      <li>$\tan(a\pm b)=\dfrac{\tan a\pm\tan b}{1\mp\tan a\tan b}$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-nhandoi">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Công thức nhân đôi, nhân ba và hạ bậc</h3>
+    <ul>
+      <li>$\sin2a=2\sin a\cos a$;  $\cos2a=\cos^2a-\sin^2a=2\cos^2a-1=1-2\sin^2a$;  $\tan2a=\dfrac{2\tan a}{1-\tan^2a}$.</li>
+      <li><b>Nhân ba:</b> $\sin3a=3\sin a-4\sin^3a$;  $\cos3a=4\cos^3a-3\cos a$.</li>
+      <li><b>Hạ bậc:</b> $\sin^2a=\dfrac{1-\cos2a}{2}$;  $\cos^2a=\dfrac{1+\cos2a}{2}$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-tichtong">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Biến đổi tích ↔ tổng</h3>
+    <ul>
+      <li><b>Tích → tổng:</b> $\cos a\cos b=\tfrac12[\cos(a-b)+\cos(a+b)]$;
+        $\sin a\sin b=\tfrac12[\cos(a-b)-\cos(a+b)]$;
+        $\sin a\cos b=\tfrac12[\sin(a-b)+\sin(a+b)]$.</li>
+      <li><b>Tổng → tích:</b> $\cos u+\cos v=2\cos\tfrac{u+v}{2}\cos\tfrac{u-v}{2}$;
+        $\cos u-\cos v=-2\sin\tfrac{u+v}{2}\sin\tfrac{u-v}{2}$;</li>
+      <li>$\sin u+\sin v=2\sin\tfrac{u+v}{2}\cos\tfrac{u-v}{2}$;
+        $\sin u-\sin v=2\cos\tfrac{u+v}{2}\sin\tfrac{u-v}{2}$.</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Hệ quả hay dùng:</b> $\sin(A-B)\sin(A+B)=\sin^2A-\sin^2B$ và $\cos(A-B)\cos(A+B)=\cos^2A-\sin^2B$.
+    </div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Công thức cộng</h3>
+    <div class="de">
+      <p><b>a)</b> Tính các giá trị lượng giác của góc $\dfrac{\pi}{12}$.</p>
+      <p><b>b)</b> $\sin\alpha=\dfrac35$, $\dfrac{\pi}{2}<\alpha<\pi$. Tính $\tan\!\big(\alpha+\tfrac{\pi}{3}\big)$.</p>
+      <p><b>c)</b> $\sin\alpha=\dfrac45$, $\sin\beta=\dfrac{8}{17}$, $0<\alpha,\beta<\dfrac{\pi}{2}$. Tính $\cos(\alpha+\beta),\sin(\alpha-\beta)$.</p>
+      <p><b>d)</b> $\alpha-\beta=\dfrac{\pi}{3}$. Tính $A=(\cos\alpha+\cos\beta)^2+(\sin\alpha+\sin\beta)^2$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cong"><b>Dùng Lý thuyết 1:</b> tách góc thành hiệu/tổng các góc đặc biệt rồi áp dụng công thức cộng.</a>
+      <p><b>a)</b> Viết $\dfrac{\pi}{12}=\dfrac{\pi}{3}-\dfrac{\pi}{4}$:</p>
+      <ul>
+        <li>$\cos\dfrac{\pi}{12}=\cos\tfrac{\pi}{3}\cos\tfrac{\pi}{4}+\sin\tfrac{\pi}{3}\sin\tfrac{\pi}{4}=\dfrac{\sqrt6+\sqrt2}{4}$.</li>
+        <li>$\sin\dfrac{\pi}{12}=\sin\tfrac{\pi}{3}\cos\tfrac{\pi}{4}-\cos\tfrac{\pi}{3}\sin\tfrac{\pi}{4}=\dfrac{\sqrt6-\sqrt2}{4}$.</li>
+        <li>$\tan\dfrac{\pi}{12}=\dfrac{\sqrt6-\sqrt2}{\sqrt6+\sqrt2}=2-\sqrt3$;  $\cot\dfrac{\pi}{12}=2+\sqrt3$.</li>
+      </ul>
+      <p><b>b)</b> Góc $\alpha$ thuộc phần tư II: $\cos\alpha=-\dfrac45$, $\tan\alpha=-\dfrac34$. Với $\tan\tfrac{\pi}{3}=\sqrt3$:</p>
+      <p>$\tan\!\big(\alpha+\tfrac{\pi}{3}\big)=\dfrac{\tan\alpha+\sqrt3}{1-\sqrt3\tan\alpha}
+        =\dfrac{-\tfrac34+\sqrt3}{1+\tfrac{3\sqrt3}{4}}=\dfrac{-3+4\sqrt3}{4+3\sqrt3}
+        =\boxed{\dfrac{48-25\sqrt3}{11}}$.</p>
+      <p><b>c)</b> Hai góc nhọn nên $\cos\alpha=\dfrac35$, $\cos\beta=\dfrac{15}{17}$.</p>
+      <ul>
+        <li>$\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta=\dfrac{3\cdot15-4\cdot8}{85}=\dfrac{13}{85}$.</li>
+        <li>$\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta=\dfrac{4\cdot15-3\cdot8}{85}=\dfrac{36}{85}$.</li>
+      </ul>
+      <p><b>d)</b> Khai triển và nhóm:</p>
+      <p>$A=(\cos^2\alpha+\sin^2\alpha)+(\cos^2\beta+\sin^2\beta)+2(\cos\alpha\cos\beta+\sin\alpha\sin\beta)$</p>
+      <p>$=1+1+2\cos(\alpha-\beta)=2+2\cos\dfrac{\pi}{3}=2+2\cdot\dfrac12=\boxed{3}$.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Công thức nhân đôi — hạ bậc</h3>
+    <div class="de">
+      <p><b>a)</b> $\sin\alpha=\dfrac13$, $0<\alpha<\dfrac{\pi}{2}$. Tính $\sin2\alpha,\cos2\alpha,\tan2\alpha$.</p>
+      <p><b>b)</b> $\cos2\alpha=-\dfrac14$, $\pi<\alpha<\dfrac{3\pi}{2}$. Tính $\sin\alpha,\cos\alpha$.</p>
+      <p><b>c)</b> $\sin a=\dfrac13$, $\dfrac{\pi}{2}<a<\pi$. Tính $\sin3a,\cos3a$.</p>
+      <p><b>d)</b> Rút gọn $C=3(\sin^4x+\cos^4x)-2(\sin^6x+\cos^6x)$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nhandoi"><b>Dùng Lý thuyết 2:</b> công thức nhân đôi/nhân ba; câu d dùng hạ bậc kết hợp hằng đẳng thức.</a>
+      <p><b>a)</b> $\alpha$ nhọn nên $\cos\alpha=\dfrac{2\sqrt2}{3}$.</p>
+      <p>$\sin2\alpha=2\sin\alpha\cos\alpha=\dfrac{4\sqrt2}{9}$;  $\cos2\alpha=1-2\sin^2\alpha=\dfrac79$; 
+        $\tan2\alpha=\dfrac{\sin2\alpha}{\cos2\alpha}=\dfrac{4\sqrt2}{7}$.</p>
+      <p><b>b)</b> Góc $\alpha$ thuộc phần tư III nên $\sin\alpha<0,\cos\alpha<0$.</p>
+      <ul>
+        <li>$\cos2\alpha=1-2\sin^2\alpha=-\dfrac14\Rightarrow\sin^2\alpha=\dfrac58\Rightarrow\sin\alpha=-\dfrac{\sqrt{10}}{4}$.</li>
+        <li>$\cos2\alpha=2\cos^2\alpha-1=-\dfrac14\Rightarrow\cos^2\alpha=\dfrac38\Rightarrow\cos\alpha=-\dfrac{\sqrt6}{4}$.</li>
+      </ul>
+      <p><b>c)</b> $a$ thuộc phần tư II nên $\cos a=-\dfrac{2\sqrt2}{3}$.</p>
+      <p>$\sin3a=3\sin a-4\sin^3a=1-\dfrac{4}{27}=\dfrac{23}{27}$.</p>
+      <p>$\cos3a=4\cos^3a-3\cos a=4\!\left(-\dfrac{16\sqrt2}{27}\right)+2\sqrt2=-\dfrac{64\sqrt2}{27}+\dfrac{54\sqrt2}{27}=-\dfrac{10\sqrt2}{27}$.</p>
+      <p><b>d)</b> Dùng $\sin^4x+\cos^4x=1-2\sin^2x\cos^2x$ và $\sin^6x+\cos^6x=1-3\sin^2x\cos^2x$:</p>
+      <p>$C=3(1-2\sin^2x\cos^2x)-2(1-3\sin^2x\cos^2x)=3-6t-2+6t=\boxed{1}$ &nbsp;(với $t=\sin^2x\cos^2x$).</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Biến đổi tích ↔ tổng</h3>
+    <div class="de">
+      <p><b>a)</b> $B=\sin\dfrac{\pi}{32}\cos\dfrac{\pi}{32}\cos\dfrac{\pi}{16}\cos\dfrac{\pi}{8}$.</p>
+      <p><b>b)</b> $D=\sin20^\circ\sin40^\circ\sin80^\circ$.</p>
+      <p><b>c)</b> $E=\cos75^\circ+\sin105^\circ$.</p>
+      <p><b>d)</b> Biến đổi thành tích: $\cos3x+\cos x$; $\sin5x-\sin x$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nhandoi"><b>Câu a</b> dùng <b>nhân đôi</b> ngược: $\sin\theta\cos\theta=\tfrac12\sin2\theta$ áp dụng liên tiếp.</a>
+      <p><b>a)</b> Nhân đôi liên tiếp:</p>
+      <p>$B=\tfrac12\sin\tfrac{\pi}{16}\cos\tfrac{\pi}{16}\cos\tfrac{\pi}{8}
+        =\tfrac14\sin\tfrac{\pi}{8}\cos\tfrac{\pi}{8}
+        =\tfrac18\sin\tfrac{\pi}{4}=\boxed{\dfrac{\sqrt2}{16}}$.</p>
+      <a class="link" href="#lt-tichtong"><b>Câu b, c</b> dùng Lý thuyết 3 (tích → tổng, các góc bù/phụ).</a>
+      <p><b>b)</b> $\sin40^\circ\sin80^\circ=\tfrac12(\cos40^\circ-\cos120^\circ)=\tfrac12\cos40^\circ+\tfrac14$. Nhân với $\sin20^\circ$:</p>
+      <p>$D=\tfrac12\sin20^\circ\cos40^\circ+\tfrac14\sin20^\circ
+        =\tfrac14(\sin60^\circ-\sin20^\circ)+\tfrac14\sin20^\circ=\tfrac14\sin60^\circ=\boxed{\dfrac{\sqrt3}{8}}$.</p>
+      <p><b>c)</b> $\sin105^\circ=\dfrac{\sqrt6+\sqrt2}{4}$, $\cos75^\circ=\dfrac{\sqrt6-\sqrt2}{4}$. Cộng lại:</p>
+      <p>$E=\dfrac{\sqrt6-\sqrt2}{4}+\dfrac{\sqrt6+\sqrt2}{4}=\dfrac{2\sqrt6}{4}=\boxed{\dfrac{\sqrt6}{2}}$.</p>
+      <a class="link" href="#lt-tichtong"><b>Câu d</b> dùng công thức tổng → tích.</a>
+      <p><b>d)</b> $\cos3x+\cos x=2\cos2x\cos x$;  $\sin5x-\sin x=2\cos3x\sin2x$.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Kết hợp các công thức — chứng minh</h3>
+    <div class="de">
+      <p><b>a)</b> $\sin x\sin\!\big(\tfrac{\pi}{3}-x\big)\sin\!\big(\tfrac{\pi}{3}+x\big)=\dfrac14\sin3x$.</p>
+      <p><b>b)</b> $\cos^6x+\sin^6x=\dfrac58+\dfrac38\cos4x$.</p>
+      <p><b>c)</b> $\dfrac{1-\sin2x}{1+\sin2x}=\cot^2\!\big(x+\tfrac{\pi}{4}\big)$.</p>
+      <p><b>d)</b> Rút gọn $E=\cos^2x+\cos^2\!\big(\tfrac{2\pi}{3}+x\big)+\cos^2\!\big(\tfrac{2\pi}{3}-x\big)$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tichtong"><b>Câu a</b> dùng hệ quả $\sin(A-B)\sin(A+B)=\sin^2A-\sin^2B$.</a>
+      <p><b>a)</b> $\sin\!\big(\tfrac{\pi}{3}-x\big)\sin\!\big(\tfrac{\pi}{3}+x\big)=\sin^2\tfrac{\pi}{3}-\sin^2x=\dfrac34-\sin^2x$.</p>
+      <p>$\text{VT}=\sin x\!\left(\dfrac34-\sin^2x\right)=\dfrac34\sin x-\sin^3x=\dfrac14(3\sin x-4\sin^3x)=\dfrac14\sin3x=\text{VP}$. (đpcm)</p>
+      <a class="link" href="#lt-nhandoi"><b>Câu b</b> dùng $\sin^6+\cos^6=1-3\sin^2x\cos^2x$ rồi hạ bậc.</a>
+      <p><b>b)</b> $\cos^6x+\sin^6x=1-3\sin^2x\cos^2x=1-\dfrac34\sin^22x=1-\dfrac34\cdot\dfrac{1-\cos4x}{2}=\dfrac58+\dfrac38\cos4x$. (đpcm)</p>
+      <p><b>c)</b> $1-\sin2x=(\sin x-\cos x)^2$, $1+\sin2x=(\sin x+\cos x)^2$. Mặt khác
+        $\cot\!\big(x+\tfrac{\pi}{4}\big)=\dfrac{\cos x-\sin x}{\cos x+\sin x}$. Vậy</p>
+      <p>$\dfrac{1-\sin2x}{1+\sin2x}=\dfrac{(\cos x-\sin x)^2}{(\cos x+\sin x)^2}=\cot^2\!\big(x+\tfrac{\pi}{4}\big)$. (đpcm)</p>
+      <a class="link" href="#lt-nhandoi"><b>Câu d</b> dùng hạ bậc $\cos^2\theta=\tfrac{1+\cos2\theta}{2}$ rồi tổng → tích.</a>
+      <p><b>d)</b> $E=\dfrac32+\dfrac12\Big[\cos2x+\cos\!\big(\tfrac{4\pi}{3}+2x\big)+\cos\!\big(\tfrac{4\pi}{3}-2x\big)\Big]$.</p>
+      <p>Mà $\cos\!\big(\tfrac{4\pi}{3}+2x\big)+\cos\!\big(\tfrac{4\pi}{3}-2x\big)=2\cos\tfrac{4\pi}{3}\cos2x=-\cos2x$, nên ngoặc vuông $=0$.</p>
+      <p>Vậy $E=\boxed{\dfrac32}$ (không phụ thuộc $x$).</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Công thức cộng: cos đổi dấu ngược, sin giữ dấu, tan có dấu “chéo” ở mẫu — viết cẩn thận từng dấu.</li>
+      <li>Để tính nhanh tích $\sin\theta\cos\theta$, dùng ngược nhân đôi $=\tfrac12\sin2\theta$ (câu 3a).</li>
+      <li>Khi biết $\cos2\alpha$ và phần tư của $\alpha$: dùng đồng thời $1-2\sin^2\alpha$ và $2\cos^2\alpha-1$ để ra cả $\sin\alpha,\cos\alpha$.</li>
+      <li>Bài “không phụ thuộc biến” (câu 4d): hạ bậc rồi gom các cặp đối xứng — kết quả là hằng số.</li>
+    </ul>
+  </div>
+
+</div>

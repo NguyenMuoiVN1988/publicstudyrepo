@@ -1,0 +1,217 @@
+---
+layout: default
+title: Toán 11 - Bài 4. Phương trình lượng giác cơ bản
+description: "Lý thuyết và bài tập có lời giải về phương trình lượng giác cơ bản - giải phương trình sin x = m, cos x = m, tan x = m, cot x = m và viết công thức nghiệm, dành cho học sinh lớp 11."
+tags: [Toán 11, phương trình lượng giác, sin x, cos x, tan x, cot x]
+series: t11-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 4. Phương trình lượng giác cơ bản</h1>
+    <p>Giải $\sin x=m$, $\cos x=m$, $\tan x=m$, $\cot x=m$ và viết đúng công thức nghiệm.</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-sincos">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Phương trình $\sin x=m$ và $\cos x=m$</h3>
+    <ul>
+      <li>Nếu $|m|>1$: phương trình <b>vô nghiệm</b>.</li>
+      <li>$\sin x=\sin\alpha\Leftrightarrow\left[\begin{array}{l}x=\alpha+k2\pi\\ x=\pi-\alpha+k2\pi\end{array}\right.$</li>
+      <li>$\cos x=\cos\alpha\Leftrightarrow x=\pm\alpha+k2\pi$ &nbsp;$(k\in\mathbb{Z})$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-tancot">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Phương trình $\tan x=m$ và $\cot x=m$</h3>
+    <ul>
+      <li>Hai phương trình này <b>luôn có nghiệm</b> với mọi $m$.</li>
+      <li>$\tan x=\tan\alpha\Leftrightarrow x=\alpha+k\pi$ (ĐK $\cos x\neq0$).</li>
+      <li>$\cot x=\cot\alpha\Leftrightarrow x=\alpha+k\pi$ (ĐK $\sin x\neq0$) &nbsp;$(k\in\mathbb{Z})$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-quydoi">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Đưa về cùng một hàm</h3>
+    <ul>
+      <li>$\sin u=-\sin v=\sin(-v)$; $\;\cos u=-\cos v=\cos(\pi-v)$.</li>
+      <li>$\cot u=\tan\!\big(\tfrac{\pi}{2}-u\big)$ — đổi $\cot$ về $\tan$ khi cần.</li>
+      <li>Phương trình dạng $a\sin^2x+b\sin x+c=0$: dùng $\cos2x=1-2\sin^2x$ để quy về phương trình bậc hai theo $\sin x$.</li>
+    </ul>
+    <div class="tip">
+      🔍 Với $\tan,\cot$ luôn <b>đặt điều kiện</b> ($\cos x\neq0$ hoặc $\sin x\neq0$) trước khi giải.
+    </div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Phương trình $\sin x=m$</h3>
+    <div class="de">
+      <p><b>a)</b> $2\sin x=-\sqrt2$. &nbsp; <b>b)</b> $\sin x+\cos2x=0$. &nbsp; <b>c)</b> $\sin3x=-\sin7x$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sincos"><b>Dùng Lý thuyết 1:</b> đưa về $\sin x=\sin\alpha$ rồi viết hai họ nghiệm.</a>
+      <p><b>a)</b> $\sin x=-\dfrac{\sqrt2}{2}=\sin\!\big(-\tfrac{\pi}{4}\big)$:</p>
+      <p>$x=-\dfrac{\pi}{4}+k2\pi$ hoặc $x=\dfrac{5\pi}{4}+k2\pi\ (k\in\mathbb{Z})$.</p>
+      <a class="link" href="#lt-quydoi"><b>Câu b</b> dùng $\cos2x=1-2\sin^2x$ để quy về bậc hai theo $\sin x$.</a>
+      <p><b>b)</b> $\sin x+1-2\sin^2x=0\Leftrightarrow2\sin^2x-\sin x-1=0\Leftrightarrow(2\sin x+1)(\sin x-1)=0$.</p>
+      <ul>
+        <li>$\sin x=1\Rightarrow x=\dfrac{\pi}{2}+k2\pi$.</li>
+        <li>$\sin x=-\dfrac12\Rightarrow x=-\dfrac{\pi}{6}+k2\pi$ hoặc $x=\dfrac{7\pi}{6}+k2\pi$.</li>
+      </ul>
+      <a class="link" href="#lt-quydoi"><b>Câu c</b> chuyển vế rồi dùng tổng → tích $\sin3x+\sin7x=2\sin5x\cos2x$.</a>
+      <p><b>c)</b> $\sin3x+\sin7x=0\Leftrightarrow2\sin5x\cos2x=0$:</p>
+      <ul>
+        <li>$\sin5x=0\Rightarrow x=\dfrac{k\pi}{5}$.</li>
+        <li>$\cos2x=0\Rightarrow x=\dfrac{\pi}{4}+\dfrac{k\pi}{2}$ &nbsp;$(k\in\mathbb{Z})$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Phương trình $\cos x=m$</h3>
+    <div class="de">
+      <p><b>a)</b> $\cos x=\dfrac{\sqrt3}{2}$. &nbsp; <b>b)</b> $2\cos x+\sqrt2=0$. &nbsp; <b>c)</b> $\cos\!\big(2x-\tfrac{\pi}{3}\big)=\dfrac12$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sincos"><b>Dùng Lý thuyết 1:</b> $\cos x=\cos\alpha\Leftrightarrow x=\pm\alpha+k2\pi$.</a>
+      <p><b>a)</b> $\cos x=\cos\dfrac{\pi}{6}\Rightarrow x=\pm\dfrac{\pi}{6}+k2\pi$.</p>
+      <p><b>b)</b> $\cos x=-\dfrac{\sqrt2}{2}=\cos\dfrac{3\pi}{4}\Rightarrow x=\pm\dfrac{3\pi}{4}+k2\pi$.</p>
+      <p><b>c)</b> $\cos\!\big(2x-\tfrac{\pi}{3}\big)=\cos\dfrac{\pi}{3}\Rightarrow2x-\dfrac{\pi}{3}=\pm\dfrac{\pi}{3}+k2\pi$:</p>
+      <ul>
+        <li>$2x=\dfrac{2\pi}{3}+k2\pi\Rightarrow x=\dfrac{\pi}{3}+k\pi$.</li>
+        <li>$2x=k2\pi\Rightarrow x=k\pi$ &nbsp;$(k\in\mathbb{Z})$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Phương trình $\tan x=m$</h3>
+    <div class="de">
+      <p><b>a)</b> $\tan x=\sqrt3$. &nbsp; <b>b)</b> $\sqrt3\,\tan\!\big(2x-\tfrac{\pi}{3}\big)=3$. &nbsp; <b>c)</b> $\tan(3x-1)=\cot(x+2)$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tancot"><b>Dùng Lý thuyết 2:</b> $\tan x=\tan\alpha\Leftrightarrow x=\alpha+k\pi$ (kèm điều kiện).</a>
+      <p><b>a)</b> $\tan x=\tan\dfrac{\pi}{3}\Rightarrow x=\dfrac{\pi}{3}+k\pi$.</p>
+      <p><b>b)</b> $\tan\!\big(2x-\tfrac{\pi}{3}\big)=\sqrt3=\tan\dfrac{\pi}{3}\Rightarrow2x-\dfrac{\pi}{3}=\dfrac{\pi}{3}+k\pi\Rightarrow x=\dfrac{\pi}{3}+\dfrac{k\pi}{2}$.</p>
+      <a class="link" href="#lt-quydoi"><b>Câu c</b> đổi $\cot$ về $\tan$: $\cot(x+2)=\tan\!\big(\tfrac{\pi}{2}-x-2\big)$.</a>
+      <p><b>c)</b> ĐK: $\cos(3x-1)\neq0$ và $\sin(x+2)\neq0$. Khi đó</p>
+      <p>$\tan(3x-1)=\tan\!\big(\tfrac{\pi}{2}-x-2\big)\Rightarrow3x-1=\dfrac{\pi}{2}-x-2+k\pi$</p>
+      <p>$\Rightarrow4x=\dfrac{\pi}{2}-1+k\pi\Rightarrow x=\dfrac{\pi}{8}-\dfrac14+\dfrac{k\pi}{4}\ (k\in\mathbb{Z})$ (thoả điều kiện).</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Phương trình $\cot x=m$</h3>
+    <div class="de">
+      <p><b>a)</b> $\cot x=-1$. &nbsp; <b>b)</b> $\sqrt3\,\cot(2x+25^\circ)=1$. &nbsp; <b>c)</b> $\cot3x=-\dfrac{1}{\sqrt3}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tancot"><b>Dùng Lý thuyết 2:</b> $\cot x=\cot\alpha\Leftrightarrow x=\alpha+k\pi$ (ĐK $\sin\neq0$).</a>
+      <p><b>a)</b> $\cot x=-1=\cot\dfrac{3\pi}{4}\Rightarrow x=\dfrac{3\pi}{4}+k\pi$.</p>
+      <p><b>b)</b> $\cot(2x+25^\circ)=\dfrac{1}{\sqrt3}=\cot60^\circ\Rightarrow2x+25^\circ=60^\circ+k180^\circ$</p>
+      <p>$\Rightarrow2x=35^\circ+k180^\circ\Rightarrow x=17^\circ30'+k90^\circ$.</p>
+      <p><b>c)</b> $\cot3x=-\dfrac{1}{\sqrt3}=\cot\dfrac{2\pi}{3}\Rightarrow3x=\dfrac{2\pi}{3}+k\pi\Rightarrow x=\dfrac{2\pi}{9}+\dfrac{k\pi}{3}\ (k\in\mathbb{Z})$.</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>$\sin x=m$, $\cos x=m$ vô nghiệm khi $|m|>1$; $\tan x=m$, $\cot x=m$ luôn có nghiệm.</li>
+      <li>$\sin$ cho <b>hai</b> họ nghiệm ($\alpha$ và $\pi-\alpha$), $\cos$ cho <b>hai</b> họ ($\pm\alpha$) — đều $+k2\pi$; $\tan,\cot$ chỉ <b>một</b> họ $+k\pi$.</li>
+      <li>Phương trình $\tan,\cot$ phải <b>đặt điều kiện</b> trước khi giải.</li>
+      <li>Muốn đưa về cùng một hàm: $\sin u=\sin v$ hay $\cos u=\cos v$; đổi $\cot u=\tan\!\big(\tfrac{\pi}{2}-u\big)$.</li>
+    </ul>
+  </div>
+
+</div>

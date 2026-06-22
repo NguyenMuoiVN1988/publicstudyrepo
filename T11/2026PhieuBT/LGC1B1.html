@@ -1,0 +1,263 @@
+---
+layout: default
+title: Toán 11 - Bài 1. Giá trị lượng giác của góc lượng giác
+description: "Lý thuyết và bài tập có lời giải về giá trị lượng giác của góc lượng giác - đổi đơn vị độ và rađian, độ dài cung tròn, hệ thức cơ bản, cung liên kết, rút gọn biểu thức lượng giác, dành cho học sinh lớp 11."
+tags: [Toán 11, lượng giác, giá trị lượng giác, cung liên kết, đại số]
+series: t11-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 1. Giá trị lượng giác của góc lượng giác</h1>
+    <p>Đổi đơn vị độ ↔ rađian · độ dài cung tròn · hệ thức cơ bản · cung liên kết · rút gọn và chứng minh.</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-cung">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Đổi đơn vị đo góc và độ dài cung tròn</h3>
+    <ul>
+      <li>Quan hệ độ – rađian: $180^\circ = \pi$ rad, do đó
+        $1^\circ = \dfrac{\pi}{180}$ rad và $1\ \text{rad} = \dfrac{180^\circ}{\pi}$.</li>
+      <li>Đổi từ độ sang rad: nhân với $\dfrac{\pi}{180}$. Đổi từ rad sang độ: nhân với $\dfrac{180^\circ}{\pi}$.</li>
+      <li><b>Độ dài cung:</b> cung có số đo $\alpha$ rad trên đường tròn bán kính $R$ có độ dài
+        $\boxed{\ell = R\,\alpha}$ ($\alpha$ <b>phải tính bằng rađian</b>).</li>
+      <li>Suy ra số đo cung: $\alpha = \dfrac{\ell}{R}$ (rad).</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-hethuc">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Hệ thức cơ bản &amp; dấu của giá trị lượng giác</h3>
+    <ul>
+      <li>$\sin^2\alpha + \cos^2\alpha = 1$;
+        $1 + \tan^2\alpha = \dfrac{1}{\cos^2\alpha}$;
+        $1 + \cot^2\alpha = \dfrac{1}{\sin^2\alpha}$;
+        $\tan\alpha\cdot\cot\alpha = 1$.</li>
+      <li><b>Dấu theo phần tư</b> (nhớ câu “nhất cả – nhì sin – tam tan – tứ cos” mang dấu dương):</li>
+    </ul>
+    <div class="tip">
+      🔍 <b>Quy trình</b> khi biết một giá trị lượng giác: dùng hệ thức tính bình phương giá trị cần tìm,
+      rồi <b>chọn dấu</b> dựa vào phần tư chứa điểm cuối của góc trước khi lấy căn.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-lienket">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Giá trị lượng giác của các góc liên quan đặc biệt</h3>
+    <ul>
+      <li><b>Đối nhau</b> ($-\alpha$): $\cos(-\alpha)=\cos\alpha$, còn $\sin,\tan,\cot$ đổi dấu — “<b>cos đối</b>”.</li>
+      <li><b>Bù nhau</b> ($\pi-\alpha$): $\sin(\pi-\alpha)=\sin\alpha$, ba cái còn lại đổi dấu — “<b>sin bù</b>”.</li>
+      <li><b>Phụ nhau</b> ($\tfrac{\pi}{2}-\alpha$): $\sin\!\big(\tfrac{\pi}{2}-\alpha\big)=\cos\alpha$,
+        $\cos\!\big(\tfrac{\pi}{2}-\alpha\big)=\sin\alpha$, $\tan\leftrightarrow\cot$ — “<b>phụ chéo</b>”.</li>
+      <li><b>Hơn kém $\pi$</b>: $\sin(\pi+\alpha)=-\sin\alpha$, $\cos(\pi+\alpha)=-\cos\alpha$,
+        $\tan(\pi+\alpha)=\tan\alpha$, $\cot(\pi+\alpha)=\cot\alpha$ — “<b>hơn kém $\pi$ tang, côtang</b>”.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Đổi đơn vị đo góc — độ dài cung tròn</h3>
+    <div class="de">
+      <p><b>a)</b> Đổi sang rađian: $10^\circ$; $\;160^\circ$.</p>
+      <p><b>b)</b> Đổi sang độ: $\dfrac{\pi}{8}$; $\;\dfrac{20\pi}{9}$.</p>
+      <p><b>c)</b> Đường tròn $R=25$ m. Tính độ dài cung số đo $20^\circ$ và cung số đo $\dfrac{2\pi}{3}$.</p>
+      <p><b>d)</b> Đường tròn $R=15$ m. Tính số đo (rad) của cung dài $50$ m và cung dài $10$ m.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cung"><b>Dùng Lý thuyết 1:</b> đổi $1^\circ=\tfrac{\pi}{180}$, $1\,\text{rad}=\tfrac{180^\circ}{\pi}$; độ dài cung $\ell=R\alpha$.</a>
+      <p><b>a)</b> $10^\circ = 10\cdot\dfrac{\pi}{180} = \dfrac{\pi}{18}$; 
+        $160^\circ = 160\cdot\dfrac{\pi}{180} = \dfrac{8\pi}{9}$.</p>
+      <p><b>b)</b> $\dfrac{\pi}{8} = \dfrac{\pi}{8}\cdot\dfrac{180^\circ}{\pi} = 22^\circ 30'$ (tức $22{,}5^\circ$); 
+        $\dfrac{20\pi}{9} = \dfrac{20\pi}{9}\cdot\dfrac{180^\circ}{\pi} = 400^\circ$.</p>
+      <p><b>c)</b> Đổi $20^\circ = \dfrac{\pi}{9}$ rad. Khi đó:</p>
+      <ul>
+        <li>Cung $20^\circ$: $\ell = R\alpha = 25\cdot\dfrac{\pi}{9} = \dfrac{25\pi}{9} \approx 8{,}73$ m.</li>
+        <li>Cung $\dfrac{2\pi}{3}$: $\ell = 25\cdot\dfrac{2\pi}{3} = \dfrac{50\pi}{3} \approx 52{,}36$ m.</li>
+      </ul>
+      <p><b>d)</b> Số đo cung $\alpha = \dfrac{\ell}{R}$:
+        cung dài $50$ m: $\alpha = \dfrac{50}{15} = \dfrac{10}{3}$ rad; 
+        cung dài $10$ m: $\alpha = \dfrac{10}{15} = \dfrac{2}{3}$ rad.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> công thức $\ell=R\alpha$ chỉ đúng khi $\alpha$ <b>tính bằng rađian</b>.
+        Với số đo độ phải đổi sang rad trước (như câu c đổi $20^\circ\to\tfrac{\pi}{9}$).
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Tính giá trị lượng giác của một góc</h3>
+    <div class="de">
+      <p><b>a)</b> $\sin\alpha=\dfrac{1}{5}$, $0\le\alpha<\dfrac{\pi}{2}$. Tính $\cos\alpha,\tan\alpha,\cot\alpha$.</p>
+      <p><b>b)</b> $\sin x=-\dfrac{3}{5}$, $\pi<x<\dfrac{3\pi}{2}$. Tính $\cos x,\tan x,\cot x$.</p>
+      <p><b>c)</b> $\tan\alpha=2$, $0<\alpha<\dfrac{\pi}{2}$. Tính $\sin\alpha,\cos\alpha,\cot\alpha$.</p>
+      <p><b>d)</b> $\cot x=2$. Tính $B=\dfrac{2\sin x+3\cos x}{3\sin x-2\cos x}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-hethuc"><b>Dùng Lý thuyết 2:</b> hệ thức cơ bản để tính bình phương, rồi chọn dấu theo phần tư.</a>
+      <p><b>a)</b> $\alpha$ thuộc phần tư thứ nhất nên $\cos\alpha>0$:
+        $\cos\alpha=\sqrt{1-\sin^2\alpha}=\sqrt{1-\dfrac{1}{25}}=\dfrac{2\sqrt{6}}{5}$.</p>
+      <p>$\tan\alpha=\dfrac{\sin\alpha}{\cos\alpha}=\dfrac{1/5}{2\sqrt6/5}=\dfrac{1}{2\sqrt6}=\dfrac{\sqrt6}{12}$; 
+        $\cot\alpha=\dfrac{1}{\tan\alpha}=2\sqrt6$.</p>
+      <p><b>b)</b> $\pi<x<\dfrac{3\pi}{2}$ (phần tư III) nên $\cos x<0$:
+        $\cos x=-\sqrt{1-\dfrac{9}{25}}=-\dfrac{4}{5}$.</p>
+      <p>$\tan x=\dfrac{-3/5}{-4/5}=\dfrac{3}{4}$;  $\cot x=\dfrac{4}{3}$.</p>
+      <p><b>c)</b> $\alpha$ thuộc phần tư I, mọi giá trị dương. Từ $1+\tan^2\alpha=\dfrac{1}{\cos^2\alpha}$:</p>
+      <p>$\dfrac{1}{\cos^2\alpha}=1+4=5\Rightarrow\cos^2\alpha=\dfrac15\Rightarrow\cos\alpha=\dfrac{\sqrt5}{5}$.</p>
+      <p>$\sin\alpha=\tan\alpha\cdot\cos\alpha=2\cdot\dfrac{\sqrt5}{5}=\dfrac{2\sqrt5}{5}$;  $\cot\alpha=\dfrac12$.</p>
+      <p><b>d)</b> Chia cả tử và mẫu cho $\sin x\ (\sin x\neq0)$ rồi thay $\dfrac{\cos x}{\sin x}=\cot x=2$:</p>
+      <p>$B=\dfrac{2+3\cot x}{3-2\cot x}=\dfrac{2+3\cdot2}{3-2\cdot2}=\dfrac{8}{-1}=\boxed{-8}$.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> câu d không cần biết riêng $\sin x,\cos x$. Mẹo “<b>chia cho $\sin x$ (hoặc $\cos x$)</b>”
+        biến mọi thứ về $\cot x$ (hoặc $\tan x$) đã cho.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Giá trị lượng giác của các góc liên quan đặc biệt</h3>
+    <div class="de">
+      <p>Cho $\sin\alpha=\dfrac{3}{5}$, $\cos\alpha=-\dfrac{4}{5}$.</p>
+      <p><b>a)</b> Rút gọn rồi tính $A=\sin\!\big(\tfrac{\pi}{2}-\alpha\big)+\sin(\pi+\alpha)$.</p>
+      <p><b>b)</b> Tính $C=\cos(\pi-\alpha)+\cot\!\big(\tfrac{\pi}{2}-\alpha\big)$.</p>
+      <p><b>c)</b> Cho $0<\alpha<\dfrac{\pi}{2}$. Xét dấu của $\cos(\alpha+\pi)$; $\tan(\alpha-\pi)$; $\sin\!\big(\alpha+\tfrac{2\pi}{5}\big)$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-lienket"><b>Dùng Lý thuyết 3:</b> phụ chéo, sin bù/hơn kém $\pi$, cos đối… để rút gọn về $\alpha$.</a>
+      <p><b>a)</b> $\sin\!\big(\tfrac{\pi}{2}-\alpha\big)=\cos\alpha$ (phụ chéo), $\sin(\pi+\alpha)=-\sin\alpha$.</p>
+      <p>$A=\cos\alpha-\sin\alpha=-\dfrac45-\dfrac35=\boxed{-\dfrac75}$.</p>
+      <p><b>b)</b> $\cos(\pi-\alpha)=-\cos\alpha$, $\cot\!\big(\tfrac{\pi}{2}-\alpha\big)=\tan\alpha$.</p>
+      <p>Với $\tan\alpha=\dfrac{\sin\alpha}{\cos\alpha}=\dfrac{3/5}{-4/5}=-\dfrac34$:</p>
+      <p>$C=-\cos\alpha+\tan\alpha=-\!\left(-\dfrac45\right)+\left(-\dfrac34\right)=\dfrac{16}{20}-\dfrac{15}{20}=\boxed{\dfrac{1}{20}}$.</p>
+      <p><b>c)</b> Vì $0<\alpha<\dfrac{\pi}{2}$ nên $\sin\alpha>0,\cos\alpha>0,\tan\alpha>0$.</p>
+      <ul>
+        <li>$\cos(\alpha+\pi)=-\cos\alpha<0$ → <span class="no">mang dấu âm</span>.</li>
+        <li>$\tan(\alpha-\pi)=\tan\alpha>0$ → <span class="yes">mang dấu dương</span>.</li>
+        <li>$\alpha+\dfrac{2\pi}{5}\in\left(\dfrac{2\pi}{5};\dfrac{9\pi}{10}\right)$ tức $(72^\circ;162^\circ)\subset(0;\pi)$ nên $\sin\!\big(\alpha+\tfrac{2\pi}{5}\big)>0$ → <span class="yes">mang dấu dương</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Rút gọn — chứng minh đẳng thức</h3>
+    <div class="de">
+      <p>Chứng minh các đẳng thức:</p>
+      <p><b>a)</b> $\cos^4\alpha-\sin^4\alpha=2\cos^2\alpha-1$.</p>
+      <p><b>b)</b> $\sin^6\alpha+\cos^6\alpha=1-3\sin^2\alpha\cos^2\alpha$.</p>
+      <p><b>c)</b> $\tan^2\alpha-\sin^2\alpha=\tan^2\alpha\cdot\sin^2\alpha$.</p>
+      <p><b>d)</b> $\dfrac{\sin^2x-\cos^2x+\cos^4x}{\cos^2x-\sin^2x+\sin^4x}=\tan^4x$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-hethuc"><b>Dùng Lý thuyết 2:</b> chìa khoá là $\sin^2+\cos^2=1$ cùng các hằng đẳng thức đại số.</a>
+      <p><b>a)</b> $\cos^4\alpha-\sin^4\alpha=(\cos^2\alpha-\sin^2\alpha)(\cos^2\alpha+\sin^2\alpha)=\cos^2\alpha-\sin^2\alpha$.</p>
+      <p>Thay $\sin^2\alpha=1-\cos^2\alpha$: $=\cos^2\alpha-(1-\cos^2\alpha)=2\cos^2\alpha-1$. (đpcm)</p>
+      <p><b>b)</b> $\sin^6\alpha+\cos^6\alpha=(\sin^2\alpha+\cos^2\alpha)^3-3\sin^2\alpha\cos^2\alpha(\sin^2\alpha+\cos^2\alpha)$</p>
+      <p>$=1-3\sin^2\alpha\cos^2\alpha\cdot1=1-3\sin^2\alpha\cos^2\alpha$. (đpcm)</p>
+      <p><b>c)</b> $\tan^2\alpha-\sin^2\alpha=\dfrac{\sin^2\alpha}{\cos^2\alpha}-\sin^2\alpha=\sin^2\alpha\!\left(\dfrac{1}{\cos^2\alpha}-1\right)=\sin^2\alpha\cdot\dfrac{1-\cos^2\alpha}{\cos^2\alpha}$</p>
+      <p>$=\sin^2\alpha\cdot\dfrac{\sin^2\alpha}{\cos^2\alpha}=\sin^2\alpha\cdot\tan^2\alpha$. (đpcm)</p>
+      <p><b>d)</b> Biến đổi riêng tử và mẫu:</p>
+      <ul>
+        <li>Tử: $\sin^2x-\cos^2x+\cos^4x=(1-\cos^2x)-\cos^2x+\cos^4x=1-2\cos^2x+\cos^4x=(1-\cos^2x)^2=\sin^4x$.</li>
+        <li>Mẫu: $\cos^2x-\sin^2x+\sin^4x=(1-\sin^2x)-\sin^2x+\sin^4x=1-2\sin^2x+\sin^4x=(1-\sin^2x)^2=\cos^4x$.</li>
+      </ul>
+      <p>Vậy biểu thức $=\dfrac{\sin^4x}{\cos^4x}=\tan^4x$. (đpcm)</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>$\ell=R\alpha$ và $\alpha=\dfrac{\ell}{R}$ chỉ dùng với $\alpha$ <b>theo rađian</b>; gặp số đo độ phải đổi trước.</li>
+      <li>Khi khai căn để tìm $\sin,\cos$, luôn <b>xác định dấu</b> theo phần tư chứa điểm cuối của góc.</li>
+      <li>Cung liên kết: nhớ “<b>cos đối, sin bù, phụ chéo, hơn kém $\pi$ thì tang – côtang</b>”.</li>
+      <li>Với biểu thức đối xứng theo $\sin x,\cos x$ (như câu 2d): chia cho $\sin x$ hoặc $\cos x$ để đưa hết về $\tan x$ / $\cot x$ đã biết.</li>
+    </ul>
+  </div>
+
+</div>

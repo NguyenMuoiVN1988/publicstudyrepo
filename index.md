@@ -300,6 +300,14 @@ details > div {
 - [Bài 6: Phương trình thuần nhất bậc hai](T11/T11C1B6.html)
 - [Bài 7: Luyện tập tổng hợp](T11/T11C1B7.html)
 
+*Phiếu bài tập (lời giải)*
+
+- [C1B1: Giá trị lượng giác của góc lượng giác](T11/2026PhieuBT/LGC1B1.html)
+- [C1B2: Công thức lượng giác](T11/2026PhieuBT/LGC1B2.html)
+- [C1B3: Hàm số lượng giác](T11/2026PhieuBT/LGC1B3.html)
+- [C1B4: Phương trình lượng giác cơ bản](T11/2026PhieuBT/LGC1B4.html)
+- [C1 Ôn tập: Hàm số lượng giác & phương trình lượng giác](T11/2026PhieuBT/LGC1Ontap.html)
+
 </div>
 </details>
 

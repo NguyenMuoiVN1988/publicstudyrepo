@@ -1,0 +1,252 @@
+---
+layout: default
+title: Toán 11 - Ôn tập chương 1. Hàm số lượng giác và phương trình lượng giác
+description: "Lời giải đề ôn tập chương Hàm số lượng giác và phương trình lượng giác - trắc nghiệm và tự luận tổng hợp về giá trị lượng giác, công thức lượng giác, hàm số lượng giác, phương trình lượng giác cơ bản, dành cho học sinh lớp 11."
+tags: [Toán 11, ôn tập chương, lượng giác, phương trình lượng giác, trắc nghiệm]
+series: t11-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .qa { margin:10px 0; }
+  .lgc .qa .opt { color:var(--soft); font-size:.95rem; }
+  .lgc .ans { display:inline-block; background:var(--teal-bg);
+    border:1px solid #9ccfc9; border-radius:7px; padding:1px 9px;
+    font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương 1 — Hàm số lượng giác &amp; phương trình lượng giác</h1>
+    <p>Hệ thống hoá toàn chương: giá trị lượng giác · công thức lượng giác · hàm số lượng giác · phương trình lượng giác cơ bản.</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Công thức cần nhớ</div>
+
+  <div class="theory" id="lt-gtlg">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Giá trị lượng giác &amp; cung tròn</h3>
+    <ul>
+      <li>$180^\circ=\pi$ rad; độ dài cung $\ell=R\alpha$ ($\alpha$ theo rad).</li>
+      <li>$\sin^2\alpha+\cos^2\alpha=1$; $\;1+\tan^2\alpha=\dfrac{1}{\cos^2\alpha}$; $\;1+\cot^2\alpha=\dfrac{1}{\sin^2\alpha}$.</li>
+      <li>Xác định dấu giá trị lượng giác theo phần tư chứa điểm cuối của góc.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-ct">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Công thức lượng giác</h3>
+    <ul>
+      <li>Cộng: $\cos(a\pm b)=\cos a\cos b\mp\sin a\sin b$; $\;\sin(a\pm b)=\sin a\cos b\pm\cos a\sin b$.</li>
+      <li>Nhân đôi: $\cos2a=2\cos^2a-1=1-2\sin^2a$; suy ra $\cos2a=\dfrac{1-\tan^2a}{1+\tan^2a}$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-hs">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Hàm số lượng giác</h3>
+    <ul>
+      <li>TXĐ: $\tan x$ cần $x\neq\tfrac{\pi}{2}+k\pi$; $\cot x$ cần $x\neq k\pi$.</li>
+      <li>$\cos$ là hàm chẵn; $\sin,\tan,\cot$ là hàm lẻ.</li>
+      <li>$-1\le\sin x,\cos x\le1$; $\;y=a+b\,t$ với $t=\cos x$ (hoặc $\sin x$) $\in[-1;1]$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-pt">
+    <span class="tag">📖 Lý thuyết 4</span>
+    <h3>Phương trình lượng giác cơ bản</h3>
+    <ul>
+      <li>$\sin x=m$, $\cos x=m$ vô nghiệm khi $|m|>1$.</li>
+      <li>$\sin x=\sin\alpha\Leftrightarrow x=\alpha+k2\pi$ hoặc $x=\pi-\alpha+k2\pi$.</li>
+      <li>$\cos x=\cos\alpha\Leftrightarrow x=\pm\alpha+k2\pi$; $\;\tan x=\tan\alpha\Leftrightarrow x=\alpha+k\pi$.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Lời giải đề ôn tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Trắc nghiệm — chọn đáp án đúng</h3>
+    <div class="loigiai">
+      <p class="h">🔑 Đáp án &amp; giải thích</p>
+      <a class="link" href="#lt-gtlg">Câu a–d dùng Lý thuyết 1–2; câu e–g dùng Lý thuyết 3; câu h dùng Lý thuyết 4.</a>
+      <div class="qa">
+        <p><b>a)</b> Đổi $120^\circ$ sang rađian. <span class="opt">A. $\tfrac{\pi}{3}$ · B. $\tfrac{2\pi}{3}$ · C. $\tfrac{3\pi}{4}$ · D. $\tfrac{5\pi}{6}$</span></p>
+        <p>$120^\circ=120\cdot\tfrac{\pi}{180}=\tfrac{2\pi}{3}$ → <span class="ans">Đáp án B</span>.</p>
+      </div>
+      <div class="qa">
+        <p><b>b)</b> $R=25$ m, độ dài cung số đo $20^\circ$. <span class="opt">A. $\tfrac{25\pi}{9}$ m · B. $\tfrac{50\pi}{9}$ m · C. $\tfrac{25\pi}{18}$ m · D. $5\pi$ m</span></p>
+        <p>$20^\circ=\tfrac{\pi}{9}$, $\ell=R\alpha=25\cdot\tfrac{\pi}{9}=\tfrac{25\pi}{9}$ m → <span class="ans">Đáp án A</span>.</p>
+      </div>
+      <div class="qa">
+        <p><b>c)</b> $\cos\alpha=\tfrac14$, $0<\alpha<\tfrac{\pi}{2}$, tính $\tan\alpha$. <span class="opt">A. $\sqrt{15}$ · B. $-\sqrt{15}$ · C. $\tfrac{1}{\sqrt{15}}$ · D. $\tfrac{\sqrt{15}}{4}$</span></p>
+        <p>$\sin\alpha=\sqrt{1-\tfrac1{16}}=\tfrac{\sqrt{15}}{4}>0$, $\tan\alpha=\dfrac{\sqrt{15}/4}{1/4}=\sqrt{15}$ → <span class="ans">Đáp án A</span>.</p>
+      </div>
+      <div class="qa">
+        <p><b>d)</b> $\tan\alpha=2$, tính $\cos2\alpha$. <span class="opt">A. $-\tfrac35$ · B. $\tfrac35$ · C. $-\tfrac45$ · D. $\tfrac45$</span></p>
+        <p>$\cos2\alpha=\dfrac{1-\tan^2\alpha}{1+\tan^2\alpha}=\dfrac{1-4}{1+4}=-\dfrac35$ → <span class="ans">Đáp án A</span>.</p>
+      </div>
+      <div class="qa">
+        <p><b>e)</b> Tập xác định của $y=\tan x$. <span class="opt">A. $\mathbb{R}\setminus\{\tfrac{\pi}{2}+k\pi\}$ · B. $\mathbb{R}\setminus\{k\pi\}$ · C. $\mathbb{R}$ · D. $\mathbb{R}\setminus\{\tfrac{k\pi}{2}\}$</span></p>
+        <p>$\tan x$ cần $\cos x\neq0\Leftrightarrow x\neq\tfrac{\pi}{2}+k\pi$ → <span class="ans">Đáp án A</span>.</p>
+      </div>
+      <div class="qa">
+        <p><b>f)</b> Hàm số nào là hàm chẵn? <span class="opt">A. $y=\cos x$ · B. $y=\sin x$ · C. $y=\tan x$ · D. $y=\cot x$</span></p>
+        <p>$\cos$ là hàm chẵn ($\cos(-x)=\cos x$); ba hàm còn lại đều lẻ → <span class="ans">Đáp án A</span>.</p>
+      </div>
+      <div class="qa">
+        <p><b>g)</b> Tập giá trị của $y=2\cos x-1$. <span class="opt">A. $[-3;1]$ · B. $[-1;1]$ · C. $[-2;2]$ · D. $[-3;3]$</span></p>
+        <p>$-1\le\cos x\le1\Rightarrow-3\le2\cos x-1\le1$ → <span class="ans">Đáp án A</span>.</p>
+      </div>
+      <div class="qa">
+        <p><b>h)</b> Phương trình nào vô nghiệm? <span class="opt">A. $2\sin x=3$ · B. $\cos x=-1$ · C. $\tan x=100$ · D. $\cot x=0$</span></p>
+        <p>$2\sin x=3\Rightarrow\sin x=\tfrac32>1$ → vô nghiệm; các phương trình còn lại đều có nghiệm → <span class="ans">Đáp án A</span>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Giá trị lượng giác của một góc</h3>
+    <div class="de">
+      <p><b>a)</b> $\sin\alpha=-\dfrac{\sqrt7}{4}$, $-\dfrac{\pi}{2}<\alpha<0$. Tính $\cos\alpha,\tan\alpha$.</p>
+      <p><b>b)</b> $\sin\alpha=\dfrac23$, $\dfrac{\pi}{2}<\alpha<\pi$. Tính $\cos\alpha,\cot\alpha$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-gtlg"><b>Dùng Lý thuyết 1:</b> hệ thức cơ bản + chọn dấu theo phần tư.</a>
+      <p><b>a)</b> $-\dfrac{\pi}{2}<\alpha<0$ (phần tư IV) nên $\cos\alpha>0$:
+        $\cos\alpha=\sqrt{1-\dfrac{7}{16}}=\dfrac34$. Khi đó $\tan\alpha=\dfrac{-\sqrt7/4}{3/4}=-\dfrac{\sqrt7}{3}$.</p>
+      <p><b>b)</b> $\dfrac{\pi}{2}<\alpha<\pi$ (phần tư II) nên $\cos\alpha<0$:
+        $\cos\alpha=-\sqrt{1-\dfrac49}=-\dfrac{\sqrt5}{3}$. Khi đó $\cot\alpha=\dfrac{\cos\alpha}{\sin\alpha}=\dfrac{-\sqrt5/3}{2/3}=-\dfrac{\sqrt5}{2}$.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Công thức lượng giác</h3>
+    <div class="de">
+      <p><b>a)</b> $\cos2\alpha=\dfrac59$, $0^\circ<\alpha<90^\circ$. Tính $\sin\alpha,\cos\alpha$.</p>
+      <p><b>b)</b> $\sin a=\dfrac{8}{17}$, $\tan b=\dfrac{5}{12}$, $a,b$ nhọn. Tính $\sin(a-b),\cos(a+b)$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ct"><b>Dùng Lý thuyết 2:</b> nhân đôi cho câu a, công thức cộng cho câu b.</a>
+      <p><b>a)</b> $\alpha$ nhọn nên $\sin\alpha,\cos\alpha>0$.</p>
+      <ul>
+        <li>$\cos2\alpha=1-2\sin^2\alpha=\dfrac59\Rightarrow\sin^2\alpha=\dfrac29\Rightarrow\sin\alpha=\dfrac{\sqrt2}{3}$.</li>
+        <li>$\cos2\alpha=2\cos^2\alpha-1=\dfrac59\Rightarrow\cos^2\alpha=\dfrac79\Rightarrow\cos\alpha=\dfrac{\sqrt7}{3}$.</li>
+      </ul>
+      <p><b>b)</b> $a$ nhọn, $\sin a=\dfrac8{17}\Rightarrow\cos a=\dfrac{15}{17}$. $b$ nhọn, $\tan b=\dfrac5{12}\Rightarrow\sin b=\dfrac{5}{13},\cos b=\dfrac{12}{13}$.</p>
+      <ul>
+        <li>$\sin(a-b)=\sin a\cos b-\cos a\sin b=\dfrac{8\cdot12-15\cdot5}{221}=\dfrac{21}{221}$.</li>
+        <li>$\cos(a+b)=\cos a\cos b-\sin a\sin b=\dfrac{15\cdot12-8\cdot5}{221}=\dfrac{140}{221}$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Phương trình lượng giác</h3>
+    <div class="de">
+      <p><b>a)</b> $\sin2x=-\dfrac12$. &nbsp; <b>b)</b> $\sin\!\big(2x-\tfrac{\pi}{4}\big)=\sin\!\big(x+\tfrac{3\pi}{4}\big)$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-pt"><b>Dùng Lý thuyết 4:</b> công thức nghiệm của $\sin u=\sin v$.</a>
+      <p><b>a)</b> $\sin2x=\sin\!\big(-\tfrac{\pi}{6}\big)$:</p>
+      <ul>
+        <li>$2x=-\dfrac{\pi}{6}+k2\pi\Rightarrow x=-\dfrac{\pi}{12}+k\pi$.</li>
+        <li>$2x=\pi+\dfrac{\pi}{6}+k2\pi\Rightarrow x=\dfrac{7\pi}{12}+k\pi$ &nbsp;$(k\in\mathbb{Z})$.</li>
+      </ul>
+      <p><b>b)</b> $\sin\!\big(2x-\tfrac{\pi}{4}\big)=\sin\!\big(x+\tfrac{3\pi}{4}\big)$:</p>
+      <ul>
+        <li>$2x-\dfrac{\pi}{4}=x+\dfrac{3\pi}{4}+k2\pi\Rightarrow x=\pi+k2\pi$.</li>
+        <li>$2x-\dfrac{\pi}{4}=\pi-\big(x+\tfrac{3\pi}{4}\big)+k2\pi\Rightarrow3x=\dfrac{\pi}{2}+k2\pi\Rightarrow x=\dfrac{\pi}{6}+\dfrac{k2\pi}{3}$ &nbsp;$(k\in\mathbb{Z})$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Xác định dấu giá trị lượng giác theo phần tư trước khi khai căn (Bài 2, 3a).</li>
+      <li>Biết $\cos2\alpha$ và phần tư của $\alpha$: dùng cả $1-2\sin^2\alpha$ và $2\cos^2\alpha-1$ để ra $\sin\alpha,\cos\alpha$.</li>
+      <li>Trắc nghiệm: tính nhanh rồi loại đáp án sai do nhầm dấu hoặc nhầm công thức.</li>
+      <li>Giải phương trình: đưa về dạng cơ bản, viết đủ các họ nghiệm, kiểm tra điều kiện với $\tan,\cot$.</li>
+    </ul>
+  </div>
+
+</div>
