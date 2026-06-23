@@ -110,6 +110,16 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD9/TestCD9Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (14 câu)](HSA/CDOnTap/CD9/TestCD9Part2.html)
 
+*Chuyên đề 10: Hàm số mũ. Hàm số logarit*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD10/CD10.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (25 câu)](HSA/CDOnTap/CD10/TestCD10Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (25 câu)](HSA/CDOnTap/CD10/TestCD10Part2.html)
+
+*Chuyên đề 11: Đạo hàm. Tiếp tuyến*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD11/CD11.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD11/TestCD11Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (18 câu)](HSA/CDOnTap/CD11/TestCD11Part2.html)
+
 </div>
 </details>
 
