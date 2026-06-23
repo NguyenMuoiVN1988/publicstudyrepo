@@ -318,6 +318,14 @@ details > div {
 - [C1B4: Phương trình lượng giác cơ bản](T11/2026PhieuBT/LGC1B4.html)
 - [C1 Ôn tập: Hàm số lượng giác & phương trình lượng giác](T11/2026PhieuBT/LGC1Ontap.html)
 
+*Kiểm tra ngắn*
+
+- [C1B1: Giá trị lượng giác của góc lượng giác](T11/2026KiemTra/KTC1B1.html)
+- [C1B2: Công thức lượng giác](T11/2026KiemTra/KTC1B2.html)
+- [C1B3: Hàm số lượng giác](T11/2026KiemTra/KTC1B3.html)
+- [C1B4: Phương trình lượng giác cơ bản](T11/2026KiemTra/KTC1B4.html)
+- [C1 Ôn tập: Hàm số lượng giác & phương trình lượng giác](T11/2026KiemTra/KTC1B5.html)
+
 </div>
 </details>
 
