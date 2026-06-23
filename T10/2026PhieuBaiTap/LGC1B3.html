@@ -1,0 +1,226 @@
+---
+layout: default
+title: Toán 10 - Các phép toán trên tập hợp (Lời giải phiếu Bài 3)
+description: "Lời giải chi tiết phiếu bài tập Bài 3 Các phép toán trên tập hợp - Toán 10: giao, hợp, hiệu, phần bù trên khoảng đoạn, bài toán số phần tử và bài toán chứa tham số. Kết nối lý thuyết với từng lời giải."
+tags: [Toán 10, giao hợp hiệu, phần bù, số phần tử, tham số, mệnh đề và tập hợp]
+series: t10-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Các phép toán trên tập hợp — Lời giải chi tiết</h1>
+    <p>Toán 10 · Chương 1: Mệnh đề và Tập hợp · Bài 3</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-phep">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Giao · hợp · hiệu · phần bù</h3>
+    <ul>
+      <li>$A\cap B=\{x\mid x\in A$ <b>và</b> $x\in B\}$ &nbsp;·&nbsp; $A\cup B=\{x\mid x\in A$ <b>hoặc</b> $x\in B\}$.</li>
+      <li>$A\setminus B=\{x\mid x\in A$ và $x\notin B\}$. Khi $B\subset A$ thì $A\setminus B$ là <b>phần bù</b> $C_AB$; đặc biệt $C_{\mathbb R}A=\mathbb R\setminus A$.</li>
+      <li>Với khoảng/đoạn nên <b>vẽ trục số</b> rồi lấy phần chung (giao), phần gộp (hợp), phần còn lại (hiệu).</li>
+    </ul>
+    <div class="tip">
+      🔍 Chú ý <b>ngoặc vuông/tròn</b>: đầu mút có dấu “$=$” thì lấy $[\,]$, không thì lấy $(\,)$. Đầu mút mở ở một tập sẽ giữ “mở” khi giao với đoạn đóng.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-sopt">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Số phần tử · bài toán tham số</h3>
+    <ul>
+      <li>$n(A\cup B)=n(A)+n(B)-n(A\cap B)$; bài ba tập hợp dùng <b>biểu đồ Ven</b>, đặt ẩn cho từng miền.</li>
+      <li>Bài chứa tham số: <b>luôn</b> đặt điều kiện tập khác rỗng trước, rồi dịch yêu cầu đề thành bất phương trình theo tham số.</li>
+      <li>$A\subset B$ (đoạn/khoảng) ⟺ so sánh <b>đồng thời</b> hai đầu mút.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Phép giao hai tập hợp</h3>
+    <div class="de">
+      <p>Tìm $A\cap B$: <b>a)</b> $A=\{0;1;2;3;4\}$, $B=\{2;3;4;5;6\}$. &nbsp;
+      <b>b)</b> $A=(-1;3)$, $B=(0;5]$. &nbsp; <b>c)</b> $A$ là ước tự nhiên của $18$, $B$ là ước tự nhiên của $30$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-phep"><b>Dùng Lý thuyết 1:</b> $A\cap B$ lấy phần tử thuộc đồng thời cả hai tập.</a>
+      <p><b>a)</b> Phần chung: $A\cap B=\{2;3;4\}$.</p>
+      <p><b>b)</b> Trên trục số, phần chung của $(-1;3)$ và $(0;5]$ là $A\cap B=(0;3)$.</p>
+      <p><b>c)</b> $A=\{1;2;3;6;9;18\}$, $B=\{1;2;3;5;6;10;15;30\}$ nên $A\cap B=\{1;2;3;6\}$ (các ước chung).</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Phép hợp hai tập hợp</h3>
+    <div class="de">
+      <p>Tìm $A\cup B$: <b>a)</b> $A=\{0;1;2;3;4\}$, $B=\{2;3;4;5;6\}$. &nbsp;
+      <b>b)</b> $A=(-1;3)$, $B=(0;5]$. &nbsp; <b>c)</b> $A=[-2;7)$, $B=[1;9]$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-phep"><b>Dùng Lý thuyết 1:</b> $A\cup B$ gộp tất cả phần tử, phần tử chung kể một lần.</a>
+      <p><b>a)</b> $A\cup B=\{0;1;2;3;4;5;6\}$.</p>
+      <p><b>b)</b> $A\cup B=(-1;5]$.</p>
+      <p><b>c)</b> Hai nửa khoảng/đoạn giao nhau nên gộp lại: $A\cup B=[-2;9]$.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Phép hiệu và phần bù</h3>
+    <div class="de">
+      <p><b>a)</b> $A=\{0;1;2;3;4\}$, $B=\{2;3;4;5;6\}$: tìm $A\setminus B$, $B\setminus A$.</p>
+      <p><b>b)</b> $E=\{1;2;3;4;5;6;7;8;9\}$, $A=\{1;2;3;4\}$, $B=\{2;4;6;8\}$: tìm $C_E A$, $C_E B$, $C_E(A\cup B)$, $C_E A\cap C_E B$ và kiểm tra De Morgan.</p>
+      <p><b>c)</b> $A=(2;+\infty)$: tìm $C_{\mathbb R}A$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-phep"><b>Dùng Lý thuyết 1:</b> $A\setminus B$ giữ phần tử của $A$ mà không thuộc $B$; $C_{\mathbb R}A=\mathbb R\setminus A$.</a>
+      <p><b>a)</b> $A\setminus B=\{0;1\}$, &nbsp; $B\setminus A=\{5;6\}$.</p>
+      <p><b>b)</b> $C_E A=\{5;6;7;8;9\}$; &nbsp; $C_E B=\{1;3;5;7;9\}$; &nbsp; $A\cup B=\{1;2;3;4;6;8\}$ nên $C_E(A\cup B)=\{5;7;9\}$; &nbsp; $C_E A\cap C_E B=\{5;7;9\}$.</p>
+      <p>Hai kết quả bằng nhau, đúng <b>luật De Morgan</b>: $C_E(A\cup B)=C_E A\cap C_E B$.</p>
+      <p><b>c)</b> $C_{\mathbb R}(2;+\infty)=\mathbb R\setminus(2;+\infty)=(-\infty;2]$.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy ngoặc:</b> $C_{\mathbb R}(2;+\infty)=(-\infty;\mathbf{2}]$ — vì $2\notin(2;+\infty)$ nên $2$ phải <b>nằm trong</b> phần bù, lấy ngoặc vuông “$]$”.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Bài toán về số phần tử</h3>
+    <div class="de">
+      <p><b>a)</b> Lớp $10A$ có $45$ học sinh: $25$ thích Văn, $20$ thích Toán, $18$ thích Sử, $6$ không thích môn nào, $5$ thích cả ba môn. Hỏi có bao nhiêu em chỉ thích đúng một môn?</p>
+      <p><b>b)</b> Một lớp có $25$ học sinh giỏi Toán, $23$ giỏi Lý, $14$ giỏi cả hai, $6$ không giỏi môn nào. Lớp có bao nhiêu học sinh?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sopt"><b>Dùng Lý thuyết 2:</b> dùng số em “ít nhất một môn” và công thức Ven.</a>
+      <p><b>a)</b> Số em thích ít nhất một môn $=45-6=39$. Gọi $S_1,S_2,S_3$ là số em thích đúng $1,2,3$ môn. Tổng lượt thích $=25+20+18=63$ đếm em đúng $1$ môn một lần, đúng $2$ môn hai lần, đúng $3$ môn ba lần:</p>
+      <p>$\;S_1+2S_2+3S_3=63$ và $S_1+S_2+S_3=39$, với $S_3=5$.</p>
+      <p>Trừ hai phương trình: $S_2+2S_3=24\Rightarrow S_2=24-10=14$. Vậy $S_1=39-14-5=$ <span class="key">$20$</span> em chỉ thích đúng một môn.</p>
+      <p><b>b)</b> Số em giỏi ít nhất một môn $=25+23-14=34$; thêm $6$ em không giỏi môn nào: lớp có $34+6=$ <span class="key">$40$</span> học sinh.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 5 ---------- -->
+  <div class="bai">
+    <h3><span class="num">5</span> Kết hợp nhiều phép toán — Tìm tham số</h3>
+    <div class="de">
+      <p><b>a)</b> $A=[-4;1]$, $B=[-3;m]$. Tìm $m$ để (1) $A\cap B=[-3;1]$; (2) $A\cup B=A$.</p>
+      <p><b>b)</b> $A=[-2;3]$, $B=(m;m+6)$. Tìm $m$ để $A\subset B$.</p>
+      <p><b>c)</b> $A=(m-1;4]$, $B=(-2;2m+2)$ khác rỗng. Tìm $m$ để (1) $A\cap B\ne\varnothing$; (2) $B\subset A$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sopt"><b>Dùng Lý thuyết 2:</b> biểu diễn trên trục số, đặt điều kiện khác rỗng rồi so sánh đầu mút.</a>
+      <p><b>a)</b> ($B=[-3;m]$ cần $m\ge-3$.)</p>
+      <ul>
+        <li>(1) $A\cap B=[-3;1]\Leftrightarrow m\ge1$ (để đầu phải của giao đạt tới $1$).</li>
+        <li>(2) $A\cup B=A\Leftrightarrow B\subset A\Leftrightarrow m\le1$. Kết hợp $m\ge-3$: $\;-3\le m\le1$.</li>
+      </ul>
+      <p><b>b)</b> $A\subset B\Leftrightarrow\begin{cases}m<-2\\ m+6>3\end{cases}\Leftrightarrow\begin{cases}m<-2\\ m>-3\end{cases}\Leftrightarrow -3<m<-2$.</p>
+      <p><b>c)</b> Điều kiện khác rỗng: $m-1<4$ và $2m+2>-2$, tức $-2<m<5\ (*)$.</p>
+      <ul>
+        <li>(1) $A\cap B\ne\varnothing\Leftrightarrow m-1<2m+2\Leftrightarrow m>-3$. Kết hợp $(*)$: $\;-2<m<5$.</li>
+        <li>(2) $B\subset A\Leftrightarrow\begin{cases}m-1\le-2\\ 2m+2\le4\end{cases}\Leftrightarrow\begin{cases}m\le-1\\ m\le1\end{cases}\Leftrightarrow m\le-1$. Kết hợp $(*)$: $\;-2<m\le-1$.</li>
+      </ul>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> với bài tham số <b>luôn</b> đặt điều kiện tập khác rỗng $(*)$ trước — nếu quên, kết quả sẽ thừa hoặc thiếu giá trị $m$.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Vẽ trục số</b> khi làm việc với khoảng/đoạn; cẩn thận ngoặc vuông “$[\,]$” (lấy đầu mút) và tròn “$(\,)$” (không lấy).</li>
+      <li><b>Phần bù:</b> $C_{\mathbb R}A=\mathbb R\setminus A$; đầu mút bị loại ở $A$ sẽ được lấy trong phần bù.</li>
+      <li><b>Số phần tử:</b> $n(A\cup B)=n(A)+n(B)-n(A\cap B)$; ba tập thì vẽ Ven và đặt ẩn từng miền.</li>
+      <li><b>Tham số:</b> điều kiện khác rỗng trước → so sánh đồng thời hai đầu mút.</li>
+    </ul>
+  </div>
+
+</div>

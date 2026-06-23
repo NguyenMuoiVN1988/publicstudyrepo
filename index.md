@@ -289,6 +289,13 @@ details > div {
 - [C6B1: Hàm số](T10/T10C6B1.html)
 - [C6B2: Hàm số bậc nhất](T10/T10C6B2.html)
 
+**Lời giải Phiếu bài tập — Chương 1 (Mệnh đề & Tập hợp):**
+
+- [C1B1: Mệnh đề](T10/2026PhieuBaiTap/LGC1B1.html)
+- [C1B2: Tập hợp](T10/2026PhieuBaiTap/LGC1B2.html)
+- [C1B3: Các phép toán trên tập hợp](T10/2026PhieuBaiTap/LGC1B3.html)
+- [C1 Ôn tập: Mệnh đề & Tập hợp](T10/2026PhieuBaiTap/LGC1Ontap.html)
+
 </div>
 </details>
 

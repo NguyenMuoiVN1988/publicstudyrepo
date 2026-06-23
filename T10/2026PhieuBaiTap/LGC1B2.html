@@ -1,0 +1,234 @@
+---
+layout: default
+title: Toán 10 - Tập hợp (Lời giải phiếu Bài 2)
+description: "Lời giải chi tiết phiếu bài tập Bài 2 Tập hợp - Toán 10: liệt kê và nêu tính chất đặc trưng, biểu đồ Ven, tập con và tập bằng nhau, tập rỗng. Kết nối lý thuyết với từng lời giải."
+tags: [Toán 10, tập hợp, tập con, tập rỗng, biểu đồ Ven, mệnh đề và tập hợp]
+series: t10-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .ven { text-align:center; margin:14px 0; }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Tập hợp — Lời giải chi tiết</h1>
+    <p>Toán 10 · Chương 1: Mệnh đề và Tập hợp · Bài 2</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-xacdinh">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Cách xác định một tập hợp</h3>
+    <ul>
+      <li><b>Liệt kê:</b> viết các phần tử trong dấu $\{\ \}$, mỗi phần tử chỉ viết <b>một lần</b>.</li>
+      <li><b>Tính chất đặc trưng:</b> $X=\{x\mid x\ \text{có tính chất}\ P\}$ — tìm quy luật chung của các phần tử.</li>
+      <li><b>Biểu đồ Ven:</b> minh hoạ tập hợp bằng một đường cong khép kín.</li>
+    </ul>
+    <div class="tip">
+      🔍 Luôn chú ý <b>tập số chứa biến</b> ($\mathbb N,\mathbb Z,\mathbb Q,\mathbb R$): giải xong điều kiện rồi mới <b>loại</b> các nghiệm không thuộc tập số đó.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-tapcon">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Tập con · tập bằng nhau · tập rỗng</h3>
+    <ul>
+      <li>$A\subset B\Leftrightarrow(\forall x:\ x\in A\Rightarrow x\in B)$. Luôn có $\varnothing\subset A$ và $A\subset A$.</li>
+      <li>$A=B\Leftrightarrow(A\subset B$ và $B\subset A)$.</li>
+      <li>Nếu $A$ có $n$ phần tử thì $A$ có <b>$2^n$ tập con</b>; số tập con gồm đúng $2$ phần tử là $\dfrac{n(n-1)}{2}$.</li>
+      <li><b>Tập rỗng</b> $\varnothing$: không chứa phần tử nào.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Liệt kê phần tử và chỉ ra tính chất đặc trưng</h3>
+    <div class="de">
+      <p><b>a)</b> Liệt kê: $A=\{n\in\mathbb N\mid 3<n^2<30\}$; $\;B=\{x\in\mathbb Z\mid |x|<3\}$;
+      $\;C=\{x\in\mathbb Z\mid x=3k,\ k\in\mathbb Z,\ -4<x<12\}$.</p>
+      <p><b>b)</b> Liệt kê $D=\{x\in\mathbb R\mid(2x-x^2)(2x^2-3x-2)=0\}$.</p>
+      <p><b>c)</b> Nêu tính chất đặc trưng: $E=\{-3;-2;-1;0;1;2;3\}$; $\;F=\{1;2;3;4;6;9;12;18;36\}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-xacdinh"><b>Dùng Lý thuyết 1:</b> giải điều kiện rồi chọn các phần tử thuộc đúng tập số đã cho.</a>
+      <p><b>a)</b></p>
+      <ul>
+        <li>$3<n^2<30,\ n\in\mathbb N$ cho $n\in\{2;3;4;5\}$, vậy $A=\{2;3;4;5\}$.</li>
+        <li>$|x|<3\Leftrightarrow-3<x<3,\ x\in\mathbb Z$, vậy $B=\{-2;-1;0;1;2\}$.</li>
+        <li>$-4<3k<12\Leftrightarrow-\dfrac43<k<4,\ k\in\mathbb Z$ nên $k\in\{-1;0;1;2;3\}$, vậy $C=\{-3;0;3;6;9\}$.</li>
+      </ul>
+      <p><b>b)</b> $2x-x^2=0\Rightarrow x=0;\,2$; &nbsp; $2x^2-3x-2=0\Rightarrow x=2;\,-\dfrac12$. Vậy $D=\left\{-\dfrac12;\,0;\,2\right\}$.</p>
+      <p><b>c)</b> $E=\{x\in\mathbb Z\mid |x|\le3\}$; &nbsp; $F=\{x\in\mathbb N\mid x\ \text{là ước của}\ 36\}$.</p>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> ở $C$, biến điều kiện là $k$ chứ không phải $x$; giải $-\dfrac43<k<4$ rồi mới suy ra $x=3k$. Ở $D$, nghiệm $-\dfrac12$ vẫn nhận vì $x\in\mathbb R$.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Biểu đồ Ven biểu diễn tập hợp</h3>
+    <div class="de">
+      <p>$A$ là tập học sinh lớp $10$ đang học ở trường, $B$ là tập học sinh đang học Tiếng Anh ở trường.
+      Diễn đạt bằng lời $A\cap B,\ A\cup B,\ A\setminus B,\ B\setminus A$ và vẽ biểu đồ Ven.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-xacdinh"><b>Dùng Lý thuyết 1:</b> mỗi tập là một vòng kín; phần chung của hai vòng là phần giao.</a>
+      <ul>
+        <li>$A\cap B$: học sinh lớp $10$ <b>và</b> đang học Tiếng Anh.</li>
+        <li>$A\cup B$: học sinh lớp $10$ <b>hoặc</b> đang học Tiếng Anh.</li>
+        <li>$A\setminus B$: học sinh lớp $10$ nhưng <b>không</b> học Tiếng Anh.</li>
+        <li>$B\setminus A$: học sinh học Tiếng Anh nhưng <b>không</b> thuộc lớp $10$.</li>
+      </ul>
+      <div class="ven">
+        <svg width="320" height="150" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="120" cy="75" r="62" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2"/>
+          <circle cx="200" cy="75" r="62" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2" fill-opacity="0.6"/>
+          <text x="86" y="80" font-size="13" fill="#28323c">A∖B</text>
+          <text x="150" y="80" font-size="13" fill="#28323c">A∩B</text>
+          <text x="214" y="80" font-size="13" fill="#28323c">B∖A</text>
+          <text x="78" y="20" font-size="15" fill="#3f5d9e" font-weight="bold">A</text>
+          <text x="234" y="20" font-size="15" fill="#1f7a72" font-weight="bold">B</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Tập con và tập hợp bằng nhau</h3>
+    <div class="de">
+      <p><b>a)</b> Tìm tất cả tập con của $B=\{1;2;3\}$ và của $A=\{a;b\}$.</p>
+      <p><b>b)</b> Cho $X=\{1;2;3;4;5;6;7\}$. Có bao nhiêu tập con của $X$ gồm đúng $2$ phần tử? Tìm các tập con chứa cả $1;3;5;7$.</p>
+      <p><b>c)</b> Xét quan hệ giữa $A=\{x\in\mathbb N\mid1\le x<4\}$ và $B=\{x\in\mathbb Z\mid x^2-9=0\}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tapcon"><b>Dùng Lý thuyết 2:</b> tập $n$ phần tử có $2^n$ tập con; $A=B$ khi bao hàm cả hai chiều.</a>
+      <p><b>a)</b></p>
+      <ul>
+        <li>$B=\{1;2;3\}$ có $2^3=8$ tập con: $\varnothing,\{1\},\{2\},\{3\},\{1;2\},\{1;3\},\{2;3\},\{1;2;3\}$.</li>
+        <li>$A=\{a;b\}$ có $2^2=4$ tập con: $\varnothing,\{a\},\{b\},\{a;b\}$.</li>
+      </ul>
+      <p><b>b)</b> Số tập con gồm $2$ phần tử $=\dfrac{7\cdot6}{2}=$ <span class="key">$21$</span>. Tập con chứa sẵn $\{1;3;5;7\}$ chỉ cần thêm tuỳ ý từ $\{2;4;6\}$, có $2^3=$ <span class="key">$8$</span> tập.</p>
+      <p><b>c)</b> $A=\{1;2;3\}$, $B=\{-3;3\}$. Vì $2\in A,\ 2\notin B$ và $-3\in B,\ -3\notin A$ nên $A\not\subset B$ và $B\not\subset A$ (hai tập không bao hàm nhau).</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Tập hợp rỗng</h3>
+    <div class="de">
+      <p><b>a)</b> Tìm $m$ để mỗi tập rỗng: $A=\{x\in\mathbb R\mid x<m\ \text{và}\ x>2m+1\}$; $\;B=\{x\in\mathbb R\mid x^2-2x+m=0\}$.</p>
+      <p><b>b)</b> Tập nào rỗng? $C=\{x\in\mathbb Z\mid |x|<1\}$; $\;D=\{x\in\mathbb R\mid x^2-x+1=0\}$; $\;E=\{x\in\mathbb Q\mid x^2-4x+2=0\}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tapcon"><b>Dùng Lý thuyết 2:</b> tập nghiệm bậc hai rỗng khi $\Delta<0$; khoảng $\{x\mid\alpha<x<\beta\}$ rỗng khi $\alpha\ge\beta$.</a>
+      <p><b>a)</b></p>
+      <ul>
+        <li>$A=\varnothing\Leftrightarrow m\le 2m+1\Leftrightarrow m\ge-1$.</li>
+        <li>$B=\varnothing\Leftrightarrow x^2-2x+m=0$ vô nghiệm $\Leftrightarrow\Delta'=1-m<0\Leftrightarrow m>1$.</li>
+      </ul>
+      <p><b>b)</b></p>
+      <ul>
+        <li>$C=\{x\in\mathbb Z\mid |x|<1\}=\{0\}\ne\varnothing$.</li>
+        <li>$D=\varnothing$ vì $x^2-x+1=0$ có $\Delta=-3<0$.</li>
+        <li>$E=\varnothing$ vì $x^2-4x+2=0$ cho $x=2\pm\sqrt2\notin\mathbb Q$.</li>
+      </ul>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> $|x|<1$ với $x\in\mathbb Z$ vẫn còn $x=0$ nên $C$ <b>không</b> rỗng; đừng vội kết luận rỗng chỉ vì khoảng $(-1;1)$ “ngắn”.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Liệt kê:</b> mỗi phần tử một lần; luôn loại nghiệm không thuộc tập số ($\mathbb N,\mathbb Z,\mathbb Q,\mathbb R$).</li>
+      <li><b>Số tập con:</b> $2^n$ tập con; số tập con $2$ phần tử là $\dfrac{n(n-1)}{2}$.</li>
+      <li><b>Tập rỗng:</b> bậc hai vô nghiệm ($\Delta<0$); khoảng $\{x\mid\alpha<x<\beta\}$ rỗng khi $\alpha\ge\beta$.</li>
+      <li>$A=B$ phải kiểm tra <b>cả hai chiều</b> bao hàm.</li>
+    </ul>
+  </div>
+
+</div>

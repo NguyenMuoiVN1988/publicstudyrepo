@@ -1,0 +1,266 @@
+---
+layout: default
+title: Toán 10 - Mệnh đề (Lời giải phiếu Bài 1)
+description: "Lời giải chi tiết phiếu bài tập Bài 1 Mệnh đề - Toán 10: xác định mệnh đề đúng sai, phủ định mệnh đề, mệnh đề kéo theo và mệnh đề đảo, kí hiệu với mọi tồn tại, chứng minh phản chứng. Kết nối lý thuyết với từng lời giải."
+tags: [Toán 10, mệnh đề, phủ định, mệnh đề kéo theo, với mọi tồn tại, mệnh đề và tập hợp]
+series: t10-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Mệnh đề — Lời giải chi tiết</h1>
+    <p>Toán 10 · Chương 1: Mệnh đề và Tập hợp · Bài 1</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-menhde">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Mệnh đề — mệnh đề chứa biến</h3>
+    <ul>
+      <li><b>Mệnh đề</b> là một khẳng định <b>đúng</b> hoặc <b>sai</b> (không thể vừa đúng vừa sai).</li>
+      <li>Câu <b>hỏi</b>, câu <b>cảm thán</b>, câu <b>mệnh lệnh</b>, câu nêu <b>ý kiến cá nhân</b> đều <span class="no">không</span> là mệnh đề.</li>
+      <li><b>Mệnh đề chứa biến</b> $P(x)$ chưa phải là mệnh đề; chỉ khi thay biến bằng một giá trị cụ thể mới được một mệnh đề có đúng/sai xác định.</li>
+    </ul>
+    <div class="tip">
+      🔍 Mẹo: gặp dấu <b>?</b> hay <b>!</b> thì gần như chắc chắn không phải mệnh đề; gặp biểu thức còn <b>chữ $x,n$ tự do</b> ($7+x>3$) thì đó là mệnh đề chứa biến.
+    </div>
+  </div>
+
+  <div class="theory" id="lt-keotheo">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Phủ định · kéo theo · đảo · điều kiện cần, đủ</h3>
+    <ul>
+      <li><b>Phủ định</b> $\overline P$ có tính đúng sai <b>ngược</b> với $P$.</li>
+      <li><b>Kéo theo</b> $P\Rightarrow Q$ (“Nếu $P$ thì $Q$”) <b>chỉ sai</b> khi $P$ đúng mà $Q$ sai.</li>
+      <li>Trong $P\Rightarrow Q$: $P$ là <b>điều kiện đủ</b> để có $Q$; $Q$ là <b>điều kiện cần</b> để có $P$.</li>
+      <li><b>Mệnh đề đảo</b> của $P\Rightarrow Q$ là $Q\Rightarrow P$. Nếu cả hai cùng đúng thì $P\Leftrightarrow Q$ (điều kiện <b>cần và đủ</b>).</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-luonggia">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Kí hiệu $\forall$ (với mọi) và $\exists$ (tồn tại)</h3>
+    <ul>
+      <li>“$\forall x\in X,\ P(x)$” <b>sai</b> chỉ cần <b>một</b> phản ví dụ; muốn khẳng định đúng phải lập luận tổng quát.</li>
+      <li>“$\exists x\in X,\ P(x)$” <b>đúng</b> chỉ cần <b>một</b> ví dụ.</li>
+      <li>Phủ định: $\overline{\forall x,P(x)}=\exists x,\overline{P(x)}$ và $\overline{\exists x,P(x)}=\forall x,\overline{P(x)}$ — <b>đổi $\forall\leftrightarrow\exists$</b> và phủ định bên trong.</li>
+    </ul>
+    <div class="tip">
+      🔍 Khi phủ định, đổi luôn dấu so sánh: $>\leftrightarrow\le$, $<\leftrightarrow\ge$, $=\leftrightarrow\ne$.
+    </div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- ---------- BÀI 1 ---------- -->
+  <div class="bai">
+    <h3><span class="num">1</span> Xác định mệnh đề đúng/sai</h3>
+    <div class="de">
+      <p><b>a)</b> Mỗi câu sau là mệnh đề đúng, mệnh đề sai hay không phải mệnh đề?
+      $7+5=3$; $\;7+x>3$; $\;\sqrt2>1$; “$15$ không chia hết cho $3$”; “$\dfrac32$ có phải là số nguyên?”</p>
+      <p><b>b)</b> Cho $P(x)$: “$x>x^2$” với $x\in\mathbb R$. Hỏi $P(2)$ và $P\!\left(\dfrac12\right)$ đúng hay sai?</p>
+      <p><b>c)</b> Xét tính đúng sai: “Nếu $a\,\vdots\,9$ thì $a\,\vdots\,3$”; “Nếu $a\ge b$ thì $a^2\ge b^2$”.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-menhde"><b>Dùng Lý thuyết 1:</b> khẳng định đúng/sai là mệnh đề; câu hỏi và biểu thức còn biến thì không.</a>
+      <p><b>a)</b></p>
+      <ul>
+        <li>$7+5=3$ → mệnh đề <span class="no">sai</span> (vì $7+5=12$).</li>
+        <li>$7+x>3$ → <span class="no">không</span> phải mệnh đề (mệnh đề chứa biến).</li>
+        <li>$\sqrt2>1$ → mệnh đề <span class="yes">đúng</span>.</li>
+        <li>“$15$ không chia hết cho $3$” → mệnh đề <span class="no">sai</span> (vì $15=3\cdot5$).</li>
+        <li>“$\dfrac32$ có phải là số nguyên?” → <span class="no">không</span> phải mệnh đề (câu hỏi).</li>
+      </ul>
+      <p><b>b)</b> $P(2)$: $2>2^2=4$ là <span class="no">sai</span>; &nbsp; $P\!\left(\dfrac12\right)$: $\dfrac12>\dfrac14$ là <span class="yes">đúng</span>.</p>
+      <p><b>c)</b></p>
+      <ul>
+        <li>“Nếu $a\,\vdots\,9$ thì $a\,\vdots\,3$” → <span class="yes">đúng</span>: $a=9k=3(3k)\,\vdots\,3$.</li>
+        <li>“Nếu $a\ge b$ thì $a^2\ge b^2$” → <span class="no">sai</span>: lấy $a=-1\ge b=-2$ nhưng $a^2=1<4=b^2$.</li>
+      </ul>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> bình phương <b>không</b> bảo toàn thứ tự khi có số âm. Luôn thử một phản ví dụ âm trước khi kết luận “đúng”.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 2 ---------- -->
+  <div class="bai">
+    <h3><span class="num">2</span> Phủ định mệnh đề</h3>
+    <div class="de">
+      <p><b>a)</b> Nêu mệnh đề phủ định và xét tính đúng sai của nó:
+      $A$: “Hình thoi có hai đường chéo vuông góc với nhau”; $\;B$: “$6$ là số nguyên tố”.</p>
+      <p><b>b)</b> Nêu mệnh đề phủ định của: $\forall x\in\mathbb R:\ x^2>0$; $\;\exists x\in\mathbb R:\ x>x^2$;
+      $\;\forall n\in\mathbb N,\ n^2+1$ không chia hết cho $3$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-luonggia"><b>Dùng Lý thuyết 3:</b> đổi $\forall\leftrightarrow\exists$ và phủ định khẳng định bên trong.</a>
+      <p><b>a)</b></p>
+      <ul>
+        <li>$\overline A$: “Hình thoi có hai đường chéo <b>không</b> vuông góc với nhau” → <span class="no">sai</span> (vì $A$ đúng).</li>
+        <li>$\overline B$: “$6$ <b>không</b> là số nguyên tố” → <span class="yes">đúng</span> (vì $6$ là hợp số).</li>
+      </ul>
+      <p><b>b)</b></p>
+      <ul>
+        <li>$\overline{\forall x\in\mathbb R:\ x^2>0}=\exists x\in\mathbb R:\ x^2\le0$.</li>
+        <li>$\overline{\exists x\in\mathbb R:\ x>x^2}=\forall x\in\mathbb R:\ x\le x^2$.</li>
+        <li>$\overline{\forall n\in\mathbb N,\ n^2+1\ \text{không}\,\vdots\,3}=\exists n\in\mathbb N,\ n^2+1\,\vdots\,3$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 3 ---------- -->
+  <div class="bai">
+    <h3><span class="num">3</span> Mệnh đề kéo theo và mệnh đề đảo</h3>
+    <div class="de">
+      <p><b>a)</b> Phát biểu bằng “điều kiện cần”, “điều kiện đủ”: “Nếu một số tự nhiên có chữ số tận cùng là $5$ thì nó chia hết cho $5$”.</p>
+      <p><b>b)</b> Lập mệnh đề đảo và xét tính đúng sai: “Nếu tứ giác là hình chữ nhật thì nó có ba góc vuông”; “Nếu $a\,\vdots\,6$ thì $a\,\vdots\,3$”.</p>
+      <p><b>c)</b> Phát biểu bằng “điều kiện cần và đủ”: “Một số chia hết cho $6$ khi và chỉ khi nó chia hết cho $2$ và cho $3$”.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-keotheo"><b>Dùng Lý thuyết 2:</b> giả thiết là điều kiện đủ, kết luận là điều kiện cần; đảo là $Q\Rightarrow P$.</a>
+      <p><b>a)</b> “Có chữ số tận cùng là $5$” là <b>điều kiện đủ</b> để “chia hết cho $5$”; hay “chia hết cho $5$” là <b>điều kiện cần</b> để “có chữ số tận cùng là $5$”.</p>
+      <p><b>b)</b></p>
+      <ul>
+        <li>Đảo: “Nếu tứ giác có ba góc vuông thì nó là hình chữ nhật” → <span class="yes">đúng</span> (có ba góc vuông thì góc thứ tư cũng vuông).</li>
+        <li>Đảo: “Nếu $a\,\vdots\,3$ thì $a\,\vdots\,6$” → <span class="no">sai</span> (lấy $a=3$).</li>
+      </ul>
+      <p><b>c)</b> “Chia hết cho $2$ và cho $3$” là <b>điều kiện cần và đủ</b> để “chia hết cho $6$” (vì $6=\text{BCNN}(2,3)$).</p>
+      <div class="trap">
+        <b>⚠️ Bẫy:</b> một mệnh đề có thể <b>sai</b> nhưng mệnh đề <b>đảo</b> của nó lại <b>đúng</b> (như câu b trường hợp $a\,\vdots\,6$). Phải xét đảo độc lập, đừng suy từ mệnh đề gốc.
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 4 ---------- -->
+  <div class="bai">
+    <h3><span class="num">4</span> Mệnh đề với kí hiệu $\forall$ và $\exists$</h3>
+    <div class="de">
+      <p><b>a)</b> Xét tính đúng sai: $\forall x\in\mathbb R,\ x^2>0$; $\;\forall x\in\mathbb R,\ x^2-x+1>0$;
+      $\;\exists x\in\mathbb N,\ x^2+2x+5$ là hợp số; $\;\forall n\in\mathbb N^*,\ n(n+1)$ lẻ.</p>
+      <p><b>b)</b> Dùng kí hiệu $\forall,\exists$ viết: “Bình phương của mọi số thực là số không âm”; “Có một số nguyên mà bình phương của nó bằng chính nó”.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-luonggia"><b>Dùng Lý thuyết 3:</b> $\forall$ sai chỉ cần một phản ví dụ; $\exists$ đúng chỉ cần một ví dụ.</a>
+      <p><b>a)</b></p>
+      <ul>
+        <li>$\forall x\in\mathbb R,\ x^2>0$ → <span class="no">sai</span> (tại $x=0$ thì $x^2=0$).</li>
+        <li>$\forall x\in\mathbb R,\ x^2-x+1>0$ → <span class="yes">đúng</span>: $x^2-x+1=\left(x-\dfrac12\right)^2+\dfrac34\ge\dfrac34>0$.</li>
+        <li>$\exists x\in\mathbb N,\ x^2+2x+5$ là hợp số → <span class="yes">đúng</span>: $x=1$ cho $1+2+5=8=2^3$.</li>
+        <li>$\forall n\in\mathbb N^*,\ n(n+1)$ lẻ → <span class="no">sai</span>: $n,n+1$ liên tiếp nên có một số chẵn, tích chẵn.</li>
+      </ul>
+      <p><b>b)</b> $\forall x\in\mathbb R,\ x^2\ge0$; &nbsp; $\exists n\in\mathbb Z,\ n^2=n$.</p>
+    </div>
+  </div>
+
+  <!-- ---------- BÀI 5 ---------- -->
+  <div class="bai">
+    <h3><span class="num">5</span> Chứng minh (phản chứng)</h3>
+    <div class="de">
+      <p><b>a)</b> Nếu $a+b<2$ thì một trong hai số $a,b$ nhỏ hơn $1$.</p>
+      <p><b>b)</b> Nếu $x\ne-1$ và $y\ne-1$ thì $x+y+xy\ne-1$.</p>
+      <p><b>c)</b> Nếu $x^2+y^2=0$ thì $x=0$ và $y=0$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-keotheo"><b>Dùng Lý thuyết 2:</b> để chứng minh $A\Rightarrow B$ bằng phản chứng, giả sử $B$ sai rồi suy ra mâu thuẫn.</a>
+      <p><b>a)</b> Giả sử trái lại $a\ge1$ và $b\ge1$. Khi đó $a+b\ge2$, mâu thuẫn với $a+b<2$. Vậy phải có một số nhỏ hơn $1$.</p>
+      <p><b>b)</b> Giả sử $x+y+xy=-1$. Khi đó $x+y+xy+1=0\Leftrightarrow(x+1)(y+1)=0$, suy ra $x=-1$ hoặc $y=-1$ — mâu thuẫn giả thiết. Vậy $x+y+xy\ne-1$.</p>
+      <p><b>c)</b> Vì $x^2\ge0$ và $y^2\ge0$ nên tổng $x^2+y^2=0$ chỉ xảy ra khi $x^2=0$ và $y^2=0$, tức $x=0$ và $y=0$.</p>
+      <div class="trap">
+        <b>⚠️ Mẹo nhận dạng:</b> các bài “một trong hai”, “tồn tại/không tồn tại”, “$\ne$” thường giải gọn nhất bằng <b>phản chứng</b> — phủ định kết luận và đi tìm mâu thuẫn.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li><b>Không phải mệnh đề:</b> câu hỏi, cảm thán, mệnh lệnh; mệnh đề chứa biến chưa là mệnh đề.</li>
+      <li><b>$P\Rightarrow Q$ chỉ sai</b> khi $P$ đúng và $Q$ sai; mệnh đề đảo $Q\Rightarrow P$ phải xét riêng.</li>
+      <li><b>Phủ định $\forall/\exists$:</b> đổi $\forall\leftrightarrow\exists$ và đổi dấu so sánh ($>\leftrightarrow\le$, …).</li>
+      <li><b>Chứng minh phản chứng:</b> giả sử kết luận sai → suy ra mâu thuẫn → kết luận đúng.</li>
+    </ul>
+  </div>
+
+</div>
