@@ -135,6 +135,11 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD14/TestCD14Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD14/TestCD14Part2.html)
 
+*Chuyên đề 15: Giá trị lớn nhất, giá trị nhỏ nhất của hàm số*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD15/CD15.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD15/TestCD15Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD15/TestCD15Part2.html)
+
 </div>
 </details>
 
