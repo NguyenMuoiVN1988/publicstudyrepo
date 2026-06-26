@@ -120,6 +120,21 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD11/TestCD11Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (18 câu)](HSA/CDOnTap/CD11/TestCD11Part2.html)
 
+*Chuyên đề 12: Quan hệ vuông góc*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD12/CD12.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD12/TestCD12Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD12/TestCD12Part2.html)
+
+*Chuyên đề 13: Tính đơn điệu của hàm số*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD13/CD13.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD13/TestCD13Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD13/TestCD13Part2.html)
+
+*Chuyên đề 14: Cực trị của hàm số*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD14/CD14.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD14/TestCD14Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD14/TestCD14Part2.html)
+
 </div>
 </details>
 
