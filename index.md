@@ -140,6 +140,11 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD15/TestCD15Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD15/TestCD15Part2.html)
 
+*Chuyên đề 16: Đường tiệm cận của đồ thị hàm số*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD16/CD16.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD16/TestCD16Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD16/TestCD16Part2.html)
+
 </div>
 </details>
 
