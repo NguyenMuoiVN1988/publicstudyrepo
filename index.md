@@ -150,6 +150,46 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD17/TestCD17Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD17/TestCD17Part2.html)
 
+*Chuyên đề 18: Tính đơn điệu và cực trị của hàm hợp*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD18/CD18.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD18/TestCD18Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD18/TestCD18Part2.html)
+
+*Chuyên đề 19: Tọa độ vectơ trong không gian*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD19/CD19.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD19/TestCD19Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD19/TestCD19Part2.html)
+
+*Chuyên đề 20: Phương trình mặt phẳng và đường thẳng*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD20/CD20.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD20/TestCD20Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD20/TestCD20Part2.html)
+
+*Chuyên đề 21: Phương trình mặt cầu – Góc và khoảng cách*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD21/CD21.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD21/TestCD21Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD21/TestCD21Part2.html)
+
+*Chuyên đề 22: Nguyên hàm*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD22/CD22.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD22/TestCD22Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD22/TestCD22Part2.html)
+
+*Chuyên đề 23: Tích phân – Ứng dụng tính diện tích*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD23/CD23.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD23/TestCD23Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD23/TestCD23Part2.html)
+
+*Chuyên đề 24: Tích phân – Ứng dụng tính thể tích*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD24/CD24.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (16 câu)](HSA/CDOnTap/CD24/TestCD24Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (16 câu)](HSA/CDOnTap/CD24/TestCD24Part2.html)
+
+*Chuyên đề 25: Xác suất có điều kiện*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD25/CD25.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD25/TestCD25Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD25/TestCD25Part2.html)
+
 </div>
 </details>
 
