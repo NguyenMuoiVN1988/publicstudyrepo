@@ -145,6 +145,11 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD16/TestCD16Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD16/TestCD16Part2.html)
 
+*Chuyên đề 17: Tương giao và tiếp tuyến của đồ thị hàm số*
+- [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD17/CD17.html)
+- [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD17/TestCD17Part1.html)
+- [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD17/TestCD17Part2.html)
+
 </div>
 </details>
 
