@@ -65,6 +65,8 @@ details > div {
 
 **Chuyên đề ôn tập**
 
+> 📚 **[25 chuyên đề HSA](HSA/CDOnTap/index.html)** — trang tổng hợp, chọn nhanh bài giảng & đề của mọi chuyên đề.
+
 *Chuyên đề 1: Bất phương trình & hệ bất phương trình bậc nhất hai ẩn*
 - [Bài giảng: Lý thuyết, ví dụ và quy hoạch tuyến tính](HSA/CDOnTap/CD1/CD1.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (13 câu)](HSA/CDOnTap/CD1/TestCD1Part1.html)

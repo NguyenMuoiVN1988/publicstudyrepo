@@ -244,3 +244,215 @@ hsa-cd4:
       url: /HSA/CDOnTap/CD4/TestCD4Part1.html
     - title: "Trắc nghiệm – Đề ôn tập số 02 (20 câu)"
       url: /HSA/CDOnTap/CD4/TestCD4Part2.html
+
+hsa-cd5:
+  label: "HSA · Chuyên đề 5 — Hàm số lượng giác và phương trình lượng giác"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD5/CD5.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD5/TestCD5Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD5/TestCD5Part2.html
+
+hsa-cd6:
+  label: "HSA · Chuyên đề 6 — Dãy số, cấp số cộng, cấp số nhân"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD6/CD6.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD6/TestCD6Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD6/TestCD6Part2.html
+
+hsa-cd7:
+  label: "HSA · Chuyên đề 7 — Giới hạn. Hàm số liên tục"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD7/CD7.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD7/TestCD7Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD7/TestCD7Part2.html
+
+hsa-cd8:
+  label: "HSA · Chuyên đề 8 — Đại số tổ hợp. Xác suất và biến cố"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD8/CD8.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD8/TestCD8Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD8/TestCD8Part2.html
+    - title: "Trắc nghiệm – Đề ôn tập số 03"
+      url: /HSA/CDOnTap/CD8/TestCD8Part3.html
+
+hsa-cd9:
+  label: "HSA · Chuyên đề 9 — Quan hệ song song"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD9/CD9.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD9/TestCD9Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD9/TestCD9Part2.html
+
+hsa-cd10:
+  label: "HSA · Chuyên đề 10 — Hàm số mũ và hàm số lôgarit"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD10/CD10.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD10/TestCD10Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD10/TestCD10Part2.html
+
+hsa-cd11:
+  label: "HSA · Chuyên đề 11 — Đạo hàm. Tiếp tuyến"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD11/CD11.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD11/TestCD11Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD11/TestCD11Part2.html
+
+hsa-cd12:
+  label: "HSA · Chuyên đề 12 — Quan hệ vuông góc"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD12/CD12.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD12/TestCD12Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD12/TestCD12Part2.html
+
+hsa-cd13:
+  label: "HSA · Chuyên đề 13 — Tính đơn điệu của hàm số"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD13/CD13.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD13/TestCD13Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD13/TestCD13Part2.html
+
+hsa-cd14:
+  label: "HSA · Chuyên đề 14 — Cực trị của hàm số"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD14/CD14.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01"
+      url: /HSA/CDOnTap/CD14/TestCD14Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02"
+      url: /HSA/CDOnTap/CD14/TestCD14Part2.html
+
+hsa-cd15:
+  label: "HSA · Chuyên đề 15 — Giá trị lớn nhất, nhỏ nhất của hàm số"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD15/CD15.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (20 câu)"
+      url: /HSA/CDOnTap/CD15/TestCD15Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (20 câu)"
+      url: /HSA/CDOnTap/CD15/TestCD15Part2.html
+
+hsa-cd16:
+  label: "HSA · Chuyên đề 16 — Đường tiệm cận của đồ thị hàm số"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD16/CD16.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (15 câu)"
+      url: /HSA/CDOnTap/CD16/TestCD16Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (15 câu)"
+      url: /HSA/CDOnTap/CD16/TestCD16Part2.html
+
+hsa-cd17:
+  label: "HSA · Chuyên đề 17 — Tương giao và tiếp tuyến của đồ thị hàm số"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD17/CD17.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (15 câu)"
+      url: /HSA/CDOnTap/CD17/TestCD17Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (15 câu)"
+      url: /HSA/CDOnTap/CD17/TestCD17Part2.html
+
+hsa-cd18:
+  label: "HSA · Chuyên đề 18 — Tính đơn điệu và cực trị của hàm hợp"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD18/CD18.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (15 câu)"
+      url: /HSA/CDOnTap/CD18/TestCD18Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (15 câu)"
+      url: /HSA/CDOnTap/CD18/TestCD18Part2.html
+
+hsa-cd19:
+  label: "HSA · Chuyên đề 19 — Tọa độ vectơ trong không gian"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD19/CD19.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (20 câu)"
+      url: /HSA/CDOnTap/CD19/TestCD19Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (20 câu)"
+      url: /HSA/CDOnTap/CD19/TestCD19Part2.html
+
+hsa-cd20:
+  label: "HSA · Chuyên đề 20 — Phương trình mặt phẳng và đường thẳng"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD20/CD20.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (15 câu)"
+      url: /HSA/CDOnTap/CD20/TestCD20Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (15 câu)"
+      url: /HSA/CDOnTap/CD20/TestCD20Part2.html
+
+hsa-cd21:
+  label: "HSA · Chuyên đề 21 — Phương trình mặt cầu, Góc và khoảng cách"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD21/CD21.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (20 câu)"
+      url: /HSA/CDOnTap/CD21/TestCD21Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (20 câu)"
+      url: /HSA/CDOnTap/CD21/TestCD21Part2.html
+
+hsa-cd22:
+  label: "HSA · Chuyên đề 22 — Nguyên hàm"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD22/CD22.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (20 câu)"
+      url: /HSA/CDOnTap/CD22/TestCD22Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (20 câu)"
+      url: /HSA/CDOnTap/CD22/TestCD22Part2.html
+
+hsa-cd23:
+  label: "HSA · Chuyên đề 23 — Tích phân: Ứng dụng tính diện tích"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD23/CD23.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (15 câu)"
+      url: /HSA/CDOnTap/CD23/TestCD23Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (15 câu)"
+      url: /HSA/CDOnTap/CD23/TestCD23Part2.html
+
+hsa-cd24:
+  label: "HSA · Chuyên đề 24 — Tích phân: Ứng dụng tính thể tích"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD24/CD24.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (16 câu)"
+      url: /HSA/CDOnTap/CD24/TestCD24Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (16 câu)"
+      url: /HSA/CDOnTap/CD24/TestCD24Part2.html
+
+hsa-cd25:
+  label: "HSA · Chuyên đề 25 — Xác suất có điều kiện"
+  items:
+    - title: "Bài giảng: Lý thuyết & ví dụ có lời giải"
+      url: /HSA/CDOnTap/CD25/CD25.html
+    - title: "Trắc nghiệm – Đề ôn tập số 01 (15 câu)"
+      url: /HSA/CDOnTap/CD25/TestCD25Part1.html
+    - title: "Trắc nghiệm – Đề ôn tập số 02 (15 câu)"
+      url: /HSA/CDOnTap/CD25/TestCD25Part2.html

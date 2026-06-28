@@ -18,6 +18,9 @@
     <span>{{ s.label }}</span>
     <label for="lsToggle" class="ls-close" title="Đóng" aria-label="Đóng mục lục">✕</label>
   </div>
+  {%- if page.series contains 'hsa-' -%}
+  <a class="ls-allcd" href="{{ '/HSA/CDOnTap/index.html' | relative_url }}" style="display:block;margin:6px 10px 2px;padding:8px 10px;background:#eef3ff;border:1px solid #c7d6ff;border-radius:6px;font-weight:700;text-decoration:none;color:#1a3e8c">📚 Mục lục toàn bộ chuyên đề HSA</a>
+  {%- endif -%}
   <ul>
     {%- for it in s.items -%}
     {%- if it.group -%}
