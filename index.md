@@ -466,6 +466,22 @@ details > div {
 <summary>Tư duy</summary>
 <div markdown="1">
 
+**Luyện tập Tư duy Toán học (định dạng TSA)**
+
+> 📐 **[Trang tổng hợp luyện tập TSA](TSA/2026/index.html)** — chọn nhanh các bài luyện theo chủ đề và bài luyện tổng hợp; có dạng **kéo–thả**, tự chấm điểm và lời giải.
+
+*Luyện theo chủ đề*
+- [Chủ đề 1: Đại số](TSA/2026/CD1.html)
+- [Chủ đề 2: Số học](TSA/2026/CD2.html)
+- [Chủ đề 3: Giải tích](TSA/2026/CD3.html)
+- [Chủ đề 4: Hình học](TSA/2026/CD4.html)
+- [Chủ đề 5: Xác suất và thống kê](TSA/2026/CD5.html)
+
+*Bài luyện tổng hợp (định dạng đề)*
+- [Bài luyện định dạng minh hoạ (40 câu)](TSA/2026/DeMinhHoa.html)
+- [Bài luyện tổng hợp số 1 (40 câu)](TSA/2026/DeOnLuyen1.html)
+- [Bài luyện tổng hợp số 2 (40 câu)](TSA/2026/DeOnLuyen2.html)
+
 - [Tư duy 1](tuduy/tuduy1.html)
 
 </div>

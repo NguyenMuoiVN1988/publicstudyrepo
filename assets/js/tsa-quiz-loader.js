@@ -1,0 +1,1191 @@
+/**
+ * tsa-quiz-loader.js  (engine RIÊNG cho phần luyện tập TSA)
+ * Bản mở rộng của quiz-loader.js: thêm câu hỏi KÉO–THẢ (dd, kiểu Moodle ddwtos)
+ * dùng được cả chuột lẫn cảm ứng. Tách riêng để không làm phức tạp engine HSA.
+ *
+ * Cách dùng:
+ *   TSAQuiz.init({ mdUrl, containerId, title, quizId, saveResults })
+ *
+ * Kéo–thả (DD):
+ *   <!-- @question id=... type=dd -->
+ *   ... câu hỏi với các ô trống [[1]] [[2]] ...
+ *   <!-- @pool 1 | 3 | 486 | 648 -->   (kho đáp án + phương án nhiễu)
+ *   <!-- @ans 3 | 486 -->              (đáp án đúng từng ô, đúng thứ tự)
+ *   **Lời giải.** ...
+ *
+ * Các loại còn lại giống quiz-loader.js. Định dạng .md hỗ trợ:
+ *
+ * Trắc nghiệm (MC):
+ *   <!-- @question id=... type=mc ans=B cat=... -->
+ *   **Câu N.** Nội dung câu hỏi
+ *   A. Đáp án A
+ *   B. Đáp án B
+ *   C. Đáp án C
+ *   D. Đáp án D
+ *   **Lời giải.** Giải thích...
+ *
+ * Điền đáp án (SA):
+ *   <!-- @question id=... type=sa ans=2 cat=... -->
+ *   <!-- @question id=... type=sa ans=0,2|0.2|1/5 cat=... -->
+ *   **Câu N.** Nội dung câu hỏi
+ *   **Lời giải.** Giải thích... **Đáp số: 2.**
+ */
+
+(function (global) {
+  'use strict';
+
+  // ── Cấu hình lưu kết quả về Google Sheets ───────────────────────────────────
+  // Bật cho từng bài bằng QuizLoader.init({ ..., saveResults: true, quizId: '...' })
+  const SHEETS_CFG = {
+    clientId : '863578042809-89aquohsaidajpiv7npi8l35kbcjtg82.apps.googleusercontent.com',
+    webAppUrl: 'https://script.google.com/macros/s/AKfycbwinWVx3kxHEvTSChxtPe69-4s4QH1_ggbRvOZV53-kA2zfVE09GLF4AuHPVqnRH1FMXQ/exec'
+  };
+  let cfg  = { saveResults: false, quizId: '' };
+  let auth = { token: null, name: '', email: '' };
+
+  // ── CSS (inject một lần vào <head>) ──────────────────────────────────────────
+  const STYLE = `
+    .ql-wrap { max-width: 780px; margin: 0 auto; }
+    .ql-header {
+      background: #eff6ff; border-left: 4px solid #3b82f6;
+      border-radius: 6px; padding: 14px 18px; margin-bottom: 16px;
+    }
+    .ql-header h2 { margin: 0 0 4px; font-size: 1.1em; color: #1e3a8a; }
+    .ql-header p  { margin: 0; font-size: 0.88em; color: #475569; }
+    .ql-progress  { font-size: 0.88em; color: #64748b; margin-bottom: 12px; }
+
+    .ql-section {
+      margin: 22px 0 8px; padding: 6px 12px;
+      background: #f1f5f9; border-left: 3px solid #94a3b8;
+      border-radius: 4px; font-size: 0.93em; color: #334155; font-weight: 600;
+    }
+    .ql-card {
+      background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 8px; padding: 14px 16px; margin-bottom: 10px;
+      transition: border-color .2s;
+    }
+    .ql-card.ql-correct { border-color: #22c55e; background: #f0fdf4; }
+    .ql-card.ql-wrong   { border-color: #ef4444; background: #fef2f2; }
+
+    .ql-num  { font-size: 0.75em; font-weight: 700; letter-spacing: .05em;
+               color: #94a3b8; margin-bottom: 4px; }
+    .ql-text { font-size: 0.96em; line-height: 1.65; margin-bottom: 10px; }
+    .ql-opts { display: flex; flex-direction: column; gap: 6px; }
+
+    /* ── Bảng số liệu ── */
+    .ql-table {
+      border-collapse: collapse; margin: 10px 0; width: auto;
+      font-size: 0.92em; display: block; overflow-x: auto;
+    }
+    .ql-table th, .ql-table td {
+      border: 1px solid #cbd5e1; padding: 6px 12px;
+      text-align: center; white-space: nowrap;
+    }
+    .ql-table thead th { background: #eff6ff; color: #1e3a8a; font-weight: 600; }
+    .ql-table tbody td:first-child { background: #f8fafc; font-weight: 600; text-align: left; }
+
+    .ql-opt {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 7px 10px; border: 1px solid #e2e8f0; border-radius: 6px;
+      cursor: pointer; font-size: 0.92em; line-height: 1.5;
+      transition: background .15s, border-color .15s;
+    }
+    .ql-opt:hover { background: #f8fafc; border-color: #94a3b8; }
+    .ql-opt input { margin-top: 3px; flex-shrink: 0; accent-color: #3b82f6; }
+    .ql-key { font-weight: 700; min-width: 18px; color: #3b82f6; flex-shrink: 0; }
+
+    .ql-opt.ql-opt-correct { background: #dcfce7; border-color: #22c55e; }
+    .ql-opt.ql-opt-wrong   { background: #fee2e2; border-color: #ef4444; }
+    .ql-opt.ql-opt-correct .ql-key { color: #15803d; }
+    .ql-opt.ql-opt-wrong   .ql-key { color: #dc2626; }
+
+    /* ── SA (Short Answer / Điền đáp án) ── */
+    .ql-sa-badge {
+      display: inline-block; background: #dbeafe; color: #1e40af;
+      font-size: 0.7em; padding: 1px 8px; border-radius: 10px;
+      font-weight: 600; letter-spacing: .04em; vertical-align: middle;
+      margin-left: 6px;
+    }
+    .ql-sa-wrap {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin: 6px 0 4px;
+    }
+    .ql-sa-label { font-size: 0.9em; color: #475569; white-space: nowrap; }
+    .ql-sa-input {
+      border: 1.5px solid #94a3b8; border-radius: 6px;
+      padding: 6px 12px; font-size: 0.96em; outline: none;
+      width: 220px; max-width: 100%;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .ql-sa-input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+    }
+    .ql-sa-input:disabled { background: #f1f5f9; color: #475569; cursor: default; }
+    .ql-sa-result { font-size: 0.9em; font-weight: 600; }
+    .ql-sa-result.ql-correct-text { color: #16a34a; }
+    .ql-sa-result.ql-wrong-text   { color: #dc2626; }
+
+    /* ── Cloze (câu nhiều ý: mỗi ý là mc / sa / đúng-sai) ── */
+    .ql-sub {
+      margin: 12px 0 4px; padding: 8px 0 4px 12px;
+      border-left: 2px solid #e2e8f0;
+    }
+    .ql-sub-prompt { font-size: 0.93em; line-height: 1.6; margin-bottom: 6px; color: #334155; }
+
+    /* ── Kéo–thả (drag & drop into text, kiểu Moodle ddwtos) ── */
+    .ql-bank {
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+      margin: 12px 0 4px; padding: 10px 12px;
+      background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; min-height: 44px;
+    }
+    .ql-bank-label { width: 100%; font-size: .8em; color: #94a3b8; margin-bottom: 2px; }
+    .ql-chip {
+      display: inline-flex; align-items: center; padding: 5px 13px;
+      background: #fff; border: 1.5px solid #3b82f6; border-radius: 18px; color: #1e3a8a;
+      font-size: .92em; cursor: grab; user-select: none; touch-action: none;
+      box-shadow: 0 1px 2px rgba(30,60,120,.12); transition: background .12s;
+    }
+    .ql-chip:hover { background: #eff6ff; }
+    .ql-chip:active { cursor: grabbing; }
+    .ql-chip-sel { background: #dbeafe; border-color: #1d4ed8; box-shadow: 0 0 0 3px rgba(59,130,246,.28); }
+    .ql-chip-ghost { opacity: .35; }
+    .ql-chip-clone { position: fixed; z-index: 9999; pointer-events: none; opacity: .96;
+      transform: scale(1.04); box-shadow: 0 6px 18px rgba(30,60,120,.35); margin: 0; }
+    .ql-chip-lock { cursor: default; box-shadow: none; }
+    .ql-drop {
+      display: inline-block; min-width: 56px; min-height: 1.7em; line-height: 1.6;
+      padding: 1px 6px; margin: 0 2px; vertical-align: middle; text-align: center;
+      border-bottom: 2px solid #94a3b8; border-radius: 5px 5px 0 0; background: #f1f5f9;
+    }
+    .ql-drop.ql-drop-filled { background: #eef6ff; border-bottom-color: #3b82f6; padding: 1px 4px; }
+    .ql-drop .ql-chip { margin: 0; cursor: pointer; }
+    .ql-drop-hot { background: #dbeafe; outline: 2px dashed #3b82f6; outline-offset: 1px; }
+    .ql-drop-correct { background: #dcfce7; border-bottom-color: #22c55e; }
+    .ql-drop-wrong   { background: #fee2e2; border-bottom-color: #ef4444; }
+    .ql-corr { display: inline-block; margin-left: 4px; font-size: .85em; color: #15803d; font-weight: 600; }
+
+    .ql-sol {
+      margin-top: 10px; padding: 8px 12px;
+      background: #fefce8; border-left: 3px solid #eab308;
+      border-radius: 4px; font-size: 0.87em; line-height: 1.6; color: #422006;
+    }
+    .ql-result {
+      background: #f0fdf4; border: 2px solid #22c55e; border-radius: 10px;
+      padding: 18px; text-align: center; margin-bottom: 18px;
+    }
+    .ql-result h3 { margin: 0 0 4px; color: #15803d; }
+    .ql-result p  { margin: 0; font-size: 0.88em; color: #475569; }
+    .ql-score-big { font-size: 2.4em; font-weight: 800; color: #16a34a; }
+    .ql-footer { text-align: center; margin: 20px 0 10px; display: flex; gap: 12px; justify-content: center; }
+    .ql-btn {
+      padding: 10px 30px; border: none; border-radius: 8px;
+      font-size: 1em; font-weight: 600; cursor: pointer; transition: opacity .2s;
+    }
+    .ql-btn-submit { background: #3b82f6; color: #fff; }
+    .ql-btn-submit:hover { opacity: .88; }
+    .ql-btn-reset  { background: #64748b; color: #fff; }
+    .ql-btn-reset:hover  { opacity: .88; }
+    /* ── Đăng nhập Google & trạng thái lưu kết quả ── */
+    .ql-auth {
+      background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px;
+      padding: 12px 16px; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    }
+    .ql-auth.ql-auth-done { background: #f0fdf4; border-color: #86efac; }
+    .ql-auth-note { margin: 0; font-size: .88em; color: #92400e; }
+    .ql-auth-ok   { margin: 0; font-size: .9em;  color: #166534; }
+    .ql-save-status { margin-top: 8px !important; font-size: .88em; font-weight: 600; }
+    @media (max-width: 600px) {
+      .ql-card { padding: 12px; }
+      .ql-opt  { font-size: .86em; }
+      .ql-sa-input { width: 180px; }
+    }
+  `;
+
+  function injectStyle() {
+    if (document.getElementById('ql-style')) return;
+    const s = document.createElement('style');
+    s.id = 'ql-style';
+    s.textContent = STYLE;
+    document.head.appendChild(s);
+  }
+
+  // ── Chuyển markdown cơ bản → HTML (không đụng nội dung trong $...$) ─────────
+  function md(text) {
+    return text.replace(/(\$[^$]*\$|\$\$[^$]*\$\$)|(!\[([^\]]*)\]\(([^)]+)\))|(\*\*([^*]+?)\*\*)/g,
+      (match, math, img, alt, src, bold, boldContent) => {
+        if (math) return math;
+        if (img)  return `<img src="${src}" alt="${alt}" style="max-width:100%;border-radius:4px;margin:4px 0">`;
+        if (bold) return `<strong>${boldContent}</strong>`;
+        return match;
+      }
+    );
+  }
+
+  // ── Bảng markdown (GFM) → <table> ───────────────────────────────────────────
+  // Dòng phân cách kiểu | --- | :--: | ---: |
+  function isTableSep(line) {
+    return /^\s*\|?(?:\s*:?-+:?\s*\|)+\s*:?-*:?\s*$/.test(line) &&
+           line.includes('-') && line.includes('|');
+  }
+  function isTableRow(line) {
+    return line.includes('|');
+  }
+  function splitCells(row) {
+    let r = row.trim();
+    if (r.startsWith('|')) r = r.slice(1);
+    if (r.endsWith('|'))   r = r.slice(0, -1);
+    return r.split('|').map(c => md(c.trim()));
+  }
+  function buildTable(headerLine, bodyLines) {
+    const head = splitCells(headerLine);
+    let html = '<table class="ql-table"><thead><tr>';
+    head.forEach(c => html += `<th>${c}</th>`);
+    html += '</tr></thead><tbody>';
+    bodyLines.forEach(line => {
+      const cells = splitCells(line);
+      html += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
+    });
+    return html + '</tbody></table>';
+  }
+
+  // Chuyển một khối văn bản nhiều dòng → HTML, nhận diện bảng markdown.
+  // Các dòng văn bản thường nối bằng <br>; bảng dựng thành <table>.
+  function renderRich(raw) {
+    const lines = raw.split('\n');
+    const out   = [];
+    let buf     = [];   // gom các dòng văn bản liên tiếp
+
+    const flush = () => {
+      if (buf.length) { out.push(buf.map(md).join('<br>')); buf = []; }
+    };
+
+    let i = 0;
+    while (i < lines.length) {
+      if (isTableRow(lines[i]) && i + 1 < lines.length && isTableSep(lines[i + 1])) {
+        flush();
+        const header = lines[i];
+        i += 2;                       // bỏ qua dòng tiêu đề + dòng phân cách
+        const body = [];
+        while (i < lines.length && isTableRow(lines[i]) && lines[i].trim() !== '') {
+          body.push(lines[i]);
+          i++;
+        }
+        out.push(buildTable(header, body));
+      } else {
+        buf.push(lines[i]);
+        i++;
+      }
+    }
+    flush();
+    return out.join('');
+  }
+
+  // ── Parser: đọc raw markdown → mảng câu hỏi ─────────────────────────────────
+  function parseMarkdown(rawText) {
+    // 1. Thu thập tiêu đề sections (## hoặc ###)
+    const sectionRe = /^#{2,4}\s+(.+)$/gm;
+    const sections  = [];
+    let sm;
+    while ((sm = sectionRe.exec(rawText)) !== null) {
+      sections.push({ pos: sm.index, title: sm[1].trim() });
+    }
+
+    // 2. Thu thập vị trí và metadata của các <!-- @question -->
+    const commentRe = /<!--\s*@question\s*([\s\S]*?)-->/g;
+    const markers   = [];
+    let cm;
+    while ((cm = commentRe.exec(rawText)) !== null) {
+      const typeM  = cm[1].match(/\btype\s*=\s*(\w+)/i);
+      const qType  = typeM ? typeM[1].toLowerCase() : 'mc';
+      // Regex bắt ans= cho cả MC (ans=A) lẫn SA (ans=0,2|0.2|1/5)
+      const ansM   = cm[1].match(/\bans\s*=\s*([^\s>]+)/);
+      const ansRaw = ansM ? ansM[1].replace(/-->?$/, '').trim()
+                          : (qType === 'mc' ? 'A' : '0');
+      const sec    = [...sections].reverse().find(s => s.pos < cm.index);
+      markers.push({
+        start:   cm.index,
+        end:     cm.index + cm[0].length,
+        type:    qType,
+        ans:     ansRaw,
+        section: sec ? sec.title : null
+      });
+    }
+
+    // 3. Parse từng block giữa hai marker liên tiếp
+    const questions   = [];
+    let   lastSection = null;
+
+    for (let i = 0; i < markers.length; i++) {
+      const blockStart = markers[i].end;
+      const blockEnd   = i + 1 < markers.length ? markers[i + 1].start : rawText.length;
+      const block      = rawText.slice(blockStart, blockEnd);
+
+      const q = markers[i].type === 'cloze'
+        ? parseClozeBlock(block)
+        : markers[i].type === 'dd'
+          ? parseDdBlock(block)
+          : markers[i].type === 'sa'
+            ? parseSaBlock(block, markers[i].ans)
+            : parseMcBlock(block, markers[i].ans);
+      if (!q) continue;
+
+      q.section    = markers[i].section !== lastSection ? markers[i].section : null;
+      lastSection  = markers[i].section;
+      questions.push(q);
+    }
+
+    return questions;
+  }
+
+  // ── Parse block câu hỏi trắc nghiệm (MC) ────────────────────────────────────
+  function parseMcBlock(block, ansLetter) {
+    const ansIdx = 'ABCD'.indexOf(ansLetter.toUpperCase());
+    if (ansIdx < 0) return null;
+
+    const lines  = block.split('\n');
+    const optRe  = /^([A-Da-d])\s*[.)]\s*([\s\S]*)/;
+    const optMap = {};
+    lines.forEach((line, idx) => {
+      const m = line.trimStart().match(optRe);
+      if (m) {
+        const key = m[1].toUpperCase();
+        if (!optMap[key]) optMap[key] = { idx, text: m[2].trim() };
+      }
+    });
+    if (Object.keys(optMap).length < 4) return null;
+
+    const idxArr      = Object.values(optMap).map(o => o.idx);
+    const firstOptIdx = Math.min(...idxArr);
+    const lastOptIdx  = Math.max(...idxArr);
+
+    const qLines = lines.slice(0, firstOptIdx).map(l => l.trim()).filter(Boolean);
+    const qRaw   = qLines.join('\n')
+      .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')
+      .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '');
+    const qHtml  = renderRich(qRaw);
+
+    const opts = ['A','B','C','D'].map(k => md(optMap[k]?.text || ''));
+
+    const solLines = lines.slice(lastOptIdx + 1).map(l => l.trim()).filter(Boolean);
+    const solHtml  = md(
+      solLines.join(' ')
+        .replace(/^\*\*\s*Lời giải\s*[.:]\s*\*\*\s*/i, '')
+        .replace(/^Lời giải\s*[.:]\s*/i, '')
+    );
+
+    return { q: qHtml, opts, ans: ansIdx, sol: solHtml };
+  }
+
+  // ── Parse block câu hỏi điền đáp án (SA) ────────────────────────────────────
+  function parseSaBlock(block, ansRaw) {
+    // ans có thể là "2", "0,2|0.2|1/5", "99,87|99.87|784/785", …
+    const acceptedAnswers = ansRaw.split('|').map(a => a.trim()).filter(Boolean);
+    if (!acceptedAnswers.length) return null;
+
+    const lines = block.split('\n');
+
+    // Tìm dòng bắt đầu lời giải: dòng bắt đầu bằng **Lời giải
+    const solIdx = lines.findIndex(l => /^\s*\*\*\s*lời giải/i.test(l));
+    const endIdx = solIdx >= 0 ? solIdx : lines.length;
+
+    const qLines = lines.slice(0, endIdx).map(l => l.trim()).filter(Boolean);
+    const qRaw   = qLines.join('\n')
+      .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')
+      .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '');
+    const qHtml  = renderRich(qRaw);
+
+    const solLines = solIdx >= 0
+      ? lines.slice(solIdx).map(l => l.trim()).filter(Boolean)
+      : [];
+    const solHtml  = md(
+      solLines.join(' ')
+        .replace(/^\*\*\s*Lời giải\s*[.:]\s*\*\*\s*/i, '')
+        .replace(/^Lời giải\s*[.:]\s*/i, '')
+    );
+
+    return { type: 'sa', q: qHtml, acceptedAnswers, sol: solHtml };
+  }
+
+  // ── Parse block câu hỏi nhiều ý (cloze) ─────────────────────────────────────
+  // Thân câu: phần đầu là đề chung, mỗi ý con mở bằng <!-- @sub type=.. ans=.. -->
+  //   type=sa  → ô điền ;  type=mc → 4 phương án A–D ;  type=tf → Đúng/Sai.
+  // **Lời giải.** (nếu có) đặt ở cuối, là lời giải chung cho cả câu.
+  function stripCau(raw) {
+    return raw.split('\n').map(l => l.trim()).filter(Boolean).join('\n')
+      .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')
+      .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '');
+  }
+
+  function parseSub(type, ansRaw, body) {
+    type = (type || 'sa').toLowerCase();
+    const ans = (ansRaw || '').replace(/-->?$/, '').trim();
+
+    if (type === 'mc') {
+      const lines = body.split('\n');
+      const optRe = /^([A-Da-d])\s*[.)]\s*([\s\S]*)/;
+      const optMap = {};
+      lines.forEach((line, idx) => {
+        const m = line.trimStart().match(optRe);
+        if (m) { const k = m[1].toUpperCase(); if (!optMap[k]) optMap[k] = { idx, text: m[2].trim() }; }
+      });
+      const order = ['A','B','C','D'].filter(k => optMap[k]);
+      if (order.length < 2) return null;
+      const firstOptIdx = Math.min(...order.map(k => optMap[k].idx));
+      const prompt = renderRich(lines.slice(0, firstOptIdx).map(l => l.trim()).filter(Boolean).join('\n'));
+      return {
+        kind: 'mc', prompt,
+        opts: order.map(k => md(optMap[k].text)),
+        optKeys: order,
+        ans: order.indexOf(ans.toUpperCase())
+      };
+    }
+
+    if (type === 'tf' || type === 'ds') {
+      const prompt = renderRich(body.split('\n').map(l => l.trim()).filter(Boolean).join('\n'));
+      const up = ans.toUpperCase();
+      const correct = (up.startsWith('Đ') || up === 'D' || up === 'T' || up === 'TRUE') ? 'D' : 'S';
+      return { kind: 'tf', prompt, ans: correct };
+    }
+
+    // mặc định: sa
+    const accepted = ans.split('|').map(s => s.trim()).filter(Boolean);
+    const prompt = renderRich(body.split('\n').map(l => l.trim()).filter(Boolean).join('\n'));
+    return { kind: 'sa', prompt, acceptedAnswers: accepted };
+  }
+
+  function parseClozeBlock(block) {
+    const subRe = /<!--\s*@sub\s*([\s\S]*?)-->/g;
+    const subMarks = [];
+    let m;
+    while ((m = subRe.exec(block)) !== null) {
+      const typeM = m[1].match(/\btype\s*=\s*(\w+)/i);
+      const ansM  = m[1].match(/\bans\s*=\s*([^\s>]+)/);
+      subMarks.push({
+        start: m.index, end: m.index + m[0].length,
+        type: typeM ? typeM[1] : 'sa',
+        ans:  ansM ? ansM[1] : ''
+      });
+    }
+    if (!subMarks.length) return null;
+
+    const qHtml = renderRich(stripCau(block.slice(0, subMarks[0].start)));
+
+    const subs = [];
+    let sol = '';
+    for (let k = 0; k < subMarks.length; k++) {
+      const bodyStart = subMarks[k].end;
+      const bodyEnd   = k + 1 < subMarks.length ? subMarks[k + 1].start : block.length;
+      let body = block.slice(bodyStart, bodyEnd);
+
+      if (k === subMarks.length - 1) {            // tách **Lời giải.** chung ở ý cuối
+        const lines  = body.split('\n');
+        const solIdx = lines.findIndex(l => /^\s*\*\*\s*lời giải/i.test(l));
+        if (solIdx >= 0) {
+          sol = md(lines.slice(solIdx).join(' ')
+            .replace(/^\s*\*\*\s*Lời giải\s*[.:]\s*\*\*\s*/i, '')
+            .replace(/^\s*Lời giải\s*[.:]\s*/i, ''));
+          body = lines.slice(0, solIdx).join('\n');
+        }
+      }
+      const sub = parseSub(subMarks[k].type, subMarks[k].ans, body);
+      if (sub) subs.push(sub);
+    }
+    if (!subs.length) return null;
+    return { type: 'cloze', q: qHtml, subs, sol };
+  }
+
+  // ── Parse block câu hỏi kéo–thả (dd – drag & drop into text) ────────────────
+  // Định dạng:
+  //   <!-- @question id=.. type=dd -->
+  //   **Câu N.** ... [[1]] ... [[2]] ...
+  //   <!-- @pool 1 | 3 | 4 | 25 | 486 | 648 -->
+  //   <!-- @ans 3 | 486 -->
+  //   **Lời giải.** ...
+  // [[k]] là ô trống thứ k (theo thứ tự đọc); @pool là kho đáp án (có thể kèm
+  // phương án nhiễu); @ans là đáp án đúng cho từng ô, đúng thứ tự, mỗi mục là
+  // một phần tử của @pool.
+  function parseDdBlock(block) {
+    const poolM = block.match(/<!--\s*@pool\s*([\s\S]*?)-->/);
+    const ansM  = block.match(/<!--\s*@ans\s*([\s\S]*?)-->/);
+    if (!poolM || !ansM) return null;
+    const pool = poolM[1].split('|').map(s => s.trim()).filter(Boolean);
+    const gaps = ansM[1].split('|').map(s => s.trim());
+    if (!pool.length || !gaps.length) return null;
+
+    let body = block.replace(poolM[0], '').replace(ansM[0], '');
+    const lines  = body.split('\n');
+    const solIdx = lines.findIndex(l => /^\s*\*\*\s*lời giải/i.test(l));
+    const qLines = (solIdx >= 0 ? lines.slice(0, solIdx) : lines)
+      .map(l => l.trim()).filter(Boolean);
+    const solLines = solIdx >= 0 ? lines.slice(solIdx).map(l => l.trim()).filter(Boolean) : [];
+
+    let qRaw = qLines.join('\n')
+      .replace(/^\*\*\s*Câu\s*\d+\s*[.:)]\s*\*\*\s*/i, '')
+      .replace(/^Câu\s*\d+\s*[.:)]\s*/i, '')
+      .replace(/\[\[\s*(\d+)\s*\]\]/g, (m, n) => `@@GAP${n}@@`);
+    const qHtml = renderRich(qRaw);
+
+    const solHtml = md(solLines.join(' ')
+      .replace(/^\*\*\s*Lời giải\s*[.:]\s*\*\*\s*/i, '')
+      .replace(/^Lời giải\s*[.:]\s*/i, ''));
+
+    return { type: 'dd', q: qHtml, pool, gaps, sol: solHtml };
+  }
+
+  function ddNorm(s) {
+    return String(s).replace(/\$/g, '').replace(/\s+/g, '')
+      .replace(/\\(text|mathrm|mathit|mathbf)/g, '').replace(/[{}]/g, '').toLowerCase();
+  }
+  function ddMatch(u, c) {
+    if (u == null) return false;
+    const nu = ddNorm(u), nc = ddNorm(c);
+    if (nu !== '' && nu === nc) return true;
+    const numRe = /^[+-]?(\d+\.?\d*|\.\d+)$/;
+    const a = String(u).replace(/[\$\s]/g, '').replace(/,/g, '.');
+    const b = String(c).replace(/[\$\s]/g, '').replace(/,/g, '.');
+    if (numRe.test(a) && numRe.test(b) && Math.abs(parseFloat(a) - parseFloat(b)) < 1e-9) return true;
+    return false;
+  }
+
+  // ── Tương tác kéo–thả (chuột + cảm ứng + chạm-chọn) ─────────────────────────
+  function setupDragDrop(container, onChange) {
+    let selected = null;          // chip đang được chạm-chọn
+    let cand = null;              // ứng viên kéo {chip,x,y,moved,clone}
+    const THRESH = 6;
+
+    const bankOf = chip => document.getElementById(chip.dataset.bank);
+    const clearSel = () => { if (selected) { selected.classList.remove('ql-chip-sel'); selected = null; } };
+
+    function toBank(chip) {
+      const gap = chip.closest('.ql-drop');
+      bankOf(chip).appendChild(chip);
+      chip.classList.remove('ql-chip-placed');
+      if (gap && !gap.querySelector('.ql-chip')) gap.classList.remove('ql-drop-filled');
+    }
+    function toGap(chip, gap) {
+      if (gap.classList.contains('ql-drop-done')) return;
+      const ex = gap.querySelector('.ql-chip');
+      if (ex && ex !== chip) toBank(ex);
+      gap.appendChild(chip);
+      gap.classList.add('ql-drop-filled');
+      chip.classList.add('ql-chip-placed');
+    }
+    const gapUnder = (x, y) => {
+      const el = document.elementFromPoint(x, y);
+      return el ? el.closest('.ql-drop:not(.ql-drop-done)') : null;
+    };
+
+    container.addEventListener('pointerdown', e => {
+      const chip = e.target.closest('.ql-chip');
+      if (!chip || chip.classList.contains('ql-chip-lock')) return;
+      if (e.button != null && e.button !== 0) return;
+      cand = { chip, x: e.clientX, y: e.clientY, moved: false, clone: null };
+      document.addEventListener('pointermove', onMove);
+      document.addEventListener('pointerup', onUp);
+    });
+
+    function onMove(e) {
+      if (!cand) return;
+      if (!cand.moved && Math.hypot(e.clientX - cand.x, e.clientY - cand.y) > THRESH) {
+        cand.moved = true;
+        const c = cand.chip.cloneNode(true);
+        c.classList.add('ql-chip-clone');
+        document.body.appendChild(c);
+        cand.clone = c;
+        cand.chip.classList.add('ql-chip-ghost');
+        clearSel();
+      }
+      if (cand.moved && cand.clone) {
+        const r = cand.clone.getBoundingClientRect();
+        cand.clone.style.left = (e.clientX - r.width / 2) + 'px';
+        cand.clone.style.top  = (e.clientY - r.height / 2) + 'px';
+        document.querySelectorAll('.ql-drop-hot').forEach(g => g.classList.remove('ql-drop-hot'));
+        const g = gapUnder(e.clientX, e.clientY);
+        if (g) g.classList.add('ql-drop-hot');
+        e.preventDefault();
+      }
+    }
+
+    function onUp(e) {
+      document.removeEventListener('pointermove', onMove);
+      document.removeEventListener('pointerup', onUp);
+      const d = cand; cand = null;
+      if (!d) return;
+      if (d.moved) {
+        if (d.clone) d.clone.remove();
+        d.chip.classList.remove('ql-chip-ghost');
+        document.querySelectorAll('.ql-drop-hot').forEach(g => g.classList.remove('ql-drop-hot'));
+        const g = gapUnder(e.clientX, e.clientY);
+        if (g) toGap(d.chip, g);
+        else {
+          const el = document.elementFromPoint(e.clientX, e.clientY);
+          if (el && el.closest('.ql-bank')) toBank(d.chip);
+        }
+      } else {
+        // chạm/click: phân biệt chip trong ô trống vs chip trong kho vs chính ô trống
+        const inGap = d.chip.closest('.ql-drop');
+        if (inGap) { toBank(d.chip); clearSel(); }
+        else if (selected === d.chip) { clearSel(); }
+        else { clearSel(); selected = d.chip; d.chip.classList.add('ql-chip-sel'); }
+      }
+      if (onChange) onChange();
+    }
+
+    // chạm vào ô trống để thả chip đang chọn
+    container.addEventListener('click', e => {
+      const gap = e.target.closest('.ql-drop');
+      if (!gap || gap.classList.contains('ql-drop-done')) return;
+      if (e.target.closest('.ql-chip')) return;   // chip trong ô do pointerup xử lý
+      if (selected) { toGap(selected, gap); clearSel(); if (onChange) onChange(); }
+    });
+  }
+
+  // ── Kiểm tra đáp án SA (chấp nhận nhiều dạng viết) ──────────────────────────
+  function checkSaAnswer(userInput, acceptedAnswers) {
+    const normalize = s => s.trim()
+      .replace(/\s+/g, '')
+      .replace(/[≈~]/g, '')
+      .replace(/%$/, '')      // bỏ dấu % ở cuối
+      .toLowerCase()
+      .replace(/,/g, '.');    // thống nhất dấu thập phân
+
+    const nUser = normalize(userInput);
+    if (nUser === '') return false;
+
+    return acceptedAnswers.some(ans => {
+      const nAns = normalize(ans);
+      if (nUser === nAns) return true;
+      // So sánh số học để chấp nhận các dạng tương đương (0.2 = 0.20).
+      // Chỉ áp dụng khi CẢ HAI là số thuần tuý — tránh parseFloat("6/17") = 6
+      // khiến "6" bị chấm đúng cho đáp án "6/17" hay "95.7" cho "95.7;4.5".
+      const numRe = /^[+-]?(\d+\.?\d*|\.\d+)$/;
+      if (numRe.test(nUser) && numRe.test(nAns) &&
+          Math.abs(parseFloat(nUser) - parseFloat(nAns)) < 1e-9) return true;
+      return false;
+    });
+  }
+
+  // ── Đăng nhập Google (Google Identity Services) ─────────────────────────────
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function decodeJwtPayload(jwt) {
+    try {
+      const b64  = jwt.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+      const json = decodeURIComponent(atob(b64).split('').map(c =>
+        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+      return JSON.parse(json);
+    } catch (e) { return {}; }
+  }
+
+  function setupGoogleSignIn() {
+    const start = () => {
+      google.accounts.id.initialize({
+        client_id: SHEETS_CFG.clientId,
+        callback : onGoogleSignIn
+      });
+      const btn = document.getElementById('ql-gsi-btn');
+      if (btn) google.accounts.id.renderButton(btn, { theme: 'outline', size: 'large' });
+    };
+
+    if (window.google && google.accounts && google.accounts.id) { start(); return; }
+
+    const s = document.createElement('script');
+    s.src = 'https://accounts.google.com/gsi/client';
+    s.async = true;
+    s.defer = true;
+    s.onload  = start;
+    s.onerror = () => {
+      const note = document.querySelector('.ql-auth-note');
+      if (note) note.textContent = '⚠ Không tải được trang đăng nhập Google. Hãy kiểm tra kết nối mạng rồi tải lại trang.';
+    };
+    document.head.appendChild(s);
+  }
+
+  function onGoogleSignIn(res) {
+    auth.token = res.credential;
+    const p    = decodeJwtPayload(res.credential);
+    auth.name  = p.name  || '';
+    auth.email = p.email || '';
+
+    const authEl = document.getElementById('ql-auth');
+    if (authEl) {
+      authEl.classList.add('ql-auth-done');
+      authEl.innerHTML =
+        `<p class="ql-auth-ok">✓ Đang làm bài: <strong>${escapeHtml(auth.name)}</strong>` +
+        ` (${escapeHtml(auth.email)}) — kết quả sẽ được lưu khi nộp bài.</p>`;
+    }
+  }
+
+  // ── Gửi kết quả về Google Sheets qua Apps Script ────────────────────────────
+  function sendResult(score, total, answers) {
+    const statusEl = document.getElementById('ql-save-status');
+    if (statusEl) statusEl.textContent = '💾 Đang lưu kết quả…';
+
+    // Content-Type text/plain để tránh CORS preflight (Apps Script không trả lời OPTIONS)
+    fetch(SHEETS_CFG.webAppUrl, {
+      method : 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body   : JSON.stringify({
+        token : auth.token,
+        quizId: cfg.quizId,
+        score : score,
+        total : total,
+        answers: answers
+      })
+    })
+      .then(r => r.json())
+      .then(d => {
+        if (!statusEl) return;
+        if (d.ok) {
+          statusEl.textContent = `✓ Đã lưu kết quả cho ${auth.email}`;
+          statusEl.style.color = '#15803d';
+        } else {
+          statusEl.textContent = '⚠ Không lưu được kết quả: ' + (d.error || 'lỗi không rõ');
+          statusEl.style.color = '#b45309';
+        }
+      })
+      .catch(() => {
+        if (!statusEl) return;
+        statusEl.textContent = '⚠ Không lưu được kết quả (lỗi mạng). Em hãy chụp màn hình điểm gửi thầy/cô.';
+        statusEl.style.color = '#b45309';
+      });
+  }
+
+  // ── Dựng giao diện quiz ───────────────────────────────────────────────────────
+  const LABELS = ['A','B','C','D'];
+
+  // Số ô chấm điểm của 1 câu: MC/SA = 1, cloze = số ý con.
+  function gapCount(q) {
+    if (q.type === 'cloze') return q.subs.length;
+    if (q.type === 'dd')    return q.gaps.length;
+    return 1;
+  }
+
+  function render(container, questions, title) {
+    const total   = questions.length;
+    const saCount = questions.filter(q => q.type === 'sa').length;
+    const clozeCount = questions.filter(q => q.type === 'cloze').length;
+    const mcCount = total - saCount - clozeCount;
+
+    let typeDesc;
+    if (clozeCount)
+      typeDesc = 'gồm câu nhiều ý (trắc nghiệm · điền · đúng/sai)';
+    else if (mcCount && saCount)
+      typeDesc = `${mcCount} trắc nghiệm · ${saCount} điền đáp án`;
+    else if (saCount)
+      typeDesc = 'Điền kết quả vào ô trống';
+    else
+      typeDesc = 'Chọn đáp án đúng';
+
+    let html = `
+      <div class="ql-wrap">
+        <div class="ql-header">
+          <h2>${title}</h2>
+          <p>${total} câu · ${typeDesc} rồi bấm <strong>Nộp bài</strong></p>
+        </div>
+        ${cfg.saveResults ? `
+        <div class="ql-auth" id="ql-auth">
+          <div id="ql-gsi-btn"></div>
+          <p class="ql-auth-note">🔒 Đăng nhập Google để kết quả được lưu lại. Không đăng nhập vẫn làm bài được, nhưng điểm sẽ không được ghi nhận.</p>
+        </div>` : ''}
+        <div class="ql-progress">Đã trả lời: <span id="ql-answered">0</span>/${total} câu</div>
+        <div class="ql-result" id="ql-result" style="display:none">
+          <div class="ql-score-big" id="ql-score-big"></div>
+          <h3 id="ql-score-label"></h3>
+          <p  id="ql-score-detail"></p>
+          <p class="ql-save-status" id="ql-save-status"></p>
+        </div>
+        <div id="ql-body">
+    `;
+
+    questions.forEach((q, i) => {
+      if (q.section) html += `<div class="ql-section">${q.section}</div>`;
+
+      if (q.type === 'sa') {
+        html += `
+          <div class="ql-card" id="ql-card-${i}">
+            <div class="ql-num">Câu ${i + 1}<span class="ql-sa-badge">Điền</span></div>
+            <div class="ql-text">${q.q}</div>
+            <div class="ql-sa-wrap">
+              <span class="ql-sa-label">Đáp án:</span>
+              <input type="text" class="ql-sa-input" id="ql-sa-${i}"
+                     placeholder="Nhập kết quả…" autocomplete="off">
+              <span class="ql-sa-result" id="ql-sa-result-${i}"></span>
+            </div>
+            <div class="ql-sol" id="ql-sol-${i}" style="display:none">💡 ${q.sol}</div>
+          </div>`;
+      } else if (q.type === 'cloze') {
+        html += `
+          <div class="ql-card" id="ql-card-${i}">
+            <div class="ql-num">Câu ${i + 1}<span class="ql-sa-badge">Nhiều ý</span></div>
+            <div class="ql-text">${q.q}</div>`;
+        q.subs.forEach((s, j) => {
+          html += `<div class="ql-sub" id="ql-sub-${i}-${j}">`;
+          if (s.prompt) html += `<div class="ql-sub-prompt">${s.prompt}</div>`;
+          if (s.kind === 'sa') {
+            html += `
+              <div class="ql-sa-wrap">
+                <span class="ql-sa-label">Đáp án:</span>
+                <input type="text" class="ql-sa-input" id="ql-sa-${i}-${j}"
+                       placeholder="Nhập kết quả…" autocomplete="off">
+                <span class="ql-sa-result" id="ql-sa-result-${i}-${j}"></span>
+              </div>`;
+          } else if (s.kind === 'tf') {
+            html += `
+              <div class="ql-opts">
+                ${['Đúng','Sai'].map((t, k) => `
+                  <label class="ql-opt" id="ql-lbl-${i}-${j}-${k}">
+                    <input type="radio" name="ql-q${i}-${j}" value="${k}">
+                    <span>${t}</span>
+                  </label>`).join('')}
+              </div>`;
+          } else {
+            html += `
+              <div class="ql-opts">
+                ${s.opts.map((opt, k) => `
+                  <label class="ql-opt" id="ql-lbl-${i}-${j}-${k}">
+                    <input type="radio" name="ql-q${i}-${j}" value="${k}">
+                    <span class="ql-key">${s.optKeys[k]}.</span>
+                    <span>${opt}</span>
+                  </label>`).join('')}
+              </div>`;
+          }
+          html += `</div>`;
+        });
+        html += `
+            <div class="ql-sol" id="ql-sol-${i}" style="display:none">💡 ${q.sol}</div>
+          </div>`;
+      } else if (q.type === 'dd') {
+        let qh = q.q;
+        q.gaps.forEach((_, k) => {
+          qh = qh.replace(`@@GAP${k + 1}@@`,
+            `<span class="ql-drop" id="ql-drop-${i}-${k}" data-q="${i}" data-gap="${k}"></span>`);
+        });
+        html += `
+          <div class="ql-card" id="ql-card-${i}">
+            <div class="ql-num">Câu ${i + 1}<span class="ql-sa-badge">Kéo–thả</span></div>
+            <div class="ql-text">${qh}</div>
+            <div class="ql-bank" id="ql-bank-${i}">
+              <span class="ql-bank-label">Kéo (hoặc chạm chọn) ô đáp án rồi thả vào chỗ trống:</span>
+              ${q.pool.map((p, pi) => `<span class="ql-chip" id="ql-chip-${i}-${pi}" data-q="${i}" data-bank="ql-bank-${i}" data-val="${escapeHtml(p)}">${md(p)}</span>`).join('')}
+            </div>
+            <div class="ql-sol" id="ql-sol-${i}" style="display:none">💡 ${q.sol}</div>
+          </div>`;
+      } else {
+        html += `
+          <div class="ql-card" id="ql-card-${i}">
+            <div class="ql-num">Câu ${i + 1}</div>
+            <div class="ql-text">${q.q}</div>
+            <div class="ql-opts">
+              ${q.opts.map((opt, j) => `
+                <label class="ql-opt" id="ql-lbl-${i}-${j}">
+                  <input type="radio" name="ql-q${i}" value="${j}">
+                  <span class="ql-key">${LABELS[j]}.</span>
+                  <span>${opt}</span>
+                </label>`).join('')}
+            </div>
+            <div class="ql-sol" id="ql-sol-${i}" style="display:none">💡 ${q.sol}</div>
+          </div>`;
+      }
+    });
+
+    html += `
+        </div><!-- #ql-body -->
+        <div class="ql-footer">
+          <button class="ql-btn ql-btn-submit" id="ql-submit">Nộp bài</button>
+          <button class="ql-btn ql-btn-reset"  id="ql-reset" style="display:none">Làm lại</button>
+        </div>
+      </div><!-- .ql-wrap -->
+    `;
+
+    container.innerHTML = html;
+
+    // Hàm đếm số câu đã trả lời (đóng kín qua questions)
+    function updateProgress() {
+      let count = 0;
+      questions.forEach((q, i) => {
+        if (q.type === 'sa') {
+          const inp = document.getElementById(`ql-sa-${i}`);
+          if (inp && inp.value.trim() !== '') count++;
+        } else if (q.type === 'cloze') {
+          const done = q.subs.every((s, j) => {
+            if (s.kind === 'sa') {
+              const inp = document.getElementById(`ql-sa-${i}-${j}`);
+              return inp && inp.value.trim() !== '';
+            }
+            return !!document.querySelector(`input[name="ql-q${i}-${j}"]:checked`);
+          });
+          if (done) count++;
+        } else if (q.type === 'dd') {
+          const filled = q.gaps.every((_, k) => {
+            const g = document.getElementById(`ql-drop-${i}-${k}`);
+            return g && g.querySelector('.ql-chip');
+          });
+          if (filled) count++;
+        } else {
+          if (document.querySelector(`input[name="ql-q${i}"]:checked`)) count++;
+        }
+      });
+      document.getElementById('ql-answered').textContent = count;
+    }
+
+    container.querySelectorAll('input[type="radio"]').forEach(inp =>
+      inp.addEventListener('change', updateProgress)
+    );
+    container.querySelectorAll('.ql-sa-input').forEach(inp =>
+      inp.addEventListener('input', updateProgress)
+    );
+
+    if (questions.some(q => q.type === 'dd')) setupDragDrop(container, updateProgress);
+
+    document.getElementById('ql-submit').addEventListener('click', () => submit(questions));
+    document.getElementById('ql-reset' ).addEventListener('click', () => reset(questions));
+
+    if (cfg.saveResults) setupGoogleSignIn();
+
+    typeset(container);
+  }
+
+  // ── Nộp bài ─────────────────────────────────────────────────────────────────
+  function submit(questions) {
+    let correct = 0;
+    const answers = [];
+
+    questions.forEach((q, i) => {
+      const card  = document.getElementById(`ql-card-${i}`);
+      const solEl = document.getElementById(`ql-sol-${i}`);
+
+      if (q.type === 'sa') {
+        const inp       = document.getElementById(`ql-sa-${i}`);
+        const userInput = inp ? inp.value.trim() : '';
+        if (inp) inp.disabled = true;
+        answers.push(userInput || '-');
+
+        const isOk  = checkSaAnswer(userInput, q.acceptedAnswers);
+        const resEl = document.getElementById(`ql-sa-result-${i}`);
+
+        if (isOk) {
+          correct++;
+          card.classList.add('ql-correct');
+          resEl.textContent = '✓ Đúng';
+          resEl.className   = 'ql-sa-result ql-correct-text';
+        } else {
+          card.classList.add('ql-wrong');
+          resEl.textContent = `✗ Sai — đáp án: ${q.acceptedAnswers[0]}`;
+          resEl.className   = 'ql-sa-result ql-wrong-text';
+        }
+      } else if (q.type === 'dd') {
+        const card2 = card;
+        let nRight = 0;
+        const sub = [];
+        q.gaps.forEach((gapAns, k) => {
+          const gap  = document.getElementById(`ql-drop-${i}-${k}`);
+          gap.classList.add('ql-drop-done');
+          const chip = gap.querySelector('.ql-chip');
+          const val  = chip ? chip.dataset.val : '';
+          if (chip) chip.classList.add('ql-chip-lock');
+          sub.push(val || '-');
+          if (ddMatch(val, gapAns)) {
+            nRight++; gap.classList.add('ql-drop-correct');
+          } else {
+            gap.classList.add('ql-drop-wrong');
+            const cs = document.createElement('span');
+            cs.className = 'ql-corr';
+            cs.innerHTML = '→ ' + md(gapAns);
+            gap.parentNode.insertBefore(cs, gap.nextSibling);
+          }
+        });
+        // khoá các ô còn lại trong kho
+        document.querySelectorAll(`#ql-bank-${i} .ql-chip`).forEach(c => c.classList.add('ql-chip-lock'));
+        correct += nRight;
+        answers.push(sub.join(' | '));
+        card2.classList.add(nRight === q.gaps.length ? 'ql-correct' : 'ql-wrong');
+      } else if (q.type !== 'cloze') {
+        const sel    = document.querySelector(`input[name="ql-q${i}"]:checked`);
+        const chosen = sel ? parseInt(sel.value) : -1;
+        document.querySelectorAll(`input[name="ql-q${i}"]`).forEach(el => el.disabled = true);
+        answers.push(chosen >= 0 ? LABELS[chosen] : '-');
+
+        if (chosen === q.ans) {
+          correct++;
+          card.classList.add('ql-correct');
+          document.getElementById(`ql-lbl-${i}-${q.ans}`).classList.add('ql-opt-correct');
+        } else {
+          card.classList.add('ql-wrong');
+          if (chosen >= 0)
+            document.getElementById(`ql-lbl-${i}-${chosen}`).classList.add('ql-opt-wrong');
+          document.getElementById(`ql-lbl-${i}-${q.ans}`).classList.add('ql-opt-correct');
+        }
+      }
+
+      if (q.type === 'cloze') {
+        const subAns = [];
+        let nRight = 0;
+        q.subs.forEach((s, j) => {
+          if (s.kind === 'sa') {
+            const inp = document.getElementById(`ql-sa-${i}-${j}`);
+            const ui  = inp ? inp.value.trim() : '';
+            if (inp) inp.disabled = true;
+            subAns.push(ui || '-');
+            const resEl = document.getElementById(`ql-sa-result-${i}-${j}`);
+            if (checkSaAnswer(ui, s.acceptedAnswers)) {
+              correct++; nRight++;
+              resEl.textContent = '✓ Đúng';
+              resEl.className = 'ql-sa-result ql-correct-text';
+            } else {
+              resEl.textContent = `✗ Sai — đáp án: ${s.acceptedAnswers[0]}`;
+              resEl.className = 'ql-sa-result ql-wrong-text';
+            }
+          } else {
+            const ansIdx = s.kind === 'tf' ? (s.ans === 'D' ? 0 : 1) : s.ans;
+            const sel    = document.querySelector(`input[name="ql-q${i}-${j}"]:checked`);
+            const chosen = sel ? parseInt(sel.value) : -1;
+            document.querySelectorAll(`input[name="ql-q${i}-${j}"]`).forEach(el => el.disabled = true);
+            subAns.push(s.kind === 'tf' ? (chosen === 0 ? 'Đ' : chosen === 1 ? 'S' : '-')
+                                        : (chosen >= 0 ? s.optKeys[chosen] : '-'));
+            if (chosen === ansIdx) {
+              correct++; nRight++;
+              document.getElementById(`ql-lbl-${i}-${j}-${ansIdx}`).classList.add('ql-opt-correct');
+            } else {
+              if (chosen >= 0)
+                document.getElementById(`ql-lbl-${i}-${j}-${chosen}`).classList.add('ql-opt-wrong');
+              document.getElementById(`ql-lbl-${i}-${j}-${ansIdx}`).classList.add('ql-opt-correct');
+            }
+          }
+        });
+        answers.push(subAns.join(' | '));
+        card.classList.add(nRight === q.subs.length ? 'ql-correct' : 'ql-wrong');
+      }
+
+      solEl.style.display = 'block';
+    });
+
+    const totalGaps = questions.reduce((s, q) => s + gapCount(q), 0);
+    const pct    = Math.round(correct / totalGaps * 100);
+    const result = document.getElementById('ql-result');
+    document.getElementById('ql-score-big'   ).textContent = `${correct}/${totalGaps}`;
+    document.getElementById('ql-score-label' ).textContent = `Đúng ${pct}%`;
+    document.getElementById('ql-score-detail').textContent =
+      pct >= 80 ? '🎉 Xuất sắc! Tiếp tục phát huy.' :
+      pct >= 50 ? '👍 Khá tốt! Xem lại câu sai.' :
+                  '📖 Cần ôn thêm. Đọc kỹ lời giải bên dưới.';
+
+    result.style.display = 'block';
+    document.getElementById('ql-submit').style.display = 'none';
+    document.getElementById('ql-reset' ).style.display = 'inline-block';
+
+    if (cfg.saveResults) {
+      if (auth.token) {
+        sendResult(correct, totalGaps, answers);
+      } else {
+        const statusEl = document.getElementById('ql-save-status');
+        if (statusEl) {
+          statusEl.textContent = '⚠ Kết quả không được lưu vì chưa đăng nhập.';
+          statusEl.style.color = '#b45309';
+        }
+      }
+    }
+
+    typeset(document.getElementById('ql-body'));
+    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // ── Làm lại ─────────────────────────────────────────────────────────────────
+  function reset(questions) {
+    questions.forEach((q, i) => {
+      const card = document.getElementById(`ql-card-${i}`);
+      card.classList.remove('ql-correct', 'ql-wrong');
+      document.getElementById(`ql-sol-${i}`).style.display = 'none';
+
+      if (q.type === 'sa') {
+        const inp = document.getElementById(`ql-sa-${i}`);
+        if (inp) { inp.value = ''; inp.disabled = false; }
+        const resEl = document.getElementById(`ql-sa-result-${i}`);
+        if (resEl) { resEl.textContent = ''; resEl.className = 'ql-sa-result'; }
+      } else if (q.type === 'cloze') {
+        q.subs.forEach((s, j) => {
+          if (s.kind === 'sa') {
+            const inp = document.getElementById(`ql-sa-${i}-${j}`);
+            if (inp) { inp.value = ''; inp.disabled = false; }
+            const resEl = document.getElementById(`ql-sa-result-${i}-${j}`);
+            if (resEl) { resEl.textContent = ''; resEl.className = 'ql-sa-result'; }
+          } else {
+            document.querySelectorAll(`input[name="ql-q${i}-${j}"]`).forEach(el => {
+              el.checked = false; el.disabled = false;
+            });
+            const nOpt = s.kind === 'tf' ? 2 : s.opts.length;
+            for (let k = 0; k < nOpt; k++) {
+              const lbl = document.getElementById(`ql-lbl-${i}-${j}-${k}`);
+              if (lbl) lbl.classList.remove('ql-opt-correct', 'ql-opt-wrong');
+            }
+          }
+        });
+      } else if (q.type === 'dd') {
+        const bank = document.getElementById(`ql-bank-${i}`);
+        card.querySelectorAll('.ql-corr').forEach(s => s.remove());
+        // trả mọi chip về kho (theo đúng thứ tự pool)
+        q.pool.forEach((_, pi) => {
+          const chip = document.getElementById(`ql-chip-${i}-${pi}`);
+          if (chip) { chip.classList.remove('ql-chip-lock', 'ql-chip-placed', 'ql-chip-ghost', 'ql-chip-sel'); bank.appendChild(chip); }
+        });
+        q.gaps.forEach((_, k) => {
+          const g = document.getElementById(`ql-drop-${i}-${k}`);
+          if (g) g.classList.remove('ql-drop-filled', 'ql-drop-done', 'ql-drop-correct', 'ql-drop-wrong', 'ql-drop-hot');
+        });
+      } else {
+        document.querySelectorAll(`input[name="ql-q${i}"]`).forEach(el => {
+          el.checked = false; el.disabled = false;
+        });
+        LABELS.forEach((__, j) => {
+          const lbl = document.getElementById(`ql-lbl-${i}-${j}`);
+          if (lbl) lbl.classList.remove('ql-opt-correct', 'ql-opt-wrong');
+        });
+      }
+    });
+
+    const saveStatus = document.getElementById('ql-save-status');
+    if (saveStatus) saveStatus.textContent = '';
+    document.getElementById('ql-result').style.display  = 'none';
+    document.getElementById('ql-submit').style.display  = 'inline-block';
+    document.getElementById('ql-reset' ).style.display  = 'none';
+    document.getElementById('ql-answered').textContent  = '0';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Render toán học (MathJax) ────────────────────────────────────────────────
+  function typeset(el) {
+    if (window.MathJax && MathJax.typesetPromise) {
+      MathJax.typesetPromise([el]).catch(console.error);
+    }
+  }
+
+  // ── API công khai ────────────────────────────────────────────────────────────
+  async function init({ mdUrl, containerId, title, quizId, saveResults }) {
+    cfg.saveResults = !!saveResults;
+    cfg.quizId      = quizId || title || location.pathname;
+    injectStyle();
+    const container = document.getElementById(containerId);
+    if (!container) { console.error('QuizLoader: không tìm thấy #' + containerId); return; }
+    container.innerHTML = '<p style="color:#64748b;padding:20px">⏳ Đang tải đề bài...</p>';
+
+    try {
+      const res = await fetch(mdUrl);
+      if (!res.ok) throw new Error(`HTTP ${res.status} – không tải được file markdown`);
+      const text      = await res.text();
+      const questions = parseMarkdown(text);
+      if (!questions.length) throw new Error('Không tìm thấy câu hỏi nào (thiếu <!-- @question --> trong file)');
+      render(container, questions, title || 'Bài trắc nghiệm');
+    } catch (err) {
+      container.innerHTML = `<p style="color:red;padding:20px">❌ Lỗi: ${err.message}</p>`;
+      console.error('QuizLoader:', err);
+    }
+  }
+
+  global.TSAQuiz = { init };
+
+})(window);
