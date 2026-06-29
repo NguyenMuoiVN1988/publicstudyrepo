@@ -456,3 +456,27 @@ hsa-cd25:
       url: /HSA/CDOnTap/CD25/TestCD25Part1.html
     - title: "Trắc nghiệm – Đề ôn tập số 02 (15 câu)"
       url: /HSA/CDOnTap/CD25/TestCD25Part2.html
+
+tsa-2026:
+  label: "TSA · Luyện Tư duy Toán học (Đánh giá tư duy – ĐH Bách khoa Hà Nội)"
+  items:
+    - group: "Luyện theo chủ đề"
+      items:
+        - title: "Chủ đề 1: Đại số"
+          url: /TSA/2026/CD1.html
+        - title: "Chủ đề 2: Số học"
+          url: /TSA/2026/CD2.html
+        - title: "Chủ đề 3: Giải tích"
+          url: /TSA/2026/CD3.html
+        - title: "Chủ đề 4: Hình học"
+          url: /TSA/2026/CD4.html
+        - title: "Chủ đề 5: Xác suất và thống kê"
+          url: /TSA/2026/CD5.html
+    - group: "Bài luyện tổng hợp (định dạng đề)"
+      items:
+        - title: "Bài luyện định dạng minh hoạ (40 câu)"
+          url: /TSA/2026/DeMinhHoa.html
+        - title: "Bài luyện tổng hợp số 1 (40 câu)"
+          url: /TSA/2026/DeOnLuyen1.html
+        - title: "Bài luyện tổng hợp số 2 (40 câu)"
+          url: /TSA/2026/DeOnLuyen2.html
