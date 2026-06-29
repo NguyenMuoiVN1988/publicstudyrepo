@@ -41,6 +41,7 @@ details:nth-of-type(8)  > summary { background: #fdf4ff; } /* Toán 12   – tí
 details:nth-of-type(9)  > summary { background: #fff1f2; } /* TNTHPT    – đỏ hồng    */
 details:nth-of-type(10) > summary { background: #f1f5f9; } /* Tư duy    – xám xanh   */
 details:nth-of-type(11) > summary { background: #fef9c3; } /* mục thứ 11 – vàng kem  */
+details:nth-of-type(12) > summary { background: #ecfeff; } /* mục thứ 12 – xanh băng  */
 
 /* Khi mở ra: nền trắng, chữ đen */
 details[open] > summary {
@@ -191,6 +192,31 @@ details > div {
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD25/CD25.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD25/TestCD25Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD25/TestCD25Part2.html)
+
+</div>
+</details>
+
+---
+
+<details>
+<summary style="background:#e0e7ff;">TSA – Đánh giá tư duy (ĐH Bách khoa Hà Nội)</summary>
+<div markdown="1">
+
+**Luyện tập Tư duy Toán học** — tự chấm điểm, có lời giải; gồm cả dạng **kéo–thả** như bài thi trên máy.
+
+> 📐 **[Trang tổng hợp luyện tập TSA](TSA/2026/index.html)** — chọn nhanh các bài luyện theo chủ đề và bài luyện tổng hợp.
+
+*Luyện theo chủ đề*
+- [Chủ đề 1: Đại số](TSA/2026/CD1.html)
+- [Chủ đề 2: Số học](TSA/2026/CD2.html)
+- [Chủ đề 3: Giải tích](TSA/2026/CD3.html)
+- [Chủ đề 4: Hình học](TSA/2026/CD4.html)
+- [Chủ đề 5: Xác suất và thống kê](TSA/2026/CD5.html)
+
+*Bài luyện tổng hợp (định dạng đề)*
+- [Bài luyện định dạng minh hoạ (40 câu)](TSA/2026/DeMinhHoa.html)
+- [Bài luyện tổng hợp số 1 (40 câu)](TSA/2026/DeOnLuyen1.html)
+- [Bài luyện tổng hợp số 2 (40 câu)](TSA/2026/DeOnLuyen2.html)
 
 </div>
 </details>
@@ -465,22 +491,6 @@ details > div {
 <details>
 <summary>Tư duy</summary>
 <div markdown="1">
-
-**Luyện tập Tư duy Toán học (định dạng TSA)**
-
-> 📐 **[Trang tổng hợp luyện tập TSA](TSA/2026/index.html)** — chọn nhanh các bài luyện theo chủ đề và bài luyện tổng hợp; có dạng **kéo–thả**, tự chấm điểm và lời giải.
-
-*Luyện theo chủ đề*
-- [Chủ đề 1: Đại số](TSA/2026/CD1.html)
-- [Chủ đề 2: Số học](TSA/2026/CD2.html)
-- [Chủ đề 3: Giải tích](TSA/2026/CD3.html)
-- [Chủ đề 4: Hình học](TSA/2026/CD4.html)
-- [Chủ đề 5: Xác suất và thống kê](TSA/2026/CD5.html)
-
-*Bài luyện tổng hợp (định dạng đề)*
-- [Bài luyện định dạng minh hoạ (40 câu)](TSA/2026/DeMinhHoa.html)
-- [Bài luyện tổng hợp số 1 (40 câu)](TSA/2026/DeOnLuyen1.html)
-- [Bài luyện tổng hợp số 2 (40 câu)](TSA/2026/DeOnLuyen2.html)
 
 - [Tư duy 1](tuduy/tuduy1.html)
 
