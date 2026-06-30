@@ -1,0 +1,279 @@
+---
+layout: default
+title: Toán 6 - Hình có tâm đối xứng (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 2 Chương 5 Toán 6: tâm đối xứng, xác định tâm đối xứng của hình vuông, chữ nhật, thoi, bình hành, lục giác đều — phân biệt trục và tâm, kèm hình vẽ trực quan."
+tags: [Toán 6, tâm đối xứng, đối xứng tâm, hình phẳng]
+series: t6-c5
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc table.tn { border-collapse:collapse; width:100%; margin:8px 0 4px;
+    font-family:'Quicksand',sans-serif; }
+  .lgc table.tn th, .lgc table.tn td { border:1px solid #d4ddf3; padding:6px 8px;
+    text-align:center; font-size:.95rem; }
+  .lgc table.tn th { background:var(--indigo-bg); color:var(--indigo); }
+  .lgc table.tn .y { color:var(--teal); font-weight:700; }
+  .lgc table.tn .n { color:var(--rose); font-weight:700; }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft);
+    font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Hình có tâm đối xứng — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 5: Tính đối xứng của hình phẳng · Bài 2</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-tam">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Tâm đối xứng là gì?</h3>
+    <ul>
+      <li>Điểm $O$ là <b>tâm đối xứng</b> của hình $H$ nếu <b>quay nửa vòng</b> ($180^{\circ}$) quanh $O$ thì hình <b>trùng khít</b> với chính nó.</li>
+      <li>Với hình vuông, chữ nhật, thoi, bình hành, lục giác đều: tâm $O$ là <b>giao điểm hai đường chéo</b>.</li>
+    </ul>
+    <svg class="fig" width="250" height="160" viewBox="0 0 250 160" role="img" aria-label="Quay hình bình hành 180 độ quanh tâm O">
+      <polygon points="45,120 145,120 185,50 85,50" fill="#fdf6e3" stroke="#b07a12" stroke-width="2"/>
+      <line x1="45" y1="120" x2="185" y2="50" stroke="#b07a12" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="145" y1="120" x2="85" y2="50" stroke="#b07a12" stroke-width="1" stroke-dasharray="4 3"/>
+      <path d="M 145,28 A 30 30 0 1 1 95,18" fill="none" stroke="#a23b52" stroke-width="1.5" marker-end="url(#ar2)"/>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#a23b52"/></marker></defs>
+      <circle cx="115" cy="85" r="3.2" fill="#a23b52"/>
+      <text x="121" y="90" font-size="12" font-weight="bold" fill="#a23b52">O</text>
+      <text x="38" y="135" font-size="11" font-weight="bold">A</text><text x="150" y="135" font-size="11" font-weight="bold">B</text>
+      <text x="188" y="48" font-size="11" font-weight="bold">C</text><text x="72" y="48" font-size="11" font-weight="bold">D</text>
+      <text x="120" y="20" font-size="10" fill="#a23b52">quay 180°</text>
+    </svg>
+  </div>
+
+  <div class="theory" id="lt-luuy">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Có / Không có tâm đối xứng</h3>
+    <ul>
+      <li><b>Có tâm:</b> đoạn thẳng (trung điểm), đường tròn (tâm), hình vuông, chữ nhật, thoi, bình hành, lục giác đều.</li>
+      <li><b>Không có tâm:</b> <span style="color:#a23b52;font-weight:700">tam giác đều</span> và <span style="color:#a23b52;font-weight:700">hình thang cân</span>.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Hình nào có tâm đối xứng?</h3>
+    <div class="de"><p>Điền "Có / Không" và chỉ ra tâm.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải — tâm đối xứng $O$ (chấm hồng)</p>
+      <svg class="fig" width="620" height="290" viewBox="0 0 620 290" role="img" aria-label="Tâm đối xứng của các hình">
+        <!-- HÌNH VUÔNG -->
+        <rect x="45" y="30" width="60" height="60" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2"/>
+        <line x1="45" y1="30" x2="105" y2="90" stroke="#1f7a72" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="105" y1="30" x2="45" y2="90" stroke="#1f7a72" stroke-width="1" stroke-dasharray="4 3"/>
+        <circle cx="75" cy="60" r="3.2" fill="#a23b52"/>
+        <text x="75" y="108" text-anchor="middle" font-size="11">Hình vuông</text>
+        <text x="75" y="123" text-anchor="middle" font-size="11" font-weight="bold" fill="#1f7a72">Có tâm O</text>
+        <!-- HÌNH CHỮ NHẬT -->
+        <rect x="190" y="40" width="70" height="44" fill="#fdf6e3" stroke="#b07a12" stroke-width="2"/>
+        <line x1="190" y1="40" x2="260" y2="84" stroke="#b07a12" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="260" y1="40" x2="190" y2="84" stroke="#b07a12" stroke-width="1" stroke-dasharray="4 3"/>
+        <circle cx="225" cy="62" r="3.2" fill="#a23b52"/>
+        <text x="225" y="108" text-anchor="middle" font-size="11">Chữ nhật</text>
+        <text x="225" y="123" text-anchor="middle" font-size="11" font-weight="bold" fill="#1f7a72">Có tâm O</text>
+        <!-- HÌNH THOI -->
+        <polygon points="375,30 405,60 375,90 345,60" fill="#fdeef1" stroke="#a23b52" stroke-width="2"/>
+        <line x1="375" y1="30" x2="375" y2="90" stroke="#a23b52" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="345" y1="60" x2="405" y2="60" stroke="#a23b52" stroke-width="1" stroke-dasharray="4 3"/>
+        <circle cx="375" cy="60" r="3.2" fill="#a23b52"/>
+        <text x="375" y="108" text-anchor="middle" font-size="11">Hình thoi</text>
+        <text x="375" y="123" text-anchor="middle" font-size="11" font-weight="bold" fill="#1f7a72">Có tâm O</text>
+        <!-- HÌNH BÌNH HÀNH -->
+        <polygon points="495,88 555,88 575,42 515,42" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2"/>
+        <line x1="495" y1="88" x2="575" y2="42" stroke="#3f5d9e" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="555" y1="88" x2="515" y2="42" stroke="#3f5d9e" stroke-width="1" stroke-dasharray="4 3"/>
+        <circle cx="535" cy="65" r="3.2" fill="#a23b52"/>
+        <text x="535" y="108" text-anchor="middle" font-size="11">Bình hành</text>
+        <text x="535" y="123" text-anchor="middle" font-size="11" font-weight="bold" fill="#1f7a72">Có tâm O</text>
+        <!-- LỤC GIÁC ĐỀU -->
+        <polygon points="110,170 145,190 145,230 110,250 75,230 75,190" fill="#fdf6e3" stroke="#b07a12" stroke-width="2"/>
+        <line x1="110" y1="170" x2="110" y2="250" stroke="#b07a12" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="145" y1="190" x2="75" y2="230" stroke="#b07a12" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="145" y1="230" x2="75" y2="190" stroke="#b07a12" stroke-width="1" stroke-dasharray="4 3"/>
+        <circle cx="110" cy="210" r="3.2" fill="#a23b52"/>
+        <text x="110" y="268" text-anchor="middle" font-size="11">Lục giác đều</text>
+        <text x="110" y="283" text-anchor="middle" font-size="11" font-weight="bold" fill="#1f7a72">Có tâm O</text>
+        <!-- TAM GIÁC ĐỀU -->
+        <polygon points="300,178 268,245 332,245" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2"/>
+        <text x="300" y="222" text-anchor="middle" font-size="18" fill="#a23b52">✗</text>
+        <text x="300" y="268" text-anchor="middle" font-size="11">Tam giác đều</text>
+        <text x="300" y="283" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">Không có tâm</text>
+        <!-- THANG CÂN -->
+        <polygon points="460,245 520,245 505,195 475,195" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2"/>
+        <text x="490" y="228" text-anchor="middle" font-size="18" fill="#a23b52">✗</text>
+        <text x="490" y="268" text-anchor="middle" font-size="11">Thang cân</text>
+        <text x="490" y="283" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">Không có tâm</text>
+      </svg>
+      <div class="cap">Tâm đối xứng $O$ là giao điểm hai đường chéo. Tam giác đều và hình thang cân không có tâm.</div>
+      <table class="tn">
+        <tr><th>Hình</th><td>Đoạn thẳng</td><td>Vuông</td><td>Chữ nhật</td><td>Thoi</td><td>Bình hành</td><td>Lục giác đều</td><td>Tam giác đều</td><td>Thang cân</td></tr>
+        <tr><th>Có tâm?</th><td class="y">Có</td><td class="y">Có</td><td class="y">Có</td><td class="y">Có</td><td class="y">Có</td><td class="y">Có</td><td class="n">Không</td><td class="n">Không</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Xác định tâm đối xứng</h3>
+    <div class="de"><p><b>a)</b> Hình bình hành $ABCD$. <b>b)</b> Lục giác đều $ABCDEF$. <b>c)</b> Đoạn thẳng $MN$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Tâm đối xứng của hình bình hành $ABCD$ là <span class="key">giao điểm $O$ của hai đường chéo $AC$ và $BD$</span>.</p>
+      <p><b>b)</b> Tâm đối xứng của lục giác đều $ABCDEF$ là <span class="key">giao điểm các đường chéo chính $AD,\,BE,\,CF$</span>.</p>
+      <p><b>c)</b> Tâm đối xứng của đoạn thẳng $MN$ là <span class="key">trung điểm của $MN$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Chữ cái và chữ số có tâm đối xứng</h3>
+    <div class="de"><p>Trong H, N, S, X, O và các số 0, 1, 8: chữ/số nào có tâm đối xứng?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="540" height="120" viewBox="0 0 540 120" role="img" aria-label="Chữ và số có tâm đối xứng">
+        <g font-family="Quicksand,sans-serif" font-weight="700" font-size="46" fill="#28323c" text-anchor="middle">
+          <text x="45" y="68">H</text><text x="110" y="68">N</text><text x="175" y="68">S</text><text x="240" y="68">X</text><text x="305" y="68">O</text><text x="370" y="68">0</text><text x="435" y="68">8</text><text x="500" y="68">1</text>
+        </g>
+        <g fill="#a23b52">
+          <circle cx="45" cy="52" r="3"/><circle cx="110" cy="52" r="3"/><circle cx="175" cy="52" r="3"/><circle cx="240" cy="52" r="3"/><circle cx="305" cy="52" r="3"/><circle cx="370" cy="52" r="3"/><circle cx="435" cy="52" r="3"/>
+        </g>
+        <text x="500" y="90" text-anchor="middle" font-size="16" fill="#a23b52">✗</text>
+        <text x="270" y="112" text-anchor="middle" font-size="11" fill="#5b6b7a">Chấm hồng = có tâm đối xứng · "1" không có tâm</text>
+      </svg>
+      <div class="cap">Quay $180^{\circ}$: H, N, S, X, O, 0, 8 vẫn như cũ; chữ số 1 thì không.</div>
+      <p>Có tâm đối xứng: <span class="key">H, N, S, X, O, 0, 8</span>. Không có tâm: <span class="key">1</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Phân biệt trục và tâm đối xứng</h3>
+    <div class="de"><p>Với hình vuông, hình thang cân, tam giác đều, hình bình hành: có trục? có tâm?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải — trục (nét đứt) và tâm (chấm) cùng một hình</p>
+      <svg class="fig" width="560" height="170" viewBox="0 0 560 170" role="img" aria-label="So sánh trục và tâm đối xứng">
+        <!-- VUÔNG: 4 trục + tâm -->
+        <rect x="40" y="28" width="70" height="70" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2"/>
+        <line x1="75" y1="20" x2="75" y2="106" stroke="#a23b52" stroke-width="1.3" stroke-dasharray="5 3"/>
+        <line x1="32" y1="63" x2="118" y2="63" stroke="#a23b52" stroke-width="1.3" stroke-dasharray="5 3"/>
+        <line x1="40" y1="28" x2="110" y2="98" stroke="#a23b52" stroke-width="1.3" stroke-dasharray="5 3"/>
+        <line x1="110" y1="28" x2="40" y2="98" stroke="#a23b52" stroke-width="1.3" stroke-dasharray="5 3"/>
+        <circle cx="75" cy="63" r="3" fill="#3f5d9e"/>
+        <text x="75" y="125" text-anchor="middle" font-size="10">Hình vuông</text>
+        <text x="75" y="139" text-anchor="middle" font-size="10" font-weight="bold" fill="#a23b52">4 trục</text>
+        <text x="75" y="153" text-anchor="middle" font-size="10" font-weight="bold" fill="#1f7a72">có tâm</text>
+        <!-- THANG CÂN: 1 trục, 0 tâm -->
+        <polygon points="180,98 250,98 232,30 198,30" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2"/>
+        <line x1="215" y1="22" x2="215" y2="106" stroke="#a23b52" stroke-width="1.3" stroke-dasharray="5 3"/>
+        <text x="215" y="70" text-anchor="middle" font-size="13" fill="#a23b52">✗</text>
+        <text x="215" y="125" text-anchor="middle" font-size="10">Thang cân</text>
+        <text x="215" y="139" text-anchor="middle" font-size="10" font-weight="bold" fill="#a23b52">1 trục</text>
+        <text x="215" y="153" text-anchor="middle" font-size="10" font-weight="bold" fill="#a23b52">0 tâm</text>
+        <!-- TAM GIÁC ĐỀU: 3 trục, 0 tâm -->
+        <polygon points="350,28 315,98 385,98" fill="#fdf6e3" stroke="#b07a12" stroke-width="2"/>
+        <line x1="350" y1="20" x2="350" y2="106" stroke="#a23b52" stroke-width="1.3" stroke-dasharray="5 3"/>
+        <line x1="315" y1="98" x2="367" y2="63" stroke="#a23b52" stroke-width="1.3" stroke-dasharray="5 3"/>
+        <line x1="385" y1="98" x2="333" y2="63" stroke="#a23b52" stroke-width="1.3" stroke-dasharray="5 3"/>
+        <text x="350" y="125" text-anchor="middle" font-size="10">Tam giác đều</text>
+        <text x="350" y="139" text-anchor="middle" font-size="10" font-weight="bold" fill="#a23b52">3 trục</text>
+        <text x="350" y="153" text-anchor="middle" font-size="10" font-weight="bold" fill="#a23b52">0 tâm</text>
+        <!-- BÌNH HÀNH: 0 trục, có tâm -->
+        <polygon points="455,98 515,98 540,30 480,30" fill="#fdeef1" stroke="#a23b52" stroke-width="2"/>
+        <line x1="455" y1="98" x2="540" y2="30" stroke="#a23b52" stroke-width="0.9" stroke-dasharray="3 3"/>
+        <line x1="515" y1="98" x2="480" y2="30" stroke="#a23b52" stroke-width="0.9" stroke-dasharray="3 3"/>
+        <circle cx="497" cy="64" r="3" fill="#3f5d9e"/>
+        <text x="497" y="125" text-anchor="middle" font-size="10">Bình hành</text>
+        <text x="497" y="139" text-anchor="middle" font-size="10" font-weight="bold" fill="#a23b52">0 trục</text>
+        <text x="497" y="153" text-anchor="middle" font-size="10" font-weight="bold" fill="#1f7a72">có tâm</text>
+      </svg>
+      <div class="cap">Trục và tâm là hai tính chất khác nhau: tam giác đều có $3$ trục nhưng $0$ tâm; hình bình hành có tâm nhưng $0$ trục.</div>
+      <table class="tn">
+        <tr><th>Hình</th><th>Có trục?</th><th>Có tâm?</th></tr>
+        <tr><td>Hình vuông</td><td class="y">Có (4)</td><td class="y">Có</td></tr>
+        <tr><td>Hình thang cân</td><td class="y">Có (1)</td><td class="n">Không</td></tr>
+        <tr><td>Tam giác đều</td><td class="y">Có (3)</td><td class="n">Không</td></tr>
+        <tr><td>Hình bình hành</td><td class="n">Không (0)</td><td class="y">Có</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Kiểm tra tâm đối xứng: <b>quay nửa vòng $180^{\circ}$</b> quanh điểm đó, hình phải trùng khít chính nó.</li>
+      <li>Tâm $O$ của hình vuông, chữ nhật, thoi, bình hành, lục giác đều = <b>giao điểm hai đường chéo</b>.</li>
+      <li><b>Tam giác đều và hình thang cân KHÔNG có tâm đối xứng</b> — dù chúng vẫn có trục đối xứng.</li>
+    </ul>
+  </div>
+
+</div>

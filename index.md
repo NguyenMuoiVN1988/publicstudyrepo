@@ -296,6 +296,11 @@ details > div {
 - [C4B3: Chu vi và diện tích một số tứ giác](T6/2026PhieuBaiTap/LGC4B3.html)
 - [C4 Ôn tập: Một số hình phẳng trong thực tiễn](T6/2026PhieuBaiTap/LGC4Ontap.html)
 
+**Lời giải phiếu bài tập — Chương 5: Tính đối xứng của hình phẳng**
+- [C5B1: Hình có trục đối xứng](T6/2026PhieuBaiTap/LGC5B1.html)
+- [C5B2: Hình có tâm đối xứng](T6/2026PhieuBaiTap/LGC5B2.html)
+- [C5 Ôn tập: Tính đối xứng của hình phẳng](T6/2026PhieuBaiTap/LGC5Ontap.html)
+
 **Nâng cao**
 - [Các phép tính về số tự nhiên – Chuyên Toán](T6/T6NCTaiLieuChuyenToan1.html)
 

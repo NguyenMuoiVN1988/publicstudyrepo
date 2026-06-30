@@ -1,0 +1,174 @@
+---
+layout: default
+title: Toán 6 - Ôn tập chương V Tính đối xứng (Lời giải)
+description: "Lời giải chi tiết phiếu ôn tập chương V Toán 6: trục đối xứng, tâm đối xứng của các hình phẳng. Đáp án trắc nghiệm kèm giải thích và bài tự luận có hình vẽ."
+tags: [Toán 6, ôn tập chương 5, trục đối xứng, tâm đối xứng, trắc nghiệm]
+series: t6-c5
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc table.tn { border-collapse:collapse; width:100%; margin:8px 0 4px;
+    font-family:'Quicksand',sans-serif; }
+  .lgc table.tn th, .lgc table.tn td { border:1px solid #d4ddf3; padding:6px 4px;
+    text-align:center; font-size:.95rem; }
+  .lgc table.tn th { background:var(--indigo-bg); color:var(--indigo); }
+  .lgc table.tn td b { color:var(--teal); }
+  .lgc .ans { margin:6px 0; }
+  .lgc .ans .chon { color:var(--teal); font-weight:700; }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft);
+    font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương V — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 5: Tính đối xứng của hình phẳng · Phiếu ôn tập</p>
+  </div>
+
+  <div class="sec">📝 Bài 1 — Trắc nghiệm (bảng đáp án)</div>
+  <div class="bai">
+    <h3><span class="num">1</span> Đáp án 8 câu trắc nghiệm</h3>
+    <table class="tn">
+      <tr><th>Câu</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+      <tr><td>Đáp án</td><td><b>C</b></td><td><b>C</b></td><td><b>D</b></td><td><b>B</b></td><td><b>B</b></td><td><b>D</b></td><td><b>C</b></td><td><b>A</b></td></tr>
+    </table>
+    <div class="loigiai">
+      <p class="h">🔑 Giải thích nhanh</p>
+      <p class="ans"><b>1 — <span class="chon">C</span>:</b> hình vuông có $4$ trục đối xứng.</p>
+      <p class="ans"><b>2 — <span class="chon">C</span>:</b> hình bình hành (hai cạnh kề khác nhau) không có trục đối xứng.</p>
+      <p class="ans"><b>3 — <span class="chon">D</span>:</b> tam giác đều không có tâm đối xứng.</p>
+      <p class="ans"><b>4 — <span class="chon">B</span>:</b> hình thoi có $2$ trục — chính là hai đường chéo.</p>
+      <p class="ans"><b>5 — <span class="chon">B</span>:</b> chữ H vừa có trục (đứng + ngang) vừa có tâm; A, T, E chỉ có trục.</p>
+      <p class="ans"><b>6 — <span class="chon">D</span>:</b> đường tròn có vô số trục (mọi đường thẳng qua tâm).</p>
+      <p class="ans"><b>7 — <span class="chon">C</span>:</b> tâm đối xứng của hình chữ nhật là giao điểm hai đường chéo.</p>
+      <p class="ans"><b>8 — <span class="chon">A</span>:</b> hình thang cân có $1$ trục và $0$ tâm đối xứng.</p>
+      <div class="trap"><b>⚠️ Bẫy câu 4 & 7:</b> trục của hình thoi <b>là</b> hai đường chéo, nhưng trục của hình chữ nhật <b>không</b> phải đường chéo — chỉ tâm mới ở giao hai đường chéo.</div>
+    </div>
+  </div>
+
+  <div class="sec">✍ Bài tự luận tổng hợp</div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Vẽ tất cả trục đối xứng</h3>
+    <div class="de"><p><b>a)</b> Hình vuông. <b>b)</b> Hình thoi. <b>c)</b> Hình thang cân.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="500" height="150" viewBox="0 0 500 150" role="img" aria-label="Trục đối xứng hình vuông, hình thoi, hình thang cân">
+        <!-- vuông 4 -->
+        <rect x="40" y="28" width="80" height="80" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2.2"/>
+        <line x1="80" y1="20" x2="80" y2="116" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="32" y1="68" x2="128" y2="68" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="40" y1="28" x2="120" y2="108" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="120" y1="28" x2="40" y2="108" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <text x="80" y="135" text-anchor="middle" font-size="11">Hình vuông: <tspan font-weight="bold" fill="#a23b52">4 trục</tspan></text>
+        <!-- thoi 2 -->
+        <polygon points="250,30 290,68 250,106 210,68" fill="#fdeef1" stroke="#a23b52" stroke-width="2.2"/>
+        <line x1="250" y1="22" x2="250" y2="114" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="202" y1="68" x2="298" y2="68" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <text x="250" y="135" text-anchor="middle" font-size="11">Hình thoi: <tspan font-weight="bold" fill="#a23b52">2 trục</tspan></text>
+        <!-- thang cân 1 -->
+        <polygon points="400,108 480,108 458,38 422,38" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2.2"/>
+        <line x1="440" y1="30" x2="440" y2="116" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <text x="440" y="135" text-anchor="middle" font-size="11">Thang cân: <tspan font-weight="bold" fill="#a23b52">1 trục</tspan></text>
+      </svg>
+      <div class="cap">Hình vuông $4$ trục; hình thoi $2$ trục (hai đường chéo); hình thang cân $1$ trục (đường nối trung điểm hai đáy).</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Trục và tâm của hình chữ nhật</h3>
+    <div class="de"><p>Hình chữ nhật $ABCD$, $O$ là giao hai đường chéo. a) Hai trục đối xứng? b) Tâm đối xứng?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="280" height="180" viewBox="0 0 280 180" role="img" aria-label="Trục và tâm của hình chữ nhật ABCD">
+        <rect x="50" y="45" width="180" height="90" fill="#fdf6e3" stroke="#b07a12" stroke-width="2.4"/>
+        <line x1="50" y1="45" x2="230" y2="135" stroke="#b07a12" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="230" y1="45" x2="50" y2="135" stroke="#b07a12" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="140" y1="35" x2="140" y2="145" stroke="#a23b52" stroke-width="1.8" stroke-dasharray="6 4"/>
+        <line x1="40" y1="90" x2="240" y2="90" stroke="#a23b52" stroke-width="1.8" stroke-dasharray="6 4"/>
+        <circle cx="140" cy="90" r="3.4" fill="#3f5d9e"/>
+        <text x="44" y="142" text-anchor="end" font-size="12" font-weight="bold">A</text>
+        <text x="236" y="142" font-size="12" font-weight="bold">B</text>
+        <text x="236" y="42" font-size="12" font-weight="bold">C</text>
+        <text x="44" y="42" text-anchor="end" font-size="12" font-weight="bold">D</text>
+        <text x="148" y="86" font-size="12" font-weight="bold" fill="#3f5d9e">O</text>
+        <text x="150" y="30" font-size="10" fill="#a23b52">trục đứng</text>
+        <text x="245" y="90" font-size="10" fill="#a23b52">trục ngang</text>
+      </svg>
+      <div class="cap">Hai trục (nét đứt hồng) nối trung điểm hai cạnh đối; tâm $O$ (chấm xanh) ở giao hai đường chéo.</div>
+      <p><b>a)</b> Hai trục đối xứng là hai đường thẳng <span class="key">nối trung điểm của hai cạnh đối</span> (một đứng, một ngang).</p>
+      <p><b>b)</b> Tâm đối xứng là <span class="key">điểm $O$ — giao của hai đường chéo $AC$ và $BD$</span>.</p>
+      <div class="trap"><b>⚠️ Nhớ:</b> hai <b>đường chéo</b> của hình chữ nhật <b>không</b> phải trục đối xứng (gấp theo đường chéo không trùng khít).</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Liên hệ thực tế</h3>
+    <div class="de"><p><b>a)</b> 3 vật có trục đối xứng. <b>b)</b> 2 hình có tâm đối xứng.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải (gợi ý)</p>
+      <p><b>a) Có trục đối xứng:</b> biển báo tam giác (nguy hiểm), biển báo tròn cấm, cánh diều, chiếc lá, mặt trước ngôi nhà, con bướm, chữ A.</p>
+      <p><b>b) Có tâm đối xứng:</b> chong chóng (cánh quạt) hai/bốn cánh đều, bông tuyết lục giác, bàn cờ vua, chữ S, chữ Z, số 8.</p>
+      <div class="trap"><b>⚠️ Lưu ý:</b> biển báo tam giác đều chỉ có trục, <b>không</b> có tâm; chong chóng đều có tâm nhưng có thể không có trục.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ôn tập cả chương</h3>
+    <ul>
+      <li><b>Trục đối xứng</b>: gấp đôi trùng khít. Số trục — tam giác đều 3, vuông 4, chữ nhật & thoi 2, thang cân 1, bình hành 0, đường tròn vô số.</li>
+      <li><b>Tâm đối xứng</b>: quay $180^{\circ}$ trùng khít. Có tâm: vuông, chữ nhật, thoi, bình hành, lục giác đều, đoạn thẳng, đường tròn.</li>
+      <li><b>Không có tâm</b>: tam giác đều, hình thang cân. Trục và tâm là hai tính chất độc lập.</li>
+    </ul>
+  </div>
+
+</div>

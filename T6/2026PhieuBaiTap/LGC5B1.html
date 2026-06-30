@@ -1,0 +1,269 @@
+---
+layout: default
+title: Toán 6 - Hình có trục đối xứng (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 1 Chương 5 Toán 6: trục đối xứng, đếm số trục đối xứng của tam giác đều, hình vuông, hình chữ nhật, hình thoi, hình thang cân — kèm hình vẽ trực quan."
+tags: [Toán 6, trục đối xứng, đối xứng trục, hình phẳng]
+series: t6-c5
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc table.tn { border-collapse:collapse; width:100%; margin:8px 0 4px;
+    font-family:'Quicksand',sans-serif; }
+  .lgc table.tn th, .lgc table.tn td { border:1px solid #d4ddf3; padding:6px 8px;
+    text-align:center; font-size:.95rem; }
+  .lgc table.tn th { background:var(--indigo-bg); color:var(--indigo); }
+  .lgc table.tn td b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft);
+    font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Hình có trục đối xứng — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 5: Tính đối xứng của hình phẳng · Bài 1</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-truc">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Trục đối xứng là gì?</h3>
+    <ul>
+      <li>Đường thẳng $d$ là <b>trục đối xứng</b> của hình $H$ nếu <b>gấp</b> hình theo $d$ thì hai phần <b>trùng khít</b> lên nhau.</li>
+      <li>Một hình có thể có $0,\,1,\,2,\,\dots$ trục, hoặc <b>vô số</b> trục (đường tròn).</li>
+    </ul>
+    <svg class="fig" width="260" height="135" viewBox="0 0 260 135" role="img" aria-label="Minh hoạ gấp hình theo trục đối xứng">
+      <polygon points="130,20 70,110 130,110" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2"/>
+      <polygon points="130,20 190,110 130,110" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2"/>
+      <line x1="130" y1="8" x2="130" y2="122" stroke="#a23b52" stroke-width="2" stroke-dasharray="6 4"/>
+      <path d="M 95,55 A 40 40 0 0 1 165,55" fill="none" stroke="#a23b52" stroke-width="1.4" marker-end="url(#ar)"/>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#a23b52"/></marker></defs>
+      <text x="138" y="20" font-size="11" fill="#a23b52">trục d</text>
+      <text x="130" y="132" text-anchor="middle" font-size="10" fill="#5b6b7a">Gấp theo d → hai nửa trùng khít</text>
+    </svg>
+  </div>
+
+  <div class="theory" id="lt-bang">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Số trục đối xứng cần nhớ</h3>
+    <ul>
+      <li>Đoạn thẳng: <b>2</b> · Tam giác đều: <b>3</b> · Hình vuông: <b>4</b> · Hình chữ nhật: <b>2</b></li>
+      <li>Hình thoi: <b>2</b> · Hình thang cân: <b>1</b> · Hình bình hành: <b>0</b> · Đường tròn: <b>vô số</b></li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Đếm số trục đối xứng</h3>
+    <div class="de"><p>Điền số trục đối xứng của mỗi hình.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải — các trục đối xứng (nét đứt hồng)</p>
+      <svg class="fig" width="620" height="300" viewBox="0 0 620 300" role="img" aria-label="Trục đối xứng của các hình">
+        <g stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"></g>
+        <!-- ĐOẠN THẲNG -->
+        <line x1="40" y1="60" x2="110" y2="60" stroke="#3f5d9e" stroke-width="3"/>
+        <line x1="32" y1="60" x2="118" y2="60" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <line x1="75" y1="33" x2="75" y2="87" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <text x="75" y="108" text-anchor="middle" font-size="11" fill="#28323c">Đoạn thẳng</text>
+        <text x="75" y="123" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">2 trục</text>
+        <!-- TAM GIÁC ĐỀU -->
+        <polygon points="225,28 193,92 257,92" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2"/>
+        <line x1="225" y1="22" x2="225" y2="98" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <line x1="193" y1="92" x2="241" y2="60" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <line x1="257" y1="92" x2="209" y2="60" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <text x="225" y="108" text-anchor="middle" font-size="11">Tam giác đều</text>
+        <text x="225" y="123" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">3 trục</text>
+        <!-- HÌNH VUÔNG -->
+        <rect x="345" y="30" width="60" height="60" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2"/>
+        <line x1="375" y1="22" x2="375" y2="98" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <line x1="337" y1="60" x2="413" y2="60" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <line x1="345" y1="30" x2="405" y2="90" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <line x1="405" y1="30" x2="345" y2="90" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <text x="375" y="108" text-anchor="middle" font-size="11">Hình vuông</text>
+        <text x="375" y="123" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">4 trục</text>
+        <!-- HÌNH CHỮ NHẬT -->
+        <rect x="490" y="40" width="70" height="44" fill="#fdf6e3" stroke="#b07a12" stroke-width="2"/>
+        <line x1="525" y1="32" x2="525" y2="92" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <line x1="482" y1="62" x2="568" y2="62" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <text x="525" y="108" text-anchor="middle" font-size="11">Chữ nhật</text>
+        <text x="525" y="123" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">2 trục</text>
+        <!-- HÌNH THOI -->
+        <polygon points="75,180 118,217 75,254 32,217" fill="#fdeef1" stroke="#a23b52" stroke-width="2"/>
+        <line x1="75" y1="172" x2="75" y2="262" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <line x1="24" y1="217" x2="126" y2="217" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <text x="75" y="274" text-anchor="middle" font-size="11">Hình thoi</text>
+        <text x="75" y="289" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">2 trục (2 chéo)</text>
+        <!-- HÌNH THANG CÂN -->
+        <polygon points="196,252 264,252 244,198 216,198" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2"/>
+        <line x1="230" y1="190" x2="230" y2="260" stroke="#a23b52" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <text x="230" y="274" text-anchor="middle" font-size="11">Thang cân</text>
+        <text x="230" y="289" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">1 trục</text>
+        <!-- HÌNH BÌNH HÀNH -->
+        <polygon points="345,252 413,252 443,202 375,202" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2"/>
+        <line x1="394" y1="194" x2="394" y2="260" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <text x="446" y="222" font-size="14" fill="#a23b52">✗</text>
+        <text x="394" y="274" text-anchor="middle" font-size="11">Bình hành</text>
+        <text x="394" y="289" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">0 trục</text>
+      </svg>
+      <div class="cap">Mỗi nét đứt hồng là một trục đối xứng. Hình bình hành (cạnh kề khác nhau) không có trục nào.</div>
+      <table class="tn">
+        <tr><th>Hình</th><td>Đoạn thẳng</td><td>Tam giác đều</td><td>Hình vuông</td><td>Chữ nhật</td><td>Hình thoi</td><td>Thang cân</td><td>Bình hành</td></tr>
+        <tr><th>Số trục</th><td><b>2</b></td><td><b>3</b></td><td><b>4</b></td><td><b>2</b></td><td><b>2</b></td><td><b>1</b></td><td><b>0</b></td></tr>
+      </table>
+      <div class="trap"><b>⚠️ Bẫy:</b> hai trục của <b>hình chữ nhật</b> là hai đường nối trung điểm cạnh đối, <b>không</b> phải hai đường chéo. Ngược lại, hai trục của <b>hình thoi</b> lại chính là hai đường chéo.</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Chữ cái có trục đối xứng</h3>
+    <div class="de"><p>Xét trục đối xứng của các chữ in hoa A, H, N, T.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="420" height="130" viewBox="0 0 420 130" role="img" aria-label="Trục đối xứng của chữ A, H, N, T">
+        <g font-family="Quicksand,sans-serif" font-weight="700" font-size="56" fill="#28323c" text-anchor="middle">
+          <text x="60" y="78">A</text><text x="160" y="78">H</text><text x="260" y="78">N</text><text x="360" y="78">T</text>
+        </g>
+        <line x1="60" y1="22" x2="60" y2="92" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="160" y1="22" x2="160" y2="92" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="125" y1="57" x2="195" y2="57" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="360" y1="22" x2="360" y2="92" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <text x="60" y="112" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">1 trục</text>
+        <text x="160" y="112" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">2 trục</text>
+        <text x="260" y="112" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">0 trục</text>
+        <text x="360" y="112" text-anchor="middle" font-size="11" font-weight="bold" fill="#a23b52">1 trục</text>
+      </svg>
+      <div class="cap">A, T có một trục đứng; H có cả trục đứng và trục ngang; N không có trục đối xứng.</div>
+      <p><b>a)</b> A và T: mỗi chữ có $1$ trục đối xứng <b>đứng</b>. H có $2$ trục (đứng và ngang). N <b>không</b> có trục đối xứng (nhưng có tâm — xem Bài 2).</p>
+      <p><b>b)</b> Cánh quạt $3$ cánh đều: có <span class="key">$3$ trục đối xứng</span> (giống tam giác đều). <b>c)</b> Trái tim, con bướm: mỗi hình có <span class="key">$1$ trục đối xứng đứng</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Vẽ tất cả trục đối xứng</h3>
+    <div class="de"><p><b>a)</b> Hình vuông. <b>b)</b> Tam giác đều. <b>c)</b> Hình chữ nhật.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="500" height="155" viewBox="0 0 500 155" role="img" aria-label="Vẽ trục đối xứng hình vuông, tam giác đều, hình chữ nhật">
+        <!-- vuông 4 trục -->
+        <rect x="40" y="30" width="80" height="80" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2.2"/>
+        <line x1="80" y1="20" x2="80" y2="120" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="30" y1="70" x2="130" y2="70" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="40" y1="30" x2="120" y2="110" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="120" y1="30" x2="40" y2="110" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <text x="80" y="138" text-anchor="middle" font-size="11">Hình vuông: <tspan font-weight="bold" fill="#a23b52">4 trục</tspan></text>
+        <!-- tam giác đều 3 trục -->
+        <polygon points="250,28 210,108 290,108" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2.2"/>
+        <line x1="250" y1="20" x2="250" y2="116" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="210" y1="108" x2="270" y2="68" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="290" y1="108" x2="230" y2="68" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <text x="250" y="138" text-anchor="middle" font-size="11">Tam giác đều: <tspan font-weight="bold" fill="#a23b52">3 trục</tspan></text>
+        <!-- chữ nhật 2 trục -->
+        <rect x="400" y="42" width="80" height="56" fill="#fdf6e3" stroke="#b07a12" stroke-width="2.2"/>
+        <line x1="440" y1="32" x2="440" y2="108" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <line x1="390" y1="70" x2="490" y2="70" stroke="#a23b52" stroke-width="1.6" stroke-dasharray="6 4"/>
+        <text x="440" y="138" text-anchor="middle" font-size="11">Chữ nhật: <tspan font-weight="bold" fill="#a23b52">2 trục</tspan></text>
+      </svg>
+      <div class="cap">Hình vuông có $4$ trục (gồm $2$ đường chéo); hình chữ nhật chỉ có $2$ trục (không phải đường chéo).</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Vẽ thêm để có trục đối xứng</h3>
+    <div class="de"><p>Tam giác cân $ABC$ ($AB=AC$). Vẽ thêm đoạn thẳng để hình mới có một trục đối xứng là đường cao kẻ từ $A$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="250" height="180" viewBox="0 0 250 180" role="img" aria-label="Tam giác cân và trục đối xứng là đường cao từ A">
+        <polygon points="125,25 60,140 190,140" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2.2"/>
+        <line x1="125" y1="25" x2="125" y2="140" stroke="#a23b52" stroke-width="1.8" stroke-dasharray="6 4"/>
+        <rect x="118" y="133" width="7" height="7" fill="none" stroke="#a23b52" stroke-width="1"/>
+        <line x1="88" y1="86" x2="98" y2="92" stroke="#3f5d9e" stroke-width="1.8"/>
+        <line x1="152" y1="92" x2="162" y2="86" stroke="#3f5d9e" stroke-width="1.8"/>
+        <circle cx="125" cy="140" r="2.6" fill="#a23b52"/>
+        <text x="125" y="18" text-anchor="middle" font-size="12" font-weight="bold">A</text>
+        <text x="52" y="153" font-size="12" font-weight="bold">B</text>
+        <text x="194" y="153" font-size="12" font-weight="bold">C</text>
+        <text x="133" y="158" font-size="11" font-weight="bold" fill="#a23b52">H</text>
+        <text x="135" y="90" font-size="10" fill="#a23b52">trục</text>
+      </svg>
+      <div class="cap">Kẻ đường cao $AH$ ($H$ là trung điểm $BC$) — đây chính là trục đối xứng của tam giác cân.</div>
+      <p>Vì $AB=AC$ nên đường cao $AH$ từ $A$ chia tam giác thành hai nửa <b>trùng khít</b> khi gấp lại ⇒ $AH$ là trục đối xứng duy nhất.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Kiểm tra trục đối xứng bằng cách <b>gấp đôi</b> theo đường đó — hai phần phải trùng khít.</li>
+      <li>Số trục: tam giác đều <b>3</b>, hình vuông <b>4</b>, hình chữ nhật & hình thoi <b>2</b>, hình thang cân <b>1</b>, hình bình hành <b>0</b>.</li>
+      <li>Trục của hình thoi = hai đường chéo; trục của hình chữ nhật = hai đường nối trung điểm cạnh đối (KHÔNG phải đường chéo).</li>
+    </ul>
+  </div>
+
+</div>
