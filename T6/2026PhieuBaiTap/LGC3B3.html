@@ -1,0 +1,169 @@
+---
+layout: default
+title: Toán 6 - Quy tắc dấu ngoặc (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 3 Quy tắc dấu ngoặc - Toán 6: bỏ ngoặc, tính hợp lí, tính giá trị và rút gọn biểu thức số nguyên."
+tags: [Toán 6, quy tắc dấu ngoặc, số nguyên, rút gọn biểu thức]
+series: t6-c3
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Quy tắc dấu ngoặc — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 3: Số nguyên · Bài 3</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-ngoac">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Quy tắc dấu ngoặc</h3>
+    <ul>
+      <li>Bỏ ngoặc có dấu "$+$" đằng trước: <b>giữ nguyên</b> dấu các số hạng.</li>
+      <li>Bỏ ngoặc có dấu "$-$" đằng trước: <b>đổi dấu</b> tất cả các số hạng.</li>
+      <li>Có thể đổi vị trí các số hạng <b>kèm theo dấu</b> để gộp số cho tổng "tròn".</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-rutgon">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Tính giá trị & rút gọn</h3>
+    <ul>
+      <li>Bỏ ngoặc, thu gọn biểu thức trước, rồi mới thay giá trị của chữ vào tính.</li>
+      <li>Khi nhóm các số hạng đặt sau dấu "$-$" thì phải đổi dấu các số đưa vào ngoặc.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Bỏ ngoặc rồi tính</h3>
+    <div class="de"><p><b>a)</b> $(-15)+31-(110-20)$; <b>b)</b> $226-24+(-350)$; <b>c)</b> $-100+(-20)-(-70)+15$; <b>d)</b> $(-128)+28-(-150)$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ngoac"><b>Dùng Lý thuyết 1:</b> bỏ ngoặc đúng dấu.</a>
+      <p><b>a)</b> $(-15)+31-90=16-90=$ <span class="key">$-74$</span>.</p>
+      <p><b>b)</b> $226-24-350=202-350=$ <span class="key">$-148$</span>.</p>
+      <p><b>c)</b> $-100-20+70+15=-120+85=$ <span class="key">$-35$</span>.</p>
+      <p><b>d)</b> $-128+28+150=-100+150=$ <span class="key">$50$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Tính một cách hợp lí</h3>
+    <div class="de"><p><b>a)</b> $[125+(-25)]+[(-100)+10]$; <b>b)</b> $(-124)-(14-124)$; <b>c)</b> $(-63-43)-(233-43)$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ngoac"><b>Dùng Lý thuyết 1:</b> tách ngoặc rồi nhóm số đối.</a>
+      <p><b>a)</b> $100+(-90)=$ <span class="key">$10$</span>.</p>
+      <p><b>b)</b> $(-124)-14+124=(-124+124)-14=$ <span class="key">$-14$</span>.</p>
+      <p><b>c)</b> $-63-43-233+43=(-43+43)-63-233=$ <span class="key">$-296$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> ở câu b, c xuất hiện cặp số đối ($-124$ và $124$; $-43$ và $43$) sau khi bỏ ngoặc — nhóm chúng lại cho $0$.</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Tính giá trị của biểu thức</h3>
+    <div class="de"><p><b>a)</b> $(-23)+15-x+23$ với $x=8$; <b>b)</b> $(26+x)+124-(124-x)$ với $x=2$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-rutgon"><b>Dùng Lý thuyết 2:</b> thu gọn trước rồi thay số.</a>
+      <p><b>a)</b> $(-23+23)+15-x=15-x=15-8=$ <span class="key">$7$</span>.</p>
+      <p><b>b)</b> $26+x+124-124+x=26+2x=26+2\cdot2=$ <span class="key">$30$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Rút gọn biểu thức</h3>
+    <div class="de"><p><b>a)</b> $A=-(24-x)+4$; <b>b)</b> $B=-(a-c)-(a-b+c)$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ngoac"><b>Dùng Lý thuyết 1:</b> bỏ ngoặc dấu "$-$" thì đổi dấu mọi số hạng.</a>
+      <p><b>a)</b> $A=-24+x+4=$ <span class="key">$x-20$</span>.</p>
+      <p><b>b)</b> $B=-a+c-a+b-c=$ <span class="key">$-2a+b$</span> (vì $c$ và $-c$ triệt tiêu).</p>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> phải đổi dấu <b>cả</b> $a-b+c$ thành $-a+b-c$; dễ quên đổi dấu số hạng cuối.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Dấu "$-$" trước ngoặc → đổi dấu <b>tất cả</b> số hạng trong ngoặc.</li>
+      <li>Nhóm các cặp số đối nhau ($a$ và $-a$) cho tổng $0$ để tính nhanh.</li>
+      <li>Rút gọn (thu gọn) biểu thức trước, sau đó mới thay giá trị của chữ.</li>
+    </ul>
+  </div>
+
+</div>

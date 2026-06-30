@@ -1,0 +1,197 @@
+---
+layout: default
+title: Toán 6 - Cách ghi số tự nhiên (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 2 Cách ghi số tự nhiên - Toán 6: số và chữ số, giá trị của chữ số, viết số theo yêu cầu, số La Mã. Kết nối lý thuyết với từng lời giải."
+tags: [Toán 6, số tự nhiên, giá trị chữ số, số La Mã]
+series: t6-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Cách ghi số tự nhiên — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 1: Tập hợp các số tự nhiên · Bài 2</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-giatri">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Số, chữ số và giá trị của chữ số</h3>
+    <ul>
+      <li>Dùng mười chữ số $0;1;2;\dots;9$ để ghi số. Một số có thể có một hoặc nhiều chữ số.</li>
+      <li><b>Giá trị</b> của một chữ số tuỳ thuộc vào <b>vị trí (hàng)</b> của nó. Ví dụ trong $1240$, chữ số $2$ ở hàng trăm nên có giá trị $2\times100=200$.</li>
+      <li>Mỗi số viết được thành <b>tổng giá trị các chữ số</b>: $\overline{abc}=a\times100+b\times10+c$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-viet">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Viết số theo yêu cầu & số La Mã</h3>
+    <ul>
+      <li>Khi viết số tự nhiên, <b>chữ số $0$ không đứng đầu bên trái</b>.</li>
+      <li>Số La Mã dùng I $(1)$, V $(5)$, X $(10)$ cùng hai cụm IV $(4)$, IX $(9)$; thêm X (hoặc XX) vào bên trái để được số $11$–$20$ (hoặc $21$–$30$).</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Số và chữ số — giá trị của chữ số</h3>
+    <div class="de">
+      <p><b>a)</b> Đọc và cho biết giá trị chữ số $6$ trong: $12\,625;\ 140\,962;\ 1\,613\,521$.</p>
+      <p><b>b)</b> Viết tập hợp các chữ số của $2389$ và của $2020$.</p>
+      <p><b>c)</b> Biểu diễn $4\,528$ và $12\,105$ thành tổng giá trị các chữ số.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-giatri"><b>Dùng Lý thuyết 1:</b> giá trị chữ số $=$ chữ số $\times$ giá trị của hàng.</a>
+      <p><b>a)</b></p>
+      <ul>
+        <li>$12\,625$: "mười hai nghìn sáu trăm hai mươi lăm" — chữ số $6$ ở hàng trăm, giá trị <span class="key">$600$</span>.</li>
+        <li>$140\,962$: "một trăm bốn mươi nghìn chín trăm sáu mươi hai" — chữ số $6$ ở hàng chục, giá trị <span class="key">$60$</span>.</li>
+        <li>$1\,613\,521$: "một triệu sáu trăm mười ba nghìn năm trăm hai mươi mốt" — chữ số $6$ ở hàng trăm nghìn, giá trị <span class="key">$600\,000$</span>.</li>
+      </ul>
+      <p><b>b)</b> Tập chữ số của $2389$ là $\{2;3;8;9\}$; của $2020$ là <span class="key">$\{0;2\}$</span> (mỗi chữ số kể một lần).</p>
+      <p><b>c)</b> $4\,528=4000+500+20+8$; &nbsp; $12\,105=10\,000+2000+100+5$.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> tập chữ số của $2020$ chỉ gồm $\{0;2\}$ — chữ số lặp lại <b>không viết lại</b>; cũng đừng quên hàng đơn vị "$0$" trong $12\,105$ làm cho số hạng hàng chục bằng $0$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Viết số tự nhiên theo yêu cầu</h3>
+    <div class="de">
+      <p><b>a)</b> Số nhỏ nhất có bốn chữ số; số nhỏ nhất có bốn chữ số khác nhau.</p>
+      <p><b>b)</b> Dùng $3;4;7$ viết tất cả số có ba chữ số khác nhau.</p>
+      <p><b>c)</b> Dùng $0;2;3;5;8;9$ viết số lớn nhất và nhỏ nhất có sáu chữ số (mỗi chữ số một lần).</p>
+      <p><b>d)</b> Dùng $1;4;0$ viết số có ba chữ số khác nhau mà chữ số $1$ có giá trị $10$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-viet"><b>Dùng Lý thuyết 2:</b> chữ số $0$ không đứng đầu; muốn số lớn xếp chữ số lớn lên hàng cao.</a>
+      <p><b>a)</b> Nhỏ nhất có bốn chữ số: <span class="key">$1000$</span>. Nhỏ nhất có bốn chữ số khác nhau: <span class="key">$1023$</span>.</p>
+      <p><b>b)</b> $347;\ 374;\ 437;\ 473;\ 734;\ 743$ — có $6$ số.</p>
+      <p><b>c)</b> Lớn nhất: <span class="key">$985\,320$</span> (xếp giảm dần). Nhỏ nhất: <span class="key">$203\,589$</span> (chữ số nhỏ nhất khác $0$ là $2$ đứng đầu, rồi $0$, rồi tăng dần).</p>
+      <p><b>d)</b> Chữ số $1$ có giá trị $10$ nghĩa là $1$ ở <b>hàng chục</b>; vì $0$ không đứng đầu nên hàng trăm là $4$: số cần tìm là <span class="key">$410$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> nhiều bạn viết số nhỏ nhất là $023\,589$ — sai, vì $0$ <b>không được</b> đứng đầu. Phải lấy chữ số nhỏ nhất khác $0$ (là $2$) làm hàng cao nhất.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Đọc và viết số La Mã</h3>
+    <div class="de">
+      <p><b>a)</b> Đọc: IX, XIX, XXII, XXVI. &nbsp; <b>b)</b> Viết bằng La Mã: $15;13;24;16;30$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-viet"><b>Dùng Lý thuyết 2:</b> IV $=4$, IX $=9$; thêm X, XX vào bên trái cho số $11$–$30$.</a>
+      <p><b>a)</b> IX $=9$; &nbsp; XIX $=19$; &nbsp; XXII $=22$; &nbsp; XXVI $=26$.</p>
+      <p><b>b)</b> $15=$ XV; &nbsp; $13=$ XIII; &nbsp; $24=$ XXIV; &nbsp; $16=$ XVI; &nbsp; $30=$ XXX.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Vận dụng — đếm chữ số</h3>
+    <div class="de">
+      <p>Sách có $132$ trang, hai trang đầu không đánh số. Hỏi dùng tất cả bao nhiêu <b>chữ số</b> để đánh số các trang?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-giatri"><b>Dùng Lý thuyết 1:</b> chia theo số chữ số của mỗi trang rồi cộng lại.</a>
+      <p>Các trang được đánh số từ trang $3$ đến trang $132$.</p>
+      <ul>
+        <li>Trang $3\to 9$: $7$ trang, mỗi trang $1$ chữ số $\Rightarrow 7\times1=7$.</li>
+        <li>Trang $10\to 99$: $90$ trang, mỗi trang $2$ chữ số $\Rightarrow 90\times2=180$.</li>
+        <li>Trang $100\to 132$: $33$ trang, mỗi trang $3$ chữ số $\Rightarrow 33\times3=99$.</li>
+      </ul>
+      <p>Tổng số chữ số: $7+180+99=$ <span class="key">$286$ chữ số</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> "hai trang đầu không đánh số" nên <b>bắt đầu từ trang $3$</b>, không phải trang $1$. Đếm trang $3\to9$ có $9-3+1=7$ trang.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Giá trị một chữ số phụ thuộc <b>hàng</b> của nó; viết số thành tổng giá trị các chữ số để thấy rõ điều đó.</li>
+      <li>Chữ số $0$ <b>không đứng đầu</b> bên trái — quan trọng khi tìm số nhỏ nhất.</li>
+      <li>Số La Mã: nhớ IV $=4$, IX $=9$; đọc/viết theo cụm từ trái sang phải.</li>
+    </ul>
+  </div>
+
+</div>

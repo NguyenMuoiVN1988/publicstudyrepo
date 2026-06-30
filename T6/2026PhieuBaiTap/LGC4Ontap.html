@@ -1,0 +1,193 @@
+---
+layout: default
+title: Toán 6 - Ôn tập chương IV Một số hình phẳng (Lời giải)
+description: "Lời giải chi tiết phiếu ôn tập chương IV Toán 6: đặc điểm tam giác đều, hình vuông, lục giác đều, hình thoi, hình thang; chu vi, diện tích. Đáp án trắc nghiệm kèm giải thích và bài tự luận."
+tags: [Toán 6, ôn tập chương 4, hình phẳng, chu vi, diện tích, trắc nghiệm]
+series: t6-c4
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc table.tn { border-collapse:collapse; width:100%; margin:8px 0 4px;
+    font-family:'Quicksand',sans-serif; }
+  .lgc table.tn th, .lgc table.tn td { border:1px solid #d4ddf3; padding:6px 4px;
+    text-align:center; font-size:.95rem; }
+  .lgc table.tn th { background:var(--indigo-bg); color:var(--indigo); }
+  .lgc table.tn td b { color:var(--teal); }
+  .lgc .ans { margin:6px 0; }
+  .lgc .ans .chon { color:var(--teal); font-weight:700; }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft);
+    font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương IV — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 4: Một số hình phẳng trong thực tiễn · Phiếu ôn tập</p>
+  </div>
+
+  <div class="sec">📝 Bài 1 — Trắc nghiệm (bảng đáp án)</div>
+  <div class="bai">
+    <h3><span class="num">1</span> Đáp án 8 câu trắc nghiệm</h3>
+    <table class="tn">
+      <tr><th>Câu</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+      <tr><td>Đáp án</td><td><b>C</b></td><td><b>D</b></td><td><b>C</b></td><td><b>D</b></td><td><b>B</b></td><td><b>B</b></td><td><b>D</b></td><td><b>A</b></td></tr>
+    </table>
+    <div class="loigiai">
+      <p class="h">🔑 Giải thích nhanh</p>
+      <p class="ans"><b>1 — <span class="chon">C</span> (sai):</b> gấp cho $N$ trùng $P$ thì $MN$ trùng $MP$ (không phải $NP$).</p>
+      <p class="ans"><b>2 — <span class="chon">D</span> (sai):</b> lục giác đều có $RM=MN$, không thể $RM>MN$.</p>
+      <p class="ans"><b>3 — <span class="chon">C</span> (đúng):</b> hình thoi có bốn cạnh bằng nhau và hai đường chéo vuông góc.</p>
+      <p class="ans"><b>4 — <span class="chon">D</span>:</b> $S=6^2=36$ cm$^2$.</p>
+      <p class="ans"><b>5 — <span class="chon">B</span>:</b> $C=2(8+5)=26$ cm.</p>
+      <p class="ans"><b>6 — <span class="chon">B</span>:</b> $S=\tfrac12\cdot6\cdot8=24$ cm$^2$.</p>
+      <p class="ans"><b>7 — <span class="chon">D</span>:</b> mỗi góc lục giác đều $=120^{\circ}$.</p>
+      <p class="ans"><b>8 — <span class="chon">A</span>:</b> $S=\dfrac{(5+9)\cdot4}{2}=28$ cm$^2$.</p>
+      <div class="trap"><b>⚠️ Bẫy câu 1 & 2:</b> đây là câu hỏi tìm ý <b>SAI</b>. Câu 3 lại tìm ý <b>ĐÚNG</b> — đọc kĩ yêu cầu trước khi chọn.</div>
+    </div>
+  </div>
+
+  <div class="sec">✍ Bài tự luận tổng hợp</div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Vẽ hình</h3>
+    <div class="de"><p><b>a)</b> Tam giác đều cạnh $6$ cm. <b>b)</b> Hình chữ nhật $8\times5$ cm. <b>c)</b> Hình vuông cạnh $5$ cm.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Vẽ đoạn $6$ cm; dùng <b>compa</b> mở $6$ cm, vẽ hai cung tâm ở hai đầu cắt nhau cho đỉnh thứ ba; nối lại được tam giác đều.</p>
+      <p><b>b)</b> Vẽ cạnh dài $8$ cm; dùng <b>ê ke</b> dựng hai tia vuông góc ở hai đầu, lấy chiều rộng $5$ cm rồi nối lại.</p>
+      <p><b>c)</b> Vẽ cạnh $5$ cm; dựng góc vuông ở mỗi đỉnh, mọi cạnh đều bằng $5$ cm.</p>
+      <svg class="fig" width="560" height="170" viewBox="0 0 560 170" role="img" aria-label="Tam giác đều 6cm, hình chữ nhật 8x5, hình vuông 5cm">
+        <!-- TAM GIÁC ĐỀU 6cm -->
+        <polygon points="30,135 150,135 90,31" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2.3" stroke-linejoin="round"/>
+        <line x1="56" y1="86" x2="66" y2="92" stroke="#3f5d9e" stroke-width="1.8"/>
+        <line x1="114" y1="92" x2="124" y2="86" stroke="#3f5d9e" stroke-width="1.8"/>
+        <line x1="90" y1="135" x2="90" y2="145" stroke="#3f5d9e" stroke-width="1.8"/>
+        <text x="90" y="151" text-anchor="middle" font-size="10" fill="#5b6b7a">6 cm</text>
+        <text x="90" y="20" text-anchor="middle" font-size="10" fill="#3f5d9e">Tam giác đều</text>
+        <!-- HÌNH CHỮ NHẬT 8x5 -->
+        <rect x="230" y="50" width="128" height="80" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2.3"/>
+        <path d="M230,62 L242,62 L242,50" fill="none" stroke="#1f7a72" stroke-width="1.1"/>
+        <path d="M358,62 L346,62 L346,50" fill="none" stroke="#1f7a72" stroke-width="1.1"/>
+        <text x="294" y="145" text-anchor="middle" font-size="10" fill="#5b6b7a">8 cm</text>
+        <text x="220" y="92" text-anchor="middle" font-size="10" fill="#5b6b7a" transform="rotate(-90 220 92)">5 cm</text>
+        <text x="294" y="20" text-anchor="middle" font-size="10" fill="#1f7a72">Hình chữ nhật</text>
+        <!-- HÌNH VUÔNG 5cm -->
+        <rect x="445" y="50" width="80" height="80" fill="#fdf6e3" stroke="#b07a12" stroke-width="2.3"/>
+        <path d="M445,62 L457,62 L457,50" fill="none" stroke="#b07a12" stroke-width="1.1"/>
+        <line x1="485" y1="130" x2="485" y2="138" stroke="#b07a12" stroke-width="1.8"/>
+        <line x1="445" y1="90" x2="453" y2="90" stroke="#b07a12" stroke-width="1.8"/>
+        <text x="485" y="145" text-anchor="middle" font-size="10" fill="#5b6b7a">5 cm</text>
+        <text x="485" y="20" text-anchor="middle" font-size="10" fill="#b07a12">Hình vuông</text>
+      </svg>
+      <div class="cap">Ba hình cần vẽ với số đo cho trước (ô vuông nhỏ = góc vuông, gạch chéo = cạnh bằng nhau).</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Diện tích còn lại của sân trường</h3>
+    <div class="de"><p>Sân $150\times80$ m; hai hàng cây, mỗi hàng $10$ cây; mỗi gốc có bồn vuông cạnh $2$ m. Tính diện tích sân còn lại.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="310" height="165" viewBox="0 0 310 165" role="img" aria-label="Sân trường 150m x 80m với 20 bồn cây hình vuông">
+        <rect x="35" y="35" width="240" height="100" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2.2"/>
+        <g fill="#f6df9a" stroke="#b07a12" stroke-width="1">
+          <!-- hàng 1 -->
+          <rect x="52" y="58" width="8" height="8"/><rect x="75" y="58" width="8" height="8"/><rect x="98" y="58" width="8" height="8"/><rect x="121" y="58" width="8" height="8"/><rect x="144" y="58" width="8" height="8"/><rect x="167" y="58" width="8" height="8"/><rect x="190" y="58" width="8" height="8"/><rect x="213" y="58" width="8" height="8"/><rect x="236" y="58" width="8" height="8"/><rect x="255" y="58" width="8" height="8"/>
+          <!-- hàng 2 -->
+          <rect x="52" y="100" width="8" height="8"/><rect x="75" y="100" width="8" height="8"/><rect x="98" y="100" width="8" height="8"/><rect x="121" y="100" width="8" height="8"/><rect x="144" y="100" width="8" height="8"/><rect x="167" y="100" width="8" height="8"/><rect x="190" y="100" width="8" height="8"/><rect x="213" y="100" width="8" height="8"/><rect x="236" y="100" width="8" height="8"/><rect x="255" y="100" width="8" height="8"/>
+        </g>
+        <text x="155" y="152" text-anchor="middle" font-size="11" fill="#5b6b7a">150 m</text>
+        <text x="22" y="85" text-anchor="middle" font-size="11" fill="#5b6b7a" transform="rotate(-90 22 85)">80 m</text>
+        <text x="155" y="28" text-anchor="middle" font-size="10" fill="#b07a12">20 bồn cây — mỗi bồn vuông cạnh 2 m</text>
+      </svg>
+      <div class="cap">$2$ hàng $\times\,10$ cây $=20$ bồn vuông, mỗi bồn chiếm $2\times2=4$ m².</div>
+      <p>Diện tích sân $=150\times80=12\,000$ m$^2$. Tổng số cây $=2\times10=20$ cây.</p>
+      <p>Mỗi bồn vuông cạnh $2$ m có diện tích $2\times2=4$ m$^2$ → $20$ bồn chiếm $20\times4=80$ m$^2$.</p>
+      <p>Diện tích còn lại $=12\,000-80=$ <span class="key">$11\,920$ m$^2$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Tính tiền sơn tường</h3>
+    <div class="de"><p>Tường $15\times4$ m; hai cửa sổ $1{,}8\times1{,}5$ m; một cửa chớp vuông cạnh $0{,}5$ m. Sơn $50\,000$ đ/m$^2$. Tính tiền sơn phần tường (trừ cửa).</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="320" height="150" viewBox="0 0 320 150" role="img" aria-label="Bức tường 15m x 4m với hai cửa sổ và một cửa chớp vuông">
+        <rect x="30" y="40" width="260" height="75" fill="#fdf6e3" stroke="#b07a12" stroke-width="2.3"/>
+        <rect x="70" y="58" width="40" height="36" fill="#dbe7fb" stroke="#3f5d9e" stroke-width="1.8"/>
+        <rect x="160" y="58" width="40" height="36" fill="#dbe7fb" stroke="#3f5d9e" stroke-width="1.8"/>
+        <rect x="238" y="70" width="18" height="18" fill="#f3d4dc" stroke="#a23b52" stroke-width="1.8"/>
+        <text x="90" y="80" text-anchor="middle" font-size="8" fill="#3f5d9e">cửa sổ</text>
+        <text x="180" y="80" text-anchor="middle" font-size="8" fill="#3f5d9e">cửa sổ</text>
+        <text x="247" y="105" text-anchor="middle" font-size="7" fill="#a23b52">chớp</text>
+        <text x="160" y="135" text-anchor="middle" font-size="11" fill="#5b6b7a">15 m</text>
+        <text x="18" y="78" text-anchor="middle" font-size="11" fill="#5b6b7a" transform="rotate(-90 18 78)">4 m</text>
+      </svg>
+      <div class="cap">Sơn phần tường vàng — trừ hai cửa sổ ($1{,}8\times1{,}5$ m) và cửa chớp vuông ($0{,}5$ m).</div>
+      <p>Diện tích tường $=15\times4=60$ m$^2$.</p>
+      <p>Hai cửa sổ $=2\times(1{,}8\times1{,}5)=2\times2{,}7=5{,}4$ m$^2$; cửa chớp $=0{,}5\times0{,}5=0{,}25$ m$^2$.</p>
+      <p>Diện tích cần sơn $=60-5{,}4-0{,}25=54{,}35$ m$^2$.</p>
+      <p>Tiền sơn $=54{,}35\times50\,000=$ <span class="key">$2\,717\,500$ đồng</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> phải trừ diện tích các cửa khỏi diện tích tường — chỉ sơn phần tường đặc.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ôn tập cả chương</h3>
+    <ul>
+      <li>Tam giác đều: ba cạnh, ba góc bằng nhau ($60^{\circ}$). Lục giác đều: mỗi góc $120^{\circ}$, ba đường chéo chính bằng nhau và đồng quy.</li>
+      <li>Nhớ công thức: hình vuông $S=a^2$; chữ nhật $S=ab$; thoi $S=\tfrac12mn$; bình hành $S=ah$; thang $S=\tfrac{(a+b)h}{2}$.</li>
+      <li>Bài "diện tích còn lại" = diện tích hình lớn $-$ tổng diện tích phần khoét (cửa, bồn cây).</li>
+    </ul>
+  </div>
+
+</div>

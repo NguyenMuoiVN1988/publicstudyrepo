@@ -1,0 +1,212 @@
+---
+layout: default
+title: Toán 6 - Chu vi và diện tích một số tứ giác (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 3 Chương 4 Toán 6: bài toán thực tế về chu vi, diện tích hình vuông, chữ nhật, thang, bình hành — trồng cây, lát gạch, năng suất, trồng hoa cỏ."
+tags: [Toán 6, chu vi, diện tích, bài toán thực tế, hình phẳng]
+series: t6-c4
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft);
+    font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Chu vi và diện tích một số tứ giác — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 4: Một số hình phẳng trong thực tiễn · Bài 3</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Công thức trọng tâm</div>
+
+  <div class="theory" id="lt-ct">
+    <span class="tag">📖 Công thức</span>
+    <h3>Chu vi $C$ và diện tích $S$</h3>
+    <ul>
+      <li>Hình vuông cạnh $a$: $C=4a$, $S=a^2$.</li>
+      <li>Hình chữ nhật cạnh $a,b$: $C=2(a+b)$, $S=ab$.</li>
+      <li>Hình thang đáy $a,b$, cao $h$: $S=\dfrac{(a+b)\cdot h}{2}$.</li>
+      <li>Hình bình hành đáy $a$, cao $h$: $S=a\cdot h$. Hình thoi chéo $m,n$: $S=\dfrac{1}{2}mn$.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Ứng dụng công thức chu vi</h3>
+    <div class="de"><p><b>a)</b> Vườn chữ nhật $8\times16$ m, trồng cây quanh vườn cách nhau $1$ m, mỗi gốc $50\,000$ đ. <b>b)</b> Sân vuông cạnh $20$ m, treo dây đèn quanh sân, $25\,000$ đ/m.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ct"><b>Dùng công thức chu vi.</b></a>
+      <svg class="fig" width="300" height="170" viewBox="0 0 300 170" role="img" aria-label="Vườn hình chữ nhật 8m x 16m trồng cây quanh">
+        <rect x="40" y="45" width="220" height="90" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2.2"/>
+        <g fill="#2f8f3e">
+          <circle cx="40" cy="45" r="3.5"/><circle cx="95" cy="45" r="3.5"/><circle cx="150" cy="45" r="3.5"/><circle cx="205" cy="45" r="3.5"/><circle cx="260" cy="45" r="3.5"/>
+          <circle cx="40" cy="135" r="3.5"/><circle cx="95" cy="135" r="3.5"/><circle cx="150" cy="135" r="3.5"/><circle cx="205" cy="135" r="3.5"/><circle cx="260" cy="135" r="3.5"/>
+          <circle cx="40" cy="90" r="3.5"/><circle cx="260" cy="90" r="3.5"/>
+        </g>
+        <text x="150" y="155" text-anchor="middle" font-size="11" fill="#5b6b7a">16 m</text>
+        <text x="26" y="93" text-anchor="middle" font-size="11" fill="#5b6b7a" transform="rotate(-90 26 93)">8 m</text>
+        <text x="150" y="30" text-anchor="middle" font-size="10" fill="#2f8f3e">🌳 mỗi gốc cách nhau 1 m</text>
+      </svg>
+      <div class="cap">Cây trồng quanh đường biên khép kín → số gốc $=$ chu vi $\div\,1$ m.</div>
+      <p><b>a)</b> Chu vi vườn $=2(8+16)=48$ m. Trồng quanh khép kín, cách nhau $1$ m → số gốc $=48$. Tiền $=48\times 50\,000=$ <span class="key">$2\,400\,000$ đồng</span>.</p>
+      <p><b>b)</b> Chu vi sân $=4\times 20=80$ m → cần $80$ m dây. Tiền $=80\times 25\,000=$ <span class="key">$2\,000\,000$ đồng</span>.</p>
+      <svg class="fig" width="200" height="180" viewBox="0 0 200 180" role="img" aria-label="Sân hình vuông cạnh 20m treo dây đèn quanh sân">
+        <rect x="45" y="30" width="110" height="110" fill="#eef2fb" stroke="#3f5d9e" stroke-width="1.6"/>
+        <rect x="45" y="30" width="110" height="110" fill="none" stroke="#b07a12" stroke-width="2.6" stroke-dasharray="2 5" stroke-linecap="round"/>
+        <text x="100" y="158" text-anchor="middle" font-size="11" fill="#5b6b7a">20 m</text>
+        <text x="33" y="85" text-anchor="middle" font-size="11" fill="#5b6b7a" transform="rotate(-90 33 85)">20 m</text>
+        <text x="100" y="22" text-anchor="middle" font-size="10" fill="#b07a12">💡 dây đèn quanh sân</text>
+      </svg>
+      <div class="cap">Dây đèn (nét chấm vàng) chạy quanh chu vi sân vuông.</div>
+      <div class="trap"><b>⚠️ Lưu ý:</b> trồng cây <b>quanh một đường khép kín</b> thì số cây $=$ chu vi $\div$ khoảng cách (không cộng thêm $1$ như trồng trên đoạn thẳng).</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Lát gạch sân chữ nhật</h3>
+    <div class="de"><p>Sân $15\times8$ m lát gạch vuông cạnh $40$ cm; hộp $6$ viên giá $80\,000$ đ. Tính tiền.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="300" height="175" viewBox="0 0 300 175" role="img" aria-label="Sân chữ nhật 15m x 8m lát gạch vuông">
+        <defs>
+          <pattern id="tiles" width="22.5" height="24" patternUnits="userSpaceOnUse">
+            <rect width="22.5" height="24" fill="#fdf6e3" stroke="#e3c87a" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect x="40" y="35" width="225" height="120" fill="url(#tiles)" stroke="#b07a12" stroke-width="2.3"/>
+        <rect x="40" y="35" width="22.5" height="24" fill="#f6df9a" stroke="#b07a12" stroke-width="1.4"/>
+        <text x="152" y="170" text-anchor="middle" font-size="11" fill="#5b6b7a">15 m</text>
+        <text x="26" y="95" text-anchor="middle" font-size="11" fill="#5b6b7a" transform="rotate(-90 26 95)">8 m</text>
+        <text x="51" y="51" text-anchor="middle" font-size="8" fill="#7a5a10">gạch</text>
+      </svg>
+      <div class="cap">Mỗi viên gạch là hình vuông cạnh $0{,}4$ m; lát kín sân.</div>
+      <p>Diện tích sân $=15\times8=120$ m$^2$. Mỗi viên gạch cạnh $0{,}4$ m có diện tích $0{,}4\times0{,}4=0{,}16$ m$^2$.</p>
+      <p>Số viên $=120:0{,}16=750$ viên $\Rightarrow$ số hộp $=750:6=125$ hộp.</p>
+      <p>Tiền $=125\times 80\,000=$ <span class="key">$10\,000\,000$ đồng</span>.</p>
+      <div class="trap"><b>⚠️ Đổi đơn vị:</b> đưa cạnh gạch về mét ($40$ cm $=0{,}4$ m) trước khi tính diện tích để cùng đơn vị với sân.</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Diện tích ruộng hình thang — năng suất</h3>
+    <div class="de"><p>Ruộng hình thang đáy $15$ m và $20$ m, cao $5$ m; năng suất $0{,}6$ kg/m$^2$. Tính sản lượng thóc.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ct"><b>Dùng $S=\dfrac{(a+b)h}{2}$.</b></a>
+      <svg class="fig" width="280" height="165" viewBox="0 0 280 165" role="img" aria-label="Ruộng hình thang đáy 15m và 20m, cao 5m">
+        <polygon points="40,140 240,140 215,90 65,90" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2.3" stroke-linejoin="round"/>
+        <line x1="140" y1="90" x2="140" y2="140" stroke="#a23b52" stroke-width="1.4" stroke-dasharray="5 3"/>
+        <rect x="140" y="133" width="7" height="7" fill="none" stroke="#a23b52" stroke-width="1"/>
+        <text x="140" y="82" text-anchor="middle" font-size="11" fill="#5b6b7a">đáy nhỏ 15 m</text>
+        <text x="140" y="156" text-anchor="middle" font-size="11" fill="#5b6b7a">đáy lớn 20 m</text>
+        <text x="150" y="120" font-size="11" fill="#a23b52">5 m</text>
+      </svg>
+      <div class="cap">Đường cao $h=5$ m vuông góc với hai đáy.</div>
+      <p>Diện tích $=\dfrac{(15+20)\times5}{2}=\dfrac{175}{2}=87{,}5$ m$^2$.</p>
+      <p>Sản lượng $=87{,}5\times0{,}6=$ <span class="key">$52{,}5$ kg thóc</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Trồng hoa và cỏ trên vườn bình hành</h3>
+    <div class="de"><p>Vườn bình hành đáy $20$ m, cao $5$ m; bồn hoa vuông cạnh $4$ m ở giữa, phần còn lại trồng cỏ. Hoa $200\,000$ đ/m$^2$, cỏ $100\,000$ đ/m$^2$. Tính tổng tiền.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="320" height="165" viewBox="0 0 320 165" role="img" aria-label="Vườn hình bình hành với bồn hoa hình vuông ở giữa">
+        <polygon points="40,140 240,140 290,65 90,65" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2.3" stroke-linejoin="round"/>
+        <rect x="140" y="80" width="50" height="50" fill="#fdeef1" stroke="#a23b52" stroke-width="2"/>
+        <line x1="40" y1="140" x2="40" y2="65" stroke="#5b6b7a" stroke-width="1" stroke-dasharray="3 2"/>
+        <line x1="30" y1="65" x2="30" y2="140" stroke="#a23b52" stroke-width="1.3"/>
+        <text x="22" y="105" text-anchor="middle" font-size="11" fill="#a23b52" transform="rotate(-90 22 105)">5 m</text>
+        <text x="140" y="156" text-anchor="middle" font-size="11" fill="#5b6b7a">đáy 20 m</text>
+        <text x="165" y="109" text-anchor="middle" font-size="9" fill="#a23b52">Hoa</text>
+        <text x="165" y="120" text-anchor="middle" font-size="9" fill="#a23b52">4×4</text>
+        <text x="240" y="100" font-size="10" fill="#1f7a72">Cỏ</text>
+      </svg>
+      <div class="cap">Bồn hoa hình vuông cạnh $4$ m ở giữa; phần còn lại (xanh) trồng cỏ.</div>
+      <p>Diện tích vườn $=20\times5=100$ m$^2$. Diện tích bồn hoa $=4\times4=16$ m$^2$.</p>
+      <p>Diện tích cỏ $=100-16=84$ m$^2$.</p>
+      <p>Tiền hoa $=16\times200\,000=3\,200\,000$ đ; tiền cỏ $=84\times100\,000=8\,400\,000$ đ.</p>
+      <p>Tổng $=3\,200\,000+8\,400\,000=$ <span class="key">$11\,600\,000$ đồng</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> diện tích cỏ là <b>phần còn lại</b> = diện tích vườn trừ diện tích bồn hoa, đừng tính cỏ trên cả $100$ m$^2$.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Luôn <b>đổi về cùng đơn vị</b> trước khi tính ($1$ m$^2=10\,000$ cm$^2$).</li>
+      <li>Số viên gạch, số cây, số hộp thường phải <b>làm tròn lên</b> để đủ dùng.</li>
+      <li>Bài "phần còn lại" = diện tích hình lớn $-$ tổng diện tích phần bị khoét.</li>
+    </ul>
+  </div>
+
+</div>

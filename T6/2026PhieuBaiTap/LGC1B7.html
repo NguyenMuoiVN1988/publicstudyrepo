@@ -1,0 +1,187 @@
+---
+layout: default
+title: Toán 6 - Thứ tự thực hiện các phép tính (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 7 Thứ tự thực hiện các phép tính - Toán 6: biểu thức có và không có dấu ngoặc, biểu thức chứa chữ, tìm x, lập biểu thức cho bài toán thực tế."
+tags: [Toán 6, thứ tự phép tính, dấu ngoặc, tìm x, biểu thức]
+series: t6-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Thứ tự thực hiện các phép tính — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 1: Tập hợp các số tự nhiên · Bài 7</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-thutu">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Quy tắc thứ tự thực hiện phép tính</h3>
+    <ul>
+      <li>Biểu thức <b>không ngoặc</b>: luỹ thừa $\to$ nhân, chia $\to$ cộng, trừ.</li>
+      <li>Biểu thức <b>có ngoặc</b>: làm trong ngoặc trước, theo thứ tự $(\ )\to[\ ]\to\{\ \}$.</li>
+      <li>Chỉ có cộng–trừ (hoặc chỉ nhân–chia): thực hiện <b>từ trái sang phải</b>.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-ung">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Biểu thức chứa chữ, tìm x & lập biểu thức</h3>
+    <ul>
+      <li>Tính biểu thức chứa chữ: thay giá trị của chữ rồi tính theo đúng thứ tự.</li>
+      <li>Tìm $x$: làm ngược lần lượt các phép tính ngoài cùng vào trong.</li>
+      <li>Bài toán thực tế: đặt phép tính/biểu thức mô tả quá trình rồi tính giá trị.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Thực hiện phép tính theo thứ tự</h3>
+    <div class="de">
+      <p><b>a)</b> $2^3\cdot10-3^2\cdot5-1^{2021}$; &nbsp; <b>b)</b> $4\cdot3^2+(5^2+58:2)$;</p>
+      <p><b>c)</b> $80-[70-(12-4)^2]$; &nbsp; <b>d)</b> $12:\{390:[500-(125+35\cdot7)]\}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-thutu"><b>Dùng Lý thuyết 1:</b> ngoặc trong trước, rồi luỹ thừa, nhân/chia, cộng/trừ.</a>
+      <p><b>a)</b> $2^3\cdot10-3^2\cdot5-1^{2021}=8\cdot10-9\cdot5-1=80-45-1=$ <span class="key">$34$</span>.</p>
+      <p><b>b)</b> Trong ngoặc: $5^2+58:2=25+29=54$; vậy $4\cdot9+54=36+54=$ <span class="key">$90$</span>.</p>
+      <p><b>c)</b> $(12-4)^2=8^2=64$; $\,80-[70-64]=80-6=$ <span class="key">$74$</span>.</p>
+      <p><b>d)</b> $125+35\cdot7=125+245=370$; $\,500-370=130$; $\,390:130=3$; $\,12:3=$ <span class="key">$4$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> $1^{2021}=1$ (không phải $2021$); và trong câu d phải tính $35\cdot7$ <b>trước</b> khi cộng với $125$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Tính giá trị biểu thức chứa chữ</h3>
+    <div class="de">
+      <p><b>a)</b> $1+2(2a-b)+3^2$ khi $a=5;b=2$. &nbsp; <b>b)</b> $16a-b(2a-b)+b^2$ khi $a=5;b=2$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ung"><b>Dùng Lý thuyết 2:</b> thay số rồi tính trong ngoặc trước.</a>
+      <p><b>a)</b> $1+2(2\cdot5-2)+3^2=1+2\cdot8+9=1+16+9=$ <span class="key">$26$</span>.</p>
+      <p><b>b)</b> $16\cdot5-2(2\cdot5-2)+2^2=80-2\cdot8+4=80-16+4=$ <span class="key">$68$</span>.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Tìm $x$</h3>
+    <div class="de">
+      <p><b>a)</b> $54+(98-x)=73$; &nbsp; <b>b)</b> $45-3(x-2)=12$;</p>
+      <p><b>c)</b> $120:[3(x-25)]=10$; &nbsp; <b>d)</b> $27+288:(x-3)^2=35$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ung"><b>Dùng Lý thuyết 2:</b> làm ngược từ phép tính ngoài cùng vào trong.</a>
+      <p><b>a)</b> $98-x=73-54=19\Rightarrow x=98-19=79$.</p>
+      <p><b>b)</b> $3(x-2)=45-12=33\Rightarrow x-2=11\Rightarrow x=13$.</p>
+      <p><b>c)</b> $3(x-25)=120:10=12\Rightarrow x-25=4\Rightarrow x=29$.</p>
+      <p><b>d)</b> $288:(x-3)^2=35-27=8\Rightarrow (x-3)^2=288:8=36$. Vì $x\in\mathbb{N}$ nên $x-3=6\Rightarrow x=9$.</p>
+      <div class="trap"><b>⚠️ Bẫy câu d:</b> $(x-3)^2=36$ nên $x-3=6$ (vì $6^2=36$), từ đó $x=9$; đừng viết $x-3=36$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Lập biểu thức — bài toán thực tế</h3>
+    <div class="de">
+      <p>Xe taxi đi $6$ giờ: $4$ giờ đầu vận tốc $60$ km/h, $2$ giờ sau tăng thêm $10$ km/h.
+      <b>a)</b> Lập biểu thức tính quãng đường cả $6$ giờ. <b>b)</b> Tính quãng đường đó.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ung"><b>Dùng Lý thuyết 2:</b> quãng đường $=$ vận tốc $\times$ thời gian.</a>
+      <p><b>a)</b> Quãng đường $4$ giờ đầu là $60\cdot4$; $2$ giờ sau vận tốc $(60+10)$ nên là $(60+10)\cdot2$.
+      Cả $6$ giờ: $S=60\cdot4+(60+10)\cdot2$ (km).</p>
+      <p><b>b)</b> $S=240+70\cdot2=240+140=$ <span class="key">$380$ km</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Không ngoặc: luỹ thừa $\to$ nhân, chia $\to$ cộng, trừ. Có ngoặc: $(\ )\to[\ ]\to\{\ \}$.</li>
+      <li>$1^n=1$ và $a^0=1$ ($a\ne0$) — tính các luỹ thừa này trước.</li>
+      <li>Tìm $x$ có luỹ thừa: $(x-3)^2=36\Rightarrow x-3=6$ (lấy căn của số chính phương).</li>
+    </ul>
+  </div>
+
+</div>

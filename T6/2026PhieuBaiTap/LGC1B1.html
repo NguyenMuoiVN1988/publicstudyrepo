@@ -1,0 +1,210 @@
+---
+layout: default
+title: Toán 6 - Tập hợp (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 1 Tập hợp - Toán 6: mô tả tập hợp bằng hai cách, kí hiệu thuộc và không thuộc, biểu đồ Ven. Kết nối lý thuyết với từng lời giải."
+tags: [Toán 6, tập hợp, phần tử, biểu đồ Ven, số tự nhiên]
+series: t6-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc .venn { display:block; margin:10px auto; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Tập hợp — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 1: Tập hợp các số tự nhiên · Bài 1</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-mota">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Mô tả một tập hợp</h3>
+    <ul>
+      <li><b>Tập hợp</b> gồm những đối tượng (phần tử) nhất định. Các phần tử viết trong dấu ngoặc nhọn $\{\ \}$.</li>
+      <li><b>Cách 1 — Liệt kê:</b> viết tất cả phần tử, mỗi phần tử <b>một lần</b>, thứ tự tuỳ ý, ngăn cách bằng dấu ";".</li>
+      <li><b>Cách 2 — Nêu tính chất đặc trưng:</b> ví dụ $E=\{x\in\mathbb{N}\mid 13<x<21\}$.</li>
+    </ul>
+    <div class="tip">🔍 $\mathbb{N}=\{0;1;2;3;\dots\}$ chứa số $0$; còn $\mathbb{N}^*=\{1;2;3;\dots\}$ <b>không</b> chứa $0$.</div>
+  </div>
+
+  <div class="theory" id="lt-thuoc">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Quan hệ phần tử — tập hợp & biểu đồ Ven</h3>
+    <ul>
+      <li>$a\in A$: "$a$ <b>thuộc</b> $A$" (là phần tử của $A$); &nbsp; $a\notin A$: "$a$ <b>không thuộc</b> $A$".</li>
+      <li><b>Biểu đồ Ven:</b> vẽ một vòng kín, mỗi phần tử là một dấu chấm kèm tên bên trong vòng.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Mô tả một tập hợp cho trước</h3>
+    <div class="de">
+      <p><b>a)</b> Viết tập hợp $L$ các chữ cái trong từ "TOÁN HỌC" bằng cách liệt kê.</p>
+      <p><b>b)</b> $E$ là tập các số tự nhiên lớn hơn $13$ và nhỏ hơn $21$. Viết $E$ theo hai cách.</p>
+      <p><b>c)</b> $A=\{n\mid n\le 7\}$, $B=\{m\mid 5<m<10\}$ ($m,n\in\mathbb{N}$). Liệt kê $A$, $B$ và cho biết số phần tử.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-mota"><b>Dùng Lý thuyết 1:</b> liệt kê — mỗi phần tử một lần.</a>
+      <p><b>a)</b> Các chữ cái của "TOÁN HỌC" (bỏ dấu, mỗi chữ kể một lần): <span class="key">$L=\{T;O;A;N;H;C\}$</span>.</p>
+      <p><b>b)</b> Liệt kê: $E=\{14;15;16;17;18;19;20\}$. &nbsp; Tính chất đặc trưng: <span class="key">$E=\{x\in\mathbb{N}\mid 13<x<21\}$</span>.</p>
+      <p><b>c)</b> $A=\{0;1;2;3;4;5;6;7\}$ — có <span class="key">$8$ phần tử</span>; &nbsp;
+      $B=\{6;7;8;9\}$ — có <span class="key">$4$ phần tử</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> "TOÁN HỌC" có hai chữ O (Ó, Ọ) nhưng chỉ kể chữ $O$ <b>một lần</b>;
+      $A$ có $7\in A$ vì điều kiện là "$\le 7$" (lấy cả $7$), còn $B$ thì $5,10\notin B$ vì là "lớn hơn $5$, nhỏ hơn $10$".</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Quan hệ giữa phần tử và tập hợp</h3>
+    <div class="de">
+      <p><b>a)</b> $A=\{m;n;p;q\}$. Điền $\in$ hoặc $\notin$: $\;q\,\square\,A;\ m\,\square\,A;\ x\,\square\,A;\ p\,\square\,A$.</p>
+      <p><b>b)</b> $G$ là tập số tự nhiên nhỏ hơn $20$ và chia hết cho $2$. Trong $0;5;6;7;14;15;18;19$, số nào thuộc, số nào không thuộc $G$?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-thuoc"><b>Dùng Lý thuyết 2:</b> phần tử có trong tập thì $\in$, không có thì $\notin$.</a>
+      <p><b>a)</b> $q\in A$; &nbsp; $m\in A$; &nbsp; <span class="no">$x\notin A$</span> (vì $x$ không có trong $A$); &nbsp; $p\in A$.</p>
+      <p><b>b)</b> $G=\{0;2;4;6;8;10;12;14;16;18\}$. Do đó:</p>
+      <ul>
+        <li><span class="yes">Thuộc $G$:</span> $0;\,6;\,14;\,18$ (số chẵn, nhỏ hơn $20$).</li>
+        <li><span class="no">Không thuộc $G$:</span> $5;\,7;\,15;\,19$ (số lẻ).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Minh hoạ tập hợp bằng biểu đồ Ven</h3>
+    <div class="de">
+      <p><b>a)</b> $N$ là tập số tự nhiên lớn hơn $5$ và nhỏ hơn $10$. &nbsp;
+      <b>b)</b> $A=\{x\in\mathbb{N}\mid x<8\text{ và }x\ \vdots\ 2\}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-thuoc"><b>Dùng Lý thuyết 2:</b> liệt kê trước, rồi vẽ vòng kín chứa các dấu chấm.</a>
+      <p><b>a)</b> $N=\{6;7;8;9\}$.</p>
+      <svg class="venn" width="220" height="150" viewBox="0 0 220 150" aria-label="Biểu đồ Ven tập N">
+        <ellipse cx="110" cy="75" rx="95" ry="60" fill="#eef2fb" stroke="#3f5d9e" stroke-width="2"/>
+        <text x="20" y="28" font-size="14" fill="#3f5d9e" font-weight="bold">N</text>
+        <circle cx="70" cy="60" r="3"/><text x="60" y="55" font-size="13">6</text>
+        <circle cx="150" cy="60" r="3"/><text x="140" y="55" font-size="13">7</text>
+        <circle cx="70" cy="105" r="3"/><text x="60" y="125" font-size="13">8</text>
+        <circle cx="150" cy="105" r="3"/><text x="140" y="125" font-size="13">9</text>
+      </svg>
+      <p><b>b)</b> $A=\{0;2;4;6\}$ (số tự nhiên nhỏ hơn $8$ và chia hết cho $2$).</p>
+      <svg class="venn" width="220" height="150" viewBox="0 0 220 150" aria-label="Biểu đồ Ven tập A">
+        <ellipse cx="110" cy="75" rx="95" ry="60" fill="#e9f6f4" stroke="#1f7a72" stroke-width="2"/>
+        <text x="20" y="28" font-size="14" fill="#1f7a72" font-weight="bold">A</text>
+        <circle cx="70" cy="60" r="3"/><text x="60" y="55" font-size="13">0</text>
+        <circle cx="150" cy="60" r="3"/><text x="140" y="55" font-size="13">2</text>
+        <circle cx="70" cy="105" r="3"/><text x="60" y="125" font-size="13">4</text>
+        <circle cx="150" cy="105" r="3"/><text x="140" y="125" font-size="13">6</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Vận dụng</h3>
+    <div class="de">
+      <p>$D=\{0;1;2;3;\ldots;20\}$. &nbsp; <b>a)</b> Viết $D$ bằng tính chất đặc trưng; $D$ có mấy phần tử?
+      &nbsp; <b>b)</b> Viết tập $E$ các số chẵn của $D$ và cho biết số phần tử.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-mota"><b>Dùng Lý thuyết 1:</b> đếm phần tử dãy cách đều $=$ (cuối $-$ đầu)$:$khoảng cách$+1$.</a>
+      <p><b>a)</b> $D=\{x\in\mathbb{N}\mid x\le 20\}$. Số phần tử: từ $0$ đến $20$ có $20-0+1=$ <span class="key">$21$ phần tử</span>.</p>
+      <p><b>b)</b> $E=\{0;2;4;6;8;10;12;14;16;18;20\}$. Số phần tử: $(20-0):2+1=$ <span class="key">$11$ phần tử</span>.</p>
+    </div>
+  </div>
+
+  <!-- ===================== CHÚ Ý ===================== -->
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Mỗi phần tử <b>liệt kê một lần</b>, thứ tự tuỳ ý; phần tử là số thì ngăn cách bằng ";".</li>
+      <li>Phân biệt $\mathbb{N}$ (có $0$) và $\mathbb{N}^*$ (không có $0$); để ý dấu "$<$" (không lấy) với "$\le$" (lấy bằng).</li>
+      <li>Đếm số phần tử của dãy số cách đều: <b>(số cuối $-$ số đầu)$:$khoảng cách$+1$</b>.</li>
+    </ul>
+  </div>
+
+</div>

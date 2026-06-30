@@ -1,0 +1,167 @@
+---
+layout: default
+title: Toán 6 - Số nguyên tố (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 3 Số nguyên tố - Toán 6: nhận biết số nguyên tố hợp số, phân tích ra thừa số nguyên tố, tìm số ước."
+tags: [Toán 6, số nguyên tố, hợp số, phân tích thừa số nguyên tố, số ước]
+series: t6-c2
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Số nguyên tố — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 2: Tính chia hết · Bài 3</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-snt">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Số nguyên tố — hợp số</h3>
+    <ul>
+      <li><b>Số nguyên tố</b>: số tự nhiên $>1$, chỉ có hai ước là $1$ và chính nó.</li>
+      <li><b>Hợp số</b>: số tự nhiên $>1$, có nhiều hơn hai ước. (Số $0$ và $1$ không là số nguyên tố cũng không là hợp số.)</li>
+    </ul>
+    <div class="tip">🔍 Một tổng (tích) chia hết cho một số khác $1$ và khác chính nó thì là <b>hợp số</b>.</div>
+  </div>
+
+  <div class="theory" id="lt-phantich">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Phân tích ra thừa số nguyên tố — số ước</h3>
+    <ul>
+      <li>Phân tích một số $>1$ thành tích các thừa số nguyên tố (sơ đồ cây hoặc sơ đồ cột).</li>
+      <li>Nếu $x=a^{m}\cdot b^{n}\cdots$ thì số ước của $x$ là $(m+1)(n+1)\cdots$</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Nhận biết số nguyên tố, hợp số</h3>
+    <div class="de"><p>$40;13;27;29;71;75;87$ — số nào là số nguyên tố, số nào là hợp số?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-snt"><b>Dùng Lý thuyết 1:</b> dùng dấu hiệu chia hết để tìm ước.</a>
+      <p><span class="yes">Số nguyên tố:</span> $13;\,29;\,71$.</p>
+      <p><span class="no">Hợp số:</span> $40\,(=2^3\cdot5)$; $27\,(=3^3)$; $75\,(=3\cdot5^2)$; $87\,(=3\cdot29)$.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Số nguyên tố hay hợp số?</h3>
+    <div class="de"><p><b>a)</b> $A=36+42$; <b>b)</b> $B=123+456+789$; <b>c)</b> $C=1\cdot2\cdot3\cdot5\cdot7+7\cdot8\cdot9$; <b>d)</b> $D=7\cdot11\cdot13+17\cdot19\cdot23$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-snt"><b>Dùng Lý thuyết 1:</b> chỉ ra một số chia hết cả tổng.</a>
+      <p><b>a)</b> $36\,\vdots\,6$, $42\,\vdots\,6$ nên $A\,\vdots\,6$; $A>6$ → <span class="no">hợp số</span>.</p>
+      <p><b>b)</b> Mỗi số đều $\,\vdots\,3$ ($1{+}2{+}3=6$, $4{+}5{+}6=15$, $7{+}8{+}9=24$) nên $B\,\vdots\,3$, $B>3$ → <span class="no">hợp số</span>.</p>
+      <p><b>c)</b> $1\cdot2\cdot3\cdot5\cdot7\,\vdots\,7$ và $7\cdot8\cdot9\,\vdots\,7$ nên $C\,\vdots\,7$, $C>7$ → <span class="no">hợp số</span>.</p>
+      <p><b>d)</b> Cả hai tích đều là số lẻ nên tổng $D$ là số chẵn, $D\,\vdots\,2$, $D>2$ → <span class="no">hợp số</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy câu d:</b> không cần tính giá trị khổng lồ — chỉ cần nhận xét "lẻ $+$ lẻ $=$ chẵn" để kết luận $D\,\vdots\,2$.</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Phân tích ra thừa số nguyên tố</h3>
+    <div class="de"><p>$48;\ 56;\ 84;\ 360$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-phantich"><b>Dùng Lý thuyết 2:</b> chia lần lượt cho các số nguyên tố nhỏ nhất.</a>
+      <p>$48=2^4\cdot3$; &nbsp; $56=2^3\cdot7$; &nbsp; $84=2^2\cdot3\cdot7$; &nbsp; $360=2^3\cdot3^2\cdot5$.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Số ước — toán thực tế</h3>
+    <div class="de"><p><b>a)</b> Tìm số ước của $48;56;84;360$. <b>b)</b> Có bao nhiêu cách chia đều $30$ học sinh thành các nhóm từ $3$ đến $6$ người?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-phantich"><b>Dùng Lý thuyết 2:</b> số ước $=(m+1)(n+1)\cdots$ từ dạng phân tích.</a>
+      <p><b>a)</b> $48=2^4\cdot3 \Rightarrow (4{+}1)(1{+}1)=10$ ước; &nbsp; $56=2^3\cdot7\Rightarrow 4\cdot2=8$ ước;</p>
+      <p>$84=2^2\cdot3\cdot7\Rightarrow 3\cdot2\cdot2=12$ ước; &nbsp; $360=2^3\cdot3^2\cdot5\Rightarrow 4\cdot3\cdot2=24$ ước.</p>
+      <p><b>b)</b> Số người mỗi nhóm phải là ước của $30$ và nằm trong $[3;6]$: $\text{Ư}(30)=\{1;2;3;5;6;10;15;30\}$, lấy $3;5;6$. Vậy có <span class="key">$3$ cách</span> (nhóm $3$, nhóm $5$ hoặc nhóm $6$ người).</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>$0$ và $1$ không phải số nguyên tố cũng không phải hợp số; $2$ là số nguyên tố chẵn duy nhất.</li>
+      <li>Chứng tỏ một tổng là hợp số: chỉ ra nó chia hết cho một số khác $1$ và khác chính nó.</li>
+      <li>Số ước tính từ <b>số mũ cộng 1</b> rồi nhân với nhau — nhớ "cộng $1$" cho mỗi thừa số nguyên tố.</li>
+    </ul>
+  </div>
+
+</div>

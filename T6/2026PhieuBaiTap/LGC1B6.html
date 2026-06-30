@@ -1,0 +1,203 @@
+---
+layout: default
+title: Toán 6 - Luỹ thừa với số mũ tự nhiên (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 6 Luỹ thừa với số mũ tự nhiên - Toán 6: viết dưới dạng một luỹ thừa, bình phương lập phương, số chính phương, tổng các luỹ thừa của 10, tìm cơ số số mũ."
+tags: [Toán 6, luỹ thừa, số chính phương, cơ số, số mũ]
+series: t6-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Luỹ thừa với số mũ tự nhiên — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 1: Tập hợp các số tự nhiên · Bài 6</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-cong">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Luỹ thừa & phép nhân, chia luỹ thừa cùng cơ số</h3>
+    <ul>
+      <li>$a^n=\underbrace{a\cdot a\cdots a}_{n\text{ thừa số}}$ ($n\in\mathbb{N}^*$); &nbsp; $a^1=a$, $a^0=1$ (với $a\ne0$).</li>
+      <li>$a^m\cdot a^n=a^{m+n}$ (cùng cơ số: <b>cộng</b> số mũ); &nbsp; $a^m:a^n=a^{m-n}$ ($a\ne0,m\ge n$: <b>trừ</b> số mũ).</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-cp">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Bình phương, lập phương & số chính phương</h3>
+    <ul>
+      <li>$a^2$ là "$a$ bình phương", $a^3$ là "$a$ lập phương".</li>
+      <li><b>Số chính phương</b> là bình phương của một số tự nhiên: $0;1;4;9;16;25;36;\dots$</li>
+      <li>Viết số thành tổng các luỹ thừa của $10$: $\overline{abc}=a\cdot10^2+b\cdot10+c$.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Viết kết quả dưới dạng một luỹ thừa</h3>
+    <div class="de">
+      <p><b>a)</b> $5\cdot5\cdot5\cdot5$; &nbsp; <b>b)</b> $9\cdot9\cdot9\cdot3\cdot3$; &nbsp;
+      <b>c)</b> $8^7\cdot8^3$; &nbsp; <b>d)</b> $21^{15}:21^{10}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cong"><b>Dùng Lý thuyết 1:</b> đưa về cùng cơ số rồi cộng/trừ số mũ.</a>
+      <p><b>a)</b> $5\cdot5\cdot5\cdot5=$ <span class="key">$5^4$</span>.</p>
+      <p><b>b)</b> Đổi $9=3^2$: $9\cdot9\cdot9\cdot3\cdot3=3^2\cdot3^2\cdot3^2\cdot3\cdot3=$ <span class="key">$3^8$</span>.</p>
+      <p><b>c)</b> $8^7\cdot8^3=8^{7+3}=$ <span class="key">$8^{10}$</span>.</p>
+      <p><b>d)</b> $21^{15}:21^{10}=21^{15-10}=$ <span class="key">$21^5$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> các thừa số chưa cùng cơ số. Phải đổi $9=3^2$ trước, được $3^{2+2+2+1+1}=3^8$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Bình phương, lập phương — số chính phương</h3>
+    <div class="de">
+      <p><b>a)</b> Tính $11^2;5^3;2^4$. &nbsp; <b>b)</b> Trong $0;1;4;8;9;16;25;36$, số nào là số chính phương?
+      &nbsp; <b>c)</b> Viết $49;64;1000$ dưới dạng một luỹ thừa.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cp"><b>Dùng Lý thuyết 2:</b> số chính phương $=$ bình phương của số tự nhiên.</a>
+      <p><b>a)</b> $11^2=121$; &nbsp; $5^3=125$; &nbsp; $2^4=16$.</p>
+      <p><b>b)</b> Số chính phương: $0=0^2,\,1=1^2,\,4=2^2,\,9=3^2,\,16=4^2,\,25=5^2,\,36=6^2$.
+      Vậy <span class="key">$0;1;4;9;16;25;36$</span> là số chính phương; riêng <span class="no">$8$ không phải</span>.</p>
+      <p><b>c)</b> $49=7^2$; &nbsp; $64=8^2$ (hoặc $2^6$); &nbsp; $1000=10^3$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Viết số thành tổng các luỹ thừa của $10$</h3>
+    <div class="de">
+      <p>Viết $2386$ và $100\,203$ thành tổng giá trị các chữ số bằng các luỹ thừa của $10$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cp"><b>Dùng Lý thuyết 2:</b> mỗi chữ số nhân với luỹ thừa của $10$ ứng với hàng của nó.</a>
+      <p>$2386=2\cdot10^3+3\cdot10^2+8\cdot10+6$.</p>
+      <p>$100\,203=1\cdot10^5+2\cdot10^2+3$ &nbsp;(các hàng có chữ số $0$ thì bỏ qua).</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> đừng "tụt hàng" — $100\,203$ có $6$ chữ số nên hàng cao nhất là $10^5$, không phải $10^4$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Tìm cơ số hoặc số mũ</h3>
+    <div class="de">
+      <p><b>a)</b> $2^x=16$; &nbsp; <b>b)</b> $x^3=27$; &nbsp; <b>c)</b> $5^x=125$; &nbsp; <b>d)</b> $x^2=81$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cong"><b>Dùng Lý thuyết 1:</b> đưa hai vế về cùng cơ số (hoặc cùng số mũ) rồi đồng nhất.</a>
+      <p><b>a)</b> $16=2^4$ nên $2^x=2^4\Rightarrow x=4$.</p>
+      <p><b>b)</b> $27=3^3$ nên $x^3=3^3\Rightarrow x=3$.</p>
+      <p><b>c)</b> $125=5^3$ nên $5^x=5^3\Rightarrow x=3$.</p>
+      <p><b>d)</b> $81=9^2$ nên $x^2=9^2\Rightarrow x=9$.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> phân biệt "tìm số mũ" (câu a, c: cùng cơ số, so sánh số mũ) với "tìm cơ số" (câu b, d: cùng số mũ, so sánh cơ số).</div>
+    </div>
+  </div>
+
+  <!-- BÀI 5 -->
+  <div class="bai">
+    <h3><span class="num">5</span> Vận dụng</h3>
+    <div class="de">
+      <p><b>a)</b> So sánh $2^3$ và $3^2$; &nbsp; $2^4$ và $4^2$. &nbsp;
+      <b>b)</b> Tấm bìa hình vuông cạnh $8$ cm: viết diện tích dưới dạng một luỹ thừa và tính.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cong"><b>Dùng Lý thuyết 1:</b> tính giá trị rồi so sánh.</a>
+      <p><b>a)</b> $2^3=8$, $3^2=9$ nên $2^3<3^2$. &nbsp; $2^4=16$, $4^2=16$ nên $2^4=4^2$.</p>
+      <p><b>b)</b> Diện tích hình vuông cạnh $8$ cm là $8\times8=8^2=$ <span class="key">$64$ cm²</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> $2^3\ne3^2$ — đổi chỗ cơ số và số mũ cho <b>kết quả khác nhau</b>; luỹ thừa không có tính giao hoán kiểu đó.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>$a^m\cdot a^n=a^{m+n}$, $a^m:a^n=a^{m-n}$ — chỉ áp dụng khi <b>cùng cơ số</b>.</li>
+      <li>Muốn dùng quy tắc, hãy <b>đổi về cùng cơ số</b> trước ($9=3^2$, $27=3^3$, $16=2^4$…).</li>
+      <li>$a^m\cdot a^n\ne a^{m\cdot n}$ và $2^3\ne3^2$ — đừng nhầm cơ số với số mũ.</li>
+    </ul>
+  </div>
+
+</div>

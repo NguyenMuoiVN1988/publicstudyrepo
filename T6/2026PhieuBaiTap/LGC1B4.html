@@ -1,0 +1,185 @@
+---
+layout: default
+title: Toán 6 - Phép cộng và phép trừ số tự nhiên (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 4 Phép cộng và phép trừ số tự nhiên - Toán 6: tính hợp lí, tìm x, bài toán thực tế và tính tổng dãy số cách đều."
+tags: [Toán 6, phép cộng, phép trừ, tính hợp lí, dãy số cách đều]
+series: t6-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Phép cộng và phép trừ số tự nhiên — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 1: Tập hợp các số tự nhiên · Bài 4</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-hopli">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Tính chất & tính hợp lí</h3>
+    <ul>
+      <li><b>Giao hoán, kết hợp:</b> $a+b=b+a$; $(a+b)+c=a+(b+c)$ — đổi chỗ, nhóm các số để được tổng "tròn".</li>
+      <li>Với cùng số chia: $a:c-b:c=(a-b):c$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-timx">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Tìm số chưa biết & dãy cách đều</h3>
+    <ul>
+      <li>Số hạng $=$ tổng $-$ số hạng kia; &nbsp; số bị trừ $=$ hiệu $+$ số trừ; &nbsp; số trừ $=$ số bị trừ $-$ hiệu.</li>
+      <li><b>Dãy cách đều:</b> số số hạng $=$ (số cuối $-$ số đầu) $:$ khoảng cách $+1$;
+      tổng $=$ (số đầu $+$ số cuối) $\times$ số số hạng $:2$.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Tính một cách hợp lí</h3>
+    <div class="de">
+      <p><b>a)</b> $142+657+243+258$; &nbsp; <b>b)</b> $1252+3139-1139-252$; &nbsp;
+      <b>c)</b> $298+532-32-98$; &nbsp; <b>d)</b> $2975:25-475:25$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-hopli"><b>Dùng Lý thuyết 1:</b> nhóm các số cho tổng/hiệu "tròn".</a>
+      <p><b>a)</b> $(142+258)+(657+243)=400+900=$ <span class="key">$1300$</span>.</p>
+      <p><b>b)</b> $(1252-252)+(3139-1139)=1000+2000=$ <span class="key">$3000$</span>.</p>
+      <p><b>c)</b> $(298-98)+(532-32)=200+500=$ <span class="key">$700$</span>.</p>
+      <p><b>d)</b> $2975:25-475:25=(2975-475):25=2500:25=$ <span class="key">$100$</span>.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Tìm $x$</h3>
+    <div class="de">
+      <p><b>a)</b> $1124+(1118-x)=1217$; &nbsp; <b>b)</b> $(x-35)-120=0$; &nbsp;
+      <b>c)</b> $5(2+x)=75$; &nbsp; <b>d)</b> $(x-32):16=48$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-timx"><b>Dùng Lý thuyết 2:</b> làm ngược từng phép tính để tách $x$.</a>
+      <p><b>a)</b> $1118-x=1217-1124=93\Rightarrow x=1118-93=$ <span class="key">$1025$</span>.</p>
+      <p><b>b)</b> $x-35=120\Rightarrow x=155$.</p>
+      <p><b>c)</b> $2+x=75:5=15\Rightarrow x=13$.</p>
+      <p><b>d)</b> $x-32=48\cdot16=768\Rightarrow x=800$.</p>
+      <div class="trap"><b>⚠️ Bẫy câu a:</b> $1118-x=93$ nên $x=1118-93$ (số bị trừ $-$ hiệu), <b>không phải</b> $93-1118$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Bài toán thực tế</h3>
+    <div class="de">
+      <p>Xưởng A: $30$ công nhân, mỗi người $50$ sản phẩm/ngày. Xưởng B: nhiều hơn A $10$ công nhân, mỗi người $30$ sản phẩm/ngày. Mỗi ngày công ty sản xuất bao nhiêu sản phẩm?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Xưởng A làm: $30\times50=1500$ (sản phẩm).</p>
+      <p>Xưởng B có $30+10=40$ công nhân, làm: $40\times30=1200$ (sản phẩm).</p>
+      <p>Mỗi ngày công ty sản xuất: $1500+1200=$ <span class="key">$2700$ sản phẩm</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> xưởng B "nhiều hơn $10$ công nhân" nên có $40$ người (không phải $30$); tính số công nhân của B trước khi nhân.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Tính tổng dãy số cách đều</h3>
+    <div class="de">
+      <p>$S=7+10+13+\ldots+97+100$. &nbsp; <b>a)</b> Có bao nhiêu số hạng? &nbsp; <b>b)</b> Tính $S$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-timx"><b>Dùng Lý thuyết 2:</b> dãy cách đều khoảng cách $3$.</a>
+      <p><b>a)</b> Số số hạng: $(100-7):3+1=93:3+1=31+1=$ <span class="key">$32$ số hạng</span>.</p>
+      <p><b>b)</b> $S=(7+100)\times32:2=107\times16=$ <span class="key">$1712$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> phải <b>$+1$</b> khi đếm số số hạng; quên $+1$ sẽ ra $31$ và tổng bị sai.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Tính hợp lí: nhóm số cho tổng/hiệu "tròn" nhờ giao hoán, kết hợp; gộp phép chia cùng số chia.</li>
+      <li>Tìm $x$: làm <b>ngược</b> thứ tự phép tính; cẩn thận thứ tự ở phép trừ.</li>
+      <li>Dãy cách đều: số số hạng $=$ (cuối $-$ đầu)$:$khoảng cách$+1$; tổng $=$ (đầu $+$ cuối)$\times$số số hạng$:2$.</li>
+    </ul>
+  </div>
+
+</div>

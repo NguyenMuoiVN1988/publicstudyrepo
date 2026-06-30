@@ -1,0 +1,171 @@
+---
+layout: default
+title: Toán 6 - Quan hệ chia hết và tính chất (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 1 Quan hệ chia hết và tính chất - Toán 6: tìm ước bội, tính chất chia hết của tổng hiệu và tích."
+tags: [Toán 6, chia hết, ước, bội, tính chất chia hết]
+series: t6-c2
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Quan hệ chia hết và tính chất — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 2: Tính chia hết · Bài 1</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-uocboi">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Quan hệ chia hết — ước và bội</h3>
+    <ul>
+      <li>$a\,\vdots\,b$ khi có số tự nhiên $k$ để $a=k\cdot b$. Khi đó $b$ là <b>ước</b> của $a$, $a$ là <b>bội</b> của $b$.</li>
+      <li>$\text{Ư}(a)$: tập các ước; $B(b)=\{0;b;2b;3b;\dots\}$: tập các bội.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-tinhchat">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Tính chất chia hết của tổng (hiệu) và tích</h3>
+    <ul>
+      <li>Nếu $a\,\vdots\,m$ và $b\,\vdots\,m$ thì $(a\pm b)\,\vdots\,m$. Nếu $a\,\vdots\,m$, $b\not\vdots\,m$ thì $(a\pm b)\not\vdots\,m$.</li>
+      <li>Tích $\,\vdots\,m$ nếu có một thừa số chia hết cho $m$ (hoặc tích vài thừa số chia hết cho $m$).</li>
+    </ul>
+    <div class="tip">🔍 Ngược lại không đúng: $(a+b)\,\vdots\,m$ <b>không</b> suy ra từng số hạng chia hết cho $m$.</div>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Tìm ước, bội thoả điều kiện</h3>
+    <div class="de"><p><b>a)</b> $a\in\text{Ư}(18)$ và $a>4$. &nbsp; <b>b)</b> $b\in B(6)$ và $b\le 36$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-uocboi"><b>Dùng Lý thuyết 1:</b> liệt kê ước (bội) rồi chọn theo điều kiện.</a>
+      <p><b>a)</b> $\text{Ư}(18)=\{1;2;3;6;9;18\}$. Các số $>4$: <span class="key">$a\in\{6;9;18\}$</span>.</p>
+      <p><b>b)</b> $B(6)=\{0;6;12;18;24;30;36;42;\dots\}$. Các số $\le 36$: <span class="key">$b\in\{0;6;12;18;24;30;36\}$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Xét tính chia hết của tổng, hiệu (cho 7)</h3>
+    <div class="de"><p><b>a)</b> $700+21$; &nbsp; <b>b)</b> $28+1400$; &nbsp; <b>c)</b> $70-23$; &nbsp; <b>d)</b> $280-56$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tinhchat"><b>Dùng Lý thuyết 2:</b> xét mỗi số hạng có chia hết cho $7$ không.</a>
+      <p><b>a)</b> $700\,\vdots\,7$ và $21\,\vdots\,7$ nên $(700+21)\,\vdots\,7$. <span class="yes">Chia hết.</span></p>
+      <p><b>b)</b> $28\,\vdots\,7$ và $1400\,\vdots\,7$ nên $(28+1400)\,\vdots\,7$. <span class="yes">Chia hết.</span></p>
+      <p><b>c)</b> $70\,\vdots\,7$ nhưng $23\not\vdots\,7$ nên $(70-23)\not\vdots\,7$. <span class="no">Không chia hết.</span></p>
+      <p><b>d)</b> $280\,\vdots\,7$ và $56\,\vdots\,7$ nên $(280-56)\,\vdots\,7$. <span class="yes">Chia hết.</span></p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Điều kiện của số hạng để tổng chia hết</h3>
+    <div class="de"><p>$A=21+36+x$. Tìm $x\in\{27;35;90;13;25\}$ để <b>a)</b> $A\,\vdots\,3$; &nbsp; <b>b)</b> $A\not\vdots\,3$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tinhchat"><b>Dùng Lý thuyết 2:</b> $21\,\vdots\,3$ và $36\,\vdots\,3$ nên $A\,\vdots\,3 \Leftrightarrow x\,\vdots\,3$.</a>
+      <p>Xét các số đã cho: $27\,\vdots\,3$, $90\,\vdots\,3$ (chia hết); $35,13,25$ không chia hết cho $3$.</p>
+      <p><b>a)</b> $A\,\vdots\,3$ khi <span class="key">$x\in\{27;90\}$</span>.</p>
+      <p><b>b)</b> $A\not\vdots\,3$ khi <span class="key">$x\in\{35;13;25\}$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> vì $21,36$ đã chia hết cho $3$, tính chia hết của $A$ <b>chỉ phụ thuộc</b> vào $x$ — không cần cộng cả tổng.</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Xét tính chia hết của một tích (cho 6)</h3>
+    <div class="de"><p><b>a)</b> $12\cdot17\cdot5$; &nbsp; <b>b)</b> $30\cdot13\cdot11$; &nbsp; <b>c)</b> $66\cdot45\cdot29$; &nbsp; <b>d)</b> $3\cdot37\cdot4\cdot5$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tinhchat"><b>Dùng Lý thuyết 2:</b> tích chia hết cho $6$ nếu có thừa số chia hết cho $6$ (hoặc tích vài thừa số chia hết cho $6$).</a>
+      <p><b>a)</b> $12\,\vdots\,6$ nên tích $\,\vdots\,6$. <span class="yes">Có.</span></p>
+      <p><b>b)</b> $30\,\vdots\,6$ nên tích $\,\vdots\,6$. <span class="yes">Có.</span></p>
+      <p><b>c)</b> $66\,\vdots\,6$ nên tích $\,\vdots\,6$. <span class="yes">Có.</span></p>
+      <p><b>d)</b> Không có thừa số nào $\,\vdots\,6$, nhưng $3\cdot4=12\,\vdots\,6$ nên tích $\,\vdots\,6$. <span class="yes">Có.</span></p>
+      <div class="trap"><b>⚠️ Bẫy câu d:</b> $6=2\cdot3$; tích có thừa số $4\,(\vdots\,2)$ và $3\,(\vdots\,3)$ nên vẫn chia hết cho $6$ dù không có thừa số nào chia hết cho $6$.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>$B(b)$ luôn bắt đầu từ $0$; ước của một số là hữu hạn, bội thì vô hạn.</li>
+      <li>$(a+b)\,\vdots\,m$ không kéo theo $a\,\vdots\,m$, $b\,\vdots\,m$.</li>
+      <li>Để xét tích chia hết cho $m$, hãy tách $m$ ra thừa số và tìm đủ các thừa số đó trong tích.</li>
+    </ul>
+  </div>
+
+</div>

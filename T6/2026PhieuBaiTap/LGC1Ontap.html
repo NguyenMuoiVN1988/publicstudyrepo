@@ -1,0 +1,154 @@
+---
+layout: default
+title: Toán 6 - Ôn tập chương I Tập hợp các số tự nhiên (Lời giải)
+description: "Lời giải chi tiết phiếu ôn tập chương I Toán 6: tập hợp, cách ghi số tự nhiên, thứ tự, bốn phép tính và luỹ thừa. Đáp án trắc nghiệm kèm giải thích và bài tự luận tổng hợp."
+tags: [Toán 6, ôn tập chương 1, số tự nhiên, luỹ thừa, trắc nghiệm]
+series: t6-c1
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc table.tn { border-collapse:collapse; width:100%; margin:8px 0 4px;
+    font-family:'Quicksand',sans-serif; }
+  .lgc table.tn th, .lgc table.tn td { border:1px solid #d4ddf3; padding:6px 4px;
+    text-align:center; font-size:.95rem; }
+  .lgc table.tn th { background:var(--indigo-bg); color:var(--indigo); }
+  .lgc table.tn td b { color:var(--teal); }
+  .lgc .ans { margin:6px 0; }
+  .lgc .ans .chon { color:var(--teal); font-weight:700; }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương I — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 1: Tập hợp các số tự nhiên · Phiếu ôn tập</p>
+  </div>
+
+  <div class="sec">📝 Bài 1 — Trắc nghiệm (bảng đáp án)</div>
+  <div class="bai">
+    <h3><span class="num">1</span> Đáp án 10 câu trắc nghiệm</h3>
+    <table class="tn">
+      <tr><th>Câu</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+      <tr><td>Đáp án</td><td><b>C</b></td><td><b>A</b></td><td><b>A</b></td><td><b>C</b></td><td><b>B</b></td><td><b>B</b></td><td><b>B</b></td><td><b>C</b></td><td><b>D</b></td><td><b>A</b></td></tr>
+    </table>
+    <div class="loigiai">
+      <p class="h">🔑 Giải thích nhanh</p>
+      <p class="ans"><b>Câu 1 — <span class="chon">C</span>:</b> "không vượt quá $6$" nghĩa là $\le 6$, nên $A=\{x\mid x\in\mathbb{N},x\le6\}$.</p>
+      <p class="ans"><b>Câu 2 — <span class="chon">A</span>:</b> $3^5\cdot3^2=3^{5+2}=3^7$ (cùng cơ số, cộng số mũ).</p>
+      <p class="ans"><b>Câu 3 — <span class="chon">A</span>:</b> $5$ có trong $A=\{a;5;b;7\}$ nên $5\in A$ đúng; $7\in A$ nên C sai.</p>
+      <p class="ans"><b>Câu 4 — <span class="chon">C</span>:</b> tập chữ số của $2021$ là $\{2;0;1\}$ (mỗi chữ số một lần).</p>
+      <p class="ans"><b>Câu 5 — <span class="chon">B</span>:</b> số chẵn nhỏ hơn $10$: $0;2;4;6;8$ — có $5$ phần tử.</p>
+      <p class="ans"><b>Câu 6 — <span class="chon">B</span>:</b> số $4$ viết La Mã là IV.</p>
+      <p class="ans"><b>Câu 7 — <span class="chon">B</span>:</b> $2\cdot4^2=2\cdot16=32$ (luỹ thừa trước, rồi nhân).</p>
+      <p class="ans"><b>Câu 8 — <span class="chon">C</span>:</b> $2^2\cdot3=12$ nên $2+x=12\Rightarrow x=10$.</p>
+      <p class="ans"><b>Câu 9 — <span class="chon">D</span>:</b> trong phép chia, gấp cả số bị chia và số chia lên $2$ lần thì thương không đổi.</p>
+      <p class="ans"><b>Câu 10 — <span class="chon">A</span>:</b> số liền trước $21$ là $20$, nên $32-x=20\Rightarrow x=12$.</p>
+      <div class="trap"><b>⚠️ Bẫy hay gặp:</b> câu 4 viết $\{2;0;2;1\}$ (lặp chữ số $2$) là sai; câu 7 tính $2\cdot4=8$ rồi mới bình phương cũng sai — phải <b>luỹ thừa trước</b>.</div>
+    </div>
+  </div>
+
+  <div class="sec">✍ Bài tự luận tổng hợp</div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Tập hợp — cách ghi số tự nhiên</h3>
+    <div class="de">
+      <p><b>a)</b> Viết tập $M=\{x\in\mathbb{N}\mid 12\le x<17\}$ theo hai cách.
+      &nbsp; <b>b)</b> Đọc số $2\,413\,576$; chữ số $4$ có giá trị bao nhiêu?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Liệt kê: $M=\{12;13;14;15;16\}$ (lấy $12$, không lấy $17$). Tính chất đặc trưng: $M=\{x\in\mathbb{N}\mid 12\le x<17\}$.</p>
+      <p><b>b)</b> "Hai triệu bốn trăm mười ba nghìn năm trăm bảy mươi sáu". Chữ số $4$ ở hàng trăm nghìn nên có giá trị <span class="key">$400\,000$</span>.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Thực hiện phép tính — tính hợp lí</h3>
+    <div class="de">
+      <p><b>a)</b> $25\cdot23+25\cdot77$; &nbsp; <b>b)</b> $2^3\cdot17-2^3\cdot14+1^{2020}$; &nbsp;
+      <b>c)</b> $80-[130-(12-4)^2]$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> $25\cdot23+25\cdot77=25(23+77)=25\cdot100=$ <span class="key">$2500$</span>.</p>
+      <p><b>b)</b> $2^3(17-14)+1=8\cdot3+1=24+1=$ <span class="key">$25$</span>.</p>
+      <p><b>c)</b> $(12-4)^2=8^2=64$; $\,80-[130-64]=80-66=$ <span class="key">$14$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> $1^{2020}=1$ (không phải $2020$); rút thừa số chung $2^3$ để tính nhanh.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Tìm $x$ — bài toán thực tế</h3>
+    <div class="de">
+      <p><b>a)</b> Tìm $x$: $5(x-3)=2^3\cdot5$. &nbsp;
+      <b>b)</b> Mảnh đất hình vuông cạnh $15$ m: viết diện tích dưới dạng một luỹ thừa rồi tính.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> $2^3\cdot5=8\cdot5=40$, nên $5(x-3)=40\Rightarrow x-3=8\Rightarrow x=11$.</p>
+      <p><b>b)</b> Diện tích $=15\times15=15^2=$ <span class="key">$225$ m²</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ôn tập cả chương</h3>
+    <ul>
+      <li>Tập chữ số: mỗi chữ số kể <b>một lần</b>; giá trị chữ số phụ thuộc hàng.</li>
+      <li>Luỹ thừa: cùng cơ số mới cộng/trừ số mũ; tính luỹ thừa <b>trước</b> nhân/chia/cộng/trừ.</li>
+      <li>Tính hợp lí bằng phân phối $a\cdot b+a\cdot c=a(b+c)$; tìm $x$ thì làm ngược thứ tự phép tính.</li>
+    </ul>
+  </div>
+
+</div>

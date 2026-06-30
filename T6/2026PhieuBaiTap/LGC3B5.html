@@ -1,0 +1,168 @@
+---
+layout: default
+title: Toán 6 - Phép chia hết. Ước và bội của một số nguyên (Lời giải)
+description: "Lời giải chi tiết phiếu bài tập Bài 5 Phép chia hết, ước và bội của một số nguyên - Toán 6: chia hai số nguyên, tìm ước bội, tìm x và cặp số nguyên."
+tags: [Toán 6, chia hết số nguyên, ước bội số nguyên]
+series: t6-c3
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc table.tn { border-collapse:collapse; margin:8px 0; }
+  .lgc table.tn td { border:1px solid #d4ddf3; padding:5px 12px; text-align:center; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Phép chia hết. Ước và bội của một số nguyên — Lời giải</h1>
+    <p>Toán 6 · Chương 3: Số nguyên · Bài 5</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-chia">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Phép chia hết — ước và bội</h3>
+    <ul>
+      <li>Thương hai số nguyên <b>cùng dấu</b> là số dương, <b>khác dấu</b> là số âm.</li>
+      <li>Nếu $b$ là ước của $a$ thì $-b$ cũng là ước; ước của số nguyên luôn đi theo <b>cặp đối nhau</b> $\pm d$.</li>
+      <li>Bội của $a$ gồm cả số dương, số $0$ và số âm.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-capxy">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Tìm cặp $(x,y)$ với $x\cdot y=a$</h3>
+    <ul>
+      <li>Phân tích $a$ thành tích hai số nguyên bằng <b>mọi cách</b> (kể cả dấu âm) rồi liệt kê.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Thực hiện phép chia</h3>
+    <div class="de"><p><b>a)</b> $54:6$; <b>b)</b> $(-54):(-6)$; <b>c)</b> $(-55):5$; <b>d)</b> $45:(-9)$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-chia"><b>Dùng Lý thuyết 1:</b> chia phần số rồi đặt dấu theo quy tắc.</a>
+      <p><b>a)</b> $54:6=$ <span class="key">$9$</span>; &nbsp; <b>b)</b> cùng dấu → $(-54):(-6)=$ <span class="key">$9$</span>;</p>
+      <p><b>c)</b> khác dấu → $(-55):5=$ <span class="key">$-11$</span>; &nbsp; <b>d)</b> khác dấu → $45:(-9)=$ <span class="key">$-5$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Ước và bội của số nguyên</h3>
+    <div class="de"><p><b>a)</b> Tìm năm số nguyên là bội của $-5$. <b>b)</b> Tìm tất cả các ước của $16$ và của $-8$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-chia"><b>Dùng Lý thuyết 1:</b> bội và ước đi theo cả dấu dương lẫn âm.</a>
+      <p><b>a)</b> Chẳng hạn: $-10;\,-5;\,0;\,5;\,10$ (đều chia hết cho $-5$).</p>
+      <p><b>b)</b> $\text{Ư}(16)=\{\pm1;\pm2;\pm4;\pm8;\pm16\}$; &nbsp; $\text{Ư}(-8)=\{\pm1;\pm2;\pm4;\pm8\}$.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Tìm $x$</h3>
+    <div class="de"><p><b>a)</b> $11x+210=100$; <b>b)</b> $(-12)x-14=-2$; <b>c)</b> $(-8)x=(-5)\cdot(-7)-3$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> $11x=100-210=-110\Rightarrow x=-110:11=$ <span class="key">$-10$</span>.</p>
+      <p><b>b)</b> $(-12)x=-2+14=12\Rightarrow x=12:(-12)=$ <span class="key">$-1$</span>.</p>
+      <p><b>c)</b> $(-5)\cdot(-7)-3=35-3=32$; $(-8)x=32\Rightarrow x=32:(-8)=$ <span class="key">$-4$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Tìm cặp số nguyên</h3>
+    <div class="de"><p><b>a)</b> $xy=5$. &nbsp; <b>b)</b> $xy=-4$ và $x<y$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-capxy"><b>Dùng Lý thuyết 2:</b> phân tích $a$ thành tích hai số nguyên (đủ dấu).</a>
+      <p><b>a)</b> $xy=5$ → các cặp $(x,y)$:</p>
+      <table class="tn"><tr><td>$x$</td><td>$-5$</td><td>$-1$</td><td>$1$</td><td>$5$</td></tr>
+      <tr><td>$y$</td><td>$-1$</td><td>$-5$</td><td>$5$</td><td>$1$</td></tr></table>
+      <p><b>b)</b> $xy=-4$ (khác dấu) và $x<y$: <span class="key">$(-4;1);\ (-2;2);\ (-1;4)$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> $xy=-4$ nên hai số <b>khác dấu</b>; điều kiện $x<y$ giúp loại bớt một nửa số cặp.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Thương cùng dấu → dương; khác dấu → âm.</li>
+      <li>Ước của một số nguyên luôn theo cặp $\pm d$; bội gồm cả số âm và số $0$.</li>
+      <li>Tìm $(x,y)$ với $xy=a$: liệt kê <b>mọi</b> cách viết $a$ thành tích hai số nguyên, đừng quên dấu âm.</li>
+    </ul>
+  </div>
+
+</div>

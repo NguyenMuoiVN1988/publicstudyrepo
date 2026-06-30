@@ -264,6 +264,38 @@ details > div {
 - [Luyện tập phân số](T6/T6PhanSo.html)
 - [Hình học: Số đo góc](T6/T6HinhHoc.html)
 
+**Lời giải phiếu bài tập — Chương 1: Tập hợp các số tự nhiên**
+- [C1B1: Tập hợp](T6/2026PhieuBaiTap/LGC1B1.html)
+- [C1B2: Cách ghi số tự nhiên](T6/2026PhieuBaiTap/LGC1B2.html)
+- [C1B3: Thứ tự trong tập hợp các số tự nhiên](T6/2026PhieuBaiTap/LGC1B3.html)
+- [C1B4: Phép cộng và phép trừ số tự nhiên](T6/2026PhieuBaiTap/LGC1B4.html)
+- [C1B5: Phép nhân và phép chia số tự nhiên](T6/2026PhieuBaiTap/LGC1B5.html)
+- [C1B6: Luỹ thừa với số mũ tự nhiên](T6/2026PhieuBaiTap/LGC1B6.html)
+- [C1B7: Thứ tự thực hiện các phép tính](T6/2026PhieuBaiTap/LGC1B7.html)
+- [C1 Ôn tập: Tập hợp các số tự nhiên](T6/2026PhieuBaiTap/LGC1Ontap.html)
+
+**Lời giải phiếu bài tập — Chương 2: Tính chia hết**
+- [C2B1: Quan hệ chia hết và tính chất](T6/2026PhieuBaiTap/LGC2B1.html)
+- [C2B2: Dấu hiệu chia hết](T6/2026PhieuBaiTap/LGC2B2.html)
+- [C2B3: Số nguyên tố](T6/2026PhieuBaiTap/LGC2B3.html)
+- [C2B4: Ước chung. Ước chung lớn nhất](T6/2026PhieuBaiTap/LGC2B4.html)
+- [C2B5: Bội chung. Bội chung nhỏ nhất](T6/2026PhieuBaiTap/LGC2B5.html)
+- [C2 Ôn tập: Tính chia hết](T6/2026PhieuBaiTap/LGC2Ontap.html)
+
+**Lời giải phiếu bài tập — Chương 3: Số nguyên**
+- [C3B1: Tập hợp các số nguyên](T6/2026PhieuBaiTap/LGC3B1.html)
+- [C3B2: Phép cộng và phép trừ số nguyên](T6/2026PhieuBaiTap/LGC3B2.html)
+- [C3B3: Quy tắc dấu ngoặc](T6/2026PhieuBaiTap/LGC3B3.html)
+- [C3B4: Phép nhân số nguyên](T6/2026PhieuBaiTap/LGC3B4.html)
+- [C3B5: Phép chia hết. Ước và bội của một số nguyên](T6/2026PhieuBaiTap/LGC3B5.html)
+- [C3 Ôn tập: Số nguyên](T6/2026PhieuBaiTap/LGC3Ontap.html)
+
+**Lời giải phiếu bài tập — Chương 4: Một số hình phẳng trong thực tiễn**
+- [C4B1: Tam giác đều. Hình vuông. Lục giác đều](T6/2026PhieuBaiTap/LGC4B1.html)
+- [C4B2: Hình chữ nhật. Thoi. Bình hành. Thang cân](T6/2026PhieuBaiTap/LGC4B2.html)
+- [C4B3: Chu vi và diện tích một số tứ giác](T6/2026PhieuBaiTap/LGC4B3.html)
+- [C4 Ôn tập: Một số hình phẳng trong thực tiễn](T6/2026PhieuBaiTap/LGC4Ontap.html)
+
 **Nâng cao**
 - [Các phép tính về số tự nhiên – Chuyên Toán](T6/T6NCTaiLieuChuyenToan1.html)
 

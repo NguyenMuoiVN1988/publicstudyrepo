@@ -1,0 +1,165 @@
+---
+layout: default
+title: Toán 6 - Phép nhân số nguyên (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 4 Phép nhân số nguyên - Toán 6: nhân hai số nguyên, tính hợp lí, so sánh tích và tìm x khi tích bằng 0."
+tags: [Toán 6, phép nhân số nguyên, dấu của tích, tìm x]
+series: t6-c3
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Phép nhân số nguyên — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 3: Số nguyên · Bài 4</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-nhan">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Quy tắc & dấu của tích</h3>
+    <ul>
+      <li>$(-)\cdot(-)=(+)$; &nbsp; $(+)\cdot(-)=(-)$; &nbsp; $a\cdot0=0$.</li>
+      <li>Tích nhiều thừa số: <b>số chẵn</b> thừa số âm → tích dương; <b>số lẻ</b> thừa số âm → tích âm.</li>
+      <li>Tính chất giao hoán, kết hợp, phân phối: $a(b+c)=ab+ac$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-tichbang0">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Tích bằng 0</h3>
+    <ul>
+      <li>$a\cdot b=0$ khi và chỉ khi $a=0$ <b>hoặc</b> $b=0$.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Nhân hai số nguyên</h3>
+    <div class="de"><p><b>a)</b> $(-16)\cdot5$; <b>b)</b> $4\cdot(-25)$; <b>c)</b> $(-11)\cdot(-7)$; <b>d)</b> $(-101)\cdot(-9)$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nhan"><b>Dùng Lý thuyết 1:</b> xác định dấu rồi nhân phần số.</a>
+      <p><b>a)</b> $(-16)\cdot5=$ <span class="key">$-80$</span>; &nbsp; <b>b)</b> $4\cdot(-25)=$ <span class="key">$-100$</span>;</p>
+      <p><b>c)</b> $(-11)\cdot(-7)=$ <span class="key">$77$</span>; &nbsp; <b>d)</b> $(-101)\cdot(-9)=$ <span class="key">$909$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Tính một cách hợp lí</h3>
+    <div class="de"><p><b>a)</b> $4\cdot(-135)+4\cdot(-65)$; <b>b)</b> $2\cdot(2020+123)+(-2020)\cdot2$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nhan"><b>Dùng Lý thuyết 1:</b> dùng phân phối để gộp thừa số chung.</a>
+      <p><b>a)</b> $4\cdot(-135-65)=4\cdot(-200)=$ <span class="key">$-800$</span>.</p>
+      <p><b>b)</b> $2\cdot2020+2\cdot123-2\cdot2020=2\cdot123=$ <span class="key">$246$</span> (hai số $2\cdot2020$ triệt tiêu).</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> So sánh</h3>
+    <div class="de"><p><b>a)</b> $(-17)\cdot3$ với $-42$; <b>b)</b> $(-9)\cdot10$ với $0$; <b>c)</b> $(-33)\cdot5$ với $55\cdot(-3)$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> $(-17)\cdot3=-51$, mà $-51<-42$ → $(-17)\cdot3<-42$.</p>
+      <p><b>b)</b> $(-9)\cdot10=-90<0$.</p>
+      <p><b>c)</b> $(-33)\cdot5=-165$ và $55\cdot(-3)=-165$ → <span class="key">bằng nhau</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Tìm $x$</h3>
+    <div class="de"><p><b>a)</b> $20\cdot(x+2)=0$; <b>b)</b> $(x-15)(x+17)=0$; <b>c)</b> $x(x+15)=0$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tichbang0"><b>Dùng Lý thuyết 2:</b> tích bằng $0$ khi một thừa số bằng $0$.</a>
+      <p><b>a)</b> Vì $20\ne0$ nên $x+2=0\Rightarrow x=-2$.</p>
+      <p><b>b)</b> $x-15=0$ hoặc $x+17=0$ → $x=15$ hoặc $x=-17$.</p>
+      <p><b>c)</b> $x=0$ hoặc $x+15=0$ → $x=0$ hoặc $x=-15$.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> tích bằng $0$ cho <b>nhiều</b> giá trị của $x$ — phải xét cả hai thừa số, đừng bỏ sót nghiệm.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Dấu của tích: đếm số thừa số âm — chẵn → dương, lẻ → âm.</li>
+      <li>$a\cdot b=0 \Leftrightarrow a=0$ hoặc $b=0$ (xét đủ các trường hợp).</li>
+      <li>Tính hợp lí: dùng phân phối $a(b+c)=ab+ac$ để gộp thừa số chung.</li>
+    </ul>
+  </div>
+
+</div>
