@@ -212,13 +212,14 @@
 
   // Chuyển một khối văn bản nhiều dòng → HTML, nhận diện bảng markdown.
   // Các dòng văn bản thường nối bằng <br>; bảng dựng thành <table>.
-  function renderRich(raw) {
+  function renderRich(raw, textJoin) {
+    if (textJoin === undefined) textJoin = '<br>';
     const lines = raw.split('\n');
     const out   = [];
     let buf     = [];   // gom các dòng văn bản liên tiếp
 
     const flush = () => {
-      if (buf.length) { out.push(buf.map(md).join('<br>')); buf = []; }
+      if (buf.length) { out.push(buf.map(md).join(textJoin)); buf = []; }
     };
 
     let i = 0;
@@ -327,10 +328,11 @@
     const opts = ['A','B','C','D'].map(k => md(optMap[k]?.text || ''));
 
     const solLines = lines.slice(lastOptIdx + 1).map(l => l.trim()).filter(Boolean);
-    const solHtml  = md(
-      solLines.join(' ')
+    const solHtml  = renderRich(
+      solLines.join('\n')
         .replace(/^\*\*\s*Lời giải\s*[.:]\s*\*\*\s*/i, '')
-        .replace(/^Lời giải\s*[.:]\s*/i, '')
+        .replace(/^Lời giải\s*[.:]\s*/i, ''),
+      ' '
     );
 
     return { q: qHtml, opts, ans: ansIdx, sol: solHtml };
@@ -357,10 +359,11 @@
     const solLines = solIdx >= 0
       ? lines.slice(solIdx).map(l => l.trim()).filter(Boolean)
       : [];
-    const solHtml  = md(
-      solLines.join(' ')
+    const solHtml  = renderRich(
+      solLines.join('\n')
         .replace(/^\*\*\s*Lời giải\s*[.:]\s*\*\*\s*/i, '')
-        .replace(/^Lời giải\s*[.:]\s*/i, '')
+        .replace(/^Lời giải\s*[.:]\s*/i, ''),
+      ' '
     );
 
     return { type: 'sa', q: qHtml, acceptedAnswers, sol: solHtml };
