@@ -1,0 +1,121 @@
+---
+layout: default
+title: Toán 6 - Làm tròn và ước lượng (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 3 Chương 7 Toán 6: làm tròn số tự nhiên và số thập phân đến hàng cho trước, ước lượng kết quả phép tính, bài toán thực tế."
+tags: [Toán 6, làm tròn số, ước lượng, số thập phân]
+series: t6-c7
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Làm tròn và ước lượng — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 7: Số thập phân · Bài 3</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-lt">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Quy tắc làm tròn</h3>
+    <ul>
+      <li>Nhìn chữ số <b>ngay sau</b> hàng làm tròn: nếu $\ge 5$ → làm tròn <b>lên</b>; nếu $<5$ → giữ nguyên (làm tròn xuống).</li>
+      <li>Các chữ số phía sau hàng làm tròn bỏ đi (số thập phân) hoặc thay bằng $0$ (số tự nhiên).</li>
+      <li>Ước lượng: làm tròn các số về số "đẹp" rồi tính nhẩm để kiểm tra kết quả.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Làm tròn số tự nhiên</h3>
+    <div class="de"><p>a) $27\,459$ đến hàng trăm; hàng nghìn. b) $8\,651$ đến hàng chục; hàng trăm.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Hàng trăm: chữ số hàng chục là $5\Rightarrow$ tròn lên: <span class="key">$27\,500$</span>. Hàng nghìn: chữ số hàng trăm là $4<5\Rightarrow$ <span class="key">$27\,000$</span>.</p>
+      <p><b>b)</b> Hàng chục: chữ số đơn vị là $1<5\Rightarrow$ <span class="key">$8\,650$</span>. Hàng trăm: chữ số hàng chục là $5\Rightarrow$ tròn lên: <span class="key">$8\,700$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Làm tròn số thập phân</h3>
+    <div class="de"><p>a) $12{,}348$ đến phần trăm; b) $0{,}0825$ đến phần nghìn; c) $-5{,}67$ đến phần mười.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Chữ số phần nghìn là $8\ge5\Rightarrow$ <span class="key">$12{,}35$</span>.</p>
+      <p><b>b)</b> Chữ số sau phần nghìn là $5\Rightarrow$ tròn lên: <span class="key">$0{,}083$</span>.</p>
+      <p><b>c)</b> Chữ số phần trăm là $7\ge5\Rightarrow$ <span class="key">$-5{,}7$</span> (làm tròn phần số, giữ dấu âm).</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Ước lượng kết quả</h3>
+    <div class="de"><p>a) $6{,}8\cdot4{,}1$; b) $198\cdot5{,}2$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> $6{,}8\approx7$, $4{,}1\approx4\Rightarrow 7\cdot4=$ <span class="key">$\approx 28$</span> (kết quả thật $27{,}88$).</p>
+      <p><b>b)</b> $198\approx200$, $5{,}2\approx5\Rightarrow 200\cdot5=$ <span class="key">$\approx 1000$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Bài toán thực tế</h3>
+    <div class="de"><p>a) Hoá đơn $152\,800$ đồng làm tròn đến hàng nghìn. b) Quãng đường $38{,}6$ km làm tròn đến hàng đơn vị.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Chữ số hàng trăm là $8\ge5\Rightarrow$ <span class="key">$153\,000$ đồng</span>.</p>
+      <p><b>b)</b> Chữ số phần mười là $6\ge5\Rightarrow$ <span class="key">$39$ km</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Chỉ xét <b>một</b> chữ số ngay sau hàng làm tròn để quyết định lên hay xuống.</li>
+      <li>Số tự nhiên: các chữ số sau hàng làm tròn thay bằng $0$ (giữ độ lớn).</li>
+      <li>Ước lượng giúp phát hiện kết quả sai lệch lớn khi tính toán.</li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,125 @@
+---
+layout: default
+title: Toán 6 - Dữ liệu và thu thập dữ liệu (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 1 Chương 9 Toán 6: phân biệt số liệu và dữ liệu không phải số, dữ liệu không hợp lí, cách thu thập dữ liệu, lập bảng thống kê."
+tags: [Toán 6, dữ liệu, thu thập dữ liệu, số liệu]
+series: t6-c9
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc table.tn { border-collapse:collapse; width:100%; margin:8px 0; font-family:'Quicksand',sans-serif; }
+  .lgc table.tn th, .lgc table.tn td { border:1px solid #d4ddf3; padding:6px 8px; text-align:center; font-size:.95rem; }
+  .lgc table.tn th { background:var(--indigo-bg); color:var(--indigo); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Dữ liệu và thu thập dữ liệu — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 9: Dữ liệu và xác suất thực nghiệm · Bài 1</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Dữ liệu</h3>
+    <ul>
+      <li><b>Số liệu</b>: dữ liệu ở dạng số (đếm/đo được). <b>Không phải số liệu</b>: dữ liệu dạng chữ (tên, màu, loại).</li>
+      <li>Dữ liệu <b>không hợp lí</b>: giá trị vô lí trong ngữ cảnh (tuổi âm, tuổi quá lớn\ldots).</li>
+      <li>Thu thập dữ liệu: <b>quan sát</b>, <b>làm thí nghiệm</b>, <b>phỏng vấn</b> (lập phiếu hỏi).</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Phân loại dữ liệu</h3>
+    <div class="de"><p>a) số học sinh; b) môn thể thao yêu thích; c) chiều cao; d) màu sắc yêu thích.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> <span class="key">Số liệu</span> (đếm được). <b>b)</b> <span class="key">Không phải số liệu</span> (tên môn).</p>
+      <p><b>c)</b> <span class="key">Số liệu</span> (đo được, cm). <b>d)</b> <span class="key">Không phải số liệu</span> (màu sắc).</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Lập bảng dữ liệu</h3>
+    <div class="de"><p>Điểm $10$ bạn: $7;8;9;7;10;8;6;7;9;8$. Lập bảng số bạn mỗi mức điểm.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <table class="tn">
+        <tr><th>Điểm</th><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+        <tr><th>Số bạn</th><td>1</td><td>3</td><td>3</td><td>2</td><td>1</td></tr>
+      </table>
+      <p>Tổng kiểm tra: $1+3+3+2+1=10$ bạn (khớp).</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Dữ liệu không hợp lí</h3>
+    <div class="de"><p>Tuổi ghi lại: $11;12;-3;11;150;12$. Giá trị nào không hợp lí?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Các giá trị không hợp lí: <span class="key">$-3$</span> (tuổi không thể âm) và <span class="key">$150$</span> (tuổi quá lớn, không hợp lí với một nhóm bạn).</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Chọn cách thu thập</h3>
+    <div class="de"><p>a) số xe máy qua ngã tư trong $10$ phút; b) món ăn yêu thích của các bạn.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Dùng <span class="key">quan sát</span> (đứng đếm số xe).</p>
+      <p><b>b)</b> Dùng <span class="key">phỏng vấn</span> / lập phiếu hỏi (vì là sở thích).</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Số liệu = số; không phải số liệu = chữ/loại.</li>
+      <li>Loại bỏ dữ liệu vô lí trước khi phân tích.</li>
+      <li>Đếm/đo → quan sát; sở thích/ý kiến → phỏng vấn; hiện tượng ngẫu nhiên → làm thí nghiệm.</li>
+    </ul>
+  </div>
+
+</div>

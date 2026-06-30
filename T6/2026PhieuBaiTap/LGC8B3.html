@@ -1,0 +1,137 @@
+---
+layout: default
+title: Toán 6 - Đoạn thẳng. Độ dài đoạn thẳng (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 3 Chương 8 Toán 6: đoạn thẳng, độ dài, hệ thức cộng đoạn thẳng AM + MB = AB, xác định điểm nằm giữa — kèm hình vẽ."
+tags: [Toán 6, đoạn thẳng, độ dài đoạn thẳng, cộng đoạn thẳng]
+series: t6-c8
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft); font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Đoạn thẳng. Độ dài đoạn thẳng — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 8: Những hình hình học cơ bản · Bài 3</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Đoạn thẳng & cộng đoạn thẳng</h3>
+    <ul>
+      <li>Đoạn thẳng $AB$ gồm $A,B$ và mọi điểm nằm giữa hai điểm đó.</li>
+      <li>Nếu $M$ nằm giữa $A,B$ thì $AM+MB=AB$ (và ngược lại).</li>
+      <li>Trên một tia, nếu $OA<OB$ thì $A$ nằm giữa $O,B$, do đó $AB=OB-OA$.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Nhận biết — kể đoạn thẳng</h3>
+    <div class="de"><p>$A,B,C$ không thẳng hàng. Kể tên các đoạn thẳng.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="200" height="130" viewBox="0 0 200 130" role="img" aria-label="Tam giác ABC ba đoạn thẳng">
+        <polygon points="40,100 160,100 100,25" fill="none" stroke="#3f5d9e" stroke-width="2"/>
+        <circle cx="40" cy="100" r="4" fill="#a23b52"/><text x="28" y="112" font-size="13" font-weight="bold">A</text>
+        <circle cx="160" cy="100" r="4" fill="#a23b52"/><text x="166" y="112" font-size="13" font-weight="bold">B</text>
+        <circle cx="100" cy="25" r="4" fill="#a23b52"/><text x="94" y="20" font-size="13" font-weight="bold">C</text>
+      </svg>
+      <div class="cap">Ba đoạn thẳng nối từng cặp điểm.</div>
+      <p>Có <span class="key">$3$ đoạn thẳng</span>: $AB$, $BC$, $CA$.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Tính độ dài (trên một tia)</h3>
+    <div class="de"><p>Trên tia $Ox$: $OA=3$ cm, $OB=7$ cm. Tính $AB$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="320" height="70" viewBox="0 0 320 70" role="img" aria-label="Tia Ox với A và B">
+        <line x1="20" y1="40" x2="300" y2="40" stroke="#3f5d9e" stroke-width="2"/>
+        <polygon points="300,40 292,36 292,44" fill="#3f5d9e"/><text x="306" y="44" font-size="12" font-style="italic">x</text>
+        <circle cx="40" cy="40" r="4" fill="#a23b52"/><text x="36" y="28" font-size="12" font-weight="bold">O</text>
+        <circle cx="130" cy="40" r="4" fill="#a23b52"/><text x="126" y="28" font-size="12" font-weight="bold">A</text>
+        <circle cx="250" cy="40" r="4" fill="#a23b52"/><text x="246" y="28" font-size="12" font-weight="bold">B</text>
+        <text x="85" y="58" text-anchor="middle" font-size="10" fill="#5b6b7a">3 cm</text>
+        <text x="190" y="58" text-anchor="middle" font-size="10" fill="#5b6b7a">AB = ?</text>
+      </svg>
+      <div class="cap">$OA<OB$ nên $A$ nằm giữa $O$ và $B$.</div>
+      <p>Vì $OA<OB$ nên $A$ nằm giữa $O,B$: $AB=OB-OA=7-3=$ <span class="key">$4$ cm</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Tính độ dài (cộng đoạn thẳng)</h3>
+    <div class="de"><p>$M$ nằm giữa $A,B$; $AM=4$ cm, $MB=5$ cm. Tính $AB$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>$M$ nằm giữa $A,B$ nên $AB=AM+MB=4+5=$ <span class="key">$9$ cm</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Xác định điểm nằm giữa</h3>
+    <div class="de"><p>$AB=5$ cm, $BC=3$ cm, $AC=8$ cm. Điểm nào nằm giữa?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Ta có $AB+BC=5+3=8=AC$.</p>
+      <p>Vì $AB+BC=AC$ nên <span class="key">điểm $B$ nằm giữa $A$ và $C$</span>.</p>
+      <div class="trap"><b>⚠️ Mẹo:</b> điểm nằm giữa là điểm mà tổng hai đoạn nhỏ bằng đoạn lớn nhất.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>$M$ nằm giữa $A,B$ ⟺ $AM+MB=AB$.</li>
+      <li>Trên một tia: $OA<OB$ ⟹ $A$ giữa $O,B$ ⟹ $AB=OB-OA$.</li>
+      <li>Muốn biết điểm nào nằm giữa: so $AB+BC$ với $AC$.</li>
+    </ul>
+  </div>
+
+</div>

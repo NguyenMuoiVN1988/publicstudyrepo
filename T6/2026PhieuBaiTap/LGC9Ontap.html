@@ -1,0 +1,141 @@
+---
+layout: default
+title: Toán 6 - Ôn tập chương IX Dữ liệu và xác suất (Lời giải)
+description: "Lời giải chi tiết phiếu ôn tập chương IX Toán 6: dữ liệu, bảng thống kê, biểu đồ cột, kết quả có thể, sự kiện, xác suất thực nghiệm. Đáp án trắc nghiệm và bài tự luận có biểu đồ."
+tags: [Toán 6, ôn tập chương 9, dữ liệu, xác suất thực nghiệm, trắc nghiệm]
+series: t6-c9
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc table.tn { border-collapse:collapse; width:100%; margin:8px 0; font-family:'Quicksand',sans-serif; }
+  .lgc table.tn th, .lgc table.tn td { border:1px solid #d4ddf3; padding:6px 4px; text-align:center; font-size:.95rem; }
+  .lgc table.tn th { background:var(--indigo-bg); color:var(--indigo); }
+  .lgc table.tn td b { color:var(--teal); }
+  .lgc .ans { margin:6px 0; } .lgc .ans .chon { color:var(--teal); font-weight:700; }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft); font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương IX — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 9: Dữ liệu và xác suất thực nghiệm · Phiếu ôn tập</p>
+  </div>
+
+  <div class="sec">📝 Bài 1 — Trắc nghiệm (bảng đáp án)</div>
+  <div class="bai">
+    <h3><span class="num">1</span> Đáp án 8 câu trắc nghiệm</h3>
+    <table class="tn">
+      <tr><th>Câu</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+      <tr><td>Đáp án</td><td><b>B</b></td><td><b>C</b></td><td><b>B</b></td><td><b>B</b></td><td><b>B</b></td><td><b>C</b></td><td><b>B</b></td><td><b>A</b></td></tr>
+    </table>
+    <div class="loigiai">
+      <p class="h">🔑 Giải thích nhanh</p>
+      <p class="ans"><b>1 — <span class="chon">B</span>:</b> số học sinh là số liệu (đếm được).</p>
+      <p class="ans"><b>2 — <span class="chon">C</span>:</b> $4$ ngôi sao $\times5=20$.</p>
+      <p class="ans"><b>3 — <span class="chon">B</span>:</b> cột cao nhất ứng với số liệu lớn nhất.</p>
+      <p class="ans"><b>4 — <span class="chon">B</span>:</b> tung đồng xu có $2$ kết quả ($S,N$).</p>
+      <p class="ans"><b>5 — <span class="chon">B</span>:</b> xúc xắc $6$ mặt có $6$ kết quả.</p>
+      <p class="ans"><b>6 — <span class="chon">C</span>:</b> mặt $7$ chấm không tồn tại → sự kiện không thể.</p>
+      <p class="ans"><b>7 — <span class="chon">B</span>:</b> $P(\text{Sấp})=\dfrac{12}{20}=\dfrac{3}{5}$.</p>
+      <p class="ans"><b>8 — <span class="chon">A</span>:</b> xác suất thực nghiệm luôn từ $0$ đến $1$.</p>
+    </div>
+  </div>
+
+  <div class="sec">✍ Bài tự luận tổng hợp</div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Bảng — biểu đồ cột</h3>
+    <div class="de">
+      <table class="tn">
+        <tr><th>Phương tiện</th><td>Đi bộ</td><td>Xe đạp</td><td>Bố mẹ chở</td><td>Ô tô</td></tr>
+        <tr><th>Số bạn</th><td>8</td><td>15</td><td>12</td><td>5</td></tr>
+      </table>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Lớp 6A có $8+15+12+5=$ <span class="key">$40$ bạn</span>.</p>
+      <p><b>b)</b> Phương tiện nhiều nhất: <span class="key">Xe đạp</span> ($15$ bạn).</p>
+      <p><b>c)</b> Biểu đồ cột:</p>
+      <svg class="fig" width="360" height="215" viewBox="0 0 360 215" role="img" aria-label="Biểu đồ cột phương tiện đến trường">
+        <line x1="35" y1="180" x2="345" y2="180" stroke="#28323c" stroke-width="1.5"/>
+        <line x1="35" y1="30" x2="35" y2="180" stroke="#28323c" stroke-width="1.5"/>
+        <g fill="#3f5d9e">
+          <rect x="55" y="108" width="45" height="72"/>
+          <rect x="125" y="45" width="45" height="135"/>
+          <rect x="195" y="72" width="45" height="108"/>
+          <rect x="265" y="135" width="45" height="45"/>
+        </g>
+        <g font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">
+          <text x="77" y="123">8</text><text x="147" y="60">15</text><text x="217" y="87">12</text><text x="287" y="150">5</text>
+        </g>
+        <g font-size="10" text-anchor="middle" fill="#28323c">
+          <text x="77" y="194">Đi bộ</text><text x="147" y="194">Xe đạp</text><text x="217" y="194">Chở</text><text x="287" y="194">Ô tô</text>
+        </g>
+      </svg>
+      <div class="cap">Mỗi cột cao bằng số bạn đi bằng phương tiện tương ứng.</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Xác suất thực nghiệm</h3>
+    <div class="de"><p>Gieo xúc xắc $25$ lần, mặt $6$ chấm xuất hiện $5$ lần. Tính $P$(mặt $6$).</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>$P(\text{mặt }6)=\dfrac{5}{25}=$ <span class="key">$\dfrac{1}{5}$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Kết quả — sự kiện</h3>
+    <div class="de"><p>Túi $5$ thẻ số $1,2,3,4,5$. a) Kết quả có thể? b) Sự kiện "số nguyên tố"?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Kết quả có thể: <span class="key">$1;2;3;4;5$</span>.</p>
+      <p><b>b)</b> Sự kiện "số nguyên tố" gồm: <span class="key">$2;\,3;\,5$</span> (số $1$ không là số nguyên tố).</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ôn tập cả chương</h3>
+    <ul>
+      <li>Số liệu = số; biểu đồ tranh đọc theo khoá; cột cao nhất = số liệu lớn nhất.</li>
+      <li>Liệt kê đủ kết quả có thể; sự kiện "không thể" có $P=0$, "chắc chắn" có $P=1$.</li>
+      <li>$P(A)=\dfrac{k}{n}$ luôn nằm giữa $0$ và $1$; nhớ rút gọn.</li>
+    </ul>
+  </div>
+
+</div>

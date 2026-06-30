@@ -1,0 +1,120 @@
+---
+layout: default
+title: Toán 6 - Kết quả có thể và sự kiện (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 5 Chương 9 Toán 6: liệt kê kết quả có thể, sự kiện có thể xảy ra hay không, sự kiện chắc chắn và không thể."
+tags: [Toán 6, kết quả có thể, sự kiện, xác suất]
+series: t6-c9
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .yes { color:var(--teal); font-weight:700; } .lgc .no { color:var(--rose); font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Kết quả có thể và sự kiện — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 9: Dữ liệu và xác suất thực nghiệm · Bài 5</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Kết quả có thể · Sự kiện</h3>
+    <ul>
+      <li><b>Kết quả có thể</b>: mọi khả năng xảy ra (đồng xu: $S,N$; xúc xắc: $1\to6$).</li>
+      <li>Sự kiện <b>chắc chắn</b>: luôn xảy ra; sự kiện <b>không thể</b>: không bao giờ xảy ra.</li>
+      <li>Một sự kiện gồm các <b>kết quả thuận lợi</b> cho nó.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Liệt kê kết quả có thể</h3>
+    <div class="de"><p>Tung một đồng xu (Sấp $S$, Ngửa $N$).</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Các kết quả có thể: <span class="key">$S$ (Sấp) và $N$ (Ngửa)</span> — có $2$ kết quả.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Sự kiện gồm những kết quả nào</h3>
+    <div class="de"><p>Túi thẻ $1,2,\ldots,10$. a) Kết quả có thể? b) Sự kiện "chia hết cho $3$"?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Kết quả có thể: <span class="key">$1;2;3;4;5;6;7;8;9;10$</span> ($10$ kết quả).</p>
+      <p><b>b)</b> Sự kiện "chia hết cho $3$" gồm các kết quả: <span class="key">$3;\,6;\,9$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Chắc chắn / không thể</h3>
+    <div class="de"><p>Hộp $3$ bóng xanh, đỏ, vàng. a) "Lấy được bóng có màu". b) "Lấy được bóng tím".</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> <span class="yes">Chắc chắn xảy ra</span> (mọi quả bóng đều có màu).</p>
+      <p><b>b)</b> <span class="no">Không thể xảy ra</span> (trong hộp không có bóng màu tím).</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Gieo xúc xắc</h3>
+    <div class="de"><p>Gieo xúc xắc $6$ mặt. a) Kết quả có thể? b) Sự kiện "số chấm lẻ"?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Kết quả có thể: <span class="key">$1;2;3;4;5;6$</span> chấm.</p>
+      <p><b>b)</b> Sự kiện "số chấm lẻ" gồm: <span class="key">$1;\,3;\,5$</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Liệt kê đủ và không trùng các kết quả có thể.</li>
+      <li>Sự kiện "chắc chắn" ⟺ luôn xảy ra; "không thể" ⟺ không có kết quả thuận lợi.</li>
+      <li>Một sự kiện = tập hợp các kết quả thuận lợi cho nó.</li>
+    </ul>
+  </div>
+
+</div>

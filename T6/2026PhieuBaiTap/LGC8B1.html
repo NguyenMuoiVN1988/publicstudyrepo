@@ -1,0 +1,162 @@
+---
+layout: default
+title: Toán 6 - Điểm và đường thẳng (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 1 Chương 8 Toán 6: điểm thuộc/không thuộc đường thẳng, ba điểm thẳng hàng, đếm số đường thẳng qua các điểm — kèm hình vẽ."
+tags: [Toán 6, điểm, đường thẳng, thẳng hàng]
+series: t6-c8
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft); font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Điểm và đường thẳng — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 8: Những hình hình học cơ bản · Bài 1</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Điểm, đường thẳng, thẳng hàng</h3>
+    <ul>
+      <li>Qua <b>hai điểm phân biệt</b> có một và chỉ một đường thẳng.</li>
+      <li>Điểm $A$ <b>thuộc</b> đường thẳng $d$ viết $A\in d$; <b>không thuộc</b> viết $A\notin d$.</li>
+      <li>Ba điểm cùng nằm trên một đường thẳng gọi là <b>thẳng hàng</b>.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Điểm thuộc / không thuộc đường thẳng</h3>
+    <div class="de"><p>$A,B$ nằm trên $d$, $C$ không nằm trên $d$. Ghi quan hệ bằng $\in,\notin$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="320" height="120" viewBox="0 0 320 120" role="img" aria-label="Đường thẳng d qua A, B; điểm C ngoài d">
+        <line x1="20" y1="80" x2="300" y2="80" stroke="#3f5d9e" stroke-width="2.2"/>
+        <text x="305" y="84" font-size="13" font-style="italic" fill="#3f5d9e">d</text>
+        <circle cx="90" cy="80" r="3.5" fill="#a23b52"/><text x="86" y="98" font-size="13" font-weight="bold">A</text>
+        <circle cx="200" cy="80" r="3.5" fill="#a23b52"/><text x="196" y="98" font-size="13" font-weight="bold">B</text>
+        <circle cx="150" cy="30" r="3.5" fill="#1f7a72"/><text x="146" y="24" font-size="13" font-weight="bold">C</text>
+      </svg>
+      <div class="cap">$A,B$ nằm trên $d$; $C$ nằm ngoài $d$.</div>
+      <p>$A\in d$; &nbsp; $B\in d$; &nbsp; <span class="key">$C\notin d$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Ba điểm thẳng hàng / không thẳng hàng</h3>
+    <div class="de"><p>a) Vẽ $M,N,P$ thẳng hàng ($N$ giữa). b) Vẽ $D,E,F$ không thẳng hàng.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="420" height="120" viewBox="0 0 420 120" role="img" aria-label="Ba điểm thẳng hàng và ba điểm không thẳng hàng">
+        <line x1="20" y1="60" x2="180" y2="60" stroke="#3f5d9e" stroke-width="2"/>
+        <circle cx="40" cy="60" r="3.5" fill="#a23b52"/><text x="34" y="50" font-size="12" font-weight="bold">M</text>
+        <circle cx="100" cy="60" r="3.5" fill="#a23b52"/><text x="94" y="50" font-size="12" font-weight="bold">N</text>
+        <circle cx="160" cy="60" r="3.5" fill="#a23b52"/><text x="154" y="50" font-size="12" font-weight="bold">P</text>
+        <text x="100" y="100" text-anchor="middle" font-size="10" fill="#5b6b7a">thẳng hàng</text>
+        <polygon points="280,90 350,90 320,35" fill="none" stroke="#1f7a72" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <circle cx="280" cy="90" r="3.5" fill="#1f7a72"/><text x="270" y="104" font-size="12" font-weight="bold">D</text>
+        <circle cx="350" cy="90" r="3.5" fill="#1f7a72"/><text x="354" y="104" font-size="12" font-weight="bold">E</text>
+        <circle cx="320" cy="35" r="3.5" fill="#1f7a72"/><text x="324" y="32" font-size="12" font-weight="bold">F</text>
+        <text x="318" y="112" text-anchor="middle" font-size="10" fill="#5b6b7a">không thẳng hàng</text>
+      </svg>
+      <div class="cap">$M,N,P$ cùng trên một đường thẳng; $D,E,F$ không cùng đường thẳng nào.</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Đếm đường thẳng (không có 3 điểm thẳng hàng)</h3>
+    <div class="de"><p>$4$ điểm $A,B,C,D$, không có $3$ điểm thẳng hàng. Có bao nhiêu đường thẳng?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="220" height="180" viewBox="0 0 220 180" role="img" aria-label="Bốn điểm và sáu đường thẳng">
+        <g stroke="#3f5d9e" stroke-width="1.5">
+          <line x1="40" y1="40" x2="180" y2="40"/><line x1="40" y1="40" x2="40" y2="150"/>
+          <line x1="40" y1="40" x2="180" y2="150"/><line x1="180" y1="40" x2="40" y2="150"/>
+          <line x1="180" y1="40" x2="180" y2="150"/><line x1="40" y1="150" x2="180" y2="150"/>
+        </g>
+        <circle cx="40" cy="40" r="4" fill="#a23b52"/><text x="28" y="38" font-size="13" font-weight="bold">A</text>
+        <circle cx="180" cy="40" r="4" fill="#a23b52"/><text x="186" y="38" font-size="13" font-weight="bold">B</text>
+        <circle cx="180" cy="150" r="4" fill="#a23b52"/><text x="186" y="160" font-size="13" font-weight="bold">C</text>
+        <circle cx="40" cy="150" r="4" fill="#a23b52"/><text x="26" y="160" font-size="13" font-weight="bold">D</text>
+      </svg>
+      <div class="cap">Mỗi cặp điểm cho một đường thẳng — tất cả $6$ đường thẳng.</div>
+      <p>Số đường thẳng $=$ số cặp điểm $=$ <span class="key">$6$</span>: $AB,\,AC,\,AD,\,BC,\,BD,\,CD$.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Đếm đường thẳng (có 3 điểm thẳng hàng)</h3>
+    <div class="de"><p>$M,N,P$ thẳng hàng, $Q$ nằm ngoài. Có bao nhiêu đường thẳng?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="260" height="150" viewBox="0 0 260 150" role="img" aria-label="Ba điểm thẳng hàng và một điểm ngoài">
+        <line x1="20" y1="115" x2="220" y2="115" stroke="#3f5d9e" stroke-width="2"/>
+        <line x1="40" y1="115" x2="130" y2="30" stroke="#1f7a72" stroke-width="1.5"/>
+        <line x1="120" y1="115" x2="130" y2="30" stroke="#1f7a72" stroke-width="1.5"/>
+        <line x1="200" y1="115" x2="130" y2="30" stroke="#1f7a72" stroke-width="1.5"/>
+        <circle cx="40" cy="115" r="4" fill="#a23b52"/><text x="32" y="133" font-size="12" font-weight="bold">M</text>
+        <circle cx="120" cy="115" r="4" fill="#a23b52"/><text x="114" y="133" font-size="12" font-weight="bold">N</text>
+        <circle cx="200" cy="115" r="4" fill="#a23b52"/><text x="194" y="133" font-size="12" font-weight="bold">P</text>
+        <circle cx="130" cy="30" r="4" fill="#1f7a72"/><text x="134" y="26" font-size="12" font-weight="bold">Q</text>
+      </svg>
+      <div class="cap">Một đường thẳng qua $M,N,P$ và ba đường thẳng từ $Q$.</div>
+      <p>Có <span class="key">$4$ đường thẳng</span>: đường thẳng $MNP$ và ba đường $QM,\,QN,\,QP$.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> $M,N,P$ thẳng hàng nên chỉ tính <b>một</b> đường thẳng cho cả ba (không tính $MN,NP,MP$ riêng).</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Qua hai điểm phân biệt: duy nhất một đường thẳng.</li>
+      <li>$n$ điểm không có $3$ điểm thẳng hàng → $\dfrac{n(n-1)}{2}$ đường thẳng.</li>
+      <li>Mỗi nhóm điểm thẳng hàng chỉ cho <b>một</b> đường thẳng.</li>
+    </ul>
+  </div>
+
+</div>

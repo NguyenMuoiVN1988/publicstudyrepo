@@ -1,0 +1,144 @@
+---
+layout: default
+title: Toán 6 - Điểm nằm giữa hai điểm. Tia (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 2 Chương 8 Toán 6: điểm nằm giữa, tia, hai tia đối nhau, hai tia trùng nhau — kèm hình vẽ trực quan."
+tags: [Toán 6, tia, tia đối nhau, điểm nằm giữa]
+series: t6-c8
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft); font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Điểm nằm giữa hai điểm. Tia — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 8: Những hình hình học cơ bản · Bài 2</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Điểm nằm giữa · Tia</h3>
+    <ul>
+      <li>Trong ba điểm thẳng hàng có đúng <b>một điểm nằm giữa</b> hai điểm còn lại.</li>
+      <li><b>Tia</b> gốc $O$: gồm $O$ và một phần đường thẳng từ $O$. <b>Hai tia đối nhau</b>: chung gốc, tạo thành một đường thẳng.</li>
+      <li><b>Hai tia trùng nhau</b>: chung gốc và cùng hướng.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Điểm nằm giữa — kể tia</h3>
+    <div class="de"><p>$A,B,C$ thẳng hàng, $B$ nằm giữa $A$ và $C$. Kể các tia gốc $A,B,C$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="320" height="70" viewBox="0 0 320 70" role="img" aria-label="Ba điểm A B C thẳng hàng, B giữa">
+        <line x1="30" y1="40" x2="290" y2="40" stroke="#3f5d9e" stroke-width="2"/>
+        <circle cx="60" cy="40" r="4" fill="#a23b52"/><text x="54" y="28" font-size="13" font-weight="bold">A</text>
+        <circle cx="160" cy="40" r="4" fill="#a23b52"/><text x="154" y="28" font-size="13" font-weight="bold">B</text>
+        <circle cx="260" cy="40" r="4" fill="#a23b52"/><text x="254" y="28" font-size="13" font-weight="bold">C</text>
+      </svg>
+      <div class="cap">$B$ nằm giữa $A$ và $C$.</div>
+      <p>Tia gốc $A$: tia $AB$ (cũng là tia $AC$). Tia gốc $C$: tia $CB$ (cũng là tia $CA$).</p>
+      <p>Tia gốc $B$: <span class="key">tia $BA$ và tia $BC$</span> — đây là <b>hai tia đối nhau</b>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Hai tia đối nhau</h3>
+    <div class="de"><p>$O$ thuộc đường thẳng $xy$. a) Kể hai tia gốc $O$. b) $A\in Ox$, $B\in Oy$ — $O$ có nằm giữa $A,B$?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="340" height="70" viewBox="0 0 340 70" role="img" aria-label="Đường thẳng xy với O ở giữa, A và B hai phía">
+        <line x1="20" y1="40" x2="320" y2="40" stroke="#3f5d9e" stroke-width="2"/>
+        <text x="12" y="44" font-size="12" font-style="italic">x</text><text x="324" y="44" font-size="12" font-style="italic">y</text>
+        <circle cx="90" cy="40" r="4" fill="#1f7a72"/><text x="84" y="28" font-size="13" font-weight="bold">A</text>
+        <circle cx="170" cy="40" r="4" fill="#a23b52"/><text x="164" y="28" font-size="13" font-weight="bold">O</text>
+        <circle cx="250" cy="40" r="4" fill="#1f7a72"/><text x="244" y="28" font-size="13" font-weight="bold">B</text>
+      </svg>
+      <div class="cap">Tia $Ox$ và tia $Oy$ là hai tia đối nhau; $O$ nằm giữa $A$ và $B$.</div>
+      <p><b>a)</b> Hai tia gốc $O$ là <span class="key">tia $Ox$ và tia $Oy$</span> — chúng <b>đối nhau</b>.</p>
+      <p><b>b)</b> Vì $A$ thuộc tia $Ox$, $B$ thuộc tia $Oy$ (hai tia đối) nên <span class="key">$O$ nằm giữa $A$ và $B$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Hai tia trùng nhau</h3>
+    <div class="de"><p>Trên tia $Ox$ lấy $A,B$ (khác $O$). Các tia $OA,OB,Ox$ — tia nào trùng nhau?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>$A,B$ cùng thuộc tia $Ox$ nên các tia $OA$, $OB$, $Ox$ <b>cùng gốc $O$ và cùng hướng</b>.</p>
+      <p>Vậy <span class="key">$OA$, $OB$, $Ox$ trùng nhau</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Tổng hợp</h3>
+    <div class="de"><p>$A,B,C,D$ theo thứ tự trên một đường thẳng. a) Tia gốc $B$? b) Hai tia đối gốc $C$?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="340" height="60" viewBox="0 0 340 60" role="img" aria-label="Bốn điểm A B C D theo thứ tự">
+        <line x1="20" y1="35" x2="320" y2="35" stroke="#3f5d9e" stroke-width="2"/>
+        <circle cx="55" cy="35" r="4" fill="#a23b52"/><text x="49" y="24" font-size="12" font-weight="bold">A</text>
+        <circle cx="135" cy="35" r="4" fill="#a23b52"/><text x="129" y="24" font-size="12" font-weight="bold">B</text>
+        <circle cx="215" cy="35" r="4" fill="#a23b52"/><text x="209" y="24" font-size="12" font-weight="bold">C</text>
+        <circle cx="295" cy="35" r="4" fill="#a23b52"/><text x="289" y="24" font-size="12" font-weight="bold">D</text>
+      </svg>
+      <p><b>a)</b> Tia gốc $B$: <span class="key">tia $BA$ và tia $BC$</span> (tia $BC$ cũng chứa $D$).</p>
+      <p><b>b)</b> Hai tia đối nhau gốc $C$: <span class="key">tia $CB$ (chứa $A,B$) và tia $CD$</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Hai tia đối nhau: chung gốc + tạo thành đường thẳng. Một điểm thuộc tia này, một điểm thuộc tia kia thì gốc nằm giữa.</li>
+      <li>Hai tia trùng nhau: chung gốc + cùng hướng (các điểm cùng phía).</li>
+      <li>Tên tia gọi theo gốc trước, rồi một điểm trên tia (tia $BA$, tia $BC$\ldots).</li>
+    </ul>
+  </div>
+
+</div>

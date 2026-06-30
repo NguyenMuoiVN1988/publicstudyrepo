@@ -1,0 +1,120 @@
+---
+layout: default
+title: Toán 6 - Số thập phân (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 1 Chương 7 Toán 6: viết phân số thập phân thành số thập phân và ngược lại, số đối, so sánh và sắp xếp số thập phân."
+tags: [Toán 6, số thập phân, phân số thập phân, so sánh số thập phân]
+series: t6-c7
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Số thập phân — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 7: Số thập phân · Bài 1</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-stp">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Số thập phân & so sánh</h3>
+    <ul>
+      <li>Phân số thập phân có mẫu là $10;100;1000;\dots$ Số chữ số ở phần thập phân bằng số chữ số $0$ của mẫu.</li>
+      <li>Số đối của một số thập phân: chỉ <b>đổi dấu</b>, giữ nguyên phần số.</li>
+      <li>So sánh số thập phân <b>âm</b>: số có giá trị (bỏ dấu) lớn hơn thì <b>nhỏ</b> hơn.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Phân số thập phân → số thập phân</h3>
+    <div class="de"><p>$\dfrac{-7}{10}$; $\dfrac{13}{100}$; $\dfrac{-25}{1000}$; $\dfrac{9}{10}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>$\dfrac{-7}{10}=$ <span class="key">$-0{,}7$</span>; &nbsp; $\dfrac{13}{100}=$ <span class="key">$0{,}13$</span>; &nbsp; $\dfrac{-25}{1000}=$ <span class="key">$-0{,}025$</span>; &nbsp; $\dfrac{9}{10}=$ <span class="key">$0{,}9$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> mẫu $1000$ có ba chữ số $0$ → phần thập phân có $3$ chữ số: $\dfrac{-25}{1000}=-0{,}025$ (thêm số $0$ sau dấu phẩy).</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Số thập phân → phân số tối giản</h3>
+    <div class="de"><p>$0{,}6$; $-1{,}25$; $0{,}008$; $-2{,}5$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>$0{,}6=\dfrac{6}{10}=$ <span class="key">$\dfrac{3}{5}$</span>; &nbsp; $-1{,}25=\dfrac{-125}{100}=$ <span class="key">$\dfrac{-5}{4}$</span>.</p>
+      <p>$0{,}008=\dfrac{8}{1000}=$ <span class="key">$\dfrac{1}{125}$</span>; &nbsp; $-2{,}5=\dfrac{-25}{10}=$ <span class="key">$\dfrac{-5}{2}$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Số đối</h3>
+    <div class="de"><p>$-3{,}5$; $0{,}72$; $-12{,}06$; $4{,}9$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Số đối: <span class="key">$3{,}5$</span>; &nbsp; <span class="key">$-0{,}72$</span>; &nbsp; <span class="key">$12{,}06$</span>; &nbsp; <span class="key">$-4{,}9$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> So sánh — sắp xếp</h3>
+    <div class="de"><p>a) $-2{,}5$ và $-2{,}45$; $3{,}08$ và $3{,}1$. b) Sắp xếp tăng dần: $-1{,}2; 0{,}5; -1{,}25; 0; 1{,}02$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> $-2{,}5<-2{,}45$ (vì $2{,}5>2{,}45$); &nbsp; $3{,}08<3{,}1$ (so phần mười: $0<1$).</p>
+      <p><b>b)</b> Tăng dần: <span class="key">$-1{,}25;\ -1{,}2;\ 0;\ 0{,}5;\ 1{,}02$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy câu a:</b> với số âm, $-2{,}5$ "nhỏ" hơn $-2{,}45$ dù $25>45$ ở phần thập phân — vì giá trị bỏ dấu lớn hơn.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Đếm số chữ số $0$ ở mẫu để đặt đúng số chữ số thập phân.</li>
+      <li>Số đối chỉ đổi dấu; so sánh số dương như bình thường, số âm thì ngược lại.</li>
+      <li>Khi sắp xếp, tách riêng số âm (càng "to" càng nhỏ) và số dương.</li>
+    </ul>
+  </div>
+
+</div>

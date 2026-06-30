@@ -301,6 +301,39 @@ details > div {
 - [C5B2: Hình có tâm đối xứng](T6/2026PhieuBaiTap/LGC5B2.html)
 - [C5 Ôn tập: Tính đối xứng của hình phẳng](T6/2026PhieuBaiTap/LGC5Ontap.html)
 
+**Lời giải phiếu bài tập — Chương 6: Phân số**
+- [C6B1: Mở rộng phân số. Phân số bằng nhau](T6/2026PhieuBaiTap/LGC6B1.html)
+- [C6B2: So sánh phân số. Hỗn số dương](T6/2026PhieuBaiTap/LGC6B2.html)
+- [C6B3: Phép cộng và phép trừ phân số](T6/2026PhieuBaiTap/LGC6B3.html)
+- [C6B4: Phép nhân và phép chia phân số](T6/2026PhieuBaiTap/LGC6B4.html)
+- [C6B5: Hai bài toán về phân số](T6/2026PhieuBaiTap/LGC6B5.html)
+- [C6 Ôn tập: Phân số](T6/2026PhieuBaiTap/LGC6Ontap.html)
+
+**Lời giải phiếu bài tập — Chương 7: Số thập phân**
+- [C7B1: Số thập phân](T6/2026PhieuBaiTap/LGC7B1.html)
+- [C7B2: Tính toán với số thập phân](T6/2026PhieuBaiTap/LGC7B2.html)
+- [C7B3: Làm tròn và ước lượng](T6/2026PhieuBaiTap/LGC7B3.html)
+- [C7B4: Tỉ số và tỉ số phần trăm](T6/2026PhieuBaiTap/LGC7B4.html)
+- [C7 Ôn tập: Số thập phân](T6/2026PhieuBaiTap/LGC7Ontap.html)
+
+**Lời giải phiếu bài tập — Chương 8: Những hình hình học cơ bản**
+- [C8B1: Điểm và đường thẳng](T6/2026PhieuBaiTap/LGC8B1.html)
+- [C8B2: Điểm nằm giữa hai điểm. Tia](T6/2026PhieuBaiTap/LGC8B2.html)
+- [C8B3: Đoạn thẳng. Độ dài đoạn thẳng](T6/2026PhieuBaiTap/LGC8B3.html)
+- [C8B4: Trung điểm của đoạn thẳng](T6/2026PhieuBaiTap/LGC8B4.html)
+- [C8B5: Góc](T6/2026PhieuBaiTap/LGC8B5.html)
+- [C8B6: Số đo góc](T6/2026PhieuBaiTap/LGC8B6.html)
+- [C8 Ôn tập: Những hình hình học cơ bản](T6/2026PhieuBaiTap/LGC8Ontap.html)
+
+**Lời giải phiếu bài tập — Chương 9: Dữ liệu và xác suất thực nghiệm**
+- [C9B1: Dữ liệu và thu thập dữ liệu](T6/2026PhieuBaiTap/LGC9B1.html)
+- [C9B2: Bảng thống kê và biểu đồ tranh](T6/2026PhieuBaiTap/LGC9B2.html)
+- [C9B3: Biểu đồ cột](T6/2026PhieuBaiTap/LGC9B3.html)
+- [C9B4: Biểu đồ cột kép](T6/2026PhieuBaiTap/LGC9B4.html)
+- [C9B5: Kết quả có thể và sự kiện](T6/2026PhieuBaiTap/LGC9B5.html)
+- [C9B6: Xác suất thực nghiệm](T6/2026PhieuBaiTap/LGC9B6.html)
+- [C9 Ôn tập: Dữ liệu và xác suất thực nghiệm](T6/2026PhieuBaiTap/LGC9Ontap.html)
+
 **Nâng cao**
 - [Các phép tính về số tự nhiên – Chuyên Toán](T6/T6NCTaiLieuChuyenToan1.html)
 

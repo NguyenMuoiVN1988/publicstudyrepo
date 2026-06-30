@@ -1,0 +1,156 @@
+---
+layout: default
+title: Toán 6 - Số đo góc (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 6 Chương 8 Toán 6: số đo góc, góc nhọn vuông tù bẹt, góc kim đồng hồ, cộng góc, hai tia đối nhau — kèm hình vẽ."
+tags: [Toán 6, số đo góc, góc nhọn, góc tù, cộng góc]
+series: t6-c8
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft); font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Số đo góc — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 8: Những hình hình học cơ bản · Bài 6</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Phân loại góc & cộng góc</h3>
+    <ul>
+      <li>Góc nhọn: $0^\circ<\alpha<90^\circ$; vuông $=90^\circ$; tù: $90^\circ<\alpha<180^\circ$; bẹt $=180^\circ$.</li>
+      <li>Cộng góc: nếu tia $Oz$ nằm giữa $Ox,Oy$ thì $\widehat{xOz}+\widehat{zOy}=\widehat{xOy}$.</li>
+    </ul>
+    <svg class="fig" width="560" height="150" viewBox="0 0 560 150" role="img" aria-label="Bốn loại góc: nhọn, vuông, tù, bẹt">
+      <!-- nhọn -->
+      <line x1="60" y1="110" x2="130" y2="110" stroke="#3f5d9e" stroke-width="2"/>
+      <line x1="60" y1="110" x2="110" y2="61" stroke="#3f5d9e" stroke-width="2"/>
+      <path d="M 90,110 A 30 30 0 0 0 81,89" fill="none" stroke="#a23b52" stroke-width="1.2"/>
+      <text x="60" y="130" text-anchor="middle" font-size="11">Nhọn</text>
+      <text x="60" y="144" text-anchor="middle" font-size="10" fill="#a23b52">0°–90°</text>
+      <!-- vuông -->
+      <line x1="200" y1="110" x2="270" y2="110" stroke="#3f5d9e" stroke-width="2"/>
+      <line x1="200" y1="110" x2="200" y2="40" stroke="#3f5d9e" stroke-width="2"/>
+      <rect x="200" y="98" width="12" height="12" fill="none" stroke="#a23b52" stroke-width="1.2"/>
+      <text x="205" y="130" text-anchor="middle" font-size="11">Vuông</text>
+      <text x="205" y="144" text-anchor="middle" font-size="10" fill="#a23b52">90°</text>
+      <!-- tù -->
+      <line x1="340" y1="110" x2="410" y2="110" stroke="#3f5d9e" stroke-width="2"/>
+      <line x1="340" y1="110" x2="305" y2="49" stroke="#3f5d9e" stroke-width="2"/>
+      <path d="M 370,110 A 30 30 0 0 0 325,84" fill="none" stroke="#a23b52" stroke-width="1.2"/>
+      <text x="345" y="130" text-anchor="middle" font-size="11">Tù</text>
+      <text x="345" y="144" text-anchor="middle" font-size="10" fill="#a23b52">90°–180°</text>
+      <!-- bẹt -->
+      <line x1="410" y1="110" x2="550" y2="110" stroke="#3f5d9e" stroke-width="2"/>
+      <circle cx="480" cy="110" r="3" fill="#a23b52"/>
+      <text x="480" y="130" text-anchor="middle" font-size="11">Bẹt</text>
+      <text x="480" y="144" text-anchor="middle" font-size="10" fill="#a23b52">180°</text>
+    </svg>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Phân loại góc</h3>
+    <div class="de"><p>$45^\circ$; $90^\circ$; $120^\circ$; $180^\circ$; $75^\circ$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>$45^\circ$: <span class="key">nhọn</span>; &nbsp; $90^\circ$: <span class="key">vuông</span>; &nbsp; $120^\circ$: <span class="key">tù</span>; &nbsp; $180^\circ$: <span class="key">bẹt</span>; &nbsp; $75^\circ$: <span class="key">nhọn</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Góc của kim đồng hồ</h3>
+    <div class="de"><p>Tính góc kim giờ – kim phút lúc: $3$ giờ; $6$ giờ; $2$ giờ; $5$ giờ.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Mỗi khoảng giờ ứng với $360^\circ:12=30^\circ$:</p>
+      <p>$3$ giờ $=3\times30^\circ=$ <span class="key">$90^\circ$</span>; &nbsp; $6$ giờ $=$ <span class="key">$180^\circ$</span>; &nbsp; $2$ giờ $=$ <span class="key">$60^\circ$</span>; &nbsp; $5$ giờ $=5\times30^\circ=$ <span class="key">$150^\circ$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Cộng góc</h3>
+    <div class="de"><p>Tia $Oz$ giữa $Ox,Oy$; $\widehat{xOz}=40^\circ$, $\widehat{zOy}=70^\circ$. Tính $\widehat{xOy}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="240" height="140" viewBox="0 0 240 140" role="img" aria-label="Tia Oz nằm giữa Ox Oy">
+        <line x1="40" y1="115" x2="210" y2="115" stroke="#3f5d9e" stroke-width="2"/>
+        <line x1="40" y1="115" x2="180" y2="55" stroke="#1f7a72" stroke-width="2"/>
+        <line x1="40" y1="115" x2="120" y2="25" stroke="#3f5d9e" stroke-width="2"/>
+        <circle cx="40" cy="115" r="4" fill="#a23b52"/><text x="28" y="122" font-size="12" font-weight="bold">O</text>
+        <text x="214" y="119" font-size="11" font-style="italic">x</text>
+        <text x="184" y="52" font-size="11" font-style="italic">z</text>
+        <text x="122" y="20" font-size="11" font-style="italic">y</text>
+        <text x="120" y="108" font-size="9" fill="#a23b52">40°</text>
+        <text x="95" y="80" font-size="9" fill="#1f7a72">70°</text>
+      </svg>
+      <div class="cap">$Oz$ nằm giữa nên hai góc cộng lại.</div>
+      <p>$\widehat{xOy}=\widehat{xOz}+\widehat{zOy}=40^\circ+70^\circ=$ <span class="key">$110^\circ$</span> — là <b>góc tù</b>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Hai tia đối nhau</h3>
+    <div class="de"><p>$\widehat{xOz}=20^\circ$, $\widehat{zOt}=70^\circ$, $\widehat{tOy}=90^\circ$ ($Oz,Ot$ lần lượt nằm giữa). Chứng tỏ $Ox,Oy$ đối nhau.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>$\widehat{xOy}=\widehat{xOz}+\widehat{zOt}+\widehat{tOy}=20^\circ+70^\circ+90^\circ=180^\circ$.</p>
+      <p>Vì $\widehat{xOy}=180^\circ$ (góc bẹt) nên <span class="key">$Ox$ và $Oy$ là hai tia đối nhau</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Phân loại theo số đo: nhọn $<90^\circ<$ tù $<180^\circ=$ bẹt.</li>
+      <li>Đồng hồ: mỗi khoảng giờ $=30^\circ$.</li>
+      <li>Tổng các góc kề bằng $180^\circ$ ⟹ hai tia ngoài cùng đối nhau.</li>
+    </ul>
+  </div>
+
+</div>

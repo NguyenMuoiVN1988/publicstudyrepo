@@ -1,0 +1,142 @@
+---
+layout: default
+title: Toán 6 - Bảng thống kê và biểu đồ tranh (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 2 Chương 9 Toán 6: đọc bảng thống kê, đọc và lập biểu đồ tranh theo khoá, phân tích số liệu."
+tags: [Toán 6, bảng thống kê, biểu đồ tranh, thống kê]
+series: t6-c9
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc table.tn { border-collapse:collapse; width:100%; margin:8px 0; font-family:'Quicksand',sans-serif; }
+  .lgc table.tn th, .lgc table.tn td { border:1px solid #d4ddf3; padding:6px 8px; text-align:center; font-size:.95rem; }
+  .lgc table.tn th { background:var(--indigo-bg); color:var(--indigo); }
+  .lgc table.pic { border-collapse:collapse; width:100%; margin:10px 0; }
+  .lgc table.pic td { border:1px solid var(--line); padding:8px 12px; font-size:1.2rem; color:var(--amber); }
+  .lgc table.pic td.lab { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--ink); font-size:.95rem; width:90px; }
+  .lgc table.pic td.val { color:var(--teal); font-weight:700; font-size:.95rem; text-align:right; width:70px; }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft); font-style:italic; margin:4px 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bảng thống kê và biểu đồ tranh — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 9: Dữ liệu và xác suất thực nghiệm · Bài 2</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Bảng thống kê & biểu đồ tranh</h3>
+    <ul>
+      <li><b>Bảng thống kê</b>: ghi đối tượng và số liệu tương ứng; tổng = cộng tất cả số liệu.</li>
+      <li><b>Biểu đồ tranh</b>: mỗi biểu tượng ứng với một số đơn vị (gọi là <b>khoá</b>) — đọc khoá trước khi tính.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Đọc bảng thống kê</h3>
+    <div class="de">
+      <table class="tn">
+        <tr><th>Môn</th><td>Bóng đá</td><td>Cầu lông</td><td>Bơi</td><td>Bóng rổ</td></tr>
+        <tr><th>Số bạn</th><td>12</td><td>8</td><td>6</td><td>4</td></tr>
+      </table>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> Số bạn được hỏi $=12+8+6+4=$ <span class="key">$30$ bạn</span>.</p>
+      <p><b>b)</b> Yêu thích nhất: <span class="key">Bóng đá</span> ($12$); ít nhất: <span class="key">Bóng rổ</span> ($4$).</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Đọc biểu đồ tranh</h3>
+    <div class="de"><p>Mỗi ★ ứng với $5$ quyển sách. Tổ 1: ★★★; Tổ 2: ★★★★; Tổ 3: ★★.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <table class="pic">
+        <tr><td class="lab">Tổ 1</td><td>★★★</td><td class="val">15</td></tr>
+        <tr><td class="lab">Tổ 2</td><td>★★★★</td><td class="val">20</td></tr>
+        <tr><td class="lab">Tổ 3</td><td>★★</td><td class="val">10</td></tr>
+      </table>
+      <div class="cap">Khoá: mỗi ★ = 5 quyển sách.</div>
+      <p>Tổ 1: $3\times5=$ <span class="key">$15$</span>; Tổ 2: $4\times5=$ <span class="key">$20$</span>; Tổ 3: $2\times5=$ <span class="key">$10$</span> quyển.</p>
+      <p>Cả ba tổ: $15+20+10=$ <span class="key">$45$ quyển</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Lập biểu đồ tranh</h3>
+    <div class="de"><p>Số cây: 6A: $20$; 6B: $15$; 6C: $25$. Mỗi ★ $=5$ cây.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <table class="pic">
+        <tr><td class="lab">6A</td><td>★★★★</td><td class="val">20</td></tr>
+        <tr><td class="lab">6B</td><td>★★★</td><td class="val">15</td></tr>
+        <tr><td class="lab">6C</td><td>★★★★★</td><td class="val">25</td></tr>
+      </table>
+      <div class="cap">Mỗi ★ = 5 cây → số ★ = số cây chia cho 5.</div>
+      <p>6A: $20:5=$ <span class="key">$4$ ★</span>; 6B: $15:5=$ <span class="key">$3$ ★</span>; 6C: $25:5=$ <span class="key">$5$ ★</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Phân tích</h3>
+    <div class="de"><p>Bóng đá yêu thích gấp mấy lần Bóng rổ (Bài 1)?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>$12:4=$ <span class="key">$3$ lần</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Luôn đọc <b>khoá</b> của biểu đồ tranh trước (mỗi biểu tượng = mấy đơn vị).</li>
+      <li>Số biểu tượng $=$ số liệu $\div$ khoá; có thể dùng nửa biểu tượng cho nửa khoá.</li>
+      <li>Tổng = cộng tất cả số liệu trong bảng.</li>
+    </ul>
+  </div>
+
+</div>

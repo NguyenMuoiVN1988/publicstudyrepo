@@ -1,0 +1,151 @@
+---
+layout: default
+title: Toán 6 - Biểu đồ cột kép (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 4 Chương 9 Toán 6: vẽ và đọc biểu đồ cột kép, so sánh hai đối tượng, tính chênh lệch và tổng — kèm biểu đồ minh hoạ."
+tags: [Toán 6, biểu đồ cột kép, thống kê, so sánh số liệu]
+series: t6-c9
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc table.tn { border-collapse:collapse; width:100%; margin:8px 0; font-family:'Quicksand',sans-serif; }
+  .lgc table.tn th, .lgc table.tn td { border:1px solid #d4ddf3; padding:6px 8px; text-align:center; font-size:.95rem; }
+  .lgc table.tn th { background:var(--indigo-bg); color:var(--indigo); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft); font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Biểu đồ cột kép — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 9: Dữ liệu và xác suất thực nghiệm · Bài 4</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Biểu đồ cột kép</h3>
+    <ul>
+      <li>Mỗi mục có <b>hai cột</b> cạnh nhau (mỗi cột một đối tượng), phân biệt bằng màu/kí hiệu; có chú thích.</li>
+      <li>So sánh: nhìn cột nào cao hơn ở mỗi mục; chênh lệch $=$ hiệu chiều cao.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Vẽ biểu đồ cột kép</h3>
+    <div class="de">
+      <table class="tn">
+        <tr><th>Năm</th><td>2021</td><td>2022</td><td>2023</td></tr>
+        <tr><th>Trường A</th><td>8</td><td>10</td><td>12</td></tr>
+        <tr><th>Trường B</th><td>6</td><td>11</td><td>9</td></tr>
+      </table>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải — biểu đồ cột kép</p>
+      <svg class="fig" width="360" height="230" viewBox="0 0 360 230" role="img" aria-label="Biểu đồ cột kép huy chương hai trường">
+        <line x1="35" y1="180" x2="345" y2="180" stroke="#28323c" stroke-width="1.5"/>
+        <line x1="35" y1="25" x2="35" y2="180" stroke="#28323c" stroke-width="1.5"/>
+        <!-- 2021 -->
+        <rect x="60" y="92" width="24" height="88" fill="#3f5d9e"/>
+        <rect x="86" y="114" width="24" height="66" fill="#1f7a72"/>
+        <!-- 2022 -->
+        <rect x="150" y="70" width="24" height="110" fill="#3f5d9e"/>
+        <rect x="176" y="59" width="24" height="121" fill="#1f7a72"/>
+        <!-- 2023 -->
+        <rect x="240" y="48" width="24" height="132" fill="#3f5d9e"/>
+        <rect x="266" y="81" width="24" height="99" fill="#1f7a72"/>
+        <g font-size="10" fill="#fff" text-anchor="middle" font-weight="bold">
+          <text x="72" y="105">8</text><text x="98" y="127">6</text>
+          <text x="162" y="83">10</text><text x="188" y="72">11</text>
+          <text x="252" y="61">12</text><text x="278" y="94">9</text>
+        </g>
+        <g font-size="11" text-anchor="middle" fill="#28323c">
+          <text x="85" y="194">2021</text><text x="175" y="194">2022</text><text x="265" y="194">2023</text>
+        </g>
+        <rect x="120" y="208" width="12" height="12" fill="#3f5d9e"/><text x="137" y="218" font-size="10">Trường A</text>
+        <rect x="210" y="208" width="12" height="12" fill="#1f7a72"/><text x="227" y="218" font-size="10">Trường B</text>
+      </svg>
+      <div class="cap">Cột xanh đậm: Trường A; cột xanh lá: Trường B.</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> So sánh</h3>
+    <div class="de"><p>Năm nào A nhiều hơn B? Năm nào B nhiều hơn?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>A nhiều hơn B: <span class="key">năm 2021</span> ($8>6$) và <span class="key">2023</span> ($12>9$). B nhiều hơn A: <span class="key">năm 2022</span> ($11>10$).</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Chênh lệch</h3>
+    <div class="de"><p>Tính chênh lệch mỗi năm; năm nào chênh nhiều nhất?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>2021: $|8-6|=2$; 2022: $|10-11|=1$; 2023: $|12-9|=3$.</p>
+      <p>Chênh lệch nhiều nhất là năm <span class="key">2023</span> ($3$ huy chương).</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Tổng hợp</h3>
+    <div class="de"><p>Tổng huy chương mỗi trường trong $3$ năm. Trường nào nhiều hơn?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Trường A: $8+10+12=30$; Trường B: $6+11+9=26$.</p>
+      <p>Vậy <span class="key">Trường A nhiều huy chương hơn</span> ($30>26$).</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Hai cột mỗi mục phải phân biệt màu/kí hiệu và có chú thích.</li>
+      <li>So sánh ở từng mục; chênh lệch = hiệu hai cột.</li>
+      <li>Tổng một đối tượng = cộng số liệu của nó qua các mục.</li>
+    </ul>
+  </div>
+
+</div>

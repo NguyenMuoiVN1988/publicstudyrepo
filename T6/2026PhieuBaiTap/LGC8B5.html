@@ -1,0 +1,150 @@
+---
+layout: default
+title: Toán 6 - Góc (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 5 Chương 8 Toán 6: góc, đỉnh, cạnh, điểm trong của góc, góc bẹt, đếm số góc tạo bởi n tia chung gốc — kèm hình vẽ."
+tags: [Toán 6, góc, góc bẹt, đếm góc]
+series: t6-c8
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft); font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Góc — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 8: Những hình hình học cơ bản · Bài 5</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Góc & đếm góc</h3>
+    <ul>
+      <li><b>Góc</b> là hình gồm hai tia chung gốc; gốc là <b>đỉnh</b>, hai tia là hai <b>cạnh</b>. Kí hiệu $\widehat{xOy}$ (đỉnh ở giữa).</li>
+      <li><b>Góc bẹt</b>: hai cạnh là hai tia đối nhau. Điểm $M$ nằm trong góc khi tia $OM$ nằm giữa hai cạnh.</li>
+      <li>$n$ tia chung gốc đôi một phân biệt tạo $\dfrac{n(n-1)}{2}$ góc.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Đỉnh — cạnh — điểm trong</h3>
+    <div class="de"><p>Vẽ góc $\widehat{aOb}$, chỉ đỉnh, cạnh, lấy $I$ trong góc.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="240" height="150" viewBox="0 0 240 150" role="img" aria-label="Góc aOb với điểm I trong góc">
+        <line x1="40" y1="120" x2="210" y2="120" stroke="#3f5d9e" stroke-width="2"/>
+        <line x1="40" y1="120" x2="185" y2="25" stroke="#3f5d9e" stroke-width="2"/>
+        <path d="M 90,120 A 50 50 0 0 0 72,85" fill="none" stroke="#a23b52" stroke-width="1.3"/>
+        <circle cx="40" cy="120" r="4" fill="#a23b52"/><text x="28" y="128" font-size="13" font-weight="bold">O</text>
+        <text x="216" y="124" font-size="13" font-style="italic">a</text>
+        <text x="190" y="22" font-size="13" font-style="italic">b</text>
+        <circle cx="115" cy="95" r="3.5" fill="#1f7a72"/><text x="120" y="92" font-size="12" font-weight="bold">I</text>
+      </svg>
+      <div class="cap">Đỉnh $O$, hai cạnh $Oa,Ob$; điểm $I$ nằm trong góc.</div>
+      <p>Góc $\widehat{aOb}$ có đỉnh $O$, hai cạnh là tia $Oa$ và $Ob$. Điểm $I$ nằm trong góc vì tia $OI$ nằm giữa hai cạnh $Oa,Ob$.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Góc bẹt</h3>
+    <div class="de"><p>a) $\widehat{xOy}$ với $Ox,Oy$ đối nhau; b) $\widehat{mOn}$ với $Om,On$ không đối nhau — góc nào bẹt?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="320" height="80" viewBox="0 0 320 80" role="img" aria-label="Góc bẹt xOy">
+        <line x1="20" y1="45" x2="300" y2="45" stroke="#3f5d9e" stroke-width="2"/>
+        <circle cx="160" cy="45" r="4" fill="#a23b52"/><text x="154" y="65" font-size="12" font-weight="bold">O</text>
+        <text x="14" y="49" font-size="12" font-style="italic">x</text><text x="304" y="49" font-size="12" font-style="italic">y</text>
+        <path d="M 120,45 A 40 40 0 0 1 200,45" fill="none" stroke="#a23b52" stroke-width="1.3"/>
+        <text x="160" y="20" text-anchor="middle" font-size="11" fill="#a23b52">180°</text>
+      </svg>
+      <div class="cap">$Ox,Oy$ đối nhau → $\widehat{xOy}$ là góc bẹt.</div>
+      <p><b>a)</b> $\widehat{xOy}$ là <span class="key">góc bẹt</span> (hai cạnh là hai tia đối nhau). <b>b)</b> $\widehat{mOn}$ <b>không</b> là góc bẹt.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Đếm góc — kể tên</h3>
+    <div class="de"><p>$4$ tia chung gốc $Oa,Ob,Oc,Od$. Bao nhiêu góc? Kể tên.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="200" height="150" viewBox="0 0 200 150" role="img" aria-label="Bốn tia chung gốc">
+        <g stroke="#3f5d9e" stroke-width="2">
+          <line x1="40" y1="120" x2="190" y2="120"/>
+          <line x1="40" y1="120" x2="185" y2="80"/>
+          <line x1="40" y1="120" x2="160" y2="30"/>
+          <line x1="40" y1="120" x2="100" y2="15"/>
+        </g>
+        <circle cx="40" cy="120" r="4" fill="#a23b52"/><text x="26" y="128" font-size="12" font-weight="bold">O</text>
+        <text x="194" y="124" font-size="11" font-style="italic">a</text>
+        <text x="190" y="80" font-size="11" font-style="italic">b</text>
+        <text x="164" y="28" font-size="11" font-style="italic">c</text>
+        <text x="96" y="12" font-size="11" font-style="italic">d</text>
+      </svg>
+      <div class="cap">$4$ tia chung gốc.</div>
+      <p>Số góc $=\dfrac{4\cdot3}{2}=$ <span class="key">$6$ góc</span>: $\widehat{aOb},\widehat{aOc},\widehat{aOd},\widehat{bOc},\widehat{bOd},\widehat{cOd}$.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Tìm số tia</h3>
+    <div class="de"><p>$n$ tia chung gốc tạo $21$ góc. Tìm $n$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>$\dfrac{n(n-1)}{2}=21\Rightarrow n(n-1)=42=7\cdot6\Rightarrow$ <span class="key">$n=7$</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Kí hiệu góc: chữ chỉ đỉnh viết ở giữa ($\widehat{xOy}$).</li>
+      <li>Góc bẹt ⟺ hai cạnh là hai tia đối nhau.</li>
+      <li>$n$ tia chung gốc → $\dfrac{n(n-1)}{2}$ góc; giải ngược để tìm $n$.</li>
+    </ul>
+  </div>
+
+</div>

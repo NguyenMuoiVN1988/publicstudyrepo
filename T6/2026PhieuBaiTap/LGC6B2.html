@@ -1,0 +1,125 @@
+---
+layout: default
+title: Toán 6 - So sánh phân số. Hỗn số dương (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 2 Chương 6 Toán 6: quy đồng mẫu, so sánh phân số âm dương, đổi hỗn số sang phân số và ngược lại, bài toán thực tế."
+tags: [Toán 6, so sánh phân số, quy đồng mẫu, hỗn số]
+series: t6-c6
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:8px;
+    padding:8px 12px; margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); } .lgc .link:hover { background:#fbeec3; } .lgc .link::before { content:"🔗 "; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>So sánh phân số. Hỗn số dương — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 6: Phân số · Bài 2</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-ss">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Quy đồng · So sánh · Hỗn số</h3>
+    <ul>
+      <li>Quy đồng: lấy mẫu chung là <b>BCNN</b> các mẫu (đưa về mẫu dương trước).</li>
+      <li>Cùng mẫu dương: tử lớn hơn thì phân số lớn hơn. Với phân số âm, số gần $0$ hơn thì lớn hơn.</li>
+      <li>Hỗn số: $a\dfrac{b}{c}=\dfrac{a\cdot c+b}{c}$; ngược lại lấy tử chia mẫu (thương = phần nguyên, dư = tử mới).</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Quy đồng mẫu</h3>
+    <div class="de"><p>a) $\dfrac{5}{6}$ và $\dfrac{7}{8}$; b) $\dfrac{-3}{4}$ và $\dfrac{5}{6}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> $\mathrm{BCNN}(6,8)=24$: $\dfrac{5}{6}=$ <span class="key">$\dfrac{20}{24}$</span>, $\dfrac{7}{8}=$ <span class="key">$\dfrac{21}{24}$</span>.</p>
+      <p><b>b)</b> $\mathrm{BCNN}(4,6)=12$: $\dfrac{-3}{4}=$ <span class="key">$\dfrac{-9}{12}$</span>, $\dfrac{5}{6}=$ <span class="key">$\dfrac{10}{12}$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> So sánh phân số</h3>
+    <div class="de"><p>a) $\dfrac{5}{6}$ và $\dfrac{7}{8}$; b) $\dfrac{-3}{4}$ và $\dfrac{-5}{7}$; c) $\dfrac{4}{9}$ và $\dfrac{5}{11}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> $\dfrac{20}{24}<\dfrac{21}{24}$ nên $\dfrac{5}{6}<\dfrac{7}{8}$.</p>
+      <p><b>b)</b> $\mathrm{BCNN}(4,7)=28$: $\dfrac{-3}{4}=\dfrac{-21}{28}$, $\dfrac{-5}{7}=\dfrac{-20}{28}$. Vì $-21<-20$ nên <span class="key">$\dfrac{-3}{4}<\dfrac{-5}{7}$</span>.</p>
+      <p><b>c)</b> $\mathrm{BCNN}(9,11)=99$: $\dfrac{4}{9}=\dfrac{44}{99}$, $\dfrac{5}{11}=\dfrac{45}{99}$ nên <span class="key">$\dfrac{4}{9}<\dfrac{5}{11}$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> với phân số âm, tử "to" hơn lại <b>nhỏ</b> hơn: $-21<-20$ nên $\dfrac{-3}{4}<\dfrac{-5}{7}$.</div>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Đổi hỗn số</h3>
+    <div class="de"><p>a) Đổi sang phân số: $2\dfrac{3}{5}$; $3\dfrac{1}{4}$. b) Đổi sang hỗn số: $\dfrac{17}{4}$; $\dfrac{23}{6}$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p><b>a)</b> $2\dfrac{3}{5}=\dfrac{2\cdot5+3}{5}=$ <span class="key">$\dfrac{13}{5}$</span>; &nbsp; $3\dfrac{1}{4}=\dfrac{3\cdot4+1}{4}=$ <span class="key">$\dfrac{13}{4}$</span>.</p>
+      <p><b>b)</b> $\dfrac{17}{4}=$ <span class="key">$4\dfrac{1}{4}$</span> (vì $17:4=4$ dư $1$); &nbsp; $\dfrac{23}{6}=$ <span class="key">$3\dfrac{5}{6}$</span> (vì $23:6=3$ dư $5$).</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Bài toán thực tế</h3>
+    <div class="de"><p>An ăn $\dfrac{2}{5}$ cái bánh, Bình ăn $\dfrac{3}{8}$ cái bánh. Ai ăn nhiều hơn?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>$\mathrm{BCNN}(5,8)=40$: $\dfrac{2}{5}=\dfrac{16}{40}$, $\dfrac{3}{8}=\dfrac{15}{40}$.</p>
+      <p>Vì $\dfrac{16}{40}>\dfrac{15}{40}$ nên <span class="key">An ăn nhiều hơn</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Trước khi quy đồng/so sánh, đưa mọi phân số về <b>mẫu dương</b>.</li>
+      <li>Phân số âm: "tử có giá trị lớn hơn" thì phân số <b>nhỏ</b> hơn.</li>
+      <li>Đổi hỗn số ↔ phân số bằng phép nhân — cộng (đi) và phép chia có dư (về).</li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,147 @@
+---
+layout: default
+title: Toán 6 - Trung điểm của đoạn thẳng (Lời giải phiếu bài tập)
+description: "Lời giải chi tiết phiếu bài tập Bài 4 Chương 8 Toán 6: trung điểm của đoạn thẳng, tính độ dài, chứng tỏ một điểm là trung điểm, trung điểm lồng nhau — kèm hình vẽ."
+tags: [Toán 6, trung điểm, đoạn thẳng]
+series: t6-c8
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb; --teal:#1f7a72; --teal-bg:#e9f6f4;
+         --amber:#b07a12; --amber-bg:#fdf6e3; --rose:#a23b52; --rose-bg:#fdeef1; --paper:#fff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72); color:#fff;
+    border-radius:16px; padding:26px 28px; margin:8px 0 26px; box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700; margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo);
+    margin:34px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3; border-left:5px solid var(--indigo);
+    border-radius:12px; padding:16px 20px; margin:16px 0; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.3px; color:var(--indigo); background:#fff; border:1px solid #d4ddf3; border-radius:999px; padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif; color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 18px; margin:22px 0; box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo); font-size:1.08rem;
+    display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700; border-radius:9px; min-width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line); border-left:4px solid var(--teal);
+    border-radius:10px; padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700; color:var(--teal); margin:0 0 6px; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px; padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf; border-left:4px solid var(--rose);
+    border-radius:8px; padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3; border-radius:12px;
+    padding:14px 20px 14px 18px; margin:26px 0 10px; border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber); margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; } .lgc .note li { margin:6px 0; }
+  .lgc .fig { display:block; margin:12px auto 2px; max-width:100%; height:auto; }
+  .lgc .cap { text-align:center; font-size:.85rem; color:var(--soft); font-style:italic; margin:0 0 12px; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Trung điểm của đoạn thẳng — Lời giải chi tiết</h1>
+    <p>Toán 6 · Chương 8: Những hình hình học cơ bản · Bài 4</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Trung điểm</h3>
+    <ul>
+      <li>$M$ là <b>trung điểm</b> của $AB$ ⟺ $M$ nằm giữa $A,B$ <b>và</b> $MA=MB$.</li>
+      <li>Khi đó $MA=MB=\dfrac{AB}{2}$.</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <div class="bai">
+    <h3><span class="num">1</span> Tính độ dài từ trung điểm</h3>
+    <div class="de"><p>$CD=10$ cm, $I$ là trung điểm. Tính $IC,ID$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="300" height="60" viewBox="0 0 300 60" role="img" aria-label="Đoạn CD trung điểm I">
+        <line x1="40" y1="35" x2="260" y2="35" stroke="#3f5d9e" stroke-width="2"/>
+        <circle cx="40" cy="35" r="4" fill="#a23b52"/><text x="34" y="24" font-size="12" font-weight="bold">C</text>
+        <circle cx="150" cy="35" r="4" fill="#1f7a72"/><text x="145" y="24" font-size="12" font-weight="bold">I</text>
+        <circle cx="260" cy="35" r="4" fill="#a23b52"/><text x="254" y="24" font-size="12" font-weight="bold">D</text>
+        <text x="95" y="52" text-anchor="middle" font-size="10" fill="#5b6b7a">5 cm</text>
+        <text x="205" y="52" text-anchor="middle" font-size="10" fill="#5b6b7a">5 cm</text>
+      </svg>
+      <div class="cap">$I$ chia $CD$ thành hai phần bằng nhau.</div>
+      <p>$IC=ID=\dfrac{CD}{2}=\dfrac{10}{2}=$ <span class="key">$5$ cm</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">2</span> Kiểm tra trung điểm</h3>
+    <div class="de"><p>Trên tia $Oy$: $OM=2$ cm, $ON=4$ cm. $M$ có là trung điểm $ON$?</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="300" height="65" viewBox="0 0 300 65" role="img" aria-label="Tia Oy với M và N">
+        <line x1="30" y1="38" x2="280" y2="38" stroke="#3f5d9e" stroke-width="2"/>
+        <polygon points="280,38 272,34 272,42" fill="#3f5d9e"/><text x="286" y="42" font-size="12" font-style="italic">y</text>
+        <circle cx="50" cy="38" r="4" fill="#a23b52"/><text x="44" y="26" font-size="12" font-weight="bold">O</text>
+        <circle cx="140" cy="38" r="4" fill="#1f7a72"/><text x="134" y="26" font-size="12" font-weight="bold">M</text>
+        <circle cx="230" cy="38" r="4" fill="#a23b52"/><text x="224" y="26" font-size="12" font-weight="bold">N</text>
+        <text x="95" y="56" text-anchor="middle" font-size="10" fill="#5b6b7a">2 cm</text>
+        <text x="185" y="56" text-anchor="middle" font-size="10" fill="#5b6b7a">2 cm</text>
+      </svg>
+      <p>Vì $OM<ON$ nên $M$ nằm giữa $O,N$: $MN=ON-OM=4-2=2$ cm.</p>
+      <p>Ta có $OM=MN=2$ cm và $M$ nằm giữa $O,N$ ⟹ <span class="key">$M$ là trung điểm của $ON$</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">3</span> Trung điểm lồng nhau</h3>
+    <div class="de"><p>$AB=12$ cm, $M$ trung điểm $AB$, $N$ trung điểm $AM$. Tính $AN$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <svg class="fig" width="320" height="60" viewBox="0 0 320 60" role="img" aria-label="AB với M trung điểm AB và N trung điểm AM">
+        <line x1="30" y1="35" x2="290" y2="35" stroke="#3f5d9e" stroke-width="2"/>
+        <circle cx="30" cy="35" r="4" fill="#a23b52"/><text x="24" y="24" font-size="12" font-weight="bold">A</text>
+        <circle cx="95" cy="35" r="4" fill="#b07a12"/><text x="90" y="24" font-size="12" font-weight="bold">N</text>
+        <circle cx="160" cy="35" r="4" fill="#1f7a72"/><text x="155" y="24" font-size="12" font-weight="bold">M</text>
+        <circle cx="290" cy="35" r="4" fill="#a23b52"/><text x="284" y="24" font-size="12" font-weight="bold">B</text>
+        <text x="62" y="52" text-anchor="middle" font-size="9" fill="#5b6b7a">3</text>
+        <text x="127" y="52" text-anchor="middle" font-size="9" fill="#5b6b7a">3</text>
+        <text x="225" y="52" text-anchor="middle" font-size="9" fill="#5b6b7a">6 cm</text>
+      </svg>
+      <p>$M$ trung điểm $AB$ ⟹ $AM=\dfrac{12}{2}=6$ cm. $N$ trung điểm $AM$ ⟹ $AN=\dfrac{AM}{2}=\dfrac{6}{2}=$ <span class="key">$3$ cm</span>.</p>
+    </div>
+  </div>
+
+  <div class="bai">
+    <h3><span class="num">4</span> Vẽ trung điểm</h3>
+    <div class="de"><p>Vẽ $AB=6$ cm, xác định trung điểm $M$ bằng thước; tính $MA$.</p></div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Vẽ $AB=6$ cm. Đo từ $A$ một đoạn $3$ cm để đánh dấu $M$ (vì $MA=\dfrac{AB}{2}=3$ cm).</p>
+      <p>Khi đó $MA=MB=$ <span class="key">$3$ cm</span> và $M$ là trung điểm của $AB$.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Trung điểm cần <b>cả hai</b> điều kiện: nằm giữa và cách đều.</li>
+      <li>$MA=MB=\dfrac{AB}{2}$.</li>
+      <li>Trung điểm lồng nhau: mỗi lần lấy trung điểm thì độ dài giảm một nửa.</li>
+    </ul>
+  </div>
+
+</div>
