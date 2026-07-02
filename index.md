@@ -75,6 +75,7 @@ details > div {
 - [Trắc nghiệm – Đề ôn tập số 02 (14 câu)](HSA/CDOnTap/CD1/TestCD1Part2.html)
 
 *Chuyên đề 2: Hàm số bậc hai*
+- [🗺️ Lộ trình ôn tập 10 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD2/OnTapCD2/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (18 câu)](HSA/CDOnTap/CD2/TestCD2Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD2/TestCD2Part2.html)
 

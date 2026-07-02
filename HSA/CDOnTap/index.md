@@ -35,6 +35,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 
 <div class="hsa-card">
 <h3><span class="cd-no">2</span>Hàm số bậc hai</h3>
+<a class="lnk bg" href="CD2/OnTapCD2/index.html">🗺️ Lộ trình ôn tập 10 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD2/TestCD2Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD2/TestCD2Part2.html">📝 Đề ôn tập 02</a>
 </div>
