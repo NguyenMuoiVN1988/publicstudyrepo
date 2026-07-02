@@ -99,6 +99,7 @@ details > div {
 
 *Chuyên đề 6: Dãy số, cấp số cộng, cấp số nhân*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD6/CD6.html)
+- [🗺️ Lộ trình ôn tập 7 bài (~10 phút/bài: lý thuyết + bài kiểm tra + kho luyện thêm)](HSA/CDOnTap/CD6/OnTapCD6/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD6/TestCD6Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD6/TestCD6Part2.html)
 

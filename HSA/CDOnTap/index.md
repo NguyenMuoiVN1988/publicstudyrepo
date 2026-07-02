@@ -73,6 +73,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">6</span>Dãy số, cấp số cộng, cấp số nhân</h3>
 <a class="lnk bg" href="CD6/CD6.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD6/OnTapCD6/index.html">🗺️ Lộ trình ôn tập 7 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD6/TestCD6Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD6/TestCD6Part2.html">📝 Đề ôn tập 02</a>
 </div>
