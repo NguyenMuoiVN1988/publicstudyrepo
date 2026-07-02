@@ -136,6 +136,7 @@ details > div {
 
 *Chuyên đề 12: Quan hệ vuông góc*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD12/CD12.html)
+- [🗺️ Lộ trình ôn tập 8 bài (~10 phút/bài: lý thuyết + bài kiểm tra + kho luyện thêm)](HSA/CDOnTap/CD12/OnTapCD12/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD12/TestCD12Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD12/TestCD12Part2.html)
 

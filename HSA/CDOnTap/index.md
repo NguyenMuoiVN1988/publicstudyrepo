@@ -122,6 +122,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">12</span>Quan hệ vuông góc</h3>
 <a class="lnk bg" href="CD12/CD12.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD12/OnTapCD12/index.html">🗺️ Lộ trình ôn tập 8 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD12/TestCD12Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD12/TestCD12Part2.html">📝 Đề ôn tập 02</a>
 </div>
