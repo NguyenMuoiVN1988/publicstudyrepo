@@ -130,6 +130,7 @@ details > div {
 
 *Chuyên đề 11: Đạo hàm. Tiếp tuyến*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD11/CD11.html)
+- [🗺️ Lộ trình ôn tập 7 bài (~10 phút/bài: lý thuyết + bài kiểm tra + kho luyện thêm)](HSA/CDOnTap/CD11/OnTapCD11/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD11/TestCD11Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (18 câu)](HSA/CDOnTap/CD11/TestCD11Part2.html)
 
@@ -561,6 +562,10 @@ details > div {
 <summary>TNTHPT</summary>
 <div markdown="1">
 
+**Trắc nghiệm tương tác**
+- [Đề Tham Khảo TN THPT 2025 – Môn Toán (12 TN + 4 Đ/S + 6 trả lời ngắn)](TNTHPT/2025MinhHoa.html)
+
+**Chuyên đề ôn tập**
 - [CD1: Chuyên đề Phương trình và Bất phương trình](TNTHPT/CD1part1.md)
 
 </div>
