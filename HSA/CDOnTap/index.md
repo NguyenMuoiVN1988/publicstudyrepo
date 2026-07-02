@@ -136,6 +136,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">13</span>Tính đơn điệu của hàm số</h3>
 <a class="lnk bg" href="CD13/CD13.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD13/OnTapCD13/index.html">🗺️ Lộ trình ôn tập 6 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD13/TestCD13Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD13/TestCD13Part2.html">📝 Đề ôn tập 02</a>
 </div>
@@ -143,6 +144,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">14</span>Cực trị của hàm số</h3>
 <a class="lnk bg" href="CD14/CD14.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD14/OnTapCD14/index.html">🗺️ Lộ trình ôn tập 5 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD14/TestCD14Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD14/TestCD14Part2.html">📝 Đề ôn tập 02</a>
 </div>
@@ -150,6 +152,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">15</span>Giá trị lớn nhất, nhỏ nhất của hàm số</h3>
 <a class="lnk bg" href="CD15/CD15.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD15/OnTapCD15/index.html">🗺️ Lộ trình ôn tập 4 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD15/TestCD15Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD15/TestCD15Part2.html">📝 Đề ôn tập 02</a>
 </div>

@@ -142,16 +142,19 @@ details > div {
 
 *Chuyên đề 13: Tính đơn điệu của hàm số*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD13/CD13.html)
+- [🗺️ Lộ trình ôn tập 6 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD13/OnTapCD13/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD13/TestCD13Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD13/TestCD13Part2.html)
 
 *Chuyên đề 14: Cực trị của hàm số*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD14/CD14.html)
+- [🗺️ Lộ trình ôn tập 5 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD14/OnTapCD14/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD14/TestCD14Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD14/TestCD14Part2.html)
 
 *Chuyên đề 15: Giá trị lớn nhất, giá trị nhỏ nhất của hàm số*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD15/CD15.html)
+- [🗺️ Lộ trình ôn tập 4 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD15/OnTapCD15/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD15/TestCD15Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD15/TestCD15Part2.html)
 
