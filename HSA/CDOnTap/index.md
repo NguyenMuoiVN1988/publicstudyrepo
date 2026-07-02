@@ -114,6 +114,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">11</span>Đạo hàm. Tiếp tuyến</h3>
 <a class="lnk bg" href="CD11/CD11.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD11/OnTapCD11/index.html">🗺️ Lộ trình ôn tập 7 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD11/TestCD11Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD11/TestCD11Part2.html">📝 Đề ôn tập 02</a>
 </div>
