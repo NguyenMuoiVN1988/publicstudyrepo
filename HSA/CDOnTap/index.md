@@ -65,6 +65,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">5</span>Hàm số lượng giác & phương trình lượng giác</h3>
 <a class="lnk bg" href="CD5/CD5.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD5/OnTapCD5/index.html">🗺️ Lộ trình ôn tập 4 bài Đúng/Sai (~10 phút/bài)</a>
 <a class="lnk de" href="CD5/TestCD5Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD5/TestCD5Part2.html">📝 Đề ôn tập 02</a>
 </div>

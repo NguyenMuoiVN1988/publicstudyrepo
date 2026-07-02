@@ -93,6 +93,7 @@ details > div {
 
 *Chuyên đề 5: Hàm số lượng giác và phương trình lượng giác*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD5/CD5.html)
+- [🗺️ Lộ trình ôn tập 4 bài Đúng/Sai từng ý (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD5/OnTapCD5/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (18 câu)](HSA/CDOnTap/CD5/TestCD5Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (18 câu)](HSA/CDOnTap/CD5/TestCD5Part2.html)
 
