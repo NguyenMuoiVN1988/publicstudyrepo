@@ -81,6 +81,7 @@ details > div {
 
 *Chuyên đề 3: Hệ thức lượng trong tam giác và Vectơ*
 - [Bài giảng: Lý thuyết và 13 ví dụ có lời giải](HSA/CDOnTap/CD3/CD3.html)
+- [🗺️ Lộ trình ôn tập 19 bài (~10 phút/bài: lý thuyết + bài kiểm tra + kho luyện thêm)](HSA/CDOnTap/CD3/OnTapCD3/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD3/TestCD3Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD3/TestCD3Part2.html)
 

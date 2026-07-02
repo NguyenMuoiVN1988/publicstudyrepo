@@ -43,6 +43,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">3</span>Hệ thức lượng trong tam giác & Vectơ</h3>
 <a class="lnk bg" href="CD3/CD3.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD3/OnTapCD3/index.html">🗺️ Lộ trình ôn tập 19 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD3/TestCD3Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD3/TestCD3Part2.html">📝 Đề ôn tập 02</a>
 </div>
