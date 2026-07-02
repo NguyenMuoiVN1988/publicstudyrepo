@@ -124,6 +124,7 @@ details > div {
 
 *Chuyên đề 10: Hàm số mũ. Hàm số logarit*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD10/CD10.html)
+- [🗺️ Lộ trình ôn tập 8 bài (~10 phút/bài: lý thuyết + bài kiểm tra + kho luyện thêm)](HSA/CDOnTap/CD10/OnTapCD10/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (25 câu)](HSA/CDOnTap/CD10/TestCD10Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (25 câu)](HSA/CDOnTap/CD10/TestCD10Part2.html)
 

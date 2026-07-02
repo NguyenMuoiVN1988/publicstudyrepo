@@ -106,6 +106,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">10</span>Hàm số mũ và hàm số lôgarit</h3>
 <a class="lnk bg" href="CD10/CD10.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD10/OnTapCD10/index.html">🗺️ Lộ trình ôn tập 8 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD10/TestCD10Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD10/TestCD10Part2.html">📝 Đề ôn tập 02</a>
 </div>
