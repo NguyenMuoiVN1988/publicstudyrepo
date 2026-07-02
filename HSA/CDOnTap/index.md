@@ -160,6 +160,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">16</span>Đường tiệm cận của đồ thị hàm số</h3>
 <a class="lnk bg" href="CD16/CD16.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD16/OnTapCD16/index.html">🗺️ Lộ trình ôn tập 4 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD16/TestCD16Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD16/TestCD16Part2.html">📝 Đề ôn tập 02</a>
 </div>
@@ -167,6 +168,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">17</span>Tương giao & tiếp tuyến của đồ thị hàm số</h3>
 <a class="lnk bg" href="CD17/CD17.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD17/OnTapCD17/index.html">🗺️ Lộ trình ôn tập 4 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD17/TestCD17Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD17/TestCD17Part2.html">📝 Đề ôn tập 02</a>
 </div>
@@ -181,6 +183,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">19</span>Tọa độ vectơ trong không gian</h3>
 <a class="lnk bg" href="CD19/CD19.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD19/OnTapCD19/index.html">🗺️ Lộ trình ôn tập 12 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD19/TestCD19Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD19/TestCD19Part2.html">📝 Đề ôn tập 02</a>
 </div>

@@ -160,11 +160,13 @@ details > div {
 
 *Chuyên đề 16: Đường tiệm cận của đồ thị hàm số*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD16/CD16.html)
+- [🗺️ Lộ trình ôn tập 4 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD16/OnTapCD16/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD16/TestCD16Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD16/TestCD16Part2.html)
 
 *Chuyên đề 17: Tương giao và tiếp tuyến của đồ thị hàm số*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD17/CD17.html)
+- [🗺️ Lộ trình ôn tập 4 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD17/OnTapCD17/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD17/TestCD17Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD17/TestCD17Part2.html)
 
@@ -175,6 +177,7 @@ details > div {
 
 *Chuyên đề 19: Tọa độ vectơ trong không gian*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD19/CD19.html)
+- [🗺️ Lộ trình ôn tập 12 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD19/OnTapCD19/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD19/TestCD19Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD19/TestCD19Part2.html)
 
