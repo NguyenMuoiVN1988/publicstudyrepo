@@ -87,6 +87,7 @@ details > div {
 
 *Chuyên đề 4: Phương pháp toạ độ trong mặt phẳng*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD4/CD4.html)
+- [🗺️ Lộ trình ôn tập 8 bài (~10 phút/bài: lý thuyết + bài kiểm tra + kho luyện thêm)](HSA/CDOnTap/CD4/OnTapCD4/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (17 câu)](HSA/CDOnTap/CD4/TestCD4Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD4/TestCD4Part2.html)
 
