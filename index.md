@@ -235,6 +235,21 @@ details > div {
 ---
 
 <details>
+<summary style="background:#fff1f2;">TNTHPT – Tốt nghiệp THPT</summary>
+<div markdown="1">
+
+**Trắc nghiệm tương tác**
+- [Đề Tham Khảo TN THPT 2025 – Môn Toán (12 TN + 4 Đ/S + 6 trả lời ngắn)](TNTHPT/2025MinhHoa.html)
+
+**Chuyên đề ôn tập**
+- [CD1: Chuyên đề Phương trình và Bất phương trình](TNTHPT/CD1part1.md)
+
+</div>
+</details>
+
+---
+
+<details>
 <summary>Tiểu học</summary>
 <div markdown="1">
 
@@ -552,21 +567,6 @@ details > div {
 **Chương 4: Tích phân**
 - [Bài 1: Nguyên hàm và tích phân](T12/T12C4B1.html)
 - [Bài 2: Ứng dụng hình học của tích phân](T12/T12C4B2.html)
-
-</div>
-</details>
-
----
-
-<details>
-<summary>TNTHPT</summary>
-<div markdown="1">
-
-**Trắc nghiệm tương tác**
-- [Đề Tham Khảo TN THPT 2025 – Môn Toán (12 TN + 4 Đ/S + 6 trả lời ngắn)](TNTHPT/2025MinhHoa.html)
-
-**Chuyên đề ôn tập**
-- [CD1: Chuyên đề Phương trình và Bất phương trình](TNTHPT/CD1part1.md)
 
 </div>
 </details>
