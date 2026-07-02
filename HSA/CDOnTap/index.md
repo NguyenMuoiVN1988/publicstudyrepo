@@ -89,6 +89,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">8</span>Đại số tổ hợp. Xác suất và biến cố</h3>
 <a class="lnk bg" href="CD8/CD8.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD8/OnTapCD8/index.html">🗺️ Lộ trình ôn tập 21 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD8/TestCD8Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD8/TestCD8Part2.html">📝 Đề ôn tập 02</a>
 <a class="lnk de" href="CD8/TestCD8Part3.html">📝 Đề ôn tập 03</a>
