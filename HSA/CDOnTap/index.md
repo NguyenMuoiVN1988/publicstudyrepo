@@ -28,6 +28,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">1</span>Bất phương trình & hệ BPT bậc nhất hai ẩn</h3>
 <a class="lnk bg" href="CD1/CD1.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD1/OnTapCD1/index.html">🗺️ Lộ trình ôn tập 13 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD1/TestCD1Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD1/TestCD1Part2.html">📝 Đề ôn tập 02</a>
 </div>

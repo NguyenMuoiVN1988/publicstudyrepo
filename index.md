@@ -70,6 +70,7 @@ details > div {
 
 *Chuyên đề 1: Bất phương trình & hệ bất phương trình bậc nhất hai ẩn*
 - [Bài giảng: Lý thuyết, ví dụ và quy hoạch tuyến tính](HSA/CDOnTap/CD1/CD1.html)
+- [🗺️ Lộ trình ôn tập 13 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD1/OnTapCD1/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (13 câu)](HSA/CDOnTap/CD1/TestCD1Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (14 câu)](HSA/CDOnTap/CD1/TestCD1Part2.html)
 
