@@ -118,6 +118,7 @@ details > div {
 
 *Chuyên đề 9: Quan hệ song song*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD9/CD9.html)
+- [🗺️ Lộ trình ôn tập 5 bài Đúng/Sai từng ý (~10 phút/bài: lý thuyết + bài kiểm tra + kho luyện thêm)](HSA/CDOnTap/CD9/OnTapCD9/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD9/TestCD9Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (14 câu)](HSA/CDOnTap/CD9/TestCD9Part2.html)
 
