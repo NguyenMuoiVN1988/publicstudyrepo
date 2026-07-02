@@ -66,7 +66,7 @@ tiếp theo.** Kết thúc bằng bài **tổng ôn chương** trộn cả ba ch
 
 <div class="hsa-card">
 <h3><span class="cd-no">TT05</span>Cấp số cộng — tổng n số hạng đầu & ứng dụng</h3>
-<p>7 trắc nghiệm + 1 Đúng/Sai · ~10 phút</p>
+<p>8 trắc nghiệm · ~10 phút</p>
 <a class="lnk" href="TT05.html">▶ Học & làm bài</a>
 <a class="lnk plus" href="TT05Plus.html">💪 Luyện thêm (9 câu)</a>
 </div>
@@ -79,9 +79,9 @@ tiếp theo.** Kết thúc bằng bài **tổng ôn chương** trộn cả ba ch
 
 <div class="hsa-card">
 <h3><span class="cd-no">TT06</span>Cấp số nhân — công bội, số hạng tổng quát, tổng & lãi kép</h3>
-<p>4 Đúng/Sai · ~10 phút</p>
+<p>2 Đúng/Sai · ~10 phút</p>
 <a class="lnk" href="TT06.html">▶ Học & làm bài</a>
-<a class="lnk plus" href="TT06Plus.html">💪 Luyện thêm (7 câu)</a>
+<a class="lnk plus" href="TT06Plus.html">💪 Luyện thêm (9 câu)</a>
 </div>
 
 <div class="hsa-card">

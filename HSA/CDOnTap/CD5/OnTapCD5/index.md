@@ -31,16 +31,16 @@ dạng đề thi mới) có chấm điểm + lời giải. **Đúng ≥ 80% số
 
 <div class="hsa-card">
 <h3><span class="cd-no">TT01</span>Giá trị lượng giác của góc lượng giác</h3>
-<p>4 câu Đúng/Sai (chấm từng ý) · ~10 phút</p>
+<p>2 câu Đúng/Sai (chấm từng ý) · ~10 phút</p>
 <a class="lnk" href="TT01.html">▶ Học & làm bài</a>
-<a class="lnk plus" href="TT01Plus.html">💪 Luyện thêm (5 câu)</a>
+<a class="lnk plus" href="TT01Plus.html">💪 Luyện thêm (7 câu)</a>
 </div>
 
 <div class="hsa-card">
 <h3><span class="cd-no">TT02</span>Công thức lượng giác</h3>
-<p>4 câu Đúng/Sai (chấm từng ý) · ~10 phút</p>
+<p>2 câu Đúng/Sai (chấm từng ý) · ~10 phút</p>
 <a class="lnk" href="TT02.html">▶ Học & làm bài</a>
-<a class="lnk plus" href="TT02Plus.html">💪 Luyện thêm (8 câu)</a>
+<a class="lnk plus" href="TT02Plus.html">💪 Luyện thêm (10 câu)</a>
 </div>
 
 </div>
@@ -51,16 +51,16 @@ dạng đề thi mới) có chấm điểm + lời giải. **Đúng ≥ 80% số
 
 <div class="hsa-card">
 <h3><span class="cd-no">TT03</span>Hàm số lượng giác — TXĐ, tính chẵn lẻ, chu kì, GTLN–GTNN</h3>
-<p>4 câu Đúng/Sai (chấm từng ý) · ~10 phút</p>
+<p>2 câu Đúng/Sai (chấm từng ý) · ~10 phút</p>
 <a class="lnk" href="TT03.html">▶ Học & làm bài</a>
-<a class="lnk plus" href="TT03Plus.html">💪 Luyện thêm (2 câu)</a>
+<a class="lnk plus" href="TT03Plus.html">💪 Luyện thêm (4 câu)</a>
 </div>
 
 <div class="hsa-card">
 <h3><span class="cd-no">TT04</span>Phương trình lượng giác cơ bản</h3>
-<p>4 câu Đúng/Sai (chấm từng ý) · ~10 phút</p>
+<p>2 câu Đúng/Sai (chấm từng ý) · ~10 phút</p>
 <a class="lnk" href="TT04.html">▶ Học & làm bài</a>
-<a class="lnk plus" href="TT04Plus.html">💪 Luyện thêm (3 câu)</a>
+<a class="lnk plus" href="TT04Plus.html">💪 Luyện thêm (5 câu)</a>
 </div>
 
 </div>

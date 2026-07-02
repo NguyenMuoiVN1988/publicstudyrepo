@@ -81,6 +81,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">7</span>Giới hạn. Hàm số liên tục</h3>
 <a class="lnk bg" href="CD7/CD7.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD7/OnTapCD7/index.html">🗺️ Lộ trình ôn tập 3 bài Đúng/Sai (~10 phút/bài)</a>
 <a class="lnk de" href="CD7/TestCD7Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD7/TestCD7Part2.html">📝 Đề ôn tập 02</a>
 </div>
