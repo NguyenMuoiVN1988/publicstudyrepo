@@ -191,6 +191,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">20</span>Phương trình mặt phẳng và đường thẳng</h3>
 <a class="lnk bg" href="CD20/CD20.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD20/OnTapCD20/index.html">🗺️ Lộ trình ôn tập 11 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD20/TestCD20Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD20/TestCD20Part2.html">📝 Đề ôn tập 02</a>
 </div>
@@ -198,6 +199,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">21</span>Phương trình mặt cầu – Góc & khoảng cách</h3>
 <a class="lnk bg" href="CD21/CD21.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD21/OnTapCD21/index.html">🗺️ Lộ trình ôn tập 11 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD21/TestCD21Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD21/TestCD21Part2.html">📝 Đề ôn tập 02</a>
 </div>
@@ -205,6 +207,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">22</span>Nguyên hàm</h3>
 <a class="lnk bg" href="CD22/CD22.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD22/OnTapCD22/index.html">🗺️ Lộ trình ôn tập 18 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD22/TestCD22Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD22/TestCD22Part2.html">📝 Đề ôn tập 02</a>
 </div>
@@ -212,6 +215,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">23</span>Tích phân – Ứng dụng tính diện tích</h3>
 <a class="lnk bg" href="CD23/CD23.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD23/OnTapCD23/index.html">🗺️ Lộ trình ôn tập 2 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD23/TestCD23Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD23/TestCD23Part2.html">📝 Đề ôn tập 02</a>
 </div>
@@ -219,6 +223,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">24</span>Tích phân – Ứng dụng tính thể tích</h3>
 <a class="lnk bg" href="CD24/CD24.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD24/OnTapCD24/index.html">🗺️ Lộ trình ôn tập 2 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD24/TestCD24Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD24/TestCD24Part2.html">📝 Đề ôn tập 02</a>
 </div>
@@ -226,6 +231,7 @@ Bộ **25 chuyên đề Toán** ôn thi Đánh giá năng lực (HSA) của ĐHQ
 <div class="hsa-card">
 <h3><span class="cd-no">25</span>Xác suất có điều kiện</h3>
 <a class="lnk bg" href="CD25/CD25.html">📖 Bài giảng</a>
+<a class="lnk bg" href="CD25/OnTapCD25/index.html">🗺️ Lộ trình ôn tập 14 bài (~10 phút/bài)</a>
 <a class="lnk de" href="CD25/TestCD25Part1.html">📝 Đề ôn tập 01</a>
 <a class="lnk de" href="CD25/TestCD25Part2.html">📝 Đề ôn tập 02</a>
 </div>

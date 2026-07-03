@@ -183,31 +183,37 @@ details > div {
 
 *Chuyên đề 20: Phương trình mặt phẳng và đường thẳng*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD20/CD20.html)
+- [🗺️ Lộ trình ôn tập 11 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD20/OnTapCD20/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD20/TestCD20Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD20/TestCD20Part2.html)
 
 *Chuyên đề 21: Phương trình mặt cầu – Góc và khoảng cách*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD21/CD21.html)
+- [🗺️ Lộ trình ôn tập 11 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD21/OnTapCD21/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD21/TestCD21Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD21/TestCD21Part2.html)
 
 *Chuyên đề 22: Nguyên hàm*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD22/CD22.html)
+- [🗺️ Lộ trình ôn tập 18 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD22/OnTapCD22/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (20 câu)](HSA/CDOnTap/CD22/TestCD22Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (20 câu)](HSA/CDOnTap/CD22/TestCD22Part2.html)
 
 *Chuyên đề 23: Tích phân – Ứng dụng tính diện tích*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD23/CD23.html)
+- [🗺️ Lộ trình ôn tập 2 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD23/OnTapCD23/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD23/TestCD23Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD23/TestCD23Part2.html)
 
 *Chuyên đề 24: Tích phân – Ứng dụng tính thể tích*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD24/CD24.html)
+- [🗺️ Lộ trình ôn tập 2 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD24/OnTapCD24/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (16 câu)](HSA/CDOnTap/CD24/TestCD24Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (16 câu)](HSA/CDOnTap/CD24/TestCD24Part2.html)
 
 *Chuyên đề 25: Xác suất có điều kiện*
 - [Bài giảng: Lý thuyết và ví dụ có lời giải](HSA/CDOnTap/CD25/CD25.html)
+- [🗺️ Lộ trình ôn tập 14 bài (~10 phút/bài: lý thuyết + bài kiểm tra)](HSA/CDOnTap/CD25/OnTapCD25/index.html)
 - [Trắc nghiệm – Đề ôn tập số 01 (15 câu)](HSA/CDOnTap/CD25/TestCD25Part1.html)
 - [Trắc nghiệm – Đề ôn tập số 02 (15 câu)](HSA/CDOnTap/CD25/TestCD25Part2.html)
 
