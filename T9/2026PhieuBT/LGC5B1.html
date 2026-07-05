@@ -1,0 +1,210 @@
+---
+layout: default
+title: Toán 9 - Mở đầu về đường tròn
+description: "Lời giải bài tập mở đầu về đường tròn lớp 9 - vị trí điểm và đường tròn, tính đối xứng, đường kính và dây cung, dành cho học sinh lớp 9 chương trình Kết nối tri thức."
+tags: [Toán 9, đường tròn, dây cung, đường kính, hình học, chuyên đề]
+series: t9-c5
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc .figrow { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+    align-items:flex-end; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 12px; margin:8px 0 14px; }
+  .lgc .figrow svg { max-width:100%; height:auto; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 13 — Mở đầu về đường tròn</h1>
+    <p>Vị trí điểm — đường tròn · Tính đối xứng · Đường kính — dây cung</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-vitri">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Đường tròn &amp; vị trí điểm — đường tròn</h3>
+    <ul>
+      <li>Đường tròn tâm $O$ bán kính $R$ ($R>0$), kí hiệu $(O;R)$, gồm mọi điểm cách $O$ một khoảng bằng $R$.</li>
+      <li>Với điểm $M$: $OM=R \Leftrightarrow M$ nằm <b>trên</b> $(O)$; $OM<R \Leftrightarrow M$ nằm <b>trong</b>; $OM>R \Leftrightarrow M$ nằm <b>ngoài</b>.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-doixung">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Tính đối xứng của đường tròn</h3>
+    <ul>
+      <li>Đường tròn nhận <b>tâm $O$</b> làm tâm đối xứng: nếu $B$ thuộc $(O)$ thì điểm $B'$ đối xứng với $B$ qua $O$ cũng thuộc $(O)$ (vì $OB'=OB=R$).</li>
+      <li>Mọi <b>đường thẳng đi qua tâm</b> $O$ đều là trục đối xứng của đường tròn.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-daykinh">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Đường kính &amp; dây cung</h3>
+    <ul>
+      <li>Dây đi qua tâm gọi là <b>đường kính</b>; trong các dây của một đường tròn, đường kính là dây <b>dài nhất</b>.</li>
+      <li><b>Định lí Thalès:</b> nếu $BC$ là đường kính của đường tròn ngoại tiếp $\triangle ABC$ thì $\widehat{BAC}=90^\circ$ (và ngược lại).</li>
+    </ul>
+    <div class="tip">🔍 <b>Vì sao dây &lt; đường kính:</b> với dây $MN$ không qua tâm, xét $\triangle OMN$ có $OM=ON=R$; theo bất đẳng thức tam giác $MN&lt;OM+ON=2R$.</div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Vị trí tương đối giữa điểm và đường tròn</h3>
+    <div class="de">
+      <p><b>a)</b> Đường tròn $(O)$ bán kính $5\text{ cm}$; $OA=3\text{ cm}$, $OB=4\text{ cm}$, $OC=7\text{ cm}$, $OD=5\text{ cm}$. Xác định vị trí của $A,B,C,D$.</p>
+      <p><b>b)</b> Hình chữ nhật $ABCD$ có $AD=18\text{ cm}$, $CD=12\text{ cm}$. Chứng tỏ $A,B,C,D$ cùng thuộc một đường tròn; tính bán kính.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-vitri"><b>Dùng Lý thuyết 1:</b> so sánh khoảng cách đến tâm với bán kính $R=5$.</a>
+      <ul>
+        <li>a) $OA=3&lt;5$: $A$ nằm <span class="yes">trong</span>. $OB=4&lt;5$: $B$ nằm <span class="yes">trong</span>. $OC=7&gt;5$: $C$ nằm <span class="no">ngoài</span>. $OD=5=5$: $D$ nằm <span class="key">trên</span> đường tròn.</li>
+        <li>b) $ABCD$ là hình chữ nhật nên góc $\widehat{DAB}=\widehat{ABC}=\widehat{BCD}=\widehat{CDA}=90^\circ$ và hai đường chéo $AC=BD$, cắt nhau tại trung điểm $I$ của mỗi đường. Vì góc tại mỗi đỉnh đều là góc vuông nhìn đường chéo (chẳng hạn $\widehat{DAB}=90^\circ$ nhìn $DB$) nên theo Thalès đảo, cả 4 đỉnh cùng cách đều $I$ một khoảng $=\dfrac{AC}{2}=\dfrac{BD}{2}$ — tức cùng thuộc đường tròn tâm $I$.</li>
+      </ul>
+      <p>Tính bán kính: $AC=\sqrt{AD^2+CD^2}=\sqrt{18^2+12^2}=\sqrt{324+144}=\sqrt{468}=6\sqrt{13}\text{ cm}$.</p>
+      <p>Bán kính $R=\dfrac{AC}{2}=3\sqrt{13}\approx\mathbf{10{,}82\text{ cm}}$.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Tính đối xứng của đường tròn</h3>
+    <div class="de">
+      <p><b>a)</b> $(O;R)$, $A$ trên đường tròn, đường thẳng $AO$ cắt đường tròn tại $A'$. So sánh $OA,OA'$; $O$ là gì của $AA'$?</p>
+      <p><b>b)</b> $(O;R)$, $B$ thuộc đường tròn. Tìm $B'$ sao cho $O$ là trung điểm $BB'$. $B'$ có thuộc $(O;R)$ không?</p>
+      <p><b>c)</b> Xác định tâm đối xứng, trục đối xứng của bánh xe nan hoa hình tròn tâm $O$.</p>
+      <p><b>d)</b> Nêu cách chia một chiếc bánh hình tròn tâm $O$ thành hai phần bằng nhau.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-doixung"><b>Dùng Lý thuyết 2:</b> tâm $O$ là tâm đối xứng; mọi đường kính là trục đối xứng.</a>
+      <ul>
+        <li>a) $A,A'$ đều thuộc $(O;R)$ nên $OA=OA'=R$. Vì $A,O,A'$ thẳng hàng và $OA=OA'$ nên <span class="yes">$O$ là trung điểm của $AA'$</span> (tức $AA'$ là một đường kính).</li>
+        <li>b) $B'$ là điểm đối xứng với $B$ qua $O$ (điểm sao cho $O$ là trung điểm $BB'$). Vì phép đối xứng tâm $O$ bảo toàn khoảng cách đến $O$ nên $OB'=OB=R$ ⟹ $B'$ <span class="yes">thuộc $(O;R)$</span>.</li>
+        <li>c) Tâm đối xứng là tâm $O$ của bánh xe; trục đối xứng là mọi đường thẳng đi qua $O$ và đi qua một cặp nan hoa đối diện (đường kính của bánh xe).</li>
+        <li>d) Cắt theo một đường kính bất kì (đường thẳng đi qua tâm $O$): vì đường kính chia hình tròn thành hai nửa đối xứng nhau qua tâm nên diện tích hai phần luôn bằng nhau.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Đường kính và dây cung</h3>
+    <div class="de">
+      <p>Cho hình sau (đường kính $AB$, dây $MN$ không qua tâm).</p>
+      <p><b>a)</b> Kể tên đường kính, dây cung trong hình. So sánh $MN$ và $AB$.</p>
+      <p><b>b)</b> Vì sao $\triangle ABC$ vuông tại $A$ nếu $BC$ là đường kính đường tròn ngoại tiếp?</p>
+      <p><b>c)</b> Bạn Mai căng ba dây $AB=16$, $CD=14$, $EF=20\text{ cm}$ trên khung thêu bán kính $10\text{ cm}$. Dây nào qua tâm?</p>
+      <p><b>d)</b> Tam giác $ABC$ đều, $I,K$ là trung điểm $AB,AC$. Chứng minh $B,I,K,C$ cùng thuộc đường tròn đường kính $BC$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-daykinh"><b>Dùng Lý thuyết 3:</b> đường kính luôn là dây dài nhất; Thalès cho góc vuông.</a>
+      <div class="figrow">
+        <svg viewBox="0 0 220 170" width="220" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+          <circle cx="110" cy="90" r="70" fill="none" stroke="#2f3e52" stroke-width="2"/>
+          <line x1="40" y1="90" x2="180" y2="90" stroke="#2f3e52" stroke-width="1.6"/>
+          <line x1="49.4" y1="55" x2="173.4" y2="60.4" stroke="#1f7a72" stroke-width="1.6"/>
+          <circle cx="40" cy="90" r="2.6" fill="#2f3e52"/><text x="30" y="95" fill="#3f5d9e" font-size="15" font-weight="700" text-anchor="middle" font-style="italic">A</text>
+          <circle cx="180" cy="90" r="2.6" fill="#2f3e52"/><text x="190" y="95" fill="#3f5d9e" font-size="15" font-weight="700" text-anchor="middle" font-style="italic">B</text>
+          <circle cx="110" cy="90" r="2.2" fill="#2f3e52"/><text x="110" y="104" fill="#3f5d9e" font-size="13" text-anchor="middle" font-style="italic">O</text>
+          <circle cx="49.4" cy="55" r="2.6" fill="#2f3e52"/><text x="38" y="48" fill="#1f7a72" font-size="15" font-weight="700" text-anchor="middle" font-style="italic">M</text>
+          <circle cx="173.4" cy="60.4" r="2.6" fill="#2f3e52"/><text x="184" y="53" fill="#1f7a72" font-size="15" font-weight="700" text-anchor="middle" font-style="italic">N</text>
+        </svg>
+      </div>
+      <ul>
+        <li>a) Đường kính: $AB$ (dây duy nhất qua $O$). Dây cung: $AB$ và $MN$. Vì $MN$ không qua tâm nên xét $\triangle OMN$: $MN&lt;OM+ON=2R=AB$ ⟹ <span class="key">$MN&lt;AB$</span>.</li>
+        <li>b) Nếu $BC$ là đường kính thì tâm đường tròn ngoại tiếp là trung điểm $BC$, bán kính $=\dfrac{BC}{2}$; điểm $A$ trên đường tròn nhìn đường kính $BC$ nên theo Thalès, $\widehat{BAC}=90^\circ$ ⟹ $\triangle ABC$ vuông tại $A$.</li>
+        <li>c) Đường kính của khung thêu $=2R=20\text{ cm}$ — đây cũng là dây <b>dài nhất</b> có thể có. Trong ba dây $16,14,20\text{ cm}$, chỉ có $EF=20\text{ cm}=2R$ ⟹ <span class="yes">$EF$ là dây đi qua tâm</span> (hai dây kia đều $&lt;20$ nên không thể là đường kính).</li>
+        <li>d) Vì $\triangle ABC$ đều nên trung tuyến cũng là đường cao: $CI$ (trung tuyến từ $C$ đến trung điểm $I$ của $AB$) vuông góc $AB$ ⟹ $\widehat{BIC}=90^\circ$. Tương tự $BK\perp AC$ ⟹ $\widehat{BKC}=90^\circ$. Vì $I,K$ đều nhìn đoạn $BC$ dưới góc $90^\circ$, theo Thalès đảo, $I,K$ cùng thuộc đường tròn đường kính $BC$ — mà $B,C$ hiển nhiên cũng thuộc đường tròn đó (hai đầu mút đường kính). Vậy $B,I,K,C$ cùng thuộc đường tròn đường kính $BC$.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu d:</b> đừng chứng minh $CI\perp AB$ bằng cách "đoán hình" — phải nêu rõ lí do <i>tam giác đều nên trung tuyến trùng đường cao</i>, từ đó mới suy ra góc vuông để áp dụng Thalès đảo.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Ba vị trí của điểm với đường tròn chỉ phụ thuộc việc so sánh $OM$ với $R$.</li>
+      <li>Đối xứng tâm qua $O$ luôn giữ nguyên khoảng cách đến $O$ — đó là lí do mọi đường kính là trục đối xứng và $O$ là tâm đối xứng.</li>
+      <li>“Đường kính là dây lớn nhất” và “góc nội tiếp chắn đường kính là góc vuông” (Thalès) là hai công cụ dùng lại xuyên suốt cả chương.</li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,154 @@
+---
+layout: default
+title: Toán 9 - Độ dài cung tròn, diện tích hình quạt tròn và hình vành khuyên
+description: "Lời giải bài tập độ dài cung tròn, diện tích hình quạt tròn, hình viên phân và hình vành khuyên lớp 9 - công thức và bài toán thực tế, chương trình Kết nối tri thức."
+tags: [Toán 9, đường tròn, độ dài cung, quạt tròn, vành khuyên, hình học, chuyên đề]
+series: t9-c5
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 15 — Độ dài cung tròn. Diện tích hình quạt tròn và hình vành khuyên</h1>
+    <p>Công thức độ dài cung, quạt tròn, viên phân, vành khuyên · Bài toán thực tế</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-congthuc">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Các công thức cần nhớ</h3>
+    <ul>
+      <li>Độ dài cung $n^\circ$ của đường tròn bán kính $R$: $l=\dfrac{\pi Rn}{180}$.</li>
+      <li>Diện tích hình quạt tròn bán kính $R$ ứng với cung $n^\circ$: $S=\dfrac{\pi R^2 n}{360}$.</li>
+      <li>Hình viên phân (giới hạn bởi một cung và dây căng cung đó): $S_{\text{viên phân}}=S_{\text{quạt}}-S_{\text{tam giác}}$.</li>
+      <li>Hình vành khuyên (giữa hai đường tròn đồng tâm $R>r$): $S=\pi(R^2-r^2)$.</li>
+    </ul>
+    <div class="tip">🔍 <b>Mẹo:</b> với bài toán bánh xe/vành đai lăn không trượt, quãng đường một vòng lăn luôn bằng chu vi $C=2\pi R$ (dùng để so sánh số vòng giữa hai bánh xe khác bán kính).</div>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Độ dài cung, diện tích hình quạt tròn</h3>
+    <div class="de">
+      <p><b>a)</b> Độ dài cung $30^\circ$ của đường tròn bán kính $10\text{ cm}$ (làm tròn hàng phần trăm).</p>
+      <p><b>b)</b> Diện tích hình quạt tròn $R=10\text{ cm}$, cung $60^\circ$ (làm tròn hàng phần trăm).</p>
+      <p><b>c)</b> Diện tích hình viên phân $\overset{\frown}{AmB}$, $\widehat{AOB}=60^\circ$, $R=5{,}1\text{ cm}$.</p>
+      <p><b>d)</b> Diện tích miếng bánh pizza hình quạt tròn, $OA=15\text{ cm}$, $\widehat{AOB}=55^\circ$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng công thức $l=\dfrac{\pi Rn}{180}$ và $S=\dfrac{\pi R^2 n}{360}$.</b></a>
+      <ul>
+        <li>a) $l=\dfrac{\pi\cdot10\cdot30}{180}=\dfrac{5\pi}{3}\approx\mathbf{5{,}24\text{ cm}}$.</li>
+        <li>b) $S=\dfrac{\pi\cdot10^2\cdot60}{360}=\dfrac{50\pi}{3}\approx\mathbf{52{,}36\text{ cm}^2}$.</li>
+        <li>c) Vì $\widehat{AOB}=60^\circ$ và $OA=OB=R$ nên $\triangle OAB$ đều, cạnh $AB=R$. $S_{\text{quạt}}=\dfrac{\pi R^2\cdot60}{360}=\dfrac{\pi R^2}{6}=\dfrac{\pi\cdot5{,}1^2}{6}\approx13{,}62\text{ cm}^2$. $S_{\triangle OAB}=\dfrac{\sqrt3}{4}R^2=\dfrac{\sqrt3}{4}\cdot5{,}1^2\approx11{,}26\text{ cm}^2$. Vậy $S_{\text{viên phân}}=13{,}62-11{,}26\approx\mathbf{2{,}36\text{ cm}^2}$.</li>
+        <li>d) $S=\dfrac{\pi\cdot15^2\cdot55}{360}=34{,}375\pi\approx\mathbf{107{,}99\text{ cm}^2}$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Diện tích hình vành khuyên</h3>
+    <div class="de">
+      <p><b>a)</b> Diện tích vành khuyên giới hạn bởi $(O;5\text{ cm})$ và $(O;8\text{ cm})$.</p>
+      <p><b>b)</b> Diện tích vành khuyên giới hạn bởi $(O;9\text{ cm})$ và $(O;12\text{ cm})$.</p>
+      <p><b>c)</b> Máy kéo có bánh sau đường kính $124\text{ cm}$, bánh trước $80\text{ cm}$. Bánh sau lăn $20$ vòng thì bánh trước lăn bao nhiêu vòng?</p>
+      <p><b>d)</b> Đà Lạt ở khoảng $11^\circ58'$ vĩ độ Bắc; một vòng kinh tuyến Trái Đất dài $40000\text{ km}$. Tính độ dài cung kinh tuyến từ Đà Lạt đến xích đạo.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng $S=\pi(R^2-r^2)$; bánh xe lăn một vòng đi được $2\pi R$.</b></a>
+      <ul>
+        <li>a) $S=\pi(8^2-5^2)=39\pi\approx\mathbf{122{,}52\text{ cm}^2}$.</li>
+        <li>b) $S=\pi(12^2-9^2)=63\pi\approx\mathbf{197{,}92\text{ cm}^2}$.</li>
+        <li>c) Quãng đường bánh sau đi: $20\times\pi\times124=2480\pi\text{ cm}$. Số vòng bánh trước $=\dfrac{2480\pi}{\pi\times80}=\dfrac{2480}{80}=\mathbf{31\text{ vòng}}$.</li>
+        <li>d) $11^\circ58'=11+\dfrac{58}{60}\approx11{,}9667^\circ$. Độ dài cung $=\dfrac{40000\times11{,}9667}{360}\approx\mathbf{1329{,}6\text{ km}}$.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> so sánh số vòng của hai bánh khác bán kính phải quy về <b>cùng một quãng đường lăn</b> (dùng chu vi $C=\pi D$), <b>không được</b> lấy tỉ số đường kính rồi nhân trực tiếp với số vòng mà không kiểm tra chiều tỉ lệ.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Luôn đổi số đo góc/cung về cùng đơn vị độ (phút $\to$ độ: $1^\circ=60'$) trước khi thay vào công thức.</li>
+      <li>Diện tích viên phân = diện tích quạt trừ diện tích tam giác — chỉ dùng công thức tam giác đều khi góc ở tâm đúng bằng $60^\circ$.</li>
+      <li>Với vành khuyên, luôn lấy bán kính lớn trừ bán kính nhỏ theo bình phương ($R^2-r^2$), không phải $(R-r)^2$.</li>
+    </ul>
+  </div>
+
+</div>

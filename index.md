@@ -481,6 +481,12 @@ details > div {
 - [C4B1: Tỉ số lượng giác của góc nhọn](T9/2026PhieuBT/LGC4B1.html)
 - [C4B2: Hệ thức giữa cạnh và góc trong tam giác vuông](T9/2026PhieuBT/LGC4B2.html)
 - [C4B3: Ôn tập chương IV (Hệ thức lượng trong tam giác vuông)](T9/2026PhieuBT/LGC4B3.html)
+- [C5B1: Mở đầu về đường tròn](T9/2026PhieuBT/LGC5B1.html)
+- [C5B2: Cung và dây của một đường tròn](T9/2026PhieuBT/LGC5B2.html)
+- [C5B3: Độ dài cung tròn. Diện tích hình quạt tròn và hình vành khuyên](T9/2026PhieuBT/LGC5B3.html)
+- [C5B4: Vị trí tương đối của đường thẳng và đường tròn](T9/2026PhieuBT/LGC5B4.html)
+- [C5B5: Vị trí tương đối của hai đường tròn](T9/2026PhieuBT/LGC5B5.html)
+- [C5B6: Ôn tập chương V (Đường tròn)](T9/2026PhieuBT/LGC5B6.html)
 
 </div>
 </details>

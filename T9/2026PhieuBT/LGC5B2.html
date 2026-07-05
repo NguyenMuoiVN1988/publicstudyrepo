@@ -1,0 +1,164 @@
+---
+layout: default
+title: Toán 9 - Cung và dây của một đường tròn
+description: "Lời giải bài tập cung và dây của một đường tròn lớp 9 - góc ở tâm, số đo cung, liên hệ giữa cung và dây, dành cho học sinh lớp 9 chương trình Kết nối tri thức."
+tags: [Toán 9, đường tròn, góc ở tâm, cung, dây cung, hình học, chuyên đề]
+series: t9-c5
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 14 — Cung và dây của một đường tròn</h1>
+    <p>Góc ở tâm · Số đo cung · Liên hệ giữa cung và dây</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-goc">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Góc ở tâm — Số đo cung</h3>
+    <ul>
+      <li>Góc ở tâm là góc có đỉnh trùng tâm $O$. Số đo cung nhỏ = số đo góc ở tâm chắn cung đó; số đo cung lớn $=360^\circ-$ cung nhỏ.</li>
+      <li>Hai tiếp tuyến kẻ từ một điểm $M$ ngoài đường tròn: $MA=MB$ và $OM$ là phân giác của $\widehat{AOB}$ lẫn $\widehat{AMB}$.</li>
+    </ul>
+    <div class="tip">🔍 <b>Tứ giác $OAMB$:</b> với $MA,MB$ là tiếp tuyến, $\widehat{OAM}=\widehat{OBM}=90^\circ$ nên $\widehat{AOB}+\widehat{AMB}=180^\circ$ — công thức dùng lại liên tục trong dạng này.</div>
+  </div>
+
+  <div class="theory" id="lt-cungday">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Liên hệ giữa cung và dây</h3>
+    <ul>
+      <li><b>Định lí 1:</b> hai cung bằng nhau $\Leftrightarrow$ hai dây căng chúng bằng nhau.</li>
+      <li><b>Định lí 2:</b> cung lớn hơn $\Leftrightarrow$ dây căng cung đó lớn hơn.</li>
+      <li>Hai dây song song chắn hai cung bằng nhau (và ngược lại).</li>
+    </ul>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Góc ở tâm, số đo cung</h3>
+    <div class="de">
+      <p><b>a)</b> Hai tiếp tuyến tại $A,B$ của $(O)$ cắt nhau tại $M$, $\widehat{AMB}=40^\circ$. Tính $\widehat{AOM}$ và cung $\overset{\frown}{AB}$ nhỏ, lớn.</p>
+      <p><b>b)</b> $(O;R)$, $M$ ngoài sao cho $OM=2R$, hai tiếp tuyến $MA,MB$. Tính $\widehat{AOB}$ và cung nhỏ $\overset{\frown}{AB}$.</p>
+      <p><b>c)</b> $(O;R)$, dây $MN=R\sqrt3$, $OK\perp MN$ tại $K$. Tính $OK$ theo $R$ và cung nhỏ, lớn $\overset{\frown}{MN}$.</p>
+      <p><b>d)</b> $\triangle ABC$ cân tại $A$, đường tròn tâm $O$ đường kính $BC$ cắt $AB,AC$ tại $M,N$. Chứng minh $\overset{\frown}{BM}=\overset{\frown}{CN}$; tính $\widehat{MON}$ biết $\widehat{BAC}=40^\circ$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-goc"><b>Dùng Lý thuyết 1:</b> tứ giác $OAMB$ có hai góc vuông tại $A,B$.</a>
+      <ul>
+        <li>a) $OA\perp MA$, $OM$ là phân giác $\widehat{AMB}$ ⟹ $\widehat{AMO}=20^\circ$. Trong $\triangle OAM$ vuông tại $A$: $\widehat{AOM}=90^\circ-20^\circ=\mathbf{70^\circ}$. Từ tứ giác $OAMB$: $\widehat{AOB}=360^\circ-90^\circ-90^\circ-40^\circ=140^\circ$ ⟹ cung nhỏ $\overset{\frown}{AB}=\mathbf{140^\circ}$, cung lớn $=360^\circ-140^\circ=\mathbf{220^\circ}$.</li>
+        <li>b) $\triangle OAM$ vuông tại $A$: $\cos\widehat{AOM}=\dfrac{OA}{OM}=\dfrac{R}{2R}=\dfrac12\Rightarrow\widehat{AOM}=60^\circ$. Do đối xứng, $\widehat{AOB}=2\times60^\circ=\mathbf{120^\circ}$ ⟹ cung nhỏ $\overset{\frown}{AB}=\mathbf{120^\circ}$.</li>
+        <li>c) $OK\perp MN\Rightarrow K$ là trung điểm $MN$: $MK=\dfrac{R\sqrt3}{2}$. Trong $\triangle OKM$ vuông tại $K$: $OK=\sqrt{OM^2-MK^2}=\sqrt{R^2-\dfrac{3R^2}{4}}=\dfrac{R}{2}$. $\cos\widehat{MOK}=\dfrac{OK}{OM}=\dfrac12\Rightarrow\widehat{MOK}=60^\circ\Rightarrow\widehat{MON}=2\times60^\circ=120^\circ$ ⟹ cung nhỏ $\overset{\frown}{MN}=\mathbf{120^\circ}$, cung lớn $=\mathbf{240^\circ}$.</li>
+        <li>d) Vì $BC$ là đường kính của $(O)$ nên $\widehat{BMC}=\widehat{BNC}=90^\circ$ (Thalès) ⟹ $CM\perp AB$, $BN\perp AC$. Trong tam giác vuông $ACM$ ($\widehat{AMC}=90^\circ$): $AM=AC\cos A$; trong tam giác vuông $ABN$: $AN=AB\cos A$. Vì $AB=AC$ (cân) nên $AM=AN$, suy ra $BM=AB-AM=AC-AN=CN$ ⟹ $BM=CN$ (dây bằng nhau) ⟹ <span class="yes">$\overset{\frown}{BM}=\overset{\frown}{CN}$</span> (Định lí 1). Với $\widehat{BAC}=40^\circ$: góc đáy $\widehat{ABC}=\widehat{ACB}=70^\circ$; xét $\triangle OBM$ cân ($OB=OM=R$) có $\widehat{OBM}=\widehat{ABC}=70^\circ\Rightarrow\widehat{BOM}=180^\circ-2\times70^\circ=40^\circ$; tương tự $\widehat{CON}=40^\circ$. Vì $B,O,C$ thẳng hàng: $\widehat{MON}=180^\circ-\widehat{BOM}-\widehat{CON}=180^\circ-40^\circ-40^\circ=\mathbf{100^\circ}$.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu d:</b> nhiều bạn vội đoán $\widehat{MON}=\widehat{BAC}=40^\circ$ — <span class="no">sai</span>! Phải tính qua các góc đáy của tam giác cân, kết quả đúng là $\widehat{MON}=180^\circ-2\widehat{BAC}$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Liên hệ giữa cung và dây</h3>
+    <div class="de">
+      <p><b>a)</b> Chứng minh hai cung bị chắn bởi hai dây song song thì bằng nhau.</p>
+      <p><b>b)</b> $(O)$ đường kính $AB$, cung $AC&lt;90^\circ$, dây $CD\perp AB$, dây $DE\parallel AB$. Chứng minh $\overset{\frown}{AC}=\overset{\frown}{BE}$.</p>
+      <p><b>c)</b> Trên cung nhỏ $\overset{\frown}{AB}$ lấy $C,D$ sao cho $\overset{\frown}{AC}=\overset{\frown}{BD}$. Chứng minh $AB\parallel CD$.</p>
+      <p><b>d)</b> $\triangle ABC$ cân tại $A$ nội tiếp $(O)$, $\widehat{A}=50^\circ$. So sánh cung nhỏ $\overset{\frown}{AB},\overset{\frown}{AC},\overset{\frown}{BC}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cungday"><b>Dùng Lý thuyết 2:</b> cung bằng nhau $\Leftrightarrow$ dây bằng nhau.</a>
+      <ul>
+        <li>a) Xét hai dây song song $XY,ZT$ của $(O)$. Kẻ đường kính $EF\perp XY$ (và do đó $EF\perp ZT$ vì $ZT\parallel XY$). Đường kính vuông góc với một dây thì đi qua điểm chính giữa cung căng bởi dây đó, nên $EF$ là <b>trục đối xứng</b> chung, biến $X\leftrightarrow Y$ và $Z\leftrightarrow T$. Phép đối xứng qua $EF$ biến cung $XZ$ thành cung $YT$ ⟹ <span class="yes">$\overset{\frown}{XZ}=\overset{\frown}{YT}$</span> (đpcm).</li>
+        <li>b) $CD\perp AB$ tại $H$, $AB$ là đường kính (qua $O$) ⟹ $AB$ là trục đối xứng của dây $CD$ ⟹ $\overset{\frown}{AC}=\overset{\frown}{AD}$. Mặt khác $DE\parallel AB$ nên theo câu a), $\overset{\frown}{AD}=\overset{\frown}{BE}$. Suy ra $\overset{\frown}{AC}=\overset{\frown}{AD}=\overset{\frown}{BE}$ ⟹ <span class="yes">$\overset{\frown}{AC}=\overset{\frown}{BE}$</span>.</li>
+        <li>c) $\overset{\frown}{AC}=\overset{\frown}{BD}$ (gt) ⟹ cộng thêm cung $CD$ chung: $\overset{\frown}{AC}+\overset{\frown}{CD}=\overset{\frown}{BD}+\overset{\frown}{CD}$, tức $\overset{\frown}{AD}=\overset{\frown}{CB}$ ⟹ $AD=CB$ (Định lí 1). Tứ giác $ACDB$ (theo đúng thứ tự các điểm trên cung) nội tiếp $(O)$ có hai <b>đường chéo</b> $AD=CB$ bằng nhau và hai <b>cạnh bên</b> $AC=BD$ bằng nhau (từ giả thiết) ⟹ $ACDB$ là hình thang cân với hai đáy $AB,CD$ ⟹ <span class="yes">$AB\parallel CD$</span>.</li>
+        <li>d) $\triangle ABC$ cân tại $A$: $AB=AC\Rightarrow\overset{\frown}{AB}=\overset{\frown}{AC}$ (Định lí 1). Góc nội tiếp $\widehat{BAC}=50^\circ$ chắn cung $\overset{\frown}{BC}$ (không chứa $A$) nên cung này $=2\times50^\circ=100^\circ$. Vì tổng ba cung $=360^\circ$: $2\times\overset{\frown}{AB}+100^\circ=360^\circ\Rightarrow\overset{\frown}{AB}=\overset{\frown}{AC}=\mathbf{130^\circ}$, còn $\overset{\frown}{BC}=\mathbf{100^\circ}$. Vậy <span class="key">$\overset{\frown}{BC}&lt;\overset{\frown}{AB}=\overset{\frown}{AC}$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Với hai tiếp tuyến từ một điểm, luôn dựng tứ giác $OAMB$ (hai góc vuông) để tính nhanh góc ở tâm hoặc góc giữa hai tiếp tuyến.</li>
+      <li>“Cung bằng nhau $\Leftrightarrow$ dây bằng nhau” là cầu nối hai chiều — dùng chiều nào cũng phải nêu rõ Định lí 1/2.</li>
+      <li>Đường kính vuông góc với một dây thì đi qua điểm chính giữa cung căng bởi dây đó — đây chính là “trục đối xứng” dùng để ghép các cung bằng nhau.</li>
+    </ul>
+  </div>
+
+</div>

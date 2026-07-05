@@ -1,0 +1,210 @@
+---
+layout: default
+title: Toán 9 - Vị trí tương đối của hai đường tròn
+description: "Lời giải bài tập vị trí tương đối của hai đường tròn lớp 9 - cắt nhau, tiếp xúc, ở ngoài nhau, đựng nhau, chương trình Kết nối tri thức."
+tags: [Toán 9, đường tròn, vị trí tương đối, hai đường tròn, hình học, chuyên đề]
+series: t9-c5
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc table.vtdt { border-collapse:collapse; margin:10px 0; width:100%;
+    font-family:'Noto Serif',serif; font-size:.94rem; }
+  .lgc table.vtdt th, .lgc table.vtdt td { border:1px solid #c9d6ea;
+    padding:6px 10px; text-align:center; }
+  .lgc table.vtdt th { background:#fff; color:var(--indigo); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc .figrow { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+    align-items:flex-end; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 12px; margin:8px 0 14px; }
+  .lgc .figrow svg { max-width:100%; height:auto; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 17 — Vị trí tương đối của hai đường tròn</h1>
+    <p>Cắt nhau · Tiếp xúc trong/ngoài · Ở ngoài nhau · Đựng nhau</p>
+  </div>
+
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-vitri2">
+    <span class="tag">📖 Lý thuyết</span>
+    <h3>Bảng vị trí tương đối của hai đường tròn $(O;R)$, $(O';R')$ với $R\ge R'$</h3>
+    <table class="vtdt">
+      <tr><th>Vị trí</th><th>Số điểm chung</th><th>Hệ thức</th></tr>
+      <tr><td>Cắt nhau</td><td>2</td><td>$R-R'&lt;OO'&lt;R+R'$</td></tr>
+      <tr><td>Tiếp xúc ngoài</td><td>1</td><td>$OO'=R+R'$</td></tr>
+      <tr><td>Tiếp xúc trong</td><td>1</td><td>$OO'=R-R'$</td></tr>
+      <tr><td>Ở ngoài nhau</td><td>0</td><td>$OO'&gt;R+R'$</td></tr>
+      <tr><td>$(O)$ đựng $(O')$</td><td>0</td><td>$OO'&lt;R-R'$</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Xác định vị trí tương đối của hai đường tròn</h3>
+    <div class="de">
+      <p>Tìm số điểm chung của $(O)$ và $(O')$ trong mỗi hình sau.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-vitri2"><b>Dùng bảng:</b> so sánh $OO'$ với $R+R'$ và $|R-R'|$.</a>
+      <div class="figrow">
+        <svg viewBox="0 0 150 120" width="150" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+          <circle cx="55" cy="55" r="45" fill="none" stroke="#2f3e52" stroke-width="1.8"/>
+          <circle cx="125" cy="55" r="18" fill="none" stroke="#1f7a72" stroke-width="1.8"/>
+          <text x="55" y="20" fill="#3f5d9e" font-size="13" text-anchor="middle">(O)</text>
+          <text x="125" y="30" fill="#1f7a72" font-size="13" text-anchor="middle">(O′)</text>
+          <text x="90" y="110" fill="#2f3e52" font-size="12" text-anchor="middle">a)</text>
+        </svg>
+        <svg viewBox="0 0 130 120" width="130" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+          <circle cx="65" cy="55" r="45" fill="none" stroke="#2f3e52" stroke-width="1.8"/>
+          <circle cx="65" cy="55" r="16" fill="none" stroke="#1f7a72" stroke-width="1.8"/>
+          <text x="65" y="16" fill="#3f5d9e" font-size="13" text-anchor="middle">(O)</text>
+          <text x="65" y="45" fill="#1f7a72" font-size="12" text-anchor="middle">(O′)</text>
+          <text x="65" y="110" fill="#2f3e52" font-size="12" text-anchor="middle">b)</text>
+        </svg>
+        <svg viewBox="0 0 150 120" width="150" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+          <circle cx="55" cy="55" r="42" fill="none" stroke="#2f3e52" stroke-width="1.8"/>
+          <circle cx="112" cy="55" r="24" fill="none" stroke="#1f7a72" stroke-width="1.8"/>
+          <circle cx="87" cy="43" r="2.2" fill="#a23b52"/><text x="87" y="34" fill="#a23b52" font-size="13" text-anchor="middle">M</text>
+          <text x="55" y="18" fill="#3f5d9e" font-size="13" text-anchor="middle">(O)</text>
+          <text x="112" y="24" fill="#1f7a72" font-size="13" text-anchor="middle">(O′)</text>
+          <text x="90" y="110" fill="#2f3e52" font-size="12" text-anchor="middle">c)</text>
+        </svg>
+        <svg viewBox="0 0 150 120" width="150" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+          <circle cx="55" cy="55" r="42" fill="none" stroke="#2f3e52" stroke-width="1.8"/>
+          <circle cx="90" cy="55" r="30" fill="none" stroke="#1f7a72" stroke-width="1.8"/>
+          <circle cx="77" cy="30" r="2.2" fill="#a23b52"/><text x="77" y="21" fill="#a23b52" font-size="13" text-anchor="middle">M</text>
+          <circle cx="77" cy="80" r="2.2" fill="#a23b52"/><text x="77" y="94" fill="#a23b52" font-size="13" text-anchor="middle">N</text>
+          <text x="55" y="18" fill="#3f5d9e" font-size="13" text-anchor="middle">(O)</text>
+          <text x="90" y="20" fill="#1f7a72" font-size="13" text-anchor="middle">(O′)</text>
+          <text x="72" y="110" fill="#2f3e52" font-size="12" text-anchor="middle">d)</text>
+        </svg>
+      </div>
+      <ul>
+        <li>a) Hai đường tròn tách rời hẳn nhau ⟹ <span class="key">ở ngoài nhau, 0 điểm chung</span>.</li>
+        <li>b) Đường tròn $(O')$ nằm hẳn trong $(O)$, không chạm nhau ⟹ <span class="key">$(O)$ đựng $(O')$, 0 điểm chung</span>.</li>
+        <li>c),d) Hai đường tròn giao nhau tại hai điểm phân biệt ⟹ <span class="key">cắt nhau, 2 điểm chung</span> (hình c chỉ đánh dấu một điểm $M$ để minh hoạ, hình d đánh dấu đủ cả hai điểm $M,N$).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 1 (tiếp) — Xác định qua hệ thức số</h3>
+    <div class="de">
+      <p>Xác định vị trí tương đối của $(O;R)$ và $(O';R')$:</p>
+      <p><b>a)</b> $OO'=12$, $R=5$, $R'=3$ &nbsp;&nbsp; <b>b)</b> $OO'=8$, $R=5$, $R'=3$</p>
+      <p><b>c)</b> $OO'=7$, $R=5$, $R'=3$ &nbsp;&nbsp; <b>d)</b> $OO'=0$, $R=5$, $R'=4$</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-vitri2"><b>Dùng bảng:</b> $R+R'=8$, $R-R'=2$ (a,b,c chung); riêng d có $R,R'$ khác.</a>
+      <ul>
+        <li>a) $R+R'=8$; $OO'=12&gt;8$ ⟹ <span class="key">ở ngoài nhau</span>.</li>
+        <li>b) $OO'=8=R+R'$ ⟹ <span class="key">tiếp xúc ngoài</span>.</li>
+        <li>c) $R-R'=2&lt;OO'=7&lt;8=R+R'$ ⟹ <span class="key">cắt nhau</span>.</li>
+        <li>d) $OO'=0$ (đồng tâm), $R-R'=1&gt;0=OO'$ ⟹ <span class="key">$(O)$ đựng $(O')$</span> (hai đường tròn đồng tâm, bán kính khác nhau nên không giao nhau).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Vận dụng</h3>
+    <div class="de">
+      <p><b>a)</b> Mô tả vị trí tương đối giữa mỗi cặp cồng chiêng Tây Nguyên (coi là hai đường tròn không giao nhau).</p>
+      <p><b>b)</b> Tứ giác $ABCD$ có $\widehat B=\widehat D=90^\circ$. Chứng minh $A,B,C,D$ cùng thuộc một đường tròn; so sánh $AC,BD$.</p>
+      <p><b>c)</b> $(A;6\text{ cm})$ và $(B;4\text{ cm})$ cắt nhau tại $C,D$, $AB=8\text{ cm}$. Tính $CA,CB,DA,DB$.</p>
+      <p><b>d)</b> $\triangle ABC$ có hai đường cao $BB',CC'$, $O$ trung điểm $BC$. Chứng minh đường tròn tâm $O$ bán kính $OB'$ đi qua $B,C,C'$; so sánh $BC,B'C'$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-vitri2"><b>Kết hợp Thalès (góc vuông ⟹ thuộc đường tròn đường kính) với định nghĩa bán kính.</b></a>
+      <ul>
+        <li>a) Mỗi cặp cồng chiêng được coi là hai đường tròn <b>không giao nhau</b> (đề cho) ⟹ vị trí tương đối là <span class="key">ở ngoài nhau</span> (0 điểm chung).</li>
+        <li>b) $\widehat B=\widehat D=90^\circ$ ⟹ $B,D$ cùng nhìn đoạn $AC$ dưới góc vuông ⟹ theo Thalès đảo, $B,D$ (và hiển nhiên $A,C$) cùng thuộc đường tròn đường kính $AC$. Vì $AC$ là đường kính (dây lớn nhất) của đường tròn này còn $BD$ chỉ là một dây bất kì ⟹ <span class="yes">$AC\ge BD$</span>.</li>
+        <li>c) Vì $C,D\in(A;6)$ nên $CA=DA=\mathbf{6\text{ cm}}$; vì $C,D\in(B;4)$ nên $CB=DB=\mathbf{4\text{ cm}}$.</li>
+        <li>d) $BB'\perp AC\Rightarrow\widehat{BB'C}=90^\circ$ ⟹ $B'$ nhìn $BC$ dưới góc vuông ⟹ $B'$ thuộc đường tròn đường kính $BC$ (tâm $O$, bán kính $OB=OC$). Tương tự $CC'\perp AB\Rightarrow\widehat{CC'B}=90^\circ$ ⟹ $C'$ cũng thuộc đường tròn đó. Vậy đường tròn tâm $O$ bán kính $OB'(=OB=OC)$ đi qua cả $B,C,C'$. Vì $BC$ là <b>đường kính</b> còn $B'C'$ chỉ là một dây ⟹ <span class="yes">$BC\ge B'C'$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Luôn so sánh đủ ba đại lượng $OO'$, $R+R'$, $|R-R'|$ trước khi kết luận vị trí — thiếu một so sánh dễ nhầm giữa "cắt nhau" và "tiếp xúc".</li>
+      <li>Khi hai đường tròn cắt nhau tại 2 điểm, đường nối tâm luôn là trung trực của dây chung.</li>
+      <li>"Cùng nhìn một đoạn thẳng dưới góc vuông" (Thalès đảo) là công cụ chính để ghép nhiều điểm vào một đường tròn đường kính chung, từ đó so sánh dây với đường kính.</li>
+    </ul>
+  </div>
+
+</div>

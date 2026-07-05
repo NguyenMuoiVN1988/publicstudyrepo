@@ -1,0 +1,207 @@
+---
+layout: default
+title: Toán 9 - Ôn tập chương Đường tròn
+description: "Lời giải đề ôn tập chương Đường tròn lớp 9 - trắc nghiệm và tự luận tổng hợp về điểm-đường tròn, góc ở tâm, cung-dây, quạt tròn, tiếp tuyến, vị trí hai đường tròn."
+tags: [Toán 9, ôn tập chương, đường tròn, trắc nghiệm, hình học, chuyên đề]
+series: t9-c5
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương V — Đường tròn</h1>
+    <p>Trắc nghiệm · Tự luận tổng hợp: điểm–đường tròn, góc ở tâm, cung–dây, quạt tròn, tiếp tuyến, hai đường tròn</p>
+  </div>
+
+  <div class="sec">✨ Lý thuyết trọng tâm cần nhớ</div>
+
+  <div class="theory" id="lt-ontap">
+    <span class="tag">📖 Nhắc lại</span>
+    <h3>Tổng hợp cả chương</h3>
+    <ul>
+      <li>Điểm — đường tròn: $OM=R$ (trên), $OM&lt;R$ (trong), $OM&gt;R$ (ngoài).</li>
+      <li>Góc ở tâm = số đo cung nhỏ chắn bởi nó; cung bằng nhau $\Leftrightarrow$ dây bằng nhau.</li>
+      <li>$l=\dfrac{\pi Rn}{180}$ (độ dài cung); $S_{\text{quạt}}=\dfrac{\pi R^2n}{360}$; $S_{\text{vành khuyên}}=\pi(R^2-r^2)$.</li>
+      <li>Đường thẳng — đường tròn: $d&gt;R$ (ngoài), $d=R$ (tiếp xúc), $d&lt;R$ (cắt); hai tiếp tuyến từ một điểm luôn bằng nhau.</li>
+      <li>Hai đường tròn: cắt ($|R-R'|&lt;OO'&lt;R+R'$), tiếp xúc ($OO'=R\pm R'$), ngoài nhau/đựng nhau khi $OO'$ vượt quá hoặc nhỏ hơn các mốc đó.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== TRẮC NGHIỆM ===================== -->
+  <div class="sec">✍ Phần I — Trắc nghiệm</div>
+
+  <div class="bai">
+    <h3><span class="num">I</span> Đáp án &amp; giải thích nhanh</h3>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ontap"><b>Dùng bảng vị trí tương đối và các công thức cung/quạt/vành khuyên.</b></a>
+      <ul>
+        <li><b>Câu 1.</b> $R+R'=5+4=9=OO'$ ⟹ tiếp xúc ngoài. ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 2.</b> $d=4&lt;6=R$ ⟹ cắt nhau tại hai điểm. ⟹ <span class="ans">A</span>.</li>
+        <li><b>Câu 3.</b> Theo định nghĩa, góc ở tâm là góc có đỉnh trùng tâm đường tròn. ⟹ <span class="ans">D</span>.</li>
+        <li><b>Câu 4.</b> $d=5=R$ ⟹ tiếp xúc. ⟹ <span class="ans">B</span>.</li>
+        <li><b>Câu 5.</b> Tứ giác $OAMB$ ($O$ tâm, $M$ giao 2 tiếp tuyến): $\widehat{AOB}=360^\circ-90^\circ-90^\circ-50^\circ=130^\circ=$ cung nhỏ $AB$. ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 6.</b> $AB$ đường kính, $C$ trên đường tròn ⟹ Thalès: $\widehat{ACB}=90^\circ$, góc vuông. ⟹ <span class="ans">A</span>.</li>
+        <li><b>Câu 7.</b> $S=\dfrac{\pi R^2\cdot90}{360}=\dfrac{\pi R^2}{4}$. ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 8.</b> $S=\pi(4^2-2^2)=12\pi\text{ cm}^2$. ⟹ <span class="ans">D</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu 5:</b> góc ở tâm ($130^\circ$) và góc giữa hai tiếp tuyến ($50^\circ$) luôn <b>bù nhau</b> ($130^\circ+50^\circ=180^\circ$) vì tứ giác $OAMB$ có sẵn hai góc vuông tại $A,B$ — nhớ hệ thức này thay vì học thuộc từng bài riêng lẻ.</div>
+    </div>
+  </div>
+
+  <!-- ===================== TỰ LUẬN ===================== -->
+  <div class="sec">✍ Phần II — Tự luận</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Góc ở tâm và so sánh cung</h3>
+    <div class="de">
+      <p>Các điểm $A,B,C,D$ nằm trên $(O)$, các tia $OD,OC,OB,OA$ theo thứ tự đó; $\widehat{DOA}=120^\circ$, $OA\perp OC$, $OB\perp OD$.</p>
+      <p><b>a)</b> Đọc tên các góc ở tâm có trong hình; tính số đo mỗi góc.</p>
+      <p><b>b)</b> Tìm các cặp cung bằng nhau có số đo nhỏ hơn $180^\circ$. So sánh cung nhỏ $AB$ và $CD$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Đặt $a=\widehat{AOB}$, $b=\widehat{BOC}$, $c=\widehat{COD}$ (ba góc kề liên tiếp theo đúng thứ tự các tia). Vì $\widehat{DOA}=120^\circ$ chính là góc đi từ $OD$ đến $OA$ theo chiều $D\to C\to B\to A$ (đúng thứ tự đề cho) nên $a+b+c=120^\circ$ — đây là ba góc <b>nhỏ hơn</b> góc còn lại (góc "đóng vòng" từ $A$ về $D$ bằng $360^\circ-120^\circ=240^\circ$, lớn hơn nhiều, phù hợp vì $120^\circ$ mới là góc $DOA$ tiêu chuẩn (không vượt $180^\circ$)).</p>
+      <p>$OA\perp OC\Rightarrow\widehat{AOC}=a+b=90^\circ$. $\quad OB\perp OD\Rightarrow\widehat{BOD}=b+c=90^\circ$.</p>
+      <p>Từ $a+b=90$, $b+c=90$, $a+b+c=120$: cộng hai đẳng thức đầu rồi trừ đẳng thức sau: $(a+b)+(b+c)-(a+b+c)=b=90+90-120=60$. Suy ra $b=60^\circ$, rồi $a=90-60=\mathbf{30^\circ}$, $c=90-60=\mathbf{30^\circ}$.</p>
+      <ul>
+        <li>a) Các góc ở tâm: $\widehat{AOB}=30^\circ$, $\widehat{BOC}=60^\circ$, $\widehat{COD}=30^\circ$, $\widehat{DOA}=120^\circ$ (đã cho); ngoài ra $\widehat{AOC}=90^\circ$, $\widehat{BOD}=90^\circ$ (từ giả thiết vuông góc).</li>
+        <li>b) Vì $\widehat{AOB}=\widehat{COD}=30^\circ$ nên <span class="key">cung nhỏ $AB=$ cung nhỏ $CD=30^\circ$</span> — đây là cặp cung bằng nhau. So sánh: <span class="key">cung nhỏ $AB=$ cung nhỏ $CD$</span> (bằng nhau).</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> đừng vội cho rằng $\widehat{DOA}=120^\circ$ là góc "đóng vòng" còn lại của tứ giác — ở đây $120^\circ$ chính là <b>tổng ba góc kề</b> $\widehat{AOB}+\widehat{BOC}+\widehat{COD}$; nếu hiểu nhầm sẽ ra số âm vô lí khi giải hệ.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Bảng số liệu độ dài cung</h3>
+    <div class="de">
+      <p>Hoàn thành bảng ($\pi=3{,}14$, làm tròn hàng phần mười), với $l=\dfrac{\pi Rn}{180}$:</p>
+      <p><b>a)</b> $R=20\text{ cm},n=160^\circ$, tìm $l$ &nbsp;&nbsp; <b>b)</b> $n=144^\circ,l=16{,}8\text{ cm}$, tìm $R$</p>
+      <p><b>c)</b> $R=12\text{ cm},l=60\text{ cm}$, tìm $n$ &nbsp;&nbsp; <b>d)</b> $n=15^\circ,l=96\text{ cm}$, tìm $R$</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <ul>
+        <li>a) $l=\dfrac{3{,}14\times20\times160}{180}\approx\mathbf{55{,}8\text{ cm}}$.</li>
+        <li>b) $R=\dfrac{l\times180}{\pi n}=\dfrac{16{,}8\times180}{3{,}14\times144}\approx\mathbf{6{,}7\text{ cm}}$.</li>
+        <li>c) $n=\dfrac{l\times180}{\pi R}=\dfrac{60\times180}{3{,}14\times12}\approx\mathbf{286{,}7^\circ}$.</li>
+        <li>d) $R=\dfrac{l\times180}{\pi n}=\dfrac{96\times180}{3{,}14\times15}\approx\mathbf{366{,}9\text{ cm}}$.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Hai đường tròn tiếp xúc &amp; tiếp tuyến</h3>
+    <div class="de">
+      <p>Trên $xy$, lấy $A,B,C$ ($AB&gt;BC$). $(O)$ đường kính $AB$, $(O')$ đường kính $BC$.</p>
+      <p><b>a)</b> Chứng minh $(O),(O')$ tiếp xúc ngoài tại $B$.</p>
+      <p><b>b)</b> $H$ trung điểm $AC$; dây $DE$ của $(O)$ vuông góc $AC$ tại $H$. Chứng minh $ADCE$ là hình thoi.</p>
+      <p><b>c)</b> $DC$ cắt $(O')$ tại $F$. Chứng minh $HF$ là tiếp tuyến của $(O')$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Đặt $R=\dfrac{AB}{2}$, $R'=\dfrac{BC}{2}$ ($R&gt;R'$ vì $AB&gt;BC$).</p>
+      <ul>
+        <li>a) $O,B,O'$ thẳng hàng (cùng trên $xy$) với $OB=R$, $BO'=R'$ ⟹ $OO'=OB+BO'=R+R'$ ⟹ theo bảng vị trí tương đối, <span class="key">$(O)$ và $(O')$ tiếp xúc ngoài tại $B$</span>.</li>
+        <li>b) $O\in AC$ (vì $O\in AB\subset xy=AC$) và $DE\perp AC$ tại $H$ ⟹ đường thẳng $AC$ (qua tâm $O$) chính là đường vuông góc từ tâm đến dây $DE$ ⟹ $AC$ đi qua trung điểm của $DE$, tức <span class="key">$H$ là trung điểm $DE$</span>. Vậy tứ giác $ADCE$ có hai đường chéo $AC,DE$ cắt nhau tại trung điểm $H$ của mỗi đường và vuông góc nhau ⟹ <span class="yes">$ADCE$ là hình thoi</span>.</li>
+        <li>c) Vì $D,E\in(O)$ với $AB$ đường kính: $\widehat{ADB}=\widehat{AEB}=90^\circ$ (Thalès) ⟹ $BD\perp AD$, $BE\perp AE$. Vì $ADCE$ là hình thoi nên $AD\parallel CE$ và $DC\parallel AE$; từ $BE\perp AE$ và $AE\parallel DC$ suy ra $BE\perp DC$. Mặt khác $F\in(O')$ với $BC$ đường kính nên $\widehat{BFC}=90^\circ$, tức $BF\perp DC$ (vì $F$ nằm trên đường thẳng $DC$). Cả $BE$ và $BF$ đều vuông góc với $DC$ và cùng đi qua $B$ ⟹ $BE,BF$ là cùng một đường thẳng ⟹ <span class="yes">$F,B,E$ thẳng hàng</span>. Từ đó (dùng hệ thức lượng với $H$ nằm trên đường thẳng $BC$ và $HD=HE$ vì $H$ là trung điểm $DE$): $HF^2=HB\cdot HC=(R-R')(R+R')=R^2-R'^2$, đúng bằng phương tích của $H$ đối với $(O')$ qua cát tuyến $B,C$ ⟹ theo hệ thức đảo, <span class="yes">$HF$ là tiếp tuyến của $(O')$ tại $F$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Đây là câu khó nhất chương (Mức độ 3):</b> chìa khoá là nhận ra $O\in AC$ (vì $O$ nằm trên đường kính $AB$, mà $AB,BC,AC$ cùng nằm trên một đường thẳng $xy$) — từ đó suy ra ngay $H$ là trung điểm $DE$ mà không cần vẽ thêm.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Toán thực tế — Tầm nhìn xa</h3>
+    <div class="de">
+      <p>Hải đăng Kê Gà cao $65\text{ m}$ so với mực nước biển; mắt người quan sát trên tàu cao $5\text{ m}$; bán kính Trái Đất $\approx6400\text{ km}$. Hỏi cách bao xa thì bắt đầu thấy hải đăng?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <p>Người quan sát bắt đầu thấy hải đăng khi đường ngắm là tiếp tuyến chung của "đường chân trời" — tổng hai khoảng nhìn xa từ mỗi độ cao: $d\approx\sqrt{2Rh_1}+\sqrt{2Rh_2}$, với $R=6400\text{ km}$, $h_1=0{,}065\text{ km}$ (hải đăng), $h_2=0{,}005\text{ km}$ (mắt người).</p>
+      <p>$\sqrt{2\times6400\times0{,}065}=\sqrt{832}\approx28{,}84\text{ km}$; &nbsp; $\sqrt{2\times6400\times0{,}005}=\sqrt{64}=8\text{ km}$.</p>
+      <p>Vậy $d\approx28{,}84+8\approx\mathbf{36{,}8\text{ km}}$.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Trước khi kết luận vị trí tương đối (điểm–đường tròn, đường thẳng–đường tròn, hai đường tròn), luôn xác định đúng đại lượng khoảng cách ($OM$, $d$, $OO'$) rồi so với bán kính.</li>
+      <li>Tứ giác tạo bởi tâm và hai tiếp điểm với giao điểm hai tiếp tuyến luôn có hai góc vuông — khai thác ngay để tính góc còn lại.</li>
+      <li>Bài toán "tầm nhìn xa" với hai độ cao (đài quan sát và người quan sát): khoảng cách tổng bằng <b>tổng</b> hai khoảng nhìn xa riêng từng độ cao, không phải nhìn xa của hiệu hai độ cao.</li>
+    </ul>
+  </div>
+
+</div>
