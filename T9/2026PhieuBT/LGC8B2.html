@@ -1,0 +1,207 @@
+---
+layout: default
+title: Toán 9 - Xác suất của biến cố liên quan tới phép thử
+description: "Lời giải bài tập xác suất của biến cố lớp 9 - kết quả thuận lợi, kết quả đồng khả năng, công thức tính xác suất và bài toán ngược tìm số phần tử, chương trình Kết nối tri thức."
+tags: [Toán 9, xác suất, biến cố, kết quả thuận lợi, đồng khả năng, chuyên đề]
+series: t9-c8
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 26 — Xác suất của biến cố liên quan tới phép thử</h1>
+    <p>Kết quả thuận lợi · Đồng khả năng · $P(A)=\dfrac{n(A)}{n(\Omega)}$ · Bài toán ngược</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-thuanloi">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Kết quả thuận lợi cho biến cố</h3>
+    <ul>
+      <li>Mỗi kết quả của phép thử làm cho biến cố xảy ra gọi là một <b>kết quả thuận lợi</b> cho biến cố đó.</li>
+      <li>Muốn liệt kê đủ: viết hết $\Omega$ trước rồi lọc theo điều kiện của biến cố.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-dongkhanang">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Kết quả đồng khả năng</h3>
+    <ul>
+      <li>Hai kết quả là <b>đồng khả năng</b> nếu chúng có khả năng xảy ra như nhau (đồng xu cân đối, thẻ cùng loại, bi cùng kích thước và khối lượng…).</li>
+      <li>Quan sát theo tiêu chí "gộp" (ví dụ chỉ xem <i>màu</i> khi số bi mỗi màu khác nhau) thường cho các kết quả <b>không</b> đồng khả năng.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-congthuc">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Công thức xác suất</h3>
+    <ul>
+      <li>Khi các kết quả đồng khả năng: $P(A)=\dfrac{n(A)}{n(\Omega)}$.</li>
+      <li>Ba bước: đếm $n(\Omega)$ → đếm $n(A)$ → lập tỉ số. Luôn có $0\le P(A)\le1$.</li>
+    </ul>
+    <div class="tip">🔍 <b>Bài toán ngược:</b> biết $P$ và một phần dữ kiện, lập phương trình $\dfrac{m}{n}=P$ để tìm $n$ hoặc $m$.</div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Kết quả thuận lợi cho biến cố</h3>
+    <div class="de">
+      <p><b>a)</b> Hộp $5$ thẻ đánh số $1$–$5$, lấy đồng thời $2$ thẻ. Liệt kê $\Omega$; kết quả thuận lợi cho $A$: "đúng $1$ thẻ lẻ", $B$: "ít nhất $1$ thẻ chẵn".</p>
+      <p><b>b)</b> Việt giải lần lượt $3$ bài $1;2;3$ theo thứ tự ngẫu nhiên. Xác định $\Omega$; kết quả thuận lợi cho $A$: "giải bài $2$ đầu tiên", $B$: "giải bài $1$ trước bài $3$".</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-thuanloi"><b>Dùng Lý thuyết 1:</b> viết đủ $\Omega$ rồi lọc.</a>
+      <ul>
+        <li>a) Lấy đồng thời (không kể thứ tự): $\Omega=\{(1;2),(1;3),(1;4),(1;5),(2;3),(2;4),(2;5),(3;4),(3;5),(4;5)\}$ — $10$ phần tử. Số lẻ: $1;3;5$, số chẵn: $2;4$.<br>
+        $A$ (đúng $1$ lẻ, tức $1$ lẻ + $1$ chẵn): $(1;2),(1;4),(2;3),(2;5),(3;4),(4;5)$ — <span class="key">$6$ kết quả</span>.<br>
+        $B$ (ít nhất $1$ chẵn) = tất cả trừ các cặp toàn lẻ $(1;3),(1;5),(3;5)$: <span class="key">$7$ kết quả</span>.</li>
+        <li>b) $\Omega=\{123;132;213;231;312;321\}$ — $6$ thứ tự. $A=\{213;231\}$; $B=\{123;132;213\}$ ($3$ kết quả — bài $1$ đứng trước bài $3$ trong dãy).</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu a:</b> "ít nhất 1 thẻ chẵn" đếm nhanh nhất bằng <b>phần bù</b> (trừ đi các cặp toàn lẻ), đừng liệt kê xuôi dễ sót.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Kết quả đồng khả năng</h3>
+    <div class="de">
+      <p><b>a)</b> Rút $1$ thẻ từ $10$ thẻ cùng loại đánh số $1$–$10$. <b>b)</b> Lấy $1$ bi từ hộp có $1$ xanh, $1$ đỏ, $8$ trắng (cùng kích thước, khối lượng) và quan sát <i>màu</i>. <b>c)</b> Gặp ngẫu nhiên $1$ người Đồng Tháp, hỏi nơi sinh (huyện/thành phố). <b>d)</b> Rút $1$ lá bài từ bộ $52$ lá.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dongkhanang"><b>Dùng Lý thuyết 2:</b> các kết quả có khả năng như nhau không?</a>
+      <ul>
+        <li>a) <span class="yes">Có</span> — $10$ thẻ cùng loại, mỗi thẻ có khả năng được rút như nhau.</li>
+        <li>b) <span class="no">Không</span> — kết quả quan sát là <i>màu</i>: bi trắng chiếm $8/10$ nên "trắng" dễ xảy ra hơn hẳn "xanh", "đỏ".</li>
+        <li>c) <span class="no">Không</span> — dân số các huyện/thành phố khác nhau nên khả năng gặp người sinh ở mỗi nơi không như nhau.</li>
+        <li>d) <span class="yes">Có</span> — $52$ lá bài cùng loại.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Tính xác suất của biến cố</h3>
+    <div class="de">
+      <p><b>a)</b> Tung đồng xu (mặt hình); gieo xúc xắc (mặt $1$ chấm); rút bài ($1$ lá cơ). <b>b)</b> Hộp $5$ thẻ $3;5;6;7;9$, lấy đồng thời $2$ thẻ: $A$ "tích chia hết cho $3$", $B$ "tổng lớn hơn $13$". <b>c)</b> Hộp bi xanh–đỏ–trắng, lấy lần lượt đến hết: $A$ "xanh cuối cùng", $B$ "trắng trước đỏ", $C$ "đầu tiên không trắng". <b>d)</b> Gieo $2$ xúc xắc: so sánh khả năng của $A$ "hai mặt cùng chấm" và $B$ "tổng lớn hơn $8$".</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng Lý thuyết 3:</b> $n(\Omega)$ → $n(A)$ → tỉ số.</a>
+      <ul>
+        <li>a) $P=\dfrac12$; $P=\dfrac16$; bộ bài có $13$ lá cơ: $P=\dfrac{13}{52}=\dfrac14$.</li>
+        <li>b) $n(\Omega)=10$ cặp. $A$: tích $\vdots3$ ⟺ có ít nhất một số trong $\{3;6;9\}$; phần bù là cặp lấy từ $\{5;7\}$ — chỉ có $1$ cặp $(5;7)$ ⟹ $n(A)=9$, <span class="ans">$P(A)=\dfrac9{10}$</span>. $B$: các cặp có tổng $&gt;13$: $(5;9),(6;9),(7;9)$ ⟹ <span class="ans">$P(B)=\dfrac3{10}$</span>.</li>
+        <li>c) $\Omega$ gồm $3!=6$ thứ tự. $A$ (xanh cuối): $2$ thứ tự ⟹ <span class="ans">$P(A)=\dfrac13$</span>. $B$ (trắng trước đỏ): đúng một nửa số hoán vị ⟹ <span class="ans">$P(B)=\dfrac12$</span>. $C$ (đầu tiên không trắng): $4$ thứ tự (đầu tiên là xanh hoặc đỏ) ⟹ <span class="ans">$P(C)=\dfrac23$</span>.</li>
+        <li>d) $n(\Omega)=36$. $A$: $6$ cặp $(i;i)$ ⟹ $P(A)=\dfrac16=\dfrac6{36}$. $B$: tổng $9;10;11;12$ có $4+3+2+1=10$ cặp ⟹ $P(B)=\dfrac{10}{36}=\dfrac5{18}$. Vì $\dfrac{10}{36}&gt;\dfrac6{36}$ nên <span class="ans">biến cố $B$ có khả năng xảy ra cao hơn</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> "tích chia hết cho 3" chỉ cần <b>một</b> thừa số chia hết cho 3 — đếm phần bù (không có thừa số nào $\vdots3$) nhanh và chắc hơn.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — Tìm số phần tử khi biết xác suất</h3>
+    <div class="de">
+      <p><b>a)</b> Hộp có $5$ bóng đỏ và một số bóng trắng; $P(\text{đỏ})=0{,}25$. Hỏi số bóng trắng? <b>b)</b> $n$ thẻ đánh số $1$–$n$; $P(\text{số có một chữ số})=0{,}18$. Tìm $n$. <b>c)</b> Túi có $3$ bi xanh và một số bi đỏ; $P(\text{xanh})=0{,}6$. Hỏi tổng số bi?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng Lý thuyết 3 (bài toán ngược):</b> lập phương trình $\dfrac mn=P$.</a>
+      <ul>
+        <li>a) Gọi tổng số bóng là $n$: $\dfrac5n=0{,}25\Rightarrow n=20$ ⟹ số bóng trắng $=20-5=\mathbf{15}$.</li>
+        <li>b) Các số có một chữ số từ $1$ đến $9$ là $9$ số: $\dfrac9n=0{,}18\Rightarrow n=\mathbf{50}$ tấm thẻ.</li>
+        <li>c) $\dfrac3n=0{,}6\Rightarrow n=\mathbf{5}$ viên bi (tức có $2$ bi đỏ).</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> "số có một chữ số" trong các thẻ đánh từ $1$ là $1,\ldots,9$ — có $9$ số (không phải $10$, vì không có thẻ số $0$).</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Chỉ dùng $P=\dfrac{n(A)}{n(\Omega)}$ khi các kết quả <b>đồng khả năng</b> — đánh số từng vật để bảo đảm điều đó.</li>
+      <li>Đếm "ít nhất" bằng phần bù; đếm cặp bằng bảng $6\times6$ (xúc xắc) hoặc liệt kê có hệ thống.</li>
+      <li>Xác suất là số thuộc $[0;1]$ — kết quả ra ngoài khoảng này chắc chắn sai.</li>
+    </ul>
+  </div>
+
+</div>

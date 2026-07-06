@@ -1,0 +1,230 @@
+---
+layout: default
+title: Toán 9 - Ôn tập chương Hàm số y = ax² và phương trình bậc hai
+description: "Lời giải đề ôn tập chương 6 lớp 9 - phần trắc nghiệm và tự luận gồm hàm số y = ax², đồ thị parabol, phương trình bậc hai, định lí Viète và giải bài toán bằng cách lập phương trình, chương trình Kết nối tri thức."
+tags: [Toán 9, ôn tập chương, hàm số, phương trình bậc hai, định lí Viète, trắc nghiệm]
+series: t9-c6
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc table.bang { border-collapse:collapse; margin:10px auto; }
+  .lgc table.bang th, .lgc table.bang td { border:1px solid #c9d4de;
+    padding:4px 12px; text-align:center; }
+  .lgc table.bang th { background:var(--indigo-bg); }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương VI — Hàm số $y=ax^2$ $(a\ne 0)$. Phương trình bậc hai một ẩn</h1>
+    <p>Trắc nghiệm · Tự luận: đồ thị parabol, giải phương trình, Viète, toán thực tế</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Lý thuyết trọng tâm cần nhớ</div>
+
+  <div class="theory" id="lt-hamso">
+    <span class="tag">📖 Nhắc lại 1</span>
+    <h3>Hàm số $y=ax^2$ và đồ thị</h3>
+    <ul>
+      <li>Đồ thị là parabol đỉnh $O$, trục đối xứng $Oy$; $a&gt;0$ nằm trên trục hoành ($O$ thấp nhất), $a&lt;0$ nằm dưới ($O$ cao nhất).</li>
+      <li>$M(x_0;y_0)$ thuộc đồ thị $\Leftrightarrow y_0=ax_0^2$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-ptb2">
+    <span class="tag">📖 Nhắc lại 2</span>
+    <h3>Phương trình bậc hai &amp; định lí Viète</h3>
+    <ul>
+      <li>$ax^2+bx+c=0$ $(a\ne0)$: $\Delta=b^2-4ac$; $\Delta&gt;0$ hai nghiệm $x_{1,2}=\dfrac{-b\pm\sqrt\Delta}{2a}$; $\Delta=0$ nghiệm kép; $\Delta&lt;0$ vô nghiệm. Nhẩm nhanh: $a+b+c=0\Rightarrow x_1=1$, $x_2=\dfrac ca$; $a-b+c=0\Rightarrow x_1=-1$, $x_2=-\dfrac ca$.</li>
+      <li>Viète: $S=x_1+x_2=-\dfrac ba$, $P=x_1x_2=\dfrac ca$; hai số tổng $S$ tích $P$ là nghiệm của $x^2-Sx+P=0$; $x_1^2+x_2^2=S^2-2P$.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== TRẮC NGHIỆM ===================== -->
+  <div class="sec">✍ Phần I — Trắc nghiệm</div>
+
+  <div class="bai">
+    <h3><span class="num">I</span> Đáp án &amp; giải thích nhanh</h3>
+    <div class="de">
+      <table class="bang">
+        <tr><th>Câu</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+        <tr><th>Đáp án</th><td><b>D</b></td><td><b>B</b></td><td><b>C</b></td><td><b>D</b></td><td><b>D</b></td><td><b>D</b></td><td><b>C</b></td><td><b>B</b></td></tr>
+      </table>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-hamso"><b>Dùng Nhắc lại 1 &amp; 2:</b> thay toạ độ vào công thức; nhẩm nghiệm; Viète.</a>
+      <ul>
+        <li><b>Câu 1.</b> $a&lt;0$: đồ thị nằm dưới trục hoành, $O$ là điểm <b>cao nhất</b>. ⟹ <span class="ans">D</span>.</li>
+        <li><b>Câu 2.</b> $\dfrac12(-4)^2=8$ đúng với $(-4;8)$. ⟹ <span class="ans">B</span>.</li>
+        <li><b>Câu 3.</b> $2x^2=2\Leftrightarrow x^2=1\Leftrightarrow x=\pm1$. ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 4.</b> $-2=a\cdot2^2\Rightarrow a=-\dfrac12$. ⟹ <span class="ans">D</span>.</li>
+        <li><b>Câu 5.</b> $1-14+13=0$ ($a+b+c=0$) → $x_1=1$, $x_2=\dfrac{13}{1}=13$. ⟹ <span class="ans">D</span>.</li>
+        <li><b>Câu 6.</b> $-7x+25=0$ là phương trình bậc <b>nhất</b>. ⟹ <span class="ans">D</span>.</li>
+        <li><b>Câu 7.</b> $ac=-10&lt;0$ → có nghiệm; $S=-\dfrac51=-5$, $P=-10$. ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 8.</b> Đưa về $x^2+7x-15=0$: $S=-7$, $P=-15$; $x_1^2+x_2^2-x_1x_2=S^2-3P=49+45=94$. ⟹ <span class="ans">B</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu 8:</b> phải chuyển $15$ sang vế trái ($c=-15$) rồi mới dùng Viète; và $x_1^2+x_2^2-x_1x_2=S^2-2P-P=S^2-3P$, trừ $P$ tới <b>ba</b> lần chứ không phải hai.</div>
+    </div>
+  </div>
+
+  <!-- ===================== TỰ LUẬN ===================== -->
+  <div class="sec">✍ Phần II — Tự luận</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Hàm số $y=ax^2$ và đồ thị</h3>
+    <div class="de">
+      <p>Cho hàm số $y=ax^2$ $(a\ne0)$.</p>
+      <p><b>a)</b> Tìm $a$ để đồ thị đi qua $M(2;2)$.</p>
+      <p><b>b)</b> Vẽ đồ thị $(P)$ với $a$ vừa tìm được.</p>
+      <p><b>c)</b> Tìm các điểm thuộc $(P)$ có tung độ $y=8$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-hamso"><b>Dùng Nhắc lại 1:</b> thay toạ độ điểm vào công thức hàm số.</a>
+      <ul>
+        <li>a) $2=a\cdot2^2\Rightarrow a=\mathbf{\dfrac12}$.</li>
+        <li>b) $(P):y=\dfrac12x^2$ — parabol đỉnh $O$, bề lõm quay lên, đi qua $(\pm2;2)$, $(\pm4;8)$; lập bảng $5$ điểm rồi nối đường cong trơn.</li>
+        <li>c) $\dfrac12x^2=8\Leftrightarrow x^2=16\Leftrightarrow x=\pm4$ → hai điểm <span class="ans">$(4;8)$ và $(-4;8)$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> nhớ lấy cả hai điểm đối xứng nhau qua $Oy$, đừng chỉ trả lời $(4;8)$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Giải phương trình</h3>
+    <div class="de">
+      <p><b>a)</b> $x^2-12x=0$; <b>b)</b> $13x^2+25x-38=0$; <b>c)</b> $3x^2-4\sqrt3\,x+4=0$; <b>d)</b> $x(x+3)=27-(11-3x)$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ptb2"><b>Dùng Nhắc lại 2:</b> ưu tiên nhân tử chung / nhẩm nghiệm trước khi tính $\Delta$.</a>
+      <ul>
+        <li>a) $x(x-12)=0$ → <span class="ans">$x\in\{0;12\}$</span>.</li>
+        <li>b) $13+25-38=0$ ($a+b+c=0$) → <span class="ans">$x_1=1$, $x_2=-\dfrac{38}{13}$</span>.</li>
+        <li>c) $b'=-2\sqrt3$, $\Delta'=12-12=0$ → nghiệm kép <span class="ans">$x=\dfrac{2\sqrt3}{3}$</span>.</li>
+        <li>d) $x^2+3x=27-11+3x\Leftrightarrow x^2=16$ → <span class="ans">$x=\pm4$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu d:</b> phá ngoặc $-(11-3x)=-11+3x$; hạng tử $3x$ hai vế triệt tiêu nhau nên phương trình thực chất là $x^2=16$ — lấy <b>cả hai</b> nghiệm $\pm4$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Định lí Viète</h3>
+    <div class="de">
+      <p><b>a)</b> Tìm $u,v$ biết $u+v=-2$ và $uv=-35$.</p>
+      <p><b>b)</b> Tìm $u,v$ biết $u+v=8$ và $uv=-105$.</p>
+      <p><b>c)</b> Cho $2x^2-7x+6=0$ có hai nghiệm $x_1,x_2$. Không giải phương trình, tính $A=(x_1+2x_2)(x_2+2x_1)-x_1^2x_2^2$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ptb2"><b>Dùng Nhắc lại 2:</b> hai số tổng $S$ tích $P$ là nghiệm $X^2-SX+P=0$; khai triển biểu thức về $S,P$.</a>
+      <ul>
+        <li>a) $X^2+2X-35=0$; $\Delta'=1+35=36$: $X=-1\pm6$ → <span class="ans">$\{u;v\}=\{5;-7\}$</span>.</li>
+        <li>b) $X^2-8X-105=0$; $\Delta'=16+105=121$: $X=4\pm11$ → <span class="ans">$\{u;v\}=\{15;-7\}$</span>.</li>
+        <li>c) $\Delta=49-48=1&gt;0$; $S=\dfrac72$, $P=3$. Khai triển:
+        $(x_1+2x_2)(x_2+2x_1)=x_1x_2+2x_1^2+2x_2^2+4x_1x_2=5P+2(S^2-2P)$.
+        Suy ra $A=5P+2(S^2-2P)-P^2=P+2S^2-P^2=3+2\cdot\dfrac{49}{4}-9=3+\dfrac{49}{2}-9=\mathbf{\dfrac{37}{2}}$.
+        (Kiểm chứng bằng nghiệm thật $x_1=2$, $x_2=\dfrac32$: $(2+3)\left(\dfrac32+4\right)-(2\cdot\tfrac32)^2=5\cdot\dfrac{11}{2}-9=\dfrac{55}{2}-9=\dfrac{37}{2}$ ✓.)</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> khai triển $(x_1+2x_2)(x_2+2x_1)$ ra <b>bốn</b> hạng tử: $x_1x_2+2x_1^2+2x_2^2+4x_1x_2$ — dễ sót $4x_1x_2$; và $x_1^2x_2^2=(x_1x_2)^2=P^2$, không phải $P$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Giải bài toán bằng cách lập phương trình</h3>
+    <div class="de">
+      <p>Một người đi xe đạp từ $A$ đến $B$ cách nhau $24$ km. Lúc về nhờ xuôi gió nên tốc độ nhanh hơn lúc đi $4$ km/h, vì thế thời gian về ít hơn thời gian đi $30$ phút. Tính tốc độ của xe đạp khi đi từ $A$ đến $B$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ptb2"><b>Dùng Nhắc lại 2 (kết hợp ba bước lập phương trình):</b> hiệu hai thời gian $=\dfrac12$ giờ.</a>
+      <p>Gọi tốc độ lúc đi là $x$ (km/h, $x&gt;0$); tốc độ lúc về là $x+4$. Vì thời gian về ít hơn thời gian đi $30$ phút $=\dfrac12$ giờ:</p>
+      <p style="text-align:center">$\dfrac{24}{x}-\dfrac{24}{x+4}=\dfrac12\;\Leftrightarrow\;24\cdot4\cdot2=x(x+4)\;\Leftrightarrow\;x^2+4x-192=0.$</p>
+      <p>$\Delta'=4+192=196=14^2$: $x=-2+14=12$ (loại $x=-16$). Vậy tốc độ lúc đi là <span class="ans">$12$ km/h</span>. (Thử lại: đi $2$ giờ, về $24/16=1{,}5$ giờ — ít hơn đúng $30$ phút ✓.)</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> viết đúng chiều của hiệu: thời gian <b>đi</b> (lâu hơn) trừ thời gian <b>về</b>; đổi $30$ phút $=\dfrac12$ giờ trước khi lập phương trình.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Trước mọi phương trình bậc hai: thử nhẩm $a+b+c$, $a-b+c$ rồi hãy tính $\Delta$/$\Delta'$.</li>
+      <li>Bài Viète "không giải phương trình": kiểm tra $\Delta\ge0$, quy biểu thức về $S,P$, và nếu nghiệm đẹp thì nên giải ra để <b>kiểm chứng</b> kết quả.</li>
+      <li>Bài toán thực tế: đổi đơn vị thời gian, đặt điều kiện cho ẩn, loại nghiệm âm, thử lại vào đề.</li>
+    </ul>
+  </div>
+
+</div>

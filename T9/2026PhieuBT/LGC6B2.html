@@ -1,0 +1,239 @@
+---
+layout: default
+title: Toán 9 - Phương trình bậc hai một ẩn
+description: "Lời giải bài tập phương trình bậc hai một ẩn lớp 9 - nhận biết hệ số, công thức nghiệm, công thức nghiệm thu gọn, bài toán tham số và giao điểm đường thẳng với parabol, chương trình Kết nối tri thức."
+tags: [Toán 9, phương trình bậc hai, công thức nghiệm, delta, đại số, chuyên đề]
+series: t9-c6
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 19 — Phương trình bậc hai một ẩn</h1>
+    <p>Nhận biết hệ số · Công thức nghiệm $\Delta$, $\Delta'$ · Tham số $m$ · Giao điểm với parabol</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-dn">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Phương trình bậc hai một ẩn</h3>
+    <ul>
+      <li>Là phương trình dạng $ax^2+bx+c=0$ với $x$ là ẩn; $a,b,c$ là các hệ số và <b>$a\ne0$</b>.</li>
+      <li>Ẩn có thể mang tên khác ($y,t,v$…); tham số ($m$…) được coi là số đã cho.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-ctn">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Công thức nghiệm — biệt thức $\Delta$</h3>
+    <ul>
+      <li>$\Delta=b^2-4ac$. $\Delta&gt;0$: hai nghiệm phân biệt $x_{1,2}=\dfrac{-b\pm\sqrt{\Delta}}{2a}$; $\Delta=0$: nghiệm kép $x_1=x_2=\dfrac{-b}{2a}$; $\Delta&lt;0$: vô nghiệm.</li>
+      <li>Nếu $ac&lt;0$ thì $\Delta=b^2-4ac&gt;0$: phương trình <b>chắc chắn</b> có hai nghiệm phân biệt.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-ctntg">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Công thức nghiệm thu gọn — biệt thức $\Delta'$</h3>
+    <ul>
+      <li>Khi $b=2b'$ (hệ số $b$ chẵn hoặc chứa nhân tử $2$): $\Delta'=b'^2-ac$.</li>
+      <li>$\Delta'&gt;0$: $x_{1,2}=\dfrac{-b'\pm\sqrt{\Delta'}}{a}$; $\Delta'=0$: nghiệm kép $x=-\dfrac{b'}{a}$; $\Delta'&lt;0$: vô nghiệm.</li>
+    </ul>
+    <div class="tip">🔍 <b>Mẹo:</b> phương trình khuyết $c$ ($ax^2+bx=0$) thì đặt nhân tử chung $x(ax+b)=0$; khuyết $b$ ($ax^2+c=0$) thì chuyển vế $x^2=-\dfrac ca$ — nhanh hơn nhiều so với tính $\Delta$.</div>
+  </div>
+
+  <div class="theory" id="lt-giaodiem">
+    <span class="tag">📖 Lý thuyết 4</span>
+    <h3>Giao điểm của đường thẳng và parabol</h3>
+    <ul>
+      <li>Hoành độ giao điểm của $(P):y=ax^2$ và $d:y=mx+n$ là nghiệm của <b>phương trình hoành độ giao điểm</b> $ax^2=mx+n$.</li>
+      <li>Tìm được $x$ thì thay vào $y=mx+n$ (hoặc $y=ax^2$) để có tung độ.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Nhận biết phương trình bậc hai và các hệ số</h3>
+    <div class="de">
+      <p>Phương trình nào là phương trình bậc hai một ẩn? Chỉ rõ $a,b,c$.</p>
+      <p><b>a)</b> $-7x^2=0$; <b>b)</b> $-12x^2+7x-\sqrt3=0$; <b>c)</b> $x^3+5x-6=0$; <b>d)</b> $x^2-(m+2)x+7=0$ ($m$ là số đã cho).</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dn"><b>Dùng Lý thuyết 1:</b> đúng dạng $ax^2+bx+c=0$ với $a\ne0$; hệ số khuyết bằng $0$.</a>
+      <ul>
+        <li>a) <span class="yes">Là</span> phương trình bậc hai: $a=-7$, $b=0$, $c=0$.</li>
+        <li>b) <span class="yes">Là</span> phương trình bậc hai: $a=-12$, $b=7$, $c=-\sqrt3$.</li>
+        <li>c) <span class="no">Không phải</span> — có $x^3$ nên là phương trình bậc ba.</li>
+        <li>d) <span class="yes">Là</span> phương trình bậc hai ẩn $x$: $a=1$, $b=-(m+2)$, $c=7$ (coi $m$ là số).</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu d:</b> hệ số $b$ là <b>cả cụm</b> $-(m+2)$, đừng bỏ quên dấu trừ hoặc chỉ lấy $m+2$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Giải phương trình bằng công thức nghiệm</h3>
+    <div class="de">
+      <p><b>a)</b> $x^2-2x=0$; <b>b)</b> $25-4x^2=0$; <b>c)</b> $x^2-3x+2=0$; <b>d)</b> $4x^2+8x-5=0$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ctn"><b>Dùng Lý thuyết 2 (kèm mẹo ở Lý thuyết 3):</b> phương trình khuyết thì phân tích nhân tử / chuyển vế; đủ ba hệ số thì tính $\Delta$.</a>
+      <ul>
+        <li>a) $x(x-2)=0\Leftrightarrow x=0$ hoặc $x=2$. Vậy <span class="ans">$x\in\{0;2\}$</span>.</li>
+        <li>b) $4x^2=25\Leftrightarrow x^2=\dfrac{25}{4}\Leftrightarrow x=\pm\dfrac52$. Vậy <span class="ans">$x=\pm\dfrac52$</span>.</li>
+        <li>c) $\Delta=(-3)^2-4\cdot1\cdot2=1&gt;0$, $\sqrt\Delta=1$: $x=\dfrac{3\pm1}{2}$ → <span class="ans">$x_1=2$, $x_2=1$</span>.</li>
+        <li>d) $\Delta=8^2-4\cdot4\cdot(-5)=64+80=144$, $\sqrt\Delta=12$: $x=\dfrac{-8\pm12}{8}$ → <span class="ans">$x_1=\dfrac12$, $x_2=-\dfrac52$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu a:</b> chia hai vế cho $x$ sẽ <b>mất nghiệm</b> $x=0$ — phải đặt nhân tử chung.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Công thức nghiệm thu gọn $\Delta'$</h3>
+    <div class="de">
+      <p><b>a)</b> $3x^2-4x+1=0$; <b>b)</b> $x^2-6x+5=0$; <b>c)</b> $-4x^2+4x+1=0$; <b>d)</b> $x^2-2\sqrt3\,x-4=0$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ctntg"><b>Dùng Lý thuyết 3:</b> $b=2b'$, $\Delta'=b'^2-ac$, $x=\dfrac{-b'\pm\sqrt{\Delta'}}{a}$.</a>
+      <ul>
+        <li>a) $b'=-2$, $\Delta'=4-3=1$: $x=\dfrac{2\pm1}{3}$ → <span class="ans">$x_1=1$, $x_2=\dfrac13$</span>.</li>
+        <li>b) $b'=-3$, $\Delta'=9-5=4$: $x=3\pm2$ → <span class="ans">$x_1=5$, $x_2=1$</span>.</li>
+        <li>c) Nhân hai vế với $-1$: $4x^2-4x-1=0$; $b'=-2$, $\Delta'=4+4=8$: $x=\dfrac{2\pm2\sqrt2}{4}$ → <span class="ans">$x=\dfrac{1\pm\sqrt2}{2}$</span>.</li>
+        <li>d) $b'=-\sqrt3$, $\Delta'=3+4=7$: <span class="ans">$x=\sqrt3\pm\sqrt7$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu d:</b> $b=-2\sqrt3$ là "chẵn" theo nghĩa có nhân tử $2$: $b'=-\sqrt3$. Nhiều bạn tưởng $\Delta'$ chỉ dùng khi $b$ là số nguyên chẵn.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — Bài toán tham số $m$</h3>
+    <div class="de">
+      <p><b>a)</b> Tìm $m$ để $x^2-(m+3)x+m^2=0$ có nghiệm $x=1$.</p>
+      <p><b>b)</b> Tìm $m$ để $x^2+x+2m=0$ có hai nghiệm phân biệt.</p>
+      <p><b>c)</b> Tìm $m$ để $x^2-2(m+1)x+m^2+3=0$ có nghiệm kép.</p>
+      <p><b>d)</b> Không tính $\Delta$, giải thích vì sao $3x^2+2x-5=0$ có hai nghiệm phân biệt.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ctn"><b>Dùng Lý thuyết 2:</b> "có nghiệm $x_0$" → thay $x_0$; số nghiệm → xét dấu $\Delta$ ($\Delta'$).</a>
+      <ul>
+        <li>a) Thay $x=1$: $1-(m+3)+m^2=0\Leftrightarrow m^2-m-2=0\Leftrightarrow(m-2)(m+1)=0$ → <span class="ans">$m=2$ hoặc $m=-1$</span>.</li>
+        <li>b) $\Delta=1-8m&gt;0\Leftrightarrow$ <span class="ans">$m&lt;\dfrac18$</span>.</li>
+        <li>c) $\Delta'=(m+1)^2-(m^2+3)=2m-2$. Nghiệm kép $\Leftrightarrow\Delta'=0\Leftrightarrow$ <span class="ans">$m=1$</span>.</li>
+        <li>d) $a=3&gt;0$ và $c=-5&lt;0$ nên $ac&lt;0$ ⟹ $\Delta=b^2-4ac&gt;0$ ⟹ phương trình có <span class="yes">hai nghiệm phân biệt</span> (thực ra $3+2-5=0$ nên còn nhẩm ngay được $x_1=1$, $x_2=-\dfrac53$).</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> khai triển $(m+1)^2-(m^2+3)$ phải đặt <b>ngoặc cho cả</b> $m^2+3$: kết quả là $2m-2$, không phải $2m+... $ do quên đổi dấu số $3$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 5 -->
+  <div class="bai">
+    <h3><span class="num">5</span> Dạng 5 — Giao điểm của đường thẳng và parabol</h3>
+    <div class="de">
+      <p><b>a)</b> Tìm giao điểm của $(P):y=\dfrac14x^2$ và $d:y=x+1$.</p>
+      <p><b>b)</b> Tìm giao điểm của $(P):y=2x^2$ và $d:y=3x+1$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-giaodiem"><b>Dùng Lý thuyết 4:</b> giải phương trình hoành độ giao điểm $ax^2=mx+n$.</a>
+      <ul>
+        <li>a) $\dfrac14x^2=x+1\Leftrightarrow x^2-4x-4=0$; $\Delta'=4+4=8$: $x=2\pm2\sqrt2$. Tung độ $y=x+1=3\pm2\sqrt2$. Hai giao điểm: <span class="ans">$\left(2+2\sqrt2;\,3+2\sqrt2\right)$ và $\left(2-2\sqrt2;\,3-2\sqrt2\right)$</span>.</li>
+        <li>b) $2x^2=3x+1\Leftrightarrow 2x^2-3x-1=0$; $\Delta=9+8=17$: $x=\dfrac{3\pm\sqrt{17}}{4}$. Tung độ $y=3x+1=\dfrac{13\pm3\sqrt{17}}{4}$. Hai giao điểm: <span class="ans">$\left(\dfrac{3+\sqrt{17}}{4};\dfrac{13+3\sqrt{17}}{4}\right)$ và $\left(\dfrac{3-\sqrt{17}}{4};\dfrac{13-3\sqrt{17}}{4}\right)$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> nghiệm "xấu" (chứa căn) là bình thường — đừng vội nghĩ mình sai. Nhớ trả lời đủ <b>toạ độ điểm</b> $(x;y)$, không dừng ở hoành độ.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Đưa phương trình về đúng dạng $ax^2+bx+c=0$ rồi mới đọc hệ số; hệ số khuyết bằng $0$.</li>
+      <li>Ưu tiên: khuyết $b$/$c$ → biến đổi trực tiếp; $b$ chẵn → $\Delta'$; còn lại → $\Delta$.</li>
+      <li>$ac&lt;0$ ⟹ hai nghiệm phân biệt — dùng để "nhìn nhanh" số nghiệm không cần tính toán.</li>
+    </ul>
+  </div>
+
+</div>

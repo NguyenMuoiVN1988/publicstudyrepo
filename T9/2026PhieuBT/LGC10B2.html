@@ -1,0 +1,178 @@
+---
+layout: default
+title: Toán 9 - Hình cầu
+description: "Lời giải bài tập hình cầu lớp 9 - diện tích mặt cầu, thể tích hình cầu, mặt cắt và các bài toán phối hợp hình cầu với hình trụ, hình nón như kem ốc quế, ống nghiệm, chương trình Kết nối tri thức."
+tags: [Toán 9, hình cầu, mặt cầu, thể tích, hình khối, chuyên đề]
+series: t9-c10
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 32 — Hình cầu</h1>
+    <p>$S=4\pi R^2$ · $V=\dfrac43\pi R^3$ · Mặt cắt · Phối hợp các hình khối</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-cau">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Hình cầu — mặt cầu</h3>
+    <ul>
+      <li>Quay nửa hình tròn $(O;R)$ quanh đường kính cố định được hình cầu tâm $O$ bán kính $R$; nửa đường tròn quét thành mặt cầu.</li>
+      <li>$S_{\text{mặt cầu}}=4\pi R^2$; $V_{\text{hình cầu}}=\dfrac43\pi R^3$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-matcat">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Mặt cắt của hình cầu</h3>
+    <ul>
+      <li>Cắt hình cầu bởi một mặt phẳng thì mặt cắt là <b>hình tròn</b>; mặt phẳng đi qua tâm cho hình tròn lớn có bán kính bằng $R$.</li>
+    </ul>
+    <div class="tip">🔍 <b>Nửa hình cầu đặc:</b> tổng diện tích các mặt $=$ nửa mặt cầu $+$ hình tròn lớn $=2\pi R^2+\pi R^2=3\pi R^2$.</div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Diện tích mặt cầu, thể tích hình cầu</h3>
+    <div class="de">
+      <p><b>a)</b> Mặt cầu bán kính $1$ m. <b>b)</b> Mặt Trăng có đường kính khoảng $3474$ km. <b>c)</b> Hình cầu bán kính $6$ cm. <b>d)</b> Quả bóng rổ đường kính $24$ cm (làm tròn đến hàng đơn vị).</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cau"><b>Dùng Lý thuyết 1:</b> đường kính thì chia đôi trước.</a>
+      <ul>
+        <li>a) $S=4\pi\cdot1^2=4\pi\approx$ <span class="ans">$12{,}57$ m²</span>.</li>
+        <li>b) $r=1737$ km: $S=4\pi\cdot1737^2=12\,068\,676\pi\approx$ <span class="ans">$3{,}79\cdot10^7$ km²</span> (khoảng $37{,}9$ triệu km²).</li>
+        <li>c) $V=\dfrac43\pi\cdot6^3=288\pi\approx$ <span class="ans">$904{,}8$ cm³</span>.</li>
+        <li>d) $r=12$ cm: $V=\dfrac43\pi\cdot12^3=2304\pi\approx$ <span class="ans">$7238$ cm³</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> $V$ dùng $R^3$ (mũ ba), $S$ dùng $R^2$ — và cả hai bài b), d) đều cho <b>đường kính</b>, phải chia đôi trước khi thay.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Mặt cắt của hình cầu</h3>
+    <div class="de">
+      <p><b>a)</b> Khối đá hình cầu cắt đôi: mặt cắt dạng hình gì? <b>b)</b> Bể cá là một phần hình cầu: mặt nước có dạng hình gì? <b>c)</b> Nửa hình cầu bán kính $5$ cm: sơn tất cả các mặt thì diện tích cần sơn là bao nhiêu (làm tròn hàng đơn vị)?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-matcat"><b>Dùng Lý thuyết 2:</b> mọi mặt cắt của hình cầu đều là hình tròn.</a>
+      <ul>
+        <li>a) Cắt đôi tức mặt phẳng đi qua tâm: mặt cắt là <span class="ans">hình tròn lớn</span> (bán kính bằng bán kính khối đá).</li>
+        <li>b) Mặt nước là phần chung của mặt phẳng ngang với hình cầu ⟹ <span class="ans">hình tròn</span>.</li>
+        <li>c) Diện tích cần sơn $=$ nửa mặt cầu $+$ mặt cắt $=2\pi\cdot5^2+\pi\cdot5^2=75\pi\approx$ <span class="ans">$236$ cm²</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> "tất cả các mặt" gồm cả mặt cắt phẳng hình tròn — quên cộng $\pi R^2$ là mất một phần ba kết quả.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Phối hợp các hình khối</h3>
+    <div class="de">
+      <p><b>a)</b> Hình cầu đường kính $d$ đặt vừa khít trong hình trụ: tính thể tích hình trụ. <b>b)</b> Li kem hình nón $r=2$ cm, $l=8$ cm, đầy kem và thêm nửa hình cầu kem phía trên: tính thể tích kem (làm tròn hàng đơn vị). <b>c)</b> Hộp kem trụ $d=12$, $h=15$ cm chia vào các ốc quế (nón $h=12$, $d=6$ cm + nửa cầu trên đỉnh): được bao nhiêu que? <b>d)</b> Khối trụ $r=a$, $h=2a$ khoét hai nửa cầu bán kính $a$ ở hai đáy: tính diện tích toàn bộ.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-cau"><b>Dùng Lý thuyết 1 &amp; 2 (+ công thức trụ, nón):</b> cộng/trừ thể tích và diện tích từng khối.</a>
+      <ul>
+        <li>a) Vừa khít: bán kính trụ $=\dfrac d2$, chiều cao $=d$. $V_{\text{trụ}}=\pi\left(\dfrac d2\right)^2 d=$ <span class="ans">$\dfrac{\pi d^3}{4}$</span>. (Thử: $V_{\text{cầu}}=\dfrac43\pi\dfrac{d^3}8=\dfrac{\pi d^3}6=\dfrac23\cdot\dfrac{\pi d^3}4$ ✓ đúng tỉ lệ $\dfrac23$.)</li>
+        <li>b) $h=\sqrt{8^2-2^2}=\sqrt{60}=2\sqrt{15}$ cm. $V=\dfrac13\pi\cdot4\cdot2\sqrt{15}+\dfrac23\pi\cdot2^3=\dfrac{8\sqrt{15}}3\pi+\dfrac{16}3\pi\approx32{,}4+16{,}8\approx$ <span class="ans">$49$ cm³</span>.</li>
+        <li>c) Hộp: $V=\pi\cdot6^2\cdot15=540\pi$. Mỗi que: nón $\dfrac13\pi\cdot3^2\cdot12=36\pi$; nửa cầu $\dfrac23\pi\cdot3^3=18\pi$; tổng $54\pi$. Số que $=\dfrac{540\pi}{54\pi}=$ <span class="ans">$10$ que</span>.</li>
+        <li>d) Hai đáy phẳng bị khoét trọn thành hai mặt bán cầu lõm (bán kính khoét $=$ bán kính trụ). Diện tích toàn bộ $=S_{xq\text{ trụ}}+2\cdot\text{nửa mặt cầu}=2\pi a\cdot2a+2\cdot2\pi a^2=4\pi a^2+4\pi a^2=$ <span class="ans">$8\pi a^2$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> đề cho <b>đường sinh</b> $l=8$, phải tính $h=\sqrt{l^2-r^2}$ trước khi dùng $V=\frac13\pi r^2h$ — thay thẳng $8$ vào vị trí $h$ là sai.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>$S=4\pi R^2$ — đúng bằng $4$ lần diện tích hình tròn lớn; $V=\dfrac43\pi R^3$.</li>
+      <li>Cầu nội tiếp trụ (vừa khít): $V_{\text{cầu}}=\dfrac23V_{\text{trụ}}$ — hệ thức nổi tiếng của Archimedes.</li>
+      <li>Khối ghép kem ốc quế: $V=\dfrac13\pi r^2h+\dfrac23\pi r^3$; nửa hình cầu đặc có tổng diện tích $3\pi R^2$.</li>
+    </ul>
+  </div>
+
+</div>

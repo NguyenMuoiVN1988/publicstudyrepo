@@ -1,0 +1,198 @@
+---
+layout: default
+title: Toán 9 - Đường tròn ngoại tiếp và đường tròn nội tiếp của một tam giác
+description: "Lời giải bài tập đường tròn ngoại tiếp và nội tiếp tam giác lớp 9 - xác định tâm và bán kính với tam giác vuông, tam giác đều, tam giác cân và bài toán thực tế, chương trình Kết nối tri thức."
+tags: [Toán 9, đường tròn ngoại tiếp, đường tròn nội tiếp, tam giác, hình học, chuyên đề]
+series: t9-c9
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc .figrow { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+    align-items:flex-end; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 12px; margin:8px 0 14px; }
+  .lgc .figrow svg { max-width:100%; height:auto; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 28 — Đường tròn ngoại tiếp và đường tròn nội tiếp của một tam giác</h1>
+    <p>Tâm — bán kính: tam giác vuông, đều, cân · Bài toán thực tế</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-ngoaitiep">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Đường tròn ngoại tiếp tam giác</h3>
+    <ul>
+      <li>Đi qua <b>ba đỉnh</b>; tâm là giao <b>ba đường trung trực</b>; $R$ = khoảng cách từ tâm đến một đỉnh.</li>
+      <li>Tam giác <b>vuông</b>: tâm là trung điểm cạnh huyền, $R=\dfrac{\text{cạnh huyền}}2$. Tam giác <b>đều</b> cạnh $a$: $R=\dfrac{a\sqrt3}3$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-noitiep">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Đường tròn nội tiếp tam giác</h3>
+    <ul>
+      <li>Tiếp xúc <b>ba cạnh</b>; tâm là giao <b>ba đường phân giác trong</b>; $r$ = khoảng cách từ tâm đến một cạnh.</li>
+      <li>Tam giác <b>đều</b> cạnh $a$: tâm nội tiếp trùng tâm ngoại tiếp, $r=\dfrac{a\sqrt3}6=\dfrac R2$.</li>
+    </ul>
+    <div class="tip">🔍 <b>Thực tế:</b> "cách đều ba điểm" → tâm ngoại tiếp; "cách đều ba con đường (ba cạnh)" → tâm nội tiếp.</div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Đường tròn ngoại tiếp tam giác</h3>
+    <div class="de">
+      <p><b>a)</b> Tam giác vuông $ABC$, cạnh huyền $BC=6$ cm. <b>b)</b> $\triangle FEG$: $EF=5$, $EG=3$, $FG=4$ cm. <b>c)</b> Tam giác đều cạnh $a$. <b>d)</b> $\triangle MNP$ cân tại $M$: $MN=MP=6$, $NP=4$ cm.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-ngoaitiep"><b>Dùng Lý thuyết 1:</b> nhận ra tam giác vuông "ẩn" và dùng trung trực.</a>
+      <ul>
+        <li>a) Tâm là trung điểm cạnh huyền $BC$; <span class="ans">$R=3$ cm</span>.</li>
+        <li>b) $EG^2+FG^2=9+16=25=EF^2$ ⟹ $\triangle FEG$ vuông tại $G$ ⟹ tâm là trung điểm cạnh huyền $EF$; <span class="ans">$R=2{,}5$ cm</span>.</li>
+        <li>c) Tâm là trọng tâm (giao ba trung trực); đường cao $h=\dfrac{a\sqrt3}2$, $R=\dfrac23h=$ <span class="ans">$\dfrac{a\sqrt3}3$</span>.</li>
+        <li>d) Tâm $O$ nằm trên đường cao $MH$ ($H$ là trung điểm $NP$, $NH=2$): $MH=\sqrt{6^2-2^2}=4\sqrt2$. Từ $ON=OM=R$: $R^2=NH^2+(MH-R)^2=4+(4\sqrt2-R)^2$ $\Rightarrow 0=36-8\sqrt2R$ $\Rightarrow$ <span class="ans">$R=\dfrac{36}{8\sqrt2}=\dfrac{9\sqrt2}{4}\approx3{,}2$ cm</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> phải <b>kiểm tra Pythagore đảo</b> để nhận ra tam giác 3–4–5 vuông tại $G$ — khi đó bài trở về trường hợp tam giác vuông, không cần công thức phức tạp.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Đường tròn nội tiếp tam giác</h3>
+    <div class="de">
+      <p><b>a)</b> Tam giác đều cạnh $a$; áp dụng cạnh $8$. <b>b)</b> Tính diện tích tam giác đều có $r=1$ cm. <b>c)</b> Đường tròn $(I)$ tiếp xúc $Ox,Oy$; tiếp tuyến $d$ của $(I)$ cắt $Ox,Oy$ tại $A,B$ ($I$ trong $\triangle OAB$). Tìm đường tròn nội tiếp $\triangle OAB$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-noitiep"><b>Dùng Lý thuyết 2:</b> tâm nội tiếp — giao ba phân giác; tam giác đều dùng $r=\dfrac{a\sqrt3}6$.</a>
+      <ul>
+        <li>a) Tâm là giao ba phân giác (trùng trọng tâm); $r=\dfrac13h=\dfrac{a\sqrt3}6$. Với $a=8$: <span class="ans">$r=\dfrac{8\sqrt3}6=\dfrac{4\sqrt3}3$</span>.</li>
+        <li>b) $r=\dfrac{a\sqrt3}6=1\Rightarrow a=\dfrac6{\sqrt3}=2\sqrt3$ cm ⟹ $S=\dfrac{a^2\sqrt3}4=\dfrac{12\sqrt3}4=$ <span class="ans">$3\sqrt3\approx5{,}2$ cm²</span>.</li>
+        <li>c) $(I)$ tiếp xúc với cả ba cạnh $OA$ (trên $Ox$), $OB$ (trên $Oy$) và $AB$ (trên $d$) của $\triangle OAB$ ⟹ <span class="ans">đường tròn nội tiếp $\triangle OAB$ chính là $(I)$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Bài toán thực tế</h3>
+    <div class="de">
+      <p><b>a)</b> Ba cụm dân cư $A,B,C$: tìm $O$ cách đều $A,B,C$ (trường học) và $I$ cách đều ba con đường (trạm cứu hộ). <b>b)</b> Trại hình tam giác đều cạnh $10$ m: đặt trụ đèn cách đều ba đỉnh — xác định vị trí và tính khoảng cách.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-noitiep"><b>Dùng Lý thuyết 1 &amp; 2:</b> dịch "cách đều" sang tâm ngoại tiếp / nội tiếp.</a>
+      <ul>
+        <li>a) $O$ cách đều ba <b>điểm</b> $A,B,C$ ⟹ $O$ là <span class="ans">giao ba đường trung trực</span> của $\triangle ABC$ (tâm đường tròn ngoại tiếp). $I$ cách đều ba <b>con đường</b> (ba cạnh) ⟹ $I$ là <span class="ans">giao ba đường phân giác trong</span> (tâm đường tròn nội tiếp).</li>
+        <li>b) Vị trí đặt đèn là tâm đường tròn ngoại tiếp — với tam giác đều là giao hai đường trung trực (trùng trọng tâm). Khoảng cách tới ba đỉnh: $R=\dfrac{10\sqrt3}3\approx$ <span class="ans">$5{,}8$ m</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — Bài toán tổng hợp</h3>
+    <div class="de">
+      <p><b>a)</b> Tam giác đều $ABC$ cạnh $6$ cm: nêu cách vẽ hai đường tròn; tính $R$, $r$. <b>b)</b> $\triangle ABC$ ngoại tiếp $(I)$; $D,E,F$ là tiếp điểm trên $AB,BC,AC$. Chứng minh $2AD=AB+AC-BC$; tìm hệ thức tương tự.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-noitiep"><b>Dùng Lý thuyết 2 + tính chất hai tiếp tuyến cắt nhau:</b> $AD=AF$, $BD=BE$, $CE=CF$.</a>
+      <ul>
+        <li>a) Vẽ giao hai đường trung trực được tâm $O$ (với tam giác đều cũng là giao phân giác) — vẽ $(O;OA)$ được đường tròn ngoại tiếp, vẽ $(O;$ khoảng cách đến $BC)$ được đường tròn nội tiếp. $R=\dfrac{6\sqrt3}3=$ <span class="ans">$2\sqrt3$ cm</span>; $r=\dfrac{6\sqrt3}6=$ <span class="ans">$\sqrt3$ cm</span>.</li>
+        <li>b) Theo tính chất hai tiếp tuyến cắt nhau: $AD=AF$, $BD=BE$, $CE=CF$. Khi đó
+        $AB+AC-BC=(AD+DB)+(AF+FC)-(BE+EC)=AD+AF+(DB-BE)+(FC-EC)=AD+AF=2AD$ ✓.
+        Hệ thức tương tự: <span class="ans">$2BE=BA+BC-AC$; $2CF=CA+CB-AB$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> mấu chốt là ghép đúng các cặp tiếp tuyến bằng nhau xuất phát từ <b>cùng một đỉnh</b>; viết $BC=BE+EC$ rồi thay $BE=BD$, $EC=CF$ để triệt tiêu.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Ngoại tiếp — qua $3$ đỉnh — giao trung trực; nội tiếp — chạm $3$ cạnh — giao phân giác trong.</li>
+      <li>Tam giác vuông: $R=\dfrac{\text{huyền}}2$; tam giác đều cạnh $a$: $R=\dfrac{a\sqrt3}3$, $r=\dfrac{a\sqrt3}6$, $R=2r$.</li>
+      <li>Tam giác cân: tâm ngoại tiếp nằm trên đường cao ứng với cạnh đáy — lập phương trình $ON=OM=R$ theo đường cao để tính $R$.</li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,257 @@
+---
+layout: default
+title: Toán 9 - Bảng tần số tương đối và biểu đồ tần số tương đối
+description: "Lời giải bài tập tần số tương đối lớp 9 - lập bảng tần số tương đối, kiểm tra tính hợp lí, vẽ biểu đồ hình quạt tròn và so sánh hai mẫu dữ liệu, chương trình Kết nối tri thức."
+tags: [Toán 9, thống kê, tần số tương đối, biểu đồ quạt tròn, chuyên đề]
+series: t9-c7
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc .figrow { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+    align-items:flex-end; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 12px; margin:8px 0 14px; }
+  .lgc .figrow svg { max-width:100%; height:auto; }
+  .lgc table.bang { border-collapse:collapse; margin:10px auto; }
+  .lgc table.bang th, .lgc table.bang td { border:1px solid #c9d4de;
+    padding:4px 10px; text-align:center; }
+  .lgc table.bang th { background:var(--indigo-bg); }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 23 — Bảng tần số tương đối và biểu đồ tần số tương đối</h1>
+    <p>Tính tần số tương đối · Kiểm tra tính hợp lí · Biểu đồ quạt tròn · So sánh hai mẫu</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-tstd">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Tần số tương đối</h3>
+    <ul>
+      <li>Tần số tương đối của giá trị $x$: $f=\dfrac mN\cdot100\%$ ($m$ là tần số của $x$, $N$ là cỡ mẫu).</li>
+      <li><b>Tổng</b> tần số tương đối của tất cả các giá trị luôn bằng $100\%$ — dùng để kiểm tra tính hợp lí của bảng.</li>
+      <li>Biết một cặp $(m;f)$ thì suy được cỡ mẫu: $N=m:\dfrac{f}{100\%}$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-quattron">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Biểu đồ tần số tương đối</h3>
+    <ul>
+      <li>Thường dùng dạng <b>cột</b> (chiều cao là tần số tương đối) hoặc <b>hình quạt tròn</b>.</li>
+      <li>Quạt tròn: tần số tương đối $a\%$ ứng với cung có số đo $a\%\cdot360^\circ=3{,}6a$ độ.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-sosanh">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>So sánh hai mẫu dữ liệu</h3>
+    <ul>
+      <li>Hai mẫu có cỡ mẫu khác nhau thì phải so sánh <b>tần số tương đối</b> (tỉ lệ), không so sánh tần số (số lượng).</li>
+      <li>Biểu đồ phù hợp để so sánh: cột kép (theo tần số tương đối) hoặc hai biểu đồ quạt tròn.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Lập bảng tần số tương đối</h3>
+    <div class="de">
+      <p>Số lỗi chính tả của $40$ học sinh: 2, 5, 2, 2, 1, 3, 4, 0, 5, 2, 5, 1, 2, 1, 3, 5, 1, 0, 4, 1, 4, 2, 1, 4, 3, 3, 2, 0, 4, 5, 4, 5, 1, 4, 1, 1, 0, 3, 1, 4.</p>
+      <p><b>a)</b> Mẫu số liệu gồm những giá trị khác nhau nào? <b>b)</b> Lập bảng tần số và bảng tần số tương đối. <b>c)</b> Cô giáo muốn chọn $35\%$ số học sinh mắc nhiều lỗi nhất — cần chọn các học sinh mắc bao nhiêu lỗi?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tstd"><b>Dùng Lý thuyết 1:</b> đếm tần số rồi chia cho $N=40$.</a>
+      <ul>
+        <li>a) Các giá trị khác nhau: $0;1;2;3;4;5$.</li>
+        <li>b) Bảng tần số — tần số tương đối ($N=40$):
+          <table class="bang">
+            <tr><th>Số lỗi</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+            <tr><th>Tần số</th><td>4</td><td>10</td><td>7</td><td>5</td><td>8</td><td>6</td></tr>
+            <tr><th>Tần số tương đối</th><td>10%</td><td>25%</td><td>17,5%</td><td>12,5%</td><td>20%</td><td>15%</td></tr>
+          </table>
+          (Kiểm tra: tổng tần số $=40$ ✓; tổng tần số tương đối $=100\%$ ✓.)</li>
+        <li>c) $35\%$ của $40$ học sinh là $14$ bạn. Đếm từ nhóm lỗi nhiều nhất xuống: $5$ lỗi có $6$ bạn, thêm $4$ lỗi có $8$ bạn — vừa đủ $6+8=14$ bạn ($15\%+20\%=35\%$). Vậy cô cần chọn <span class="ans">các học sinh mắc $4$ lỗi hoặc $5$ lỗi</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Kiểm tra tính hợp lí của bảng tần số tương đối</h3>
+    <div class="de">
+      <p><b>a)</b> Bảng tần số tương đối các mặt xúc xắc: $15\%;18\%;12\%;21\%;16\%;13\%$ — có hợp lí không?</p>
+      <p><b>b)</b> Bảng: tần số $4;9;7;5$ — tần số tương đối $16\%;46\%;28\%;20\%$. Tìm số liệu sai và sửa lại.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tstd"><b>Dùng Lý thuyết 1:</b> tổng các tần số tương đối phải bằng $100\%$; các cột phải cùng tỉ lệ.</a>
+      <ul>
+        <li>a) Tổng $=15+18+12+21+16+13=95\%\ne100\%$ ⟹ bảng số liệu <span class="no">không hợp lí</span>.</li>
+        <li>b) Từ cột đầu: $4$ ứng với $16\%$ ⟹ cỡ mẫu $N=4:0{,}16=25$. Khi đó tần số tương đối đúng phải là: $\dfrac{4}{25}=16\%$ ✓, $\dfrac{9}{25}=36\%$, $\dfrac{7}{25}=28\%$ ✓, $\dfrac{5}{25}=20\%$ ✓. Vậy số liệu sai là <span class="key">$46\%$</span>, sửa thành <span class="ans">$36\%$</span>. (Kiểm tra: $16+36+28+20=100\%$ ✓.)</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> phải tìm cỡ mẫu từ một cặp số "đáng tin" (cặp làm cho các cột còn lại khớp), rồi mới kết luận số nào sai — không sửa bừa số lệch tổng.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Vẽ và đọc biểu đồ tần số tương đối</h3>
+    <div class="de">
+      <p><b>a)</b> Số sách đã đọc: giá trị $0;1;2;3;4$ — số học sinh $2;8;16;4;2$. Lập bảng tần số tương đối và vẽ biểu đồ quạt tròn.</p>
+      <p><b>b)</b> Biểu đồ quạt tròn ngôn ngữ lập trình của $200$ phần mềm: Python $34\%$, JavaScript $29\%$, Java $18\%$, C++ $12\%$, khác $7\%$. Ngôn ngữ nào phổ biến nhất? Lập bảng tần số.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-quattron"><b>Dùng Lý thuyết 2:</b> $a\%$ ↔ cung $3{,}6a$ độ; muốn ra số lượng thì nhân tỉ lệ với cỡ mẫu.</a>
+      <ul>
+        <li>a) $N=2+8+16+4+2=32$. Bảng tần số tương đối:
+          <table class="bang">
+            <tr><th>Số sách</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+            <tr><th>Tần số tương đối</th><td>6,25%</td><td>25%</td><td>50%</td><td>12,5%</td><td>6,25%</td></tr>
+            <tr><th>Số đo cung</th><td>22,5°</td><td>90°</td><td>180°</td><td>45°</td><td>22,5°</td></tr>
+          </table>
+        </li>
+      </ul>
+      <div class="figrow">
+        <svg viewBox="0 0 320 190" width="320" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+          <path d="M90,90 L90,20 A70,70 0 0,1 116.8,25.3 Z" fill="#a23b52"/>
+          <path d="M90,90 L116.8,25.3 A70,70 0 0,1 154.7,116.8 Z" fill="#3f5d9e"/>
+          <path d="M90,90 L154.7,116.8 A70,70 0 0,1 25.3,63.2 Z" fill="#1f7a72"/>
+          <path d="M90,90 L25.3,63.2 A70,70 0 0,1 63.2,25.3 Z" fill="#b07a12"/>
+          <path d="M90,90 L63.2,25.3 A70,70 0 0,1 90,20 Z" fill="#8a97a5"/>
+          <g font-size="12" fill="#28323c">
+            <rect x="195" y="28" width="11" height="11" fill="#a23b52"/><text x="212" y="38">0 sách — 6,25%</text>
+            <rect x="195" y="56" width="11" height="11" fill="#3f5d9e"/><text x="212" y="66">1 sách — 25%</text>
+            <rect x="195" y="84" width="11" height="11" fill="#1f7a72"/><text x="212" y="94">2 sách — 50%</text>
+            <rect x="195" y="112" width="11" height="11" fill="#b07a12"/><text x="212" y="122">3 sách — 12,5%</text>
+            <rect x="195" y="140" width="11" height="11" fill="#8a97a5"/><text x="212" y="150">4 sách — 6,25%</text>
+          </g>
+        </svg>
+      </div>
+      <ul>
+        <li>b) Quạt lớn nhất là $34\%$ ⟹ <span class="ans">Python phổ biến nhất</span>. Nhân từng tỉ lệ với $200$:
+          <table class="bang">
+            <tr><th>Ngôn ngữ</th><td>Python</td><td>JavaScript</td><td>Java</td><td>C++</td><td>Khác</td></tr>
+            <tr><th>Tần số</th><td>68</td><td>58</td><td>36</td><td>24</td><td>14</td></tr>
+          </table>
+          (Kiểm tra: $68+58+36+24+14=200$ ✓.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — So sánh hai mẫu dữ liệu bằng tần số tương đối</h3>
+    <div class="de">
+      <p><b>a)</b> Trại hè: số đại biểu dùng $1;2;3;4;\ge5$ ngoại ngữ là $84;64;24;16;12$. Lập bảng tần số tương đối. Năm trước có $54/220$ đại biểu dùng $\ge3$ ngoại ngữ; ý kiến "tỉ lệ dùng $\ge3$ ngoại ngữ có tăng" đúng hay sai?</p>
+      <p><b>b)</b> Khảo sát mức độ hài lòng: đầu năm (Không/Hài lòng/Rất) $=24;60;16$; cuối năm $=18;84;48$. Chọn biểu đồ so sánh; nhận định "cải tiến không hiệu quả vì tỉ lệ ⟨hài lòng⟩ giảm" có chính xác không?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-sosanh"><b>Dùng Lý thuyết 3:</b> quy cả hai mẫu về tần số tương đối rồi mới so sánh.</a>
+      <ul>
+        <li>a) $N=84+64+24+16+12=200$. Bảng tần số tương đối:
+          <table class="bang">
+            <tr><th>Số ngoại ngữ</th><td>1</td><td>2</td><td>3</td><td>4</td><td>≥5</td></tr>
+            <tr><th>Tần số tương đối</th><td>42%</td><td>32%</td><td>12%</td><td>8%</td><td>6%</td></tr>
+          </table>
+          Tỉ lệ dùng $\ge3$ ngoại ngữ năm nay: $12+8+6=26\%$; năm trước: $\dfrac{54}{220}\approx24{,}5\%$. Vì $26\%&gt;24{,}5\%$ nên ý kiến <span class="yes">đúng</span> — tỉ lệ có tăng.</li>
+        <li>b) Nên vẽ <b>biểu đồ cột kép theo tần số tương đối</b> (hai đợt có cỡ mẫu khác nhau: $N_1=100$, $N_2=150$):
+          <table class="bang">
+            <tr><th>Mức độ</th><td>Không hài lòng</td><td>Hài lòng</td><td>Rất hài lòng</td></tr>
+            <tr><th>Đầu năm</th><td>24%</td><td>60%</td><td>16%</td></tr>
+            <tr><th>Cuối năm</th><td>12%</td><td>56%</td><td>32%</td></tr>
+          </table>
+          Tỉ lệ "hài lòng" giảm nhẹ ($60\%\to56\%$) <b>nhưng</b> "không hài lòng" giảm một nửa ($24\%\to12\%$) và "rất hài lòng" tăng gấp đôi ($16\%\to32\%$): một phần khách "hài lòng" đã chuyển lên mức "rất hài lòng". Vậy nhận định đó <span class="no">không chính xác</span> — các cải tiến có hiệu quả.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> chỉ nhìn một mức "hài lòng" là phiến diện; phải xét <b>cả cơ cấu</b> ba mức. Và tuyệt đối không so sánh số lượng $60$ với $84$ vì cỡ mẫu hai đợt khác nhau.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Tổng tần số tương đối $=100\%$ — phép thử nhanh cho mọi bảng.</li>
+      <li>Quạt tròn: nhân tần số tương đối với $3{,}6$ để có số đo cung (độ).</li>
+      <li>So sánh giữa các mẫu khác cỡ: luôn dùng tỉ lệ; kết luận phải dựa trên toàn bộ cơ cấu, không dựa vào một giá trị đơn lẻ.</li>
+    </ul>
+  </div>
+
+</div>

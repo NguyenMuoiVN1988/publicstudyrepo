@@ -1,0 +1,213 @@
+---
+layout: default
+title: Toán 9 - Ôn tập chương Xác suất của biến cố
+description: "Lời giải đề ôn tập chương 8 lớp 9 - phần trắc nghiệm và tự luận về phép thử, không gian mẫu, kết quả thuận lợi và tính xác suất của biến cố trong các mô hình đơn giản, chương trình Kết nối tri thức."
+tags: [Toán 9, ôn tập chương, xác suất, không gian mẫu, biến cố, trắc nghiệm]
+series: t9-c8
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc table.bang { border-collapse:collapse; margin:10px auto; }
+  .lgc table.bang th, .lgc table.bang td { border:1px solid #c9d4de;
+    padding:4px 10px; text-align:center; }
+  .lgc table.bang th { background:var(--indigo-bg); }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương VIII — Xác suất của biến cố</h1>
+    <p>Trắc nghiệm · Tự luận: không gian mẫu, kết quả thuận lợi, tính xác suất</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Lý thuyết trọng tâm cần nhớ</div>
+
+  <div class="theory" id="lt-tomtat">
+    <span class="tag">📖 Nhắc lại</span>
+    <h3>Phép thử — không gian mẫu — xác suất</h3>
+    <ul>
+      <li>Phép thử ngẫu nhiên: không biết trước kết quả, biết tập kết quả có thể; $\Omega$ = tập tất cả kết quả.</li>
+      <li>Lấy lần lượt $2$ từ $3$ vật: $3\cdot2=6$ kết quả; gieo xúc xắc $2$ lần: $36$; lấy lần lượt hết $3$ vật: $3!=6$.</li>
+      <li>Các kết quả đồng khả năng: $P(A)=\dfrac{n(A)}{n(\Omega)}$; đếm "ít nhất/không có" bằng phần bù.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== TRẮC NGHIỆM ===================== -->
+  <div class="sec">✍ Phần I — Trắc nghiệm</div>
+
+  <div class="bai">
+    <h3><span class="num">I</span> Đáp án &amp; giải thích nhanh</h3>
+    <div class="de">
+      <table class="bang">
+        <tr><th>Câu</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+        <tr><th>Đáp án</th><td><b>D</b></td><td><b>B</b></td><td><b>C</b></td><td><b>B</b></td><td><b>C</b></td><td><b>D</b></td><td><b>B</b></td><td><b>A</b></td><td><b>B</b></td><td><b>A</b></td></tr>
+      </table>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tomtat"><b>Dùng Nhắc lại:</b> câu 1–5 lấy lần lượt 2 bóng từ {vàng V, trắng T, cam C} — $\Omega$ có 6 cặp thứ tự: VT, VC, TV, TC, CV, CT.</a>
+      <ul>
+        <li><b>Câu 1.</b> Lấy lần lượt $2$ từ $3$ quả: $3\cdot2=6$. ⟹ <span class="ans">D</span>.</li>
+        <li><b>Câu 2.</b> Không có bóng cam trong $2$ quả lấy ra ⟺ lấy V và T (hai thứ tự VT, TV): $\dfrac26=\dfrac13$. ⟹ <span class="ans">B</span>.</li>
+        <li><b>Câu 3.</b> Có bóng vàng: các cặp chứa V là VT, VC, TV, CV — $\dfrac46=\dfrac23$. ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 4.</b> Quả đầu tiên là trắng: TV, TC — $\dfrac26=\dfrac13$. ⟹ <span class="ans">B</span>.</li>
+        <li><b>Câu 5.</b> Lần thứ hai là cam có $2$ cặp (VC, TC) → không phải cam: $\dfrac46=\dfrac23$. ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 6.</b> Gieo $2$ lần: $6\cdot6=36$. ⟹ <span class="ans">D</span>.</li>
+        <li><b>Câu 7.</b> Tổng bằng $4$: $(1;3),(2;2),(3;1)$ — $3$ kết quả. ⟹ <span class="ans">B</span>.</li>
+        <li><b>Câu 8.</b> Lần hai ra mặt $5$: $6$ cặp $(i;5)$ → $\dfrac6{36}=\dfrac16$. ⟹ <span class="ans">A</span>.</li>
+        <li><b>Câu 9.</b> Đúng $1$ lần mặt $6$: $(6;j)$ với $j\ne6$ có $5$, $(i;6)$ với $i\ne6$ có $5$ → $\dfrac{10}{36}=\dfrac5{18}$. ⟹ <span class="ans">B</span>.</li>
+        <li><b>Câu 10.</b> Tích lẻ ⟺ cả hai mặt lẻ: $3\cdot3=9$ → $\dfrac9{36}=\dfrac14$. ⟹ <span class="ans">A</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu 2 (đề gốc):</b> sách nguồn in "màu xanh" nhưng hộp không có bóng xanh (lỗi in); phiếu đã sửa thành "màu cam" cho khớp bộ phương án. Nếu giữ nguyên "xanh" thì biến cố là <i>chắc chắn</i>, $P=1$ — không có trong các phương án.</div>
+    </div>
+  </div>
+
+  <!-- ===================== TỰ LUẬN ===================== -->
+  <div class="sec">✍ Phần II — Tự luận</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Số tự nhiên có ba chữ số</h3>
+    <div class="de">
+      <p>Bạn Trang chọn ngẫu nhiên một số tự nhiên có ba chữ số. a) Xác định $\Omega$. b) Tính xác suất của $A$: "số được chọn là lập phương của một số tự nhiên"; $B$: "số được chọn nhỏ hơn $500$".</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tomtat"><b>Dùng Nhắc lại:</b> đếm số phần tử của $\Omega$ rồi lọc kết quả thuận lợi.</a>
+      <ul>
+        <li>a) $\Omega=\{100;101;\ldots;999\}$ — có $900$ số, các kết quả đồng khả năng.</li>
+        <li>b) $A$: các lập phương có ba chữ số: $5^3=125$, $6^3=216$, $7^3=343$, $8^3=512$, $9^3=729$ — $5$ số ($4^3=64$ loại) ⟹ <span class="ans">$P(A)=\dfrac5{900}=\dfrac1{180}$</span>. $B$: các số $100;\ldots;499$ — $400$ số ⟹ <span class="ans">$P(B)=\dfrac{400}{900}=\dfrac49$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> số có ba chữ số bắt đầu từ $100$ (không phải $000$); đếm $999-100+1=900$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Gieo hai con xúc xắc</h3>
+    <div class="de">
+      <p>Tính xác suất của: a) $A$: "tích số chấm bằng $12$"; b) $B$: "tổng số chấm bằng $8$".</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tomtat"><b>Dùng Nhắc lại:</b> bảng $6\times6$, $n(\Omega)=36$.</a>
+      <ul>
+        <li>a) Tích $=12$: $(2;6),(3;4),(4;3),(6;2)$ — $4$ cặp ⟹ <span class="ans">$P(A)=\dfrac4{36}=\dfrac19$</span>.</li>
+        <li>b) Tổng $=8$: $(2;6),(3;5),(4;4),(5;3),(6;2)$ — $5$ cặp ⟹ <span class="ans">$P(B)=\dfrac5{36}$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> $(2;6)$ và $(6;2)$ là hai kết quả khác nhau, nhưng $(4;4)$ chỉ đếm một lần.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Lấy đồng thời hai thẻ</h3>
+    <div class="de">
+      <p>Hộp $5$ thẻ đánh số $1;4;9;10;16$; lấy đồng thời $2$ thẻ. a) Xác định $\Omega$, số kết quả. b) Tính xác suất của $A$: "tích chia hết cho $5$"; $B$: "tổng lớn hơn $14$".</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tomtat"><b>Dùng Nhắc lại:</b> lấy đồng thời — không kể thứ tự.</a>
+      <ul>
+        <li>a) $\Omega$ gồm các cặp không kể thứ tự từ $5$ thẻ: $n(\Omega)=10$.</li>
+        <li>b) $A$: tích $\vdots5$ ⟺ cặp chứa thẻ $10$: $(1;10),(4;10),(9;10),(10;16)$ — $4$ cặp ⟹ <span class="ans">$P(A)=\dfrac4{10}=\dfrac25$</span>.<br>
+        $B$: liệt kê tổng: $1{+}16=17$, $4{+}16=20$, $9{+}10=19$, $9{+}16=25$, $10{+}16=26$ đều $&gt;14$; các cặp còn lại có tổng $\le14$ — $5$ cặp thoả ⟹ <span class="ans">$P(B)=\dfrac5{10}=\dfrac12$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> cặp $(4;10)$ có tổng $14$ — <b>không</b> lớn hơn $14$, đừng đếm nhầm.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Lấy lần lượt đến hết</h3>
+    <div class="de">
+      <p>Hộp có thẻ xanh (X), vàng (V), hồng (H); lấy lần lượt từng thẻ đến hết. a) Xác định $\Omega$. b) Tính xác suất của $A$: "thẻ hồng lấy ra đầu tiên"; $B$: "thẻ xanh lấy ra trước thẻ vàng"; $C$: "thẻ lấy ra cuối cùng không phải màu xanh".</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tomtat"><b>Dùng Nhắc lại:</b> $\Omega$ là $3!=6$ thứ tự.</a>
+      <ul>
+        <li>a) $\Omega=\{XVH; XHV; VXH; VHX; HXV; HVX\}$ — $6$ phần tử.</li>
+        <li>b) $A$ (hồng đầu): $HXV, HVX$ ⟹ <span class="ans">$P(A)=\dfrac26=\dfrac13$</span>. $B$ (xanh trước vàng): $XVH, XHV, HXV$ ⟹ <span class="ans">$P(B)=\dfrac36=\dfrac12$</span>. $C$ (cuối không xanh): trừ $2$ thứ tự kết thúc bằng $X$ ⟹ <span class="ans">$P(C)=\dfrac46=\dfrac23$</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Ba mô hình "ruột" của chương: gieo xúc xắc hai lần ($36$), lấy lần lượt $2$ từ $3$ vật ($6$), lấy lần lượt hết $3$ vật ($3!=6$).</li>
+      <li>"$X$ trước $Y$" trong hoán vị luôn có xác suất $\dfrac12$ (tính đối xứng).</li>
+      <li>Đọc kĩ "lớn hơn / không nhỏ hơn / ít nhất" trước khi đếm kết quả thuận lợi.</li>
+    </ul>
+  </div>
+
+</div>

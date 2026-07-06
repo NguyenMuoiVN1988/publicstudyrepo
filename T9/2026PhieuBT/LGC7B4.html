@@ -1,0 +1,247 @@
+---
+layout: default
+title: Toán 9 - Ôn tập chương Tần số và tần số tương đối
+description: "Lời giải đề ôn tập chương 7 lớp 9 - phần trắc nghiệm và tự luận gồm bảng tần số, tần số tương đối, số liệu ghép nhóm, biểu đồ cột và biểu đồ hình quạt tròn, chương trình Kết nối tri thức."
+tags: [Toán 9, ôn tập chương, thống kê, tần số, tần số tương đối, trắc nghiệm]
+series: t9-c7
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc .figrow { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+    align-items:flex-end; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 12px; margin:8px 0 14px; }
+  .lgc .figrow svg { max-width:100%; height:auto; }
+  .lgc table.bang { border-collapse:collapse; margin:10px auto; }
+  .lgc table.bang th, .lgc table.bang td { border:1px solid #c9d4de;
+    padding:4px 9px; text-align:center; }
+  .lgc table.bang th { background:var(--indigo-bg); }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương VII — Tần số và tần số tương đối</h1>
+    <p>Trắc nghiệm · Tự luận: bảng tần số, tần số tương đối, ghép nhóm, biểu đồ</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Lý thuyết trọng tâm cần nhớ</div>
+
+  <div class="theory" id="lt-tanso">
+    <span class="tag">📖 Nhắc lại 1</span>
+    <h3>Tần số — tần số tương đối</h3>
+    <ul>
+      <li>Tần số $m$ = số lần xuất hiện; cỡ mẫu $N$ = tổng tần số; tần số tương đối $f=\dfrac mN\cdot100\%$; tổng các $f$ bằng $100\%$.</li>
+      <li>Số lượng = tỉ lệ $\times$ cỡ mẫu; cỡ mẫu $=m:\dfrac f{100\%}$ khi biết một cặp $(m;f)$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-nhom">
+    <span class="tag">📖 Nhắc lại 2</span>
+    <h3>Số liệu ghép nhóm và biểu đồ</h3>
+    <ul>
+      <li>Nhóm $[a;b)$: $a\le X&lt;b$. "Dưới $b$" = các nhóm bên trái $b$; "từ $a$ trở lên" = các nhóm từ $a$ về bên phải.</li>
+      <li>Biểu đồ ghép nhóm dạng cột: cột kề nhau; quạt tròn: $a\%$ ↔ $3{,}6a$ độ.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== TRẮC NGHIỆM ===================== -->
+  <div class="sec">✍ Phần I — Trắc nghiệm</div>
+
+  <div class="bai">
+    <h3><span class="num">I</span> Đáp án &amp; giải thích nhanh</h3>
+    <div class="de">
+      <table class="bang">
+        <tr><th>Câu</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+        <tr><th>Đáp án</th><td><b>B</b></td><td><b>C</b></td><td><b>A</b></td><td><b>B</b></td><td><b>A</b></td><td><b>B</b></td><td><b>D</b></td><td><b>B</b></td><td><b>A</b></td><td><b>A</b></td></tr>
+      </table>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tanso"><b>Dùng Nhắc lại 1 &amp; 2:</b> cộng các nhóm cần lấy; đổi tỉ lệ ↔ số lượng qua cỡ mẫu.</a>
+      <p><i>Câu 1–3 (khảo sát 100 xe, các nhóm 4–4,5–5–5,5–6 lít với 15%, 24%, 34%, 27%):</i></p>
+      <ul>
+        <li><b>Câu 1.</b> Dưới $5$ lít: $15\%+24\%=39\%$. ⟹ <span class="ans">B</span>.</li>
+        <li><b>Câu 2.</b> Cột cao nhất $34\%$ là nhóm $[5;5{,}5)$. ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 3.</b> $34\%$ của $100$ xe $=34$ xe. ⟹ <span class="ans">A</span>.</li>
+      </ul>
+      <p><i>Câu 4–6 (pin máy tính, tần số 2; 4; 7; 6):</i></p>
+      <ul>
+        <li><b>Câu 4.</b> $N=2+4+7+6=19$. ⟹ <span class="ans">B</span>.</li>
+        <li><b>Câu 5.</b> $[7{,}4;7{,}8)$: $4+7=11$. ⟹ <span class="ans">A</span>.</li>
+        <li><b>Câu 6.</b> Từ $7{,}6$ giờ trở lên: $7+6=13$; $\dfrac{13}{19}\approx68{,}42\%$. ⟹ <span class="ans">B</span>.</li>
+      </ul>
+      <p><i>Câu 7–10 (ném tạ: trước $3;5;5;2;1;0$ — sau $1;2;4;5;3;1$; mỗi đợt $16$ lần ném):</i></p>
+      <ul>
+        <li><b>Câu 7.</b> Trước, dưới $20{,}4$ m: $3+5=8$; $\dfrac8{16}=50\%$. ⟹ <span class="ans">D</span>.</li>
+        <li><b>Câu 8.</b> Sau, từ $20{,}8$ m trở lên: $3+1=4$; $\dfrac4{16}=25\%$. ⟹ <span class="ans">B</span>.</li>
+        <li><b>Câu 9.</b> Trước: $\dfrac{0+1}{16}=6{,}25\%$; sau: $25\%$; tăng $25\%-6{,}25\%=18{,}75\%$. ⟹ <span class="ans">A</span>.</li>
+        <li><b>Câu 10.</b> Dưới $20{,}2$ m: trước $\dfrac3{16}=18{,}75\%$, sau $\dfrac1{16}=6{,}25\%$; giảm $12{,}5\%$. ⟹ <span class="ans">A</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu 9–10:</b> "tăng thêm / giảm đi" là <b>hiệu hai tỉ lệ</b> của cùng một sự kiện ở hai thời điểm — phải tính cả tỉ lệ trước và sau, không lấy ngay tỉ lệ sau.</div>
+    </div>
+  </div>
+
+  <!-- ===================== TỰ LUẬN ===================== -->
+  <div class="sec">✍ Phần II — Tự luận</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Bảng tần số — tần số tương đối và biểu đồ cột</h3>
+    <div class="de">
+      <p>Cỡ giày của $40$ đôi giày bán trong ngày (bảng $4\times10$ trong phiếu). a) Xác định cỡ mẫu, lập bảng tần số, tần số tương đối. b) Vẽ biểu đồ cột. c) Nên nhập cỡ nào nhiều nhất, ít nhất?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tanso"><b>Dùng Nhắc lại 1:</b> đếm từng cỡ giày rồi chia cho $N=40$.</a>
+      <table class="bang">
+        <tr><th>Cỡ giày</th><td>37</td><td>38</td><td>39</td><td>40</td><td>41</td><td>42</td><td>43</td><td>44</td></tr>
+        <tr><th>Tần số</th><td>4</td><td>5</td><td>6</td><td>8</td><td>8</td><td>4</td><td>3</td><td>2</td></tr>
+        <tr><th>Tần số tương đối</th><td>10%</td><td>12,5%</td><td>15%</td><td>20%</td><td>20%</td><td>10%</td><td>7,5%</td><td>5%</td></tr>
+      </table>
+      <p>(Kiểm tra: tổng tần số $=40$ ✓, tổng tỉ lệ $=100\%$ ✓.) Biểu đồ cột: $8$ cột rời nhau với chiều cao như dòng tần số.</p>
+      <p>c) Nên nhập nhiều nhất <span class="ans">cỡ $40$ và cỡ $41$</span> (cùng bán chạy nhất, mỗi cỡ $20\%$); nhập ít nhất <span class="ans">cỡ $44$</span> (chỉ $5\%$).</p>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Bảng tần số và biểu đồ hình quạt tròn</h3>
+    <div class="de">
+      <p>Số bàn thắng trong $26$ trận: 1, 2, 0, 4, 0, 3, 0, 1, 0, 0, 3, 3, 0, 0, 3, 0, 2, 2, 3, 3, 4, 3, 1, 0, 0, 3. a) Lập bảng tần số, tần số tương đối. b) Vẽ biểu đồ quạt tròn.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tanso"><b>Dùng Nhắc lại 1 &amp; 2:</b> tỉ lệ $\times3{,}6$ ra số đo cung của mỗi quạt.</a>
+      <table class="bang">
+        <tr><th>Số bàn thắng</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+        <tr><th>Tần số</th><td>10</td><td>3</td><td>3</td><td>8</td><td>2</td></tr>
+        <tr><th>Tần số tương đối</th><td>≈38,5%</td><td>≈11,5%</td><td>≈11,5%</td><td>≈30,8%</td><td>≈7,7%</td></tr>
+        <tr><th>Số đo cung</th><td>≈138,5°</td><td>≈41,5°</td><td>≈41,5°</td><td>≈110,8°</td><td>≈27,7°</td></tr>
+      </table>
+      <div class="figrow">
+        <svg viewBox="0 0 320 190" width="320" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+          <path d="M90,90 L90,20 A70,70 0 0,1 136.4,142.4 Z" fill="#3f5d9e"/>
+          <path d="M90,90 L136.4,142.4 A70,70 0 0,1 90,160 Z" fill="#1f7a72"/>
+          <path d="M90,90 L90,160 A70,70 0 0,1 43.6,142.4 Z" fill="#b07a12"/>
+          <path d="M90,90 L43.6,142.4 A70,70 0 0,1 57.5,28.0 Z" fill="#a23b52"/>
+          <path d="M90,90 L57.5,28.0 A70,70 0 0,1 90,20 Z" fill="#8a97a5"/>
+          <g font-size="12" fill="#28323c">
+            <rect x="195" y="28" width="11" height="11" fill="#3f5d9e"/><text x="212" y="38">0 bàn — 38,5%</text>
+            <rect x="195" y="56" width="11" height="11" fill="#1f7a72"/><text x="212" y="66">1 bàn — 11,5%</text>
+            <rect x="195" y="84" width="11" height="11" fill="#b07a12"/><text x="212" y="94">2 bàn — 11,5%</text>
+            <rect x="195" y="112" width="11" height="11" fill="#a23b52"/><text x="212" y="122">3 bàn — 30,8%</text>
+            <rect x="195" y="140" width="11" height="11" fill="#8a97a5"/><text x="212" y="150">4 bàn — 7,7%</text>
+          </g>
+        </svg>
+      </div>
+      <div class="trap"><b>⚠️ Bẫy:</b> các tỉ lệ ở đây là số làm tròn — khi vẽ nên tính góc từ phân số gốc ($\tfrac{10}{26}\cdot360^\circ$…) để tổng đúng $360^\circ$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Đọc biểu đồ tần số tương đối ghép nhóm</h3>
+    <div class="de">
+      <p>Khảo sát thời gian dùng mạng xã hội (giờ): nhóm $[1{,}5;3)$: $46{,}7\%$; $[3;4{,}5)$: $40\%$; $[4{,}5;6)$: $10\%$; $[6;7{,}5)$: $3{,}3\%$. a) Biết $4$ bạn dùng từ $4{,}5$ giờ trở lên, hỏi có bao nhiêu bạn tham gia khảo sát? b) Nhận định "trên $50\%$ dùng từ $3$ giờ trở lên" có hợp lí không?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nhom"><b>Dùng Nhắc lại 2:</b> gộp các nhóm thoả điều kiện rồi đổi tỉ lệ ↔ số lượng.</a>
+      <ul>
+        <li>a) Từ $4{,}5$ giờ trở lên gồm hai nhóm cuối: $10\%+3{,}3\%=13{,}3\%$ ứng với $4$ bạn ⟹ $N=4:\dfrac{13{,}3}{100}\approx\mathbf{30}$ bạn. (Kiểm tra: $46{,}7\%\to14$; $40\%\to12$; $10\%\to3$; $3{,}3\%\to1$; $14+12+3+1=30$ ✓.)</li>
+        <li>b) Từ $3$ giờ trở lên: $40\%+10\%+3{,}3\%=53{,}3\%&gt;50\%$ ⟹ nhận định <span class="yes">hợp lí</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Tìm và sửa số liệu sai</h3>
+    <div class="de">
+      <p>Bảng: tần số $24;16;6;4$ — tần số tương đối $48\%;32\%;15\%;8\%$. Tìm số liệu điền sai và sửa lại.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tanso"><b>Dùng Nhắc lại 1:</b> tổng tỉ lệ phải bằng $100\%$; mọi cột phải cùng cỡ mẫu.</a>
+      <p>Tổng tỉ lệ hiện tại: $48+32+15+8=103\%\ne100\%$ — có số sai. Cỡ mẫu $N=24+16+6+4=50$; tỉ lệ đúng: $\dfrac{24}{50}=48\%$ ✓, $\dfrac{16}{50}=32\%$ ✓, $\dfrac{6}{50}=12\%$, $\dfrac{4}{50}=8\%$ ✓. Vậy số sai là <span class="key">$15\%$</span>, sửa thành <span class="ans">$12\%$</span>. (Tổng mới: $100\%$ ✓.)</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Hai phép thử "rẻ" mà mạnh: tổng tần số $=N$; tổng tần số tương đối $=100\%$.</li>
+      <li>Biểu đồ tần số tương đối chỉ cho tỉ lệ — muốn có số lượng phải biết (hoặc suy ra) cỡ mẫu.</li>
+      <li>So sánh trước/sau một sự kiện: tính hiệu hai tỉ lệ của cùng tiêu chí.</li>
+    </ul>
+  </div>
+
+</div>

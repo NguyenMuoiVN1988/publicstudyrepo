@@ -1,0 +1,217 @@
+---
+layout: default
+title: Toán 9 - Giải bài toán bằng cách lập phương trình
+description: "Lời giải bài tập giải bài toán bằng cách lập phương trình bậc hai lớp 9 - bài toán quan hệ số, hình học, năng suất, làm chung làm riêng và chuyển động, chương trình Kết nối tri thức."
+tags: [Toán 9, lập phương trình, phương trình bậc hai, toán thực tế, đại số, chuyên đề]
+series: t9-c6
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 21 — Giải bài toán bằng cách lập phương trình</h1>
+    <p>Quan hệ số · Hình học · Năng suất — làm chung riêng · Chuyển động</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-buoc">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Ba bước giải bài toán bằng cách lập phương trình</h3>
+    <ul>
+      <li><b>Bước 1 — Lập phương trình:</b> chọn ẩn và đặt điều kiện; biểu diễn các đại lượng chưa biết theo ẩn; lập phương trình biểu thị mối quan hệ.</li>
+      <li><b>Bước 2 — Giải phương trình</b> (thường là phương trình bậc hai).</li>
+      <li><b>Bước 3 — Kiểm tra &amp; kết luận:</b> đối chiếu nghiệm với điều kiện, loại nghiệm không phù hợp rồi trả lời.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-congthuc">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Các công thức thường dùng</h3>
+    <ul>
+      <li><b>Năng suất:</b> khối lượng $=$ năng suất $\times$ thời gian ⟹ thời gian $=\dfrac{\text{khối lượng}}{\text{năng suất}}$.</li>
+      <li><b>Làm chung — làm riêng:</b> coi cả công việc là $1$; mỗi giờ làm được $\dfrac1x$ công việc; làm chung: $\dfrac1x+\dfrac1y=\dfrac1{t}$.</li>
+      <li><b>Chuyển động:</b> $t=\dfrac Sv$; xuôi dòng $v+v_n$, ngược dòng $v-v_n$.</li>
+      <li>"Sớm hơn / ít hơn $k$ giờ" ⟹ hiệu hai thời gian bằng $k$ (viết thời gian dài trừ thời gian ngắn).</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Bài toán về quan hệ số</h3>
+    <div class="de">
+      <p><b>a)</b> Tích của hai số tự nhiên liên tiếp lớn hơn tổng của chúng là $109$. Tìm hai số đó.</p>
+      <p><b>b)</b> Số tự nhiên có hai chữ số, tổng hai chữ số bằng $10$; tích hai chữ số nhỏ hơn số đã cho là $12$. Tìm số đã cho.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-buoc"><b>Dùng Lý thuyết 1:</b> chọn ẩn là số nhỏ / chữ số hàng chục, đặt điều kiện số tự nhiên.</a>
+      <ul>
+        <li>a) Gọi số nhỏ là $n$ ($n\in\mathbb N$), số lớn là $n+1$. Ta có
+        $n(n+1)-(n+n+1)=109\Leftrightarrow n^2+n-2n-1=109\Leftrightarrow n^2-n-110=0$.
+        $\Delta=1+440=441=21^2$: $n=\dfrac{1+21}{2}=11$ (loại $n=-10$). Vậy hai số là <span class="ans">$11$ và $12$</span>. (Thử: $11\cdot12-23=132-23=109$ ✓.)</li>
+        <li>b) Gọi chữ số hàng chục là $a$ ($1\le a\le9$), chữ số hàng đơn vị là $b=10-a$. Số đã cho là $10a+b$. Theo đề:
+        $ab=(10a+b)-12\Leftrightarrow a(10-a)=10a+(10-a)-12=9a-2$
+        $\Leftrightarrow 10a-a^2=9a-2\Leftrightarrow a^2-a-2=0\Leftrightarrow(a-2)(a+1)=0$ → $a=2$ (loại $a=-1$), $b=8$. Số cần tìm: <span class="ans">$28$</span>. (Thử: $2\cdot8=16=28-12$ ✓.)</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> "tích hai <i>chữ số</i>" khác "tích hai <i>số</i>"; và số có hai chữ số là $10a+b$, không phải $a+b$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Bài toán hình học</h3>
+    <div class="de">
+      <p><b>a)</b> Mảnh vườn hình chữ nhật diện tích $720$ m²; tăng chiều dài $10$ m, giảm chiều rộng $6$ m thì diện tích không đổi. Tính hai kích thước.</p>
+      <p><b>b)</b> Sân khấu hình chữ nhật có chiều dài hơn chiều rộng $2$ m, đường chéo $10$ m. Tính diện tích.</p>
+      <p><b>c)</b> Khu vườn hình chữ nhật chu vi $280$ m, lối đi quanh vườn rộng $2$ m, phần trồng rau còn lại $4256$ m². Tính hai kích thước khu vườn.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-buoc"><b>Dùng Lý thuyết 1:</b> chọn một kích thước làm ẩn, biểu diễn kích thước kia qua diện tích / chu vi.</a>
+      <ul>
+        <li>a) Gọi chiều rộng là $x$ (m, $x&gt;6$), chiều dài là $\dfrac{720}{x}$. Theo đề:
+        $\left(\dfrac{720}{x}+10\right)(x-6)=720\Leftrightarrow 720-\dfrac{4320}{x}+10x-60=720$
+        $\Leftrightarrow 10x-\dfrac{4320}{x}-60=0\Leftrightarrow x^2-6x-432=0$. $\Delta'=9+432=441=21^2$: $x=3+21=24$ (loại $x=-18$). Vậy <span class="ans">rộng $24$ m, dài $30$ m</span>. (Thử: $40\cdot18=720$ ✓.)</li>
+        <li>b) Gọi chiều rộng là $x$ (m, $x&gt;0$), chiều dài $x+2$. Pythagore: $x^2+(x+2)^2=10^2\Leftrightarrow 2x^2+4x-96=0\Leftrightarrow x^2+2x-48=0$; $\Delta'=1+48=49$: $x=-1+7=6$ (loại $-8$). Kích thước $6\times8$ m → diện tích <span class="ans">$48$ m²</span>.</li>
+        <li>c) Nửa chu vi $=140$ m. Gọi chiều dài là $x$ (m, $70&lt;x&lt;140$), chiều rộng $140-x$. Bỏ lối đi $2$ m mỗi phía, phần trồng rau có kích thước $(x-4)$ và $(140-x-4)=136-x$:
+        $(x-4)(136-x)=4256\Leftrightarrow -x^2+140x-544=4256\Leftrightarrow x^2-140x+4800=0$.
+        $\Delta'=4900-4800=100$: $x=70\pm10$ → $x=80$ (chiều dài) hoặc $x=60$ (chính là chiều rộng). Vậy <span class="ans">dài $80$ m, rộng $60$ m</span>. (Thử: $76\cdot56=4256$ ✓.)</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> lối đi rộng $2$ m nằm <b>quanh</b> vườn nên mỗi kích thước giảm $2\times2=4$ m (hai phía), không phải giảm $2$ m.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Năng suất, làm chung làm riêng</h3>
+    <div class="de">
+      <p><b>a)</b> Dự định làm $120$ sản phẩm; nhờ tăng năng suất $4$ sản phẩm/giờ nên xong sớm $1$ giờ. Tính năng suất dự kiến.</p>
+      <p><b>b)</b> Kế hoạch $1100$ sản phẩm; mỗi ngày vượt mức $5$ sản phẩm nên xong sớm $2$ ngày. Hỏi theo kế hoạch mỗi ngày làm bao nhiêu sản phẩm?</p>
+      <p><b>c)</b> Hai vòi cùng chảy đầy bể trong $4$ giờ $48$ phút; chảy riêng thì vòi một nhanh hơn vòi hai $4$ giờ. Hỏi mỗi vòi chảy riêng bao lâu thì đầy bể?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng Lý thuyết 2:</b> thời gian $=$ khối lượng $/$ năng suất; làm chung cộng các "phần việc mỗi giờ".</a>
+      <ul>
+        <li>a) Gọi năng suất dự kiến là $x$ (sp/giờ, $x&gt;0$): $\dfrac{120}{x}-\dfrac{120}{x+4}=1\Leftrightarrow 120\cdot4=x(x+4)\Leftrightarrow x^2+4x-480=0$. $\Delta'=4+480=484=22^2$: $x=-2+22=20$. Vậy <span class="ans">$20$ sản phẩm/giờ</span>. (Thử: $6-5=1$ ✓.)</li>
+        <li>b) Gọi số sản phẩm mỗi ngày theo kế hoạch là $x$ (sp, $x&gt;0$): $\dfrac{1100}{x}-\dfrac{1100}{x+5}=2\Leftrightarrow 1100\cdot5=2x(x+5)\Leftrightarrow x^2+5x-2750=0$. $\Delta=25+11000=11025=105^2$: $x=\dfrac{-5+105}{2}=50$. Vậy <span class="ans">$50$ sản phẩm/ngày</span>. (Thử: $22-20=2$ ✓.)</li>
+        <li>c) $4$ giờ $48$ phút $=\dfrac{24}{5}$ giờ. Gọi thời gian vòi một chảy riêng đầy bể là $x$ (giờ, $x&gt;0$), vòi hai là $x+4$. Mỗi giờ: $\dfrac1x+\dfrac1{x+4}=\dfrac{5}{24}\Leftrightarrow 24(2x+4)=5x(x+4)\Leftrightarrow 5x^2-28x-96=0$. $\Delta=784+1920=2704=52^2$: $x=\dfrac{28+52}{10}=8$ (loại nghiệm âm). Vậy <span class="ans">vòi một $8$ giờ, vòi hai $12$ giờ</span>. (Thử: $\dfrac18+\dfrac1{12}=\dfrac{5}{24}$ ✓.)</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> đổi $4$ giờ $48$ phút $=4+\dfrac{48}{60}=\dfrac{24}{5}$ giờ (không phải $4{,}48$ giờ!); "vòi một nhanh hơn" nghĩa là <b>thời gian của vòi một ít hơn</b>.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — Bài toán chuyển động</h3>
+    <div class="de">
+      <p><b>a)</b> Hai ô tô cùng đi quãng đường $120$ km; xe một nhanh hơn xe hai $10$ km/h nên đến sớm hơn $24$ phút. Tính tốc độ mỗi xe.</p>
+      <p><b>b)</b> Quãng đường $AB=90$ km; đi từ $A$ đến $B$, nghỉ $30$ phút, về với vận tốc lớn hơn lúc đi $9$ km/h; tổng thời gian $5$ giờ. Tính vận tốc lúc đi.</p>
+      <p><b>c)</b> Tàu tuần tra ngược dòng $60$ km rồi xuôi dòng $48$ km, nước chảy $2$ km/h; thời gian xuôi ít hơn ngược $1$ giờ. Tính vận tốc tàu khi nước yên lặng.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng Lý thuyết 2:</b> $t=\dfrac Sv$; hiệu thời gian $=$ số giờ chênh lệch; xuôi/ngược dòng cộng trừ vận tốc dòng nước.</a>
+      <ul>
+        <li>a) $24$ phút $=\dfrac25$ giờ. Gọi tốc độ xe hai là $x$ (km/h, $x&gt;0$), xe một là $x+10$:
+        $\dfrac{120}{x}-\dfrac{120}{x+10}=\dfrac25\Leftrightarrow 120\cdot10\cdot5=2x(x+10)\Leftrightarrow x^2+10x-3000=0$.
+        $\Delta'=25+3000=3025=55^2$: $x=-5+55=50$. Vậy <span class="ans">xe hai $50$ km/h, xe một $60$ km/h</span>. (Thử: $2{,}4-2=0{,}4$ giờ $=24$ phút ✓.)</li>
+        <li>b) Gọi vận tốc lúc đi là $x$ (km/h, $x&gt;0$). Thời gian đi $+$ nghỉ $+$ về $=5$ giờ:
+        $\dfrac{90}{x}+\dfrac12+\dfrac{90}{x+9}=5\Leftrightarrow \dfrac{90}{x}+\dfrac{90}{x+9}=\dfrac92$
+        $\Leftrightarrow 180(2x+9)=9x(x+9)\Leftrightarrow x^2-31x-180=0$. $\Delta=961+720=1681=41^2$: $x=\dfrac{31+41}{2}=36$ (loại $-5$). Vậy <span class="ans">$36$ km/h</span>. (Thử: $2{,}5+0{,}5+2=5$ ✓.)</li>
+        <li>c) Gọi vận tốc thực của tàu là $x$ (km/h, $x&gt;2$): ngược dòng $x-2$, xuôi dòng $x+2$:
+        $\dfrac{60}{x-2}-\dfrac{48}{x+2}=1\Leftrightarrow 60(x+2)-48(x-2)=x^2-4\Leftrightarrow 12x+216=x^2-4$
+        $\Leftrightarrow x^2-12x-220=0$. $\Delta'=36+220=256=16^2$: $x=6+16=22$ (loại $-10$). Vậy <span class="ans">$22$ km/h</span>. (Thử: $3-2=1$ ✓.)</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> đừng quên cộng $30$ phút <b>nghỉ</b> vào tổng $5$ giờ. Bẫy câu c: điều kiện phải là $x&gt;2$ (vận tốc tàu lớn hơn vận tốc dòng) chứ không chỉ $x&gt;0$.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Chọn ẩn "gọn" nhất (thường là đại lượng bị hỏi) và đặt điều kiện đầy đủ ngay khi gọi ẩn.</li>
+      <li>Phương trình dạng $\dfrac{A}{x}-\dfrac{A}{x+k}=t$ quy đồng thành phương trình bậc hai — dạng "xương sống" của cả bài học.</li>
+      <li>Kết thúc luôn có bước <b>thử lại</b> nghiệm vào đề bài (không chỉ vào phương trình) rồi mới kết luận.</li>
+    </ul>
+  </div>
+
+</div>

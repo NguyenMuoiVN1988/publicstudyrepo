@@ -1,0 +1,194 @@
+---
+layout: default
+title: Toán 9 - Phép thử ngẫu nhiên và không gian mẫu
+description: "Lời giải bài tập phép thử ngẫu nhiên và không gian mẫu lớp 9 - nhận biết phép thử, mô tả không gian mẫu khi lấy lần lượt, đồng thời, có hoàn lại, chương trình Kết nối tri thức."
+tags: [Toán 9, xác suất, phép thử, không gian mẫu, chuyên đề]
+series: t9-c8
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 25 — Phép thử ngẫu nhiên và không gian mẫu</h1>
+    <p>Nhận biết phép thử · Mô tả không gian mẫu: lần lượt, đồng thời, có hoàn lại</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-phepthu">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Phép thử ngẫu nhiên</h3>
+    <ul>
+      <li>Là hoạt động mà ta <b>không biết trước kết quả</b>, nhưng <b>biết tất cả</b> các kết quả có thể xảy ra.</li>
+      <li>Nếu kết quả biết trước (chỉ có một khả năng) thì <b>không</b> phải phép thử ngẫu nhiên.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-kgm">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Không gian mẫu $\Omega$</h3>
+    <ul>
+      <li>$\Omega$ là tập hợp <b>tất cả</b> các kết quả có thể xảy ra của phép thử.</li>
+      <li>Lấy <b>lần lượt</b> (không hoàn lại): kết quả là cặp có thứ tự $(i;j)$, $i\ne j$. Lấy <b>có hoàn lại</b>: cho phép $i=j$. Lấy <b>đồng thời</b>: kết quả không kể thứ tự.</li>
+    </ul>
+    <div class="tip">🔍 <b>Mẹo:</b> liệt kê theo bảng ô vuông (gieo 2 lần) hoặc sơ đồ cây (lấy lần lượt) để không sót kết quả.</div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Nhận biết phép thử ngẫu nhiên</h3>
+    <div class="de">
+      <p><b>a)</b> Gieo $2$ khối lập phương, mỗi khối sơn một màu (một khối xanh lá, một khối vàng), quan sát màu mặt trên. <b>b)</b> Chọn bất kì $1$ cây bút bi từ hộp $4$ cây. <b>c)</b> Chọn đồng thời $2$ que gỗ từ hộp có $2$ que gỗ.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-phepthu"><b>Dùng Lý thuyết 1:</b> hỏi "kết quả có biết trước không?"</a>
+      <ul>
+        <li>a) Mỗi khối được sơn <b>một màu duy nhất trên cả khối</b> nên mặt xuất hiện bên trên luôn là xanh lá (khối xanh) và vàng (khối vàng) — kết quả biết trước ⟹ <span class="no">không phải</span> phép thử ngẫu nhiên.</li>
+        <li>b) Không biết trước sẽ chọn cây nào trong $4$ cây, nhưng biết tập các kết quả ⟹ <span class="yes">là</span> phép thử ngẫu nhiên.</li>
+        <li>c) Hộp chỉ có $2$ que, lấy đồng thời $2$ que thì kết quả duy nhất là lấy cả hai — biết trước ⟹ <span class="no">không phải</span> phép thử ngẫu nhiên.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu a:</b> đề trông giống "gieo xúc xắc" nhưng khối sơn <i>một màu toàn khối</i> thì mặt nào lật lên cũng cùng màu — kết quả không hề ngẫu nhiên.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Mô tả không gian mẫu</h3>
+    <div class="de">
+      <p><b>a)</b> Gieo $1$ con xúc xắc một lần. <b>b)</b> Gieo xúc xắc hai lần. <b>c)</b> Lấy lần lượt $2$ quả bóng từ hộp $3$ quả đánh số $1;2;3$. <b>d)</b> Lấy $1$ quả, xem số, trả lại rồi lấy tiếp $1$ quả.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-kgm"><b>Dùng Lý thuyết 2:</b> phân biệt có thứ tự / không hoàn lại / có hoàn lại.</a>
+      <ul>
+        <li>a) $\Omega=\{1;2;3;4;5;6\}$ — $6$ phần tử.</li>
+        <li>b) $\Omega=\{(i;j)\mid i,j\in\{1;\ldots;6\}\}$ — <span class="key">$36$ phần tử</span> (kết quả lần 1; lần 2).</li>
+        <li>c) Lấy lần lượt, không hoàn lại: $\Omega=\{(1;2),(1;3),(2;1),(2;3),(3;1),(3;2)\}$ — $6$ phần tử ($i\ne j$).</li>
+        <li>d) Có hoàn lại nên cho phép trùng: $\Omega=\{(i;j)\mid i,j\in\{1;2;3\}\}$ — <span class="key">$9$ phần tử</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c–d:</b> cùng là "lấy 2 lần từ 3 quả bóng" nhưng <b>không hoàn lại</b> được $6$ kết quả, <b>có hoàn lại</b> được $9$ kết quả — khác nhau ở các cặp $(i;i)$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 2 (tiếp) — Không gian mẫu của các mô hình khác</h3>
+    <div class="de">
+      <p><b>a)</b> Gieo $2$ lần một đồng xu có $1$ mặt xanh và $1$ mặt đỏ. <b>b)</b> Túi có $3$ bi xanh đánh số $1$–$3$ và $1$ bi đỏ đánh số $4$; lấy ngẫu nhiên $1$ viên.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-kgm"><b>Dùng Lý thuyết 2:</b> ghi rõ kí hiệu từng kết quả.</a>
+      <ul>
+        <li>a) Kí hiệu X — mặt xanh, Đ — mặt đỏ: $\Omega=\{XX;\,X\text{Đ};\,\text{Đ}X;\,\text{ĐĐ}\}$ — $4$ phần tử.</li>
+        <li>b) $\Omega=\{X_1;\,X_2;\,X_3;\,\text{Đ}_4\}$ — $4$ phần tử (mỗi viên bi là một kết quả, phân biệt bởi số đánh trên bi).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 3 — Luyện tập tổng hợp</h3>
+    <div class="de">
+      <p>Hộp có $1$ bóng xanh (X), $1$ bóng vàng (V), $1$ bóng đỏ (Đ). <b>a)</b> Lấy bất kì $1$ quả. <b>b)</b> Lấy đồng thời $3$ quả. <b>c)</b> Lấy lần lượt $3$ quả một cách ngẫu nhiên.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-phepthu"><b>Dùng Lý thuyết 1 &amp; 2:</b> xét từng hoạt động rồi liệt kê $\Omega$.</a>
+      <ul>
+        <li>a) <span class="yes">Là phép thử</span>: $\Omega=\{X;V;\text{Đ}\}$.</li>
+        <li>b) <span class="no">Không phải phép thử</span>: lấy đồng thời cả $3$ quả chỉ có đúng một kết quả (lấy hết) — biết trước.</li>
+        <li>c) <span class="yes">Là phép thử</span>: kết quả là thứ tự lấy $3$ quả — $\Omega=\{XV\text{Đ}; X\text{Đ}V; VX\text{Đ}; V\text{Đ}X; \text{Đ}XV; \text{Đ}VX\}$ — $6$ phần tử.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> "lấy đồng thời cả 3" và "lấy lần lượt cả 3" khác hẳn nhau: một cái biết trước kết quả, một cái có $3!=6$ thứ tự khác nhau.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Phép thử ngẫu nhiên = không biết trước kết quả + biết tập tất cả kết quả có thể.</li>
+      <li>Số phần tử của $\Omega$: gieo 2 lần xúc xắc $6\times6=36$; lấy lần lượt $2$ từ $n$ vật là $n(n-1)$; có hoàn lại là $n^2$; lấy lần lượt hết $3$ vật là $3!=6$.</li>
+      <li>Kí hiệu kết quả rõ ràng ($X_1$, ĐĐ, $(i;j)$,…) trước khi đếm — nền tảng cho việc tính xác suất ở Bài 26.</li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,197 @@
+---
+layout: default
+title: Toán 9 - Hình trụ và hình nón
+description: "Lời giải bài tập hình trụ và hình nón lớp 9 - diện tích xung quanh, diện tích toàn phần, thể tích và các bài toán thực tế về lon nước, thùng nhôm, bánh sinh nhật, mũ chú hề, chương trình Kết nối tri thức."
+tags: [Toán 9, hình trụ, hình nón, hình khối, thể tích, chuyên đề]
+series: t9-c10
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 31 — Hình trụ và hình nón</h1>
+    <p>$S_{xq}$, $S_{tp}$, thể tích · Đường sinh $l=\sqrt{r^2+h^2}$ · Toán thực tế</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-tru">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Hình trụ</h3>
+    <ul>
+      <li>Quay hình chữ nhật quanh một cạnh cố định được hình trụ; đường sinh bằng chiều cao $h$.</li>
+      <li>$S_{xq}=2\pi Rh$; $S_{tp}=2\pi Rh+2\pi R^2$; $V=\pi R^2h$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-non">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Hình nón</h3>
+    <ul>
+      <li>Quay tam giác vuông quanh một cạnh góc vuông được hình nón; đường sinh $l=\sqrt{r^2+h^2}$.</li>
+      <li>$S_{xq}=\pi rl$; $S_{tp}=\pi rl+\pi r^2$; $V=\dfrac13\pi r^2h$.</li>
+    </ul>
+    <div class="tip">🔍 <b>Mẹo:</b> bộ ba $(r;h;l)$ là bộ ba Pythagore — hay gặp $(3;4;5)$, $(5;12;13)$, $(9;12;15)$.</div>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Tính toán với hình trụ</h3>
+    <div class="de">
+      <p><b>a)</b> Hình trụ có $h=R$, $S_{xq}=314$ cm²: tính $R$ và $V$ ($\pi\approx3{,}14$). <b>b)</b> $R=16$ cm, $h=9$ cm: tính $S_{xq}$, $V$ ($\pi\approx3{,}142$). <b>c)</b> Trụ lăn: đường kính $42$ cm, dài $2$ m, lăn $10$ vòng phủ được bao nhiêu m² ($\pi=\frac{22}7$)?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tru"><b>Dùng Lý thuyết 1:</b> thay đúng công thức, chú ý đơn vị.</a>
+      <ul>
+        <li>a) $S_{xq}=2\pi Rh=2\pi R^2=314\Rightarrow R^2=\dfrac{314}{2\cdot3{,}14}=50\Rightarrow$ <span class="ans">$R=5\sqrt2\approx7{,}07$ cm</span>. $V=\pi R^2h=\pi R^3=3{,}14\cdot50\cdot5\sqrt2=785\sqrt2\approx$ <span class="ans">$1110{,}16$ cm³</span>.</li>
+        <li>b) $S_{xq}=2\pi\cdot16\cdot9=288\pi\approx288\cdot3{,}142\approx$ <span class="ans">$905$ cm²</span>. $V=\pi\cdot16^2\cdot9=2304\pi\approx$ <span class="ans">$7239$ cm³</span>.</li>
+        <li>c) $R=21$ cm $=0{,}21$ m. Một vòng lăn phủ đúng $S_{xq}=2\pi Rh=2\cdot\dfrac{22}7\cdot0{,}21\cdot2=2{,}64$ m². Mười vòng: <span class="ans">$26{,}4$ m²</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> đổi $42$ cm về mét và lấy <b>bán kính</b> $0{,}21$ m; diện tích lăn được là diện tích <i>xung quanh</i>, không phải thể tích.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Các yếu tố và $S_{xq}$ của hình nón</h3>
+    <div class="de">
+      <p><b>a)</b> $h=6$ cm, $r=3$ cm. <b>b)</b> $l=5$ cm, $r=3$ cm. <b>c)</b> $l=15$ cm, $r=9$ cm.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-non"><b>Dùng Lý thuyết 2:</b> $l^2=r^2+h^2$ rồi $S_{xq}=\pi rl$.</a>
+      <ul>
+        <li>a) $l=\sqrt{3^2+6^2}=\sqrt{45}=3\sqrt5\approx6{,}7$ cm; $S_{xq}=\pi\cdot3\cdot3\sqrt5=9\sqrt5\,\pi\approx$ <span class="ans">$63{,}2$ cm²</span>.</li>
+        <li>b) $h=\sqrt{5^2-3^2}=4$ cm; $S_{xq}=\pi\cdot3\cdot5=15\pi\approx$ <span class="ans">$47{,}1$ cm²</span>.</li>
+        <li>c) $h=\sqrt{15^2-9^2}=12$ cm; $S_{xq}=\pi\cdot9\cdot15=135\pi\approx$ <span class="ans">$424{,}1$ cm²</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> phân biệt đề cho $h$ (chiều cao) hay $l$ (đường sinh): $S_{xq}$ dùng $l$, thể tích dùng $h$ — cho nhầm chỗ là sai cả bài.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 2 (tiếp) — Thể tích hình nón</h3>
+    <div class="de">
+      <p><b>a)</b> $r=6$ cm, $h=12$ cm. <b>b)</b> $d=7$ m, $h=10$ m. <b>c)</b> Mũ dạng nón $h=31$ cm, $r=12$ cm (tính thêm $l$). <b>d)</b> $S_{\text{đáy}}=152$ cm², $h=6$ cm.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-non"><b>Dùng Lý thuyết 2:</b> $V=\dfrac13\pi r^2h=\dfrac13S_{\text{đáy}}h$.</a>
+      <ul>
+        <li>a) $V=\dfrac13\pi\cdot36\cdot12=144\pi\approx$ <span class="ans">$452{,}4$ cm³</span>.</li>
+        <li>b) $r=3{,}5$ m: $V=\dfrac13\pi\cdot12{,}25\cdot10=\dfrac{122{,}5}{3}\pi\approx$ <span class="ans">$128{,}28$ m³</span>.</li>
+        <li>c) $l=\sqrt{31^2+12^2}=\sqrt{1105}\approx33{,}2$ cm; $V=\dfrac13\pi\cdot144\cdot31=1488\pi\approx$ <span class="ans">$4673{,}5$ cm³</span>.</li>
+        <li>d) $V=\dfrac13S_{\text{đáy}}h=\dfrac13\cdot152\cdot6=$ <span class="ans">$304$ cm³</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu d:</b> đề cho sẵn <b>diện tích đáy</b> nên dùng $V=\dfrac13Sh$ — không nhân thêm $\pi$ lần nữa.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 3 — Toán ứng dụng thực tế</h3>
+    <div class="de">
+      <p><b>a)</b> Lon phổ biến ($h=10{,}2$; $d=6{,}42$ cm, chứa $330$ ml) và lon cao ($h=13{,}41$; $d=5{,}6$ cm): lon cao chứa được hết không; chi phí (tỉ lệ $S_{tp}$) tăng bao nhiêu %? <b>b)</b> Gò tấm nhôm $60\times200$ cm thành thùng trụ cao $60$ cm: tính $R$ và số lít chứa được. <b>c)</b> Bánh hai tầng (trên $r=15$, $h=15$; dưới $d=40$, $h=20$ cm): diện tích trang trí (không tính đáy dưới). <b>d)</b> Mũ chú hề: nón $l=30$, $r=10$ cm + vành khuyên đường kính ngoài $35$ cm.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tru"><b>Dùng Lý thuyết 1 &amp; 2:</b> tách vật thể thành các mặt/khối cơ bản rồi cộng lại.</a>
+      <ul>
+        <li>a) Lon cao: $r=2{,}8$ cm, $V=3{,}14\cdot2{,}8^2\cdot13{,}41\approx330{,}1$ ml $\ge330$ ml ⟹ <span class="yes">chứa được hết</span>. Chi phí: $S_{tp}=2\pi r(h+r)$. Lon phổ biến: $2\cdot3{,}14\cdot3{,}21\cdot13{,}41\approx270{,}3$ cm²; lon cao: $2\cdot3{,}14\cdot2{,}8\cdot16{,}21\approx285{,}0$ cm². Tăng $\dfrac{285{,}0-270{,}3}{270{,}3}\approx$ <span class="ans">$5{,}4\%$</span>.</li>
+        <li>b) Chiều dài tấm nhôm là chu vi đáy: $2\pi R=200\Rightarrow R=\dfrac{100}{\pi}\approx$ <span class="ans">$31{,}83$ cm</span>. $V=\pi R^2h=\pi\cdot\dfrac{10000}{\pi^2}\cdot60=\dfrac{600000}{\pi}\approx190\,986$ cm³ $\approx$ <span class="ans">$191$ lít</span>.</li>
+        <li>c) Gồm: mặt xung quanh tầng trên $2\pi\cdot15\cdot15=450\pi$; mặt trên tầng trên $\pi\cdot15^2=225\pi$; mặt xung quanh tầng dưới $2\pi\cdot20\cdot20=800\pi$; phần hở của mặt trên tầng dưới $\pi(20^2-15^2)=175\pi$. Tổng $=1650\pi\approx$ <span class="ans">$5181$ cm²</span>.</li>
+        <li>d) Chóp nón: $S_{xq}=\pi\cdot10\cdot30=300\pi$. Vành khuyên: bán kính ngoài $17{,}5$, bán kính trong $10$: $\pi(17{,}5^2-10^2)=206{,}25\pi$. Tổng $=506{,}25\pi\approx$ <span class="ans">$1590$ cm²</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> mặt trên của tầng dưới bị tầng trên che mất hình tròn bán kính $15$ — chỉ trang trí phần <b>vành khuyên</b> $\pi(20^2-15^2)$, đừng cộng cả $400\pi$.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Trụ: $S_{xq}=2\pi Rh$, $V=\pi R^2h$; nón: $S_{xq}=\pi rl$, $V=\dfrac13\pi r^2h$, $l^2=r^2+h^2$.</li>
+      <li>Đường kính → chia đôi; cm³ → lít qua $1$ dm³ $=1$ lít; giữ $\pi$ đến bước cuối rồi mới thay số.</li>
+      <li>Vật thể ghép: liệt kê từng mặt được nhìn thấy / từng khối thành phần trước khi cộng.</li>
+    </ul>
+  </div>
+
+</div>

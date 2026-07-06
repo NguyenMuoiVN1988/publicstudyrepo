@@ -1,0 +1,213 @@
+---
+layout: default
+title: Toán 9 - Định lí Viète và ứng dụng
+description: "Lời giải bài tập định lí Viète lớp 9 - tính tổng và tích hai nghiệm, biểu thức đối xứng, nhẩm nghiệm, tìm hai số biết tổng và tích, chương trình Kết nối tri thức."
+tags: [Toán 9, định lí Viète, phương trình bậc hai, tổng tích nghiệm, đại số, chuyên đề]
+series: t9-c6
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 20 — Định lí Viète và ứng dụng</h1>
+    <p>Tổng — tích hai nghiệm · Biểu thức đối xứng · Nhẩm nghiệm · Tìm hai số biết tổng và tích</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-viete">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Định lí Viète</h3>
+    <ul>
+      <li>Nếu $x_1,x_2$ là hai nghiệm của $ax^2+bx+c=0$ $(a\ne0)$ thì $S=x_1+x_2=-\dfrac ba$ và $P=x_1x_2=\dfrac ca$.</li>
+      <li><b>Điều kiện áp dụng:</b> phương trình phải <b>có nghiệm</b> ($\Delta\ge0$) — kiểm tra trước khi dùng.</li>
+    </ul>
+    <div class="tip">🔍 <b>Các biểu thức đối xứng hay gặp:</b> $x_1^2+x_2^2=S^2-2P$; $\dfrac1{x_1}+\dfrac1{x_2}=\dfrac SP$; $x_1^3+x_2^3=S^3-3SP$; $(x_1-x_2)^2=S^2-4P$.</div>
+  </div>
+
+  <div class="theory" id="lt-nham">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Nhẩm nghiệm</h3>
+    <ul>
+      <li>Nếu $a+b+c=0$ thì $x_1=1$, $x_2=\dfrac ca$.</li>
+      <li>Nếu $a-b+c=0$ thì $x_1=-1$, $x_2=-\dfrac ca$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-tongtich">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Tìm hai số biết tổng và tích</h3>
+    <ul>
+      <li>Hai số có tổng $S$ và tích $P$ là hai nghiệm của phương trình $x^2-Sx+P=0$.</li>
+      <li>Điều kiện tồn tại hai số: $S^2-4P\ge0$.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Tính tổng và tích hai nghiệm không giải phương trình</h3>
+    <div class="de">
+      <p><b>a)</b> $x^2+4x-5=0$; <b>b)</b> $4x^2+4x+1=0$; <b>c)</b> $3x^2-x-3=0$; <b>d)</b> $x^2-7x+5=0$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-viete"><b>Dùng Lý thuyết 1:</b> kiểm tra có nghiệm rồi đọc $S=-\dfrac ba$, $P=\dfrac ca$.</a>
+      <ul>
+        <li>a) $ac=-5&lt;0$ → có hai nghiệm phân biệt. <span class="ans">$x_1+x_2=-4$; $x_1x_2=-5$</span>.</li>
+        <li>b) $\Delta=16-16=0$ → có nghiệm (kép). <span class="ans">$x_1+x_2=-1$; $x_1x_2=\dfrac14$</span>.</li>
+        <li>c) $ac=-9&lt;0$ → có hai nghiệm phân biệt. <span class="ans">$x_1+x_2=\dfrac13$; $x_1x_2=-1$</span>.</li>
+        <li>d) $\Delta=49-20=29&gt;0$ → có hai nghiệm phân biệt. <span class="ans">$x_1+x_2=7$; $x_1x_2=5$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> ở câu d không được "đọc luôn" $S,P$ mà chưa kiểm tra $\Delta$ — nếu $\Delta&lt;0$ (phương trình vô nghiệm) thì viết $x_1+x_2$ là vô nghĩa.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Biểu thức đối xứng của hai nghiệm</h3>
+    <div class="de">
+      <p>Gọi $x_1,x_2$ là hai nghiệm của $x^2-2x-1=0$. Không giải phương trình, tính:</p>
+      <p><b>a)</b> $A=x_1^2+x_2^2$; <b>b)</b> $B=x_1^2x_2+x_1x_2^2$; <b>c)</b> $C=\dfrac1{x_1}+\dfrac1{x_2}$; <b>d)</b> $D=\dfrac{x_2}{x_1}+\dfrac{x_1}{x_2}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-viete"><b>Dùng Lý thuyết 1:</b> quy mọi biểu thức về $S$ và $P$.</a>
+      <p>$ac=-1&lt;0$ nên phương trình có hai nghiệm phân biệt; $S=x_1+x_2=2$, $P=x_1x_2=-1$.</p>
+      <ul>
+        <li>a) $A=S^2-2P=4-2(-1)=\mathbf{6}$.</li>
+        <li>b) $B=x_1x_2(x_1+x_2)=P\cdot S=(-1)\cdot2=\mathbf{-2}$.</li>
+        <li>c) $C=\dfrac{x_1+x_2}{x_1x_2}=\dfrac SP=\dfrac{2}{-1}=\mathbf{-2}$.</li>
+        <li>d) $D=\dfrac{x_1^2+x_2^2}{x_1x_2}=\dfrac AP=\dfrac{6}{-1}=\mathbf{-6}$.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu a:</b> $x_1^2+x_2^2\ne(x_1+x_2)^2$! Phải trừ đi $2P$: ở đây $P=-1$ nên $-2P=+2$ — trừ số âm thành cộng, rất dễ sai dấu.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Nhẩm nghiệm bằng $a+b+c=0$ hoặc $a-b+c=0$</h3>
+    <div class="de">
+      <p><b>a)</b> $15x^2+7x-22=0$; <b>b)</b> $18x^2-7x-25=0$; <b>c)</b> $2022x^2+2023x+1=0$; <b>d)</b> $x^2-2\sqrt7\,x+7=0$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nham"><b>Dùng Lý thuyết 2:</b> thử tổng $a+b+c$ trước, rồi tổng $a-b+c$.</a>
+      <ul>
+        <li>a) $15+7-22=0$ → <span class="ans">$x_1=1$, $x_2=\dfrac ca=-\dfrac{22}{15}$</span>.</li>
+        <li>b) $18-(-7)+(-25)=0$ → <span class="ans">$x_1=-1$, $x_2=-\dfrac ca=\dfrac{25}{18}$</span>.</li>
+        <li>c) $2022-2023+1=0$ → <span class="ans">$x_1=-1$, $x_2=-\dfrac{1}{2022}$</span>.</li>
+        <li>d) Không rơi vào hai mẫu trên, nhưng $x^2-2\sqrt7\,x+7=(x-\sqrt7)^2=0$ → <span class="ans">nghiệm kép $x=\sqrt7$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> tính $a-b+c$ phải là $18-(-7)+(-25)$, tức <b>trừ cả dấu</b> của $b=-7$; cộng trừ ẩu thành $18-7-25\ne0$ sẽ bỏ lỡ cách nhẩm.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — Tìm hai số biết tổng và tích; lập phương trình bậc hai</h3>
+    <div class="de">
+      <p><b>a)</b> Tìm $u,v$ biết $u+v=5$ và $uv=-14$.</p>
+      <p><b>b)</b> Có tồn tại hai số có tổng bằng $10$ và tích bằng $30$ không?</p>
+      <p><b>c)</b> Lập phương trình bậc hai có hai nghiệm là $5$ và $-7$.</p>
+      <p><b>d)</b> Mảnh vườn hình chữ nhật có chu vi $116$ m, diện tích $805$ m². Tính chiều dài, chiều rộng.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tongtich"><b>Dùng Lý thuyết 3:</b> hai số cần tìm là nghiệm của $x^2-Sx+P=0$.</a>
+      <ul>
+        <li>a) $u,v$ là nghiệm của $X^2-5X-14=0$; $\Delta=25+56=81$, $\sqrt\Delta=9$: $X=\dfrac{5\pm9}{2}$ → <span class="ans">$\{u;v\}=\{7;-2\}$</span>.</li>
+        <li>b) $S^2-4P=100-120=-20&lt;0$ → <span class="no">không tồn tại</span> hai số như vậy.</li>
+        <li>c) $S=5+(-7)=-2$, $P=5\cdot(-7)=-35$ → phương trình <span class="ans">$x^2+2x-35=0$</span>.</li>
+        <li>d) Nửa chu vi $=58$ m: dài $+$ rộng $=58$, dài $\times$ rộng $=805$. Hai kích thước là nghiệm của $X^2-58X+805=0$; $\Delta'=29^2-805=841-805=36$: $X=29\pm6$ → <span class="ans">chiều dài $35$ m, chiều rộng $23$ m</span>. (Thử lại: $2(35+23)=116$ ✓; $35\cdot23=805$ ✓.)</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu d:</b> tổng hai kích thước là <b>nửa</b> chu vi ($58$ m), không phải cả chu vi $116$ m.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Luôn kiểm tra $\Delta\ge0$ (hoặc $ac&lt;0$) trước khi áp dụng Viète.</li>
+      <li>Thuộc lòng bộ ba: $x_1^2+x_2^2=S^2-2P$; $\dfrac1{x_1}+\dfrac1{x_2}=\dfrac SP$; $(x_1-x_2)^2=S^2-4P$.</li>
+      <li>"Tổng $S$, tích $P$" ⟹ phương trình $x^2-Sx+P=0$ — chú ý dấu <b>trừ</b> trước $Sx$.</li>
+    </ul>
+  </div>
+
+</div>

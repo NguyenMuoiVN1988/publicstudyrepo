@@ -1,0 +1,220 @@
+---
+layout: default
+title: Toán 9 - Bảng tần số, tần số tương đối ghép nhóm và biểu đồ
+description: "Lời giải bài tập số liệu ghép nhóm lớp 9 - lập bảng tần số ghép nhóm, tần số tương đối ghép nhóm, vẽ và đọc biểu đồ ghép nhóm dạng cột và đoạn thẳng, chương trình Kết nối tri thức."
+tags: [Toán 9, thống kê, ghép nhóm, tần số, biểu đồ, chuyên đề]
+series: t9-c7
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc .figrow { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+    align-items:flex-end; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 12px; margin:8px 0 14px; }
+  .lgc .figrow svg { max-width:100%; height:auto; }
+  .lgc table.bang { border-collapse:collapse; margin:10px auto; }
+  .lgc table.bang th, .lgc table.bang td { border:1px solid #c9d4de;
+    padding:4px 9px; text-align:center; }
+  .lgc table.bang th { background:var(--indigo-bg); }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 24 — Bảng tần số, tần số tương đối ghép nhóm và biểu đồ</h1>
+    <p>Nhóm $[a;b)$ · Bảng ghép nhóm · Biểu đồ cột kề nhau, đoạn thẳng</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-nhom">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Nhóm số liệu và bảng ghép nhóm</h3>
+    <ul>
+      <li>Nhóm $[a;b)$ chứa các giá trị $X$ với $a\le X&lt;b$; độ rộng $b-a$; giá trị đại diện $\dfrac{a+b}2$.</li>
+      <li>Tần số của nhóm = số giá trị thuộc nhóm; tần số tương đối của nhóm $f=\dfrac mN\cdot100\%$.</li>
+      <li>Biết một cặp (tần số $m$; tần số tương đối $f$) của cùng một nhóm ⟹ cỡ mẫu $N=m:\dfrac f{100\%}$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-bieudonhom">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Biểu đồ ghép nhóm</h3>
+    <ul>
+      <li>Dạng cột: các cột <b>kề sát nhau</b>, đáy cột trải từ $a$ đến $b$, chiều cao là tần số (hoặc tần số tương đối) của nhóm.</li>
+      <li>Dạng đoạn thẳng: nối các điểm có hoành độ là <b>giá trị đại diện</b> của nhóm, tung độ là tần số (tương đối).</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Lập bảng tần số ghép nhóm</h3>
+    <div class="de">
+      <p>Thời gian bác sĩ khám cho $20$ bệnh nhân (phút): 10,0; 7,7; 9,4; 9,1; 6,7; 5,9; 6,7; 11,7; 6,9; 5,4; 6,0; 5,8; 8,7; 6,4; 5,3; 12,3; 7,4; 9,1; 11,8; 6,5. Chia thành $5$ nhóm, nhóm thứ nhất từ $5$ đến dưới $6{,}5$ phút; lập bảng tần số ghép nhóm; tìm nhóm tần số cao nhất, thấp nhất.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nhom"><b>Dùng Lý thuyết 1:</b> nhóm rộng $1{,}5$: $[5;6{,}5)$, $[6{,}5;8)$, $[8;9{,}5)$, $[9{,}5;11)$, $[11;12{,}5)$.</a>
+      <table class="bang">
+        <tr><th>Thời gian (phút)</th><td>[5;6,5)</td><td>[6,5;8)</td><td>[8;9,5)</td><td>[9,5;11)</td><td>[11;12,5)</td></tr>
+        <tr><th>Tần số</th><td>6</td><td>6</td><td>4</td><td>1</td><td>3</td></tr>
+      </table>
+      <p>(Cụ thể: $[5;6{,}5)$: 5,9; 5,4; 6,0; 5,8; 6,4; 5,3 — $[6{,}5;8)$: 7,7; 6,7; 6,7; 6,9; 7,4; 6,5 — $[8;9{,}5)$: 9,4; 9,1; 8,7; 9,1 — $[9{,}5;11)$: 10,0 — $[11;12{,}5)$: 11,7; 12,3; 11,8. Tổng $=20$ ✓.)</p>
+      <p>Tần số cao nhất: <span class="ans">hai nhóm $[5;6{,}5)$ và $[6{,}5;8)$ cùng bằng $6$</span>; thấp nhất: <span class="ans">nhóm $[9{,}5;11)$ với tần số $1$</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> giá trị $6{,}5$ thuộc nhóm $[6{,}5;8)$ chứ <b>không</b> thuộc $[5;6{,}5)$ — nhóm chỉ lấy đầu mút trái.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Bảng tần số tương đối ghép nhóm</h3>
+    <div class="de">
+      <p><b>a)</b> Thời gian truy cập Internet của bác Quảng trong $30$ ngày (giờ), chia nhóm $[0;1)$ … $[4;5)$: lập bảng tần số và tần số tương đối ghép nhóm.</p>
+      <p><b>b)</b> Hoàn thành bảng chiều cao cây bạch đàn: nhóm $[7;8)$, $?$, $[?;10)$ — tần số $?;24;8$ — tần số tương đối $?;30\%;?$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nhom"><b>Dùng Lý thuyết 1:</b> đếm theo nhóm; dùng cặp $(24;30\%)$ suy ra cỡ mẫu.</a>
+      <ul>
+        <li>a) Đếm từng nhóm ($N=30$):
+          <table class="bang">
+            <tr><th>Thời gian (giờ)</th><td>[0;1)</td><td>[1;2)</td><td>[2;3)</td><td>[3;4)</td><td>[4;5)</td></tr>
+            <tr><th>Tần số</th><td>3</td><td>6</td><td>9</td><td>8</td><td>4</td></tr>
+            <tr><th>Tần số tương đối</th><td>10%</td><td>20%</td><td>30%</td><td>≈26,7%</td><td>≈13,3%</td></tr>
+          </table>
+          (Tổng tần số $=30$ ✓; tổng tần số tương đối $=100\%$ ✓.)</li>
+        <li>b) Nhóm giữa liền kề hai nhóm kia nên là $[8;9)$, nhóm cuối là $[9;10)$. Cặp $(24;30\%)$ cho cỡ mẫu $N=24:0{,}3=\mathbf{80}$. Suy ra: tần số nhóm $[7;8)$ $=80-24-8=\mathbf{48}$, tần số tương đối $=\dfrac{48}{80}=\mathbf{60\%}$; nhóm $[9;10)$: $\dfrac8{80}=\mathbf{10\%}$. (Kiểm tra: $60+30+10=100\%$ ✓.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Vẽ và đọc biểu đồ ghép nhóm</h3>
+    <div class="de">
+      <p><b>a)</b> Quãng đường đi bộ: nhóm $[4;5)\ldots[8;9)$ km — tần số $6;12;8;3;1$. Vẽ biểu đồ tần số tương đối ghép nhóm dạng cột.</p>
+      <p><b>b)</b> Biểu đồ chạy $100$ m (cột kề nhau, nhóm $[11;12)\ldots[15;16)$ giây — tần số $3;6;4;2;1$): bao nhiêu học sinh chạy hết ít hơn $12$ giây? Tổng số học sinh?</p>
+      <p><b>c)</b> Biểu đồ tuổi thọ $100$ bóng đèn: nhóm $[1;1{,}25)\ldots[1{,}75;2)$ nghìn giờ — tần số tương đối $18\%;21\%;56\%;5\%$. Lập bảng tần số; đếm số bóng loại I (tuổi thọ $\ge1500$ giờ).</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bieudonhom"><b>Dùng Lý thuyết 2:</b> cột kề nhau phủ đúng nhóm; đổi giữa tần số và tần số tương đối qua cỡ mẫu.</a>
+      <ul>
+        <li>a) $N=6+12+8+3+1=30$ ⟹ tần số tương đối: $20\%;40\%;\approx26{,}7\%;10\%;\approx3{,}3\%$. Biểu đồ cột ghép nhóm: các cột kề nhau phủ $[4;5),[5;6),\ldots$, cao lần lượt theo các tỉ lệ trên.</li>
+        <li>b) Ít hơn $12$ giây là nhóm $[11;12)$: <span class="ans">$3$ học sinh</span>. Tổng: $3+6+4+2+1=\mathbf{16}$ học sinh.</li>
+        <li>c) $N=100$ nên tần số bằng đúng số phần trăm:
+          <table class="bang">
+            <tr><th>Tuổi thọ (nghìn giờ)</th><td>[1;1,25)</td><td>[1,25;1,5)</td><td>[1,5;1,75)</td><td>[1,75;2)</td></tr>
+            <tr><th>Tần số</th><td>18</td><td>21</td><td>56</td><td>5</td></tr>
+          </table>
+          Loại I: tuổi thọ $\ge1{,}5$ nghìn giờ, gồm hai nhóm cuối: $56+5=\mathbf{61}$ bóng đèn.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> $1500$ giờ $=1{,}5$ <i>nghìn</i> giờ — chú ý đơn vị trên trục hoành trước khi đối chiếu nhóm.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — Luyện tập tổng hợp</h3>
+    <div class="de">
+      <p><b>a)</b> Bảng thời gian làm bài kiểm tra: nhóm $[10;12)$, $?$, $[14;16)$ — tần số $25;?;5$ — tần số tương đối $?;?;12{,}5\%$. Tìm số học sinh rồi hoàn thành bảng.</p>
+      <p><b>b)</b> Biểu đồ tỉ lệ đại biểu theo tuổi: $[25;35)$: $33{,}75\%$; $[35;45)$: $26{,}25\%$; $[45;55)$: $28{,}75\%$; $[55;65)$: $11{,}25\%$; biết nhóm $[25;35)$ có $54$ đại biểu. Tính tổng đại biểu, lập bảng tần số; nhận định "trên $50\%$ đại biểu dưới $45$ tuổi" đúng hay sai?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-nhom"><b>Dùng Lý thuyết 1:</b> một cặp (tần số; tần số tương đối) cho ngay cỡ mẫu.</a>
+      <ul>
+        <li>a) Nhóm $[14;16)$: $5$ ứng với $12{,}5\%$ ⟹ $N=5:0{,}125=\mathbf{40}$ học sinh. Nhóm giữa là $[12;14)$ với tần số $40-25-5=\mathbf{10}$. Tần số tương đối: $[10;12)$: $\dfrac{25}{40}=62{,}5\%$; $[12;14)$: $25\%$; $[14;16)$: $12{,}5\%$. (Tổng $=100\%$ ✓.)</li>
+        <li>b) $N=54:0{,}3375=\mathbf{160}$ đại biểu. Bảng tần số:
+          <table class="bang">
+            <tr><th>Độ tuổi</th><td>[25;35)</td><td>[35;45)</td><td>[45;55)</td><td>[55;65)</td></tr>
+            <tr><th>Tần số</th><td>54</td><td>42</td><td>46</td><td>18</td></tr>
+          </table>
+          (Kiểm tra: $54+42+46+18=160$ ✓.) Dưới $45$ tuổi: $33{,}75\%+26{,}25\%=60\%&gt;50\%$ ⟹ nhận định <span class="yes">đúng</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Nhóm $[a;b)$: lấy $a$, không lấy $b$; các nhóm phải phủ kín dữ liệu và không chồng lên nhau.</li>
+      <li>Biểu đồ ghép nhóm dạng cột có các cột <b>kề sát nhau</b> — khác biểu đồ tần số thường.</li>
+      <li>Chìa khoá các bài "hoàn thành bảng": tìm cỡ mẫu từ một cặp (tần số; tần số tương đối) đã đủ thông tin.</li>
+    </ul>
+  </div>
+
+</div>

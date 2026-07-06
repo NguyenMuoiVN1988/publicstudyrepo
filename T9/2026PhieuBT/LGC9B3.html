@@ -1,0 +1,222 @@
+---
+layout: default
+title: Toán 9 - Tứ giác nội tiếp
+description: "Lời giải bài tập tứ giác nội tiếp lớp 9 - tính góc bằng tổng hai góc đối 180 độ, chứng minh tứ giác nội tiếp, đường tròn ngoại tiếp hình chữ nhật và hình vuông, chương trình Kết nối tri thức."
+tags: [Toán 9, tứ giác nội tiếp, đường tròn, hình học, chuyên đề]
+series: t9-c9
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc .figrow { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+    align-items:flex-end; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 12px; margin:8px 0 14px; }
+  .lgc .figrow svg { max-width:100%; height:auto; }
+  .lgc table.bang { border-collapse:collapse; margin:10px auto; }
+  .lgc table.bang th, .lgc table.bang td { border:1px solid #c9d4de;
+    padding:4px 10px; text-align:center; }
+  .lgc table.bang th { background:var(--indigo-bg); }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 29 — Tứ giác nội tiếp</h1>
+    <p>Tổng hai góc đối $180^\circ$ · Chứng minh nội tiếp · Hình chữ nhật — hình vuông</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-tinchat">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Tứ giác nội tiếp và tính chất góc</h3>
+    <ul>
+      <li>Tứ giác nội tiếp có bốn đỉnh nằm trên một đường tròn; khi đó <b>tổng hai góc đối bằng $180^\circ$</b>.</li>
+      <li>Hệ quả hay dùng: góc ngoài tại một đỉnh bằng góc trong tại đỉnh đối diện.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-dauhieu">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Dấu hiệu nhận biết tứ giác nội tiếp</h3>
+    <ul>
+      <li>Tổng hai góc đối bằng $180^\circ$; hoặc</li>
+      <li>Hai đỉnh kề nhau cùng nhìn cạnh nối hai đỉnh còn lại dưới <b>góc vuông</b> (hoặc hai góc bằng nhau) — bốn điểm cùng thuộc đường tròn đường kính là cạnh đó.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-hcn">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Đường tròn ngoại tiếp hình chữ nhật, hình vuông</h3>
+    <ul>
+      <li>Hình chữ nhật, hình vuông luôn nội tiếp; tâm là giao hai đường chéo, $R=\dfrac{\text{đường chéo}}2$.</li>
+      <li>Hình vuông cạnh $a$: đường chéo $a\sqrt2$; hình vuông nội tiếp $(O;R)$ có cạnh $R\sqrt2$.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Tính góc của tứ giác nội tiếp</h3>
+    <div class="de">
+      <p><b>a)</b> Tứ giác $ABCD$ nội tiếp có $\widehat A=104^\circ$, $\widehat B=63^\circ$; tìm $x=\widehat C$, $y=\widehat D$.</p>
+      <p><b>b)</b> Hoàn thành bảng $4$ trường hợp (xem phiếu).</p>
+      <p><b>c)</b> $ABCD$ nội tiếp $(O)$, $\widehat{ABC}=70^\circ$, $\widehat{ODC}=50^\circ$. Tìm $\widehat{AOD}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tinchat"><b>Dùng Lý thuyết 1:</b> hai góc đối bù nhau; kết hợp góc ở tâm — cung.</a>
+      <ul>
+        <li>a) $x=\widehat C=180^\circ-\widehat A=180^\circ-104^\circ=\mathbf{76^\circ}$; $y=\widehat D=180^\circ-63^\circ=\mathbf{117^\circ}$.</li>
+        <li>b)
+          <table class="bang">
+            <tr><th>Trường hợp</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+            <tr><th>Góc $A$</th><td>$90^\circ$</td><td><b>$100^\circ$</b></td><td><b>$91^\circ$</b></td><td>$66^\circ$</td></tr>
+            <tr><th>Góc $B$</th><td>$120^\circ$</td><td><b>$110^\circ$</b></td><td>$75^\circ$</td><td><b>$92^\circ$</b></td></tr>
+            <tr><th>Góc $C$</th><td><b>$90^\circ$</b></td><td>$80^\circ$</td><td>$89^\circ$</td><td><b>$114^\circ$</b></td></tr>
+            <tr><th>Góc $D$</th><td><b>$60^\circ$</b></td><td>$70^\circ$</td><td><b>$105^\circ$</b></td><td>$88^\circ$</td></tr>
+          </table>
+          (Mỗi cột: $\widehat A+\widehat C=\widehat B+\widehat D=180^\circ$.)</li>
+        <li>c) $\widehat{ABC}=70^\circ$ là góc nội tiếp chắn cung $ADC$ ⟹ sđ cung $ADC=140^\circ$. $\triangle OCD$ cân tại $O$ ($OC=OD=R$) với $\widehat{ODC}=50^\circ$ ⟹ $\widehat{DOC}=180^\circ-2\cdot50^\circ=80^\circ$ ⟹ sđ cung $DC=80^\circ$. Vậy sđ cung $AD=140^\circ-80^\circ=60^\circ$ ⟹ <span class="ans">$\widehat{AOD}=60^\circ$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu c:</b> $\widehat{ODC}$ là góc <i>đáy của tam giác cân $ODC$</i>, không phải góc nội tiếp — phải chuyển qua góc ở tâm $\widehat{DOC}$ rồi mới trừ cung.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Chứng minh tứ giác nội tiếp</h3>
+    <div class="de">
+      <p><b>a)</b> $\triangle ABC$ nhọn, đường cao $BE$, $CF$ cắt nhau ở $H$: chứng minh $AEHF$, $BCEF$ nội tiếp.</p>
+      <p><b>b)</b> Từ $M$ ngoài $(O)$ vẽ cát tuyến $MBC$ và tiếp tuyến $MA$; $I$ là trung điểm $BC$: chứng minh $AMIO$ nội tiếp.</p>
+      <p><b>c)</b> $\widehat{xOy}=90^\circ$, $OA=OB$ ($A\in Ox$, $B\in Oy$), $M$ trên tia $By$, $BH\perp AM$ tại $H$, tia $HB$ cắt tia $AO$ tại $C$: chứng minh $OAHB$, $OCMH$ nội tiếp.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dauhieu"><b>Dùng Lý thuyết 2:</b> tìm hai góc vuông cùng nhìn một đoạn thẳng.</a>
+      <ul>
+        <li>a) $AEHF$: $\widehat{AEH}=\widehat{AFH}=90^\circ$ là hai góc <b>đối</b> có tổng $180^\circ$ ⟹ nội tiếp (đường tròn đường kính $AH$). $BCEF$: $\widehat{BEC}=\widehat{BFC}=90^\circ$ — $E,F$ cùng nhìn $BC$ dưới góc vuông ⟹ $B,C,E,F$ thuộc đường tròn đường kính $BC$ ⟹ <span class="yes">nội tiếp</span>.</li>
+        <li>b) $MA$ là tiếp tuyến ⟹ $\widehat{MAO}=90^\circ$. $I$ là trung điểm dây $BC$ ⟹ $OI\perp BC$ ⟹ $\widehat{MIO}=90^\circ$. Hai đỉnh $A,I$ cùng nhìn đoạn $MO$ dưới góc vuông ⟹ <span class="ans">$AMIO$ nội tiếp đường tròn đường kính $MO$</span>.</li>
+        <li>c) $OAHB$: $\widehat{AOB}=90^\circ$ và $\widehat{AHB}=90^\circ$ — $O,H$ cùng nhìn $AB$ dưới góc vuông ⟹ nội tiếp. $OCMH$: $\widehat{MOC}=90^\circ$ (vì $C$ trên tia $AO$, $M$ trên tia $By$, $Ox\perp Oy$) và $\widehat{MHC}=90^\circ$ (vì $BH\perp AM$, $C$ thuộc đường thẳng $HB$) — $O,H$ cùng nhìn $MC$ dưới góc vuông ⟹ <span class="yes">nội tiếp</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> phân biệt hai kiểu lập luận: hai góc vuông <b>đối nhau</b> (cộng $180^\circ$ — như $AEHF$) và hai góc vuông <b>cùng nhìn một cạnh</b> (như $BCEF$) — chọn đúng kiểu theo vị trí đỉnh.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Đường tròn ngoại tiếp hình chữ nhật, hình vuông</h3>
+    <div class="de">
+      <p><b>a)</b> Hình chữ nhật $ABCD$: trường hợp $AB=6$, $BC=8$ cm; trường hợp $AC=9$ cm. <b>b)</b> Hình vuông $MNPQ$ nội tiếp đường tròn bán kính $R$: tính cạnh và đường chéo theo $R$. <b>c)</b> Hình vuông nội tiếp đường tròn $R=3$ cm: tính diện tích.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-hcn"><b>Dùng Lý thuyết 3:</b> $R$ = nửa đường chéo.</a>
+      <ul>
+        <li>a) $AC=\sqrt{6^2+8^2}=10$ ⟹ tâm là giao hai đường chéo, <span class="ans">$R=5$ cm</span>. Nếu $AC=9$: <span class="ans">$R=4{,}5$ cm</span>.</li>
+        <li>b) Đường chéo $=2R$; cạnh $=\dfrac{2R}{\sqrt2}=$ <span class="ans">$R\sqrt2$</span>.</li>
+        <li>c) Cạnh $=3\sqrt2$ cm ⟹ $S=(3\sqrt2)^2=$ <span class="ans">$18$ cm²</span>. (Nhanh hơn: diện tích hình vuông bằng nửa bình phương đường chéo: $S=\dfrac{d^2}2=\dfrac{6^2}2=18$ ✓.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — Bài toán tổng hợp</h3>
+    <div class="de">
+      <p><b>a)</b> $\triangle ABC$ nhọn nội tiếp $(O)$, đường cao $BD$, $CE$: chứng minh $BCDE$ nội tiếp và $DE$ song song với tiếp tuyến $xy$ tại $A$.</p>
+      <p><b>b)</b> $\triangle ABC$ vuông tại $A$; $M\in AC$; đường tròn đường kính $CM$ cắt $BM$, $BC$ tại $D$, $N$: chứng minh $ABCD$ nội tiếp và $AB, MN, CD$ đồng quy.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dauhieu"><b>Dùng Lý thuyết 2 + góc nội tiếp:</b> quy về góc vuông cùng nhìn một cạnh; đồng quy nhờ ba đường cao.</a>
+      <ul>
+        <li>a) $\widehat{BDC}=\widehat{BEC}=90^\circ$ ⟹ $D,E$ cùng nhìn $BC$ dưới góc vuông ⟹ <span class="yes">$BCDE$ nội tiếp</span>. Kẻ đường kính $AK$ của $(O)$. Vì $BCDE$ nội tiếp nên $\widehat{ADE}=\widehat{ABC}$ (góc ngoài bằng góc trong đối). $\triangle ACK$ vuông tại $C$ (chắn nửa đường tròn) và $\widehat{AKC}=\widehat{ABC}$ (cùng chắn cung $AC$) ⟹ $\widehat{KAC}=90^\circ-\widehat{ABC}$. Suy ra $\widehat{ADE}+\widehat{DAK}=\widehat{ABC}+90^\circ-\widehat{ABC}=90^\circ$ ⟹ $DE\perp AK$. Mà tiếp tuyến $xy$ tại $A$ cũng vuông góc với bán kính $OA$ (tức với $AK$) ⟹ <span class="ans">$DE\parallel xy$</span>.</li>
+        <li>b) $\widehat{MDC}=90^\circ$ (chắn nửa đường tròn đường kính $CM$) ⟹ $\widehat{BDC}=90^\circ$; lại có $\widehat{BAC}=90^\circ$ ⟹ $A,D$ cùng nhìn $BC$ dưới góc vuông ⟹ <span class="yes">$ABCD$ nội tiếp đường tròn đường kính $BC$</span>. Xét $\triangle BMC$: $BA\perp MC$ (vì $BA\perp AC$), $CD\perp BM$ (vì $\widehat{MDC}=90^\circ$), $MN\perp BC$ (vì $\widehat{MNC}=90^\circ$ chắn nửa đường tròn) ⟹ $AB$, $CD$, $MN$ là ba đường cao của $\triangle BMC$ ⟹ <span class="ans">cùng đi qua trực tâm — đồng quy</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> chìa khoá là nhìn ra $AB,MN,CD$ đều là <b>đường cao của tam giác $BMC$</b> — nếu cố chứng minh đồng quy trực tiếp bằng toạ độ/tỉ số sẽ rất dài.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Tính góc: dùng cặp góc đối bù nhau; qua tâm thì đổi giữa góc nội tiếp — góc ở tâm — số đo cung.</li>
+      <li>Chứng minh nội tiếp: ưu tiên tìm <b>hai góc vuông</b> (đối nhau, hoặc cùng nhìn một cạnh).</li>
+      <li>Hình chữ nhật/hình vuông: $R=\dfrac{\text{đường chéo}}2$; hình vuông nội tiếp $(O;R)$ có cạnh $R\sqrt2$, diện tích $2R^2$.</li>
+    </ul>
+  </div>
+
+</div>

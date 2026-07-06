@@ -1,0 +1,202 @@
+---
+layout: default
+title: Toán 9 - Ôn tập chương Một số hình khối trong thực tiễn
+description: "Lời giải đề ôn tập chương 10 lớp 9 - phần trắc nghiệm và tự luận về hình trụ, hình nón, hình cầu với các bài toán thực tế như chao đèn, quả bóng, hộp phô mai và ống nghiệm, chương trình Kết nối tri thức."
+tags: [Toán 9, ôn tập chương, hình trụ, hình nón, hình cầu, trắc nghiệm]
+series: t9-c10
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc table.bang { border-collapse:collapse; margin:10px auto; }
+  .lgc table.bang th, .lgc table.bang td { border:1px solid #c9d4de;
+    padding:4px 10px; text-align:center; }
+  .lgc table.bang th { background:var(--indigo-bg); }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Ôn tập chương X — Một số hình khối trong thực tiễn</h1>
+    <p>Trắc nghiệm · Tự luận: hình trụ, hình nón, hình cầu và bài toán thực tế</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Lý thuyết trọng tâm cần nhớ</div>
+
+  <div class="theory" id="lt-congthuc">
+    <span class="tag">📖 Nhắc lại</span>
+    <h3>Bảng công thức của chương</h3>
+    <ul>
+      <li><b>Trụ:</b> $S_{xq}=2\pi Rh$; $S_{tp}=2\pi Rh+2\pi R^2$; $V=\pi R^2h$ (đường sinh $=$ chiều cao).</li>
+      <li><b>Nón:</b> $l=\sqrt{r^2+h^2}$; $S_{xq}=\pi rl$; $S_{tp}=\pi rl+\pi r^2$; $V=\dfrac13\pi r^2h$.</li>
+      <li><b>Cầu:</b> $S=4\pi R^2$; $V=\dfrac43\pi R^3$; đường kính $=2R$.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== TRẮC NGHIỆM ===================== -->
+  <div class="sec">✍ Phần I — Trắc nghiệm</div>
+
+  <div class="bai">
+    <h3><span class="num">I</span> Đáp án &amp; giải thích nhanh</h3>
+    <div class="de">
+      <table class="bang">
+        <tr><th>Câu</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+        <tr><th>Đáp án</th><td><b>A</b></td><td><b>C</b></td><td><b>A</b></td><td><b>D</b></td><td><b>C</b></td><td><b>D</b></td><td><b>C</b></td><td><b>C</b></td><td><b>A</b></td></tr>
+      </table>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng bảng công thức:</b> thay số trực tiếp, soát kĩ đơn vị.</a>
+      <ul>
+        <li><b>Câu 1.</b> Trong hình trụ, đường sinh song song với trục và bằng chiều cao. ⟹ <span class="ans">A</span>.</li>
+        <li><b>Câu 2.</b> $S_{xq}=2\pi\cdot4\cdot8=64\pi$ cm². ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 3.</b> $V=\pi\cdot6^2\cdot10=360\pi$ cm³. ⟹ <span class="ans">A</span>.</li>
+        <li><b>Câu 4.</b> $l=\sqrt{3^2+4^2}=5$ cm. ⟹ <span class="ans">D</span>.</li>
+        <li><b>Câu 5.</b> $l=\sqrt{12^2+5^2}=13$; $S_{xq}=\pi\cdot5\cdot13=65\pi$ cm². ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 6.</b> $V=\dfrac13\pi\cdot12^2\cdot9=432\pi$ <b>cm³</b> (loại phương án A vì sai đơn vị cm²). ⟹ <span class="ans">D</span>.</li>
+        <li><b>Câu 7.</b> Đoạn qua tâm là đường kính $=40$ <b>cm</b>. ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 8.</b> $S=4\pi\cdot5^2=100\pi$ cm². ⟹ <span class="ans">C</span>.</li>
+        <li><b>Câu 9.</b> $V=\dfrac43\pi\cdot12^3=2304\pi$ cm³. ⟹ <span class="ans">A</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu 6–7:</b> phương án nhiễu chơi chữ ở <b>đơn vị</b> ($432\pi$ cm² so với cm³; $40$ m so với $40$ cm) — đọc kĩ đến tận đơn vị rồi mới khoanh. (Câu 9 sách nguồn in trùng hai phương án $2304\pi$ — phiếu đã thay phương án nhiễu bằng $1728\pi$.)</div>
+    </div>
+  </div>
+
+  <!-- ===================== TỰ LUẬN ===================== -->
+  <div class="sec">✍ Phần II — Tự luận</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Chao đèn hình nón</h3>
+    <div class="de">
+      <p>Sơn bên trong chao đèn dạng hình nón (không tính đáy), bán kính đáy $20$ cm, đường sinh $30$ cm. Tính diện tích cần sơn.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng công thức nón:</b> chỉ cần diện tích xung quanh.</a>
+      <p>$S_{xq}=\pi rl=\pi\cdot20\cdot30=600\pi\approx$ <span class="ans">$1885$ cm²</span>.</p>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Quả bóng da</h3>
+    <div class="de">
+      <p>Quả bóng đường kính $24$ cm. Tính số mét vuông da cần để chế tạo quả bóng (mép nối không đáng kể).</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng công thức cầu:</b> lượng da bằng diện tích mặt cầu.</a>
+      <p>$r=12$ cm: $S=4\pi\cdot12^2=576\pi\approx1809{,}6$ cm² $\approx$ <span class="ans">$0{,}18$ m²</span>.</p>
+      <div class="trap"><b>⚠️ Bẫy:</b> câu hỏi yêu cầu <b>mét vuông</b> — nhớ đổi $1$ m² $=10\,000$ cm².</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Hộp phô mai hình trụ</h3>
+    <div class="de">
+      <p>Hộp trụ đường kính $12{,}2$ cm, cao $2{,}4$ cm; $8$ miếng dạng quạt trụ xếp vừa khít. a) Thể tích một miếng? b) Diện tích giấy gói vừa khít một miếng?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng công thức trụ:</b> miếng quạt $=\dfrac18$ hộp; kể đủ các mặt khi gói.</a>
+      <ul>
+        <li>a) $R=6{,}1$ cm. $V_{\text{hộp}}=\pi R^2h=\pi\cdot6{,}1^2\cdot2{,}4=89{,}304\pi\approx280{,}4$ cm³ ⟹ mỗi miếng $V=\dfrac{89{,}304\pi}8\approx$ <span class="ans">$35{,}1$ cm³</span>.</li>
+        <li>b) Giấy gói một miếng gồm: hai mặt quạt (trên + dưới) $2\cdot\dfrac18\pi R^2=\dfrac{\pi R^2}4\approx29{,}2$ cm²; mặt cong $\dfrac18\cdot2\pi Rh\approx11{,}5$ cm²; hai mặt phẳng hình chữ nhật $2\cdot R\cdot h=2\cdot6{,}1\cdot2{,}4=29{,}28$ cm². Tổng $\approx$ <span class="ans">$70$ cm²</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> miếng quạt có <b>hai mặt phẳng chữ nhật</b> ở hai bên (kích thước $R\times h$) — phần này không có $\pi$ và rất hay bị bỏ quên.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Ống nghiệm trụ + cầu</h3>
+    <div class="de">
+      <p>Ống nghiệm gồm phần trên là hình trụ (bán kính $2$ cm, cao $8$ cm) và phần dưới là hình cầu bán kính $4{,}25$ cm. Tính thể tích nước đổ đầy ống (bề dày không đáng kể).</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-congthuc"><b>Dùng công thức trụ + cầu:</b> cộng thể tích hai khối.</a>
+      <p>$V_{\text{trụ}}=\pi\cdot2^2\cdot8=32\pi$ cm³; $V_{\text{cầu}}=\dfrac43\pi\cdot4{,}25^3\approx102{,}35\pi$ cm³.</p>
+      <p>$V=32\pi+102{,}35\pi\approx134{,}35\pi\approx$ <span class="ans">$422$ cm³</span>.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Học thuộc bảng $6$ công thức (trụ/nón/cầu × diện tích/thể tích); nón và cầu đều có hệ số phân số ($\frac13$, $\frac43$).</li>
+      <li>Soát đơn vị hai lần: đơn vị đo (cm/m) và loại đơn vị (cm²/cm³) — bẫy trắc nghiệm ưa dùng.</li>
+      <li>Vật thể thực tế: phân rã thành trụ + nón + cầu rồi cộng/trừ thể tích, liệt kê đủ các mặt khi tính diện tích.</li>
+    </ul>
+  </div>
+
+</div>

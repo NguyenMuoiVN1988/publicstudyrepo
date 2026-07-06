@@ -1,0 +1,200 @@
+---
+layout: default
+title: Toán 9 - Đa giác đều
+description: "Lời giải bài tập đa giác đều lớp 9 - tính góc và số đường chéo, đa giác đều nội tiếp đường tròn, cạnh theo bán kính R và phép quay giữ nguyên đa giác đều, chương trình Kết nối tri thức."
+tags: [Toán 9, đa giác đều, phép quay, đường tròn, hình học, chuyên đề]
+series: t9-c9
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc .figrow { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+    align-items:flex-end; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 12px; margin:8px 0 14px; }
+  .lgc .figrow svg { max-width:100%; height:auto; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 30 — Đa giác đều</h1>
+    <p>Góc — đường chéo · Đa giác đều nội tiếp $(O;R)$ · Phép quay giữ nguyên hình</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-dagiac">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Đa giác đều</h3>
+    <ul>
+      <li>Đa giác đều: tất cả cạnh bằng nhau, tất cả góc bằng nhau. Mỗi góc $=\dfrac{(n-2)\cdot180^\circ}{n}$; số đường chéo $=\dfrac{n(n-3)}2$.</li>
+      <li>Mỗi đa giác đều có một đường tròn ngoại tiếp và một đường tròn nội tiếp <b>chung tâm</b>.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-canhR">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Đa giác đều nội tiếp $(O;R)$</h3>
+    <ul>
+      <li>Mỗi cạnh chắn cung $\dfrac{360^\circ}n$; các trường hợp quen thuộc: tam giác đều $a_3=R\sqrt3$; hình vuông $a_4=R\sqrt2$; lục giác đều $a_6=R$.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-phepquay">
+    <span class="tag">📖 Lý thuyết 3</span>
+    <h3>Phép quay giữ nguyên đa giác đều</h3>
+    <ul>
+      <li>Các phép quay tâm $O$ (thuận hoặc ngược chiều) góc $k\cdot\dfrac{360^\circ}n$ ($k=1,\dots,n$) biến đa giác đều $n$ cạnh thành chính nó.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Góc và đường chéo của đa giác đều</h3>
+    <div class="de">
+      <p><b>a)</b> Tính số đo mỗi góc của đa giác đều $n$ cạnh; áp dụng cho ngũ giác đều, lục giác đều, bát giác đều.</p>
+      <p><b>b)</b> Tính số đường chéo của đa giác $n$ cạnh. Đa giác nào có số đường chéo bằng số cạnh?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dagiac"><b>Dùng Lý thuyết 1:</b> tổng góc trong $(n-2)\cdot180^\circ$ chia đều cho $n$ đỉnh.</a>
+      <ul>
+        <li>a) Mỗi góc $=\dfrac{(n-2)\cdot180^\circ}{n}$. Với $n=5$: $\dfrac{3\cdot180^\circ}5=\mathbf{108^\circ}$; $n=6$: $\mathbf{120^\circ}$; $n=8$: $\dfrac{6\cdot180^\circ}8=\mathbf{135^\circ}$.</li>
+        <li>b) Mỗi đỉnh nối được với $n-3$ đỉnh không kề, mỗi đường chéo đếm hai lần ⟹ số đường chéo $=\dfrac{n(n-3)}2$. Cho $\dfrac{n(n-3)}2=n\Leftrightarrow n-3=2\Leftrightarrow n=5$: <span class="ans">ngũ giác</span> ($5$ đường chéo).</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> $n-3$ (không phải $n-1$): mỗi đỉnh không nối chéo với chính nó và hai đỉnh kề; và nhớ chia $2$ vì mỗi đường chéo có hai đầu mút.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Đa giác đều nội tiếp đường tròn</h3>
+    <div class="de">
+      <p>Cho $(O;R)$: a) vẽ tam giác đều, hình vuông, lục giác đều có các đỉnh nằm trên $(O;R)$; b) tính cạnh của các hình đó theo $R$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-canhR"><b>Dùng Lý thuyết 2:</b> chia đường tròn thành các cung bằng nhau.</a>
+      <div class="figrow">
+        <svg viewBox="0 0 150 150" width="150" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="75" cy="75" r="60" fill="none" stroke="#5b6b7a" stroke-width="1.4"/>
+          <polygon points="75,15 127,105 23,105" fill="none" stroke="#3f5d9e" stroke-width="2"/>
+        </svg>
+        <svg viewBox="0 0 150 150" width="150" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="75" cy="75" r="60" fill="none" stroke="#5b6b7a" stroke-width="1.4"/>
+          <polygon points="75,15 135,75 75,135 15,75" fill="none" stroke="#1f7a72" stroke-width="2"/>
+        </svg>
+        <svg viewBox="0 0 150 150" width="150" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="75" cy="75" r="60" fill="none" stroke="#5b6b7a" stroke-width="1.4"/>
+          <polygon points="135,75 105,127 45,127 15,75 45,23 105,23" fill="none" stroke="#a23b52" stroke-width="2"/>
+        </svg>
+      </div>
+      <ul>
+        <li>a) <b>Lục giác đều:</b> mở compa bằng $R$, chia đường tròn thành $6$ cung liên tiếp rồi nối các điểm chia. <b>Tam giác đều:</b> nối cách một điểm chia (các điểm $1,3,5$). <b>Hình vuông:</b> vẽ hai đường kính vuông góc, nối bốn đầu mút.</li>
+        <li>b) Lục giác đều: mỗi cạnh chắn cung $60^\circ$, tam giác $OAB$ đều ⟹ <span class="ans">$a_6=R$</span>. Hình vuông: cạnh $=$ dây chắn cung $90^\circ$ ⟹ $a_4=\sqrt{R^2+R^2}=$ <span class="ans">$R\sqrt2$</span>. Tam giác đều: cạnh $=$ dây chắn cung $120^\circ$ ⟹ $a_3=2R\sin60^\circ=$ <span class="ans">$R\sqrt3$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> thứ tự dễ nhớ $a_6=R&lt;a_4=R\sqrt2&lt;a_3=R\sqrt3$ — càng ít cạnh thì cạnh càng dài.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Phép quay giữ nguyên đa giác đều</h3>
+    <div class="de">
+      <p><b>a)</b> Ngũ giác đều $ABCDE$ nội tiếp $(O)$. Phép quay thuận chiều tâm $O$ biến $A$ thành $C$ thì $B,C,D,E$ biến thành các điểm nào? Chỉ ra các phép quay tâm $O$ giữ nguyên ngũ giác đều.</p>
+      <p><b>b)</b> Lục giác đều $ABCDEF$ cạnh $a$, tâm $O$: tính bán kính đường tròn ngoại tiếp, nội tiếp theo $a$; chỉ ra các phép quay tâm $O$ giữ nguyên lục giác.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-phepquay"><b>Dùng Lý thuyết 3:</b> mỗi bước quay $\dfrac{360^\circ}n$ đưa đỉnh này sang đỉnh kế tiếp.</a>
+      <ul>
+        <li>a) $A\to C$ là quay thuận chiều góc $2\cdot72^\circ=144^\circ$ (nhảy $2$ đỉnh) ⟹ mỗi đỉnh đều nhảy $2$: <span class="ans">$B\to D$, $C\to E$, $D\to A$, $E\to B$</span>. Các phép quay tâm $O$ giữ nguyên ngũ giác đều: quay thuận (hoặc ngược) chiều các góc <span class="ans">$72^\circ,144^\circ,216^\circ,288^\circ,360^\circ$</span>.</li>
+        <li>b) Lục giác đều cạnh $a$: các tam giác $OAB,\ldots$ đều ⟹ bán kính ngoại tiếp <span class="ans">$R=a$</span>; bán kính nội tiếp là khoảng cách từ $O$ đến cạnh (trung đoạn) $=$ chiều cao tam giác đều cạnh $a$: <span class="ans">$r=\dfrac{a\sqrt3}2$</span>. Các phép quay giữ nguyên: góc <span class="ans">$60^\circ,120^\circ,180^\circ,240^\circ,300^\circ,360^\circ$</span> (tâm $O$).</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu a:</b> "biến $A$ thành $C$" là nhảy <b>hai</b> đỉnh ($144^\circ$), không phải $72^\circ$; mọi đỉnh khác cũng phải nhảy đúng hai đỉnh theo cùng chiều.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Bộ công thức đa giác đều $n$ cạnh: mỗi góc $\dfrac{(n-2)180^\circ}{n}$; số đường chéo $\dfrac{n(n-3)}2$; góc ở tâm $\dfrac{360^\circ}n$.</li>
+      <li>Nội tiếp $(O;R)$: $a_3=R\sqrt3$, $a_4=R\sqrt2$, $a_6=R$; lục giác đều cạnh $a$ có $R=a$, $r=\dfrac{a\sqrt3}2$.</li>
+      <li>Phép quay giữ nguyên hình: bội của $\dfrac{360^\circ}n$ quanh tâm $O$.</li>
+    </ul>
+  </div>
+
+</div>

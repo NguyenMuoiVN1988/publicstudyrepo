@@ -1,0 +1,221 @@
+---
+layout: default
+title: Toán 9 - Bảng tần số và biểu đồ tần số
+description: "Lời giải bài tập bảng tần số và biểu đồ tần số lớp 9 - lập bảng tần số, đọc và vẽ biểu đồ cột, biểu đồ đoạn thẳng, dành cho học sinh lớp 9 chương trình Kết nối tri thức."
+tags: [Toán 9, thống kê, tần số, biểu đồ, bảng tần số, chuyên đề]
+series: t9-c7
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc .figrow { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+    align-items:flex-end; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 12px; margin:8px 0 14px; }
+  .lgc .figrow svg { max-width:100%; height:auto; }
+  .lgc table.bang { border-collapse:collapse; margin:10px auto; }
+  .lgc table.bang th, .lgc table.bang td { border:1px solid #c9d4de;
+    padding:4px 10px; text-align:center; }
+  .lgc table.bang th { background:var(--indigo-bg); }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 22 — Bảng tần số và biểu đồ tần số</h1>
+    <p>Lập bảng tần số · Đọc biểu đồ · Vẽ biểu đồ cột, biểu đồ đoạn thẳng</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-tanso">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Tần số và bảng tần số</h3>
+    <ul>
+      <li><b>Tần số</b> của một giá trị là số lần xuất hiện của giá trị đó trong mẫu dữ liệu.</li>
+      <li><b>Bảng tần số</b> gồm hai dòng: dòng trên ghi các giá trị khác nhau, dòng dưới ghi tần số tương ứng.</li>
+      <li><b>Cỡ mẫu</b> $N$ = số dữ liệu trong mẫu = tổng các tần số.</li>
+    </ul>
+    <div class="tip">🔍 <b>Mẹo đếm:</b> gạch chéo từng số liệu khi đã đếm; đếm xong cộng tổng tần số so với cỡ mẫu để phát hiện sót/trùng.</div>
+  </div>
+
+  <div class="theory" id="lt-bieudo">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Biểu đồ tần số</h3>
+    <ul>
+      <li><b>Dạng cột:</b> mỗi cột ứng với một giá trị, chiều cao cột là tần số.</li>
+      <li><b>Dạng đoạn thẳng:</b> đường gấp khúc nối các điểm (giá trị; tần số) từ trái sang phải.</li>
+      <li>Đọc biểu đồ: chiều cao cột → tần số; cộng các tần số → cỡ mẫu.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Lập bảng tần số của mẫu dữ liệu</h3>
+    <div class="de">
+      <p><b>a)</b> Số bàn thắng trong $26$ trận: 2, 3, 2, 3, 3, 1, 0, 3, 1, 0, 1, 1, 2, 2, 4, 0, 0, 2, 2, 0, 5, 4, 2, 0, 2, 0. Mẫu dữ liệu có bao nhiêu giá trị khác nhau? Lập bảng tần số.</p>
+      <p><b>b)</b> Số cuộc gọi đến tổng đài mỗi ngày trong tháng $4/2022$ ($30$ ngày): 4, 2, 6, 3, 6, 3, 2, 5, 4, 2, 5, 4, 3, 3, 3, 3, 5, 4, 4, 3, 4, 6, 5, 3, 6, 3, 5, 3, 5, 5. Xác định cỡ mẫu, lập bảng tần số; có bao nhiêu giá trị có tần số lớn hơn $4$?</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-tanso"><b>Dùng Lý thuyết 1:</b> đếm số lần xuất hiện của từng giá trị, cộng tổng để kiểm tra bằng cỡ mẫu.</a>
+      <ul>
+        <li>a) Mẫu dữ liệu có <span class="key">$6$ giá trị khác nhau</span>: $0;1;2;3;4;5$. Đếm được:
+          <table class="bang">
+            <tr><th>Số bàn thắng</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+            <tr><th>Tần số</th><td>7</td><td>4</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+          </table>
+          (Kiểm tra: $7+4+8+4+2+1=26$ ✓.)</li>
+        <li>b) Cỡ mẫu $N=\mathbf{30}$ (tháng 4 có 30 ngày). Bảng tần số:
+          <table class="bang">
+            <tr><th>Số cuộc gọi</th><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+            <tr><th>Tần số</th><td>3</td><td>10</td><td>6</td><td>7</td><td>4</td></tr>
+          </table>
+          (Kiểm tra: $3+10+6+7+4=30$ ✓.) Các giá trị có tần số lớn hơn $4$: giá trị $3$ (tần số $10$), giá trị $4$ (tần số $6$), giá trị $5$ (tần số $7$) — <span class="ans">có $3$ giá trị</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> câu hỏi là "giá trị có <i>tần số</i> lớn hơn 4", không phải "giá trị lớn hơn 4" — đọc kĩ để không trả lời nhầm thành $5;6$.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Đọc biểu đồ tần số</h3>
+    <div class="de">
+      <p><b>a)</b> Biểu đồ cột: số từ vựng mới mỗi ngày $5;6;7;8;9$ với số ngày (chiều cao cột) $12;8;5;4;2$. Đọc các giá trị, tổng số ngày, số ngày học nhiều hơn $7$ từ.</p>
+      <p><b>b)</b> Biểu đồ cột: thời gian công tác $1$–$7$ năm của y tá với tần số $6;5;5;7;9;5;2$. Đọc các giá trị, tổng số y tá, số y tá công tác ít nhất $3$ năm.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bieudo"><b>Dùng Lý thuyết 2:</b> chiều cao cột chính là tần số.</a>
+      <ul>
+        <li>a) Giá trị: $5;6;7;8;9$ từ mới, tần số lần lượt $12;8;5;4;2$. Tổng số ngày $=12+8+5+4+2=\mathbf{31}$ ngày. Học nhiều hơn $7$ từ tức là $8$ hoặc $9$ từ: $4+2=\mathbf{6}$ ngày.</li>
+        <li>b) Giá trị: $1;2;3;4;5;6;7$ năm, tần số lần lượt $6;5;5;7;9;5;2$. Tổng số y tá $=6+5+5+7+9+5+2=\mathbf{39}$. Công tác ít nhất $3$ năm (tức $\ge3$): $5+7+9+5+2=\mathbf{28}$ y tá.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> "nhiều hơn $7$" không lấy giá trị $7$; "ít nhất $3$ năm" lấy cả giá trị $3$. Hai cách nói này rất hay bị lẫn.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Vẽ biểu đồ tần số</h3>
+    <div class="de">
+      <p><b>a)</b> Bảng tần số độ tuổi trẻ em đến khu vui chơi: tuổi $3;4;5;6;7;8$ — tần số $4;5;4;5;11;7$. Vẽ biểu đồ cột và đoạn thẳng; tuổi nào nhiều nhất?</p>
+      <p><b>b)</b> Bảng số mũi vắc xin của $50$ trẻ: $0;1;2;3$ mũi — số trẻ $4;?;26;8$. Hoàn thành bảng, tính số trẻ cần hoàn thành lộ trình $3$ mũi, vẽ biểu đồ cột.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-bieudo"><b>Dùng Lý thuyết 2:</b> dựng cột cao bằng tần số; nối các điểm (giá trị; tần số) được biểu đồ đoạn thẳng.</a>
+      <div class="figrow">
+        <svg viewBox="0 0 300 190" width="300" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+          <line x1="34" y1="160" x2="286" y2="160" stroke="#5b6b7a" stroke-width="1.4"/>
+          <line x1="34" y1="160" x2="34" y2="14" stroke="#5b6b7a" stroke-width="1.4"/>
+          <g fill="#3f5d9e">
+            <rect x="52" y="112" width="24" height="48"/>
+            <rect x="90" y="100" width="24" height="60"/>
+            <rect x="128" y="112" width="24" height="48"/>
+            <rect x="166" y="100" width="24" height="60"/>
+            <rect x="204" y="28" width="24" height="132"/>
+            <rect x="242" y="76" width="24" height="84"/>
+          </g>
+          <polyline points="64,112 102,100 140,112 178,100 216,28 254,76" fill="none" stroke="#a23b52" stroke-width="2"/>
+          <g fill="#a23b52"><circle cx="64" cy="112" r="2.6"/><circle cx="102" cy="100" r="2.6"/><circle cx="140" cy="112" r="2.6"/><circle cx="178" cy="100" r="2.6"/><circle cx="216" cy="28" r="2.6"/><circle cx="254" cy="76" r="2.6"/></g>
+          <g font-size="12" fill="#28323c" text-anchor="middle">
+            <text x="64" y="175">3</text><text x="102" y="175">4</text><text x="140" y="175">5</text>
+            <text x="178" y="175">6</text><text x="216" y="175">7</text><text x="254" y="175">8</text>
+            <text x="64" y="106">4</text><text x="102" y="94">5</text><text x="140" y="106">4</text>
+            <text x="178" y="94">5</text><text x="216" y="22">11</text><text x="254" y="70">7</text>
+            <text x="160" y="188">Tuổi</text>
+          </g>
+          <text x="14" y="24" font-size="11" fill="#5b6b7a">Tần số</text>
+        </svg>
+      </div>
+      <ul>
+        <li>a) Biểu đồ cột (xanh) và đoạn thẳng (đỏ) như hình trên. Cột cao nhất tại tuổi $7$ (tần số $11$) ⟹ <span class="ans">trẻ $7$ tuổi đến chơi nhiều nhất</span>.</li>
+        <li>b) Tần số còn thiếu $=50-4-26-8=\mathbf{12}$ (số trẻ tiêm $1$ mũi). Trẻ <b>cần hoàn thành</b> lộ trình là trẻ tiêm chưa đủ $3$ mũi: $4+12+26=\mathbf{42}$ trẻ. Biểu đồ cột: các cột $0;1;2;3$ mũi cao lần lượt $4;12;26;8$.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu b:</b> câu hỏi là số trẻ <b>cần phải hoàn thành</b> (chưa đủ 3 mũi) chứ không phải số trẻ đã tiêm đủ — đáp số là $42$, không phải $8$.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Luôn kiểm tra: tổng tần số $=$ cỡ mẫu $N$.</li>
+      <li>Phân biệt "nhiều hơn $a$" ($>a$), "ít nhất $a$" ($\ge a$), "không quá $a$" ($\le a$) khi đếm theo bảng/biểu đồ.</li>
+      <li>Trục tung của biểu đồ tần số nên chia vạch đều và ghi số ở đỉnh cột để dễ đọc lại.</li>
+    </ul>
+  </div>
+
+</div>

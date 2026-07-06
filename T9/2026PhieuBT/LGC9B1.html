@@ -1,0 +1,201 @@
+---
+layout: default
+title: Toán 9 - Góc nội tiếp
+description: "Lời giải bài tập góc nội tiếp lớp 9 - góc chắn nửa đường tròn, góc cùng chắn một cung, tam giác đồng dạng và hệ thức độ dài, tính bán kính đường tròn, chương trình Kết nối tri thức."
+tags: [Toán 9, góc nội tiếp, đường tròn, hình học, chuyên đề]
+series: t9-c9
+---
+
+<style>
+  .lgc { --ink:#28323c; --soft:#5b6b7a; --line:#e2e8ee;
+         --indigo:#3f5d9e; --indigo-bg:#eef2fb;
+         --teal:#1f7a72;  --teal-bg:#e9f6f4;
+         --amber:#b07a12;  --amber-bg:#fdf6e3;
+         --rose:#a23b52;   --rose-bg:#fdeef1;
+         --paper:#ffffff;
+         color:var(--ink); max-width:880px; margin:0 auto;
+         font-family:'Noto Serif', Georgia, serif; line-height:1.7; }
+  .lgc * { box-sizing:border-box; }
+  .lgc .hero { background:linear-gradient(135deg,#3f5d9e,#1f7a72);
+    color:#fff; border-radius:16px; padding:26px 28px; margin:8px 0 26px;
+    box-shadow:0 8px 24px rgba(31,122,114,.18); }
+  .lgc .hero h1 { font-family:'Quicksand',sans-serif; font-weight:700;
+    margin:0 0 6px; font-size:1.5rem; line-height:1.35; color:#fff; border:0; }
+  .lgc .hero p { margin:0; opacity:.92; font-size:.96rem; }
+  .lgc .sec { font-family:'Quicksand',sans-serif; font-weight:700;
+    font-size:1.2rem; color:var(--indigo); margin:34px 0 16px;
+    padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .lgc .theory { background:var(--indigo-bg); border:1px solid #d4ddf3;
+    border-left:5px solid var(--indigo); border-radius:12px;
+    padding:16px 20px; margin:16px 0; scroll-margin-top:14px; }
+  .lgc .theory .tag { display:inline-block; font-family:'Quicksand',sans-serif;
+    font-weight:700; font-size:.82rem; letter-spacing:.3px; color:var(--indigo);
+    background:#fff; border:1px solid #d4ddf3; border-radius:999px;
+    padding:2px 12px; margin-bottom:10px; }
+  .lgc .theory h3 { margin:0 0 8px; font-family:'Quicksand',sans-serif;
+    color:var(--ink); font-size:1.02rem; }
+  .lgc .theory ul { margin:6px 0; padding-left:20px; }
+  .lgc .tip { background:var(--teal-bg); border:1px dashed #9ccfc9;
+    border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .lgc .tip b { color:var(--teal); }
+  .lgc .bai { background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:6px 22px 18px; margin:22px 0;
+    box-shadow:0 3px 14px rgba(40,50,60,.05); }
+  .lgc .bai > h3 { font-family:'Quicksand',sans-serif; color:var(--indigo);
+    font-size:1.08rem; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .lgc .num { background:var(--indigo); color:#fff; font-weight:700;
+    border-radius:9px; min-width:30px; height:30px; display:inline-flex;
+    align-items:center; justify-content:center; font-size:.95rem; flex:none; }
+  .lgc .de { margin:14px 0; }
+  .lgc .loigiai { background:#fafcfb; border:1px solid var(--line);
+    border-left:4px solid var(--teal); border-radius:10px;
+    padding:14px 18px; margin-top:14px; }
+  .lgc .loigiai > .h { font-family:'Quicksand',sans-serif; font-weight:700;
+    color:var(--teal); margin:0 0 6px; }
+  .lgc .link { display:block; background:var(--amber-bg);
+    border:1px solid #ecd8a3; border-radius:8px; padding:8px 12px;
+    margin:0 0 12px; font-size:.9rem; color:#7a5a10; text-decoration:none; }
+  .lgc .link b { color:var(--amber); }
+  .lgc .link:hover { background:#fbeec3; }
+  .lgc .link::before { content:"🔗 "; }
+  .lgc .yes { color:var(--teal); font-weight:700; }
+  .lgc .no  { color:var(--rose); font-weight:700; }
+  .lgc .key { background:#fff7da; border:1px solid #ecd8a3; border-radius:7px;
+    padding:1px 7px; font-weight:700; }
+  .lgc .ans { font-weight:700; color:var(--teal); }
+  .lgc .trap { background:var(--rose-bg); border:1px solid #f0c4cf;
+    border-left:4px solid var(--rose); border-radius:8px;
+    padding:10px 14px; margin:12px 0; font-size:.94rem; }
+  .lgc .trap b { color:var(--rose); }
+  .lgc .note { background:var(--amber-bg); border:1px solid #ecd8a3;
+    border-radius:12px; padding:14px 20px 14px 18px; margin:26px 0 10px;
+    border-left:5px solid var(--amber); }
+  .lgc .note h3 { font-family:'Quicksand',sans-serif; color:var(--amber);
+    margin:0 0 8px; }
+  .lgc .note ul { margin:0; padding-left:20px; }
+  .lgc .note li { margin:6px 0; }
+  .lgc hr { display:none; }
+  .lgc .figrow { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+    align-items:flex-end; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 12px; margin:8px 0 14px; }
+  .lgc .figrow svg { max-width:100%; height:auto; }
+  @media (max-width:560px){ .lgc { font-size:.97rem; } .lgc .bai{ padding:6px 15px 15px; } }
+</style>
+
+<div class="lgc">
+
+  <div class="hero">
+    <h1>Bài 27 — Góc nội tiếp</h1>
+    <p>Chắn nửa đường tròn · Cùng chắn một cung · Hệ thức độ dài — bán kính</p>
+  </div>
+
+  <!-- ===================== LÝ THUYẾT ===================== -->
+  <div class="sec">✨ Yêu cầu cần đạt — Lý thuyết trọng tâm</div>
+
+  <div class="theory" id="lt-gnt">
+    <span class="tag">📖 Lý thuyết 1</span>
+    <h3>Góc nội tiếp và cung bị chắn</h3>
+    <ul>
+      <li>Góc nội tiếp có đỉnh trên đường tròn, hai cạnh chứa hai dây; số đo bằng <b>nửa số đo cung bị chắn</b>.</li>
+      <li>Hệ quả: các góc nội tiếp cùng chắn một cung (hoặc các cung bằng nhau) thì bằng nhau; góc nội tiếp chắn nửa đường tròn là <b>góc vuông</b>.</li>
+    </ul>
+  </div>
+
+  <div class="theory" id="lt-dongdang">
+    <span class="tag">📖 Lý thuyết 2</span>
+    <h3>Dùng góc nội tiếp để chứng minh đồng dạng — hệ thức</h3>
+    <ul>
+      <li>Hai góc nội tiếp cùng chắn một cung ⟹ cặp góc bằng nhau ⟹ tam giác đồng dạng ($g.g$) ⟹ hệ thức tích: $IA\cdot IB=IC\cdot ID$, $AB^2=AD\cdot AE$,…</li>
+      <li>Ghép với đường kính (góc vuông) để tính độ dài, bán kính.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== BÀI TẬP ===================== -->
+  <div class="sec">✍ Bài tập luyện tập</div>
+
+  <!-- BÀI 1 -->
+  <div class="bai">
+    <h3><span class="num">1</span> Dạng 1 — Góc nội tiếp chắn nửa đường tròn</h3>
+    <div class="de">
+      <p><b>a)</b> $\triangle ABC$ nhọn, đường cao $AH$, nội tiếp $(O)$ đường kính $AM$. Tính $\widehat{ACM}$; chứng minh $\widehat{BAH}=\widehat{OAC}$; $N=AH\cap(O)$, tứ giác $BCMN$ là hình gì?</p>
+      <p><b>b)</b> $(O)$ và $(O')$ cắt nhau tại $A,B$; các đường kính $AC$, $AD$. Chứng minh $C,B,D$ thẳng hàng.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-gnt"><b>Dùng Lý thuyết 1:</b> góc nội tiếp chắn nửa đường tròn là góc vuông.</a>
+      <ul>
+        <li>a) $\widehat{ACM}$ chắn nửa đường tròn (đường kính $AM$) ⟹ <span class="ans">$\widehat{ACM}=90^\circ$</span>.<br>
+        Trong $\triangle ABH$ vuông tại $H$: $\widehat{BAH}=90^\circ-\widehat{ABC}$. Trong $\triangle ACM$ vuông tại $C$: $\widehat{OAC}=\widehat{MAC}=90^\circ-\widehat{AMC}$. Mà $\widehat{AMC}=\widehat{ABC}$ (hai góc nội tiếp cùng chắn cung $AC$) ⟹ <span class="ans">$\widehat{BAH}=\widehat{OAC}$</span>.<br>
+        $\widehat{ANM}=90^\circ$ (chắn nửa đường tròn) ⟹ $MN\perp AN$; mà $BC\perp AN$ (vì $AH\perp BC$) ⟹ $MN\parallel BC$ ⟹ $BCMN$ là hình thang nội tiếp đường tròn ⟹ <span class="ans">hình thang cân</span>.</li>
+        <li>b) $\widehat{ABC}=90^\circ$ (chắn nửa $(O)$) và $\widehat{ABD}=90^\circ$ (chắn nửa $(O')$) ⟹ $\widehat{CBD}=\widehat{ABC}+\widehat{ABD}=180^\circ$ ⟹ <span class="ans">$C,B,D$ thẳng hàng</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu a:</b> kết luận $BCMN$ là "hình thang" là chưa đủ điểm — hình thang <b>nội tiếp đường tròn</b> luôn là hình thang <b>cân</b>, phải nêu rõ bước này.</div>
+    </div>
+  </div>
+
+  <!-- BÀI 2 -->
+  <div class="bai">
+    <h3><span class="num">2</span> Dạng 2 — Cùng chắn một cung: góc bằng nhau, đồng dạng</h3>
+    <div class="de">
+      <p><b>a)</b> Qua điểm $I$ (ngoài $(O)$) kẻ hai cát tuyến $IAB$, $ICD$. So sánh $\widehat{ACI}$ với $\widehat{ABD}$; $\widehat{CAI}$ với $\widehat{CDB}$; chứng minh $\triangle IAC\backsim\triangle IDB$ và $IA\cdot IB=IC\cdot ID$.</p>
+      <p><b>b)</b> $AB=AC$ là hai dây của $(O)$; cát tuyến qua $A$ cắt $BC$ ở $D$, cắt $(O)$ ở $E$. Chứng minh $AB^2=AD\cdot AE$.</p>
+      <p><b>c)</b> $AB\parallel CD$ là hai dây; $M$ trên cung nhỏ $AB$. Chứng minh $\widehat{AMC}=\widehat{BMD}$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dongdang"><b>Dùng Lý thuyết 2:</b> tìm cặp góc nội tiếp cùng chắn một cung.</a>
+      <ul>
+        <li>a) Tứ giác $ABDC$ nội tiếp $(O)$ nên góc ngoài tại một đỉnh bằng góc trong tại đỉnh đối: $\widehat{ACI}$ (góc ngoài tại $C$) $=\widehat{ABD}$; tương tự $\widehat{CAI}=\widehat{CDB}$. Hai tam giác $IAC$ và $IDB$ có $\widehat I$ chung và $\widehat{ICA}=\widehat{IBD}$ ⟹ $\triangle IAC\backsim\triangle IDB$ ($g.g$) ⟹ $\dfrac{IA}{ID}=\dfrac{IC}{IB}$ ⟹ <span class="ans">$IA\cdot IB=IC\cdot ID$</span>.</li>
+        <li>b) $AB=AC$ ⟹ cung $AB$ = cung $AC$ ⟹ $\widehat{AEB}=\widehat{ABC}$ (góc nội tiếp chắn cung $AB$ và chắn cung $AC$ bằng nhau; $\widehat{ABC}=\widehat{ABD}$). Hai tam giác $ABD$ và $AEB$ có $\widehat A$ chung, $\widehat{ABD}=\widehat{AEB}$ ⟹ đồng dạng ⟹ $\dfrac{AB}{AE}=\dfrac{AD}{AB}$ ⟹ <span class="ans">$AB^2=AD\cdot AE$</span>.</li>
+        <li>c) $AB\parallel CD$ ⟹ cung $AC$ = cung $BD$ (hai dây song song chắn hai cung bằng nhau giữa chúng) ⟹ <span class="ans">$\widehat{AMC}=\widehat{BMD}$</span> (góc nội tiếp chắn hai cung bằng nhau).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BÀI 3 -->
+  <div class="bai">
+    <h3><span class="num">3</span> Dạng 3 — Hệ thức độ dài, tính bán kính</h3>
+    <div class="de">
+      <p><b>a)</b> $\triangle ABC$ có đường cao $AH$, nội tiếp $(O)$ đường kính $AD$. Chứng minh $AB\cdot AC=AH\cdot AD$.</p>
+      <p><b>b)</b> $\triangle ABC$ nội tiếp $(O;R)$, đường cao $AH$; $AB=8$ cm, $AC=15$ cm, $AH=5$ cm. Tính $R$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-dongdang"><b>Dùng Lý thuyết 2:</b> ghép tam giác vuông tạo bởi đường cao với tam giác vuông tạo bởi đường kính.</a>
+      <ul>
+        <li>a) $\widehat{ACD}=90^\circ$ (chắn nửa đường tròn). Xét $\triangle ABH$ và $\triangle ADC$: $\widehat{AHB}=\widehat{ACD}=90^\circ$; $\widehat{ABH}=\widehat{ABC}=\widehat{ADC}$ (cùng chắn cung $AC$) ⟹ $\triangle ABH\backsim\triangle ADC$ ⟹ $\dfrac{AB}{AD}=\dfrac{AH}{AC}$ ⟹ <span class="ans">$AB\cdot AC=AH\cdot AD$</span>.</li>
+        <li>b) Áp dụng câu a với $AD=2R$: $8\cdot15=5\cdot2R\Rightarrow R=\dfrac{120}{10}=\mathbf{12}$ cm.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy:</b> công thức $AB\cdot AC=AH\cdot2R$ đúng cho <b>mọi</b> tam giác nội tiếp (nhọn hay tù) — nhưng khi trình bày phải chứng minh qua cặp tam giác đồng dạng như câu a, không được "dùng chay".</div>
+    </div>
+  </div>
+
+  <!-- BÀI 4 -->
+  <div class="bai">
+    <h3><span class="num">4</span> Dạng 4 — Bài toán tổng hợp</h3>
+    <div class="de">
+      <p><b>a)</b> $\triangle ABC$ nội tiếp $(O)$, hai đường cao $BD$, $CE$ cắt nhau tại $H$; đường kính $AF$. $BFCH$ là hình gì? $M$ là trung điểm $BC$: chứng minh $H,M,F$ thẳng hàng và $OM=\dfrac12AH$.</p>
+      <p><b>b)</b> $(O)$ đường kính $AB$; $S$ ngoài đường tròn, $SA,SB$ cắt $(O)$ tại $M,N$; $P=BM\cap AN$. Chứng minh $SP\perp AB$.</p>
+    </div>
+    <div class="loigiai">
+      <p class="h">🔑 Lời giải</p>
+      <a class="link" href="#lt-gnt"><b>Dùng Lý thuyết 1:</b> đường kính sinh góc vuông — tạo các cặp cạnh song song / đường cao.</a>
+      <ul>
+        <li>a) $\widehat{ABF}=90^\circ$ ⟹ $BF\perp AB$; mà $CE\perp AB$ ⟹ $BF\parallel CH$. Tương tự $\widehat{ACF}=90^\circ$ ⟹ $CF\perp AC$; $BD\perp AC$ ⟹ $CF\parallel BH$. Vậy <span class="ans">$BFCH$ là hình bình hành</span>. Hai đường chéo $BC$ và $HF$ cắt nhau tại trung điểm mỗi đường; $M$ là trung điểm $BC$ ⟹ $M$ cũng là trung điểm $HF$ ⟹ <span class="ans">$H,M,F$ thẳng hàng</span>. Trong $\triangle AHF$: $O$ là trung điểm $AF$, $M$ là trung điểm $HF$ ⟹ $OM$ là đường trung bình ⟹ <span class="ans">$OM=\dfrac12AH$</span>.</li>
+        <li>b) $\widehat{AMB}=90^\circ$ ⟹ $BM\perp SA$; $\widehat{ANB}=90^\circ$ ⟹ $AN\perp SB$. Trong $\triangle SAB$, hai đường cao $BM$ và $AN$ cắt nhau tại $P$ ⟹ $P$ là trực tâm ⟹ <span class="ans">$SP\perp AB$</span>.</li>
+      </ul>
+      <div class="trap"><b>⚠️ Bẫy câu a:</b> đừng quên nêu "hai đường chéo của hình bình hành cắt nhau tại trung điểm mỗi đường" — đây là mắt xích để suy ra $H,M,F$ thẳng hàng.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>⚠️ Chú ý ghi nhớ</h3>
+    <ul>
+      <li>Thấy đường kính → tìm góc vuông; thấy hai góc cùng chắn một cung → tìm tam giác đồng dạng.</li>
+      <li>Bộ công thức đáng nhớ: $IA\cdot IB=IC\cdot ID$ (hai cát tuyến), $AB^2=AD\cdot AE$ (dây bằng nhau), $AB\cdot AC=AH\cdot 2R$.</li>
+      <li>Cấu hình trực tâm + đường kính cho hình bình hành $BFCH$ và $OM=\dfrac12AH$ — dùng lại được ở nhiều đề thi vào 10.</li>
+    </ul>
+  </div>
+
+</div>
