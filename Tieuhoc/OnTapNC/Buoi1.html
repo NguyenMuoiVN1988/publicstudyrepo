@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buổi 1 — Ôn tập bốn phép toán | Ôn tập Tiểu học Nâng cao</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#005493; --maunhat:#e8f2fa;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#008040;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.15em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.2em;font-weight:bold}
+  .titleslide .t2{font-size:1.4em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- MỞ ĐẦU -->
+<section class="titleslide">
+  <div class="t1">Buổi 1</div>
+  <div class="t2">Ôn tập bốn phép toán</div>
+  <div>Cộng — Trừ — Nhân — Chia</div>
+  <p style="margin-top:1.2em"><em>Ôn tập Tiểu học Nâng cao — Hành trang vào lớp 6</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để xem từng bước, giống như trên lớp.</p>
+</section>
+
+<section>
+  <h2>Hành trình ba buổi học</h2>
+  <table>
+    <tr><td class="muc">Buổi 1</td><td class="muc">Bốn phép toán: Cộng — Trừ — Nhân — Chia</td></tr>
+    <tr><td><b>Buổi 2</b></td><td>Kĩ thuật đếm và Xác suất</td></tr>
+    <tr><td><b>Buổi 3</b></td><td>Phân số: Tỉ số — Tỉ lệ — Tư duy đại số</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Hôm nay em sẽ đi qua 4 bước</h2>
+  <div class="box chuy"><div class="tit">Lộ trình buổi 1</div><div class="bd">
+    <ol>
+      <li>Con số và bốn phép toán ra đời như thế nào?</li>
+      <li>Khi các phép toán "nắm tay nhau"</li>
+      <li>Kĩ thuật tính nhanh — vũ khí của người giỏi toán</li>
+      <li>Luyện tập và tổng kết</li>
+    </ol>
+  </div></div>
+</section>
+
+<!-- BƯỚC 1 -->
+<section>
+  <h2>Chuyện người chăn cừu và túi sỏi</h2>
+  <ul>
+    <li>Hàng chục nghìn năm trước, con người <b>chưa có chữ số</b>!</li>
+    <li class="fragment">Mỗi con cừu ra khỏi chuồng → bỏ <b>một viên sỏi</b> vào túi.</li>
+    <li class="fragment">Chiều về, mỗi con vào chuồng → lấy <b>một viên sỏi</b> ra.</li>
+    <li class="fragment">Túi hết sỏi vừa khớp → đàn cừu đủ!</li>
+  </ul>
+  <div class="fragment box chuy"><div class="tit">Đó chính là…</div>
+    <div class="bd">phép <b>ĐẾM</b> — khởi nguồn của mọi con số.</div></div>
+</section>
+
+<section>
+  <h2>Từ phép đếm… sinh ra bốn phép toán</h2>
+  <ul>
+    <li><b>Gộp</b> các nhóm đồ vật lại → phép <b style="color:var(--mauchinh)">CỘNG</b></li>
+    <li class="fragment"><b>Bớt đi</b> thì còn bao nhiêu → phép <b style="color:var(--mauchinh)">TRỪ</b></li>
+    <li class="fragment">Cộng <b>nhiều lần</b> các nhóm bằng nhau (8 giỏ × 25 quả cam) → phép <b style="color:var(--mauchinh)">NHÂN</b></li>
+    <li class="fragment"><b>Chia đều</b> 720 hạt lúa cho 8 nhà → phép <b style="color:var(--mauchinh)">CHIA</b></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Em có biết?</h2>
+  <p class="center" style="color:var(--mauchinh);font-size:1.8em;font-weight:bold">0 1 2 3 4 5 6 7 8 9</p>
+  <div class="fragment box kienthuc"><div class="tit">Chữ số Ấn Độ — Ả Rập</div><div class="bd">
+    Người <b>Ấn Độ</b> nghĩ ra, thương nhân <b>Ả Rập</b> truyền sang châu Âu.
+    Chỉ 10 kí hiệu mà ghi được <em>mọi</em> con số — nhờ vậy loài người mới tính toán nhanh đến thế!
+  </div></div>
+</section>
+
+<section>
+  <h2>Bảng tổng kết bốn phép toán</h2>
+  <div class="box kienthuc"><div class="tit">Bốn phép toán — bốn hành động của cuộc sống</div><div class="bd">
+    <table>
+      <tr><th>Phép toán</th><th>Ý nghĩa</th><th>Thành phần</th><th>Phép thử lại</th></tr>
+      <tr><td>Cộng \(a+b\)</td><td>gộp vào</td><td>số hạng, tổng</td><td>tổng trừ một số hạng</td></tr>
+      <tr><td>Trừ \(a-b\)</td><td>bớt đi</td><td>số bị trừ, số trừ, hiệu</td><td>hiệu + số trừ</td></tr>
+      <tr><td>Nhân \(a\times b\)</td><td>cộng lặp lại</td><td>thừa số, tích</td><td>tích chia một thừa số</td></tr>
+      <tr><td>Chia \(a:b\)</td><td>chia đều</td><td>số bị chia, số chia, thương</td><td>thương × số chia</td></tr>
+    </table>
+  </div></div>
+  <p class="fragment center">Trừ là <b>phép ngược</b> của cộng — Chia là <b>phép ngược</b> của nhân</p>
+</section>
+
+<section>
+  <h2>Mười phép tính "hạt giống"</h2>
+  <p>Tính nhẩm nhanh và <b>ghi nhớ</b> — đây là "viên gạch" cho phần sau:</p>
+  <div class="cols2 small">
+    <ol>
+      <li>\(37+63\)</li><li>\(205-87\)</li><li>\(25\times4\)</li><li>\(720:8\)</li><li>\(125\times8\)</li>
+      <li>\(48+52\)</li><li>\(300-175\)</li><li>\(15\times6\)</li><li>\(210:7\)</li><li>\(96:12\)</li>
+    </ol>
+  </div>
+  <div class="fragment box chuy"><div class="tit">Đáp số để đối chiếu</div><div class="bd small">
+    (1) <span class="kq">100</span>; (2) <span class="kq">118</span>; (3) <span class="kq">100</span>;
+    (4) <span class="kq">90</span>; (5) <span class="kq">1000</span>; (6) <span class="kq">100</span>;
+    (7) <span class="kq">125</span>; (8) <span class="kq">90</span>; (9) <span class="kq">30</span>; (10) <span class="kq">8</span>.
+  </div></div>
+</section>
+
+<!-- BƯỚC 2 -->
+<section>
+  <h2>Mẹ đi chợ — một dòng đủ cả bốn phép toán</h2>
+  <p>Mẹ mua 3 kg gạo giá 25 nghìn/kg và 2 chai nước mắm giá 48 nghìn/chai, đưa cô bán hàng 200 nghìn.</p>
+  <p class="hoihs">Cô bán hàng trả lại bao nhiêu?</p>
+  <p class="fragment">Tiền gạo: \(3\times25\) — tiền nước mắm: \(2\times48\)</p>
+  <p class="fragment center">\[200-(3\times25+2\times48)\]</p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd">
+    Một dòng mà có đủ <b>nhân, cộng, trừ</b> và cả <b>dấu ngoặc</b>!
+    Vậy cần "luật đi đường" chung để ai tính cũng ra <em>một</em> kết quả.
+  </div></div>
+</section>
+
+<section>
+  <h2>Luật đi đường: thứ tự thực hiện phép tính</h2>
+  <div class="box kienthuc"><div class="tit">Thứ tự thực hiện phép tính</div><div class="bd">
+    <ol>
+      <li>Có <b>dấu ngoặc</b>: trong ngoặc trước, theo thứ tự \((\ )\to[\ ]\to\{\ \}\).</li>
+      <li class="fragment">Chỉ có cộng trừ (hoặc chỉ nhân chia): đi <b>từ trái sang phải</b>.</li>
+      <li class="fragment">Có đủ các phép: <b>luỹ thừa</b> → <b>nhân, chia</b> → <b>cộng, trừ</b>.</li>
+    </ol>
+  </div></div>
+  <p class="fragment"><em>Luỹ thừa là gì?</em> — chỉ là <b>phép nhân lặp lại</b>:
+  \[2^3=2\times2\times2=8,\qquad 5^2=25,\qquad 10^3=1000.\]
+  <span class="small">(số nhỏ bên trên đếm xem có mấy thừa số — em sẽ học kĩ ở lớp 6)</span></p>
+</section>
+
+<section>
+  <h2>Ví dụ 1 — ghép các hạt giống (1), (3), (9)</h2>
+  <p class="center">\[37+63-25\times4:(210:7)\]</p>
+  <p class="hoihs">Tính gì trước tiên?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Trong ngoặc trước: \(210:7=30\).</p>
+  <p class="fragment">Nhân chia cùng bậc, đi từ trái sang phải: \(25\times4=100\), rồi
+    \(100:30=\dfrac{100}{30}=\dfrac{10}{3}\).</p>
+  <p class="fragment">Phép chia <b>không chia hết</b> thì kết quả là <b>phân số</b> — cứ mạnh dạn viết tiếp!</p>
+  <p class="fragment">\[37+63-\frac{10}{3}=100-\frac{10}{3}=\frac{300-10}{3}=\class{kq}{\frac{290}{3}}\]</p>
+  <div class="fragment box chuy"><div class="tit">Bài học</div>
+    <div class="bd">Phép chia mở cánh cửa dẫn đến <b>phân số</b>!</div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 2 — ghép các hạt giống (2), (8), (10)</h2>
+  <p class="center">\[205-87+15\times6:(96:12)\]</p>
+  <p class="hoihs">Em tự làm trước 1 phút nhé!</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Trong ngoặc: \(96:12=8\).</p>
+  <p class="fragment">Nhân chia từ trái sang phải: \(15\times6=90\), \(90:8=\dfrac{90}{8}=\dfrac{45}{4}\).</p>
+  <p class="fragment">\[205-87+\frac{45}{4}=118+\frac{45}{4}=\frac{472+45}{4}=\class{kq}{\frac{517}{4}}\]</p>
+</section>
+
+<section>
+  <h2>Ví dụ 3 — ngoặc lồng nhau</h2>
+  <p class="center">\[\bigl[1000-(300-175)\times4\bigr]:125\]</p>
+  <p class="hoihs">Ngoặc nào tính trước: tròn hay vuông?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Ngoặc tròn trước: \(300-175=125\).</p>
+  <p class="fragment">Rồi \(125\times4=500\); ngoặc vuông: \(1000-500=500\).</p>
+  <p class="fragment">\[500:125=\class{kq}{4}\]</p>
+</section>
+
+<section>
+  <h2>Gạch ngang — dấu chia "kiểu lớp 6"</h2>
+  <div class="box chuy"><div class="tit">Phép chia viết bằng gạch ngang</div><div class="bd">
+    Từ lớp 6 trở đi, người ta <b>ít dùng dấu</b> \(:\) mà viết phép chia bằng <b>gạch phân số</b>:
+    \[100:30=\frac{100}{30},\qquad (37+63):(210:7)=\frac{37+63}{210:7}=\frac{100}{30}=\frac{10}{3}.\]
+  </div></div>
+  <p class="fragment center">Gạch ngang vừa là <b>phép chia</b>, vừa thay cho <em>cả một cặp ngoặc</em><br>ở tử số và ở mẫu số.</p>
+</section>
+
+<section>
+  <h2>Phân số nhiều tầng — "toà nhà" của các phép chia</h2>
+  <p>Nếu tử số và mẫu số <em>cũng là phân số</em> thì sao? — Ta được <b>phân số nhiều tầng</b>.</p>
+  <div class="box kienthuc"><div class="tit">Cách xử lí</div><div class="bd">
+    <b>Tầng nào gọn tầng đó trước</b>, hoặc nhớ:
+    \(\dfrac{a}{b}:\dfrac{c}{d}=\dfrac{a}{b}\times\dfrac{d}{c}\).
+  </div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 4 — toà nhà bốn tầng</h2>
+  <p>Tính \(A=\dfrac{\ \dfrac{37+63}{25\times4}\ }{\ \dfrac{720:8}{15\times6}\ }\)
+    (ghép từ hạt giống (1), (3), (4), (9)).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Tử: \(\dfrac{100}{100}=1\). — Mẫu: \(\dfrac{90}{90}=1\).
+    Vậy \(A=\dfrac11=\class{kq}{1}\).</p>
+  <p class="fragment"><em>Biểu thức trông "khổng lồ" mà ruột nhẹ tênh — đừng sợ hình thức!</em></p>
+</section>
+
+<section>
+  <h2>Ví dụ 5 — leo từ "tầng hầm" lên</h2>
+  <p class="center">\[B=1+\cfrac{1}{1+\cfrac{1}{1+\cfrac{1}{2}}}\]</p>
+  <p class="hoihs">Bắt đầu gỡ từ tầng nào?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Đi từ <b>tầng hầm</b> lên: \(1+\dfrac12=\dfrac32\).</p>
+  <p class="fragment">Tầng giữa: \(1+\dfrac{1}{3/2}=1+\dfrac23=\dfrac53\).</p>
+  <p class="fragment">Tầng trên cùng: \(B=1+\dfrac{1}{5/3}=1+\dfrac35=\class{kq}{\dfrac85}\).</p>
+</section>
+
+<!-- BƯỚC 3 -->
+<section>
+  <h2>Vì sao phải có kĩ thuật tính nhanh?</h2>
+  <ul>
+    <li>Biểu thức dài ra → tính "chay" vừa <b>lâu</b> vừa <b>dễ sai</b>.</li>
+    <li class="fragment">Người giỏi toán là người <b>nhìn ra cấu trúc</b> để tính nhanh.</li>
+    <li class="fragment">Hôm nay em nhận <b>5 kĩ thuật</b> — dùng suốt từ lớp 5 đến lớp 7!</li>
+  </ul>
+  <table class="fragment">
+    <tr><td><b>KT1</b></td><td>Nhóm cặp "đẹp đôi"</td></tr>
+    <tr><td><b>KT2</b></td><td>Một số nhân một tổng/hiệu</td></tr>
+    <tr><td><b>KT3</b></td><td>Tổng dãy cách đều (cách của Gauss)</td></tr>
+    <tr><td><b>KT4</b></td><td>"Sập cầu"</td></tr>
+    <tr><td><b>KT5</b></td><td>Nhân đôi rồi trừ</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Kĩ thuật 1 — Nhóm cặp "đẹp đôi"</h2>
+  <div class="box kienthuc"><div class="tit">Giao hoán và kết hợp</div><div class="bd">
+    \[a+b=b+a,\qquad (a+b)+c=a+(b+c)\]
+    \[a\times b=b\times a,\qquad (a\times b)\times c=a\times(b\times c)\]
+  </div></div>
+  <div class="fragment box chuy"><div class="tit">Các cặp "đẹp đôi" cần thuộc lòng</div><div class="bd center">
+    \(2\times5=10\) &nbsp; \(4\times25=100\) &nbsp; \(8\times125=1000\) &nbsp; \(16\times625=10000\)
+  </div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 6 — "xé" thừa số để tạo cặp đẹp đôi</h2>
+  <p class="center">\[2\times31\times12\times25\times125\]</p>
+  <p class="hoihs">Số 125 đang "khát" bạn nào? Số 25 "khát" bạn nào?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> \(125\) khát bạn \(8\), \(25\) khát bạn \(4\) —
+    ta <em>xé</em> các thừa số sẵn có: \(2\times12=24=8\times3\).</p>
+  <p class="fragment">\[2\times31\times12\times25\times125=(8\times125)\times(3\times25)\times31\]</p>
+  <p class="fragment">\[=1000\times75\times31=\class{kq}{2\,325\,000}\]</p>
+  <div class="fragment box chuy"><div class="tit">Bài học</div>
+    <div class="bd">Hãy "xé" một thừa số để tạo ra cặp đẹp đôi.</div></div>
+</section>
+
+<section>
+  <h2>Kĩ thuật 2 — Một số nhân một tổng/hiệu</h2>
+  <div class="box kienthuc"><div class="tit">Tính chất phân phối</div><div class="bd">
+    \[a\times(b+c)=a\times b+a\times c,\qquad a\times(b-c)=a\times b-a\times c\]
+  </div></div>
+  <p class="fragment center">Dùng <b>xuôi</b> để phá ngoặc — dùng <b>ngược</b> để "đặt thừa số chung ra ngoài".</p>
+</section>
+
+<section>
+  <h2>Ví dụ 7 — phân phối xuôi và ngược</h2>
+  <p><b>a)</b> \(37\times99\)</p>
+  <p class="hoihs">99 gần số tròn nào?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(37\times99=37\times(100-1)=3700-37=\class{kq}{3663}\)</p>
+  <p class="fragment"><b>b)</b> \(45\times11+45\times88+45\)</p>
+  <p class="fragment hoihs">Thừa số chung là ai? Số 45 lẻ loi cuối cùng viết thành gì?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(45\times11+45\times88+45\times1=45\times(11+88+1)=45\times100=\class{kq}{4500}\)</p>
+</section>
+
+<section>
+  <h2>Ví dụ 8 — kiểu đề thi vào 6</h2>
+  <p class="center">\[A=\frac{2021\times2020-1}{2019\times2021+2020}\]</p>
+  <p class="hoihs">Đừng nhân! Thử tách \(2021=2020+1\) xem sao…</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span>
+    Tử: \(2021\times2020-1=(2020+1)\times2020-1=2020\times2020+2020-1=2020\times2020+2019\).</p>
+  <p class="fragment small">Mẫu: \(2019\times2021+2020=2019\times(2020+1)+2020=2019\times2020+2019+2020\)
+    \(=(2019+1)\times2020+2019=2020\times2020+2019\).</p>
+  <p class="fragment">Tử và mẫu <em>bằng hệt nhau</em>! Vậy \(A=\class{kq}{1}\) —
+    không cần nhân con số khổng lồ nào cả.</p>
+</section>
+
+<section>
+  <h2>Kĩ thuật 3 — Cách của thần đồng Gauss</h2>
+  <div class="box kechuyen"><div class="tit">Cậu bé Gauss 8 tuổi</div><div class="bd">
+    Thầy giáo bắt cả lớp tính \(1+2+3+\cdots+100\). Gauss làm xong trong <b>một phút</b>:
+    ghép \((1+100),(2+99),\ldots\) được 50 cặp, mỗi cặp bằng 101, nên tổng là \(101\times50=5050\).
+  </div></div>
+  <div class="fragment box kienthuc"><div class="tit">Tổng dãy số cách đều</div><div class="bd">
+    \[\text{Tổng}=\frac{(\text{số đầu}+\text{số cuối})\times\text{số số hạng}}{2},\quad
+      \text{số số hạng}=\frac{\text{số cuối}-\text{số đầu}}{\text{khoảng cách}}+1\]
+  </div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 9 — tổng dãy cách đều</h2>
+  <p class="center">\[S=2+5+8+\cdots+2027\]</p>
+  <p class="hoihs">Khoảng cách giữa hai số liền nhau là bao nhiêu? Có mấy số hạng?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Số số hạng: \((2027-2):3+1=676\).</p>
+  <p class="fragment">\[S=\frac{(2+2027)\times676}{2}=2029\times338=\class{kq}{685\,802}\]</p>
+</section>
+
+<section>
+  <h2>Kĩ thuật 4 — "Sập cầu"</h2>
+  <div class="box kienthuc"><div class="tit">Tách mỗi phân số thành hiệu hai "nhịp cầu"</div><div class="bd">
+    \[\frac{1}{n\times(n+1)}=\frac1n-\frac{1}{n+1},\qquad
+      \frac{k}{n\times(n+k)}=\frac1n-\frac{1}{n+k}\]
+  </div></div>
+  <p class="fragment center">Khi cộng lại, các nhịp giữa <b>tự triệt tiêu</b>,<br>chỉ còn <b>nhịp đầu</b> và <b>nhịp cuối</b>!</p>
+  <p class="fragment">Kiểm tra thử: \(\dfrac12-\dfrac13=\dfrac{3-2}{6}=\dfrac{1}{6}=\dfrac{1}{2\times3}\) ✓</p>
+</section>
+
+<section>
+  <h2>Ví dụ 10 — cây cầu 99 nhịp</h2>
+  <p class="center small">\[C=\frac{1}{1\times2}+\frac{1}{2\times3}+\frac{1}{3\times4}+\cdots+\frac{1}{99\times100}\]</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \[C=\Bigl(1-\frac12\Bigr)+\Bigl(\frac12-\frac13\Bigr)+\cdots+\Bigl(\frac{1}{99}-\frac{1}{100}\Bigr)\]</p>
+  <p class="fragment">Các nhịp giữa triệt tiêu hết: \[C=1-\frac{1}{100}=\class{kq}{\frac{99}{100}}\]</p>
+</section>
+
+<section>
+  <h2>Ví dụ 11 — sập cầu "nhịp rộng" (mức lớp 7)</h2>
+  <p class="center small">\[D=\frac{3}{2\times5}+\frac{3}{5\times8}+\cdots+\frac{3}{98\times101}\]</p>
+  <p class="hoihs">Mỗi phân số có dạng nào? Tách ra sao?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    Mỗi phân số có dạng \(\dfrac{3}{n(n+3)}=\dfrac1n-\dfrac{1}{n+3}\):</p>
+  <p class="fragment small">\[D=\frac12-\frac15+\frac15-\frac18+\cdots+\frac{1}{98}-\frac{1}{101}\]</p>
+  <p class="fragment">\[D=\frac12-\frac{1}{101}=\class{kq}{\frac{99}{202}}\]</p>
+</section>
+
+<section>
+  <h2>Kĩ thuật 5 — Nhân đôi rồi trừ</h2>
+  <p>Muốn tính \(A=1+2+2^2+\cdots+2^{10}\)?</p>
+  <div class="fragment box kienthuc"><div class="tit">Mẹo: nhân cả tổng với 2 rồi trừ</div><div class="bd">
+    \[2A=2+2^2+\cdots+2^{10}+2^{11}\]
+    Lấy \(2A-A\): mọi số hạng giữa <b>triệt tiêu</b>, còn \(A=2^{11}-1=2047\).
+  </div></div>
+  <p class="fragment">Kĩ thuật này dùng cho <em>mọi</em> tổng mà các số hạng <b>gấp nhau một số lần cố định</b>.</p>
+</section>
+
+<section>
+  <h2>Ví dụ 12 — ăn nửa cái bánh</h2>
+  <p class="center">\[E=\frac12+\frac14+\frac18+\cdots+\frac{1}{1024}\]</p>
+  <p class="hoihs">Các số hạng gấp nhau mấy lần? Vậy nhân \(E\) với mấy?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Nhân 2:
+    \(2E=1+\dfrac12+\dfrac14+\cdots+\dfrac{1}{512}\).</p>
+  <p class="fragment">Trừ: \(2E-E=1-\dfrac{1}{1024}\), vậy \(E=\class{kq}{\dfrac{1023}{1024}}\).</p>
+  <div class="fragment box chuy"><div class="tit">Hình dung</div><div class="bd">
+    Ăn nửa cái bánh, rồi nửa phần còn lại… mãi mãi <em>gần hết</em> mà không bao giờ <em>hết</em>!
+  </div></div>
+</section>
+
+<!-- LUYỆN TẬP -->
+<section>
+  <h2>Luyện tập — Bài 1 và 2</h2>
+  <p><b>Bài 1.</b> <span class="muc">(*)</span> Tính giá trị biểu thức (chú ý thứ tự phép tính):<br>
+    a) \(175-25\times4+720:8\); &nbsp; b) \(\bigl[205-(48+52)\bigr]\times6-210:7\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: a) <span class="kq">165</span>; &nbsp; b) <span class="kq">600</span>.</p>
+  <p class="fragment"><b>Bài 2.</b> <span class="muc">(*)</span> Tính nhanh:<br>
+    a) \(4\times37\times25\); &nbsp; b) \(8\times9\times125\); &nbsp; c) \(2\times3\times4\times5\times25\times125\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: a) <span class="kq">3700</span>; &nbsp; b) <span class="kq">9000</span>; &nbsp; c) <span class="kq">375 000</span>.</p>
+</section>
+
+<section>
+  <h2>Luyện tập — Bài 3 và 4</h2>
+  <p><b>Bài 3.</b> <span class="muc">(*)</span> Tính nhanh:<br>
+    a) \(99\times54+54\); &nbsp; b) \(2026\times43-43\times1026\); &nbsp; c) \(37\times101-37\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: a) <span class="kq">5400</span>; &nbsp; b) <span class="kq">43 000</span>; &nbsp; c) <span class="kq">3700</span>.</p>
+  <p class="fragment"><b>Bài 4.</b> <span class="muc">(**)</span> Tính nhanh \(A=1+3+5+7+\cdots+2025\) (tổng các số lẻ liên tiếp).</p>
+  <p class="fragment" style="text-align:right">Đáp số: 1013 số hạng, \(A=1013^2=\class{kq}{1\,026\,169}\).</p>
+</section>
+
+<section>
+  <h2>Luyện tập — Bài 5 và 6</h2>
+  <p><b>Bài 5.</b> <span class="muc">(**)</span> Tính
+    \(B=\dfrac{1}{1\times2}+\dfrac{1}{2\times3}+\cdots+\dfrac{1}{2025\times2026}\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: \(B=1-\dfrac{1}{2026}=\class{kq}{\dfrac{2025}{2026}}\).</p>
+  <p class="fragment"><b>Bài 6.</b> <span class="muc">(**)</span> Tính phân số nhiều tầng:
+    \(C=\cfrac{2}{1+\cfrac{1}{1+\cfrac{1}{3}}}\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: \(C=2:\dfrac74=\class{kq}{\dfrac87}\).</p>
+</section>
+
+<section>
+  <h2>Luyện tập — Bài 7 và 8</h2>
+  <p><b>Bài 7.</b> <span class="muc">(**)</span> Tính nhanh
+    \(D=\dfrac{2026\times2025-2024}{2026+2025\times2024}\).<br>
+    <span class="small"><em>(Gợi ý: viết \(2026=2024+2\) ở tử, hoặc biến đổi cả tử lẫn mẫu về cùng một tích.)</em></span></p>
+  <p class="fragment" style="text-align:right">Đáp số: tử và mẫu cùng bằng \(2025\times2024+2026\), vậy \(D=\class{kq}{1}\).</p>
+  <p class="fragment"><b>Bài 8.</b> <span class="muc">(**)</span> (Kiểu Gauss) Rạp hát xếp ghế: hàng thứ nhất 12 ghế,
+    mỗi hàng sau nhiều hơn hàng trước 2 ghế, hàng cuối có 60 ghế. Hỏi rạp có bao nhiêu ghế?</p>
+  <p class="fragment" style="text-align:right">Đáp số: 25 hàng, tổng \(\dfrac{(12+60)\times25}{2}=\class{kq}{900}\) ghế.</p>
+</section>
+
+<section>
+  <h2>Luyện tập — Bài 9 và 10</h2>
+  <p><b>Bài 9.</b> <span class="muc">(***)</span> (Mức lớp 7) Tính
+    \(E=\dfrac{5}{1\times6}+\dfrac{5}{6\times11}+\dfrac{5}{11\times16}+\cdots+\dfrac{5}{2021\times2026}\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: \(E=1-\dfrac{1}{2026}=\class{kq}{\dfrac{2025}{2026}}\).</p>
+  <p class="fragment"><b>Bài 10.</b> <span class="muc">(***)</span> (Mức lớp 7) Tính \(F=1+5+5^2+5^3+\cdots+5^8\).<br>
+    <span class="small"><em>(Gợi ý: tính \(5F\) rồi lấy \(5F-F\).)</em></span></p>
+  <p class="fragment" style="text-align:right">Đáp số: \(F=\dfrac{5^9-1}{4}=\class{kq}{488\,281}\).</p>
+</section>
+
+<section>
+  <h2>Luyện tập — Bài 11 (thách thức)</h2>
+  <p><b>Bài 11.</b> <span class="muc">(***)</span> So sánh
+    \[M=\frac{100^{2026}+1}{100^{2027}+1}\qquad\text{và}\qquad N=\frac{100^{2025}+1}{100^{2026}+1}.\]
+    <span class="small"><em>(Gợi ý: nhân cả tử và mẫu của mỗi phân số với 100 rồi so phần "dư ra".)</em></span></p>
+  <p class="fragment">Đáp số:
+    \(100M=1+\dfrac{99}{100^{2027}+1}<100N=1+\dfrac{99}{100^{2026}+1}\), vậy <span class="kq">\(M&lt;N\)</span>.</p>
+</section>
+
+<!-- TỔNG KẾT -->
+<section>
+  <h2>Ba điều phải nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Ba điều phải nhớ</div><div class="bd">
+    <ol>
+      <li><b>Luật đi đường</b>: ngoặc trước — luỹ thừa — nhân chia — cộng trừ;
+        cùng bậc thì đi từ trái sang phải. Gạch phân số thay cho phép chia <em>và</em> cặp ngoặc.</li>
+      <li class="fragment"><b>Nhìn cấu trúc trước khi tính</b>: tìm cặp đẹp đôi (\(4\times25\), \(8\times125\)),
+        tìm thừa số chung, tìm dạng dãy cách đều hay dạng "sập cầu".</li>
+      <li class="fragment"><b>Phép chia không chia hết thì viết phân số</b>, đừng dừng lại —
+        phân số nhiều tầng chỉ là nhiều phép chia xếp chồng, gỡ từ tầng thấp nhất lên.</li>
+    </ol>
+  </div></div>
+</section>
+
+<section>
+  <h2>Dặn dò và hẹn gặp lại</h2>
+  <div class="box chuy"><div class="tit">Dặn dò</div><div class="bd">
+    <ul>
+      <li>Làm lại các ví dụ <em>không nhìn lời giải</em>.</li>
+      <li>Hoàn thành các bài luyện tập còn dang dở.</li>
+    </ul>
+  </div></div>
+  <p class="fragment center" style="margin-top:1em">Buổi sau: dùng chính kĩ năng "tính nhanh" hôm nay để <b>ĐẾM NHANH</b><br>
+    <span style="color:var(--mauchinh);font-weight:bold;font-size:1.1em">Em sẽ bất ngờ vì đếm cũng cần kĩ thuật đấy!</span></p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>

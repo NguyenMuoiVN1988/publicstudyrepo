@@ -266,6 +266,10 @@ details > div {
 <summary>Tiểu học</summary>
 <div markdown="1">
 
+#### Ôn tập Tiểu học Nâng cao — Hành trang vào lớp 6 CLC
+
+- [Buổi 1: Ôn tập bốn phép toán (slides bài giảng tương tác)](Tieuhoc/OnTapNC/Buoi1.html)
+
 #### Toán tư duy
 
 **Chuyển động**
