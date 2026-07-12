@@ -38,10 +38,6 @@
   .titleslide .t2{font-size:1.4em;font-weight:bold;margin-top:.3em}
   .small{font-size:.8em}
   .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
-  .chip{display:inline-block;background:var(--maunhat);border:1.5px solid var(--mauchinh);
-    border-radius:.35em;padding:0 .45em;margin:.08em .1em;font-weight:bold;color:var(--mauchinh)}
-  .slot{display:inline-block;min-width:3em;border:2px dashed var(--maucam);border-radius:.3em;
-    padding:0 .4em;color:var(--maucam);text-align:center;font-weight:bold}
 </style>
 </head>
 <body>
@@ -518,34 +514,39 @@
 </section>
 
 <section>
-  <h2>Một câu hỏi — bốn kì thi ② HSA và TSA</h2>
-  <div class="box kienthuc"><div class="tit">Áo HSA — câu điền đáp án (nhịp ~90 giây/câu)</div><div class="bd small">
+  <h2>Một câu hỏi — bốn kì thi ② HSA và TSA — thử ngay tại chỗ!</h2>
+  <div class="box kienthuc"><div class="tit">Áo HSA — câu điền đáp án (nhịp ~90 giây/câu): em gõ thử!</div><div class="bd small">
     "…Diện tích lớn nhất của vườn hoa bằng
-    <span class="slot" style="min-width:2.6em">&nbsp;</span> m²."
-    → thí sinh tự gõ <span class="fragment kq">64</span><br>
+    <span class="sq-sa" data-ans="64" data-hint="tính lại đỉnh parabol nhé!"></span> m²."<br>
     <span class="fragment"><b>Không có 4 phương án</b> để loại trừ hay thử ngược — phải tự tính ra đúng con số.
-    Bài này đáp số nguyên; gặp đề cho đáp số lẻ thì làm tròn <em>đúng theo yêu cầu của đề</em>
-    (vd "làm tròn đến hàng phần trăm" như bài quả bóng ở Ví dụ 10) — gõ lệch một chữ số là mất trọn điểm.</span>
+    Gặp đề cho đáp số lẻ thì làm tròn <em>đúng theo yêu cầu của đề</em>
+    (vd "hàng phần trăm" như bài quả bóng ở Ví dụ 10) — gõ lệch một chữ số là mất trọn điểm.</span>
   </div></div>
-  <div class="box kienthuc"><div class="tit">Áo TSA — câu kéo thả (chấm all-or-nothing)</div><div class="bd small">
-    Trên máy tính hiện lời giải bị khoét trống + một <b>kho thẻ</b>; em kéo thẻ thả vào đúng ô:<br>
-    Gọi chiều rộng \(x\) (m) → chiều dài \(=\) <span class="slot">?</span>
-    → \(S(x)=\) <span class="slot">?</span>
-    → \(S\) lớn nhất tại \(x=\) <span class="slot">?</span><br>
-    Kho thẻ: <span class="chip">\(16-x\)</span> <span class="chip">\(32-x\)</span>
-    <span class="chip">\(x(16-x)\)</span> <span class="chip">\(x(32-x)\)</span>
-    <span class="chip">\(8\)</span> <span class="chip">\(16\)</span> — có thẻ nhiễu!<br>
-    <span class="fragment">Đáp án: kéo <span class="chip">\(16-x\)</span> →
-    <span class="chip">\(x(16-x)\)</span> → <span class="chip">\(8\)</span>.
-    Chấm <b>all-or-nothing</b>: đúng 2/3 ô vẫn <b>0 điểm</b> — làm xong phải rà lại cả chuỗi.</span>
+  <div class="box kienthuc"><div class="tit">Áo TSA — câu kéo thả (chấm all-or-nothing): em kéo thử!</div><div class="bd small">
+    <div class="sq-dd" data-mode="all" data-cham="Chấm all-or-nothing">
+      Kéo thẻ thả vào ô trống — hoặc <em>chạm thẻ rồi chạm ô</em> (trên điện thoại):<br>
+      Gọi chiều rộng \(x\) (m) → chiều dài \(=\) <span class="sq-slot" data-ans="16-x"></span>
+      → \(S(x)=\) <span class="sq-slot" data-ans="x(16-x)"></span>
+      → \(S\) lớn nhất tại \(x=\) <span class="sq-slot" data-ans="8"></span><br>
+      Kho thẻ:
+      <span class="sq-chip" data-val="16-x">16 − x</span>
+      <span class="sq-chip" data-val="32-x">32 − x</span>
+      <span class="sq-chip" data-val="x(16-x)">x(16 − x)</span>
+      <span class="sq-chip" data-val="x(32-x)">x(32 − x)</span>
+      <span class="sq-chip" data-val="8">8</span>
+      <span class="sq-chip" data-val="16">16</span>
+      <span class="small">— có thẻ nhiễu!</span>
+      <div class="sq-nut"></div>
+    </div>
+    <span class="fragment small">Luật TSA: đúng 2/3 ô vẫn <b>0 điểm</b> — làm xong phải rà lại cả chuỗi!</span>
   </div></div>
 </section>
 
 <section>
   <h2>Một câu hỏi — bốn kì thi ③ SPT — tự luận viết tay</h2>
-  <p class="small">Đề giữ nguyên nhưng phải <b>trình bày lời giải trên giấy</b>. Giám khảo chấm
-    từng bước theo <b>barem</b> (mỗi câu tự luận SPT ≈ 1,0đ) — đây là các bước trọng tâm:</p>
-  <table class="small">
+  <p class="small" style="margin:.2em 0">Đề giữ nguyên nhưng phải <b>trình bày lời giải trên giấy</b> —
+    giám khảo chấm từng bước theo <b>barem</b> (mỗi câu tự luận SPT ≈ 1,0đ):</p>
+  <table style="font-size:.72em">
     <tr><th>Bước</th><th>Nội dung phải có trên giấy</th><th>Điểm</th></tr>
     <tr class="fragment"><td>①</td><td>Đặt biến: gọi chiều rộng \(x\) (m) <b>kèm điều kiện</b> \(0&lt;x&lt;16\); chiều dài \(=16-x\)</td><td>0,25</td></tr>
     <tr class="fragment"><td>②</td><td>Lập hàm: \(S(x)=x(16-x)=-x^2+16x\)</td><td>0,25</td></tr>
@@ -553,14 +554,16 @@
       <em>(hoặc BĐT: \(x(16-x)\le\bigl(\tfrac{x+(16-x)}{2}\bigr)^2=64\), dấu "=" khi \(x=8\))</em></td><td>0,25</td></tr>
     <tr class="fragment"><td>④</td><td>Kết luận: \(S_{\max}=64\) <b>m²</b> khi vườn là hình vuông cạnh 8 m — <b>đủ đơn vị</b></td><td>0,25</td></tr>
   </table>
-  <div class="fragment box chuy"><div class="tit">Ba lỗi mất điểm kinh điển khi viết tay</div><div class="bd small">
-    thiếu <b>điều kiện của biến</b> (bước ①) · thiếu <b>"dấu = xảy ra khi…"</b> (bước ③) ·
-    thiếu <b>đơn vị</b> ở kết luận (bước ④).
-  </div></div>
-  <div class="fragment box chuy"><div class="tit">Thông điệp</div><div class="bd small">
-    <b>Một lõi kiến thức — nhiều template.</b> Học chắc bản chất một lần, rồi luyện "mặc áo"
-    từng kì: đó là cách lớp mình đi suốt năm nay.
-  </div></div>
+  <div style="display:flex;gap:.8em;align-items:stretch">
+    <div class="fragment box chuy" style="flex:1"><div class="tit">Ba lỗi mất điểm kinh điển</div><div class="bd small">
+      thiếu <b>điều kiện của biến</b> (①) · thiếu <b>"dấu = xảy ra khi…"</b> (③) ·
+      thiếu <b>đơn vị</b> ở kết luận (④).
+    </div></div>
+    <div class="fragment box chuy" style="flex:1"><div class="tit">Thông điệp</div><div class="bd small">
+      <b>Một lõi kiến thức — nhiều template.</b> Học chắc bản chất một lần, rồi luyện
+      "mặc áo" từng kì: cách lớp mình đi suốt năm nay.
+    </div></div>
+  </div>
 </section>
 
 <!-- ============ LUYỆN TẬP ============ -->
@@ -663,6 +666,8 @@
       tex: { packages: {'[+]': ['html']} }
     }
   });
+
 </script>
+<script src="../assets/js/slide-quiz.js"></script>
 </body>
 </html>

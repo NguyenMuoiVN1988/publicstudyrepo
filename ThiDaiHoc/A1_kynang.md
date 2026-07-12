@@ -34,7 +34,7 @@ Bộ "hạt giống" (tái dùng xuyên bài giảng): **f(x) = x² − 4x + 3**
 
 **Bộ 3 slide "Một câu hỏi — bốn kì thi"** (mở rộng 2026-07-13 theo góp ý user): bài rào 32 m biến thể thành
 ① Đ/S 4 ý TN THPT từng ý xuống dòng + giải thích Đ/S (kèm biến thể rào 3 cạnh dựa tường, S_max = 128 m²) + thang lũy tiến;
-② HSA điền đáp án (ô trống, gõ 64, không phương án loại trừ) + TSA kéo thả cụ thể (3 ô khoét trống, kho 6 thẻ có thẻ nhiễu, all-or-nothing);
+② HSA điền đáp án + TSA kéo thả — **TƯƠNG TÁC THẬT ngay trong slide** bằng engine tái dùng [`assets/js/slide-quiz.js`](../assets/js/slide-quiz.js) (viết riêng cho slide bài giảng, chạy offline `file://`; khai báo bằng HTML: `.sq-sa` ô điền có nút Kiểm tra, `.sq-dd/.sq-slot/.sq-chip` kéo thả mượt bằng pointer chuột + cảm ứng hoặc chạm-thẻ-chạm-ô, nút Chấm all-or-nothing/Làm lại/Đáp án; kho 6 thẻ có thẻ nhiễu — **A2–A4 dùng lại engine này**);
 ③ SPT: bảng barem 4 bước × 0,25đ (đặt biến có điều kiện → lập hàm → lập luận đỉnh/BĐT → kết luận có đơn vị) + 3 lỗi mất điểm kinh điển.
 4 biến thể này **tự soạn**, dùng được làm mẫu cho phiếu template sau.
 
