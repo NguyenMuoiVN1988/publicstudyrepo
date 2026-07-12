@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A1 — Ngôn ngữ hàm số | Lớp Toán 12 ôn thi Đại học</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#005493; --maunhat:#e8f2fa;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#008040;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.15em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.2em;font-weight:bold}
+  .titleslide .t2{font-size:1.4em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+  .bbt td{text-align:center;border-bottom:none;border:1px solid #bbb;padding:.15em .8em}
+  .bbt .mui{font-size:1.3em;color:var(--mauchinh)}
+  .thi4 td{vertical-align:top;font-size:.95em}
+  .thi4 .ky{color:#fff;background:var(--mauchinh);border-radius:.2em;
+    padding:0 .4em;font-weight:bold;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- ============ MỞ ĐẦU ============ -->
+<section class="titleslide">
+  <div class="t1">Buổi A1</div>
+  <div class="t2">Ngôn ngữ hàm số</div>
+  <div>Tập xác định — Đồ thị — Đồng biến, nghịch biến — Parabol</div>
+  <p style="margin-top:1.2em"><em>Mạch A · Giải tích — Lớp Toán 12 ôn thi Đại học</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để xem từng bước, giống như trên lớp.</p>
+</section>
+
+<section>
+  <h2>Bản đồ Mạch A — cầu thang Giải tích 13 bậc</h2>
+  <table>
+    <tr><td class="muc">A1</td><td class="muc">Ngôn ngữ hàm số — TXĐ, đồ thị, đơn điệu, parabol &nbsp;⟵ hôm nay</td></tr>
+    <tr><td><b>A2–A4</b></td><td>Gia đình hàm mới: lượng giác · mũ · lôgarit (+ lãi kép)</td></tr>
+    <tr><td><b>A5–A7</b></td><td>Dãy số → giới hạn → đạo hàm</td></tr>
+    <tr><td><b>A8–A10</b></td><td>Đạo hàm ra tay: đơn điệu, cực trị, GTLN–GTNN, khảo sát</td></tr>
+    <tr><td><b>A11–A13</b></td><td>Nguyên hàm → tích phân → ứng dụng</td></tr>
+  </table>
+  <p class="fragment small center" style="margin-top:.6em">Mỗi bậc đứng trên bậc trước — <b>hôm nay ta đổ móng</b>:
+    toàn bộ Giải tích lớp 12 nói bằng <b>ngôn ngữ hàm số</b>.<br>
+    (Sau Mạch A là Mạch C — Hình học, rồi Mạch B — Xác suất &amp; Thống kê.)</p>
+</section>
+
+<section>
+  <h2>Hôm nay em sẽ đi qua 4 bước</h2>
+  <div class="box chuy"><div class="tit">Lộ trình buổi A1</div><div class="bd">
+    <ol>
+      <li>Hàm số là gì? — chiếc máy "một đầu vào, một đầu ra"</li>
+      <li>Tập xác định — "vùng đất sống" của hàm số</li>
+      <li>Đồ thị — bức chân dung; đọc chiều đồng biến, nghịch biến</li>
+      <li>Parabol: đỉnh, GTLN–GTNN và các bài toán thực tế</li>
+    </ol>
+  </div></div>
+  <p class="fragment small">…và một góc đặc biệt: <b>"Một câu hỏi — bốn kì thi"</b> — cùng một nội dung,
+    TN THPT / HSA / TSA / SPT sẽ hỏi em bốn kiểu khác nhau thế nào.</p>
+</section>
+
+<!-- ============ BƯỚC 1: HÀM SỐ LÀ GÌ ============ -->
+<section>
+  <h2>Chuyện chuyến taxi</h2>
+  <div class="center">
+  <svg viewBox="0 0 900 160" style="width:min(100%,780px);height:auto" role="img" aria-label="Xe taxi, đồng hồ cước 11 nghìn đồng, mũi tên quãng đường x km, hỏi số tiền y">
+    <line x1="20" y1="132" x2="880" y2="132" stroke="#999" stroke-width="3"/>
+    <rect x="45" y="70" width="185" height="48" rx="12" fill="#f7c948" stroke="#a07800" stroke-width="2"/>
+    <path d="M85,70 L105,42 L185,42 L205,70 z" fill="#f7c948" stroke="#a07800" stroke-width="2"/>
+    <rect x="112" y="48" width="30" height="20" fill="#dff1ff" stroke="#a07800"/>
+    <rect x="150" y="48" width="30" height="20" fill="#dff1ff" stroke="#a07800"/>
+    <rect x="120" y="28" width="52" height="16" rx="4" fill="#005493"/>
+    <text x="146" y="41" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">TAXI</text>
+    <circle cx="90" cy="122" r="15" fill="#333"/><circle cx="90" cy="122" r="6" fill="#bbb"/>
+    <circle cx="190" cy="122" r="15" fill="#333"/><circle cx="190" cy="122" r="6" fill="#bbb"/>
+    <rect x="290" y="40" width="200" height="62" rx="8" fill="#222"/>
+    <text x="390" y="65" text-anchor="middle" font-size="16" fill="#9fd8ff">ĐỒNG HỒ CƯỚC</text>
+    <text x="390" y="92" text-anchor="middle" font-size="24" fill="#7CFC00" font-weight="bold">11 000 đ</text>
+    <defs><marker id="mt" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#c85000"/></marker></defs>
+    <line x1="540" y1="110" x2="840" y2="110" stroke="#c85000" stroke-width="5" marker-end="url(#mt)"/>
+    <text x="690" y="95" text-anchor="middle" font-size="24" fill="#333" font-style="italic">đi x km</text>
+    <text x="690" y="152" text-anchor="middle" font-size="24" fill="#c85000" font-weight="bold">trả y = ? đồng</text>
+  </svg>
+  </div>
+  <ul class="small">
+    <li>Em bước lên taxi: đồng hồ đã hiện <b>11 000 đ</b> (giá mở cửa, cho 0,7 km đầu).</li>
+    <li class="fragment">Mỗi ki-lô-mét tiếp theo: <b>15 800 đ</b>. Xe chạy — con số nhảy theo.</li>
+  </ul>
+  <p class="hoihs fragment">Số tiền \(y\) phụ thuộc đại lượng nào?<br>
+    Biết quãng đường \(x\) rồi, số tiền \(y\) có xác định <em>duy nhất</em> không?</p>
+  <div class="fragment box chuy"><div class="tit">Đó chính là…</div>
+    <div class="bd">quy tắc "mỗi \(x\) cho <b>đúng một</b> \(y\)" — toán học gọi là <b>HÀM SỐ</b>.</div></div>
+</section>
+
+<section>
+  <h2>Hàm số — chiếc máy "một đầu vào, một đầu ra"</h2>
+  <div class="center">
+  <svg viewBox="0 0 900 120" style="width:min(100%,720px);height:auto" role="img" aria-label="Sơ đồ máy hàm số: x đi vào, f(x) đi ra">
+    <defs><marker id="mf" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#005493"/></marker></defs>
+    <line x1="60" y1="60" x2="300" y2="60" stroke="#005493" stroke-width="5" marker-end="url(#mf)"/>
+    <text x="170" y="40" text-anchor="middle" font-size="26" fill="#333" font-style="italic">đầu vào x</text>
+    <rect x="320" y="20" width="240" height="80" rx="14" fill="#e8f2fa" stroke="#005493" stroke-width="3"/>
+    <text x="440" y="70" text-anchor="middle" font-size="34" fill="#005493" font-weight="bold">MÁY  f</text>
+    <line x1="580" y1="60" x2="830" y2="60" stroke="#008040" stroke-width="5" marker-end="url(#mf)"/>
+    <text x="705" y="40" text-anchor="middle" font-size="26" fill="#008040" font-style="italic">đầu ra y = f(x)</text>
+    <text x="705" y="95" text-anchor="middle" font-size="20" fill="#008040">duy nhất!</text>
+  </svg>
+  </div>
+  <div class="box kienthuc"><div class="tit">Hàm số — một đầu vào, một đầu ra</div><div class="bd">
+    Cho tập \(D\subset\mathbb{R}\). Nếu <b>mỗi</b> \(x\in D\) tương ứng với <b>đúng một</b> số
+    \(y\in\mathbb{R}\) thì ta có <b>hàm số</b> \(y=f(x)\); \(D\) gọi là <b>tập xác định</b>,
+    tập các giá trị \(y\) thu được là <b>tập giá trị</b>.
+  </div></div>
+  <p class="fragment small">Hàm số có thể cho bằng <b>công thức</b> (cước taxi), bằng <b>bảng</b>
+    (giá vàng từng ngày), hay bằng <b>đồ thị</b> (điện tâm đồ) — cùng một bản chất:
+    <em>mỗi đầu vào, một đầu ra</em>.</p>
+</section>
+
+<section>
+  <h2>Mười câu "hạt giống" — nhận diện nhanh</h2>
+  <p class="small">Nhân vật chính của buổi hôm nay: \(f(x)=x^2-4x+3\). Trả lời nhanh và <b>ghi nhớ</b> —
+    đây là "viên gạch" cho mọi ví dụ phía sau:</p>
+  <div class="cols2 small">
+    <ol>
+      <li>\(f(0)=\,?\)</li>
+      <li>\(f(2)=\,?\)</li>
+      <li>Nghiệm của \(x^2-4x+3=0\)?</li>
+      <li>\(-\dfrac{b}{2a}\) của \(x^2-4x+3\)?</li>
+      <li>\(f(5)=\,?\)</li>
+      <li>\(\sqrt{x-1}\) có nghĩa khi nào?</li>
+      <li>\(\dfrac{1}{x-2}\) "cấm" giá trị nào?</li>
+      <li>\((x-2)^2\) nhỏ nhất bằng bao nhiêu, khi nào?</li>
+      <li>\(a&lt;0\): parabol quay bề lõm đi đâu?</li>
+      <li>\(y=1-3x\): \(x\) tăng thì \(y\) tăng hay giảm?</li>
+    </ol>
+  </div>
+  <div class="fragment box chuy"><div class="tit">Đáp số để đối chiếu</div><div class="bd small">
+    (1) <span class="kq">3</span>; (2) <span class="kq">−1</span>; (3) <span class="kq">x=1; x=3</span>;
+    (4) <span class="kq">2</span>; (5) <span class="kq">8</span>; (6) <span class="kq">x ≥ 1</span>;
+    (7) <span class="kq">x ≠ 2</span>; (8) <span class="kq">0, khi x = 2</span>;
+    (9) <span class="kq">xuống dưới</span>; (10) <span class="kq">giảm</span>.
+  </div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 1 — viết công thức cước taxi</h2>
+  <p class="small">Giá mở cửa <b>11 000 đ</b> cho quãng đường không quá 0,7 km; mỗi km tiếp theo
+    <b>15 800 đ</b>. Gọi \(y\) (đồng) là số tiền phải trả khi đi \(x\) (km). Viết hàm số \(y\) theo \(x\).</p>
+  <p class="hoihs">Đi 5 km thì đoạn nào tính giá mở cửa, đoạn nào tính 15 800 đ/km?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    Nếu \(x\le0{,}7\): trả trọn giá mở cửa \(y=11000\).</p>
+  <p class="fragment">Nếu \(x>0{,}7\): trả \(11000\) đ cho 0,7 km đầu + \(15800\) đ cho mỗi km <em>vượt</em>:
+    \[y=11000+15800\,(x-0{,}7)=\class{kq}{15800x-60}.\]</p>
+  <p class="fragment center">\[y=\begin{cases}11000 &amp; \text{khi } x\le 0{,}7\\ 15800x-60 &amp; \text{khi } x>0{,}7\end{cases}\]</p>
+  <div class="fragment box chuy"><div class="tit">Bài học</div><div class="bd">
+    Hàm số từ đời thật thường cho bởi <b>nhiều công thức</b> — mỗi khoảng một quy tắc.
+    Vẫn là hàm số: mỗi \(x\) chỉ rơi vào <em>một</em> khoảng, cho <em>một</em> giá trị \(y\).
+  </div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 2 — thay số vào đúng "nhánh"</h2>
+  <p>Cho hàm số \(f(x)=\begin{cases} x+\sqrt{x-2} &amp; \text{khi } x\ge 2\\ 1-3x &amp; \text{khi } x&lt;2\end{cases}\).
+    Tính \(f(1)\).</p>
+  <p class="hoihs">Số 1 thuộc nhánh nào? (nhìn điều kiện bên phải!)</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Vì \(1&lt;2\), dùng nhánh dưới:
+    \(f(1)=1-3\cdot1=\class{kq}{-2}\).</p>
+  <p class="fragment small">Hạt giống (10) đã gặp \(y=1-3x\) rồi đấy — lát nữa nó quay lại ở phần
+    <em>đồng biến – nghịch biến</em>.</p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd">
+    Sai lầm kinh điển: thay \(x=1\) vào nhánh trên rồi… tắc ở \(\sqrt{-1}\).
+    <b>Đọc điều kiện trước, thay số sau.</b>
+  </div></div>
+</section>
+
+<!-- ============ BƯỚC 2: TẬP XÁC ĐỊNH ============ -->
+<section>
+  <h2>Chiếc máy không "ăn" được mọi nguyên liệu</h2>
+  <ul>
+    <li>Máy \(f(x)=\dfrac{1}{x-2}\) bị "nghẹn" khi cho \(x=2\) vào — <b>chia cho 0</b>!</li>
+    <li class="fragment">Máy \(f(x)=\sqrt{x-1}\) từ chối mọi \(x&lt;1\) — <b>căn của số âm</b>!</li>
+    <li class="fragment">Tập những \(x\) mà máy "tiêu hoá" được — chính là <b>tập xác định</b>.</li>
+  </ul>
+  <div class="fragment box kienthuc"><div class="tit">Hai lệnh cấm khi tìm tập xác định</div><div class="bd">
+    <ol>
+      <li><b>Mẫu số</b> phải khác \(0\): &nbsp; \(\dfrac{1}{A}\) cần \(A\ne0\).</li>
+      <li><b>Trong căn bậc chẵn</b> phải không âm: &nbsp; \(\sqrt{A}\) cần \(A\ge0\)
+        &nbsp;(căn nằm <em>dưới mẫu</em>: \(A>0\)).</li>
+    </ol>
+    Nhiều điều kiện cùng lúc → lấy <b>GIAO</b> (phải thoả <em>đồng thời</em>).
+  </div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 3 — cái bẫy "nhìn thấy mẫu là loại"</h2>
+  <p class="center">Tìm tập xác định của hàm số \(y=\dfrac{x-1}{x^2-x+3}\).</p>
+  <p class="hoihs">Mẫu \(x^2-x+3\) có bao giờ bằng 0 không? — thử hoàn thiện bình phương
+    (như hạt giống (8))!</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(x^2-x+3=\Bigl(x-\dfrac12\Bigr)^2+\dfrac{11}{4}\ge\dfrac{11}{4}>0\) với mọi \(x\)
+    (hoặc: \(\Delta=1-12&lt;0\), \(a=1>0\)).</p>
+  <p class="fragment">Mẫu <b>không bao giờ triệt tiêu</b> → \(D=\class{kq}{\mathbb{R}}\).</p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd">
+    Thấy phân thức đừng <em>phản xạ</em> loại ngay vài giá trị! Phải <b>kiểm tra mẫu có nghiệm
+    thật không</b>. (Đề trắc nghiệm luôn cài sẵn phương án \(\mathbb{R}\setminus\{1\}\) cho người vội.)
+  </div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 4 — hai điều kiện, lấy giao</h2>
+  <p class="center">Tìm tập xác định của hàm số \(y=\sqrt{x-1}+\sqrt{2-x}\).</p>
+  <p class="hoihs">Cần mấy điều kiện? Lấy giao hay lấy hợp?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Cần <b>đồng thời</b>:
+    \(x-1\ge0\) và \(2-x\ge0\), tức \(x\ge1\) <em>và</em> \(x\le2\).</p>
+  <p class="fragment">Giao hai nửa trục: \(D=\class{kq}{[1;2]}\).</p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd">
+    Căn <em>cho phép bằng 0</em> → hai đầu mút 1 và 2 <b>thuộc</b> \(D\): chọn \([1;2]\),
+    không phải \((1;2)\). Dấu ngoặc vuông hay tròn — trắc nghiệm chỉ khác nhau đúng chỗ đó!
+  </div></div>
+</section>
+
+<!-- ============ BƯỚC 3: ĐỒ THỊ & ĐƠN ĐIỆU ============ -->
+<section>
+  <h2>Đồ thị — bức chân dung của hàm số</h2>
+  <div class="box kechuyen"><div class="tit">Ai nghĩ ra đồ thị?</div><div class="bd small">
+    Năm 1637, <b>René Descartes</b> gắn cho mặt phẳng hai trục số. Từ đó mỗi cặp
+    \((x;f(x))\) thành một <em>điểm</em> — hàm số bỗng có <b>chân dung</b>, và hình học
+    bắt tay đại số.
+  </div></div>
+  <div class="center">
+  <svg viewBox="0 0 760 480" style="width:min(100%,620px);height:auto" role="img" aria-label="Đồ thị parabol y bằng x bình trừ 4x cộng 3 với các điểm đánh dấu">
+    <defs><marker id="mg" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs>
+    <line x1="60" y1="300" x2="710" y2="300" stroke="#555" stroke-width="2" marker-end="url(#mg)"/>
+    <line x1="150" y1="450" x2="150" y2="45" stroke="#555" stroke-width="2" marker-end="url(#mg)"/>
+    <text x="700" y="330" font-size="24" fill="#555">x</text>
+    <text x="120" y="60" font-size="24" fill="#555">y</text>
+    <text x="132" y="326" font-size="22" fill="#555">O</text>
+    <path d="M120,43 Q350,677 580,43" fill="none" stroke="#005493" stroke-width="4"/>
+    <line x1="350" y1="300" x2="350" y2="360" stroke="#c85000" stroke-width="2" stroke-dasharray="6 5"/>
+    <line x1="150" y1="360" x2="350" y2="360" stroke="#c85000" stroke-width="2" stroke-dasharray="6 5"/>
+    <circle cx="150" cy="120" r="8" fill="#008040"/>
+    <text x="175" y="112" font-size="22" fill="#008040">(0; 3)</text>
+    <circle cx="250" cy="300" r="8" fill="#005493"/>
+    <text x="243" y="282" font-size="22" fill="#005493">1</text>
+    <circle cx="450" cy="300" r="8" fill="#005493"/>
+    <text x="445" y="282" font-size="22" fill="#005493">3</text>
+    <circle cx="350" cy="360" r="8" fill="#c85000"/>
+    <text x="368" y="392" font-size="22" fill="#c85000">I(2; −1) — đỉnh</text>
+    <circle cx="550" cy="120" r="8" fill="#008040"/>
+    <text x="575" y="112" font-size="22" fill="#008040">(4; 3)</text>
+    <text x="600" y="230" font-size="24" fill="#005493" font-weight="bold">y = x² − 4x + 3</text>
+  </svg>
+  </div>
+  <div class="box kienthuc"><div class="tit">Điểm thuộc đồ thị</div><div class="bd">
+    \(M(a;b)\) thuộc đồ thị hàm số \(y=f(x)\) \(\iff b=f(a)\) — <em>thay vào công thức phải khớp</em>.
+  </div></div>
+  <p class="hoihs fragment">Điểm \((5;8)\) có thuộc đồ thị không? Điểm \((4;2)\)? — hạt giống (5) trả lời hộ em!</p>
+  <p class="fragment small center">\(f(5)=8\) ✓ → \((5;8)\) <span class="kq">thuộc</span>;
+    &nbsp; \(f(4)=3\ne2\) → \((4;2)\) <span style="color:var(--maucam);font-weight:bold">không thuộc</span>.</p>
+</section>
+
+<section>
+  <h2>Đọc chiều biến thiên: đi từ trái sang phải</h2>
+  <div class="center">
+  <svg viewBox="0 0 760 430" style="width:min(100%,600px);height:auto" role="img" aria-label="Parabol: nửa trái đi xuống là nghịch biến, nửa phải đi lên là đồng biến">
+    <defs>
+      <marker id="md" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+        <path d="M0,0 L9,4.5 L0,9 z" fill="#c85000"/></marker>
+      <marker id="mu" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+        <path d="M0,0 L9,4.5 L0,9 z" fill="#008040"/></marker>
+    </defs>
+    <line x1="60" y1="300" x2="710" y2="300" stroke="#555" stroke-width="2"/>
+    <line x1="150" y1="410" x2="150" y2="45" stroke="#555" stroke-width="2"/>
+    <path d="M120,43 Q350,677 580,43" fill="none" stroke="#005493" stroke-width="4"/>
+    <line x1="160" y1="105" x2="320" y2="330" stroke="#c85000" stroke-width="5" marker-end="url(#md)"/>
+    <text x="150" y="200" font-size="24" fill="#c85000" font-weight="bold" transform="rotate(0)">xuống dốc</text>
+    <text x="155" y="232" font-size="22" fill="#c85000">NGHỊCH BIẾN</text>
+    <line x1="385" y1="330" x2="545" y2="105" stroke="#008040" stroke-width="5" marker-end="url(#mu)"/>
+    <text x="480" y="232" font-size="22" fill="#008040">ĐỒNG BIẾN</text>
+    <text x="490" y="200" font-size="24" fill="#008040" font-weight="bold">lên dốc</text>
+    <line x1="350" y1="300" x2="350" y2="360" stroke="#555" stroke-width="2" stroke-dasharray="6 5"/>
+    <circle cx="350" cy="360" r="7" fill="#005493"/>
+    <text x="332" y="288" font-size="22" fill="#555">x = 2</text>
+  </svg>
+  </div>
+  <div class="box kienthuc"><div class="tit">Đồng biến – nghịch biến trên khoảng K</div><div class="bd small">
+    Trên \(K\): lấy hai điểm tuỳ ý \(x_1&lt;x_2\).
+    Nếu luôn có \(f(x_1)&lt;f(x_2)\) → \(f\) <b>đồng biến</b> (đồ thị <b>đi lên</b> từ trái sang phải);
+    nếu luôn \(f(x_1)>f(x_2)\) → <b>nghịch biến</b> (đi xuống). Bảng biến thiên của
+    \(f(x)=x^2-4x+3\):
+    <table class="bbt" style="margin-top:.3em">
+      <tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(2\)</td><td></td><td>\(+\infty\)</td></tr>
+      <tr><td>\(f(x)\)</td><td>\(+\infty\)</td><td class="mui">↘</td><td>\(-1\)</td><td class="mui">↗</td><td>\(+\infty\)</td></tr>
+    </table>
+  </div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 5 — bác bỏ bằng một phản ví dụ</h2>
+  <p class="small">Cho hàm số \(y=f(x)=x^2\) trên \(\mathbb{R}\). Xét ba mệnh đề:<br>
+    (I) hàm số đồng biến trên \(\mathbb{R}\); &nbsp;
+    (II) nghịch biến trên \((0;+\infty)\); &nbsp;
+    (III) đồng biến trên \((-\infty;0)\).<br>
+    Mệnh đề nào <b>sai</b>?</p>
+  <p class="hoihs">\(x^2\) có "lên dốc suốt" trên cả \(\mathbb{R}\) không? Thử cặp \(-2&lt;1\)…</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(-2&lt;1\) nhưng \(f(-2)=4>1=f(1)\) → (I) <b>sai</b>.</p>
+  <p class="fragment">Trên \((0;+\infty)\) đồ thị <b>đi lên</b> (đồng biến) → (II) nói "nghịch biến" là <b>sai</b>.
+    Trên \((-\infty;0)\) đồ thị <b>đi xuống</b> → (III) <b>sai</b>.</p>
+  <p class="fragment">Vậy <span class="kq">cả (I), (II), (III) đều sai</span>.</p>
+  <div class="fragment box chuy"><div class="tit">Bài học</div><div class="bd">
+    Muốn <b>bác bỏ</b> "đồng biến trên K" chỉ cần <b>một cặp phản ví dụ</b>;
+    muốn <b>khẳng định</b> thì phải đúng với <em>mọi</em> cặp.
+  </div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 6 — chiều biến thiên của parabol</h2>
+  <p class="center">Hàm số \(y=-x^2+4x-3\) đồng biến, nghịch biến trên những khoảng nào?</p>
+  <p class="hoihs">Đỉnh ở đâu? Bề lõm quay lên hay xuống? (hạt giống (4) và (9))</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(x_{\text{đỉnh}}=-\dfrac{b}{2a}=-\dfrac{4}{-2}=2\); \(a=-1&lt;0\) → bề lõm quay xuống:
+    <b>lên dốc tới \(x=2\), rồi xuống dốc</b>.</p>
+  <p class="fragment">Đồng biến trên \((-\infty;2)\), nghịch biến trên \((2;+\infty)\).</p>
+  <p class="fragment">Vì thế hàm số <b>cũng đồng biến</b> trên mọi khoảng con, ví dụ
+    \(\class{kq}{(-\infty;1)}\) — đề trắc nghiệm rất hay hỏi kiểu "khoảng con" này!</p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd">
+    "Đồng biến trên \((-\infty;2)\)" ⟹ đồng biến trên \((-\infty;1)\) (khoảng nhỏ nằm trong).
+    Nhưng <b>không được</b> nói đồng biến trên khoảng "vắt qua đỉnh" như \((1;3)\).
+  </div></div>
+</section>
+
+<!-- ============ BƯỚC 4: PARABOL ============ -->
+<section>
+  <h2>Đường cong nổi tiếng nhất bầu trời</h2>
+  <div class="box kechuyen"><div class="tit">Galileo và đường bay của viên đạn</div><div class="bd small">
+    Đầu thế kỉ 17, <b>Galileo</b> chứng minh: mọi vật ném xiên đều bay theo cùng một đường cong —
+    <b>parabol</b>. Từ quả bóng đá, tia nước đài phun, đến ăng-ten chảo và gương hội tụ
+    của kính thiên văn: tất cả chung một phương trình bậc hai.
+  </div></div>
+  <div class="center">
+  <svg viewBox="0 0 760 250" style="width:min(100%,620px);height:auto" role="img" aria-label="Quỹ đạo parabol của quả bóng được đá lên">
+    <line x1="30" y1="210" x2="730" y2="210" stroke="#7a5c2e" stroke-width="4"/>
+    <path d="M60,190 Q300,10 560,210" fill="none" stroke="#005493" stroke-width="4" stroke-dasharray="10 7"/>
+    <circle cx="60" cy="190" r="12" fill="#fff" stroke="#333" stroke-width="2.5"/>
+    <circle cx="60" cy="190" r="4.5" fill="#333"/>
+    <text x="80" y="165" font-size="20" fill="#333">bóng rời chân ở độ cao 1,2 m</text>
+    <circle cx="300" cy="105" r="6" fill="#c85000"/>
+    <text x="308" y="95" font-size="20" fill="#c85000">t = 1 s: cao 8,5 m</text>
+    <circle cx="432" cy="140" r="6" fill="#c85000"/>
+    <text x="440" y="130" font-size="20" fill="#c85000">t = 2 s: cao 6 m</text>
+    <text x="565" y="240" font-size="20" fill="#7a5c2e">chạm đất: t = ?</text>
+  </svg>
+  </div>
+  <p class="fragment small center">Muốn trả lời "bao giờ chạm đất?" — phải biết <b>đọc chân dung parabol</b>. Đi thôi!</p>
+</section>
+
+<section>
+  <h2>Chân dung parabol \(y=ax^2+bx+c\)</h2>
+  <div class="box kienthuc"><div class="tit">Chân dung parabol y = ax² + bx + c (a ≠ 0)</div><div class="bd">
+    <ul>
+      <li><b>Trục đối xứng</b>: đường thẳng \(x=-\dfrac{b}{2a}\).</li>
+      <li><b>Đỉnh</b> \(I\Bigl(-\dfrac{b}{2a};\,f\Bigl(-\dfrac{b}{2a}\Bigr)\Bigr)\)
+        — tung độ đỉnh: cứ <b>thay hoành độ đỉnh vào \(f\)</b>, khỏi nhớ công thức \(-\dfrac{\Delta}{4a}\)!</li>
+      <li>\(a>0\): bề lõm quay <b>lên</b> → đỉnh là chỗ <b>thấp nhất</b> (GTNN);<br>
+        \(a&lt;0\): bề lõm quay <b>xuống</b> → đỉnh là chỗ <b>cao nhất</b> (GTLN).</li>
+    </ul>
+  </div></div>
+  <p class="fragment">Kiểm tra bằng nhân vật chính \(f(x)=x^2-4x+3\):
+    hạt giống (4) cho \(x_I=2\), hạt giống (2) cho \(f(2)=-1\) → đỉnh \(I(2;-1)\) —
+    khớp bức chân dung ta đã vẽ!</p>
+</section>
+
+<section>
+  <h2>Ví dụ 7 — tìm đỉnh trong 10 giây</h2>
+  <p class="center">Tìm toạ độ đỉnh của parabol \((P):y=x^2-2x\).</p>
+  <p class="hoihs">Hoành độ đỉnh bằng bao nhiêu? Tung độ: thay vào đâu?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(x_I=-\dfrac{b}{2a}=-\dfrac{-2}{2}=1\); &nbsp; \(y_I=f(1)=1-2=-1\).</p>
+  <p class="fragment">Đỉnh \(I\class{kq}{(1;-1)}\).</p>
+  <p class="fragment small">Nhịp làm bài thi: <em>hoành độ đỉnh → thay vào hàm</em> — 10 giây/câu.
+    HSA cho trung bình 90 giây/câu: câu kiểu này phải "ăn" thật nhanh để dành giờ cho câu khó.</p>
+</section>
+
+<section>
+  <h2>Ví dụ 8 — lần ngược hệ số từ manh mối</h2>
+  <p class="center">Parabol \((P):y=2x^2+bx+c\) đi qua \(M(0;4)\) và có trục đối xứng \(x=1\). Tính \(S=b+c\).</p>
+  <p class="hoihs">Điểm \(M(0;4)\) "khai" ra ngay hệ số nào?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    Qua \(M(0;4)\): \(y(0)=c=4\).</p>
+  <p class="fragment">Trục đối xứng: \(-\dfrac{b}{2\cdot2}=1\Rightarrow b=-4\).</p>
+  <p class="fragment">Vậy \(S=b+c=\class{kq}{0}\).</p>
+  <div class="fragment box chuy"><div class="tit">Bài học</div><div class="bd">
+    Mỗi <b>manh mối</b> (đi qua điểm, trục đối xứng, đỉnh, cắt trục…) đổi được <b>một phương trình</b>
+    theo hệ số. Đếm ẩn — đếm manh mối — lập hệ. Đây là "trò chơi thám tử" quen của cả 4 kì thi.
+  </div></div>
+</section>
+
+<section>
+  <h2>GTLN – GTNN trên đoạn: quy tắc ba ứng viên</h2>
+  <div class="box kienthuc"><div class="tit">GTLN–GTNN của hàm bậc hai trên đoạn [α; β] — ba ứng viên</div><div class="bd">
+    Giá trị lớn nhất/nhỏ nhất chỉ có thể rơi vào <b>ba ứng viên</b>:
+    \[f(\alpha),\qquad f(\beta),\qquad f\Bigl(-\tfrac{b}{2a}\Bigr)\ \text{(nếu đỉnh thuộc đoạn)}.\]
+    Tính cả ba rồi <b>so sánh</b>. Đỉnh ngoài đoạn → hàm đơn điệu trên đoạn → chỉ còn hai đầu mút.
+  </div></div>
+  <p class="fragment"><b>Ví dụ 9.</b> Tìm GTLN–GTNN của \(f(x)=x^2-4x+3\) trên \([0;3]\).</p>
+  <p class="hoihs fragment">Đỉnh \(x=2\) có thuộc đoạn \([0;3]\) không?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Có! Ba ứng viên (toàn hạt giống cũ):
+    \(f(0)=3\), \(f(2)=-1\), \(f(3)=0\).</p>
+  <p class="fragment">So sánh: \(\max\limits_{[0;3]}f=\class{kq}{3}\) tại \(x=0\);
+    \(\min\limits_{[0;3]}f=\class{kq}{-1}\) tại \(x=2\).</p>
+  <p class="fragment small">Ở buổi <b>A9</b>, em sẽ giải lại đúng bài này bằng <b>đạo hàm</b> —
+    và bất ngờ chưa: vẫn là "quy tắc ba ứng viên", chỉ thay cách tìm đỉnh!</p>
+</section>
+
+<section>
+  <h2>Ví dụ 10 — quả bóng bao giờ chạm đất?</h2>
+  <p class="small">Quỹ đạo của bóng là parabol \(h=at^2+bt+c\) (\(t\): giây, \(h\): mét).
+    Bóng đá lên từ độ cao 1,2 m; sau 1 s đạt 8,5 m; sau 2 s còn 6 m.
+    Hỏi sau bao lâu bóng chạm đất (làm tròn hàng phần trăm)?</p>
+  <p class="hoihs">Ba dữ kiện — đổi được mấy phương trình? (nhớ "trò chơi thám tử"!)</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span>
+    \(t=0\): \(c=1{,}2\). &nbsp; \(t=1\): \(a+b+1{,}2=8{,}5\). &nbsp; \(t=2\): \(4a+2b+1{,}2=6\).</p>
+  <p class="fragment small">Hệ \(\begin{cases}a+b=7{,}3\\ 2a+b=2{,}4\end{cases}\Rightarrow a=-4{,}9;\ b=12{,}2\)
+    &nbsp;→&nbsp; \(h(t)=-4{,}9t^2+12{,}2t+1{,}2\).</p>
+  <p class="fragment small">Chạm đất: \(h(t)=0\Rightarrow t=\dfrac{12{,}2+\sqrt{12{,}2^2+4\cdot4{,}9\cdot1{,}2}}{9{,}8}
+    \approx\class{kq}{2{,}58\ \text{giây}}\) (nghiệm âm loại).</p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd small">
+    \(a=-4{,}9\) chính là \(-\dfrac{g}{2}\) với \(g\approx9{,}8\) m/s² — vật lý và parabol là một!
+    Phương trình bậc hai cho 2 nghiệm: nghiệm âm <b>loại theo ngữ cảnh</b> (thời gian không âm).
+  </div></div>
+</section>
+
+<section>
+  <h2>Ví dụ 11 — 32 mét rào, vườn hoa to nhất?</h2>
+  <p>Bạn An chỉ đủ vật liệu làm <b>32 m hàng rào</b> cho vườn hoa hình chữ nhật.
+    Hỏi diện tích lớn nhất của vườn là bao nhiêu?</p>
+  <div class="box kienthuc"><div class="tit">Bài toán thực tế — ba bước lập mô hình</div><div class="bd small">
+    ① <b>Đặt biến</b> + điều kiện của biến → ② <b>lập hàm số</b> theo biến →
+    ③ tìm <b>đỉnh</b>/so ứng viên, trả lời <b>đúng đơn vị</b>.
+  </div></div>
+  <p class="hoihs fragment">Gọi chiều rộng là \(x\) (m) thì chiều dài bằng gì?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    ① Nửa chu vi \(=16\): rộng \(x\), dài \(16-x\), với \(0&lt;x&lt;16\).</p>
+  <p class="fragment">② \(S(x)=x(16-x)=-x^2+16x\) — một parabol bề lõm xuống!</p>
+  <p class="fragment">③ Đỉnh: \(x=-\dfrac{16}{-2}=8\) → \(S_{\max}=8\cdot8=\class{kq}{64\ \text{m}^2}\)
+    (vườn <b>hình vuông</b> cạnh 8 m).</p>
+</section>
+
+<!-- ============ MỘT CÂU HỎI — BỐN KÌ THI ============ -->
+<section>
+  <h2>Một câu hỏi — bốn kì thi</h2>
+  <p class="small">Vẫn là bài "32 m rào" vừa giải. Xem bốn kì thi "mặc áo" cho nó khác nhau thế nào:</p>
+  <table class="thi4 small">
+    <tr class="fragment"><td><span class="ky">TN THPT</span></td>
+      <td><b>Đúng/Sai 4 ý</b> (chấm luỹ tiến 0,1→1đ):
+      a) \(S(x)=x(16-x)\); b) \(S\) lớn nhất khi vườn là hình vuông;
+      c) \(S_{\max}=60\) m²; d) nếu một cạnh dựa tường (chỉ rào 3 cạnh) thì \(S_{\max}=128\) m².
+      <span class="kq">Đ–Đ–S–Đ</span> — sai 1 ý là rơi từ 1đ xuống 0,5đ!</td></tr>
+    <tr class="fragment"><td><span class="ky">HSA</span></td>
+      <td><b>Điền đáp án</b>, không có 4 phương án để loại trừ, nhịp ~90 giây:
+      "Diện tích lớn nhất bằng ___ m²." → gõ <span class="kq">64</span>. Sai làm tròn/sai đơn vị = mất trọn điểm.</td></tr>
+    <tr class="fragment"><td><span class="ky">TSA</span></td>
+      <td><b>Kéo thả</b> các bước ①②③ vào đúng thứ tự mô hình hoá, hoặc <b>chọn NHIỀU</b> phát biểu đúng —
+      chấm <b>all-or-nothing</b>: đúng 3/4 lựa chọn vẫn 0 điểm. Đề dài, dữ kiện thừa cài sẵn.</td></tr>
+    <tr class="fragment"><td><span class="ky">SPT</span></td>
+      <td><b>Tự luận viết tay</b>: trình bày đủ ①②③ — đặt biến <em>có điều kiện</em>, lập hàm,
+      lập luận đỉnh, kết luận có đơn vị. Chấm <b>từng bước lập luận</b>, không chỉ đáp số.</td></tr>
+  </table>
+  <div class="fragment box chuy"><div class="tit">Thông điệp</div><div class="bd small">
+    <b>Một lõi kiến thức — nhiều template.</b> Học chắc bản chất một lần, rồi luyện "mặc áo"
+    từng kì: đó là cách lớp mình đi suốt năm nay.
+  </div></div>
+</section>
+
+<!-- ============ LUYỆN TẬP ============ -->
+<section>
+  <h2>Luyện tập — Bài 1 và 2</h2>
+  <p><b>Bài 1.</b> <span class="muc">(*)</span> Trong các hàm số sau, hàm số nào đồng biến trên khoảng \((-1;1)\)?<br>
+    <span class="small">A. \(y=x^2\). &nbsp; B. \(y=|x|\). &nbsp; C. \(y=x\). &nbsp; D. \(y=\dfrac1x\).</span></p>
+  <p class="fragment" style="text-align:right">Đáp số: <span class="kq">C</span>
+    <span class="small">(các hàm kia đều "đổi chiều" hoặc đi xuống quanh 0).</span></p>
+  <p class="fragment"><b>Bài 2.</b> <span class="muc">(*)</span> Nhiệt độ mặt đất là \(30^\circ\)C;
+    cứ lên cao 1 km nhiệt độ giảm \(5^\circ\)C. Viết hàm số nhiệt độ \(T\) theo độ cao \(h\) (km).</p>
+  <p class="fragment" style="text-align:right">Đáp số: <span class="kq">\(T=30-5h\)</span>.</p>
+</section>
+
+<section>
+  <h2>Luyện tập — Bài 3 và 4</h2>
+  <p><b>Bài 3.</b> <span class="muc">(*)</span> Tìm toạ độ đỉnh và trục đối xứng của parabol \(y=-2x^2+8x-1\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: trục \(x=2\), đỉnh <span class="kq">\(I(2;7)\)</span>.</p>
+  <p class="fragment"><b>Bài 4.</b> <span class="muc">(**)</span> Tìm GTLN–GTNN của \(f(x)=x^2-4x+3\) trên đoạn \([3;5]\).<br>
+    <span class="small"><em>(Đỉnh \(x=2\) có còn thuộc đoạn không? Khi đó còn mấy "ứng viên"?)</em></span></p>
+  <p class="fragment" style="text-align:right">Đáp số: đỉnh ngoài đoạn, hàm đồng biến trên \([3;5]\):
+    \(\min=f(3)=\class{kq}{0}\), \(\max=f(5)=\class{kq}{8}\).</p>
+</section>
+
+<section>
+  <h2>Luyện tập — Bài 5 và 6</h2>
+  <p><b>Bài 5.</b> <span class="muc">(**)</span> Parabol \(y=ax^2+bx+c\ (a\ne0)\) có đỉnh \(I(-1;4)\)
+    và đi qua \(A(-2;5)\). Tính \(S=a+b+c\).<br>
+    <span class="small"><em>(Gợi ý: viết dạng đỉnh \(y=a(x+1)^2+4\) cho nhanh.)</em></span></p>
+  <p class="fragment" style="text-align:right">Đáp số: \(a=1\), \(y=x^2+2x+5\), \(S=\class{kq}{8}\).</p>
+  <p class="fragment"><b>Bài 6.</b> <span class="muc">(**)</span> Một cửa hàng bán bánh giá 30 000 đ/chiếc thì
+    bán được 120 chiếc/ngày; cứ giảm giá 1 000 đ lại bán thêm 10 chiếc. Hỏi bán giá nào để doanh thu lớn nhất?</p>
+  <p class="fragment" style="text-align:right">Đáp số: giảm \(x\) nghìn: \(R=(30-x)(120+10x)\),
+    đỉnh \(x=9\) → giá <span class="kq">21 000 đ</span>, doanh thu 4 410 000 đ.</p>
+</section>
+
+<section>
+  <h2>Luyện tập — Bài 7, 8 và 9 (thách thức)</h2>
+  <p class="small"><b>Bài 7.</b> <span class="muc">(***)</span> Tập \(S\) chứa các số nguyên dương \(m\) để hàm số
+    \(y=\sqrt{m-x}+\sqrt{x-2m+5}\) có tập xác định là một đoạn dài không dưới 3.
+    Tính tổng bình phương các phần tử của \(S\).</p>
+  <p class="fragment small" style="text-align:right">Đáp số: \(D=[2m-5;m]\), \(5-m\ge3\Rightarrow m\le2\):
+    \(S=\{1;2\}\) → <span class="kq">5</span>.</p>
+  <p class="fragment small"><b>Bài 8.</b> <span class="muc">(***)</span> Xác định \((P):y=ax^2-6x+c\) biết trục đối xứng
+    \(x=-4\) và \((P)\) cắt \(Ox\) tại hai điểm cách nhau 4 đơn vị.</p>
+  <p class="fragment small" style="text-align:right">Đáp số: \(\dfrac{6}{2a}=-4\Rightarrow a=-\dfrac34\);
+    \((x_1-x_2)^2=64-4\dfrac{c}{a}=16\Rightarrow c=-9\): <span class="kq">\(y=-\dfrac34x^2-6x-9\)</span>.</p>
+  <p class="fragment small"><b>Bài 9.</b> <span class="muc">(***)</span> Cho \(y=2x^2-3(m+1)x+m^2+3m-2\).
+    Khi \(m\) thay đổi, giá trị nhỏ nhất của hàm số đạt <b>giá trị lớn nhất</b> bằng bao nhiêu?</p>
+  <p class="fragment small" style="text-align:right">Đáp số: \(\min f=m^2+3m-2-\dfrac{9(m+1)^2}{8}
+    =-\dfrac{m^2}{8}+\dfrac{3m}{4}-\dfrac{25}{8}\) — lại một parabol theo \(m\)! Đỉnh \(m=3\) → <span class="kq">−2</span>.</p>
+</section>
+
+<!-- ============ TỔNG KẾT ============ -->
+<section>
+  <h2>Ba điều phải nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Ba điều phải nhớ</div><div class="bd">
+    <ol>
+      <li><b>Hàm số = mỗi x một y duy nhất.</b> Tập xác định: hai lệnh cấm —
+        mẫu \(\ne0\), trong căn \(\ge0\) (căn dưới mẫu \(>0\)); nhiều điều kiện thì lấy <b>giao</b>.</li>
+      <li class="fragment"><b>Đọc đồ thị từ trái sang phải</b>: lên dốc = đồng biến, xuống dốc = nghịch biến.
+        Parabol: trục \(x=-\dfrac{b}{2a}\), tung độ đỉnh = <em>thay hoành độ đỉnh vào hàm</em>,
+        bề lõm theo dấu \(a\).</li>
+      <li class="fragment"><b>GTLN–GTNN trên đoạn = so ba ứng viên</b> (hai mút + đỉnh nếu thuộc đoạn).
+        Bài thực tế: đặt biến → lập hàm → tìm đỉnh, trả lời đúng đơn vị.</li>
+    </ol>
+  </div></div>
+</section>
+
+<section>
+  <h2>Dặn dò và hẹn gặp lại</h2>
+  <div class="box chuy"><div class="tit">Dặn dò</div><div class="bd">
+    <ul>
+      <li>Làm lại các ví dụ <em>không nhìn lời giải</em>; hoàn thành phần luyện tập còn dang dở.</li>
+      <li><b>Phiếu tự luận A1</b>: trình bày từng bước như lời giải mẫu — đây chính là
+        cách chấm của kì thi SPT (và là nền của mọi kì khác).</li>
+      <li><b>Quiz web mỗi ngày 10–20 phút</b> trên điện thoại (link gửi kèm) — đúng nhịp
+        thi máy HSA/TSA, tranh thủ giờ ra chơi là đủ.</li>
+    </ul>
+  </div></div>
+  <p class="fragment center" style="margin-top:1em">Buổi sau: có những thứ <b>lặp đi lặp lại mãi</b> — thuỷ triều,
+    ngày đêm, nhịp tim, bánh xe quay…<br>
+    <span style="color:var(--mauchinh);font-weight:bold;font-size:1.1em">Cần một gia đình hàm số biết TUẦN HOÀN:
+    hàm số lượng giác — hẹn em ở A2!</span></p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>
