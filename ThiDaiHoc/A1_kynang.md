@@ -18,7 +18,7 @@ Bộ "hạt giống" (tái dùng xuyên bài giảng): **f(x) = x² − 4x + 3**
 ## (b) Các dạng bài đã có ví dụ mẫu
 
 | VD | Dạng | Nguồn |
-|---|---|---|
+| --- | --- | --- |
 | VD1 | Lập hàm nhiều công thức từ tình huống thực tế (cước taxi) | bank `2026C6-B15-020` |
 | VD2 | Tính giá trị hàm cho bởi nhiều công thức (chọn đúng nhánh) | bank `2026C6-B15-001` |
 | VD3 | TXĐ phân thức — bẫy "mẫu vô nghiệm" (Δ<0) | bank `2026C6-B15-005` |
@@ -32,7 +32,11 @@ Bộ "hạt giống" (tái dùng xuyên bài giảng): **f(x) = x² − 4x + 3**
 | VD10 | Parabol thực tế: dựng h(t) từ 3 dữ kiện, giải h=0, làm tròn | bank `2026C6-B16-013` |
 | VD11 | Tối ưu thực tế: rào 32 m → S max (mô hình 3 bước) | bank `2026C6-B17-014` |
 
-Slide **"Một câu hỏi — bốn kì thi"**: bài rào 32 m biến thể thành Đ/S 4 ý TN THPT (kèm biến thể rào 3 cạnh dựa tường, S_max = 128 m²), điền đáp án HSA, kéo thả/chọn nhiều TSA, tự luận barem SPT — 4 biến thể này **tự soạn**, dùng được làm mẫu cho phiếu template sau.
+**Bộ 3 slide "Một câu hỏi — bốn kì thi"** (mở rộng 2026-07-13 theo góp ý user): bài rào 32 m biến thể thành
+① Đ/S 4 ý TN THPT từng ý xuống dòng + giải thích Đ/S (kèm biến thể rào 3 cạnh dựa tường, S_max = 128 m²) + thang lũy tiến;
+② HSA điền đáp án (ô trống, gõ 64, không phương án loại trừ) + TSA kéo thả cụ thể (3 ô khoét trống, kho 6 thẻ có thẻ nhiễu, all-or-nothing);
+③ SPT: bảng barem 4 bước × 0,25đ (đặt biến có điều kiện → lập hàm → lập luận đỉnh/BĐT → kết luận có đơn vị) + 3 lỗi mất điểm kinh điển.
+4 biến thể này **tự soạn**, dùng được làm mẫu cho phiếu template sau.
 
 ## (c) Câu bank đã dùng (phiếu sau KHÔNG lấy lại)
 
@@ -43,6 +47,7 @@ Bank nguồn: `Latex/Bank/C3/L10/C6/_bankC6_tn.tex` (104 TN, B15–B18, **không
 - **Tự soạn, không có trong bank:** Bài 3 (đỉnh y=−2x²+8x−1), Bài 4 (GTLN-GTNN [3;5]), Bài 6 (doanh thu bánh 30 000đ), bộ hạt giống, 4 biến thể "bốn kì thi".
 
 ⚠️ **Ghi chú nguồn quan trọng:**
+
 - Bank `Latex/Bank/C3/L10/C3/BankC3.tex` mà prompt chỉ định **bị lệch slot** — nội dung thật là *Hệ thức lượng trong tam giác* (header file tự cảnh báo), KHÔNG có câu hàm số → A1 chỉ dùng bank C6.
 - Bank C6 **không có câu đọc đồ thị/BBT bằng hình** (soạn giả đã loại từ đầu) — đồ thị trong bài giảng là SVG tự vẽ.
 - Bank C6 còn ~26 câu B15/B16 chưa dùng (đủ cho minitest); B17 (dấu tam thức) + B18 (PT quy về bậc hai) gần như chưa đụng — để dành các buổi sau.

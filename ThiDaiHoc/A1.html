@@ -38,11 +38,10 @@
   .titleslide .t2{font-size:1.4em;font-weight:bold;margin-top:.3em}
   .small{font-size:.8em}
   .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
-  .bbt td{text-align:center;border-bottom:none;border:1px solid #bbb;padding:.15em .8em}
-  .bbt .mui{font-size:1.3em;color:var(--mauchinh)}
-  .thi4 td{vertical-align:top;font-size:.95em}
-  .thi4 .ky{color:#fff;background:var(--mauchinh);border-radius:.2em;
-    padding:0 .4em;font-weight:bold;white-space:nowrap}
+  .chip{display:inline-block;background:var(--maunhat);border:1.5px solid var(--mauchinh);
+    border-radius:.35em;padding:0 .45em;margin:.08em .1em;font-weight:bold;color:var(--mauchinh)}
+  .slot{display:inline-block;min-width:3em;border:2px dashed var(--maucam);border-radius:.3em;
+    padding:0 .4em;color:var(--maucam);text-align:center;font-weight:bold}
 </style>
 </head>
 <body>
@@ -147,27 +146,23 @@
 <section>
   <h2>Mười câu "hạt giống" — nhận diện nhanh</h2>
   <p class="small">Nhân vật chính của buổi hôm nay: \(f(x)=x^2-4x+3\). Trả lời nhanh và <b>ghi nhớ</b> —
-    đây là "viên gạch" cho mọi ví dụ phía sau:</p>
-  <div class="cols2 small">
-    <ol>
-      <li>\(f(0)=\,?\)</li>
-      <li>\(f(2)=\,?\)</li>
-      <li>Nghiệm của \(x^2-4x+3=0\)?</li>
-      <li>\(-\dfrac{b}{2a}\) của \(x^2-4x+3\)?</li>
-      <li>\(f(5)=\,?\)</li>
-      <li>\(\sqrt{x-1}\) có nghĩa khi nào?</li>
-      <li>\(\dfrac{1}{x-2}\) "cấm" giá trị nào?</li>
-      <li>\((x-2)^2\) nhỏ nhất bằng bao nhiêu, khi nào?</li>
-      <li>\(a&lt;0\): parabol quay bề lõm đi đâu?</li>
-      <li>\(y=1-3x\): \(x\) tăng thì \(y\) tăng hay giảm?</li>
-    </ol>
+    đây là "viên gạch" cho mọi ví dụ phía sau (bấm → để hiện đáp số từng câu):</p>
+  <div class="small" style="display:flex;gap:1.4em;align-items:flex-start">
+    <table style="flex:1;margin:0">
+      <tr><td>1</td><td>\(f(0)=\,?\)</td><td class="fragment kq">3</td></tr>
+      <tr><td>2</td><td>\(f(2)=\,?\)</td><td class="fragment kq">−1</td></tr>
+      <tr><td>3</td><td>Nghiệm \(x^2-4x+3=0\)?</td><td class="fragment kq">1; 3</td></tr>
+      <tr><td>4</td><td>\(-\dfrac{b}{2a}\) của \(f\)?</td><td class="fragment kq">2</td></tr>
+      <tr><td>5</td><td>\(f(5)=\,?\)</td><td class="fragment kq">8</td></tr>
+    </table>
+    <table style="flex:1.25;margin:0">
+      <tr><td>6</td><td>\(\sqrt{x-1}\) có nghĩa khi nào?</td><td class="fragment kq">x ≥ 1</td></tr>
+      <tr><td>7</td><td>\(\dfrac{1}{x-2}\) "cấm" giá trị nào?</td><td class="fragment kq">x ≠ 2</td></tr>
+      <tr><td>8</td><td>\((x-2)^2\) nhỏ nhất bằng? khi nào?</td><td class="fragment kq">0, khi x = 2</td></tr>
+      <tr><td>9</td><td>\(a&lt;0\): bề lõm parabol quay đi đâu?</td><td class="fragment kq">xuống dưới</td></tr>
+      <tr><td>10</td><td>\(y=1-3x\): \(x\) tăng thì \(y\)?</td><td class="fragment kq">giảm</td></tr>
+    </table>
   </div>
-  <div class="fragment box chuy"><div class="tit">Đáp số để đối chiếu</div><div class="bd small">
-    (1) <span class="kq">3</span>; (2) <span class="kq">−1</span>; (3) <span class="kq">x=1; x=3</span>;
-    (4) <span class="kq">2</span>; (5) <span class="kq">8</span>; (6) <span class="kq">x ≥ 1</span>;
-    (7) <span class="kq">x ≠ 2</span>; (8) <span class="kq">0, khi x = 2</span>;
-    (9) <span class="kq">xuống dưới</span>; (10) <span class="kq">giảm</span>.
-  </div></div>
 </section>
 
 <section>
@@ -255,8 +250,9 @@
     \((x;f(x))\) thành một <em>điểm</em> — hàm số bỗng có <b>chân dung</b>, và hình học
     bắt tay đại số.
   </div></div>
-  <div class="center">
-  <svg viewBox="0 0 760 480" style="width:min(100%,620px);height:auto" role="img" aria-label="Đồ thị parabol y bằng x bình trừ 4x cộng 3 với các điểm đánh dấu">
+  <div style="display:flex;gap:1em;align-items:center">
+  <div class="center" style="flex:1.05">
+  <svg viewBox="0 0 760 480" style="width:100%;max-width:440px;height:auto" role="img" aria-label="Đồ thị parabol y bằng x bình trừ 4x cộng 3 với các điểm đánh dấu">
     <defs><marker id="mg" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs>
     <line x1="60" y1="300" x2="710" y2="300" stroke="#555" stroke-width="2" marker-end="url(#mg)"/>
@@ -277,21 +273,25 @@
     <text x="368" y="392" font-size="22" fill="#c85000">I(2; −1) — đỉnh</text>
     <circle cx="550" cy="120" r="8" fill="#008040"/>
     <text x="575" y="112" font-size="22" fill="#008040">(4; 3)</text>
-    <text x="600" y="230" font-size="24" fill="#005493" font-weight="bold">y = x² − 4x + 3</text>
+    <text x="605" y="250" text-anchor="middle" font-size="26" fill="#005493" font-weight="bold">y = x² − 4x + 3</text>
   </svg>
   </div>
-  <div class="box kienthuc"><div class="tit">Điểm thuộc đồ thị</div><div class="bd">
+  <div style="flex:1">
+  <div class="box kienthuc"><div class="tit">Điểm thuộc đồ thị</div><div class="bd small">
     \(M(a;b)\) thuộc đồ thị hàm số \(y=f(x)\) \(\iff b=f(a)\) — <em>thay vào công thức phải khớp</em>.
   </div></div>
-  <p class="hoihs fragment">Điểm \((5;8)\) có thuộc đồ thị không? Điểm \((4;2)\)? — hạt giống (5) trả lời hộ em!</p>
-  <p class="fragment small center">\(f(5)=8\) ✓ → \((5;8)\) <span class="kq">thuộc</span>;
-    &nbsp; \(f(4)=3\ne2\) → \((4;2)\) <span style="color:var(--maucam);font-weight:bold">không thuộc</span>.</p>
+  <p class="hoihs fragment" style="font-size:.85em">Điểm \((5;8)\) có thuộc đồ thị không?<br>Điểm \((4;2)\)? — hạt giống (5) trả lời hộ em!</p>
+  <p class="fragment small">\(f(5)=8\) ✓ → \((5;8)\) <span class="kq">thuộc</span>;<br>
+    \(f(4)=3\ne2\) → \((4;2)\) <span style="color:var(--maucam);font-weight:bold">không thuộc</span>.</p>
+  </div>
+  </div>
 </section>
 
 <section>
   <h2>Đọc chiều biến thiên: đi từ trái sang phải</h2>
-  <div class="center">
-  <svg viewBox="0 0 760 430" style="width:min(100%,600px);height:auto" role="img" aria-label="Parabol: nửa trái đi xuống là nghịch biến, nửa phải đi lên là đồng biến">
+  <div style="display:flex;gap:1em;align-items:center">
+  <div class="center" style="flex:1">
+  <svg viewBox="0 0 760 430" style="width:100%;max-width:410px;height:auto" role="img" aria-label="Parabol: nửa trái đi xuống là nghịch biến, nửa phải đi lên là đồng biến">
     <defs>
       <marker id="md" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
         <path d="M0,0 L9,4.5 L0,9 z" fill="#c85000"/></marker>
@@ -312,16 +312,33 @@
     <text x="332" y="288" font-size="22" fill="#555">x = 2</text>
   </svg>
   </div>
+  <div style="flex:1.2">
   <div class="box kienthuc"><div class="tit">Đồng biến – nghịch biến trên khoảng K</div><div class="bd small">
-    Trên \(K\): lấy hai điểm tuỳ ý \(x_1&lt;x_2\).
-    Nếu luôn có \(f(x_1)&lt;f(x_2)\) → \(f\) <b>đồng biến</b> (đồ thị <b>đi lên</b> từ trái sang phải);
-    nếu luôn \(f(x_1)>f(x_2)\) → <b>nghịch biến</b> (đi xuống). Bảng biến thiên của
-    \(f(x)=x^2-4x+3\):
-    <table class="bbt" style="margin-top:.3em">
-      <tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(2\)</td><td></td><td>\(+\infty\)</td></tr>
-      <tr><td>\(f(x)\)</td><td>\(+\infty\)</td><td class="mui">↘</td><td>\(-1\)</td><td class="mui">↗</td><td>\(+\infty\)</td></tr>
-    </table>
+    Trên \(K\), lấy \(x_1&lt;x_2\) tuỳ ý: luôn có \(f(x_1)&lt;f(x_2)\) → <b>đồng biến</b> (đi lên);
+    luôn có \(f(x_1)>f(x_2)\) → <b>nghịch biến</b> (đi xuống).<br>
+    <b>Bảng biến thiên</b> — bản tóm tắt cả đồ thị của \(f(x)=x^2-4x+3\):
+    <div class="center" style="margin-top:.3em">
+    <svg viewBox="0 0 560 235" style="width:100%;max-width:430px;height:auto" role="img" aria-label="Bảng biến thiên: f giảm từ +vô cùng xuống −1 tại x=2 rồi tăng lên +vô cùng">
+      <rect x="1" y="1" width="558" height="233" fill="#fff" stroke="#888" stroke-width="2"/>
+      <line x1="1" y1="52" x2="559" y2="52" stroke="#888" stroke-width="1.5"/>
+      <line x1="92" y1="1" x2="92" y2="234" stroke="#888" stroke-width="1.5"/>
+      <text x="46" y="36" text-anchor="middle" font-size="26" font-style="italic" fill="#333">x</text>
+      <text x="46" y="152" text-anchor="middle" font-size="26" font-style="italic" fill="#333">f(x)</text>
+      <text x="140" y="36" text-anchor="middle" font-size="26" fill="#333">−∞</text>
+      <text x="326" y="36" text-anchor="middle" font-size="26" fill="#333">2</text>
+      <text x="512" y="36" text-anchor="middle" font-size="26" fill="#333">+∞</text>
+      <text x="140" y="98" text-anchor="middle" font-size="26" fill="#333">+∞</text>
+      <text x="512" y="98" text-anchor="middle" font-size="26" fill="#333">+∞</text>
+      <text x="326" y="218" text-anchor="middle" font-size="26" fill="#c85000" font-weight="bold">−1</text>
+      <defs><marker id="mbbt" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 z" fill="#005493"/></marker></defs>
+      <line x1="168" y1="108" x2="296" y2="196" stroke="#005493" stroke-width="3.5" marker-end="url(#mbbt)"/>
+      <line x1="358" y1="196" x2="486" y2="108" stroke="#005493" stroke-width="3.5" marker-end="url(#mbbt)"/>
+    </svg>
+    </div>
   </div></div>
+  </div>
+  </div>
 </section>
 
 <section>
@@ -478,24 +495,68 @@
 
 <!-- ============ MỘT CÂU HỎI — BỐN KÌ THI ============ -->
 <section>
-  <h2>Một câu hỏi — bốn kì thi</h2>
-  <p class="small">Vẫn là bài "32 m rào" vừa giải. Xem bốn kì thi "mặc áo" cho nó khác nhau thế nào:</p>
-  <table class="thi4 small">
-    <tr class="fragment"><td><span class="ky">TN THPT</span></td>
-      <td><b>Đúng/Sai 4 ý</b> (chấm luỹ tiến 0,1→1đ):
-      a) \(S(x)=x(16-x)\); b) \(S\) lớn nhất khi vườn là hình vuông;
-      c) \(S_{\max}=60\) m²; d) nếu một cạnh dựa tường (chỉ rào 3 cạnh) thì \(S_{\max}=128\) m².
-      <span class="kq">Đ–Đ–S–Đ</span> — sai 1 ý là rơi từ 1đ xuống 0,5đ!</td></tr>
-    <tr class="fragment"><td><span class="ky">HSA</span></td>
-      <td><b>Điền đáp án</b>, không có 4 phương án để loại trừ, nhịp ~90 giây:
-      "Diện tích lớn nhất bằng ___ m²." → gõ <span class="kq">64</span>. Sai làm tròn/sai đơn vị = mất trọn điểm.</td></tr>
-    <tr class="fragment"><td><span class="ky">TSA</span></td>
-      <td><b>Kéo thả</b> các bước ①②③ vào đúng thứ tự mô hình hoá, hoặc <b>chọn NHIỀU</b> phát biểu đúng —
-      chấm <b>all-or-nothing</b>: đúng 3/4 lựa chọn vẫn 0 điểm. Đề dài, dữ kiện thừa cài sẵn.</td></tr>
-    <tr class="fragment"><td><span class="ky">SPT</span></td>
-      <td><b>Tự luận viết tay</b>: trình bày đủ ①②③ — đặt biến <em>có điều kiện</em>, lập hàm,
-      lập luận đỉnh, kết luận có đơn vị. Chấm <b>từng bước lập luận</b>, không chỉ đáp số.</td></tr>
+  <h2>Một câu hỏi — bốn kì thi ① TN THPT</h2>
+  <div class="box kechuyen"><div class="tit">Nhắc lại Ví dụ 11 vừa giải</div><div class="bd small">
+    Vườn hoa chữ nhật, <b>32 m rào</b> → nửa chu vi 16: \(S(x)=x(16-x)\), đỉnh \(x=8\)
+    → \(S_{\max}=64\) m² (vườn vuông \(8\times8\)). Cùng nội dung ấy, bốn kì thi sẽ "mặc áo" khác nhau.
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Áo TN THPT — câu Đúng/Sai 4 ý</div><div class="bd small">
+    Gọi \(x\) (m) là chiều rộng của vườn. Xét tính đúng/sai của các khẳng định:<br>
+    a) \(S(x)=x(16-x)\).
+      <span class="fragment"><span class="kq">Đ</span> — nửa chu vi \(=32:2=16\), chiều dài \(=16-x\).</span><br>
+    b) \(S\) lớn nhất khi vườn là hình vuông.
+      <span class="fragment"><span class="kq">Đ</span> — \(x=8\Rightarrow\) dài \(=16-8=8\): đúng hình vuông.</span><br>
+    c) Diện tích lớn nhất là \(60\) m².
+      <span class="fragment"><b style="color:var(--maucam)">S</b> — đỉnh cho \(S_{\max}=8\cdot8=64\) m²;
+      "60" chỉ là số đẹp gây nhiễu.</span><br>
+    d) Nếu một cạnh dựa tường sẵn (chỉ rào 3 cạnh) thì \(S_{\max}=128\) m².
+      <span class="fragment"><span class="kq">Đ</span> — khi đó \(2x+y=32\), \(S=x(32-2x)\),
+      đỉnh \(x=8\): \(S_{\max}=8\cdot16=128\) m².</span>
+  </div></div>
+  <p class="fragment small center">Chấm <b>lũy tiến</b>: đúng 1 ý — 0,1đ · 2 ý — 0,25đ · 3 ý — 0,5đ · cả 4 ý — 1đ.<br>
+    Sai một ý là rơi từ 1đ xuống 0,5đ → các ý "có con số" như c), d) phải <b>tính lại, đừng đoán</b>!</p>
+</section>
+
+<section>
+  <h2>Một câu hỏi — bốn kì thi ② HSA và TSA</h2>
+  <div class="box kienthuc"><div class="tit">Áo HSA — câu điền đáp án (nhịp ~90 giây/câu)</div><div class="bd small">
+    "…Diện tích lớn nhất của vườn hoa bằng
+    <span class="slot" style="min-width:2.6em">&nbsp;</span> m²."
+    → thí sinh tự gõ <span class="fragment kq">64</span><br>
+    <span class="fragment"><b>Không có 4 phương án</b> để loại trừ hay thử ngược — phải tự tính ra đúng con số.
+    Bài này đáp số nguyên; gặp đề cho đáp số lẻ thì làm tròn <em>đúng theo yêu cầu của đề</em>
+    (vd "làm tròn đến hàng phần trăm" như bài quả bóng ở Ví dụ 10) — gõ lệch một chữ số là mất trọn điểm.</span>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Áo TSA — câu kéo thả (chấm all-or-nothing)</div><div class="bd small">
+    Trên máy tính hiện lời giải bị khoét trống + một <b>kho thẻ</b>; em kéo thẻ thả vào đúng ô:<br>
+    Gọi chiều rộng \(x\) (m) → chiều dài \(=\) <span class="slot">?</span>
+    → \(S(x)=\) <span class="slot">?</span>
+    → \(S\) lớn nhất tại \(x=\) <span class="slot">?</span><br>
+    Kho thẻ: <span class="chip">\(16-x\)</span> <span class="chip">\(32-x\)</span>
+    <span class="chip">\(x(16-x)\)</span> <span class="chip">\(x(32-x)\)</span>
+    <span class="chip">\(8\)</span> <span class="chip">\(16\)</span> — có thẻ nhiễu!<br>
+    <span class="fragment">Đáp án: kéo <span class="chip">\(16-x\)</span> →
+    <span class="chip">\(x(16-x)\)</span> → <span class="chip">\(8\)</span>.
+    Chấm <b>all-or-nothing</b>: đúng 2/3 ô vẫn <b>0 điểm</b> — làm xong phải rà lại cả chuỗi.</span>
+  </div></div>
+</section>
+
+<section>
+  <h2>Một câu hỏi — bốn kì thi ③ SPT — tự luận viết tay</h2>
+  <p class="small">Đề giữ nguyên nhưng phải <b>trình bày lời giải trên giấy</b>. Giám khảo chấm
+    từng bước theo <b>barem</b> (mỗi câu tự luận SPT ≈ 1,0đ) — đây là các bước trọng tâm:</p>
+  <table class="small">
+    <tr><th>Bước</th><th>Nội dung phải có trên giấy</th><th>Điểm</th></tr>
+    <tr class="fragment"><td>①</td><td>Đặt biến: gọi chiều rộng \(x\) (m) <b>kèm điều kiện</b> \(0&lt;x&lt;16\); chiều dài \(=16-x\)</td><td>0,25</td></tr>
+    <tr class="fragment"><td>②</td><td>Lập hàm: \(S(x)=x(16-x)=-x^2+16x\)</td><td>0,25</td></tr>
+    <tr class="fragment"><td>③</td><td>Lập luận GTLN: parabol có \(a=-1&lt;0\), đỉnh \(x=8\) → \(S(8)=64\)
+      <em>(hoặc BĐT: \(x(16-x)\le\bigl(\tfrac{x+(16-x)}{2}\bigr)^2=64\), dấu "=" khi \(x=8\))</em></td><td>0,25</td></tr>
+    <tr class="fragment"><td>④</td><td>Kết luận: \(S_{\max}=64\) <b>m²</b> khi vườn là hình vuông cạnh 8 m — <b>đủ đơn vị</b></td><td>0,25</td></tr>
   </table>
+  <div class="fragment box chuy"><div class="tit">Ba lỗi mất điểm kinh điển khi viết tay</div><div class="bd small">
+    thiếu <b>điều kiện của biến</b> (bước ①) · thiếu <b>"dấu = xảy ra khi…"</b> (bước ③) ·
+    thiếu <b>đơn vị</b> ở kết luận (bước ④).
+  </div></div>
   <div class="fragment box chuy"><div class="tit">Thông điệp</div><div class="bd small">
     <b>Một lõi kiến thức — nhiều template.</b> Học chắc bản chất một lần, rồi luyện "mặc áo"
     từng kì: đó là cách lớp mình đi suốt năm nay.
