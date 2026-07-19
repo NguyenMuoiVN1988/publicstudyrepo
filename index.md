@@ -269,6 +269,7 @@ details > div {
 #### Ôn tập Tiểu học Nâng cao — Hành trang vào lớp 6 CLC
 
 - [Buổi 1: Ôn tập bốn phép toán (slides bài giảng tương tác)](Tieuhoc/OnTapNC/Buoi1.html)
+- [Buổi 2: Kĩ thuật đếm và Xác suất (slides bài giảng tương tác)](Tieuhoc/OnTapNC/Buoi2.html)
 
 #### Toán tư duy
 
