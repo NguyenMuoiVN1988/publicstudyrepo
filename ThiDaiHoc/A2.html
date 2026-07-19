@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A2 — Hàm số lượng giác & phương trình lượng giác | Lớp Toán 12 ôn thi Đại học</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#005493; --maunhat:#e8f2fa;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#008040;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.15em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.2em;font-weight:bold}
+  .titleslide .t2{font-size:1.4em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- ============ MỞ ĐẦU ============ -->
+<section class="titleslide">
+  <div class="t1">Buổi A2</div>
+  <div class="t2">Hàm số lượng giác &amp; phương trình lượng giác</div>
+  <div>Đường tròn lượng giác — hàm sin, cos, tan — phương trình lượng giác cơ bản</div>
+  <p style="margin-top:1.2em"><em>Mạch A · Giải tích — Lớp Toán 12 ôn thi Đại học</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để xem từng bước, giống như trên lớp.</p>
+</section>
+
+<section>
+  <h2>Bản đồ Mạch A — cầu thang Giải tích 13 bậc</h2>
+  <table>
+    <tr><td><b>A1</b></td><td>Ngôn ngữ hàm số — TXĐ, đồ thị, đơn điệu, parabol</td></tr>
+    <tr><td class="muc">A2</td><td class="muc">Gia đình hàm mới ①: hàm số lượng giác &amp; PT lượng giác &nbsp;⟵ hôm nay</td></tr>
+    <tr><td><b>A3–A4</b></td><td>Gia đình hàm mới ②: luỹ thừa · mũ · lôgarit (+ lãi kép)</td></tr>
+    <tr><td><b>A5–A7</b></td><td>Dãy số → giới hạn → đạo hàm</td></tr>
+    <tr><td><b>A8–A13</b></td><td>Đạo hàm ra tay: đơn điệu, cực trị, khảo sát → nguyên hàm, tích phân</td></tr>
+  </table>
+  <p class="fragment small center" style="margin-top:.6em">Ở A1 ta đã có <b>ngôn ngữ hàm số</b>. Hôm nay đón <b>gia đình hàm mới đầu tiên</b>:
+    những hàm biết <b>lặp lại</b> — nền cho đạo hàm, tích phân và cả bốn kì thi.</p>
+</section>
+
+<section>
+  <h2>Hôm nay em sẽ đi qua 4 bước</h2>
+  <div class="box chuy"><div class="tit">Lộ trình buổi A2</div><div class="bd">
+    <ol>
+      <li>Góc &amp; <b>đường tròn lượng giác</b> — sin, cos, tan sinh ra từ đâu</li>
+      <li>Bốn <b>hàm số lượng giác</b>: tập xác định, tuần hoàn, đồ thị hình sóng</li>
+      <li><b>Phương trình lượng giác cơ bản</b>: \(\sin x=m,\ \cos x=m,\ \tan x=m\)</li>
+      <li>Bài toán <b>tuần hoàn thực tế</b>: vòng quay, sóng biển, dao động</li>
+    </ol>
+  </div></div>
+  <p class="fragment small">…và góc quen thuộc <b>"Một câu hỏi — bốn kì thi"</b>: cùng một vòng quay,
+    TN THPT / HSA / TSA / SPT sẽ hỏi em bốn kiểu khác nhau thế nào.</p>
+</section>
+
+<!-- ============ CHUYỆN MỞ ĐẦU ============ -->
+<section>
+  <h2>Chuyện chiếc vòng quay mặt trời</h2>
+  <p class="small" style="margin:.1em 0">Cuối A1 thầy hẹn: có những thứ <b>lặp đi lặp lại mãi</b> — thuỷ triều, ngày–đêm,
+    nhịp tim, <b>bánh xe quay</b>. Hàm bậc hai không kể nổi chúng. Hãy nhìn một cabin trên vòng quay:</p>
+  <div class="center">
+  <svg viewBox="0 0 920 300" style="width:min(100%,860px);height:auto" role="img" aria-label="Vòng quay bên trái, độ cao cabin theo thời gian vẽ thành đường hình sin bên phải">
+    <line x1="20" y1="262" x2="900" y2="262" stroke="#7a5c2e" stroke-width="4"/>
+    <!-- vòng quay -->
+    <circle cx="150" cy="150" r="95" fill="none" stroke="#005493" stroke-width="4"/>
+    <line x1="150" y1="150" x2="150" y2="262" stroke="#7a5c2e" stroke-width="6"/>
+    <line x1="150" y1="150" x2="245" y2="150" stroke="#bcd6ea" stroke-width="2"/>
+    <line x1="150" y1="150" x2="55"  y2="150" stroke="#bcd6ea" stroke-width="2"/>
+    <line x1="150" y1="150" x2="150" y2="55"  stroke="#bcd6ea" stroke-width="2"/>
+    <line x1="150" y1="150" x2="150" y2="245" stroke="#bcd6ea" stroke-width="2"/>
+    <circle cx="150" cy="150" r="8" fill="#005493"/>
+    <!-- cabin ở góc ~55 độ -->
+    <circle cx="205" cy="72" r="12" fill="#c85000"/>
+    <text x="214" y="66" font-size="19" fill="#c85000">cabin</text>
+    <!-- đường dóng độ cao sang đồ thị -->
+    <line x1="205" y1="72" x2="470" y2="72" stroke="#c85000" stroke-width="2" stroke-dasharray="6 5"/>
+    <!-- trục đồ thị -->
+    <line x1="470" y1="262" x2="890" y2="262" stroke="#555" stroke-width="2"/>
+    <line x1="470" y1="278" x2="470" y2="40"  stroke="#555" stroke-width="2"/>
+    <text x="878" y="288" font-size="19" fill="#555" font-style="italic">thời gian t</text>
+    <text x="440" y="52"  font-size="19" fill="#555" font-style="italic">độ cao h</text>
+    <!-- đường hình sin: bắt đầu thấp nhất, lên cao nhất, xuống -->
+    <path d="M470,232 C520,232 545,72 585,72 C625,72 650,232 700,232 C750,232 775,72 815,72 C855,72 880,232 890,238"
+          fill="none" stroke="#005493" stroke-width="4"/>
+    <circle cx="585" cy="72" r="6" fill="#c85000"/>
+    <text x="560" y="60" font-size="18" fill="#c85000">cao nhất</text>
+    <text x="620" y="256" font-size="18" fill="#7a5c2e">một vòng = một chu kì</text>
+  </svg>
+  </div>
+  <p class="hoihs fragment">Cabin đi tròn đều, nhưng <b>độ cao</b> của nó theo thời gian vẽ nên hình gì?</p>
+  <div class="fragment box chuy"><div class="tit">Đó chính là…</div>
+    <div class="bd">một <b>đường hình sin</b> — sinh ra từ chuyển động tròn. Muốn hiểu nó, ta phải làm quen
+      <b>đường tròn lượng giác</b> trước.</div></div>
+</section>
+
+<!-- ============ 10 HẠT GIỐNG ============ -->
+<section>
+  <h2>Mười câu "hạt giống" — đường tròn lượng giác</h2>
+  <p class="small">Nhân vật chính hôm nay: <b>đường tròn lượng giác</b> (bán kính 1) và các giá trị đặc biệt.
+    Trả lời nhanh và <b>ghi nhớ</b> — đây là "viên gạch" cho mọi ví dụ sau (bấm → để hiện đáp số):</p>
+  <div class="small" style="display:flex;gap:1.4em;align-items:flex-start">
+    <table style="flex:1;margin:0">
+      <tr><td>1</td><td>\(\sin\dfrac{\pi}{6}=\,?\)</td><td class="fragment kq">1/2</td></tr>
+      <tr><td>2</td><td>\(\cos\dfrac{\pi}{3}=\,?\)</td><td class="fragment kq">1/2</td></tr>
+      <tr><td>3</td><td>\(\sin\dfrac{\pi}{2}=\,?\)</td><td class="fragment kq">1</td></tr>
+      <tr><td>4</td><td>\(\cos\pi=\,?\)</td><td class="fragment kq">−1</td></tr>
+      <tr><td>5</td><td>\(\tan\dfrac{\pi}{4}=\,?\)</td><td class="fragment kq">1</td></tr>
+    </table>
+    <table style="flex:1.15;margin:0">
+      <tr><td>6</td><td>Điểm ứng góc \(\dfrac{\pi}{2}\) có toạ độ?</td><td class="fragment kq">(0; 1)</td></tr>
+      <tr><td>7</td><td>\(\sin(-\alpha)=\,?\)</td><td class="fragment kq">−sin α</td></tr>
+      <tr><td>8</td><td>\(\cos x=0\) khi \(x=\,?\)</td><td class="fragment kq">π/2 + kπ</td></tr>
+      <tr><td>9</td><td>Chu kì của \(y=\sin x\)?</td><td class="fragment kq">2π</td></tr>
+      <tr><td>10</td><td>\(-1\le\sin x\le1\Rightarrow\) GTLN \(\sin x\)?</td><td class="fragment kq">1</td></tr>
+    </table>
+  </div>
+  <p class="fragment small center" style="margin-top:.3em">Nhớ kĩ 10 viên gạch này — cả buổi ta chỉ "xây" quanh chúng.</p>
+</section>
+
+<!-- ============ BƯỚC 1: ĐƯỜNG TRÒN LƯỢNG GIÁC ============ -->
+<section>
+  <h2>Đường tròn lượng giác — nơi sin, cos ra đời</h2>
+  <div style="display:flex;gap:1em;align-items:center">
+  <div class="center" style="flex:1">
+  <svg viewBox="0 0 470 470" style="width:100%;max-width:400px;height:auto" role="img" aria-label="Đường tròn lượng giác bán kính 1, điểm M với hoành độ là cos alpha, tung độ là sin alpha">
+    <defs><marker id="ma" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs>
+    <line x1="30" y1="240" x2="450" y2="240" stroke="#555" stroke-width="2" marker-end="url(#ma)"/>
+    <line x1="240" y1="450" x2="240" y2="20" stroke="#555" stroke-width="2" marker-end="url(#ma)"/>
+    <text x="452" y="232" font-size="22" fill="#555" font-style="italic">cos</text>
+    <text x="250" y="30" font-size="22" fill="#555" font-style="italic">sin</text>
+    <text x="222" y="262" font-size="20" fill="#555">O</text>
+    <circle cx="240" cy="240" r="170" fill="none" stroke="#005493" stroke-width="3"/>
+    <circle cx="410" cy="240" r="5" fill="#333"/>
+    <text x="392" y="232" font-size="19" fill="#333">A(1;0)</text>
+    <!-- M ở góc 55 độ: Mx=240+170cos55=337.5, My=240-170sin55=100.7 -->
+    <line x1="240" y1="240" x2="337" y2="101" stroke="#c85000" stroke-width="3"/>
+    <circle cx="337" cy="101" r="7" fill="#c85000"/>
+    <text x="345" y="95" font-size="20" fill="#c85000">M</text>
+    <line x1="337" y1="101" x2="337" y2="240" stroke="#008040" stroke-width="2.5" stroke-dasharray="6 5"/>
+    <line x1="337" y1="101" x2="240" y2="101" stroke="#008040" stroke-width="2.5" stroke-dasharray="6 5"/>
+    <text x="290" y="262" font-size="20" fill="#005493">cos α</text>
+    <text x="150" y="96"  font-size="20" fill="#005493">sin α</text>
+    <path d="M280,240 A40 40 0 0 0 268 211" fill="none" stroke="#555" stroke-width="2"/>
+    <text x="286" y="222" font-size="18" fill="#555" font-style="italic">α</text>
+  </svg>
+  </div>
+  <div style="flex:1.05">
+  <div class="box kienthuc"><div class="tit">Sin, cos, tan trên đường tròn lượng giác</div><div class="bd small">
+    Điểm \(M\) trên đường tròn (bán kính 1) ứng với góc \(\alpha\):
+    <ul>
+      <li><b>cos α = hoành độ</b> của \(M\); &nbsp;<b>sin α = tung độ</b> của \(M\).</li>
+      <li>\(\tan\alpha=\dfrac{\sin\alpha}{\cos\alpha}\ (\cos\alpha\ne0)\); &nbsp;\(\cot\alpha=\dfrac{\cos\alpha}{\sin\alpha}\ (\sin\alpha\ne0)\).</li>
+      <li>Luôn có \(-1\le\sin\alpha\le1,\ -1\le\cos\alpha\le1\) và \(\sin^2\alpha+\cos^2\alpha=1\).</li>
+    </ul>
+  </div></div>
+  <p class="fragment small">Hạt giống (6): góc \(\tfrac{\pi}{2}\) cho \(M(0;1)\) → \(\cos\tfrac{\pi}{2}=0,\ \sin\tfrac{\pi}{2}=1\). Khớp!</p>
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2>Đo góc bằng radian — và độ dài cung</h2>
+  <div class="box kienthuc"><div class="tit">Đổi độ ↔ radian · độ dài cung</div><div class="bd">
+    <ul>
+      <li>Đổi độ sang radian: \(\alpha(\text{rad})=\alpha^\circ\cdot\dfrac{\pi}{180}\); &nbsp; ngược lại \(\alpha^\circ=\alpha(\text{rad})\cdot\dfrac{180}{\pi}\).</li>
+      <li>Vài mốc: \(180^\circ=\pi\), \(90^\circ=\dfrac{\pi}{2}\), \(60^\circ=\dfrac{\pi}{3}\), \(45^\circ=\dfrac{\pi}{4}\), \(30^\circ=\dfrac{\pi}{6}\).</li>
+      <li><b>Độ dài cung</b> bán kính \(R\), số đo \(\alpha\) <b>radian</b>: \(\ell=R\,\alpha\).</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 1.</b> Đổi \(72^\circ\) ra radian; tính độ dài cung có số đo \(72^\circ\) trên đường tròn bán kính \(R=5\) cm.</p>
+  <p class="hoihs fragment">Nhớ: công thức \(\ell=R\alpha\) chỉ đúng khi \(\alpha\) tính bằng <b>radian</b>!</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(72^\circ=72\cdot\dfrac{\pi}{180}=\class{kq}{\dfrac{2\pi}{5}}\ (\text{rad})\);
+    \(\ \ell=R\alpha=5\cdot\dfrac{2\pi}{5}=\class{kq}{2\pi\approx6{,}28\ \text{cm}}\).</p>
+</section>
+
+<section>
+  <h2>Hai bảng "thuộc lòng": giá trị đặc biệt &amp; dấu</h2>
+  <div style="display:flex;gap:1em;align-items:flex-start">
+  <div style="flex:1.2">
+  <div class="box kienthuc"><div class="tit">Giá trị lượng giác các góc đặc biệt</div><div class="bd small center">
+  <table style="font-size:.92em">
+    <tr><th>\(\alpha\)</th><th>0</th><th>\(\frac{\pi}{6}\)</th><th>\(\frac{\pi}{4}\)</th><th>\(\frac{\pi}{3}\)</th><th>\(\frac{\pi}{2}\)</th></tr>
+    <tr><td>\(\sin\)</td><td>0</td><td>\(\frac12\)</td><td>\(\frac{\sqrt2}{2}\)</td><td>\(\frac{\sqrt3}{2}\)</td><td>1</td></tr>
+    <tr><td>\(\cos\)</td><td>1</td><td>\(\frac{\sqrt3}{2}\)</td><td>\(\frac{\sqrt2}{2}\)</td><td>\(\frac12\)</td><td>0</td></tr>
+    <tr><td>\(\tan\)</td><td>0</td><td>\(\frac{\sqrt3}{3}\)</td><td>1</td><td>\(\sqrt3\)</td><td>‖</td></tr>
+  </table>
+  </div></div>
+  </div>
+  <div style="flex:1">
+  <div class="box chuy"><div class="tit">Dấu theo góc phần tư</div><div class="bd small center">
+  <table style="font-size:.92em">
+    <tr><th></th><th>I</th><th>II</th><th>III</th><th>IV</th></tr>
+    <tr><td>\(\sin\)</td><td>+</td><td>+</td><td>−</td><td>−</td></tr>
+    <tr><td>\(\cos\)</td><td>+</td><td>−</td><td>−</td><td>+</td></tr>
+    <tr><td>\(\tan\)</td><td>+</td><td>−</td><td>+</td><td>−</td></tr>
+  </table>
+  <p style="margin:.3em 0 0">Mẹo: <b>"Nhất cả — nhị sin — tam tan — tứ cos"</b> (góc phần tư nào thì GTLG đó dương).</p>
+  </div></div>
+  </div>
+  </div>
+  <p class="fragment small center">Cung liên kết (dùng ngay ở Ví dụ 2): <b>cos đối</b> \(\cos(-\alpha)=\cos\alpha\) ·
+    <b>sin bù</b> \(\sin(\pi-\alpha)=\sin\alpha\) · <b>phụ chéo</b> \(\sin(\tfrac{\pi}{2}-\alpha)=\cos\alpha\).</p>
+</section>
+
+<section>
+  <h2>Ví dụ 2 — dùng cung liên kết, khỏi bấm máy</h2>
+  <p class="center">Tính \(\cos\dfrac{2\pi}{3}\), &nbsp; \(\sin\dfrac{5\pi}{6}\), &nbsp; \(\tan\Bigl(-\dfrac{\pi}{4}\Bigr)\).</p>
+  <p class="hoihs">Đưa mỗi góc về góc đặc biệt trong bảng bằng một cung liên kết!</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(\cos\dfrac{2\pi}{3}=\cos\Bigl(\pi-\dfrac{\pi}{3}\Bigr)=-\cos\dfrac{\pi}{3}=\class{kq}{-\dfrac12}\) &nbsp;(góc phần tư II: cos âm).</p>
+  <p class="fragment">\(\sin\dfrac{5\pi}{6}=\sin\Bigl(\pi-\dfrac{\pi}{6}\Bigr)=\sin\dfrac{\pi}{6}=\class{kq}{\dfrac12}\) &nbsp;(sin bù).</p>
+  <p class="fragment">\(\tan\Bigl(-\dfrac{\pi}{4}\Bigr)=-\tan\dfrac{\pi}{4}=\class{kq}{-1}\) &nbsp;(tan là hàm lẻ — hạt giống (7) đấy!).</p>
+</section>
+
+<!-- ============ BƯỚC 2: CÔNG THỨC (ĐIỂM NHANH) ============ -->
+<section>
+  <h2>Điểm nhanh: kho công thức biến đổi</h2>
+  <div class="box kienthuc"><div class="tit">Công thức cộng &amp; nhân đôi (phải thuộc)</div><div class="bd small">
+    <b>Cộng:</b> \(\cos(a\pm b)=\cos a\cos b\mp\sin a\sin b\); &nbsp;
+      \(\sin(a\pm b)=\sin a\cos b\pm\cos a\sin b\).<br>
+    <b>Nhân đôi:</b> \(\sin2a=2\sin a\cos a\); &nbsp;
+      \(\cos2a=\cos^2a-\sin^2a=2\cos^2a-1=1-2\sin^2a\).
+  </div></div>
+  <div class="box chuy"><div class="tit">Chỉ cần biết CÓ chúng — tra khi dùng</div><div class="bd small">
+    Còn <b>hạ bậc</b> \(\bigl(\cos^2a=\tfrac{1+\cos2a}{2}\bigr)\), <b>biến đổi tích ↔ tổng</b>, <b>tổng ↔ tích</b>:
+    dùng nhiều ở câu vận dụng. Buổi hôm nay ta <b>tập trung vào hàm số &amp; phương trình</b> — công thức
+    biến đổi chỉ điểm để em biết đường tra cứu.
+  </div></div>
+</section>
+
+<!-- ============ BƯỚC 3: HÀM SỐ LƯỢNG GIÁC ============ -->
+<section>
+  <h2>Hàm \(y=\sin x\) — đường hình sóng</h2>
+  <div style="display:flex;gap:1em;align-items:center">
+  <div class="center" style="flex:1.1">
+  <svg viewBox="0 0 700 260" style="width:100%;max-width:430px;height:auto" role="img" aria-label="Đồ thị hàm sin: sóng đi lên rồi xuống, dao động trong dải từ trừ 1 đến 1">
+    <defs><marker id="ms" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs>
+    <line x1="70" y1="130" x2="640" y2="130" stroke="#555" stroke-width="2" marker-end="url(#ms)"/>
+    <line x1="90" y1="245" x2="90" y2="25" stroke="#555" stroke-width="2" marker-end="url(#ms)"/>
+    <text x="628" y="122" font-size="20" fill="#555" font-style="italic">x</text>
+    <text x="72" y="40" font-size="20" fill="#555" font-style="italic">y</text>
+    <text x="74" y="150" font-size="18" fill="#555">O</text>
+    <line x1="70" y1="60" x2="640" y2="60" stroke="#ddd" stroke-width="1"/>
+    <line x1="70" y1="200" x2="640" y2="200" stroke="#ddd" stroke-width="1"/>
+    <text x="66" y="66" font-size="17" fill="#555" text-anchor="end">1</text>
+    <text x="66" y="206" font-size="17" fill="#555" text-anchor="end">−1</text>
+    <!-- sin từ 0 (px90) tới 2pi (px593), 80px/rad, biên 70 -->
+    <path d="M90,130 C180,37 251,37 341,130 C431,223 502,223 593,130" fill="none" stroke="#005493" stroke-width="3.5"/>
+    <text x="216" y="55" font-size="16" fill="#c85000">π/2</text>
+    <line x1="216" y1="60" x2="216" y2="130" stroke="#c85000" stroke-width="1" stroke-dasharray="4 4"/>
+    <text x="333" y="150" font-size="17" fill="#555">π</text>
+    <text x="455" y="150" font-size="17" fill="#555">3π/2</text>
+    <text x="585" y="150" font-size="17" fill="#555">2π</text>
+  </svg>
+  </div>
+  <div style="flex:1">
+  <div class="box kienthuc"><div class="tit">y = sin x</div><div class="bd small">
+    <ul>
+      <li>TXĐ: \(\mathbb{R}\); &nbsp;Tập giá trị: \([-1;1]\).</li>
+      <li>Hàm <b>lẻ</b> (đối xứng qua \(O\)): \(\sin(-x)=-\sin x\).</li>
+      <li><b>Tuần hoàn</b> chu kì \(T=2\pi\): cứ mỗi \(2\pi\), đồ thị lặp lại y hệt.</li>
+      <li>Đồng biến trên \(\bigl(-\tfrac{\pi}{2}+k2\pi;\tfrac{\pi}{2}+k2\pi\bigr)\), nghịch biến trên phần còn lại.</li>
+    </ul>
+  </div></div>
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2>Hàm \(y=\cos x\) — sóng "khởi hành từ đỉnh"</h2>
+  <div style="display:flex;gap:1em;align-items:center">
+  <div class="center" style="flex:1.1">
+  <svg viewBox="0 0 700 260" style="width:100%;max-width:430px;height:auto" role="img" aria-label="Đồ thị hàm cos: xuất phát từ đỉnh 1, xuống đáy trừ 1 tại pi, lên lại 1 tại 2pi">
+    <defs><marker id="mc2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs>
+    <line x1="70" y1="130" x2="640" y2="130" stroke="#555" stroke-width="2" marker-end="url(#mc2)"/>
+    <line x1="90" y1="245" x2="90" y2="25" stroke="#555" stroke-width="2" marker-end="url(#mc2)"/>
+    <text x="628" y="122" font-size="20" fill="#555" font-style="italic">x</text>
+    <text x="72" y="40" font-size="20" fill="#555" font-style="italic">y</text>
+    <text x="74" y="150" font-size="18" fill="#555">O</text>
+    <line x1="70" y1="60" x2="640" y2="60" stroke="#ddd" stroke-width="1"/>
+    <line x1="70" y1="200" x2="640" y2="200" stroke="#ddd" stroke-width="1"/>
+    <text x="66" y="66" font-size="17" fill="#555" text-anchor="end">1</text>
+    <text x="66" y="206" font-size="17" fill="#555" text-anchor="end">−1</text>
+    <!-- cos: (90,60) đỉnh -> (341,200) đáy -> (593,60) đỉnh -->
+    <path d="M90,60 C195,60 236,200 341,200 C446,200 488,60 593,60" fill="none" stroke="#c85000" stroke-width="3.5"/>
+    <text x="333" y="150" font-size="17" fill="#555">π</text>
+    <text x="205" y="150" font-size="17" fill="#555">π/2</text>
+    <text x="455" y="150" font-size="17" fill="#555">3π/2</text>
+    <text x="585" y="150" font-size="17" fill="#555">2π</text>
+  </svg>
+  </div>
+  <div style="flex:1">
+  <div class="box kienthuc"><div class="tit">y = cos x</div><div class="bd small">
+    <ul>
+      <li>TXĐ: \(\mathbb{R}\); &nbsp;Tập giá trị: \([-1;1]\); &nbsp;chu kì \(T=2\pi\).</li>
+      <li>Hàm <b>chẵn</b> (đối xứng qua trục \(Oy\)): \(\cos(-x)=\cos x\).</li>
+      <li>Đồ thị \(\cos\) = đồ thị \(\sin\) <b>dịch sang trái \(\tfrac{\pi}{2}\)</b> \(\bigl(\cos x=\sin(x+\tfrac{\pi}{2})\bigr)\).</li>
+    </ul>
+  </div></div>
+  <p class="fragment small">Cùng dải \([-1;1]\), cùng chu kì \(2\pi\) — chỉ khác điểm xuất phát.</p>
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2>Hàm \(y=\tan x\) — nhiều nhánh, có tiệm cận</h2>
+  <div style="display:flex;gap:1em;align-items:center">
+  <div class="center" style="flex:1">
+  <svg viewBox="0 0 620 300" style="width:100%;max-width:400px;height:auto" role="img" aria-label="Đồ thị hàm tang: các nhánh đi từ dưới lên trên, có đường tiệm cận đứng tại pi trên hai cộng k pi">
+    <defs><marker id="mt2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs>
+    <line x1="20" y1="150" x2="600" y2="150" stroke="#555" stroke-width="2" marker-end="url(#mt2)"/>
+    <line x1="310" y1="290" x2="310" y2="15" stroke="#555" stroke-width="2" marker-end="url(#mt2)"/>
+    <text x="588" y="142" font-size="20" fill="#555" font-style="italic">x</text>
+    <text x="320" y="30" font-size="20" fill="#555" font-style="italic">y</text>
+    <text x="294" y="170" font-size="17" fill="#555">O</text>
+    <!-- tiệm cận đứng tại x = ±pi/2 (px 150, 470) và ±3pi/2 (giữ trong khung) -->
+    <line x1="150" y1="20" x2="150" y2="285" stroke="#c85000" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <line x1="470" y1="20" x2="470" y2="285" stroke="#c85000" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <text x="120" y="278" font-size="15" fill="#c85000">−π/2</text>
+    <text x="476" y="278" font-size="15" fill="#c85000">π/2</text>
+    <!-- nhánh giữa (−pi/2 ; pi/2) qua O, steep at ends -->
+    <path d="M158,282 C210,235 250,175 310,150 C370,125 410,65 462,20" fill="none" stroke="#005493" stroke-width="3.5"/>
+    <!-- nhánh phải (pi/2 ; 3pi/2): tiệm cận px470 và px... ngoài khung, vẽ 1 phần -->
+    <path d="M478,282 C520,235 545,190 585,168" fill="none" stroke="#005493" stroke-width="3.5"/>
+    <!-- nhánh trái -->
+    <path d="M35,132 C75,110 100,65 142,20" fill="none" stroke="#005493" stroke-width="3.5"/>
+  </svg>
+  </div>
+  <div style="flex:1.05">
+  <div class="box kienthuc"><div class="tit">y = tan x (và y = cot x)</div><div class="bd small">
+    <ul>
+      <li>\(\tan x\): TXĐ \(\mathbb{R}\setminus\bigl\{\tfrac{\pi}{2}+k\pi\bigr\}\); &nbsp;\(\cot x\): TXĐ \(\mathbb{R}\setminus\{k\pi\}\).</li>
+      <li>Tập giá trị \(\mathbb{R}\); &nbsp;đều là hàm <b>lẻ</b>; &nbsp;chu kì \(T=\pi\) (ngắn hơn sin, cos!).</li>
+      <li>Tại các điểm bị loại có <b>tiệm cận đứng</b> — đồ thị "chạy" ra vô cực.</li>
+    </ul>
+  </div></div>
+  <p class="fragment small">Hạt giống (8): \(\cos x=0\) tại \(x=\tfrac{\pi}{2}+k\pi\) — đúng chỗ \(\tan x\) không xác định.</p>
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2>Tìm tập xác định của hàm lượng giác</h2>
+  <div class="box kienthuc"><div class="tit">Ba "lệnh cấm" khi tìm TXĐ hàm LG</div><div class="bd small">
+    Vẫn hai lệnh cấm cũ (mẫu \(\ne0\), trong căn \(\ge0\)) + lệnh cấm mới của lượng giác:
+    <ul>
+      <li>\(\tan u\) có nghĩa \(\Leftrightarrow \cos u\ne0 \Leftrightarrow u\ne\tfrac{\pi}{2}+k\pi\).</li>
+      <li>\(\cot u\) có nghĩa \(\Leftrightarrow \sin u\ne0 \Leftrightarrow u\ne k\pi\).</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 3.</b> Tìm tập xác định của \(y=\dfrac{1-\sin x}{\cos x}\).</p>
+  <p class="hoihs fragment">Chỗ nào khiến hàm "nghẹn"? — mẫu \(\cos x\) bằng 0 (hạt giống (8))!</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Điều kiện: \(\cos x\ne0\Leftrightarrow x\ne\dfrac{\pi}{2}+k\pi\).
+    Vậy \(D=\class{kq}{\mathbb{R}\setminus\bigl\{\tfrac{\pi}{2}+k\pi\bigr\}}\ (k\in\mathbb{Z})\).</p>
+</section>
+
+<section>
+  <h2>Tuần hoàn, chẵn – lẻ &amp; giá trị lớn nhất – nhỏ nhất</h2>
+  <div class="box kienthuc"><div class="tit">Chu kì hàm mở rộng &amp; cách tìm GTLN–GTNN</div><div class="bd small">
+    <ul>
+      <li><b>Chu kì:</b> \(y=A\sin\omega x,\ y=A\cos\omega x\) có \(T=\dfrac{2\pi}{|\omega|}\); &nbsp;\(y=A\tan\omega x\) có \(T=\dfrac{\pi}{|\omega|}\).</li>
+      <li><b>GTLN–GTNN:</b> chặn bằng \(-1\le\sin u,\cos u\le1\) rồi suy ra hai đầu.</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 4.</b> Tìm chu kì của \(y=\sin3x\) và tập giá trị của \(y=2030-4\cos x\).</p>
+  <p class="hoihs fragment">Với \(y=2030-4\cos x\): \(\cos x\) chạy trong đoạn nào, kéo \(-4\cos x\) đi đâu?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> \(y=\sin3x\) có \(T=\dfrac{2\pi}{3}\).</p>
+  <p class="fragment">Vì \(-1\le\cos x\le1\Rightarrow -4\le-4\cos x\le4\Rightarrow 2026\le y\le2034\).
+    Tập giá trị \(\class{kq}{[2026;2034]}\): GTNN \(2026\) (khi \(\cos x=1\)), GTLN \(2034\) (khi \(\cos x=-1\)).</p>
+</section>
+
+<section>
+  <h2>Ví dụ 5 — trở lại chiếc vòng quay: sóng biển</h2>
+  <p class="small">Chiều cao mặt nước tại một cầu cảng dao động tuần hoàn theo sóng:
+    \(h(t)=75\sin\dfrac{\pi t}{8}\) (cm), với \(t\) tính bằng giây.</p>
+  <p class="hoihs">Sóng cao nhất bao nhiêu, và <b>bao lâu</b> sóng lặp lại một chu kì?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    Vì \(-1\le\sin\dfrac{\pi t}{8}\le1\Rightarrow -75\le h\le75\): độ cao lớn nhất \(\class{kq}{75}\) cm.</p>
+  <p class="fragment">Chu kì \(T=\dfrac{2\pi}{\pi/8}=\class{kq}{16}\) giây — cứ 16 giây con sóng lại lặp lại y hệt.</p>
+  <div class="fragment box chuy"><div class="tit">Bài học</div><div class="bd small">
+    Mọi hiện tượng "lên xuống đều đặn" — sóng, thuỷ triều, li độ dao động, độ cao cabin vòng quay —
+    đều mặc chung một chiếc áo \(y=A\sin(\omega t)+B\). Biên độ \(A\), chu kì \(T=\dfrac{2\pi}{\omega}\).
+  </div></div>
+</section>
+
+<!-- ============ BƯỚC 4: PHƯƠNG TRÌNH LƯỢNG GIÁC ============ -->
+<section>
+  <h2>Phương trình \(\sin x=m\) — đọc trên đường tròn</h2>
+  <div style="display:flex;gap:1em;align-items:center">
+  <div class="center" style="flex:1">
+  <svg viewBox="0 0 380 380" style="width:100%;max-width:300px;height:auto" role="img" aria-label="Đường tròn lượng giác cắt đường thẳng ngang y bằng m tại hai điểm, cho hai họ nghiệm alpha và pi trừ alpha">
+    <line x1="20" y1="190" x2="360" y2="190" stroke="#555" stroke-width="2"/>
+    <line x1="190" y1="360" x2="190" y2="20" stroke="#555" stroke-width="2"/>
+    <circle cx="190" cy="190" r="140" fill="none" stroke="#005493" stroke-width="3"/>
+    <line x1="40" y1="120" x2="340" y2="120" stroke="#c85000" stroke-width="2.5"/>
+    <text x="300" y="112" font-size="18" fill="#c85000" font-style="italic">y = m</text>
+    <!-- giao điểm: y=120 => sin = (190-120)/140 = 0.5; x = 190 ± 140*cos, cos=sqrt(1-.25)=.866 => ±121 -->
+    <circle cx="311" cy="120" r="6" fill="#008040"/>
+    <text x="315" y="112" font-size="17" fill="#008040" font-style="italic">α</text>
+    <circle cx="69" cy="120" r="6" fill="#008040"/>
+    <text x="40" y="112" font-size="17" fill="#008040" font-style="italic">π−α</text>
+  </svg>
+  </div>
+  <div style="flex:1.15">
+  <div class="box kienthuc"><div class="tit">Nghiệm của sin x = m</div><div class="bd small">
+    <ul>
+      <li>Nếu \(|m|>1\): <b>vô nghiệm</b> (đường thẳng không cắt đường tròn).</li>
+      <li>Nếu \(|m|\le1\), gọi \(\alpha\) với \(\sin\alpha=m\):
+        \[\sin x=m\Leftrightarrow\left[\begin{aligned}x&=\alpha+k2\pi\\ x&=\pi-\alpha+k2\pi\end{aligned}\right.\]</li>
+      <li>Đặc biệt: \(\sin x=0\Leftrightarrow x=k\pi\); \(\ \sin x=1\Leftrightarrow x=\tfrac{\pi}{2}+k2\pi\); \(\ \sin x=-1\Leftrightarrow x=-\tfrac{\pi}{2}+k2\pi\).</li>
+    </ul>
+  </div></div>
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2>Ví dụ 6 — giải \(\sin x=\dfrac12\)</h2>
+  <p class="hoihs">Góc đặc biệt nào có sin bằng \(\tfrac12\)? (hạt giống (1)!)</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Vì \(\sin\dfrac{\pi}{6}=\dfrac12\), ta có
+    \(\sin x=\dfrac12\Leftrightarrow\sin x=\sin\dfrac{\pi}{6}\).</p>
+  <p class="fragment center">\[\Leftrightarrow\left[\begin{aligned}x&=\dfrac{\pi}{6}+k2\pi\\[2pt] x&=\pi-\dfrac{\pi}{6}+k2\pi=\dfrac{5\pi}{6}+k2\pi\end{aligned}\right.\quad(k\in\mathbb{Z}).\]</p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd small">
+    Sai lầm kinh điển: chỉ ghi <b>một</b> họ nghiệm \(x=\tfrac{\pi}{6}+k2\pi\) rồi quên họ \(\pi-\alpha\).
+    Nhìn hình: đường thẳng \(y=m\) cắt đường tròn ở <b>hai</b> điểm ⟹ <b>hai</b> họ nghiệm.
+  </div></div>
+</section>
+
+<section>
+  <h2>Phương trình \(\cos x=m\) và \(\tan x=m\)</h2>
+  <div class="box kienthuc"><div class="tit">Ba công thức nghiệm phải nhớ</div><div class="bd small">
+    <ul>
+      <li>\(\cos x=m\) (\(|m|\le1\), \(\cos\alpha=m\)): \(\;x=\pm\alpha+k2\pi\). &nbsp;
+        Đặc biệt \(\cos x=0\Leftrightarrow x=\tfrac{\pi}{2}+k\pi\); \(\cos x=1\Leftrightarrow x=k2\pi\); \(\cos x=-1\Leftrightarrow x=\pi+k2\pi\).</li>
+      <li>\(\tan x=m\) (mọi \(m\), \(\tan\alpha=m\)): \(\;x=\alpha+k\pi\) &nbsp;(chu kì \(\pi\) nên chỉ <b>một</b> họ!).</li>
+      <li>\(\cot x=m\) (mọi \(m\)): \(\;x=\alpha+k\pi\).</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 7.</b> Giải \(2\cos x=\sqrt3\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> \(\cos x=\dfrac{\sqrt3}{2}=\cos\dfrac{\pi}{6}\Rightarrow
+    x=\class{kq}{\pm\dfrac{\pi}{6}+k2\pi}\ (k\in\mathbb{Z})\).</p>
+  <p class="fragment small">Với cos, hai họ nghiệm gộp gọn thành \(\pm\alpha\); với tan chỉ một họ — đừng nhầm số họ nghiệm giữa các loại!</p>
+</section>
+
+<section>
+  <h2>Ví dụ 8 — dao động điều hoà: khi nào về vị trí cân bằng?</h2>
+  <p class="small">Một vật dao động điều hoà có li độ \(x=1{,}5\cos\dfrac{\pi t}{4}\) (m), \(t\) tính bằng giây.
+    Vật ở <b>vị trí cân bằng</b> khi li độ \(x=0\). Tìm các thời điểm đó.</p>
+  <p class="hoihs">\(x=0\) dẫn tới phương trình cơ bản nào?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(x=0\Leftrightarrow\cos\dfrac{\pi t}{4}=0\Leftrightarrow\dfrac{\pi t}{4}=\dfrac{\pi}{2}+k\pi\).</p>
+  <p class="fragment">\(\Leftrightarrow t=2+4k\ (k\in\mathbb{Z})\); &nbsp;vì \(t\ge0\): \(t=2;\,6;\,10;\,14;\dots\) giây.</p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd small">
+    Bài thực tế luôn kèm <b>điều kiện của biến</b> (\(t\ge0\)) → phải <b>loại nghiệm âm</b> và, nếu đề giới hạn
+    thời gian, chỉ giữ các \(k\) hợp lệ. Đây đúng là tinh thần "đặt biến có điều kiện" từ A1.
+  </div></div>
+</section>
+
+<!-- ============ MỘT CÂU HỎI — BỐN KÌ THI ============ -->
+<section>
+  <h2>Một câu hỏi — bốn kì thi ① TN THPT</h2>
+  <div class="box kechuyen"><div class="tit">Chiếc vòng quay trở lại</div><div class="bd small">
+    Vòng quay có tâm cao 50 m, bán kính 40 m, quay đều 1 vòng trong 20 phút; xuất phát từ vị trí thấp nhất.
+    Độ cao cabin sau \(t\) phút: \(h(t)=50-40\cos\dfrac{\pi t}{10}\) (m). Cùng mô hình ấy, bốn kì thi "mặc áo" khác nhau.
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Áo TN THPT — câu Đúng/Sai 4 ý</div><div class="bd small">
+    a) Lúc \(t=0\), cabin ở vị trí thấp nhất, cách đất \(10\) m.
+      <span class="fragment"><span class="kq">Đ</span> — \(h(0)=50-40=10\).</span><br>
+    b) Độ cao lớn nhất của cabin là \(90\) m.
+      <span class="fragment"><span class="kq">Đ</span> — \(h_{\max}=50+40=90\) (khi \(\cos=-1\)).</span><br>
+    c) Sau đúng \(10\) phút, cabin trở lại vị trí thấp nhất.
+      <span class="fragment"><b style="color:var(--maucam)">S</b> — \(h(10)=50-40\cos\pi=90\): đó là <em>cao nhất</em>; phải sau \(20\) phút (một chu kì) mới về thấp nhất.</span><br>
+    d) Lần đầu cabin cao \(70\) m ở phút thứ \(\tfrac{20}{3}\) (≈ 6 phút 40 giây).
+      <span class="fragment"><span class="kq">Đ</span> — \(\cos\tfrac{\pi t}{10}=-\tfrac12\Rightarrow t=\tfrac{20}{3}\).</span>
+  </div></div>
+  <p class="fragment small center">Chấm <b>lũy tiến</b>: đúng 1 ý — 0,1đ · 2 ý — 0,25đ · 3 ý — 0,5đ · cả 4 ý — 1đ.
+    Các ý "có con số" như c), d) phải <b>tính lại, đừng đoán</b>!</p>
+</section>
+
+<section>
+  <h2>Một câu hỏi — bốn kì thi ② HSA và TSA — thử ngay tại chỗ!</h2>
+  <div class="box kienthuc"><div class="tit">Áo HSA — câu điền đáp án (nhịp ~90 giây/câu): em gõ thử!</div><div class="bd small">
+    "…Chu kì quay của cabin là
+    <span class="sq-sa" data-ans="20" data-hint="T = 2π ÷ (π/10)"></span> phút;
+    cabin cao 70 m lần đầu ở phút thứ
+    <span class="sq-sa" data-ans="6,67|6.67" data-width="4em" data-hint="20/3 rồi làm tròn 2 chữ số"></span> (làm tròn 2 chữ số thập phân)."<br>
+    <span class="fragment"><b>Không có 4 phương án</b> để loại trừ — phải tự tính. Đáp số lẻ thì làm tròn <em>đúng yêu cầu của đề</em>
+    và dùng <b>dấu phẩy</b> (6,67) — gõ lệch một chữ số là mất trọn điểm.</span>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Áo TSA — câu kéo thả (chấm all-or-nothing): em kéo thử!</div><div class="bd small">
+    <div class="sq-dd" data-mode="all" data-cham="Chấm all-or-nothing">
+      Lập mô hình độ cao (kéo thẻ vào ô — hoặc <em>chạm thẻ rồi chạm ô</em> trên điện thoại):<br>
+      \(h(t)=\) <span class="sq-slot" data-ans="50"></span>
+      \(\;-\;\) <span class="sq-slot" data-ans="40"></span>
+      \(\cos\bigl(\) <span class="sq-slot" data-ans="pi/10"></span> \(\cdot\,t\bigr)\)<br>
+      Kho thẻ:
+      <span class="sq-chip" data-val="50">50</span>
+      <span class="sq-chip" data-val="40">40</span>
+      <span class="sq-chip" data-val="10">10</span>
+      <span class="sq-chip" data-val="pi/10">π/10</span>
+      <span class="sq-chip" data-val="pi/20">π/20</span>
+      <span class="sq-chip" data-val="pi/5">π/5</span>
+      <span class="small">— có thẻ nhiễu!</span>
+      <div class="sq-nut"></div>
+    </div>
+    <span class="fragment small">Luật TSA: đúng 2/3 ô vẫn <b>0 điểm</b> — tâm cao 50, bán kính 40, \(\omega=\tfrac{2\pi}{20}=\tfrac{\pi}{10}\).</span>
+  </div></div>
+</section>
+
+<section>
+  <h2>Một câu hỏi — bốn kì thi ③ SPT — tự luận viết tay</h2>
+  <p class="small" style="margin:.2em 0">Yêu cầu: <b>tìm thời điểm đầu tiên cabin cao 70 m</b>, trình bày trên giấy —
+    giám khảo chấm từng bước theo <b>barem</b> (mỗi câu tự luận SPT ≈ 1,0đ):</p>
+  <table style="font-size:.72em">
+    <tr><th>Bước</th><th>Nội dung phải có trên giấy</th><th>Điểm</th></tr>
+    <tr class="fragment"><td>①</td><td>Lập phương trình: \(50-40\cos\dfrac{\pi t}{10}=70\Leftrightarrow\cos\dfrac{\pi t}{10}=-\dfrac12\)</td><td>0,25</td></tr>
+    <tr class="fragment"><td>②</td><td>Giải cơ bản: \(\dfrac{\pi t}{10}=\pm\dfrac{2\pi}{3}+k2\pi\ (k\in\mathbb{Z})\)</td><td>0,25</td></tr>
+    <tr class="fragment"><td>③</td><td>\(t=\pm\dfrac{20}{3}+20k\); kèm điều kiện \(t>0\), chọn nghiệm <b>nhỏ nhất</b> \(\Rightarrow t=\dfrac{20}{3}\)</td><td>0,25</td></tr>
+    <tr class="fragment"><td>④</td><td>Kết luận: lần đầu tại \(t=\dfrac{20}{3}\) phút \(\approx6\) phút \(40\) giây — <b>đủ đơn vị</b></td><td>0,25</td></tr>
+  </table>
+  <div style="display:flex;gap:.8em;align-items:stretch">
+    <div class="fragment box chuy" style="flex:1"><div class="tit">Ba lỗi mất điểm kinh điển</div><div class="bd small">
+      chỉ lấy dấu \(+\dfrac{2\pi}{3}\), <b>quên nhánh \(-\)</b> (②) · quên chọn nghiệm <b>nhỏ nhất</b> dương vì đề hỏi "lần đầu" (③) ·
+      thiếu <b>đơn vị</b>/đổi ra phút–giây (④).
+    </div></div>
+    <div class="fragment box chuy" style="flex:1"><div class="tit">Thông điệp</div><div class="bd small">
+      <b>Một lõi kiến thức — nhiều template.</b> Vẫn một chiếc vòng quay: TN hỏi Đ/S, HSA điền số,
+      TSA kéo thả, SPT bắt trình bày. Học chắc bản chất một lần là ăn cả bốn kì.
+    </div></div>
+  </div>
+</section>
+
+<!-- ============ LUYỆN TẬP ============ -->
+<section>
+  <h2>Luyện tập — Bài 1, 2, 3</h2>
+  <p><b>Bài 1.</b> <span class="muc">(*)</span> Đổi \(72^\circ\) và \(-135^\circ\) ra radian.</p>
+  <p class="fragment" style="text-align:right">Đáp số: \(72^\circ=\dfrac{2\pi}{5}\); \(\ -135^\circ=\class{kq}{-\dfrac{3\pi}{4}}\).</p>
+  <p class="fragment"><b>Bài 2.</b> <span class="muc">(*)</span> Tính \(\sin\dfrac{2\pi}{3}+\cos\pi\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: \(\dfrac{\sqrt3}{2}+(-1)=\class{kq}{\dfrac{\sqrt3}{2}-1}\).</p>
+  <p class="fragment"><b>Bài 3.</b> <span class="muc">(*)</span> Tìm chu kì của hàm số \(y=\cos\dfrac{x}{2}\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: \(T=\dfrac{2\pi}{1/2}=\class{kq}{4\pi}\).</p>
+</section>
+
+<section>
+  <h2>Luyện tập — Bài 4, 5, 6</h2>
+  <p><b>Bài 4.</b> <span class="muc">(**)</span> Tìm tập xác định của \(y=\tan\Bigl(x+\dfrac{\pi}{4}\Bigr)\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: \(x+\dfrac{\pi}{4}\ne\dfrac{\pi}{2}+k\pi\Rightarrow x\ne\class{kq}{\dfrac{\pi}{4}+k\pi}\).</p>
+  <p class="fragment"><b>Bài 5.</b> <span class="muc">(**)</span> Tìm GTLN–GTNN của \(y=3\sin x-4\cos x\).
+    <span class="small"><em>(Gợi ý: \(|a\sin x+b\cos x|\le\sqrt{a^2+b^2}\).)</em></span></p>
+  <p class="fragment" style="text-align:right">Đáp số: \(\sqrt{3^2+4^2}=5\Rightarrow -5\le y\le5\): \(\max=\class{kq}{5}\), \(\min=\class{kq}{-5}\).</p>
+  <p class="fragment"><b>Bài 6.</b> <span class="muc">(**)</span> Giải phương trình \(\cos2x=-\dfrac12\).</p>
+  <p class="fragment" style="text-align:right">Đáp số: \(2x=\pm\dfrac{2\pi}{3}+k2\pi\Rightarrow x=\class{kq}{\pm\dfrac{\pi}{3}+k\pi}\).</p>
+</section>
+
+<section>
+  <h2>Luyện tập — Bài 7, 8, 9 (thách thức)</h2>
+  <p class="small"><b>Bài 7.</b> <span class="muc">(***)</span> Tìm GTLN–GTNN của \(y=\sin^2x+4\sin x-1\).
+    <span><em>(Đặt \(t=\sin x\in[-1;1]\).)</em></span></p>
+  <p class="fragment small" style="text-align:right">Đáp số: \(f(t)=t^2+4t-1\) đồng biến trên \([-1;1]\):
+    \(\min=f(-1)=\class{kq}{-4}\), \(\max=f(1)=\class{kq}{4}\).</p>
+  <p class="fragment small"><b>Bài 8.</b> <span class="muc">(***)</span> Sóng ở cầu cảng: \(h(t)=75\sin\dfrac{\pi t}{8}\) (cm).
+    Sau bao lâu (lần đầu) mặt nước đạt độ cao \(75\) cm?</p>
+  <p class="fragment small" style="text-align:right">Đáp số: \(\sin\dfrac{\pi t}{8}=1\Rightarrow\dfrac{\pi t}{8}=\dfrac{\pi}{2}\Rightarrow t=\class{kq}{4}\) giây.</p>
+  <p class="fragment small"><b>Bài 9.</b> <span class="muc">(***)</span> Tìm tất cả giá trị \(m\) để phương trình \(\sin x=m-1\) có nghiệm.</p>
+  <p class="fragment small" style="text-align:right">Đáp số: cần \(-1\le m-1\le1\Rightarrow\class{kq}{0\le m\le2}\).</p>
+</section>
+
+<!-- ============ TỔNG KẾT ============ -->
+<section>
+  <h2>Ba điều phải nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Ba điều phải nhớ</div><div class="bd">
+    <ol>
+      <li><b>Đường tròn lượng giác:</b> \(\cos=\) hoành độ, \(\sin=\) tung độ; thuộc bảng giá trị đặc biệt +
+        cung liên kết; đổi độ ra radian nhân \(\dfrac{\pi}{180}\), độ dài cung \(\ell=R\alpha\).</li>
+      <li class="fragment"><b>Bốn hàm lượng giác:</b> \(\sin,\cos\) có TXĐ \(\mathbb{R}\), TGT \([-1;1]\), chu kì \(2\pi\)
+        (\(\cos\) chẵn, \(\sin\) lẻ); \(\tan,\cot\) chu kì \(\pi\), bỏ các điểm tiệm cận. Đồ thị hình sóng.</li>
+      <li class="fragment"><b>PT lượng giác cơ bản:</b> \(\sin x=m,\cos x=m\) cần \(|m|\le1\);
+        \(\sin x=m\Rightarrow x=\alpha+k2\pi\) hoặc \(\pi-\alpha+k2\pi\); \(\cos x=m\Rightarrow x=\pm\alpha+k2\pi\);
+        \(\tan x=m\Rightarrow x=\alpha+k\pi\) (mọi \(m\)).</li>
+    </ol>
+  </div></div>
+</section>
+
+<section>
+  <h2>Dặn dò và hẹn gặp lại</h2>
+  <div class="box chuy"><div class="tit">Dặn dò</div><div class="bd">
+    <ul>
+      <li>Làm lại các ví dụ <em>không nhìn lời giải</em>; thuộc <b>bảng giá trị đặc biệt</b> và <b>3 công thức nghiệm</b>.</li>
+      <li><b>Phiếu tự luận A2</b>: trình bày từng bước như lời giải mẫu — đúng cách chấm của kì thi SPT.</li>
+      <li><b>Quiz web mỗi ngày 10–20 phút</b> trên điện thoại (link gửi kèm) — đúng nhịp thi máy HSA/TSA.</li>
+    </ul>
+  </div></div>
+  <p class="fragment center" style="margin-top:1em">Sóng, thuỷ triều, cabin — thứ gì cũng <b>quay về chốn cũ</b>.<br>
+    Nhưng có những thứ <b>tăng mãi không quay lại</b>: dân số, tiền lãi kép, chất phóng xạ phân rã…<br>
+    <span style="color:var(--mauchinh);font-weight:bold;font-size:1.1em">Cần một gia đình hàm mới ② biết LỚN LÊN theo cấp số nhân:
+    luỹ thừa – mũ – lôgarit — hẹn em ở A3!</span></p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+
+</script>
+<script src="../assets/js/slide-quiz.js"></script>
+</body>
+</html>

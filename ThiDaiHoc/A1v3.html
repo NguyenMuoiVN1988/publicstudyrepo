@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A1 — Toàn cảnh hàm số | Lớp Toán 12 ôn thi Đại học</title>
+<title>A1 (v3) — Toàn cảnh hàm số | Lớp Toán 12 ôn thi Đại học</title>
+<meta name="description" content="Buổi A1 lớp Toán 12 ôn thi Đại học: từ nhu cầu sống thật đến hàm số — tháp 4 nhu cầu, 7 họ hàm, tờ hồ sơ 7 mục, case study parabol, một câu hỏi bốn kì thi.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
 <style>
@@ -47,6 +48,15 @@
     color:var(--mauchinh);border-radius:1em;padding:0 .5em;font-size:.72em;font-weight:bold;white-space:nowrap}
   .bangso td{text-align:center}
   .tonghop h2{background:var(--maucam)}
+  .tonghop h2 .chang{color:var(--maucam)}
+  /* — tinh chỉnh khung v3 — */
+  .box{box-shadow:0 2px 8px rgba(0,0,0,.10)}
+  .reveal h2{box-shadow:0 2px 6px rgba(0,0,0,.18)}
+  .reveal table th{background:var(--maunhat);color:var(--mauchinh);
+    border-bottom:2px solid var(--mauchinh);text-align:left}
+  .bangso th,.bangso td{text-align:center}
+  .nhucau{box-shadow:0 1px 3px rgba(0,84,147,.25)}
+  .sq-chip{box-shadow:0 1px 3px rgba(0,0,0,.15)}
 </style>
 </head>
 <body>
@@ -56,59 +66,55 @@
 <section class="titleslide">
   <div class="t1">Buổi A1</div>
   <div class="t2">Toàn cảnh hàm số</div>
-  <div>Nhu cầu của con người → Tình huống thực tế → Hàm số → Khái niệm → Kĩ thuật</div>
+  <div>Từ nhu cầu sống thật → đo đạc thế giới → hình thành hàm số → công cụ giải quyết bài toán</div>
   <p style="margin-top:1.2em"><em>Mạch A · Giải tích — Lớp Toán 12 ôn thi Đại học</em></p>
   <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để xem từng bước, giống như trên lớp.</p>
 </section>
 
 <section>
-  <h2>Bản đồ Mạch A — và con đường của buổi hôm nay</h2>
+  <h2>Bản đồ Mạch A — bắt đầu từ lịch sử hình thành hàm số</h2>
   <table style="font-size:.75em">
     <tr><td class="muc">A1</td><td class="muc">Toàn cảnh hàm số &nbsp;⟵ hôm nay</td></tr>
-    <tr><td><b>A2–A4</b></td><td>Làm quen từng nhân vật: lượng giác · mũ · lôgarit (+ lãi kép)</td></tr>
-    <tr><td><b>A5–A7</b></td><td>Dãy số → giới hạn → đạo hàm (chế tạo "máy đo tốc độ")</td></tr>
-    <tr><td><b>A8–A10</b></td><td>Đạo hàm ra tay: đơn điệu, cực trị, GTLN–GTNN, khảo sát</td></tr>
-    <tr><td><b>A11–A13</b></td><td>Nguyên hàm → tích phân → ứng dụng (cộng dồn thay đổi)</td></tr>
+    <tr><td><b>A2–A4</b></td><td>Làm quen với lượng giác, hàm mũ và lôgarit</td></tr>
+    <tr><td><b>A5–A7</b></td><td>Dãy số → giới hạn → đạo hàm: đo sự thay đổi</td></tr>
+    <tr><td><b>A8–A10</b></td><td>Dùng đạo hàm để xét biến thiên, cực trị và khảo sát hàm số</td></tr>
+    <tr><td><b>A11–A13</b></td><td>Nguyên hàm → tích phân → các bài toán cộng dồn</td></tr>
   </table>
-  <div class="fragment box kienthuc"><div class="tit">Buổi hôm nay đi đúng con đường toán học đã đi</div><div class="bd small">
-    <b>Chặng 1.</b> Con người có những <b>nhu cầu</b> gì? Gặp những <b>tình huống</b> nào?<br>
-    <b>Chặng 2.</b> Từ các tình huống ấy, <b>những hàm số nào</b> ra đời? (+ bản tổng hợp cả dàn)<br>
-    <b>Chặng 3.</b> Muốn thoả các nhu cầu → cần <b>những khái niệm nào</b>? (→ tờ hồ sơ 7 mục)<br>
-    <b>Chặng 4.</b> <b>Kĩ thuật</b> xử lý từng khái niệm — luyện trên các hàm quen.<br>
-    <b>Chặng 5.</b> Lập hồ sơ đầy đủ cho nhân vật đầu tiên: <b>parabol</b> + góc "một câu hỏi — bốn kì thi".
+  <div class="fragment box kienthuc"><div class="tit">Con đường của buổi học hôm nay</div><div class="bd small">
+    <b>Chặng 1.</b> Con người từ rất sớm đã cần đo, đếm, dự đoán và tối ưu.<br>
+    <b>Chặng 2.</b> Từ các nhu cầu ấy, những họ hàm số dần xuất hiện.<br>
+    <b>Chặng 3.</b> Muốn dùng hàm số hiệu quả, ta cần một bộ khái niệm chung.<br>
+    <b>Chặng 4.</b> Luyện các <b>kĩ thuật</b> cơ bản trên những hàm quen thuộc.<br>
+    <b>Chặng 5.</b> Hoàn thiện hồ sơ đầu tiên với <b>parabol</b> và xem một bài toán được hỏi theo bốn kiểu đề.
   </div></div>
 </section>
 
 <!-- ═════════ CHẶNG 1 · NHU CẦU & TÌNH HUỐNG ═════════ -->
 <section>
-  <h2><span class="chang">Chặng 1</span>Chuyện bắt đầu từ cuộc sống — không phải từ kì thi</h2>
-  <div class="box kechuyen"><div class="tit">Thuở chưa có chữ số</div><div class="bd small">
-    Muôn loài đều phải kiếm ăn: con báo rượt theo con mồi, bầy chim lùng quả chín.
-    Tổ tiên ta cũng săn bắt, hái lượm như thế — nhưng có một điều dần tách con người
-    ra khỏi muôn loài: <b>trước khi làm, ta biết tính trước</b>. Đứng dưới chùm quả chín
-    trên cành cao, người thợ săn không vội leo — anh ta nhặt hòn đá, <em>ước lượng đường bay</em>,
-    rồi mới buông tay. Ném trúng thì đỡ tốn sức, bớt hiểm nguy.
+  <h2><span class="chang">Chặng 1</span>Toán học lớn lên cùng nhu cầu của con người</h2>
+  <div class="box kechuyen"><div class="tit">Trước khi có công thức, đã có nhu cầu sống thật</div><div class="bd small">
+    Từ rất xa xưa, con người đã phải đo đạc và dự đoán để sống tốt hơn: mùa nào gieo hạt,
+    đi bao lâu thì tới nơi, ném viên đá theo hướng nào thì chạm được chùm quả trên cao.
+    Mỗi việc như vậy đều cần một năng lực rất người: <b>nghĩ trước rồi mới làm</b>.
   </div></div>
-  <p class="fragment small">Nhờ biết tính trước, con người dám làm những việc lớn dần lên:
-    trồng trọt, xây cất, mua bán, chữa bệnh, chế tạo… Và trước mỗi việc đều phải <b>dự liệu</b>:
-    <em>làm được không? làm thế nào? cần chuẩn bị những gì?</em> — gieo bao nhiêu thóc thì đủ ăn
-    tới vụ sau, bán giá nào thì có lời, liều thuốc bao nhiêu thì vừa khỏi bệnh vừa an toàn.</p>
-  <p class="fragment small">Để ý kĩ: mọi câu hỏi ấy đều tựa trên một <b>mối liên hệ</b> —
-    ném mạnh tay hơn, đá bay cao hơn; giá mềm hơn, người mua đông hơn; liều cao hơn, nồng độ
-    trong máu đậm hơn. <b>Ai nắm được mối liên hệ, người đó dự liệu đúng, quyết định đúng —
-    và sống tốt hơn.</b></p>
-  <p class="fragment small">Toán học sinh ra để làm đúng việc ấy: <b>gói mối liên hệ lại thành
-    thứ tính toán được</b> — ta sẽ gọi là <b>hàm số hoá</b>. Tính toán xong, lời giải quay về
-    phục vụ cuộc sống: <em>biết trước khi làm, chuẩn bị trước khi cần</em>.</p>
-  <div class="fragment box chuy"><div class="tit">Vị trí của kì thi trong bức tranh</div><div class="bd small">
-    Toán thi đại học chỉ là <b>một mẩu nhỏ</b> của bức tranh trên. Học vì bức tranh — điểm thi
-    tự khắc đến như <em>phụ phẩm</em>; học chỉ vì kì thi thì dễ mụ mẫm, quên mất mình học để làm gì.
-    Cả năm nay lớp mình sẽ đi theo đúng chuỗi: <b>nhu cầu → bài toán → hàm số → xử lý</b>.
+  <p class="fragment small">Khi xã hội phát triển, nhu cầu ấy không mất đi mà còn rõ hơn:
+    gieo bao nhiêu hạt thì đủ cho vụ sau, xây tường nghiêng bao nhiêu để khỏi đổ,
+    bán ở mức giá nào thì có lời, dùng liều thuốc nào thì hiệu quả mà vẫn an toàn.</p>
+  <p class="fragment small">Toán học đi cùng sự phát triển ấy bằng cách biến kinh nghiệm rời rạc thành quy tắc tính được.
+    Điểm chung luôn là <b>mối liên hệ</b>: ném mạnh hơn thì viên đá bay khác đi;
+    mùa thay đổi thì mực nước thay đổi; giá thay đổi thì lượng người mua thay đổi.</p>
+  <p class="fragment small">Từ những bảng đo, bản vẽ, quy tắc kinh nghiệm rồi đến công thức,
+    con người dần học cách mô tả các mối liên hệ ấy. Khi một đại lượng được biểu diễn theo một đại lượng khác,
+    ta bắt đầu bước vào thế giới của <b>hàm số</b>.</p>
+  <div class="fragment box chuy"><div class="tit">Còn kì thi nằm ở đâu?</div><div class="bd small">
+    Kì thi chỉ kiểm tra một lát cắt nhỏ của quá trình ấy. Nếu chỉ học công thức để làm đề,
+    ta dễ quên vì sao công thức được sinh ra. Buổi hôm nay đi theo con đường tự nhiên hơn:
+    <b>nhu cầu của con người → tình huống → hàm số → công cụ xử lí → kết luận</b>.
   </div></div>
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 1</span>Tháp bốn nhu cầu muôn thuở của con người</h2>
+  <h2><span class="chang">Chặng 1</span>Bốn kiểu câu hỏi đi cùng lịch sử toán học</h2>
   <div style="display:flex;gap:.8em;align-items:center">
     <div class="center" style="flex:1">
       <svg viewBox="0 0 480 250" style="width:100%;max-width:420px;height:auto" role="img" aria-label="Tháp bốn nhu cầu: biết trước, nhiều nhất ít nhất, đạt mốc, toàn cảnh">
@@ -125,29 +131,28 @@
         <text x="212" y="112" font-size="16" fill="#333"><tspan font-weight="bold">ĐẠT MỐC KHI NÀO</tspan> — lần ngược đầu vào</text>
         <text x="212" y="64" font-size="16" fill="#333"><tspan font-weight="bold">TOÀN CẢNH</tspan> — nhìn thấu, quyết định</text>
       </svg>
-      <div class="small" style="font-size:.62em;color:#666">càng lên cao càng "khó chiều" — toán càng phải mạnh tay</div>
+      <div class="small" style="font-size:.62em;color:#666">từ đo đạc sơ khai đến khoa học hiện đại, bốn câu hỏi này luôn quay lại</div>
     </div>
     <div style="flex:1.15">
       <table style="font-size:.66em;margin:0">
         <tr class="fragment"><td><span class="nhucau">①</span></td>
-          <td>chưa xảy ra mà muốn biết kết quả — mai mưa không? đi 5 km hết bao nhiêu tiền?</td></tr>
+          <td>Biết đầu vào rồi, muốn dự đoán kết quả: đi 5 km hết bao nhiêu tiền?</td></tr>
         <tr class="fragment"><td><span class="nhucau">②</span></td>
-          <td>cùng công sức, được nhiều nhất / tốn ít nhất — bán giá nào lời nhất? rào kiểu gì vườn to nhất?</td></tr>
+          <td>Muốn tốt nhất hoặc tiết kiệm nhất: bán giá nào thì lời nhất, rào thế nào thì vườn rộng nhất?</td></tr>
         <tr class="fragment"><td><span class="nhucau">③</span></td>
-          <td>muốn kết quả này thì đầu vào bằng mấy — bao giờ tiền gấp đôi? ném thế nào thì trúng?</td></tr>
+          <td>Biết kết quả mong muốn, cần tìm ngược đầu vào: bao giờ tiền gấp đôi, ném thế nào thì tới đích?</td></tr>
         <tr class="fragment"><td><span class="nhucau">④</span></td>
-          <td>gói cả diễn biến vào một cái liếc để ra quyết định — biểu đồ giá vàng, điện tâm đồ.</td></tr>
+          <td>Muốn nhìn toàn bộ diễn biến để ra quyết định: biểu đồ giá, điện tâm đồ, đồ thị chuyển động.</td></tr>
       </table>
-      <p class="fragment small" style="margin-top:.5em;font-size:.66em">Cả bốn đều xoay quanh một thứ:
-        <b>đại lượng này phụ thuộc đại lượng kia như thế nào</b>. Tháp này sẽ đứng cạnh mọi bảng
-        tổng hợp từ giờ — quen mặt ④ con số là quen cả buổi. Giờ xem 4 tình huống quen thuộc,
-        để ý các câu hỏi <em>tự bật ra</em>.</p>
+      <p class="fragment small" style="margin-top:.5em;font-size:.66em">Bốn kiểu câu hỏi này đã theo con người từ nông nghiệp, thương mại,
+        xây dựng, thiên văn cho đến y học và kĩ thuật hiện đại. Điểm chung vẫn là:
+        <b>một đại lượng thay đổi theo đại lượng khác như thế nào</b>. Ta thử nhìn vào bốn tình huống quen thuộc.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 1</span>Tình huống 1 — chuyến taxi</h2>
+  <h2><span class="chang">Chặng 1</span>Tình huống 1 — từ quãng đường đến tiền cước</h2>
   <div class="center">
   <svg viewBox="0 0 900 160" style="width:min(100%,740px);height:auto" role="img" aria-label="Xe taxi, đồng hồ cước 11 nghìn đồng, mũi tên quãng đường x km, hỏi số tiền y">
     <line x1="20" y1="132" x2="880" y2="132" stroke="#999" stroke-width="3"/>
@@ -170,7 +175,7 @@
   </svg>
   </div>
   <p class="small" style="margin:.2em 0">Mở cửa <b>11 000 đ</b> (cho 0,7 km đầu), mỗi km tiếp theo <b>15 800 đ</b>.
-    <b>Số tiền bám theo quãng đường</b> — và các câu hỏi bật ra:</p>
+    Từ thời người ta tính tiền theo đoạn đường đi, đến đồng hồ taxi và ứng dụng gọi xe hôm nay, bài toán vẫn là một: <b>số tiền phụ thuộc vào quãng đường</b>. Từ đó ta có các câu hỏi:</p>
   <ul class="small">
     <li class="fragment">Đi 7,5 km hết bao nhiêu tiền? <span class="nhucau">① BIẾT TRƯỚC</span></li>
     <li class="fragment">Trong túi có 200 000 đ — đi được xa nhất bao nhiêu km? <span class="nhucau">③ ĐẠT MỐC</span></li>
@@ -179,9 +184,10 @@
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 1</span>Tình huống 2 — cú ném kiếm bữa</h2>
-  <p class="small" style="margin:.2em 0">Chùm quả chín vắt vẻo trên cành <b>cao 9 m</b>. Khỏi leo trèo —
-    nhặt hòn đá, vung tay ném thẳng lên (đúng trò của tổ tiên săn bắt hái lượm!):</p>
+  <h2><span class="chang">Chặng 1</span>Tình huống 2 — đường bay của vật được ném lên</h2>
+  <p class="small" style="margin:.2em 0">Một chùm quả nằm ở độ cao <b>9 m</b>. Không có thang, ta thử ném một viên đá lên.
+    Từ kinh nghiệm ném đá, bắn tên, ném lao đến nghiên cứu chuyển động sau này, con người luôn gặp cùng một câu hỏi:
+    có thể <b>biết trước</b> đường bay hay không?</p>
   <div class="center">
   <svg viewBox="0 0 760 250" style="width:min(100%,600px);height:auto" role="img" aria-label="Quỹ đạo parabol của viên đá ném lên, chùm quả chín ở độ cao 9 mét phía trên đỉnh quỹ đạo">
     <line x1="30" y1="210" x2="730" y2="210" stroke="#7a5c2e" stroke-width="4"/>
@@ -199,46 +205,45 @@
     <text x="565" y="240" font-size="20" fill="#7a5c2e">rơi lại đất: t = ?</text>
   </svg>
   </div>
-  <p class="small" style="margin:.2em 0"><b>Độ cao viên đá bám theo thời gian.</b> Các câu hỏi bật ra:</p>
+  <p class="small" style="margin:.2em 0"><b>Độ cao của viên đá thay đổi theo thời gian.</b> Từ đó xuất hiện ba câu hỏi:</p>
   <ul class="small">
-    <li class="fragment">Đá lên <em>cao nhất</em> bao nhiêu — có <b>chạm nổi chùm quả 9 m</b> không? <span class="nhucau">② NHIỀU NHẤT</span></li>
-    <li class="fragment">Nếu trượt, <em>bao giờ</em> đá rơi lại đất để nhặt ném tiếp? <span class="nhucau">③ ĐẠT MỐC</span></li>
-    <li class="fragment">Ở giây thứ 2, đá <em>còn đang lên hay đã rơi</em>? <span class="nhucau">④ TOÀN CẢNH</span></li>
+    <li class="fragment">Viên đá lên cao nhất bao nhiêu? Có chạm tới độ cao 9 m không? <span class="nhucau">② NHIỀU NHẤT</span></li>
+    <li class="fragment">Nếu không tới, sau bao lâu viên đá rơi xuống đất? <span class="nhucau">③ ĐẠT MỐC</span></li>
+    <li class="fragment">Ở giây thứ 2, viên đá đang đi lên hay đã đi xuống? <span class="nhucau">④ TOÀN CẢNH</span></li>
   </ul>
-  <p class="fragment small center"><em>Ghim cả ba câu lại — <b>cuối buổi hôm nay</b> ta tự tay trả lời,
-    không cần ném thử.</em></p>
+  <p class="fragment small center"><em>Đây chính là kiểu bài toán đã dẫn con người tới parabol trong mô tả chuyển động. Cuối buổi, ta sẽ trả lời cả ba câu bằng một mô hình toán học.</em></p>
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 1</span>Tình huống 3 — đồng tiền sinh sôi</h2>
+  <h2><span class="chang">Chặng 1</span>Tình huống 3 — tiền gửi tăng theo thời gian</h2>
   <p class="small" style="margin:.2em 0">Gửi tiết kiệm <b>100 triệu</b>, lãi kép <b>6%/năm</b> —
     tiền năm sau \(=\) tiền năm trước \(\times\,1{,}06\):</p>
   <table class="bangso" style="font-size:.78em">
     <tr><td>năm</td><td>0</td><td>1</td><td>2</td><td>3</td><td>…</td></tr>
     <tr><td>triệu đồng</td><td>100</td><td>106</td><td>112,36</td><td>≈119,10</td><td>…</td></tr>
   </table>
-  <p class="small" style="margin:.3em 0">Cùng kiểu "sinh sôi": vi khuẩn \(\times2\) mỗi giờ
-    (\(1\to2\to4\to8\)), dân số tăng theo %, chất phóng xạ <em>teo</em> dần theo %.
-    <b>Số tiền bám theo số năm.</b> Câu hỏi bật ra:</p>
+  <p class="small" style="margin:.3em 0">Từ sổ nợ, tiền lãi, dân số, dịch bệnh đến phóng xạ,
+    con người nhiều lần gặp cùng một kiểu tăng giảm: sau mỗi khoảng thời gian,
+    đại lượng được <b>nhân với một tỉ lệ cố định</b>. Với tiền gửi, số tiền phụ thuộc vào số năm.</p>
   <ul class="small">
     <li class="fragment">10 năm nữa có bao nhiêu? <span class="nhucau">① BIẾT TRƯỚC</span></li>
-    <li class="fragment">Bao giờ <em>gấp đôi</em>? — câu này lạ nhé: phải "lần ngược" phép nhân!
+    <li class="fragment">Sau bao nhiêu năm thì số tiền gấp đôi?
       <span class="nhucau">③ ĐẠT MỐC</span></li>
-    <li class="fragment">Đà tăng nhanh dần hay đều đều? Nhìn thế nào cho ra? <span class="nhucau">④ TOÀN CẢNH</span></li>
+    <li class="fragment">Số tiền tăng đều hay tăng ngày càng nhanh? <span class="nhucau">④ TOÀN CẢNH</span></li>
   </ul>
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 1</span>Tình huống 4 — những thứ lặp đi lặp lại</h2>
+  <h2><span class="chang">Chặng 1</span>Tình huống 4 — những chuyển động lặp lại</h2>
   <div style="display:flex;gap:1em;align-items:flex-start">
     <div style="flex:1.3">
-      <p class="small" style="margin:.2em 0">Đu quay cao 90 m, quay đều <b>một vòng hết 20 phút</b>;
-        lúc \(t=0\) cabin ở thấp nhất. Cùng họ: thuỷ triều, ngày–đêm, nhịp tim, con lắc.
-        <b>Độ cao bám theo thời gian — nhưng cứ 20 phút lại y hệt.</b></p>
+      <p class="small" style="margin:.2em 0">Từ rất sớm, con người đã quan sát những thứ lặp lại:
+        ngày – đêm, mùa, trăng, thuỷ triều. Ngày nay ta còn thấy nó trong nhịp tim, sóng âm,
+        con lắc và đu quay. Một vòng đu quay kéo dài <b>20 phút</b>; lúc \(t=0\), cabin ở vị trí thấp nhất.</p>
       <ul class="small">
         <li class="fragment">Phút thứ 37, cabin cao khoảng bao nhiêu? <span class="nhucau">① BIẾT TRƯỚC</span></li>
         <li class="fragment">Muốn chụp ảnh ở đỉnh — lên cabin lúc nào? <span class="nhucau">③ ĐẠT MỐC</span></li>
-        <li class="fragment">Tả gọn <em>cả ngày vận hành</em> bằng một hình? <span class="nhucau">④ TOÀN CẢNH</span></li>
+        <li class="fragment">Có thể mô tả cả quá trình vận hành bằng một hình hay không? <span class="nhucau">④ TOÀN CẢNH</span></li>
       </ul>
     </div>
     <div class="center" style="flex:.7">
@@ -247,21 +252,21 @@
         <path d="M10,60 C28,5 47,5 65,60 C83,115 102,115 120,60 C138,5 157,5 175,60 C193,115 212,115 222,80"
           fill="none" stroke="#005493" stroke-width="4"/>
       </svg>
-      <div class="small">nhấp nhô — vì lặp lại</div>
+      <div class="small">đường cong lặp lại theo chu kì</div>
     </div>
   </div>
-  <p class="fragment small center"><em>Sự lặp lại là một "nét riêng" quý giá: biết một vòng — biết cả ngày.
-    Gia đình hàm mô tả nó sẽ chiếm trọn buổi <b>A2</b>.</em></p>
+  <p class="fragment small center"><em>Chỉ cần hiểu một chu kì, ta có thể suy ra các chu kì còn lại.
+    Tư duy này nằm sau lịch, thiên văn, sóng và rất nhiều mô hình tuần hoàn. Đây sẽ là nội dung chính của buổi <b>A2</b>.</em></p>
 </section>
 
 <section class="tonghop">
-  <h2>📌 Tổng hợp chặng 1 — bốn câu chuyện, MỘT khuôn</h2>
+  <h2>📌 Tổng hợp chặng 1 — bốn tình huống, một cấu trúc chung</h2>
   <div style="display:flex;gap:.8em;align-items:center">
     <table style="flex:1.4;font-size:.68em;margin:0">
-      <tr><th>Tình huống</th><th>Cái gì bám theo cái gì</th><th>Nhu cầu chạm tới</th></tr>
+      <tr><th>Tình huống</th><th>Đại lượng nào phụ thuộc đại lượng nào?</th><th>Nhu cầu chạm tới</th></tr>
       <tr class="fragment"><td>Chuyến taxi</td><td>số tiền ← quãng đường</td><td>① ③ ④</td></tr>
-      <tr class="fragment"><td>Cú ném kiếm bữa</td><td>độ cao ← thời gian</td><td>② ③ ④</td></tr>
-      <tr class="fragment"><td>Tiền sinh sôi</td><td>số tiền ← số năm</td><td>① ③ ④</td></tr>
+      <tr class="fragment"><td>Viên đá được ném lên</td><td>độ cao ← thời gian</td><td>② ③ ④</td></tr>
+      <tr class="fragment"><td>Tiền gửi lãi kép</td><td>số tiền ← số năm</td><td>① ③ ④</td></tr>
       <tr class="fragment"><td>Đu quay</td><td>độ cao ← thời gian (lặp lại)</td><td>① ③ ④</td></tr>
     </table>
     <div class="center" style="flex:.8">
@@ -282,15 +287,16 @@
     </div>
   </div>
   <div class="fragment box kienthuc"><div class="tit">Kết luận chặng 1</div><div class="bd">
-    Mọi tình huống đều là <b>một đại lượng bám theo một đại lượng</b> + bốn nhu cầu trên tháp.
-    Toán học gói "sự bám theo" ấy vào MỘT khái niệm — <b>HÀM SỐ</b> — rồi chế công cụ
-    phục vụ từng tầng tháp. Chặng 2: xem khái niệm ấy và <b>những hàm số nào</b> đã ra đời.
+    Trong mỗi tình huống, một đại lượng thay đổi theo một đại lượng khác.
+    Lịch sử toán học cũng phát triển theo hướng đó: đo đạc nhiều hơn, ghi bảng nhiều hơn, vẽ hình nhiều hơn,
+    rồi cần một ngôn ngữ chung. Toán học gọi cách mô tả mối phụ thuộc ấy là <b>hàm số</b>.
+    Bây giờ ta xem hàm số được hiểu thế nào và những họ hàm quen thuộc gồm những gì.
   </div></div>
 </section>
 
 <!-- ═════════ CHẶNG 2 · HÀM SỐ NÀO RA ĐỜI? ═════════ -->
 <section>
-  <h2><span class="chang">Chặng 2</span>Hàm số — chiếc máy "một đầu vào, một đầu ra"</h2>
+  <h2><span class="chang">Chặng 2</span>Hàm số — ngôn ngữ chung cho các mối phụ thuộc</h2>
   <div class="center">
   <svg viewBox="0 0 900 120" style="width:min(100%,720px);height:auto" role="img" aria-label="Sơ đồ máy hàm số: x đi vào, f(x) đi ra">
     <defs><marker id="mf" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
@@ -304,19 +310,18 @@
     <text x="705" y="95" text-anchor="middle" font-size="20" fill="#008040">duy nhất!</text>
   </svg>
   </div>
-  <div class="box kienthuc"><div class="tit">Hàm số — một đầu vào, một đầu ra</div><div class="bd">
+  <div class="box kienthuc"><div class="tit">Hàm số — cách nói hiện đại của một ý tưởng rất lâu đời</div><div class="bd">
     Cho tập \(D\subset\mathbb{R}\). Nếu <b>mỗi</b> \(x\in D\) tương ứng với <b>đúng một</b> số
     \(y\in\mathbb{R}\) thì ta có <b>hàm số</b> \(y=f(x)\); \(D\) là <b>tập xác định</b>
     (máy "ăn" được gì), tập các \(y\) thu được là <b>tập giá trị</b> (máy "nhả" ra được gì).
   </div></div>
-  <p class="fragment small">Ba mảnh của một hàm số: <b>tập xác định — quy tắc \(f\) — tập giá trị</b>.
+  <p class="fragment small">Ba thành phần cần nhớ: <b>tập xác định — quy tắc \(f\) — tập giá trị</b>. Nói gọn: máy nhận được đầu vào nào, xử lí theo quy tắc nào, và cho ra những kết quả nào.
     Taxi: quãng đường vào, số tiền ra. Đu quay: thời điểm vào, độ cao ra. Mỗi đầu vào — đúng một đầu ra.</p>
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 2</span>Bốn chiếc áo của một hàm số</h2>
-  <p class="small" style="margin:.2em 0">Cùng một sự phụ thuộc, hàm số có thể "mặc" 4 kiểu áo
-    (nhu cầu ④ "nhìn toàn cảnh" sẽ chuộng áo số ③!):</p>
+  <h2><span class="chang">Chặng 2</span>Bốn cách biểu diễn một hàm số</h2>
+  <p class="small" style="margin:.2em 0">Trước khi có kí hiệu hiện đại, con người đã mô tả mối phụ thuộc bằng lời, bảng đo và hình vẽ. Công thức đến sau, nhưng rất mạnh để tính toán. Vì vậy, cùng một hàm số có thể mặc bốn “chiếc áo”:</p>
   <div style="display:flex;gap:.5em">
     <div class="ao"><div class="aot">① LỜI VĂN</div><div class="aob">
       "Mở cửa 11 000 đ cho 0,7 km đầu, mỗi km tiếp theo 15 800 đ" — quy tắc cước taxi.</div></div>
@@ -336,19 +341,18 @@
           fill="none" stroke="#c85000" stroke-width="2.5"/>
       </svg></div></div>
     <div class="ao"><div class="aot">④ CÔNG THỨC</div><div class="aob">
-      Diện tích hình tròn theo bán kính: \(S=\pi r^2\) — chiếc áo "quyền lực" nhất,
-      nhưng không phải hàm nào cũng có.</div></div>
+      Diện tích hình tròn theo bán kính: \(S=\pi r^2\) — cách biểu diễn thuận tiện cho tính toán, nhưng không phải lúc nào cũng có công thức đơn giản.</div></div>
   </div>
   <div class="fragment box chuy"><div class="tit">Vì sao phải biết cả bốn?</div><div class="bd small">
-    Đề thi 4 kì <b>mặc đủ 4 áo</b>: cho bảng hỏi công thức, cho đồ thị hỏi tính chất, cho lời văn
-    bắt dựng hàm… Kĩ năng số 1 của mạch A: <b>thay áo thành thạo</b> giữa 4 biểu diễn.
+    Đề bài có thể cho lời văn, bảng số, đồ thị hoặc công thức. Vì vậy, một kĩ năng quan trọng là <b>chuyển đổi linh hoạt giữa bốn cách biểu diễn</b>.
   </div></div>
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 2</span>Mỗi tình huống "đẻ" ra một họ hàm — nhận diện bằng chữ ký</h2>
-  <p class="small" style="margin:.2em 0">Mỗi kiểu tình huống để lại một <b>chữ ký</b> trong bảng số —
-    chưa cần công thức vẫn gọi được tên họ hàm. Em thử (kéo thẻ tên vào từng bảng):</p>
+  <h2><span class="chang">Chặng 2</span>Mỗi kiểu thay đổi gợi ra một họ hàm — nhận diện qua dấu hiệu</h2>
+  <p class="small" style="margin:.2em 0">Các họ hàm không tự nhiên rơi xuống sách giáo khoa.
+    Chúng xuất hiện vì con người gặp đi gặp lại vài kiểu thay đổi quen thuộc. Mỗi kiểu để lại một dấu hiệu trong bảng số.
+    Chưa cần biết công thức, ta vẫn có thể nhận ra chúng:</p>
   <div class="sq-dd" data-mode="each" data-cham="Chấm nhận diện">
     <div class="small" style="display:flex;gap:.7em;text-align:center">
       <div style="flex:1">
@@ -359,7 +363,7 @@
       <div style="flex:1">
         <table class="bangso" style="font-size:.8em"><tr><td>x</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
           <tr><td>y</td><td>3</td><td>6</td><td>12</td><td>24</td></tr></table>
-        mỗi bước: <b>\(\times2\) đều</b> (kiểu tiền sinh sôi)<br><span class="sq-slot" data-ans="mu"></span>
+        mỗi bước: <b>\(\times2\) đều</b> (kiểu tiền gửi lãi kép)<br><span class="sq-slot" data-ans="mu"></span>
       </div>
       <div style="flex:1">
         <table class="bangso" style="font-size:.8em"><tr><td>x</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
@@ -375,16 +379,16 @@
       <span class="small">— có thẻ nhiễu!</span></p>
     <div class="sq-nut"></div>
   </div>
-  <p class="fragment small center">Còn đường bay hòn đá của cú ném? Chữ ký của nó tinh vi hơn một bậc —
-    <em>lát nữa</em> sẽ lộ diện ở bảng đo vật rơi. Giờ xem <b>bản tổng hợp cả dàn nhân vật</b>.</p>
+  <p class="fragment small center">Còn chuyển động của viên đá có dấu hiệu của hàm bậc hai.
+    Ta sẽ nhận ra điều đó rõ hơn ở bảng đo vật rơi. Trước hết, hãy nhìn toàn bộ các họ hàm.</p>
 </section>
 
 <section class="tonghop">
-  <h2>📌 Tổng hợp chặng 2 — lý lịch trích ngang 7 họ hàm</h2>
-  <p class="small" style="margin:.15em 0">Một trang này = toàn bộ "dân số" của Giải tích phổ thông.
-    Mỗi buổi tới ta lấy MỘT dòng ra tìm hiểu kĩ:</p>
+  <h2>📌 Tổng hợp chặng 2 — bảy họ hàm quen thuộc</h2>
+  <p class="small" style="margin:.15em 0">Bảng dưới đây là bản đồ khái quát của phần Giải tích phổ thông. Mỗi dòng từng gắn với một nhu cầu đo đạc hoặc mô tả thế giới:
+    chuyển động, tăng trưởng, chu kì, tỉ lệ nghịch, thang đo rất lớn hoặc rất nhỏ. Ở các buổi sau, ta sẽ lần lượt tìm hiểu từng dòng.</p>
   <table style="font-size:.56em">
-    <tr><th></th><th>Nhân vật</th><th>Chữ ký trong bảng số</th><th>Sinh ra để mô tả</th><th>Chân dung</th><th>Học kĩ ở</th></tr>
+    <tr><th></th><th>Họ hàm</th><th>Dấu hiệu trong bảng số</th><th>Thường dùng để mô tả</th><th>Chân dung</th><th>Học kĩ ở</th></tr>
     <tr class="fragment"><td>①</td><td><b>Bậc nhất</b> \(ax+b\)</td><td>\(x\) thêm 1 → \(y\) <b>cộng</b> thêm \(a\)</td>
       <td>taxi, nhiệt độ theo độ cao, hao mòn đều</td>
       <td><svg viewBox="0 0 100 54" width="84" role="img" aria-label="đường thẳng"><line x1="4" y1="48" x2="96" y2="48" stroke="#bbb"/><line x1="8" y1="44" x2="94" y2="8" stroke="#005493" stroke-width="3.5"/></svg></td>
@@ -414,58 +418,56 @@
       <td><svg viewBox="0 0 100 54" width="84" role="img" aria-label="các chấm rời rạc cao dần"><line x1="4" y1="48" x2="96" y2="48" stroke="#bbb"/><circle cx="18" cy="42" r="4" fill="#005493"/><circle cx="36" cy="34" r="4" fill="#005493"/><circle cx="54" cy="26" r="4" fill="#005493"/><circle cx="72" cy="18" r="4" fill="#005493"/><circle cx="90" cy="10" r="4" fill="#005493"/></svg></td>
       <td class="muc">A5–A6</td></tr>
   </table>
-  <p class="fragment small center">In trang này dán góc học tập — <b>bản đồ nhân sự của cả mạch A</b>.
-    Hàm nào cũng chỉ là một trong bảy gương mặt này (hoặc lắp ghép từ chúng).</p>
+  <p class="fragment small center">Hãy dùng bảng này như một bản đồ định hướng cho toàn bộ mạch A.
+    Khi nhìn nó như một bản đồ lịch sử thu nhỏ, ta thấy Toán học không tách khỏi đời sống: mỗi họ hàm là câu trả lời cho một kiểu biến đổi mà con người cần hiểu.</p>
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 2</span>Thử tay nghề — 5 câu nhanh với 5 nhân vật mới quen</h2>
-  <p class="small">Mỗi câu là một nhân vật vừa ra mắt — nhớ đúng <b>chữ ký</b> là giải được trong 20 giây
-    (bấm → hiện đáp số):</p>
+  <h2><span class="chang">Chặng 2</span>Kiểm tra nhanh — nhận diện năm kiểu thay đổi</h2>
+  <p class="small">Mỗi câu ứng với một kiểu thay đổi vừa gặp. Hãy nhận diện dấu hiệu trước khi tính:</p>
   <table style="font-size:.62em">
     <tr><td>1</td><td>Xi-lanh đang chứa <b>2 lít</b> không khí ở áp suất <b>1 atm</b>. Giữ nguyên nhiệt độ,
         ấn pít-tông nén khí đến áp suất <b>4 atm</b>. Hỏi thể tích khí lúc đó còn lại bao nhiêu?</td>
-      <td class="fragment kq" style="white-space:nowrap">áp suất ×4 → thể tích ÷4:<br>\(V=\dfrac{2}{4}=0{,}5\) lít &nbsp;<span style="font-weight:normal">(chữ ký \(1/x\))</span></td></tr>
+      <td class="fragment kq" style="white-space:nowrap">áp suất ×4 → thể tích ÷4:<br>\(V=\dfrac{2}{4}=0{,}5\) lít &nbsp;<span style="font-weight:normal">(dấu hiệu \(1/x\))</span></td></tr>
     <tr><td>2</td><td>Đu quay <b>20 phút mới hết một vòng</b>; lúc xuất phát (phút 0) cabin của em ở điểm
         <b>thấp nhất</b>. Đến phút thứ mấy cabin lại xuống thấp nhất? Và ở phút thứ 10 cabin đang ở đâu?</td>
       <td class="fragment kq" style="white-space:nowrap">phút \(20\) — đúng 1 chu kì;<br>phút 10 = nửa vòng → <b>cao nhất</b> <span style="font-weight:normal">(lặp lại)</span></td></tr>
     <tr><td>3</td><td>Đĩa nuôi cấy có <b>1 000 con vi khuẩn</b>; cứ sau mỗi giờ số vi khuẩn lại <b>nhân đôi</b>.
         Hỏi sau 5 giờ trong đĩa có bao nhiêu con?</td>
-      <td class="fragment kq" style="white-space:nowrap">\(1000\cdot 2^{5}=32\,000\) con<br><span style="font-weight:normal">(chữ ký ×đều — hàm mũ)</span></td></tr>
+      <td class="fragment kq" style="white-space:nowrap">\(1000\cdot 2^{5}=32\,000\) con<br><span style="font-weight:normal">(dấu hiệu ×đều — hàm mũ)</span></td></tr>
     <tr><td>4</td><td>Thang Richter quy ước: cứ <b>thêm 1 độ</b>, biên độ rung của mặt đất <b>gấp 10 lần</b>.
         Hỏi trận động đất 8 độ rung mạnh gấp bao nhiêu lần trận 6 độ?</td>
-      <td class="fragment kq" style="white-space:nowrap">thêm 2 độ → \(10^{2}=100\) lần —<br>không phải "gấp 2"! <span style="font-weight:normal">(chữ ký log)</span></td></tr>
+      <td class="fragment kq" style="white-space:nowrap">thêm 2 độ → \(10^{2}=100\) lần —<br>không phải "gấp 2"! <span style="font-weight:normal">(dấu hiệu log)</span></td></tr>
     <tr><td>5</td><td>Từ tháng 1, <b>mỗi tháng</b> em bỏ ống heo <b>500 nghìn đồng</b>.
         Hỏi hết tháng 12 trong ống có bao nhiêu tiền?</td>
       <td class="fragment kq" style="white-space:nowrap">\(500\cdot12=6\,000\) nghìn = 6 triệu<br><span style="font-weight:normal">(dãy cộng đều)</span></td></tr>
   </table>
-  <div class="fragment box chuy"><div class="tit">Câu treo thưởng (nhu cầu ③ — tầng khó của tháp!)</div><div class="bd small">
-    Gửi 100 triệu, lãi kép 6%/năm — <b>sau bao nhiêu năm thì tiền gấp đôi</b>? Phép "lần ngược
-    phép nhân" này cần đúng nhân vật <b>lôgarit</b> — đáp án chờ ở A4 (bật mí: chừng một tá năm).
+  <div class="fragment box chuy"><div class="tit">Câu hỏi để dành</div><div class="bd small">
+    Gửi 100 triệu với lãi kép 6%/năm: <b>sau bao nhiêu năm thì tiền gấp đôi?</b>
+    Muốn tìm ngược số năm, ta cần đến <b>lôgarit</b>. Câu hỏi này sẽ được giải ở buổi A4.
   </div></div>
 </section>
 
 <!-- ═════════ CHẶNG 3 · MONG MUỐN → KHÁI NIỆM ═════════ -->
 <section>
-  <h2><span class="chang">Chặng 3</span>Từ bốn nhu cầu → những khái niệm phải có</h2>
-  <p class="small" style="margin:.2em 0">Có "nhân vật" rồi — muốn phục vụ 4 nhu cầu, toán học phải
-    chế ra khái niệm tương ứng. Ghép thử xem:</p>
+  <h2><span class="chang">Chặng 3</span>Từ câu hỏi thực tế đến khái niệm toán học</h2>
+  <p class="small" style="margin:.2em 0">Một khi đã có hàm số, con người không dừng lại ở việc “có công thức”.
+    Ta còn muốn biết nó dùng để dự đoán, tối ưu, giải ngược và nhìn toàn cảnh như thế nào.
+    Vì thế, các khái niệm sau dần trở thành bộ công cụ chung:</p>
   <table style="font-size:.72em">
-    <tr><th>Nhu cầu</th><th>Khái niệm toán học sinh ra để phục vụ nó</th></tr>
+    <tr><th>Nhu cầu</th><th>Khái niệm dùng để trả lời</th></tr>
     <tr class="fragment"><td><span class="nhucau">① BIẾT TRƯỚC</span></td>
       <td><b>quy tắc \(f\)</b> để thay số + <b>tập xác định</b> (thay số nào thì hợp lệ)</td></tr>
     <tr class="fragment"><td><span class="nhucau">④ TOÀN CẢNH</span></td>
-      <td><b>đồ thị</b> (bức chân dung) + <b>chiều biến thiên</b> (đoạn nào lên dốc, đoạn nào xuống)</td></tr>
+      <td><b>đồ thị</b> để quan sát toàn cảnh và <b>chiều biến thiên</b> để biết đoạn nào tăng, đoạn nào giảm</td></tr>
     <tr class="fragment"><td><span class="nhucau">② NHIỀU NHẤT – ÍT NHẤT</span></td>
-      <td><b>GTLN – GTNN</b> (đỉnh và đáy)</td></tr>
+      <td><b>GTLN – GTNN</b> để xác định mức cao nhất và thấp nhất</td></tr>
     <tr class="fragment"><td><span class="nhucau">③ ĐẠT MỐC KHI NÀO</span></td>
-      <td><b>nghiệm</b>: giải \(f(x)=m\) — hàm số bắt tay phương trình</td></tr>
+      <td><b>nghiệm</b>: giải \(f(x)=m\) để tìm đầu vào tạo ra kết quả mong muốn</td></tr>
     <tr class="fragment"><td><span class="nhucau">＋ LÀM NHANH HƠN</span></td>
-      <td><b>nét riêng</b>: đối xứng, tuần hoàn, tiệm cận — biết nét riêng là làm tắt được
-        (đu quay: biết 1 vòng = biết cả ngày!)</td></tr>
+      <td><b>các tính chất riêng</b>: đối xứng, tuần hoàn, tiệm cận — giúp rút ngắn việc phân tích</td></tr>
   </table>
-  <p class="fragment small center">Xếp gọn các khái niệm ấy lại thành <b>một tờ hồ sơ chuẩn</b> —
-    dùng chung cho cả 7 nhân vật. Trang sau!</p>
+  <p class="fragment small center">Ta sắp xếp các khái niệm ấy thành một <b>hồ sơ chung</b>, dùng cho mọi họ hàm.</p>
 </section>
 
 <section class="tonghop">
@@ -473,7 +475,7 @@
   <div style="display:flex;gap:1em;align-items:flex-start">
     <table style="flex:1.6;font-size:.64em;margin:0">
       <tr><th></th><th>Mục hồ sơ</th><th>Thử ngay với \(f(x)=x^2-4x+3\)</th></tr>
-      <tr><td>①</td><td><b>Gốc gác:</b> họ nào, quy tắc gì?</td><td class="fragment kq">bậc hai — nhân vật ② của bản tổng hợp</td></tr>
+      <tr><td>①</td><td><b>Gốc gác:</b> họ nào, quy tắc gì?</td><td class="fragment kq">bậc hai — họ hàm số ② trong bảng tổng hợp</td></tr>
       <tr><td>②</td><td><b>TXĐ</b> — tập giá trị?</td><td class="fragment kq">\(D=\mathbb{R}\); giá trị từ \(-1\) trở lên</td></tr>
       <tr><td>③</td><td><b>Chân dung</b> (đồ thị)?</td><td class="fragment kq">parabol, bề lõm quay lên</td></tr>
       <tr><td>④</td><td><b>Chiều biến thiên</b> — nhanh chậm ra sao?</td><td class="fragment kq">xuống dốc tới \(x=2\) rồi lên</td></tr>
@@ -482,19 +484,19 @@
       <tr><td>⑦</td><td><b>Nghiệm</b> — cắt trục ở đâu?</td><td class="fragment kq">cắt \(Ox\) tại \(1\) và \(3\); cắt \(Oy\) tại \(3\)</td></tr>
     </table>
     <div style="flex:1">
-      <div class="box chuy"><div class="tit">Đây là "bộ xương" của cả mạch A</div><div class="bd small">
-        Mỗi buổi từ nay: gặp nhân vật mới → <b>điền đúng tờ hồ sơ này</b>.<br><br>
-        Mọi câu hỏi thi (cả 4 kì) = <b>một họ hàm × một mục hồ sơ × một kiểu áo đề</b>.
+      <div class="box chuy"><div class="tit">Đây là khung phân tích dùng trong cả mạch A</div><div class="bd small">
+        Mỗi khi gặp một họ hàm mới, ta sẽ lần lượt hoàn thiện bảy mục này.<br><br>
+        Một câu hỏi trong đề thường kết hợp: <b>một họ hàm, một tính chất và một cách biểu diễn</b>.
       </div></div>
-      <p class="fragment small">Bài "khảo sát hàm số" lớp 12 mà em nghe đồn đáng sợ? — Chính là tờ hồ sơ
-        này, điền bằng máy mới tên là <b>đạo hàm</b>. Hôm nay ta điền bằng mắt thường trước.</p>
+      <p class="fragment small">Bài khảo sát hàm số lớp 12 thực chất là hoàn thiện hồ sơ này bằng công cụ <b>đạo hàm</b>.
+        Hôm nay, ta bắt đầu với những hàm có thể quan sát trực tiếp.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>Mười câu "hạt giống" — nhận diện nhanh</h2>
-  <p class="small">Nhân vật chính của buổi hôm nay: \(f(x)=x^2-4x+3\). Trả lời nhanh và <b>ghi nhớ</b> —
+  <h2><span class="chang">Chặng 3</span>Mười câu nền tảng — kiểm tra kiến thức cần dùng</h2>
+  <p class="small">Họ hàm chính của buổi hôm nay: \(f(x)=x^2-4x+3\). Trả lời nhanh và <b>ghi nhớ</b> —
     đây là "viên gạch" cho mọi ví dụ phía sau (bấm → để hiện đáp số từng câu):</p>
   <div class="small" style="display:flex;gap:1.4em;align-items:flex-start">
     <table style="flex:1;margin:0">
@@ -539,8 +541,8 @@
   <p class="hoihs">Số 1 thuộc nhánh nào? (nhìn điều kiện bên phải!)</p>
   <p class="fragment"><span class="lg">Lời giải.</span> Vì \(1&lt;2\), dùng nhánh dưới:
     \(f(1)=1-3\cdot1=\class{kq}{-2}\).</p>
-  <p class="fragment small">Hạt giống (10) đã gặp \(y=1-3x\) rồi đấy — lát nữa nó quay lại ở phần
-    <em>chiều biến thiên</em>.</p>
+  <p class="fragment small">Câu (10) trong "mười câu nền tảng" đã gặp \(y=1-3x\) rồi đấy —
+    lát nữa nó quay lại ở phần <em>chiều biến thiên</em>.</p>
   <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd">
     Sai lầm kinh điển: thay \(x=1\) vào nhánh trên rồi… tắc ở \(\sqrt{-1}\).
     <b>Đọc điều kiện trước, thay số sau.</b>
@@ -548,11 +550,11 @@
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 4</span>Kĩ thuật cho mục ② — chiếc máy không "ăn" được mọi thứ</h2>
+  <h2><span class="chang">Chặng 4</span>Kĩ thuật cho mục ② — Không phải giá trị nào cũng được phép thay vào</h2>
   <ul>
-    <li>Máy \(f(x)=\dfrac{1}{x-2}\) bị "nghẹn" khi cho \(x=2\) vào — <b>chia cho 0</b>!</li>
-    <li class="fragment">Máy \(f(x)=\sqrt{x-1}\) từ chối mọi \(x&lt;1\) — <b>căn của số âm</b>!</li>
-    <li class="fragment">Tập những \(x\) mà máy "tiêu hoá" được — chính là <b>tập xác định</b>.</li>
+    <li>Với \(f(x)=\dfrac{1}{x-2}\), giá trị \(x=2\) không được phép vì mẫu bằng 0.</li>
+    <li class="fragment">Với \(f(x)=\sqrt{x-1}\), cần \(x\ge1\) để biểu thức dưới căn không âm.</li>
+    <li class="fragment">Tập hợp tất cả các giá trị \(x\) được phép dùng gọi là <b>tập xác định</b>.</li>
   </ul>
   <div class="fragment box kienthuc"><div class="tit">Hai lệnh cấm khi tìm tập xác định</div><div class="bd">
     <ol>
@@ -569,7 +571,7 @@
 <section>
   <h2><span class="chang">Chặng 4</span>Ví dụ 3 và 4 — hai cạm bẫy của tập xác định</h2>
   <p class="small" style="margin:.2em 0"><b>Ví dụ 3.</b> Tìm tập xác định của \(y=\dfrac{x-1}{x^2-x+3}\).</p>
-  <p class="hoihs" style="margin:.2em 0">Mẫu \(x^2-x+3\) có bao giờ bằng 0 không? (hạt giống (8)!)</p>
+  <p class="hoihs" style="margin:.2em 0">Mẫu \(x^2-x+3\) có bao giờ bằng 0 không? (kết quả câu (8)!)</p>
   <p class="fragment small"><span class="lg">Lời giải.</span>
     \(x^2-x+3=\Bigl(x-\dfrac12\Bigr)^2+\dfrac{11}{4}>0\) với mọi \(x\)
     (hoặc \(\Delta=1-12&lt;0\), \(a>0\)) → mẫu không bao giờ triệt tiêu → \(D=\class{kq}{\mathbb{R}}\).<br>
@@ -586,11 +588,11 @@
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 4</span>Kĩ thuật cho mục ③ — đồ thị, bức chân dung</h2>
-  <div class="box kechuyen"><div class="tit">Ai nghĩ ra đồ thị?</div><div class="bd small">
-    Năm 1637, <b>René Descartes</b> gắn cho mặt phẳng hai trục số. Từ đó mỗi cặp
-    \((x;f(x))\) thành một <em>điểm</em> — hàm số bỗng có <b>chân dung</b>, và hình học
-    bắt tay đại số.
+  <h2><span class="chang">Chặng 4</span>Kĩ thuật cho mục ③ — đồ thị, hình ảnh của hàm số</h2>
+  <div class="box kechuyen"><div class="tit">Từ bảng số đến đồ thị</div><div class="bd small">
+    Một bước ngoặt lớn của Toán học là gắn số với hình. Năm 1637, René Descartes đưa tọa độ vào hình học:
+    mỗi cặp \((x;f(x))\) trở thành một điểm. Tập hợp các điểm ấy tạo thành
+    <b>đồ thị</b>, giúp ta nhìn mối phụ thuộc bằng mắt.
   </div></div>
   <div style="display:flex;gap:1em;align-items:center">
   <div class="center" style="flex:1.05">
@@ -622,7 +624,7 @@
   <div class="box kienthuc"><div class="tit">Điểm thuộc đồ thị</div><div class="bd small">
     \(M(a;b)\) thuộc đồ thị hàm số \(y=f(x)\) \(\iff b=f(a)\) — <em>thay vào công thức phải khớp</em>.
   </div></div>
-  <p class="hoihs fragment" style="font-size:.85em">Điểm \((5;8)\) có thuộc đồ thị không?<br>Điểm \((4;2)\)? — hạt giống (5) trả lời hộ em!</p>
+  <p class="hoihs fragment" style="font-size:.85em">Điểm \((5;8)\) có thuộc đồ thị không?<br>Điểm \((4;2)\)? — kết quả câu (5) trả lời hộ em!</p>
   <p class="fragment small">\(f(5)=8\) ✓ → \((5;8)\) <span class="kq">thuộc</span>;<br>
     \(f(4)=3\ne2\) → \((4;2)\) <span style="color:var(--maucam);font-weight:bold">không thuộc</span>.</p>
   </div>
@@ -704,9 +706,10 @@
 
 <!-- ═════════ TRAILER MẠCH A ═════════ -->
 <section>
-  <h2>Trailer — bốn câu hỏi em SẼ tự trả lời được</h2>
-  <p class="small" style="margin:.2em 0">Mục ⑥ ⑦ của tờ hồ sơ mới điền được cho hàm <em>đơn giản</em>.
-    Với câu hỏi thật gai góc thì cần thêm máy — và đây là những gì máy mới sẽ làm:</p>
+  <h2><span class="chang">Nhìn xa</span>Bốn câu hỏi sẽ được giải trong mạch A</h2>
+  <p class="small" style="margin:.2em 0">Ở A1, ta còn nhìn được nhiều thứ bằng mắt thường.
+    Nhưng lịch sử Toán học không dừng ở đó: khi chuyển động, tối ưu, tăng trưởng và diện tích trở nên phức tạp hơn,
+    con người phải chế tạo những công cụ mạnh hơn. Đây là bốn câu hỏi sẽ dẫn đường cho những buổi tiếp theo:</p>
   <table style="font-size:.72em">
     <tr><th>Câu hỏi thật ngoài đời</th><th>Trả lời ở</th></tr>
     <tr class="fragment"><td>Hộp sữa đặc 1 lít hình trụ: cao bao nhiêu, rộng bao nhiêu thì <b>tốn ít vỏ nhất</b>?
@@ -717,12 +720,13 @@
     <tr class="fragment"><td>Mảnh đất ven sông có một bờ <b>cong</b> — tính diện tích kiểu gì
       khi không có công thức nào cho hình cong?</td><td class="muc">A13</td></tr>
   </table>
-  <p class="fragment small center" style="margin-top:.5em">Cuối mạch A ta sẽ quay lại đúng bảng này —
-    <b>tự tay em</b> điền lời giải. Còn bây giờ: gieo hạt cho câu thứ ba…</p>
+  <p class="fragment small center" style="margin-top:.5em">Cuối mạch A, ta sẽ quay lại và giải trọn vẹn bốn câu hỏi này.
+    Nói cách khác, ta sẽ đi lại một phiên bản thu nhỏ của lịch sử Giải tích: từ đo sự thay đổi đến cộng dồn sự thay đổi.
+    Trước mắt, hãy bắt đầu từ ý tưởng đo tốc độ thay đổi.</p>
 </section>
 
 <section>
-  <h2>Gieo hạt: tốc độ thay đổi \(\dfrac{\Delta y}{\Delta x}\) — chỉ cần trừ và chia</h2>
+  <h2><span class="chang">Nhìn xa</span>Ý tưởng mở đầu: tốc độ thay đổi \(\dfrac{\Delta y}{\Delta x}\) — chỉ cần trừ và chia</h2>
   <p class="small" style="margin:.2em 0">Thả quả bóng từ tháp CN Tower cao 450 m, đo độ cao \(h\) (m) từng giây:</p>
   <table class="bangso" style="font-size:.7em">
     <tr><td>\(t\) (s)</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
@@ -731,42 +735,43 @@
   <p class="hoihs fragment">Mỗi giây bóng rơi được bao nhiêu mét? Tính thử vài "nhịp":</p>
   <p class="fragment small center">giây 1: \(450-445=5\) m · giây 2: \(445-431=14\) m ·
     giây 3: \(23\) m · … · giây 5: \(43\) m · … · giây 9: \(143-61=82\) m</p>
-  <p class="fragment small center">Tốc độ rơi <b>tăng thêm ~10 m/s sau mỗi giây</b> — thay đổi của thay đổi
-    lại… <em>đều</em>! Đây chính là <b>chữ ký của hàm bậc hai</b> còn thiếu ở bản tổng hợp:
-    \(h(t)\) là một parabol (\(g\approx9{,}8\) — trọng lực đấy).</p>
-  <div class="fragment box chuy"><div class="tit">Câu hỏi treo lơ lửng (đừng quên nó!)</div><div class="bd small">
-    Bảng chỉ cho tốc độ <b>trung bình</b> giữa hai thời điểm. Vậy vận tốc <b>đúng tại</b> \(t=2\)
-    là bao nhiêu — khi chỉ có MỘT thời điểm, lấy gì mà trừ, lấy gì mà chia?<br>
-    Toàn bộ buổi A6–A7 sinh ra để trả lời đúng câu này. Ai trả lời được — người đó phát minh lại đạo hàm.
+  <p class="fragment small center">Sau mỗi giây, quãng đường rơi trong một giây tăng thêm khoảng 10 m. Nói cách khác,
+    <b>mức thay đổi lại thay đổi gần như đều</b>. Đây là dấu hiệu của hàm bậc hai:
+    \(h(t)\) là một parabol (\(g\approx9{,}8\) — trọng lực đấy). Những quan sát kiểu này là lý do chuyển động rơi,
+    ném lên, ném xiên gắn rất chặt với parabol.</p>
+  <div class="fragment box chuy"><div class="tit">Câu hỏi còn bỏ ngỏ</div><div class="bd small">
+    Bảng chỉ cho tốc độ <b>trung bình</b> giữa hai thời điểm. Nhưng vận tốc <b>ngay tại</b> \(t=2\)
+    được xác định thế nào?<br>
+    Câu hỏi này sẽ dẫn ta đến khái niệm <b>đạo hàm</b> ở các buổi A6–A7.
   </div></div>
 </section>
 
 <!-- ═════════ CHẶNG 5 · HỒ SƠ ĐẦY ĐỦ ĐẦU TIÊN: PARABOL ═════════ -->
 <section>
   <h2><span class="chang">Chặng 5</span>Hồ sơ đầy đủ đầu tiên: PARABOL \(y=ax^2+bx+c\)</h2>
-  <div class="box kechuyen"><div class="tit">Vì sao chọn parabol mở hàng?</div><div class="bd small">
-    Quen nhất (em học từ lớp 9–10), lại vừa xuất hiện ở <b>cú ném kiếm bữa</b> và bảng đo vật rơi.
-    Galileo chứng minh: mọi vật ném lên đều bay theo đường này — từ hòn đá của tổ tiên
-    đến tia nước đài phun. Và nó đủ "khoẻ" để điền trọn 7 mục hồ sơ ngay hôm nay.
+  <div class="box kechuyen"><div class="tit">Vì sao bắt đầu với parabol?</div><div class="bd small">
+    Parabol không chỉ là một đồ thị trong sách. Nó xuất hiện trong diện tích hình chữ nhật,
+    trong bài toán tối ưu đơn giản, và đặc biệt trong đường bay của vật chịu trọng lực.
+    Đây là họ hàm đủ đơn giản để quan sát trực tiếp, nhưng cũng đủ giàu ý nghĩa để thấy Toán học sinh ra từ việc mô tả thế giới.
   </div></div>
   <div class="box kienthuc"><div class="tit">Chân dung parabol y = ax² + bx + c (a ≠ 0)</div><div class="bd">
     <ul>
       <li><b>Trục đối xứng</b>: đường thẳng \(x=-\dfrac{b}{2a}\).</li>
       <li><b>Đỉnh</b> \(I\Bigl(-\dfrac{b}{2a};\,f\Bigl(-\dfrac{b}{2a}\Bigr)\Bigr)\)
-        — tung độ đỉnh: cứ <b>thay hoành độ đỉnh vào \(f\)</b>, khỏi nhớ công thức \(-\dfrac{\Delta}{4a}\)!</li>
+        — tung độ đỉnh: cứ <b>thay hoành độ đỉnh vào \(f\)</b>, không nhất thiết phải nhớ thêm công thức \(-\dfrac{\Delta}{4a}\)!</li>
       <li>\(a>0\): bề lõm quay <b>lên</b> → đỉnh là chỗ <b>thấp nhất</b> (GTNN);<br>
         \(a&lt;0\): bề lõm quay <b>xuống</b> → đỉnh là chỗ <b>cao nhất</b> (GTLN).</li>
     </ul>
   </div></div>
-  <p class="fragment">Kiểm tra bằng nhân vật chính \(f(x)=x^2-4x+3\):
-    hạt giống (4) cho \(x_I=2\), hạt giống (2) cho \(f(2)=-1\) → đỉnh \(I(2;-1)\) —
-    khớp bức chân dung ta đã vẽ!</p>
+  <p class="fragment">Kiểm tra bằng hàm số chính \(f(x)=x^2-4x+3\):
+    kết quả câu (4) cho \(x_I=2\), kết quả câu (2) cho \(f(2)=-1\) → đỉnh \(I(2;-1)\) —
+    đúng với đồ thị đã quan sát.</p>
 </section>
 
 <section>
   <h2><span class="chang">Chặng 5</span>Ví dụ 6 — chiều biến thiên của parabol</h2>
   <p class="center">Hàm số \(y=-x^2+4x-3\) đồng biến, nghịch biến trên những khoảng nào?</p>
-  <p class="hoihs">Đỉnh ở đâu? Bề lõm quay lên hay xuống? (hạt giống (4) và (9))</p>
+  <p class="hoihs">Đỉnh ở đâu? Bề lõm quay lên hay xuống? (kết quả câu (4) và (9))</p>
   <p class="fragment"><span class="lg">Lời giải.</span>
     \(x_{\text{đỉnh}}=-\dfrac{b}{2a}=-\dfrac{4}{-2}=2\); \(a=-1&lt;0\) → bề lõm quay xuống:
     <b>lên dốc tới \(x=2\), rồi xuống dốc</b>.</p>
@@ -780,16 +785,16 @@
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 5</span>Ví dụ 7 — lần ngược hệ số từ manh mối</h2>
+  <h2><span class="chang">Chặng 5</span>Ví dụ 7 — tìm hệ số từ các dữ kiện</h2>
   <p class="center">Parabol \((P):y=2x^2+bx+c\) đi qua \(M(0;4)\) và có trục đối xứng \(x=1\). Tính \(S=b+c\).</p>
-  <p class="hoihs">Điểm \(M(0;4)\) "khai" ra ngay hệ số nào?</p>
+  <p class="hoihs">Từ điểm \(M(0;4)\), ta xác định ngay được hệ số nào?</p>
   <p class="fragment"><span class="lg">Lời giải.</span>
     Qua \(M(0;4)\): \(y(0)=c=4\).</p>
   <p class="fragment">Trục đối xứng: \(-\dfrac{b}{2\cdot2}=1\Rightarrow b=-4\).</p>
   <p class="fragment">Vậy \(S=b+c=\class{kq}{0}\).</p>
   <div class="fragment box chuy"><div class="tit">Bài học</div><div class="bd">
-    Mỗi <b>manh mối</b> (đi qua điểm, trục đối xứng, đỉnh, cắt trục…) đổi được <b>một phương trình</b>
-    theo hệ số. Đếm ẩn — đếm manh mối — lập hệ. Đây là "trò chơi thám tử" quen của cả 4 kì thi.
+    Mỗi dữ kiện như điểm thuộc đồ thị, trục đối xứng, đỉnh hay giao điểm với trục tọa độ
+    cho ta một phương trình theo các hệ số. Hãy đếm số ẩn, khai thác đủ dữ kiện rồi lập hệ.
   </div></div>
 </section>
 
@@ -802,7 +807,7 @@
   </div></div>
   <p class="fragment"><b>Ví dụ 8.</b> Tìm GTLN–GTNN của \(f(x)=x^2-4x+3\) trên \([0;3]\).</p>
   <p class="hoihs fragment">Đỉnh \(x=2\) có thuộc đoạn \([0;3]\) không?</p>
-  <p class="fragment"><span class="lg">Lời giải.</span> Có! Ba ứng viên (toàn hạt giống cũ):
+  <p class="fragment"><span class="lg">Lời giải.</span> Có. Ba giá trị cần xét đều đã được tính ở phần trước:
     \(f(0)=3\), \(f(2)=-1\), \(f(3)=0\).</p>
   <p class="fragment">So sánh: \(\max\limits_{[0;3]}f=\class{kq}{3}\) tại \(x=0\);
     \(\min\limits_{[0;3]}f=\class{kq}{-1}\) tại \(x=2\).</p>
@@ -811,19 +816,19 @@
 </section>
 
 <section>
-  <h2><span class="chang">Chặng 5</span>Ví dụ 9 — trả nợ tình huống 2: viên đá có hạ được chùm quả?</h2>
+  <h2><span class="chang">Chặng 5</span>Ví dụ 9 — trở lại bài toán viên đá và chùm quả</h2>
   <p class="small">Viên đá ném lên có độ cao là parabol \(h=at^2+bt+c\) (\(t\): giây, \(h\): mét).
     Đá rời tay ở độ cao 1,2 m; sau 1 s đạt 8,5 m; sau 2 s còn 6 m. Chùm quả chín ở độ cao <b>9 m</b>.<br>
     a) Viên đá có <b>chạm nổi chùm quả</b> không? &nbsp; b) Nếu trượt, sau bao lâu đá rơi lại đất
     (làm tròn hàng phần trăm)?</p>
-  <p class="hoihs">Ba dữ kiện — đổi được mấy phương trình? (nhớ "trò chơi thám tử"!)</p>
+  <p class="hoihs">Ba dữ kiện độ cao — lập được mấy phương trình theo \(a\), \(b\), \(c\)?</p>
   <p class="fragment small"><span class="lg">Lời giải.</span>
     \(t=0\): \(c=1{,}2\). &nbsp; \(t=1\): \(a+b+1{,}2=8{,}5\). &nbsp; \(t=2\): \(4a+2b+1{,}2=6\).
     Hệ \(\begin{cases}a+b=7{,}3\\ 2a+b=2{,}4\end{cases}\Rightarrow a=-4{,}9;\ b=12{,}2\)
     &nbsp;→&nbsp; \(h(t)=-4{,}9t^2+12{,}2t+1{,}2\).</p>
   <p class="fragment small">a) Cao nhất = <b>đỉnh parabol</b>: \(t=\dfrac{12{,}2}{9{,}8}\approx1{,}24\) s,
     \(h_{\max}\approx\class{kq}{8{,}79\ \text{m}}<9\) m — <b>hụt 21 cm, không chạm nổi</b>!
-    Toán "báo trước" khi chưa cần ném thử (nhu cầu ②).</p>
+    Đây là điểm quan trọng của mô hình: từ vài phép đo, ta dựng được quy tắc; từ quy tắc, ta biết kết quả trước khi thử nghiệm thực tế.</p>
   <p class="fragment small">b) Rơi lại đất: \(h(t)=0\Rightarrow t=\dfrac{12{,}2+\sqrt{12{,}2^2+4\cdot4{,}9\cdot1{,}2}}{9{,}8}
     \approx\class{kq}{2{,}58\ \text{giây}}\) (nghiệm âm loại — nhu cầu ③).</p>
   <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd small">
@@ -851,12 +856,12 @@
 
 <!-- ═════════ MỘT CÂU HỎI — BỐN KÌ THI ═════════ -->
 <section>
-  <h2>Một câu hỏi — bốn kì thi ① TN THPT</h2>
+  <h2><span class="chang">Chặng 5</span>Một câu hỏi — bốn kì thi ① TN THPT</h2>
   <div class="box kechuyen"><div class="tit">Nhắc lại Ví dụ 10 vừa giải</div><div class="bd small">
     Vườn hoa chữ nhật, <b>32 m rào</b> → nửa chu vi 16: \(S(x)=x(16-x)\), đỉnh \(x=8\)
-    → \(S_{\max}=64\) m² (vườn vuông \(8\times8\)). Cùng nội dung ấy, bốn kì thi sẽ "mặc áo" khác nhau.
+    → \(S_{\max}=64\) m² (vườn vuông \(8\times8\)). Cùng nội dung ấy, bốn kì thi sẽ hỏi theo bốn cách khác nhau.
   </div></div>
-  <div class="box kienthuc"><div class="tit">Áo TN THPT — câu Đúng/Sai 4 ý</div><div class="bd small">
+  <div class="box kienthuc"><div class="tit">Dạng TN THPT — câu Đúng/Sai 4 ý</div><div class="bd small">
     Gọi \(x\) (m) là chiều rộng của vườn. Xét tính đúng/sai của các khẳng định:<br>
     a) \(S(x)=x(16-x)\).
       <span class="fragment"><span class="kq">Đ</span> — nửa chu vi \(=32:2=16\), chiều dài \(=16-x\).</span><br>
@@ -874,15 +879,15 @@
 </section>
 
 <section>
-  <h2>Một câu hỏi — bốn kì thi ② HSA và TSA — thử ngay tại chỗ!</h2>
-  <div class="box kienthuc"><div class="tit">Áo HSA — câu điền đáp án (nhịp ~90 giây/câu): em gõ thử!</div><div class="bd small">
+  <h2><span class="chang">Chặng 5</span>Một câu hỏi — bốn kì thi ② HSA và TSA — thử ngay tại chỗ!</h2>
+  <div class="box kienthuc"><div class="tit">Dạng HSA — câu điền đáp án (nhịp ~90 giây/câu): em gõ thử!</div><div class="bd small">
     "…Diện tích lớn nhất của vườn hoa bằng
     <span class="sq-sa" data-ans="64" data-hint="tính lại đỉnh parabol nhé!"></span> m²."<br>
     <span class="fragment"><b>Không có 4 phương án</b> để loại trừ hay thử ngược — phải tự tính ra đúng con số.
     Gặp đề cho đáp số lẻ thì làm tròn <em>đúng theo yêu cầu của đề</em>
     (vd "hàng phần trăm" như bài viên đá ở Ví dụ 9) — gõ lệch một chữ số là mất trọn điểm.</span>
   </div></div>
-  <div class="box kienthuc"><div class="tit">Áo TSA — câu kéo thả (chấm all-or-nothing): em kéo thử!</div><div class="bd small">
+  <div class="box kienthuc"><div class="tit">Dạng TSA — câu kéo thả (chấm all-or-nothing): em kéo thử!</div><div class="bd small">
     <div class="sq-dd" data-mode="all" data-cham="Chấm all-or-nothing">
       Kéo thẻ thả vào ô trống — hoặc <em>chạm thẻ rồi chạm ô</em> (trên điện thoại):<br>
       Gọi chiều rộng \(x\) (m) → chiều dài \(=\) <span class="sq-slot" data-ans="16-x"></span>
@@ -903,7 +908,7 @@
 </section>
 
 <section>
-  <h2>Một câu hỏi — bốn kì thi ③ SPT — tự luận viết tay</h2>
+  <h2><span class="chang">Chặng 5</span>Một câu hỏi — bốn kì thi ③ SPT — tự luận viết tay</h2>
   <p class="small" style="margin:.2em 0">Đề giữ nguyên nhưng phải <b>trình bày lời giải trên giấy</b> —
     giám khảo chấm từng bước theo <b>barem</b> (mỗi câu tự luận SPT ≈ 1,0đ):</p>
   <table style="font-size:.72em">
@@ -920,15 +925,15 @@
       thiếu <b>đơn vị</b> ở kết luận (④).
     </div></div>
     <div class="fragment box chuy" style="flex:1"><div class="tit">Thông điệp</div><div class="bd small">
-      <b>Một lõi kiến thức — nhiều template.</b> Học chắc bản chất một lần, rồi luyện
-      "mặc áo" từng kì: cách lớp mình đi suốt năm nay.
+      <b>Một nội dung cốt lõi có thể được hỏi theo nhiều hình thức.</b> Học chắc bản chất một lần,
+      rồi luyện cách trình bày theo từng kì: đó là cách lớp mình đi suốt năm nay.
     </div></div>
   </div>
 </section>
 
 <!-- ═════════ LUYỆN TẬP ═════════ -->
 <section>
-  <h2>Luyện tập — Bài 1 và 2</h2>
+  <h2><span class="chang">Luyện tập</span>Bài 1 và 2</h2>
   <p><b>Bài 1.</b> <span class="muc">(*)</span> Trong các hàm số sau, hàm số nào đồng biến trên khoảng \((-1;1)\)?<br>
     <span class="small">A. \(y=x^2\). &nbsp; B. \(y=|x|\). &nbsp; C. \(y=x\). &nbsp; D. \(y=\dfrac1x\).</span></p>
   <p class="fragment" style="text-align:right">Đáp số: <span class="kq">C</span>
@@ -939,7 +944,7 @@
 </section>
 
 <section>
-  <h2>Luyện tập — Bài 3 và 4</h2>
+  <h2><span class="chang">Luyện tập</span>Bài 3 và 4</h2>
   <p><b>Bài 3.</b> <span class="muc">(**)</span> Tìm GTLN–GTNN của \(f(x)=x^2-4x+3\) trên đoạn \([3;5]\).<br>
     <span class="small"><em>(Đỉnh \(x=2\) có còn thuộc đoạn không? Khi đó còn mấy "ứng viên"?)</em></span></p>
   <p class="fragment" style="text-align:right">Đáp số: đỉnh ngoài đoạn, hàm đồng biến trên \([3;5]\):
@@ -954,17 +959,17 @@
 
 <!-- ═════════ TỔNG KẾT ═════════ -->
 <section class="tonghop">
-  <h2>📌 Gấp bản đồ lại — câu chuyện hôm nay trong 5 dòng</h2>
-  <div class="box kienthuc"><div class="tit">Bức tranh toàn cảnh (điều quan trọng nhất hôm nay)</div><div class="bd small">
-    <b>Sống cần → làm → bài toán → mối liên hệ giữa các đại lượng → hàm số hoá → xử lý → sống tốt lên.</b><br>
+  <h2>📌 Khép lại buổi học — toàn bộ mạch trong một trang</h2>
+  <div class="box kienthuc"><div class="tit">Mạch tư duy quan trọng nhất — cũng là mạch phát triển của Toán học</div><div class="bd small">
+    <b>Câu hỏi thực tế → đo/đếm các đại lượng → mô tả mối phụ thuộc bằng hàm số → xử lí bằng công cụ toán học → quay lại kết luận cho đời sống.</b><br>
     Hôm nay ta đi trọn một vòng nhỏ của chuỗi ấy:
     <b>nhu cầu</b> (biết trước · nhiều nhất-ít nhất · đạt mốc · toàn cảnh)
-    → <b>tình huống</b> (taxi, cú ném kiếm bữa, tiền sinh sôi, đu quay)
-    → <b>hàm số</b> (7 nhân vật, nhận diện bằng chữ ký)
+    → <b>tình huống</b> (taxi, bài toán viên đá, tiền gửi lãi kép, đu quay)
+    → <b>hàm số</b> (7 họ hàm, nhận diện qua dấu hiệu)
     → <b>khái niệm</b> (tờ hồ sơ 7 mục)
     → <b>kĩ thuật</b> (TXĐ, đồ thị, biến thiên, đỉnh, 3 ứng viên, mô hình 3 bước).<br>
-    Cả mạch A = <b>điền tờ hồ sơ ấy cho cả 7 nhân vật, với dụng cụ ngày càng xịn</b>.
-    Kì thi là <b>một trạm kiểm tra trên đường</b> — không phải đích đến.
+    Cả mạch A sẽ lần lượt hoàn thiện hồ sơ ấy cho bảy họ hàm bằng những công cụ ngày càng mạnh hơn.
+    Kì thi là <b>một trạm kiểm tra trên con đường ấy</b> — không phải đích đến cuối cùng.
   </div></div>
   <div class="box kienthuc"><div class="tit">Ba điều phải nhớ</div><div class="bd">
     <ol>
@@ -989,10 +994,10 @@
         thi máy HSA/TSA, tranh thủ giờ ra chơi là đủ.</li>
     </ul>
   </div></div>
-  <p class="fragment center" style="margin-top:1em">Trong bốn tình huống hôm nay còn một món nợ chưa trả:
+  <p class="fragment center" style="margin-top:1em">Trong bốn tình huống hôm nay, bài toán đu quay vẫn còn để ngỏ:
     <b>chiếc đu quay</b> — phút thứ 37 cabin ở đâu? lên lúc nào để chụp ảnh ở đỉnh?<br>
     <span style="color:var(--mauchinh);font-weight:bold;font-size:1.1em">Buổi A2: điền trọn tờ hồ sơ cho
-    gia đình tuần hoàn — hàm số lượng giác. Mang theo tờ hồ sơ 7 mục, hẹn em ở đó!</span></p>
+    gia đình tuần hoàn — hàm số lượng giác. Ta sẽ tiếp tục dùng hồ sơ bảy mục ở buổi học sau.</span></p>
 </section>
 
 </div></div>

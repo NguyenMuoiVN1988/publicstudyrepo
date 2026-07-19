@@ -11,8 +11,8 @@ Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để xem từn
 
 ## Mạch A — Giải tích
 
-- [A1 — Ngôn ngữ hàm số: tập xác định, đồ thị, đồng biến–nghịch biến, parabol](A1.html)
-- A2 — Hàm số lượng giác & phương trình lượng giác *(sắp có)*
+- [A1 — Toàn cảnh hàm số: bản đồ Giải tích, bộ 7 câu hỏi "khám", gallery 7 họ hàm, case study parabol](A1.html)
+- [A2 — Hàm số lượng giác & phương trình lượng giác: đường tròn LG, đồ thị sin/cos/tan, PT lượng giác cơ bản](A2.html)
 - A3 — Luỹ thừa, lôgarit, hàm mũ & hàm lôgarit *(sắp có)*
 - A4 — PT–BPT mũ & lôgarit; lãi kép, tăng trưởng *(sắp có)*
 
