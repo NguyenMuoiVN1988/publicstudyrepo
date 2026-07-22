@@ -307,6 +307,8 @@ details > div {
 - [Bài 1. Tập hợp — Bài kiểm tra tương tác (kéo thả, đúng/sai, điền số)](T6/LuyenTap/C1B1.html)
 - [Bài 2. Cách ghi số tự nhiên — Bài giảng trình chiếu (kèm link tải phiếu PDF)](T6/BaiGiang/C1B2.html)
 - [Bài 2. Cách ghi số tự nhiên — Bài kiểm tra tương tác (kéo thả, đúng/sai, điền số)](T6/LuyenTap/C1B2.html)
+- [Bài 3. Thứ tự trong tập hợp các số tự nhiên — Bài giảng trình chiếu (kèm link tải phiếu PDF)](T6/BaiGiang/C1B3.html)
+- [Bài 3. Thứ tự trong tập hợp các số tự nhiên — Bài kiểm tra tương tác (kéo thả, đúng/sai, điền số)](T6/LuyenTap/C1B3.html)
 
 **Cơ bản**
 - [Chương 1: Số tự nhiên](T6/T6TaphopNC.md)

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 3. Thứ tự trong tập hợp các số tự nhiên | Bài giảng Toán 6</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#005493; --maunhat:#e8f2fa;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#008040;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.15em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .laman td,.laman th{border:1px solid #9bbcd8;text-align:center}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.2em;font-weight:bold}
+  .titleslide .t2{font-size:1.4em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- SLIDE 1: TIÊU ĐỀ -->
+<section class="titleslide">
+  <div class="t1">Bài 3. Thứ tự trong tập hợp các số tự nhiên</div>
+  <div class="t2">Toán 6 — Chương I. Tập hợp các số tự nhiên</div>
+  <p style="margin-top:1.2em"><em>Bài giảng trình chiếu trên lớp</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để xem từng bước, giống như trên lớp.</p>
+</section>
+
+<!-- SLIDE 2: TÀI NGUYÊN BÀI HỌC -->
+<section>
+  <h2>Tài nguyên bài học (dành cho giáo viên)</h2>
+  <table class="small">
+    <tr><th>Tài liệu</th><th>Mở</th></tr>
+    <tr><td>Phiếu khởi động (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-0-PhieuKhoiDong.pdf" target="_blank">C1B3-0-PhieuKhoiDong.pdf</a></td></tr>
+    <tr><td>Các dạng bài + luyện tập (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-B-CacDang.pdf" target="_blank">C1B3-B-CacDang.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập số 1 (10 bài, theo bài giảng) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-C-PhieuBaiTap.pdf" target="_blank">C1B3-C-PhieuBaiTap.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập về nhà số 2 (kèm QR đáp án) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-C-PhieuBaiTap2.pdf" target="_blank">C1B3-C-PhieuBaiTap2.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra 15 phút (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-D-KiemTra15p.pdf" target="_blank">C1B3-D-KiemTra15p.pdf</a></td></tr>
+    <tr><td>Bài nâng cao (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-E-NangCao.pdf" target="_blank">C1B3-E-NangCao.pdf</a></td></tr>
+    <tr><td>Bản đầy đủ kèm lời giải (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-BaiGiang-DayDu.pdf" target="_blank">C1B3-BaiGiang-DayDu.pdf</a></td></tr>
+    <tr><td>Bài kiểm tra tương tác online<br><span class="small">(trắc nghiệm + đúng/sai + kéo thả)</span></td>
+      <td><a href="/T6/LuyenTap/C1B3.html" target="_blank">/T6/LuyenTap/C1B3.html</a></td></tr>
+  </table>
+  <p class="footer-note">In phiếu phát tay hoặc giao bài online — thầy cô tự chọn thứ tự.</p>
+</section>
+
+<!-- PHẦN 0: KHỞI ĐỘNG -->
+<section>
+  <h2>Khởi động — Em còn nhớ không? (1/2)</h2>
+  <p class="hoihs">Ôn lại Bài 2 (cách ghi số tự nhiên) — trả lời nhanh nhé!</p>
+  <p class="fragment"><b>Câu 1.</b> a) Đọc số \(4\,305\,172\). &nbsp; b) Viết số "hai mươi ba nghìn không trăm bốn mươi" bằng chữ số.</p>
+  <p class="fragment"><span class="kq">a) Bốn triệu ba trăm linh năm nghìn một trăm bảy mươi hai. &nbsp; b) \(23\,040\).</span></p>
+  <p class="fragment"><b>Câu 2.</b> Viết tập hợp các chữ số của số \(2026\).</p>
+  <p class="fragment"><span class="kq">Số \(2026\) có các chữ số \(2; 0; 2; 6\); mỗi chữ số viết một lần nên tập hợp là \(\{0; 2; 6\}\).</span></p>
+  <p class="fragment"><b>Câu 3.</b> Trong mỗi số \(1\,425\); \(40\,983\); \(4\,720\,516\), chữ số \(4\) có giá trị bao nhiêu?</p>
+  <p class="fragment"><span class="kq">Lần lượt là \(400\); \(40\,000\); \(4\,000\,000\) (tuỳ hàng của chữ số \(4\)).</span></p>
+</section>
+
+<section>
+  <h2>Khởi động — Em còn nhớ không? (2/2)</h2>
+  <p class="fragment"><b>Câu 4.</b> Dùng bốn chữ số \(0\); \(3\); \(6\); \(9\) (mỗi chữ số một lần), viết số lớn nhất và số nhỏ nhất có bốn chữ số.</p>
+  <p class="fragment"><span class="kq">Lớn nhất \(9630\); nhỏ nhất \(3069\) (chữ số đầu phải khác \(0\) nên lấy \(3\)).</span></p>
+  <p class="fragment"><b>Câu 5.</b> a) Đọc các số La Mã: XVII; XXVI. &nbsp; b) Viết \(19\); \(24\) bằng số La Mã.</p>
+  <p class="fragment"><span class="kq">a) XVII \(= 17\); XXVI \(= 26\). &nbsp; b) \(19 =\) XIX; \(24 =\) XXIV.</span></p>
+  <div class="fragment box chuy"><div class="tit">Vào bài</div><div class="bd">
+    Ở Bài 1, 2 ta đã biết <b>viết</b> và <b>đọc</b> số tự nhiên. Hôm nay ta học cách <b>so sánh</b> và
+    <b>sắp thứ tự</b> các số tự nhiên — bắt đầu từ hình ảnh quen thuộc: <b>tia số</b>!
+  </div></div>
+</section>
+
+<!-- PHẦN A: LÝ THUYẾT -->
+<section>
+  <h2>A1. Tia số — thứ tự trên tia số</h2>
+  <div class="box kienthuc"><div class="tit">Biểu diễn số tự nhiên trên tia số</div><div class="bd">
+    Mỗi số tự nhiên được biểu diễn bởi <b>một điểm</b> trên <b>tia số</b>.
+    <ul>
+      <li>Tia số bắt đầu từ điểm \(0\), các vạch chia <em>cách đều nhau</em>, mỗi vạch ứng với một số tự nhiên.</li>
+      <li>Các số được sắp xếp <b>tăng dần theo chiều mũi tên</b>.</li>
+      <li>Do đó: <em>trong hai số, số nằm bên trái thì nhỏ hơn số nằm bên phải.</em></li>
+    </ul>
+  </div></div>
+  <div class="center">
+    <svg viewBox="0 0 520 78" style="width:min(100%,520px);height:auto" role="img"
+         aria-label="Tia số từ 0 đến 10 với các vạch chia cách đều">
+      <line x1="14" y1="42" x2="500" y2="42" stroke="#005493" stroke-width="3"/>
+      <polygon points="512,42 498,35 498,49" fill="#005493"/>
+      <g stroke="#005493" stroke-width="2">
+        <line x1="30" y1="35" x2="30" y2="49"/><line x1="74" y1="35" x2="74" y2="49"/>
+        <line x1="118" y1="35" x2="118" y2="49"/><line x1="162" y1="35" x2="162" y2="49"/>
+        <line x1="206" y1="35" x2="206" y2="49"/><line x1="250" y1="35" x2="250" y2="49"/>
+        <line x1="294" y1="35" x2="294" y2="49"/><line x1="338" y1="35" x2="338" y2="49"/>
+        <line x1="382" y1="35" x2="382" y2="49"/><line x1="426" y1="35" x2="426" y2="49"/>
+        <line x1="470" y1="35" x2="470" y2="49"/>
+      </g>
+      <g font-size="18" fill="#000" text-anchor="middle">
+        <text x="30" y="68">0</text><text x="74" y="68">1</text><text x="118" y="68">2</text>
+        <text x="162" y="68">3</text><text x="206" y="68">4</text><text x="250" y="68">5</text>
+        <text x="294" y="68">6</text><text x="338" y="68">7</text><text x="382" y="68">8</text>
+        <text x="426" y="68">9</text><text x="470" y="68">10</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <h2>A1. Ví dụ — dùng tia số để so sánh</h2>
+  <p><b>Ví dụ 1.</b> Biểu diễn các số \(3\) và \(7\) trên tia số, rồi cho biết số nào lớn hơn.</p>
+  <div class="fragment center">
+    <p class="lg" style="margin:.2em 0">Lời giải. Chấm đậm hai điểm ứng với \(3\) và \(7\):</p>
+    <svg viewBox="0 0 520 92" style="width:min(100%,520px);height:auto" role="img"
+         aria-label="Tia số từ 0 đến 10, chấm đậm tại 3 và 7">
+      <line x1="14" y1="56" x2="500" y2="56" stroke="#005493" stroke-width="3"/>
+      <polygon points="512,56 498,49 498,63" fill="#005493"/>
+      <g stroke="#005493" stroke-width="2">
+        <line x1="30" y1="49" x2="30" y2="63"/><line x1="74" y1="49" x2="74" y2="63"/>
+        <line x1="118" y1="49" x2="118" y2="63"/><line x1="162" y1="49" x2="162" y2="63"/>
+        <line x1="206" y1="49" x2="206" y2="63"/><line x1="250" y1="49" x2="250" y2="63"/>
+        <line x1="294" y1="49" x2="294" y2="63"/><line x1="338" y1="49" x2="338" y2="63"/>
+        <line x1="382" y1="49" x2="382" y2="63"/><line x1="426" y1="49" x2="426" y2="63"/>
+        <line x1="470" y1="49" x2="470" y2="63"/>
+      </g>
+      <g fill="#c6392f">
+        <circle cx="162" cy="56" r="6"/><circle cx="338" cy="56" r="6"/>
+      </g>
+      <g font-size="18" font-weight="bold" fill="#c6392f" text-anchor="middle">
+        <text x="162" y="34">3</text><text x="338" y="34">7</text>
+      </g>
+      <g font-size="18" fill="#000" text-anchor="middle">
+        <text x="30" y="82">0</text><text x="74" y="82">1</text><text x="118" y="82">2</text>
+        <text x="162" y="82">3</text><text x="206" y="82">4</text><text x="250" y="82">5</text>
+        <text x="294" y="82">6</text><text x="338" y="82">7</text><text x="382" y="82">8</text>
+        <text x="426" y="82">9</text><text x="470" y="82">10</text>
+      </g>
+    </svg>
+    <p class="small">Điểm \(3\) nằm <em>bên trái</em> điểm \(7\), nên <span class="kq">\(3 &lt; 7\)</span>: số \(7\) lớn hơn.</p>
+  </div>
+</section>
+
+<section>
+  <h2>A2. Số liền trước — số liền sau — số liên tiếp</h2>
+  <div class="box kienthuc"><div class="tit">Số liền trước, số liền sau</div><div class="bd">
+    <ul>
+      <li>Số <b>liền sau</b> của một số bằng số đó <em>cộng thêm</em> \(1\). Số liền sau của \(10\) là \(11\).</li>
+      <li>Số <b>liền trước</b> của một số (khác \(0\)) bằng số đó <em>bớt đi</em> \(1\). Số liền trước của \(11\) là \(10\).</li>
+      <li>Hai số tự nhiên <b>liên tiếp</b> thì hơn kém nhau đúng \(1\) đơn vị.</li>
+      <li>Số \(0\) là số tự nhiên <em>nhỏ nhất</em> và <b>không có số liền trước</b>.</li>
+      <li>Tập \(\mathbb{N}\) <em>không có</em> số lớn nhất, vì số nào cũng có số liền sau.</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 2.</b> Tìm số liền trước và số liền sau của \(123\) và \(129\); rồi xếp cả sáu số theo thứ tự từ bé đến lớn.</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    Liền trước / liền sau của \(123\) là \(122\) và \(124\); của \(129\) là \(128\) và \(130\).</p>
+  <p class="fragment"><span class="kq">Xếp từ bé đến lớn: \(122; 123; 124; 128; 129; 130\).</span></p>
+</section>
+
+<section>
+  <h2>A3. So sánh hai số tự nhiên</h2>
+  <div class="box kienthuc"><div class="tit">Cách so sánh — các kí hiệu — tính chất bắc cầu</div><div class="bd small">
+    Với hai số tự nhiên \(a\) và \(b\), luôn xảy ra <em>đúng một</em> trong ba trường hợp: \(a &lt; b\), \(a = b\) hoặc \(a &gt; b\).
+    <ul>
+      <li><b>Bước 1.</b> Số nào <em>nhiều chữ số hơn</em> thì lớn hơn.</li>
+      <li><b>Bước 2.</b> Nếu <em>cùng số chữ số</em> thì so từng cặp chữ số cùng hàng, kể từ <em>trái sang phải</em>; đến cặp đầu tiên khác nhau, chữ số nào lớn hơn thì số đó lớn hơn.</li>
+    </ul>
+    Hai kí hiệu: \(a \le b\) ("\(a\) nhỏ hơn hoặc bằng \(b\)"); \(a \ge b\) ("\(a\) lớn hơn hoặc bằng \(b\)").<br>
+    <b>Tính chất bắc cầu:</b> nếu \(a &lt; b\) và \(b &lt; c\) thì \(a &lt; c\).
+  </div></div>
+</section>
+
+<section>
+  <h2>A3. Ví dụ — so sánh và liệt kê</h2>
+  <p><b>Ví dụ 3.</b> a) So sánh \(9875\) và \(10\,002\); &nbsp; \(3218\) và \(3281\). &nbsp;
+    b) Liệt kê \(B = \{x \in \mathbb{N} \mid 5 &lt; x \le 10\}\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    a) \(9875\) có bốn chữ số, \(10\,002\) có năm chữ số nên <span class="kq">\(9875 &lt; 10\,002\)</span>.</p>
+  <p class="fragment">Hai số \(3218\) và \(3281\) cùng bốn chữ số; hai hàng đầu giống nhau, đến hàng chục \(1 &lt; 8\) nên <span class="kq">\(3218 &lt; 3281\)</span>.</p>
+  <p class="fragment">b) \(5 &lt; x \le 10\): không lấy \(5\), có lấy \(10\), nên <span class="kq">\(B = \{6; 7; 8; 9; 10\}\)</span>.</p>
+</section>
+
+<section>
+  <h2>Chú ý — 4 điều rất dễ nhầm</h2>
+  <div class="box chuy"><div class="tit">Phải nhớ</div><div class="bd">
+    <ul>
+      <li class="fragment"><b>Phân biệt \(&lt;\) với \(\le\)</b> khi liệt kê: với \(x &lt; 10\) thì <em>không</em> lấy \(10\); với \(x \le 10\) thì <em>có</em> lấy \(10\). Tương tự \(&gt;\) và \(\ge\).</li>
+      <li class="fragment">Số \(0\) <b>không có số liền trước</b>. Đừng viết "số liền trước của \(0\) là \(-1\)" — \(-1\) không phải số tự nhiên.</li>
+      <li class="fragment">"Hai số liên tiếp" thì hơn kém nhau <b>đúng \(1\) đơn vị</b>. Hai số \(15\) và \(17\) <em>không</em> liên tiếp.</li>
+      <li class="fragment">Đừng nhầm "<em>số liền sau</em>" với "<em>số lớn hơn</em>": số liền sau của \(6\) chỉ có một số là \(7\), còn số lớn hơn \(6\) thì có rất nhiều (\(7; 8; 9; \dots\)).</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- PHẦN B: CÁC DẠNG -->
+<section>
+  <h2>Dạng 1 — Số liền trước, số liền sau, số liên tiếp</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    <b>Bước 1.</b> Số liền sau \(=\) số đã cho \(+\,1\); &nbsp; số liền trước \(=\) số đã cho \(-\,1\) (số \(0\) không có số liền trước).<br>
+    <b>Bước 2.</b> Ba số tự nhiên liên tiếp tăng dần có dạng: một số, số đó cộng \(1\), số đó cộng \(2\).
+  </div></div>
+  <div class="fragment box chuy"><div class="tit">Mẹo</div><div class="bd">
+    Nếu biết <b>tổng</b> của ba số liên tiếp: tổng đó bằng \(3\) lần <em>số ở giữa</em> — lấy tổng chia \(3\) là ra số ở giữa.
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 1 — Luyện tập</h2>
+  <p class="small"><b>Luyện tập 1.1.</b> Tìm số liền trước và số liền sau của \(200\) và \(195\); xếp cả sáu số từ lớn đến bé.</p>
+  <p class="fragment small"><span class="kq">\(201; 200; 199; 196; 195; 194\).</span></p>
+  <p class="small"><b>Luyện tập 1.2.</b> Điền để mỗi dòng là ba số liên tiếp xếp <em>từ lớn đến bé</em>:
+    a) \(20; \dots; \dots\) &nbsp; b) \(\dots; 200; \dots\) &nbsp; c) \(\dots; \dots; 2000\).</p>
+  <p class="fragment small"><span class="kq">a) \(20; 19; 18\); &nbsp; b) \(201; 200; 199\); &nbsp; c) \(2002; 2001; 2000\).</span></p>
+  <p class="small"><b>Luyện tập 1.3.</b> Tìm ba số tự nhiên liên tiếp có tổng bằng \(33\).</p>
+  <p class="fragment small"><span class="kq">Số ở giữa \(= 33 : 3 = 11\); ba số là \(10; 11; 12\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 2 — So sánh, sắp xếp thứ tự; tia số</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    <b>So sánh:</b> số nào nhiều chữ số hơn thì lớn hơn; nếu cùng số chữ số thì so từng hàng kể từ trái sang phải.<br>
+    <b>Sắp xếp:</b> tìm số bé nhất viết trước, rồi số bé nhất trong các số còn lại, … (xếp giảm dần thì làm ngược lại).<br>
+    <b>Tia số:</b> vạch chia cách đều, số bên trái thì nhỏ hơn. &nbsp; <b>Bắc cầu:</b> \(a &lt; b\) và \(b &lt; c\) thì \(a &lt; c\).
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 2 — Luyện tập</h2>
+  <p class="small"><b>Luyện tập 2.1.</b> Điền dấu \(&lt;\), \(&gt;\) hoặc \(=\):
+    \(1234 \dots 999\); \(5078 \dots 5087\); \(20\,000 \dots 19\,999\); \(307 \dots 307\).</p>
+  <p class="fragment small"><span class="kq">\(1234 &gt; 999\); \(5078 &lt; 5087\); \(20\,000 &gt; 19\,999\); \(307 = 307\).</span></p>
+  <p class="small"><b>Luyện tập 2.2.</b> Cho \(7021; 6987; 7012; 10\,000; 999\). Sắp xếp tăng dần rồi giảm dần.</p>
+  <p class="fragment small"><span class="kq">Tăng: \(999; 6987; 7012; 7021; 10\,000\). Giảm: \(10\,000; 7021; 7012; 6987; 999\).</span></p>
+  <p class="small"><b>Luyện tập 2.3.</b> Biểu diễn \(2; 5; 9\) trên tia số; số nào bên trái nhất?</p>
+  <div class="fragment center">
+    <svg viewBox="0 0 520 92" style="width:min(100%,480px);height:auto" role="img"
+         aria-label="Tia số từ 0 đến 10, chấm đậm tại 2, 5 và 9">
+      <line x1="14" y1="56" x2="500" y2="56" stroke="#005493" stroke-width="3"/>
+      <polygon points="512,56 498,49 498,63" fill="#005493"/>
+      <g stroke="#005493" stroke-width="2">
+        <line x1="30" y1="49" x2="30" y2="63"/><line x1="74" y1="49" x2="74" y2="63"/>
+        <line x1="118" y1="49" x2="118" y2="63"/><line x1="162" y1="49" x2="162" y2="63"/>
+        <line x1="206" y1="49" x2="206" y2="63"/><line x1="250" y1="49" x2="250" y2="63"/>
+        <line x1="294" y1="49" x2="294" y2="63"/><line x1="338" y1="49" x2="338" y2="63"/>
+        <line x1="382" y1="49" x2="382" y2="63"/><line x1="426" y1="49" x2="426" y2="63"/>
+        <line x1="470" y1="49" x2="470" y2="63"/>
+      </g>
+      <g fill="#c6392f">
+        <circle cx="118" cy="56" r="6"/><circle cx="250" cy="56" r="6"/><circle cx="426" cy="56" r="6"/>
+      </g>
+      <g font-size="18" font-weight="bold" fill="#c6392f" text-anchor="middle">
+        <text x="118" y="34">2</text><text x="250" y="34">5</text><text x="426" y="34">9</text>
+      </g>
+      <g font-size="18" fill="#000" text-anchor="middle">
+        <text x="30" y="82">0</text><text x="74" y="82">1</text><text x="118" y="82">2</text>
+        <text x="162" y="82">3</text><text x="206" y="82">4</text><text x="250" y="82">5</text>
+        <text x="294" y="82">6</text><text x="338" y="82">7</text><text x="382" y="82">8</text>
+        <text x="426" y="82">9</text><text x="470" y="82">10</text>
+      </g>
+    </svg>
+    <p class="small kq" style="margin:.1em 0">Điểm \(2\) bên trái nhất nên \(2\) là số nhỏ nhất.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Dạng 3 — Liệt kê tập hợp cho bởi điều kiện thứ tự</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    <b>Bước 1.</b> Đọc kĩ điều kiện, xác định số <em>đầu</em> và số <em>cuối</em>: dấu \(&lt;\) hoặc \(&gt;\) thì <b>không</b> lấy số ở mép; dấu \(\le\) hoặc \(\ge\) thì <b>có</b> lấy số ở mép.<br>
+    <b>Bước 2.</b> Viết lần lượt các số từ đầu đến cuối, ngăn cách bởi dấu ";" trong ngoặc nhọn. &nbsp;<em>Lưu ý:</em> nếu \(x \in \mathbb{N}^{*}\) thì không lấy số \(0\).
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 3 — Luyện tập</h2>
+  <p class="small"><b>Luyện tập 3.1.</b> Trong \(11; 15; 18; 21; 28; 30\), số nào thuộc \(A = \{x \in \mathbb{N} \mid x &gt; 20\}\), số nào thuộc \(B = \{x \in \mathbb{N} \mid x \le 21\}\)?</p>
+  <p class="fragment small"><span class="kq">\(A\): \(21; 28; 30\). &nbsp; \(B\): \(11; 15; 18; 21\).</span></p>
+  <p class="small"><b>Luyện tập 3.2.</b> Liệt kê: a) \(\{x \in \mathbb{N} \mid 12 &lt; x &lt; 19\}\); &nbsp; b) \(\{x \in \mathbb{N} \mid 25 \le x &lt; 30\}\); &nbsp; c) \(\{x \in \mathbb{N}^{*} \mid x \le 6\}\).</p>
+  <p class="fragment small"><span class="kq">a) \(\{13; 14; 15; 16; 17; 18\}\); &nbsp; b) \(\{25; 26; 27; 28; 29\}\); &nbsp; c) \(\{1; 2; 3; 4; 5; 6\}\).</span></p>
+  <p class="small"><b>Luyện tập 3.3.</b> So sánh \(P = \{x \in \mathbb{N} \mid x \le 4\}\) và \(Q = \{x \in \mathbb{N}^{*} \mid x &lt; 5\}\).</p>
+  <p class="fragment small"><span class="kq">\(P = \{0; 1; 2; 3; 4\}\), \(Q = \{1; 2; 3; 4\}\): khác nhau — \(P\) có thêm số \(0\).</span></p>
+</section>
+
+<!-- GHI NHỚ + VỀ NHÀ -->
+<section>
+  <h2>Ghi nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Chốt lại bài học</div><div class="bd">
+    <ul>
+      <li class="fragment">Trên <b>tia số</b>, các số tăng dần theo chiều mũi tên; số bên trái nhỏ hơn số bên phải.</li>
+      <li class="fragment"><b>Số liền sau</b> \(=\) số đó \(+\,1\); <b>số liền trước</b> \(=\) số đó \(-\,1\). Số \(0\) không có số liền trước.</li>
+      <li class="fragment"><b>So sánh:</b> nhiều chữ số hơn thì lớn hơn; cùng số chữ số thì so từ trái sang phải. Kí hiệu \(\le\), \(\ge\); tính chất <b>bắc cầu</b>.</li>
+      <li class="fragment">Liệt kê tập hợp: nhớ phân biệt \(&lt;\) với \(\le\) (\(&gt;\) với \(\ge\)) để biết có lấy số ở mép hay không.</li>
+    </ul>
+  </div></div>
+</section>
+
+<section>
+  <h2>Về nhà</h2>
+  <div class="box chuy"><div class="tit">Nhiệm vụ của em</div><div class="bd">
+    <ol>
+      <li>Làm <b>Phiếu bài tập số 1</b> (10 bài, theo bài giảng):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-C-PhieuBaiTap.pdf" target="_blank">C1B3-C-PhieuBaiTap.pdf</a></li>
+      <li>Làm <b>Phiếu bài tập về nhà số 2</b> (kèm QR đáp án):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-C-PhieuBaiTap2.pdf" target="_blank">C1B3-C-PhieuBaiTap2.pdf</a></li>
+      <li>Làm <b>Bài kiểm tra tương tác online</b> (trắc nghiệm + đúng/sai + kéo thả):
+        <a href="/T6/LuyenTap/C1B3.html" target="_blank">/T6/LuyenTap/C1B3.html</a></li>
+    </ol>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Toàn bộ tài liệu bài học (dành cho giáo viên)</div><div class="bd small">
+    <ul style="margin:0">
+      <li>Phiếu khởi động: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-0-PhieuKhoiDong.pdf" target="_blank">C1B3-0-PhieuKhoiDong.pdf</a></li>
+      <li>Các dạng bài + luyện tập: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-B-CacDang.pdf" target="_blank">C1B3-B-CacDang.pdf</a></li>
+      <li>Đề kiểm tra 15 phút: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-D-KiemTra15p.pdf" target="_blank">C1B3-D-KiemTra15p.pdf</a></li>
+      <li>Bài nâng cao: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-E-NangCao.pdf" target="_blank">C1B3-E-NangCao.pdf</a></li>
+      <li>Bản đầy đủ kèm lời giải: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B3-BaiGiang-DayDu.pdf" target="_blank">C1B3-BaiGiang-DayDu.pdf</a></li>
+    </ul>
+  </div></div>
+  <p class="center fragment">Bài sau: <b>Bài 4. Phép cộng và phép trừ số tự nhiên</b> — hẹn gặp lại!</p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>
