@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 1. Mệnh đề | Bài giảng Toán 10</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#1b549a; --maunhat:#e9f1fb;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#1e7846;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.1em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.1em;font-weight:bold}
+  .titleslide .t2{font-size:1.35em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- SLIDE 1: TIÊU ĐỀ -->
+<section class="titleslide">
+  <div class="t1">Bài 1. Mệnh đề</div>
+  <div class="t2">Toán 10 — Chương I. Mệnh đề và Tập hợp</div>
+  <p style="margin-top:1.2em"><em>Bài giảng trình chiếu trên lớp</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để hiện lần lượt từng bước, giống như trên lớp.</p>
+</section>
+
+<!-- SLIDE 2: TÀI NGUYÊN BÀI HỌC -->
+<section>
+  <h2>Tài nguyên bài học (dành cho giáo viên)</h2>
+  <table class="small">
+    <tr><th>Tài liệu</th><th>Mở</th></tr>
+    <tr><td>Phiếu khởi động (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-0-PhieuKhoiDong.pdf" target="_blank">C1B1-0-PhieuKhoiDong.pdf</a></td></tr>
+    <tr><td>Các dạng bài + luyện tập (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-B-CacDang.pdf" target="_blank">C1B1-B-CacDang.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập số 1 (10 bài, theo bài giảng) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-C-PhieuBaiTap.pdf" target="_blank">C1B1-C-PhieuBaiTap.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập về nhà số 2 (kèm QR đáp án) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-C-PhieuBaiTap2.pdf" target="_blank">C1B1-C-PhieuBaiTap2.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra cơ bản 15 phút (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-D-KiemTra15p.pdf" target="_blank">C1B1-D-KiemTra15p.pdf</a></td></tr>
+    <tr><td>Bài nâng cao (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-E-NangCao.pdf" target="_blank">C1B1-E-NangCao.pdf</a></td></tr>
+    <tr><td>Bản đầy đủ kèm lời giải (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-BaiGiang-DayDu.pdf" target="_blank">C1B1-BaiGiang-DayDu.pdf</a></td></tr>
+    <tr><td>Bài kiểm tra tương tác online<br><span class="small">(trắc nghiệm + đúng/sai + kéo thả)</span></td>
+      <td><a href="/T10/LuyenTap/C1B1.html" target="_blank">/T10/LuyenTap/C1B1.html</a></td></tr>
+  </table>
+  <p class="footer-note">In phiếu phát tay hoặc giao bài online — thầy cô tự chọn thứ tự.</p>
+</section>
+
+<!-- PHẦN 0: KHỞI ĐỘNG -->
+<section>
+  <h2>Khởi động — Kiểm tra kiến thức nền (1/2)</h2>
+  <p class="hoihs">Ôn lại kiến thức THCS — trả lời nhanh nhé!</p>
+  <p class="fragment"><b>Câu 1.</b> Câu nào là <em>câu khẳng định</em> (nói được đúng hay sai), câu nào <em>không</em> (câu hỏi, cảm thán, mệnh lệnh)?
+    a) Số \(17\) là số nguyên tố; &nbsp; b) Hôm nay trời đẹp quá!; &nbsp; c) Bạn đã làm bài tập chưa?; &nbsp; d) Hãy vẽ một tam giác đều.</p>
+  <p class="fragment"><span class="kq">Chỉ a) là câu khẳng định (có tính đúng/sai). b) cảm thán, c) câu hỏi, d) mệnh lệnh.</span></p>
+  <p class="fragment"><b>Câu 2.</b> Số \(17\) có phải số nguyên tố không? Số \(15\)?</p>
+  <p class="fragment"><span class="kq">\(17\) nguyên tố; \(15=3\cdot5\) không nguyên tố.</span></p>
+</section>
+
+<section>
+  <h2>Khởi động — Kiểm tra kiến thức nền (2/2)</h2>
+  <p class="fragment"><b>Câu 3.</b> Trong các số \(2;3;4;5\), số \(24\) chia hết cho những số nào?</p>
+  <p class="fragment"><span class="kq">\(24\) chia hết cho \(2;3;4\) (không chia hết cho \(5\)).</span></p>
+  <p class="fragment"><b>Câu 4.</b> Tổng ba góc trong một tam giác bằng bao nhiêu độ? Mỗi góc của tam giác đều?</p>
+  <p class="fragment"><span class="kq">Tổng ba góc \(=180^\circ\); tam giác đều mỗi góc \(=60^\circ\).</span></p>
+  <p class="fragment"><b>Câu 5.</b> "Đúng" hay "sai"? a) \(7+5=12\); &nbsp; b) \(\sqrt2>1\); &nbsp; c) \(15\) chia hết cho \(3\); &nbsp; d) \(9\) là số nguyên tố.</p>
+  <p class="fragment"><span class="kq">a) đúng; b) đúng; c) đúng; d) sai (\(9=3^2\) là hợp số).</span></p>
+  <div class="fragment box chuy"><div class="tit">Vào bài</div><div class="bd">
+    Những câu "nói được đúng hay sai" như trên chính là <b>mệnh đề</b> — đối tượng nghiên cứu của bài học hôm nay.
+  </div></div>
+</section>
+
+<!-- PHẦN A: LÝ THUYẾT -->
+<section>
+  <h2>A1. Mệnh đề</h2>
+  <div class="box kienthuc"><div class="tit">Mệnh đề</div><div class="bd">
+    <b>Mệnh đề</b> là một khẳng định <em>đúng</em> hoặc <em>sai</em>. Một mệnh đề <b>không thể</b> vừa đúng vừa sai.<br>
+    Câu hỏi, câu cảm thán, câu mệnh lệnh, câu nêu ý kiến cá nhân <em>không</em> là mệnh đề.
+    Ta thường kí hiệu mệnh đề bằng \(P,\,Q,\,R,\dots\)
+  </div></div>
+  <p class="fragment"><b>Ví dụ 1.</b> Mỗi câu sau là mệnh đề đúng, mệnh đề sai hay không phải mệnh đề?
+    a) \(7+5=3\); &nbsp; b) \(7+x>3\); &nbsp; c) \(\sqrt2>1\); &nbsp; d) \(15\) không chia hết cho \(3\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    <span class="kq">a) mệnh đề <em>sai</em>; &nbsp; b) <em>không</em> phải mệnh đề (chứa biến \(x\)); &nbsp;
+    c) mệnh đề <em>đúng</em>; &nbsp; d) mệnh đề <em>sai</em> (vì \(15=3\cdot5\)).</span></p>
+</section>
+
+<section>
+  <h2>A2. Mệnh đề chứa biến</h2>
+  <div class="box kienthuc"><div class="tit">Mệnh đề chứa biến</div><div class="bd">
+    <b>Mệnh đề chứa biến</b> là câu khẳng định chứa một hay nhiều biến nhận giá trị trong tập \(X\).
+    Với mỗi giá trị cụ thể của biến, ta được một <em>mệnh đề</em> (đúng hoặc sai).
+  </div></div>
+  <p class="fragment"><b>Ví dụ 2.</b> Cho \(P(x):\ ``x>x^2"\) với \(x\in\mathbb R\). Xét tính đúng sai của \(P(2)\) và \(P\!\left(\dfrac12\right)\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(P(2):\ 2>4\) là mệnh đề <span class="kq">sai</span>; &nbsp;
+    \(P\!\left(\dfrac12\right):\ \dfrac12>\dfrac14\) là mệnh đề <span class="kq">đúng</span>.</p>
+  <div class="fragment box chuy"><div class="tit">Điểm dễ sai</div><div class="bd">
+    Bản thân \(``x>x^2"\) <em>chưa</em> là mệnh đề; nó chỉ trở thành mệnh đề khi thay \(x\) bằng một giá trị cụ thể.
+  </div></div>
+</section>
+
+<section>
+  <h2>A3. Mệnh đề phủ định \(\overline P\)</h2>
+  <div class="box kienthuc"><div class="tit">Phủ định của một mệnh đề</div><div class="bd">
+    Mỗi mệnh đề \(P\) có mệnh đề <b>phủ định</b> \(\overline P\). Hai mệnh đề \(P\) và \(\overline P\)
+    có tính đúng sai <em>trái ngược</em> nhau.
+  </div></div>
+  <p class="fragment"><b>Ví dụ 3.</b> Nêu phủ định và xét tính đúng sai của phủ định:
+    \(A:\ ``6\) là số nguyên tố"; &nbsp; \(B:\ ``\sqrt2\) là số vô tỉ".</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    <span class="kq">\(\overline A:\ ``6\) không là số nguyên tố" — <em>đúng</em></span> (\(6=2\cdot3\));<br>
+    <span class="kq">\(\overline B:\ ``\sqrt2\) không là số vô tỉ" — <em>sai</em></span>.</p>
+</section>
+
+<section>
+  <h2>A4. Mệnh đề kéo theo — Điều kiện cần, đủ</h2>
+  <div class="box kienthuc"><div class="tit">Mệnh đề kéo theo \(P\Rightarrow Q\)</div><div class="bd">
+    Mệnh đề "<em>Nếu \(P\) thì \(Q\)</em>" gọi là <b>mệnh đề kéo theo</b>, kí hiệu \(P\Rightarrow Q\).
+    Mệnh đề \(P\Rightarrow Q\) <em>chỉ sai</em> khi \(P\) đúng và \(Q\) sai.
+  </div></div>
+  <div class="fragment box chuy"><div class="tit">Điều kiện cần / điều kiện đủ</div><div class="bd">
+    Với định lí \(P\Rightarrow Q\): \(P\) là <b>điều kiện đủ</b> để có \(Q\); &nbsp; \(Q\) là <b>điều kiện cần</b> để có \(P\).
+  </div></div>
+  <p class="fragment"><b>Ví dụ 4.</b> Tam giác \(ABC\): \(P:\) "vuông tại \(A\)", \(Q:\ ``BC^2=AB^2+AC^2"\). Phát biểu \(P\Rightarrow Q\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    <span class="kq">"Nếu \(ABC\) vuông tại \(A\) thì \(BC^2=AB^2+AC^2\)" — <em>đúng</em></span> (định lí Pythagore);
+    "vuông tại \(A\)" là điều kiện đủ để có \(BC^2=AB^2+AC^2\).</p>
+</section>
+
+<section>
+  <h2>A5. Mệnh đề đảo — Tương đương \(\Leftrightarrow\)</h2>
+  <div class="box kienthuc"><div class="tit">Mệnh đề đảo. Mệnh đề tương đương</div><div class="bd">
+    <b>Mệnh đề đảo</b> của \(P\Rightarrow Q\) là \(Q\Rightarrow P\).<br>
+    Nếu cả \(P\Rightarrow Q\) và \(Q\Rightarrow P\) đều đúng thì \(P\) và \(Q\) <b>tương đương</b>, kí hiệu
+    \(P\Leftrightarrow Q\); khi đó \(P\) là <em>điều kiện cần và đủ</em> để có \(Q\).
+  </div></div>
+  <p class="fragment"><b>Ví dụ 5.</b> Cho \(P\Rightarrow Q:\) "Nếu \(a\ \vdots\ 6\) thì \(a\ \vdots\ 3\)". Lập mệnh đề đảo và xét tính đúng sai.</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(P\Rightarrow Q\) <em>đúng</em>. Đảo \(Q\Rightarrow P:\) "Nếu \(a\ \vdots\ 3\) thì \(a\ \vdots\ 6\)" —
+    <span class="kq"><em>sai</em></span> (phản ví dụ \(a=3\)). Vậy \(P,Q\) <em>không</em> tương đương.</p>
+</section>
+
+<section>
+  <h2>A6. Lượng từ \(\forall,\ \exists\) và phủ định</h2>
+  <div class="box kienthuc"><div class="tit">Kí hiệu \(\forall\) "với mọi" và \(\exists\) "tồn tại"</div><div class="bd">
+    "\(\forall x\in X,\ P(x)\)" đúng khi \(P(x)\) đúng với <em>mọi</em> \(x\); sai nếu <em>có một</em> \(x\) làm \(P(x)\) sai.<br>
+    "\(\exists x\in X,\ P(x)\)" đúng khi <em>có một</em> \(x\) làm \(P(x)\) đúng.
+    \[\overline{\forall x\in X,\,P(x)}=\exists x\in X,\,\overline{P(x)};\quad
+      \overline{\exists x\in X,\,P(x)}=\forall x\in X,\,\overline{P(x)}.\]
+  </div></div>
+  <p class="fragment"><b>Ví dụ 6.</b> Nêu phủ định của \(M:\ ``\forall x\in\mathbb R,\ x^2+3x+5>0"\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    <span class="kq">\(\overline M:\ ``\exists x\in\mathbb R,\ x^2+3x+5\le0"\)</span>. Vì
+    \(x^2+3x+5=\left(x+\dfrac32\right)^2+\dfrac{11}{4}>0\) nên \(M\) <em>đúng</em>, \(\overline M\) <em>sai</em>.</p>
+</section>
+
+<section>
+  <h2>Bốn điểm dễ sai của bài</h2>
+  <div class="box chuy"><div class="tit">Ghi nhớ để tránh mất điểm</div><div class="bd">
+    <ul>
+      <li class="fragment">\(P\Rightarrow Q\) <b>chỉ sai</b> trong đúng một trường hợp: \(P\) đúng và \(Q\) sai.</li>
+      <li class="fragment">Trong \(P\Rightarrow Q\): \(P\) là điều kiện <b>đủ</b>, \(Q\) là điều kiện <b>cần</b> — đừng đảo hai chiều này.</li>
+      <li class="fragment">Phủ định \(\forall\leftrightarrow\exists\): phải <b>đổi lượng từ</b> <em>và</em> <b>phủ định vị từ</b>
+        (\(>\) thành \(\le\), \(=\) thành \(\ne\)). Chỉ đổi dấu mà quên đổi lượng từ là sai.</li>
+      <li class="fragment">Mệnh đề đảo \(Q\Rightarrow P\) có thể <b>sai</b> ngay cả khi \(P\Rightarrow Q\) đúng.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- PHẦN B: CÁC DẠNG -->
+<section>
+  <h2>Dạng 1 — Xác định mệnh đề đúng/sai</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    Khẳng định đúng là mệnh đề đúng, khẳng định sai là mệnh đề sai. Câu hỏi, cảm thán, mệnh lệnh,
+    câu chứa biến <em>không</em> là mệnh đề. Mệnh đề ghép: \(P\Rightarrow Q\) chỉ sai khi \(P\) đúng, \(Q\) sai;
+    \(P\Leftrightarrow Q\) đúng khi \(P,Q\) cùng đúng hoặc cùng sai.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 1.1.</b> Câu nào <em>không</em> là mệnh đề?
+    A) Tam giác đều có ba cạnh bằng nhau; &nbsp; B) \(3<1\); &nbsp; C) \(4-5=1\); &nbsp; D) Bạn học giỏi quá!</p>
+  <p class="fragment small"><span class="kq">Đáp án D — câu cảm thán không có tính đúng sai (B, C là mệnh đề dù sai).</span></p>
+  <p class="fragment small"><b>Luyện tập 1.2.</b> Mệnh đề nào <em>đúng</em>?
+    A) \(6\sqrt2\) là số hữu tỉ; &nbsp; B) \(x^2+7x-2=0\) có hai nghiệm trái dấu; &nbsp;
+    C) \(17\) là số chẵn; &nbsp; D) \(x^2+x+7=0\) có nghiệm.</p>
+  <p class="fragment small"><span class="kq">Đáp án B — tích hai nghiệm \(\dfrac{c}{a}=-2<0\) nên phương trình có hai nghiệm trái dấu.</span></p>
+  <p class="fragment small"><b>Luyện tập 1.3.</b> Mệnh đề nào <em>sai</em>?
+    A) \(\pi<-2\Leftrightarrow\pi^2<4\); &nbsp; B) \(\pi<4\Leftrightarrow\pi^2<16\); &nbsp;
+    C) \(\sqrt{23}<5\Leftrightarrow2\sqrt{23}<2{,}5\); &nbsp; D) \(\sqrt{23}<5\Leftrightarrow-2\sqrt{23}<-2{,}5\).</p>
+  <p class="fragment small"><span class="kq">Đáp án C — vế trái đúng nhưng \(2\sqrt{23}\approx9{,}59\not<2{,}5\) nên "đúng \(\Leftrightarrow\) sai" là sai.</span></p>
+</section>
+
+<section>
+  <h2>Dạng 2 — Phủ định mệnh đề</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    Thêm/bớt chữ "không"; đổi quan hệ (\(=\leftrightarrow\ne\), \(<\leftrightarrow\ge\), \(>\leftrightarrow\le\)).
+    Với lượng từ: đổi \(\forall\leftrightarrow\exists\) <em>đồng thời</em> phủ định vị từ bên trong.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 2.1.</b> Phủ định của "\(2018\) là số tự nhiên chẵn" là?</p>
+  <p class="fragment small"><span class="kq">"\(2018\) không là số tự nhiên chẵn" — chỉ cần thêm chữ "không".</span></p>
+  <p class="fragment small"><b>Luyện tập 2.2.</b> Phủ định của "\(\forall x\in\mathbb R,\ x^2+3x+5>0\)"?</p>
+  <p class="fragment small"><span class="kq">"\(\exists x\in\mathbb R,\ x^2+3x+5\le0\)" — đổi \(\forall\to\exists\) và \(>\) thành \(\le\).</span></p>
+  <p class="fragment small"><b>Luyện tập 2.3.</b> Phủ định và xét đúng sai:
+    a) \(A:\ ``6\) là số nguyên tố"; &nbsp; b) \(B:\ ``\exists n\in\mathbb N,\ n(n+1)\) là số chính phương".</p>
+  <p class="fragment small"><span class="kq">a) \(\overline A\): "\(6\) không là số nguyên tố" — đúng. &nbsp;
+    b) \(\overline B\): "\(\forall n\in\mathbb N,\ n(n+1)\) không là số chính phương" — sai (\(n=0\): \(0=0^2\)).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 3 — Mệnh đề kéo theo và mệnh đề đảo</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    \(P\Rightarrow Q\) chỉ sai khi \(P\) đúng, \(Q\) sai. Mệnh đề đảo là \(Q\Rightarrow P\).
+    Dùng cách nói "\(P\) đủ để có \(Q\)", "\(Q\) cần để có \(P\)", "\(P\) cần và đủ để có \(Q\)".
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 3.1.</b> Phát biểu bằng "điều kiện đủ", rồi "điều kiện cần":
+    "Nếu một số tự nhiên có chữ số tận cùng là \(5\) thì nó chia hết cho \(5\)".</p>
+  <p class="fragment small"><span class="kq">"Tận cùng là \(5\)" là điều kiện đủ để "chia hết cho \(5\)"; "chia hết cho \(5\)" là điều kiện cần để "tận cùng là \(5\)".</span></p>
+  <p class="fragment small"><b>Luyện tập 3.2.</b> Mệnh đề nào có <em>mệnh đề đảo đúng</em>?
+    A) \(a,b\ \vdots\ c\Rightarrow a+b\ \vdots\ c\); &nbsp; B) hai tam giác bằng nhau \(\Rightarrow\) diện tích bằng nhau;
+    &nbsp; C) \(a\ \vdots\ 3\Rightarrow a\ \vdots\ 9\); &nbsp; D) tận cùng \(0\Rightarrow\) chia hết \(5\).</p>
+  <p class="fragment small"><span class="kq">Đáp án C — đảo "\(a\ \vdots\ 9\Rightarrow a\ \vdots\ 3\)" đúng (các đảo còn lại đều sai).</span></p>
+  <p class="fragment small"><b>Luyện tập 3.3.</b> Lập đảo và xét đúng sai: "Nếu \(a\ \vdots\ 6\) thì \(a\ \vdots\ 2\)".</p>
+  <p class="fragment small"><span class="kq">Đảo: "Nếu \(a\ \vdots\ 2\) thì \(a\ \vdots\ 6\)" — sai (phản ví dụ \(a=2\)).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 4 — Mệnh đề với \(\forall\) và \(\exists\)</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    Bác bỏ "\(\forall\)" chỉ cần <em>một phản ví dụ</em>; khẳng định "\(\exists\)" chỉ cần <em>một ví dụ</em>.
+    Muốn khẳng định "\(\forall\)" đúng (hoặc "\(\exists\)" sai) phải lập luận tổng quát.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 4.1.</b> Mệnh đề nào <em>đúng</em>?
+    A) \(\forall x\in\mathbb R,\ x^2+1>0\); &nbsp; B) \(\forall x\in\mathbb R,\ x^2>x\); &nbsp;
+    C) \(\exists r\in\mathbb Q,\ r^2=7\); &nbsp; D) \(\forall n\in\mathbb N,\ n+4\ \vdots\ 4\).</p>
+  <p class="fragment small"><span class="kq">Đáp án A — \(x^2\ge0\) nên \(x^2+1\ge1>0\) với mọi \(x\).</span></p>
+  <p class="fragment small"><b>Luyện tập 4.2.</b> Tìm mệnh đề <em>sai</em>.
+    A) \(\forall x,\ x^2+2x+3>0\); &nbsp; B) \(\forall x,\ x^2\ge x\); &nbsp;
+    C) \(\exists x,\ x^2+5x+6=0\); &nbsp; D) \(\exists x,\ x<\dfrac1x\).</p>
+  <p class="fragment small"><span class="kq">Đáp án B — với \(x=\dfrac12\) thì \(\dfrac14<\dfrac12\), nên "\(\forall x,\ x^2\ge x\)" sai.</span></p>
+  <p class="fragment small"><b>Luyện tập 4.3.</b> Xét đúng sai: \(\forall n\in\mathbb N^*,\ n(n+1)\) là số lẻ.</p>
+  <p class="fragment small"><span class="kq">Sai — \(n,n+1\) là hai số liên tiếp nên tích \(n(n+1)\) luôn chẵn (phản ví dụ \(n=1\): \(1\cdot2=2\)).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 5 — Dùng mệnh đề trong chứng minh</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    Dùng phép kéo theo, tương đương và đặc biệt là <b>chứng minh phản chứng</b>: muốn chứng minh \(B\),
+    giả sử \(B\) sai rồi suy luận đến điều mâu thuẫn. Bác bỏ một mệnh đề "\(\forall\)" chỉ cần một <em>phản ví dụ</em>.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 5.1.</b> Chứng minh: nếu \(a+b<2\) thì một trong hai số \(a,b\) nhỏ hơn \(1\).</p>
+  <p class="fragment small"><span class="kq">Phản chứng: giả sử \(a\ge1\) và \(b\ge1\) thì \(a+b\ge2\), mâu thuẫn \(a+b<2\). Vậy có ít nhất một số nhỏ hơn \(1\).</span></p>
+  <p class="fragment small"><b>Luyện tập 5.2.</b> Chứng minh: nếu \(x\ne-1\) và \(y\ne-1\) thì \(x+y+xy\ne-1\).</p>
+  <p class="fragment small"><span class="kq">Giả sử \(x+y+xy=-1\Rightarrow(x+1)(y+1)=0\Rightarrow x=-1\) hoặc \(y=-1\), mâu thuẫn. Vậy \(x+y+xy\ne-1\).</span></p>
+  <p class="fragment small"><b>Luyện tập 5.3.</b> Chứng minh: với \(n\in\mathbb N\), nếu \(n^2\ \vdots\ 3\) thì \(n\ \vdots\ 3\).</p>
+  <p class="fragment small"><span class="kq">Phản chứng: nếu \(n=3k\pm1\) thì \(n^2=3(\dots)+1\) chia \(3\) dư \(1\), mâu thuẫn \(n^2\ \vdots\ 3\).</span></p>
+</section>
+
+<!-- GHI NHỚ + VỀ NHÀ -->
+<section>
+  <h2>Ghi nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Chốt lại bài học</div><div class="bd">
+    <ul>
+      <li class="fragment"><b>Mệnh đề</b> là khẳng định đúng hoặc sai; phủ định \(\overline P\) có tính đúng sai trái ngược \(P\).</li>
+      <li class="fragment"><b>Kéo theo</b> \(P\Rightarrow Q\) chỉ sai khi \(P\) đúng, \(Q\) sai; \(P\) <em>đủ</em>, \(Q\) <em>cần</em>.</li>
+      <li class="fragment"><b>Tương đương</b> \(P\Leftrightarrow Q\): cần và đủ. Mệnh đề đảo có thể sai.</li>
+      <li class="fragment"><b>Lượng từ:</b> phủ định đổi \(\forall\leftrightarrow\exists\) <em>và</em> phủ định vị từ (\(>\to\le\), \(=\to\ne\)).</li>
+    </ul>
+  </div></div>
+</section>
+
+<section>
+  <h2>Về nhà</h2>
+  <div class="box chuy"><div class="tit">Nhiệm vụ của em</div><div class="bd">
+    <ol>
+      <li>Làm <b>Phiếu bài tập số 1</b> (10 bài, theo bài giảng):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-C-PhieuBaiTap.pdf" target="_blank">C1B1-C-PhieuBaiTap.pdf</a></li>
+      <li>Làm <b>Phiếu bài tập về nhà số 2</b> (kèm QR đáp án):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-C-PhieuBaiTap2.pdf" target="_blank">C1B1-C-PhieuBaiTap2.pdf</a></li>
+      <li>Làm <b>Bài kiểm tra tương tác online</b> (trắc nghiệm + đúng/sai + kéo thả):
+        <a href="/T10/LuyenTap/C1B1.html" target="_blank">/T10/LuyenTap/C1B1.html</a></li>
+    </ol>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Toàn bộ tài liệu bài học (dành cho giáo viên)</div><div class="bd small">
+    <ul style="margin:0">
+      <li>Phiếu khởi động: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-0-PhieuKhoiDong.pdf" target="_blank">C1B1-0-PhieuKhoiDong.pdf</a></li>
+      <li>Các dạng bài + luyện tập: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-B-CacDang.pdf" target="_blank">C1B1-B-CacDang.pdf</a></li>
+      <li>Đề kiểm tra cơ bản 15 phút: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-D-KiemTra15p.pdf" target="_blank">C1B1-D-KiemTra15p.pdf</a></li>
+      <li>Bài nâng cao: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-E-NangCao.pdf" target="_blank">C1B1-E-NangCao.pdf</a></li>
+      <li>Bản đầy đủ kèm lời giải: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B1-BaiGiang-DayDu.pdf" target="_blank">C1B1-BaiGiang-DayDu.pdf</a></li>
+    </ul>
+  </div></div>
+  <p class="center fragment">Bài sau: <b>Bài 2. Tập hợp</b> — hẹn gặp lại!</p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>
