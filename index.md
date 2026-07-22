@@ -532,6 +532,8 @@ details > div {
 **Bài giảng trình chiếu + kiểm tra online — Chương 1: Mệnh đề và Tập hợp**
 - [Bài 1. Mệnh đề — Bài giảng trình chiếu (kèm link tải phiếu PDF)](T10/BaiGiang/C1B1.html)
 - [Bài 1. Mệnh đề — Bài kiểm tra tương tác (đúng/sai, kéo thả, trả lời ngắn)](T10/LuyenTap/C1B1.html)
+- [Bài 2. Tập hợp — Bài giảng trình chiếu (kèm link tải phiếu PDF)](T10/BaiGiang/C1B2.html)
+- [Bài 2. Tập hợp — Bài kiểm tra tương tác (đúng/sai, kéo thả, trả lời ngắn)](T10/LuyenTap/C1B2.html)
 
 - [C1B1: Mệnh đề](T10/T10C1B1.md)
 - [C1B2: Tập hợp](T10/T10C1B2.html)

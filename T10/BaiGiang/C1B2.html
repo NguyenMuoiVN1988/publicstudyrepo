@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 2. Tập hợp | Bài giảng Toán 10</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#1b549a; --maunhat:#e9f1fb;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#1e7846;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.1em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.1em;font-weight:bold}
+  .titleslide .t2{font-size:1.35em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+  .venncap{font-size:.6em;font-style:italic;color:var(--mauxam);text-align:center;margin-top:.2em}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- SLIDE 1: TIÊU ĐỀ -->
+<section class="titleslide">
+  <div class="t1">Bài 2. Tập hợp</div>
+  <div class="t2">Toán 10 — Chương I. Mệnh đề và Tập hợp</div>
+  <p style="margin-top:1.2em"><em>Bài giảng trình chiếu trên lớp</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để hiện lần lượt từng bước, giống như trên lớp.</p>
+</section>
+
+<!-- SLIDE 2: TÀI NGUYÊN BÀI HỌC -->
+<section>
+  <h2>Tài nguyên bài học (dành cho giáo viên)</h2>
+  <table class="small">
+    <tr><th>Tài liệu</th><th>Mở</th></tr>
+    <tr><td>Phiếu khởi động (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-0-PhieuKhoiDong.pdf" target="_blank">C1B2-0-PhieuKhoiDong.pdf</a></td></tr>
+    <tr><td>Các dạng bài + luyện tập (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-B-CacDang.pdf" target="_blank">C1B2-B-CacDang.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập số 1 (10 bài, theo bài giảng) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-C-PhieuBaiTap.pdf" target="_blank">C1B2-C-PhieuBaiTap.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập về nhà số 2 (kèm QR đáp án) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-C-PhieuBaiTap2.pdf" target="_blank">C1B2-C-PhieuBaiTap2.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra cơ bản 15 phút (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-D-KiemTra15p.pdf" target="_blank">C1B2-D-KiemTra15p.pdf</a></td></tr>
+    <tr><td>Bài nâng cao (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-E-NangCao.pdf" target="_blank">C1B2-E-NangCao.pdf</a></td></tr>
+    <tr><td>Bản đầy đủ kèm lời giải (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-BaiGiang-DayDu.pdf" target="_blank">C1B2-BaiGiang-DayDu.pdf</a></td></tr>
+    <tr><td>Bài kiểm tra tương tác online<br><span class="small">(trắc nghiệm + đúng/sai + kéo thả)</span></td>
+      <td><a href="/T10/LuyenTap/C1B2.html" target="_blank">/T10/LuyenTap/C1B2.html</a></td></tr>
+  </table>
+  <p class="footer-note">In phiếu phát tay hoặc giao bài online — thầy cô tự chọn thứ tự.</p>
+</section>
+
+<!-- PHẦN 0: KHỞI ĐỘNG -->
+<section>
+  <h2>Khởi động — Kiểm tra kiến thức nền (1/2)</h2>
+  <p class="hoihs">Ôn lại kiến thức THCS — trả lời nhanh nhé!</p>
+  <p class="fragment"><b>Câu 1.</b> Điền kí hiệu \(\in\) hoặc \(\notin\) vào chỗ trống:
+    \(-3\ \ldots\ \mathbb N\); &nbsp; \(-3\ \ldots\ \mathbb Z\); &nbsp; \(\dfrac25\ \ldots\ \mathbb Q\); &nbsp; \(\sqrt2\ \ldots\ \mathbb Q\).</p>
+  <p class="fragment"><span class="kq">\(-3\notin\mathbb N\) (số âm không tự nhiên); \(-3\in\mathbb Z\); \(\dfrac25\in\mathbb Q\); \(\sqrt2\notin\mathbb Q\) (số vô tỉ).</span></p>
+  <p class="fragment"><b>Câu 2.</b> Viết tập hợp \(A\) các ước tự nhiên của \(12\) bằng cách liệt kê.</p>
+  <p class="fragment"><span class="kq">\(A=\{1;2;3;4;6;12\}\).</span></p>
+  <p class="fragment"><b>Câu 3.</b> Viết tập hợp \(B\) các số tự nhiên \(x\) thoả \(x<5\) bằng cách liệt kê.</p>
+  <p class="fragment"><span class="kq">\(B=\{0;1;2;3;4\}\).</span></p>
+</section>
+
+<section>
+  <h2>Khởi động — Kiểm tra kiến thức nền (2/2)</h2>
+  <p class="fragment"><b>Câu 4.</b> Giải phương trình \(x^2-3x+2=0\) và cho biết tập nghiệm.</p>
+  <p class="fragment"><span class="kq">\(x^2-3x+2=0\Leftrightarrow x=1\) hoặc \(x=2\); tập nghiệm \(\{1;2\}\).</span></p>
+  <p class="fragment"><b>Câu 5.</b> Số \(0\) có phải số tự nhiên không? Tập các số tự nhiên nhỏ hơn \(0\) có phần tử nào không?</p>
+  <p class="fragment"><span class="kq">\(0\) là số tự nhiên; không có số tự nhiên nào nhỏ hơn \(0\) — tập đó <em>rỗng</em>.</span></p>
+  <div class="fragment box chuy"><div class="tit">Vào bài</div><div class="bd">
+    Những đối tượng gom lại như "các ước của \(12\)", "các nghiệm của phương trình" chính là <b>tập hợp</b> —
+    ta sẽ học cách mô tả, so sánh và phân loại chúng.
+  </div></div>
+</section>
+
+<!-- PHẦN A: LÝ THUYẾT -->
+<section>
+  <h2>A1. Tập hợp và phần tử</h2>
+  <div class="box kienthuc"><div class="tit">Tập hợp. Phần tử</div><div class="bd">
+    <b>Tập hợp</b> (gọi tắt là <em>tập</em>) là một khái niệm cơ bản, không định nghĩa. Cho tập \(A\):
+    <ul style="margin:.2em 0">
+      <li>\(a\in A\): \(a\) <em>là</em> một phần tử của \(A\) (đọc "\(a\) thuộc \(A\)").</li>
+      <li>\(a\notin A\): \(a\) <em>không</em> là phần tử của \(A\) (đọc "\(a\) không thuộc \(A\)").</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 1.</b> Cho \(A=\{1;2;3;5\}\). Điền \(\in\) hoặc \(\notin\): \(2\ \ldots\ A\); &nbsp; \(4\ \ldots\ A\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    <span class="kq">\(2\in A\)</span> (vì \(2\) có trong danh sách); &nbsp;
+    <span class="kq">\(4\notin A\)</span> (vì \(4\) không có trong danh sách).</p>
+</section>
+
+<section>
+  <h2>A2. Cách xác định một tập hợp</h2>
+  <div class="box kienthuc"><div class="tit">Ba cách xác định một tập hợp</div><div class="bd">
+    <ul style="margin:.2em 0">
+      <li><b>Liệt kê phần tử:</b> viết trong \(\{\ \}\), ngăn bởi dấu ";", <em>mỗi phần tử một lần</em>, không kể thứ tự.</li>
+      <li><b>Chỉ ra tính chất đặc trưng:</b> \(A=\{x\mid x\) có tính chất \(P\}\).</li>
+      <li><b>Biểu đồ Ven:</b> minh hoạ tập bằng một đường cong khép kín.</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 2.</b> Viết \(A=\{x\in\mathbb Z\mid |x|<3\}\) bằng liệt kê; viết \(B=\{0;1;4;9;16\}\) bằng tính chất đặc trưng.</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(|x|<3\Leftrightarrow-3<x<3\), với \(x\in\mathbb Z\) nên <span class="kq">\(A=\{-2;-1;0;1;2\}\)</span>. &nbsp;
+    <span class="kq">\(B=\{n^2\mid n\in\mathbb N,\ n\le4\}\)</span> (các số chính phương \(\le16\)).</p>
+</section>
+
+<section>
+  <h2>A3. Tập rỗng</h2>
+  <div class="box kienthuc"><div class="tit">Tập rỗng \(\varnothing\)</div><div class="bd">
+    <b>Tập rỗng</b>, kí hiệu \(\varnothing\), là tập <em>không chứa phần tử nào</em>.
+    Tập \(\{x\mid P(x)\}\) là tập rỗng khi không có giá trị nào của \(x\) thoả tính chất \(P\).
+  </div></div>
+  <p class="fragment"><b>Ví dụ 3.</b> Tập \(M=\{x\in\mathbb R\mid x^2+1=0\}\) có phải tập rỗng không?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    Vì \(x^2\ge0\) nên \(x^2+1\ge1>0\) với mọi \(x\in\mathbb R\), phương trình vô nghiệm.
+    Vậy <span class="kq">\(M=\varnothing\)</span>.</p>
+  <div class="fragment box chuy"><div class="tit">Điểm dễ sai</div><div class="bd">
+    \(\varnothing\ne\{0\}\) và \(\varnothing\ne\{\varnothing\}\): tập \(\{0\}\) có một phần tử là \(0\);
+    tập \(\{\varnothing\}\) có một phần tử là \(\varnothing\) — cả hai đều <em>khác</em> tập rỗng.
+  </div></div>
+</section>
+
+<section>
+  <h2>A4. Tập con</h2>
+  <div class="box kienthuc"><div class="tit">Tập con \(A\subset B\)</div><div class="bd">
+    \(A\) là <b>tập con</b> của \(B\), kí hiệu \(A\subset B\), nếu mọi phần tử của \(A\) đều thuộc \(B\):
+    \[A\subset B\ \Leftrightarrow\ \big(\forall x:\ x\in A\Rightarrow x\in B\big).\]
+    <b>Tính chất:</b> \(A\subset A\) và \(\varnothing\subset A\) với mọi \(A\); bắc cầu \(A\subset B,\ B\subset C\Rightarrow A\subset C\).
+    Nếu \(A\) có \(n\) phần tử thì \(A\) có đúng \(2^n\) tập con.
+  </div></div>
+  <p class="fragment"><b>Ví dụ 4.</b> Cho \(A=\{1;2\}\). Viết mọi tập con của \(A\) và đếm số tập con.</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    Các tập con: <span class="kq">\(\varnothing;\ \{1\};\ \{2\};\ \{1;2\}\)</span> — đúng \(2^2=4\) tập con.</p>
+</section>
+
+<section>
+  <h2>A5. Hai tập hợp bằng nhau</h2>
+  <div class="box kienthuc"><div class="tit">\(A=B\)</div><div class="bd">
+    Hai tập \(A\) và \(B\) <b>bằng nhau</b>, kí hiệu \(A=B\), nếu mỗi phần tử của \(A\) là phần tử của \(B\) và ngược lại:
+    \[A=B\ \Leftrightarrow\ \big(A\subset B\ \text{và}\ B\subset A\big).\]
+  </div></div>
+  <p class="fragment"><b>Ví dụ 5.</b> Cho \(A=\{x\in\mathbb Z\mid x^2=9\}\) và \(B=\{-3;3\}\). Chứng tỏ \(A=B\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(x^2=9\Leftrightarrow x=\pm3\), cả hai đều là số nguyên, nên <span class="kq">\(A=\{-3;3\}=B\)</span>.</p>
+</section>
+
+<section>
+  <h2>A6. Các tập hợp số. Khoảng, đoạn, nửa khoảng</h2>
+  <div class="box kienthuc"><div class="tit">Các tập con thường dùng của \(\mathbb R\)</div><div class="bd small">
+    Bao hàm: \(\mathbb N^*\subset\mathbb N\subset\mathbb Z\subset\mathbb Q\subset\mathbb R\). &nbsp; Với \(a<b\):
+    <ul style="margin:.2em 0">
+      <li><b>Khoảng:</b> \((a;b)=\{x\mid a<x<b\}\); \((a;+\infty)\); \((-\infty;b)\).</li>
+      <li><b>Đoạn:</b> \([a;b]=\{x\mid a\le x\le b\}\).</li>
+      <li><b>Nửa khoảng:</b> \([a;b)\), \((a;b]\), \([a;+\infty)\), \((-\infty;b]\) — đầu nào lấy dấu "\(=\)" thì dùng ngoặc vuông.</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 6.</b> Viết \(S=\{x\in\mathbb R\mid -2\le x<5\}\) dưới dạng nửa khoảng.</p>
+  <div class="fragment center">
+    <svg viewBox="0 0 620 70" width="620" height="70" style="max-width:100%">
+      <line x1="20" y1="40" x2="600" y2="40" stroke="#5a5a5a" stroke-width="1.5"/>
+      <polygon points="600,40 590,35 590,45" fill="#5a5a5a"/>
+      <line x1="150" y1="40" x2="470" y2="40" stroke="#1b549a" stroke-width="6"/>
+      <circle cx="150" cy="40" r="7" fill="#1b549a"/>
+      <circle cx="470" cy="40" r="7" fill="#fff" stroke="#1b549a" stroke-width="2.5"/>
+      <text x="150" y="26" text-anchor="middle" font-size="20" fill="#1b549a">−2</text>
+      <text x="470" y="26" text-anchor="middle" font-size="20" fill="#1b549a">5</text>
+      <text x="605" y="46" font-size="18" fill="#5a5a5a">x</text>
+    </svg>
+    <div class="venncap">Chấm đặc = lấy đầu mút (ngoặc vuông); chấm rỗng = không lấy (ngoặc tròn).</div>
+  </div>
+  <p class="fragment"><span class="kq">\(S=[-2;5)\)</span> (đầu \(-2\) lấy "\(=\)" nên ngoặc vuông; đầu \(5\) không lấy nên ngoặc tròn).</p>
+</section>
+
+<section>
+  <h2>Bốn điểm dễ sai của bài</h2>
+  <div class="box chuy"><div class="tit">Ghi nhớ để tránh mất điểm</div><div class="bd">
+    <ul>
+      <li class="fragment"><b>Phần tử</b> khác <b>tập con:</b> viết \(a\in A\) (phần tử), \(\{a\}\subset A\) (tập con) — đừng viết \(a\subset A\) hay \(\{a\}\in A\).</li>
+      <li class="fragment">\(\varnothing\subset A\) với <b>mọi</b> tập \(A\), và \(A\subset A\) (mỗi tập là tập con của chính nó).</li>
+      <li class="fragment">Tập \(n\) phần tử có \(2^n\) tập con (kể cả \(\varnothing\) và chính nó); tập con thật sự có \(2^n-1\).</li>
+      <li class="fragment"><b>Biên khoảng/đoạn:</b> \([a;b]\) lấy cả \(a,b\); \((a;b)\) bỏ cả hai; nửa khoảng lấy đúng một đầu.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- PHẦN B: CÁC DẠNG -->
+<section>
+  <h2>Dạng 1 — Liệt kê &amp; tính chất đặc trưng</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    <b>Liệt kê:</b> giải điều kiện (phương trình/bất phương trình) rồi giữ nghiệm thuộc tập số đã cho.
+    <b>Tính chất đặc trưng:</b> tìm quy luật chung rồi viết \(\{x\mid x\) có tính chất đó\(\}\).
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 1.1.</b> Liệt kê phần tử của \(X=\{x\in\mathbb R\mid 2x^2-5x+3=0\}\).</p>
+  <p class="fragment small"><span class="kq">\(2x^2-5x+3=0\Leftrightarrow x=1\) hoặc \(x=\dfrac32\), đều thực, nên \(X=\left\{1;\dfrac32\right\}\).</span></p>
+  <p class="fragment small"><b>Luyện tập 1.2.</b> Cho \(A=\{x+1\mid x\in\mathbb N,\ x\le5\}\). Tập \(A\) là?</p>
+  <p class="fragment small"><span class="kq">Với \(x\in\{0;1;2;3;4;5\}\) thì \(x+1\in\{1;2;3;4;5;6\}\), nên \(A=\{1;2;3;4;5;6\}\).</span></p>
+  <p class="fragment small"><b>Luyện tập 1.3.</b> Viết bằng tính chất đặc trưng: a) \(A=\{2;3;5;7\}\); &nbsp; b) \(C=\{-5;0;5;10\}\).</p>
+  <p class="fragment small"><span class="kq">a) \(A=\{x\mid x\) nguyên tố và \(x<10\}\); &nbsp; b) \(C=\{x\in\mathbb Z\mid x\ \vdots\ 5,\ -5\le x\le10\}\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 2 — Biểu đồ Ven</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Mỗi tập là một vòng kín; phần chung của hai tập là phần giao nhau của hai vòng. Với bài đếm, đặt số phần tử
+    vào từng miền và dùng \(|A\cup B|=|A|+|B|-|A\cap B|\) (hai tập), hoặc bao hàm – loại trừ cho ba tập.
+  </div></div>
+  <div class="fragment center">
+    <svg viewBox="0 0 440 180" width="440" height="180" style="max-width:100%">
+      <circle cx="170" cy="90" r="80" fill="#78a8de" fill-opacity="0.20" stroke="#1b549a" stroke-width="2"/>
+      <circle cx="270" cy="90" r="80" fill="#78be96" fill-opacity="0.20" stroke="#1e7846" stroke-width="2"/>
+      <text x="110" y="95" text-anchor="middle" font-size="18">A∖B</text>
+      <text x="220" y="95" text-anchor="middle" font-size="18">A∩B</text>
+      <text x="330" y="95" text-anchor="middle" font-size="18">B∖A</text>
+      <text x="95"  y="30" text-anchor="middle" font-size="22" fill="#1b549a" font-weight="bold">A</text>
+      <text x="345" y="30" text-anchor="middle" font-size="22" fill="#1e7846" font-weight="bold">B</text>
+    </svg>
+    <div class="venncap">Ba miền của hai tập \(A\), \(B\): chỉ \(A\) — chung — chỉ \(B\).</div>
+  </div>
+  <p class="fragment small"><b>Luyện tập 2.1.</b> Lớp có \(25\) HS giỏi Toán, \(23\) giỏi Lí, \(14\) giỏi cả hai, \(6\) không giỏi môn nào. Sĩ số lớp?</p>
+  <p class="fragment small"><span class="kq">Giỏi ít nhất một môn \(=25+23-14=34\); cả lớp \(=34+6=40\) học sinh.</span></p>
+</section>
+
+<section>
+  <h2>Dạng 3 — Tập con &amp; tập bằng nhau</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    \(A\subset B\Leftrightarrow(\forall x\in A\Rightarrow x\in B)\); &nbsp; \(A=B\Leftrightarrow A\subset B\) và \(B\subset A\).
+    Tập \(n\) phần tử có \(2^n\) tập con; số tập con đúng \(k\) phần tử là \(C_n^k\).
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 3.1.</b> Cho \(X=\{a;b;c\}\). Số tập con của \(X\) là?</p>
+  <p class="fragment small"><span class="kq">Tập \(3\) phần tử có \(2^3=8\) tập con.</span></p>
+  <p class="fragment small"><b>Luyện tập 3.2.</b> Cho \(A=\{1;2;5;7\}\), \(B=\{1;2;3\}\). Có bao nhiêu tập \(X\) thoả \(X\subset A\) và \(X\subset B\)?</p>
+  <p class="fragment small"><span class="kq">\(X\) chỉ gồm phần tử <em>chung</em>, tức \(X\subset\{1;2\}\); tập \(\{1;2\}\) có \(2^2=4\) tập con.</span></p>
+  <p class="fragment small"><b>Luyện tập 3.3.</b> Cho \(A=\{1;3\}\), \(B=\{3;x\}\), \(C=\{x;y;3\}\). Tìm các cặp \((x;y)\) để \(A=B=C\).</p>
+  <p class="fragment small"><span class="kq">\(B=A\Rightarrow x=1\); rồi \(C=\{1;y;3\}=\{1;3\}\Rightarrow y\in\{1;3\}\). Vậy \((x;y)\in\{(1;1);(1;3)\}\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 4 — Tập hợp rỗng</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Tập \(\{x\mid P(x)\}\) rỗng khi \(P(x)\) <em>vô nghiệm</em> trên tập số đang xét. Phương trình bậc hai: rỗng \(\Leftrightarrow\Delta<0\).
+    Với "\(\{x\mid\alpha<x<\beta\}\)": rỗng \(\Leftrightarrow\alpha\ge\beta\).
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 4.1.</b> Tập nào là <em>tập rỗng</em>?
+    A) \(\{x\in\mathbb Z\mid |x|<1\}\); &nbsp; B) \(\{x\in\mathbb Z\mid 6x^2-7x+1=0\}\); &nbsp;
+    C) \(\{x\in\mathbb Q\mid x^2-4x+2=0\}\); &nbsp; D) \(\{x\in\mathbb R\mid x^2-4x+3=0\}\).</p>
+  <p class="fragment small"><span class="kq">Đáp án C — \(x^2-4x+2=0\Leftrightarrow x=2\pm\sqrt2\notin\mathbb Q\). (A\(=\{0\}\); B\(=\{1\}\); D\(=\{1;3\}\).)</span></p>
+  <p class="fragment small"><b>Luyện tập 4.2.</b> Tìm \(m\) để \(A=\{x\in\mathbb R\mid x<m\) và \(x>2m+1\}\) là tập rỗng.</p>
+  <p class="fragment small"><span class="kq">\(A=\varnothing\Leftrightarrow\) không có \(x\) thoả \(2m+1<x<m\Leftrightarrow m\le2m+1\Leftrightarrow m\ge-1\).</span></p>
+</section>
+
+<!-- GHI NHỚ + VỀ NHÀ -->
+<section>
+  <h2>Ghi nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Chốt lại bài học</div><div class="bd">
+    <ul>
+      <li class="fragment"><b>Xác định tập:</b> liệt kê \(\{\ \}\), tính chất đặc trưng \(\{x\mid P(x)\}\), hoặc biểu đồ Ven.</li>
+      <li class="fragment"><b>Tập con:</b> \(A\subset B\); tập \(n\) phần tử có \(2^n\) tập con; \(\varnothing\subset A\) và \(A\subset A\).</li>
+      <li class="fragment"><b>Bằng nhau:</b> \(A=B\Leftrightarrow A\subset B\) và \(B\subset A\).</li>
+      <li class="fragment"><b>Tập số:</b> phân biệt khoảng \((a;b)\), đoạn \([a;b]\), nửa khoảng — ngoặc vuông ⇔ lấy đầu mút.</li>
+    </ul>
+  </div></div>
+  <p class="center fragment small"><em>Bài sau: <b>Bài 3. Các phép toán trên tập hợp</b> (giao, hợp, hiệu, phần bù).</em></p>
+</section>
+
+<section>
+  <h2>Về nhà</h2>
+  <div class="box chuy"><div class="tit">Nhiệm vụ của em</div><div class="bd">
+    <ol>
+      <li>Làm <b>Phiếu bài tập số 1</b> (10 bài, theo bài giảng):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-C-PhieuBaiTap.pdf" target="_blank">C1B2-C-PhieuBaiTap.pdf</a></li>
+      <li>Làm <b>Phiếu bài tập về nhà số 2</b> (kèm QR đáp án):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-C-PhieuBaiTap2.pdf" target="_blank">C1B2-C-PhieuBaiTap2.pdf</a></li>
+      <li>Làm <b>Bài kiểm tra tương tác online</b> (trắc nghiệm + đúng/sai + kéo thả):
+        <a href="/T10/LuyenTap/C1B2.html" target="_blank">/T10/LuyenTap/C1B2.html</a></li>
+    </ol>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Toàn bộ tài liệu bài học (dành cho giáo viên)</div><div class="bd small">
+    <ul style="margin:0">
+      <li>Phiếu khởi động: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-0-PhieuKhoiDong.pdf" target="_blank">C1B2-0-PhieuKhoiDong.pdf</a></li>
+      <li>Các dạng bài + luyện tập: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-B-CacDang.pdf" target="_blank">C1B2-B-CacDang.pdf</a></li>
+      <li>Đề kiểm tra cơ bản 15 phút: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-D-KiemTra15p.pdf" target="_blank">C1B2-D-KiemTra15p.pdf</a></li>
+      <li>Bài nâng cao: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-E-NangCao.pdf" target="_blank">C1B2-E-NangCao.pdf</a></li>
+      <li>Bản đầy đủ kèm lời giải: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B2-BaiGiang-DayDu.pdf" target="_blank">C1B2-BaiGiang-DayDu.pdf</a></li>
+    </ul>
+  </div></div>
+  <p class="center fragment">Bài sau: <b>Bài 3. Các phép toán trên tập hợp</b> — hẹn gặp lại!</p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>
