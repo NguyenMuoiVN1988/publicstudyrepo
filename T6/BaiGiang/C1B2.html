@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 2. Cách ghi số tự nhiên | Bài giảng Toán 6</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#005493; --maunhat:#e8f2fa;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#008040;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.15em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .laman td,.laman th{border:1px solid #9bbcd8;text-align:center}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.2em;font-weight:bold}
+  .titleslide .t2{font-size:1.4em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- SLIDE 1: TIÊU ĐỀ -->
+<section class="titleslide">
+  <div class="t1">Bài 2. Cách ghi số tự nhiên</div>
+  <div class="t2">Toán 6 — Chương I. Tập hợp các số tự nhiên</div>
+  <p style="margin-top:1.2em"><em>Bài giảng trình chiếu trên lớp</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để xem từng bước, giống như trên lớp.</p>
+</section>
+
+<!-- SLIDE 2: TÀI NGUYÊN BÀI HỌC -->
+<section>
+  <h2>Tài nguyên bài học (dành cho giáo viên)</h2>
+  <table class="small">
+    <tr><th>Tài liệu</th><th>Mở</th></tr>
+    <tr><td>Phiếu khởi động (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-0-PhieuKhoiDong.pdf" target="_blank">C1B2-0-PhieuKhoiDong.pdf</a></td></tr>
+    <tr><td>Các dạng bài + luyện tập (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-B-CacDang.pdf" target="_blank">C1B2-B-CacDang.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập số 1 (10 bài, theo bài giảng) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-C-PhieuBaiTap.pdf" target="_blank">C1B2-C-PhieuBaiTap.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập về nhà số 2 (kèm QR đáp án) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-C-PhieuBaiTap2.pdf" target="_blank">C1B2-C-PhieuBaiTap2.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra 15 phút (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-D-KiemTra15p.pdf" target="_blank">C1B2-D-KiemTra15p.pdf</a></td></tr>
+    <tr><td>Bài nâng cao (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-E-NangCao.pdf" target="_blank">C1B2-E-NangCao.pdf</a></td></tr>
+    <tr><td>Bản đầy đủ kèm lời giải (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-BaiGiang-DayDu.pdf" target="_blank">C1B2-BaiGiang-DayDu.pdf</a></td></tr>
+    <tr><td>Bài kiểm tra tương tác online<br><span class="small">(trắc nghiệm + đúng/sai + kéo thả)</span></td>
+      <td><a href="/T6/LuyenTap/C1B2.html" target="_blank">/T6/LuyenTap/C1B2.html</a></td></tr>
+  </table>
+  <p class="footer-note">In phiếu phát tay hoặc giao bài online — thầy cô tự chọn thứ tự.</p>
+</section>
+
+<!-- PHẦN 0: KHỞI ĐỘNG -->
+<section>
+  <h2>Khởi động — Em còn nhớ không? (1/2)</h2>
+  <p class="hoihs">Ôn lại Bài 1 và cách đọc – viết số ở Tiểu học — trả lời nhanh nhé!</p>
+  <p class="fragment"><b>Câu 1.</b> Viết tập hợp \(A\) các số tự nhiên nhỏ hơn \(6\) theo hai cách.</p>
+  <p class="fragment"><span class="kq">\(A = \{0; 1; 2; 3; 4; 5\}\) hoặc \(A = \{x \in \mathbb{N} \mid x &lt; 6\}\).</span></p>
+  <p class="fragment"><b>Câu 2.</b> Điền kí hiệu \(\in\) hoặc \(\notin\):
+    \(0 \dots \mathbb{N}\); &nbsp; \(0 \dots \mathbb{N}^{*}\); &nbsp; \(7 \dots \mathbb{N}^{*}\); &nbsp; \(3{,}5 \dots \mathbb{N}\).</p>
+  <p class="fragment"><span class="kq">\(0 \in \mathbb{N}\); &nbsp; \(0 \notin \mathbb{N}^{*}\); &nbsp; \(7 \in \mathbb{N}^{*}\); &nbsp; \(3{,}5 \notin \mathbb{N}\).</span></p>
+  <p class="fragment"><b>Câu 3.</b> Cho \(B = \{x \in \mathbb{N} \mid 4 &lt; x \le 9\}\). Liệt kê các phần tử và cho biết \(B\) có mấy phần tử.</p>
+  <p class="fragment"><span class="kq">\(B = \{5; 6; 7; 8; 9\}\): \(5\) phần tử.</span></p>
+</section>
+
+<section>
+  <h2>Khởi động — Em còn nhớ không? (2/2)</h2>
+  <p class="fragment"><b>Câu 4.</b> a) Đọc số \(5\,070\,302\). &nbsp; b) Viết số "bốn nghìn không trăm linh chín" bằng chữ số.</p>
+  <p class="fragment"><span class="kq">a) Năm triệu không trăm bảy mươi nghìn ba trăm linh hai. &nbsp; b) \(4009\).</span></p>
+  <p class="fragment"><b>Câu 5.</b> Trong số \(3\,815\), chữ số hàng trăm là chữ số nào? Chữ số \(8\) trong số đó chỉ mấy trăm?</p>
+  <p class="fragment"><span class="kq">Chữ số hàng trăm là \(8\); chữ số \(8\) chỉ \(8\) trăm, tức có giá trị \(800\).</span></p>
+  <div class="fragment box chuy"><div class="tit">Vào bài</div><div class="bd">
+    Ở câu 4, 5 em vừa <b>đọc số</b>, <b>viết số</b> và xét <b>giá trị của một chữ số</b>.
+    Hôm nay ta học kĩ hơn: <b>cách ghi số tự nhiên</b> — kể cả cách ghi bằng <b>số La Mã</b>!
+  </div></div>
+</section>
+
+<!-- PHẦN A: LÝ THUYẾT -->
+<section>
+  <h2>A1. Ghi số tự nhiên — hệ thập phân</h2>
+  <div class="box kienthuc"><div class="tit">Mười chữ số — lớp và hàng</div><div class="bd">
+    Để ghi các số tự nhiên, ta dùng <b>mười chữ số</b>: \(0; 1; 2; 3; 4; 5; 6; 7; 8; 9\).
+    <ul>
+      <li>Một số có thể gồm <em>một</em> hoặc <em>nhiều</em> chữ số: \(8\) có một chữ số; \(2454\) có bốn chữ số là \(2; 4; 5; 4\).</li>
+      <li>Số có từ <em>bốn chữ số trở lên</em> thường tách thành từng <b>lớp</b> gồm \(3\) chữ số kể từ phải sang trái cho dễ đọc: \(1\,613\,521\).</li>
+      <li>Vị trí của mỗi chữ số gọi là <b>hàng</b>. Cứ \(10\) đơn vị ở một hàng thì bằng \(1\) đơn vị ở hàng liền trước.</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 1.</b> Cho số \(12\,625\). a) Số đó có mấy chữ số? &nbsp; b) Đọc số đó.</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    a) Số \(12\,625\) gồm <span class="kq">\(5\) chữ số</span>: \(1; 2; 6; 2; 5\).
+    b) Tách lớp \(12\ |\ 625\), đọc: <span class="kq">mười hai nghìn sáu trăm hai mươi lăm</span>.</p>
+</section>
+
+<section>
+  <h2>A2. Cấu tạo số — giá trị của chữ số</h2>
+  <div class="box kienthuc"><div class="tit">Giá trị của chữ số — kí hiệu \(\overline{ab}\)</div><div class="bd">
+    <ul>
+      <li><b>Giá trị</b> của một chữ số phụ thuộc vào <em>hàng</em> của nó. Trong số \(1240\), chữ số \(2\) ở hàng trăm nên có giá trị \(2 \times 100 = 200\).</li>
+      <li>Mỗi số tự nhiên viết được thành <b>tổng giá trị các chữ số</b> của nó.</li>
+      <li>Số có hai chữ số: \(\overline{ab} = a \times 10 + b\) &nbsp;(với \(a \neq 0\)).</li>
+      <li>Số có ba chữ số: \(\overline{abc} = a \times 100 + b \times 10 + c\).</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 2.</b> a) Trong số \(2\,413\,576\), chữ số \(4\) ở hàng nào, giá trị bao nhiêu?
+    &nbsp; b) Viết \(3502\) thành tổng giá trị các chữ số.</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    a) Chữ số \(4\) ở <span class="kq">hàng trăm nghìn</span>, giá trị \(4 \times 100\,000 = 400\,000\).</p>
+  <p class="fragment">b) \(3502 = 3 \times 1000 + 5 \times 100 + 0 \times 10 + 2 = \) <span class="kq">\(3000 + 500 + 2\)</span>.</p>
+</section>
+
+<section>
+  <h2>A3. Số La Mã</h2>
+  <div class="box kienthuc"><div class="tit">Cách ghi số La Mã (từ 1 đến 30)</div><div class="bd small">
+    Ba chữ số cơ bản: <b>I</b> \(=1\), <b>V</b> \(=5\), <b>X</b> \(=10\); thêm hai cụm <b>IV</b> \(=4\) và <b>IX</b> \(=9\).
+    <table class="laman">
+      <tr><th>I</th><th>II</th><th>III</th><th>IV</th><th>V</th><th>VI</th><th>VII</th><th>VIII</th><th>IX</th><th>X</th></tr>
+      <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+    </table>
+    Số từ \(11\) đến \(20\): thêm <b>X</b> vào bên trái mỗi số từ I đến X.
+    Số từ \(21\) đến \(30\): thêm <b>XX</b> vào bên trái mỗi số từ I đến X.
+  </div></div>
+  <p class="fragment"><b>Ví dụ 3.</b> a) Đọc: XXIV; XVII. &nbsp; b) Viết \(9\); \(14\); \(26\) bằng số La Mã.</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    a) XXIV \(= 20 + 4 = \) <span class="kq">\(24\)</span>; &nbsp; XVII \(= 10 + 5 + 2 = \) <span class="kq">\(17\)</span>.
+    b) \(9 = \) <span class="kq">IX</span>; &nbsp; \(14 = \) <span class="kq">XIV</span>; &nbsp; \(26 = \) <span class="kq">XXVI</span>.</p>
+</section>
+
+<section>
+  <h2>Chú ý — 4 điều rất dễ nhầm</h2>
+  <div class="box chuy"><div class="tit">Phải nhớ</div><div class="bd">
+    <ul>
+      <li class="fragment"><b>Chữ số</b> khác <b>số</b>. \(2454\) là <em>một số</em>; còn \(2; 4; 5\) là các <em>chữ số</em> (tập hợp chữ số là \(\{2; 4; 5\}\) — mỗi chữ số viết một lần).</li>
+      <li class="fragment"><b>Chữ số \(0\) không đứng đầu</b> bên trái: viết \(725\), không viết \(0725\).</li>
+      <li class="fragment">\(\overline{ab}\) là <em>số có hai chữ số</em>, <b>không</b> phải tích \(a \times b\). Với \(a=3; b=7\): \(\overline{ab} = 37\), còn \(a \times b = 21\).</li>
+      <li class="fragment">Số La Mã: <b>không viết quá ba chữ số giống nhau liền nhau</b>. Viết \(4 = \) IV (không IIII), \(9 = \) IX (không VIIII).</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- PHẦN B: CÁC DẠNG -->
+<section>
+  <h2>Dạng 1 — Ghi số, phân biệt số và chữ số, giá trị của chữ số</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    <b>Bước 1.</b> Tách số thành từng lớp \(3\) chữ số (từ phải sang trái) để đọc.<br>
+    <b>Bước 2.</b> Muốn tìm giá trị của một chữ số: xác định <em>hàng</em> của nó (đơn vị, chục, trăm, nghìn, …) rồi nhân chữ số với giá trị của hàng.
+  </div></div>
+  <div class="fragment box chuy"><div class="tit">Lưu ý</div><div class="bd">
+    Khi viết <b>tập hợp các chữ số</b>, mỗi chữ số chỉ được liệt kê <b>một lần</b>.
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 1 — Luyện tập</h2>
+  <p class="small"><b>Luyện tập 1.1.</b> Viết tập hợp các chữ số của: a) số \(2389\); &nbsp; b) số \(2020\).</p>
+  <p class="fragment small"><span class="kq">a) \(\{2; 3; 8; 9\}\); &nbsp; b) \(\{0; 2\}\) (chữ số \(2\) và \(0\) mỗi cái viết một lần).</span></p>
+  <p class="small"><b>Luyện tập 1.2.</b> Trong các số \(12\,625\); \(140\,962\); \(1\,613\,521\), chữ số \(6\) có giá trị bao nhiêu?</p>
+  <p class="fragment small"><span class="kq">\(600\); &nbsp; \(60\); &nbsp; \(600\,000\) (tuỳ hàng của chữ số \(6\)).</span></p>
+  <p class="small"><b>Luyện tập 1.3.</b> Viết \(4528\) và \(12\,105\) thành tổng giá trị các chữ số.</p>
+  <p class="fragment small"><span class="kq">\(4528 = 4000 + 500 + 20 + 8\); &nbsp; \(12\,105 = 10\,000 + 2000 + 100 + 5\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 2 — Viết số tự nhiên theo yêu cầu</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    <b>Bước 1.</b> Xác định số cần viết có mấy chữ số, chữ số nào ở hàng nào.<br>
+    <b>Bước 2.</b> Viết số, chú ý: chữ số \(0\) <em>không</em> đứng đầu bên trái;
+    muốn số <em>lớn nhất</em> xếp chữ số lớn lên hàng cao; muốn số <em>nhỏ nhất</em> xếp chữ số nhỏ (khác \(0\)) lên hàng cao nhất.
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 2 — Luyện tập</h2>
+  <p class="small"><b>Luyện tập 2.1.</b> Viết số tự nhiên nhỏ nhất có bốn chữ số; và số nhỏ nhất có bốn chữ số <em>khác nhau</em>.</p>
+  <p class="fragment small"><span class="kq">\(1000\); &nbsp; và \(1023\).</span></p>
+  <p class="small"><b>Luyện tập 2.2.</b> Dùng ba chữ số \(3; 4; 7\), viết tất cả số tự nhiên có ba chữ số khác nhau.</p>
+  <p class="fragment small"><span class="kq">\(347; 374; 437; 473; 734; 743\) (có \(6\) số).</span></p>
+  <p class="small"><b>Luyện tập 2.3.</b> Dùng sáu chữ số \(0; 2; 3; 5; 8; 9\), viết số lớn nhất và số nhỏ nhất có sáu chữ số (mỗi chữ số một lần).</p>
+  <p class="fragment small"><span class="kq">Lớn nhất \(985\,320\); nhỏ nhất \(203\,589\) (chữ số đầu khác \(0\) nên lấy \(2\)).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 3 — Đọc và viết số La Mã</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    <b>Đọc:</b> tách số La Mã thành các cụm từ trái sang phải (XX, X, IX, IV, V, I …) rồi <em>cộng</em> giá trị các cụm.<br>
+    <b>Viết:</b> tách số cần viết thành <em>phần chục</em> \(+\) <em>phần đơn vị</em>; phần chục viết bằng X hoặc XX, phần đơn vị viết theo bảng từ I đến X, rồi ghép lại.
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 3 — Luyện tập</h2>
+  <p class="small"><b>Luyện tập 3.1.</b> Đọc: IX; XIX; XXII; XXVI.</p>
+  <p class="fragment small"><span class="kq">\(9\); &nbsp; \(19\); &nbsp; \(22\); &nbsp; \(26\).</span></p>
+  <p class="small"><b>Luyện tập 3.2.</b> Viết bằng số La Mã: \(15\); \(13\); \(24\); \(16\); \(30\).</p>
+  <p class="fragment small"><span class="kq">XV; &nbsp; XIII; &nbsp; XXIV; &nbsp; XVI; &nbsp; XXX.</span></p>
+  <p class="small"><b>Luyện tập 3.3.</b> Đọc: XXVIII; XXIX. &nbsp; Viết bằng số La Mã: \(4\); \(19\); \(25\).</p>
+  <p class="fragment small"><span class="kq">XXVIII \(=28\); XXIX \(=29\). &nbsp; \(4 =\) IV; \(19 =\) XIX; \(25 =\) XXV.</span></p>
+</section>
+
+<!-- GHI NHỚ + VỀ NHÀ -->
+<section>
+  <h2>Ghi nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Chốt lại bài học</div><div class="bd">
+    <ul>
+      <li class="fragment">Ghi số tự nhiên bằng <b>mười chữ số</b> \(0\)–\(9\); tách thành <b>lớp</b> \(3\) chữ số để đọc.</li>
+      <li class="fragment"><b>Giá trị</b> của một chữ số tuỳ vào <b>hàng</b>; mỗi số viết được thành tổng giá trị các chữ số. \(\overline{ab} = a \times 10 + b\).</li>
+      <li class="fragment"><b>Số La Mã</b>: I \(=1\), V \(=5\), X \(=10\), IV \(=4\), IX \(=9\); ghép phần chục và phần đơn vị.</li>
+      <li class="fragment">Bẫy hay gặp: chữ số \(0\) không đứng đầu; \(\overline{ab} \neq a \times b\); không viết quá ba chữ số La Mã giống nhau liền nhau.</li>
+    </ul>
+  </div></div>
+</section>
+
+<section>
+  <h2>Về nhà</h2>
+  <div class="box chuy"><div class="tit">Nhiệm vụ của em</div><div class="bd">
+    <ol>
+      <li>Làm <b>Phiếu bài tập số 1</b> (10 bài, theo bài giảng):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-C-PhieuBaiTap.pdf" target="_blank">C1B2-C-PhieuBaiTap.pdf</a></li>
+      <li>Làm <b>Phiếu bài tập về nhà số 2</b> (kèm QR đáp án):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-C-PhieuBaiTap2.pdf" target="_blank">C1B2-C-PhieuBaiTap2.pdf</a></li>
+      <li>Làm <b>Bài kiểm tra tương tác online</b> (trắc nghiệm + đúng/sai + kéo thả):
+        <a href="/T6/LuyenTap/C1B2.html" target="_blank">/T6/LuyenTap/C1B2.html</a></li>
+    </ol>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Toàn bộ tài liệu bài học (dành cho giáo viên)</div><div class="bd small">
+    <ul style="margin:0">
+      <li>Phiếu khởi động: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-0-PhieuKhoiDong.pdf" target="_blank">C1B2-0-PhieuKhoiDong.pdf</a></li>
+      <li>Các dạng bài + luyện tập: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-B-CacDang.pdf" target="_blank">C1B2-B-CacDang.pdf</a></li>
+      <li>Đề kiểm tra 15 phút: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-D-KiemTra15p.pdf" target="_blank">C1B2-D-KiemTra15p.pdf</a></li>
+      <li>Bài nâng cao: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-E-NangCao.pdf" target="_blank">C1B2-E-NangCao.pdf</a></li>
+      <li>Bản đầy đủ kèm lời giải: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B2-BaiGiang-DayDu.pdf" target="_blank">C1B2-BaiGiang-DayDu.pdf</a></li>
+    </ul>
+  </div></div>
+  <p class="center fragment">Bài sau: <b>Bài 3. Thứ tự trong tập hợp các số tự nhiên</b> — hẹn gặp lại!</p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>
