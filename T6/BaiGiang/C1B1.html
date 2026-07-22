@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 1. Tập hợp | Bài giảng Toán 6</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#005493; --maunhat:#e8f2fa;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#008040;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.15em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.2em;font-weight:bold}
+  .titleslide .t2{font-size:1.4em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- SLIDE 1: TIÊU ĐỀ -->
+<section class="titleslide">
+  <div class="t1">Bài 1. Tập hợp</div>
+  <div class="t2">Toán 6 — Chương I. Tập hợp các số tự nhiên</div>
+  <p style="margin-top:1.2em"><em>Bài giảng trình chiếu trên lớp</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để xem từng bước, giống như trên lớp.</p>
+</section>
+
+<!-- SLIDE 2: TÀI NGUYÊN BÀI HỌC -->
+<section>
+  <h2>Tài nguyên bài học (dành cho giáo viên)</h2>
+  <table class="small">
+    <tr><th>Tài liệu</th><th>Mở</th></tr>
+    <tr><td>Phiếu khởi động (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-0-PhieuKhoiDong.pdf" target="_blank">C1B1-0-PhieuKhoiDong.pdf</a></td></tr>
+    <tr><td>Các dạng bài + luyện tập (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-B-CacDang.pdf" target="_blank">C1B1-B-CacDang.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập số 1 (10 bài, theo bài giảng) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-C-PhieuBaiTap.pdf" target="_blank">C1B1-C-PhieuBaiTap.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập về nhà số 2 (kèm QR đáp án) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-C-PhieuBaiTap2.pdf" target="_blank">C1B1-C-PhieuBaiTap2.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra 15 phút (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-D-KiemTra15p.pdf" target="_blank">C1B1-D-KiemTra15p.pdf</a></td></tr>
+    <tr><td>Bài nâng cao (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-E-NangCao.pdf" target="_blank">C1B1-E-NangCao.pdf</a></td></tr>
+    <tr><td>Bản đầy đủ kèm lời giải (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-BaiGiang-DayDu.pdf" target="_blank">C1B1-BaiGiang-DayDu.pdf</a></td></tr>
+    <tr><td>Bài kiểm tra tương tác online<br><span class="small">(trắc nghiệm + đúng/sai + kéo thả)</span></td>
+      <td><a href="/T6/LuyenTap/C1B1.html" target="_blank">/T6/LuyenTap/C1B1.html</a></td></tr>
+  </table>
+  <p class="footer-note">In phiếu phát tay hoặc giao bài online — thầy cô tự chọn thứ tự.</p>
+</section>
+
+<!-- PHẦN 0: KHỞI ĐỘNG -->
+<section>
+  <h2>Khởi động — Em còn nhớ không? (1/2)</h2>
+  <p class="hoihs">Kiểm tra kiến thức cũ ở Tiểu học — trả lời nhanh nhé!</p>
+  <p class="fragment"><b>Câu 1.</b> Viết các số sau bằng chữ số: hai nghìn không trăm linh năm; ba mươi mốt; một trăm linh bảy.</p>
+  <p class="fragment"><span class="kq">Đáp án: \(2005\); \(31\); \(107\).</span></p>
+  <p class="fragment"><b>Câu 2.</b> So sánh hai số: \(1099\) và \(1100\); &nbsp; \(907\) và \(970\).</p>
+  <p class="fragment"><span class="kq">Đáp án: \(1099 &lt; 1100\); \(907 &lt; 970\).</span></p>
+  <p class="fragment"><b>Câu 3.</b> Kể tên các ngày trong một tuần lễ.</p>
+  <p class="fragment"><span class="kq">Đáp án: thứ Hai, thứ Ba, thứ Tư, thứ Năm, thứ Sáu, thứ Bảy, Chủ nhật.</span></p>
+</section>
+
+<section>
+  <h2>Khởi động — Em còn nhớ không? (2/2)</h2>
+  <p class="fragment"><b>Câu 4.</b> Kể tên các tháng (dương lịch) có \(31\) ngày.</p>
+  <p class="fragment"><span class="kq">Đáp án: tháng \(1\), \(3\), \(5\), \(7\), \(8\), \(10\), \(12\).</span></p>
+  <p class="fragment"><b>Câu 5.</b> Viết ra tất cả các số tự nhiên chẵn nhỏ hơn \(10\).</p>
+  <p class="fragment"><span class="kq">Đáp án: \(0\); \(2\); \(4\); \(6\); \(8\).</span></p>
+  <div class="fragment box chuy"><div class="tit">Nhận xét</div><div class="bd">
+    Mỗi câu trả lời trên là <b>một nhóm đối tượng</b>: nhóm các ngày trong tuần,
+    nhóm các tháng có 31 ngày, nhóm các số chẵn nhỏ hơn 10…<br>
+    Trong toán học, mỗi nhóm như vậy gọi là một <b>tập hợp</b> — bài học hôm nay!
+  </div></div>
+</section>
+
+<!-- PHẦN A: LÝ THUYẾT -->
+<section>
+  <h2>A1. Tập hợp và phần tử</h2>
+  <div class="box kienthuc"><div class="tit">Tập hợp — phần tử</div><div class="bd">
+    <b>Tập hợp</b> (gọi tắt là <b>tập</b>) bao gồm những đối tượng nhất định.<br>
+    Mỗi đối tượng trong tập hợp là một <b>phần tử</b> của tập hợp đó.
+  </div></div>
+  <p class="fragment"><b>Ví dụ 1.</b> Trên bàn học của Nam có: bút chì, thước kẻ, cục tẩy.
+    Gọi \(B\) là tập hợp các đồ dùng trên bàn của Nam.
+    Hỏi \(B\) gồm những phần tử nào?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    Tập hợp \(B\) gồm <span class="kq">ba phần tử</span>: bút chì, thước kẻ, cục tẩy.</p>
+</section>
+
+<section>
+  <h2>A2. Kí hiệu \(\in\) và \(\notin\)</h2>
+  <div class="box kienthuc"><div class="tit">Quan hệ giữa phần tử và tập hợp</div><div class="bd">
+    <table>
+      <tr><th>Kí hiệu</th><th>Ý nghĩa</th><th>Cách đọc</th></tr>
+      <tr><td>\(a \in A\)</td><td>\(a\) là phần tử của tập hợp \(A\)</td><td>\(a\) thuộc \(A\)</td></tr>
+      <tr><td>\(a \notin A\)</td><td>\(a\) không là phần tử của tập hợp \(A\)</td><td>\(a\) không thuộc \(A\)</td></tr>
+    </table>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 2.</b> Cho tập hợp \(A = \{a;\, b;\, c\}\).
+    Dùng kí hiệu \(\in\) hoặc \(\notin\) để viết quan hệ của \(b\) và của \(d\) với tập hợp \(A\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(b\) là một phần tử của \(A\) nên <span class="kq">\(b \in A\)</span> (đọc là "\(b\) thuộc \(A\)").</p>
+  <p class="fragment">\(d\) không phải là phần tử của \(A\) nên <span class="kq">\(d \notin A\)</span>
+    (đọc là "\(d\) không thuộc \(A\)").</p>
+</section>
+
+<section>
+  <h2>A3. Hai cách mô tả một tập hợp</h2>
+  <div class="box kienthuc"><div class="tit">Hai cách mô tả một tập hợp</div><div class="bd">
+    <b>Cách 1.</b> <em>Liệt kê</em> các phần tử trong dấu ngoặc nhọn \(\{\ \}\).
+    &nbsp;Ví dụ: \(N = \{1; 3; 5; 7; 9\}\).<br>
+    <b>Cách 2.</b> Nêu <em>tính chất đặc trưng</em> cho các phần tử.
+    &nbsp;Ví dụ: \(M = \{n \mid n \text{ là số tự nhiên nhỏ hơn } 10\}\).
+  </div></div>
+  <p class="fragment"><b>Ví dụ 3.</b> Viết tập hợp \(C\) các số tự nhiên nhỏ hơn \(5\) theo hai cách.</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    <em>Cách 1</em> (liệt kê): các số tự nhiên nhỏ hơn \(5\) là \(0; 1; 2; 3; 4\).
+    Vậy <span class="kq">\(C = \{0; 1; 2; 3; 4\}\)</span>.</p>
+  <p class="fragment"><em>Cách 2</em> (tính chất đặc trưng):
+    <span class="kq">\(C = \{x \in \mathbb{N} \mid x &lt; 5\}\)</span>.</p>
+</section>
+
+<section>
+  <h2>A4. Hai tập hợp số quen thuộc: \(\mathbb{N}\) và \(\mathbb{N}^{*}\)</h2>
+  <div class="box kienthuc"><div class="tit">Tập hợp \(\mathbb{N}\) và \(\mathbb{N}^{*}\)</div><div class="bd">
+    <ul>
+      <li>Tập hợp các số tự nhiên: \(\mathbb{N} = \{0; 1; 2; 3; \dots\}\).</li>
+      <li>Tập hợp các số tự nhiên khác \(0\): \(\mathbb{N}^{*} = \{1; 2; 3; 4; \dots\}\).</li>
+    </ul>
+    Tập hợp \(\mathbb{N}\) có vô số phần tử.
+  </div></div>
+  <p class="fragment"><b>Ví dụ 4.</b> Số \(0\) có thuộc \(\mathbb{N}\) không? Có thuộc \(\mathbb{N}^{*}\) không?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(0\) là số tự nhiên nên <span class="kq">\(0 \in \mathbb{N}\)</span>.</p>
+  <p class="fragment">\(\mathbb{N}^{*}\) chỉ gồm các số tự nhiên <em>khác</em> \(0\) nên
+    <span class="kq">\(0 \notin \mathbb{N}^{*}\)</span>.</p>
+  <p class="fragment center"><b>Khác nhau duy nhất: \(\mathbb{N}\) có số \(0\), còn \(\mathbb{N}^{*}\) thì không!</b></p>
+</section>
+
+<section>
+  <h2>A5. Biểu đồ Ven</h2>
+  <div class="box kienthuc"><div class="tit">Biểu đồ Ven</div><div class="bd">
+    Tập hợp có thể được minh hoạ bởi một <em>vòng kín</em>; mỗi phần tử được biểu diễn
+    bởi một <em>dấu chấm</em> bên trong vòng. Hình như vậy gọi là <b>biểu đồ Ven</b>.
+  </div></div>
+  <p class="fragment"><b>Ví dụ 5.</b> Cho \(M = \{0; 1; 2; 3\}\). Minh hoạ tập hợp \(M\) bằng biểu đồ Ven.</p>
+  <div class="fragment center">
+    <p class="lg" style="margin:.2em 0">Lời giải. Vẽ một vòng kín tên \(M\), bên trong đặt 4 dấu chấm:</p>
+    <svg viewBox="0 0 420 190" style="width:min(100%,420px);height:auto" role="img"
+         aria-label="Biểu đồ Ven: vòng kín tên M chứa 4 phần tử 0, 1, 2, 3">
+      <ellipse cx="210" cy="105" rx="170" ry="70" fill="#e8f2fa" stroke="#005493" stroke-width="3"/>
+      <text x="210" y="24" text-anchor="middle" font-size="26" font-weight="bold" fill="#005493">M</text>
+      <g fill="#000">
+        <circle cx="90"  cy="95" r="5"/><circle cx="170" cy="95" r="5"/>
+        <circle cx="250" cy="95" r="5"/><circle cx="330" cy="95" r="5"/>
+      </g>
+      <g font-size="24" fill="#000" text-anchor="middle">
+        <text x="90"  y="140">0</text><text x="170" y="140">1</text>
+        <text x="250" y="140">2</text><text x="330" y="140">3</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <h2>Chú ý khi viết một tập hợp</h2>
+  <div class="box chuy"><div class="tit">Chú ý — 4 điều phải nhớ</div><div class="bd">
+    <ul>
+      <li class="fragment">Tên tập hợp viết bằng <b>chữ cái in hoa</b>: \(A\), \(B\), \(M\), …</li>
+      <li class="fragment">Mỗi phần tử chỉ được <b>liệt kê một lần</b>; thứ tự tuỳ ý.
+        Tập hợp các chữ cái trong từ "BÀ BA" là \(\{B; A\}\), <em>không</em> viết \(\{B; A; B; A\}\).</li>
+      <li class="fragment"><b>Khi phần tử là số, dùng dấu chấm phẩy ";"</b> để khỏi nhầm với
+        dấu phẩy của số thập phân: viết \(\{1; 5\}\) chứ không viết \(\{1{,}5\}\).</li>
+      <li class="fragment">Phân biệt \(\mathbb{N}\) (có số \(0\)) và \(\mathbb{N}^{*}\) (không có số \(0\)).</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- PHẦN B: CÁC DẠNG -->
+<section>
+  <h2>Dạng 1 — Mô tả một tập hợp cho trước</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    Dùng một trong hai cách:<br>
+    <b>Cách 1.</b> Liệt kê các phần tử của tập hợp trong dấu \(\{\ \}\).<br>
+    <b>Cách 2.</b> Chỉ ra tính chất đặc trưng cho các phần tử của tập hợp.
+  </div></div>
+  <div class="fragment box chuy"><div class="tit">Lưu ý</div><div class="bd">
+    Tên tập hợp viết bằng chữ in hoa; mỗi phần tử liệt kê một lần;
+    phần tử là số thì ngăn cách bởi dấu ";".
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 1 — Luyện tập</h2>
+  <p class="small"><b>Luyện tập 1.1.</b> Viết bằng cách liệt kê:
+    a) tập \(L\) các chữ cái trong từ "TOÁN HỌC";
+    b) tập \(A\) các số tự nhiên không lớn hơn \(4\);
+    c) tập \(D\) các ngày trong tuần.</p>
+  <p class="fragment small"><span class="kq">a) \(L = \{T; O; A; N; H; C\}\); &nbsp;
+    b) \(A = \{0; 1; 2; 3; 4\}\); &nbsp;
+    c) \(D = \{\)thứ Hai; …; thứ Bảy; Chủ nhật\(\}\).</span></p>
+  <p class="small"><b>Luyện tập 1.2.</b> \(E\) là tập các số tự nhiên lớn hơn \(13\) và nhỏ hơn \(21\).
+    Viết \(E\) theo hai cách.</p>
+  <p class="fragment small"><span class="kq">\(E = \{14; 15; 16; 17; 18; 19; 20\}\)
+    hoặc \(E = \{x \in \mathbb{N} \mid 13 &lt; x &lt; 21\}\).</span></p>
+  <p class="small"><b>Luyện tập 1.3.</b>
+    \(A = \{n \mid n \text{ là số tự nhiên} \le 7\}\);
+    \(B = \{m \mid m \text{ là số tự nhiên},\ 5 &lt; m &lt; 10\}\).
+    Liệt kê và đếm số phần tử.</p>
+  <p class="fragment small"><span class="kq">\(A = \{0; 1; 2; 3; 4; 5; 6; 7\}\): \(8\) phần tử;
+    \(B = \{6; 7; 8; 9\}\): \(4\) phần tử.</span></p>
+</section>
+
+<section>
+  <h2>Dạng 2 — Quan hệ giữa phần tử và tập hợp</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    Với phần tử \(a\) và tập hợp \(A\) cho trước:
+    <ul>
+      <li>Viết \(a \in A\) nếu \(a\) là phần tử của \(A\);</li>
+      <li>Viết \(a \notin A\) nếu \(a\) không là phần tử của \(A\).</li>
+    </ul>
+  </div></div>
+  <div class="fragment box chuy"><div class="tit">Mẹo</div><div class="bd">
+    Nếu tập hợp cho bởi tính chất đặc trưng thì <b>liệt kê ra trước</b>,
+    rồi mới xét từng phần tử.
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 2 — Luyện tập</h2>
+  <p class="small"><b>Luyện tập 2.1.</b> Cho \(A = \{m; n; p; q\}\). Điền \(\in\) hoặc \(\notin\):
+    \(q \dots A\); \(m \dots A\); \(x \dots A\); \(p \dots A\).</p>
+  <p class="fragment small"><span class="kq">\(q \in A\); \(m \in A\); \(x \notin A\); \(p \in A\).</span></p>
+  <p class="small"><b>Luyện tập 2.2.</b> Cho \(A = \{\)gà, vịt, ngan, ngỗng\(\}\);
+    \(B = \{\)chó, mèo, chim\(\}\); \(C = \{\)ngan, gà, vịt\(\}\). Đúng hay sai?<br>
+    a) gà \(\in A\); vịt \(\in B\); ngỗng \(\in C\); &nbsp;
+    b) chó \(\notin A\); mèo \(\in B\); gà \(\notin C\); &nbsp;
+    c) ngan \(\in A\); chim \(\in B\); vịt \(\notin C\).</p>
+  <p class="fragment small"><span class="kq">a) Đúng — Sai — Sai; &nbsp;
+    b) Đúng — Đúng — Sai (gà thuộc \(C\)); &nbsp;
+    c) Đúng — Đúng — Sai (vịt thuộc \(C\)).</span></p>
+  <p class="small"><b>Luyện tập 2.3.</b> \(G\) gồm các số tự nhiên nhỏ hơn \(20\) và chia hết cho \(2\).
+    Trong các số \(0; 2; 5; 6; 7; 11; 14; 15; 16; 18; 19\), số nào thuộc, số nào không thuộc \(G\)?</p>
+  <p class="fragment small"><span class="kq">\(G = \{0; 2; 4; \dots; 18\}\).
+    Thuộc \(G\): \(0; 2; 6; 14; 16; 18\). Không thuộc: \(5; 7; 11; 15; 19\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 3 — Minh hoạ tập hợp bằng biểu đồ Ven</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd">
+    <b>Bước 1.</b> Liệt kê các phần tử của tập hợp.<br>
+    <b>Bước 2.</b> Vẽ một vòng kín, ghi tên tập hợp bên cạnh; mỗi phần tử đặt một
+    dấu chấm bên trong vòng và viết phần tử đó cạnh dấu chấm.
+  </div></div>
+  <div class="fragment center">
+    <svg viewBox="0 0 420 170" style="width:min(100%,380px);height:auto" role="img"
+         aria-label="Mẫu biểu đồ Ven: vòng kín tên A chứa 3 dấu chấm">
+      <ellipse cx="210" cy="95" rx="160" ry="62" fill="#fdf2e9" stroke="#c85000" stroke-width="3"/>
+      <text x="210" y="22" text-anchor="middle" font-size="26" font-weight="bold" fill="#c85000">A</text>
+      <g fill="#000">
+        <circle cx="110" cy="88" r="5"/><circle cx="210" cy="88" r="5"/><circle cx="310" cy="88" r="5"/>
+      </g>
+      <g font-size="22" fill="#000" text-anchor="middle">
+        <text x="110" y="130">phần tử</text><text x="210" y="130">phần tử</text><text x="310" y="130">phần tử</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <h2>Dạng 3 — Luyện tập</h2>
+  <p class="small"><b>Luyện tập 3.1.</b> \(N\) là tập các số tự nhiên lớn hơn \(5\) và nhỏ hơn \(10\).
+    Minh hoạ \(N\) bằng hình vẽ.</p>
+  <div class="fragment center">
+    <svg viewBox="0 0 400 130" style="width:min(100%,330px);height:auto" role="img"
+         aria-label="Biểu đồ Ven: tập N gồm 6, 7, 8, 9">
+      <ellipse cx="200" cy="72" rx="155" ry="50" fill="#e8f2fa" stroke="#005493" stroke-width="3"/>
+      <text x="200" y="18" text-anchor="middle" font-size="22" font-weight="bold" fill="#005493">N</text>
+      <g fill="#000">
+        <circle cx="95" cy="62" r="4"/><circle cx="165" cy="62" r="4"/>
+        <circle cx="235" cy="62" r="4"/><circle cx="305" cy="62" r="4"/>
+      </g>
+      <g font-size="20" fill="#000" text-anchor="middle">
+        <text x="95" y="98">6</text><text x="165" y="98">7</text>
+        <text x="235" y="98">8</text><text x="305" y="98">9</text>
+      </g>
+    </svg>
+    <p class="small kq" style="margin:.1em 0">\(N = \{6; 7; 8; 9\}\)</p>
+  </div>
+  <p class="small"><b>Luyện tập 3.2.</b> \(A = \{n \in \mathbb{N} \mid n &lt; 8 \text{ và } n \text{ chia hết cho } 2\}\).
+    Minh hoạ \(A\) bằng hình vẽ.</p>
+  <p class="fragment small"><span class="kq">\(A = \{0; 2; 4; 6\}\) — vẽ vòng kín tên \(A\) chứa 4 chấm \(0; 2; 4; 6\).</span></p>
+  <p class="small"><b>Luyện tập 3.3.</b> \(B = \{x \in \mathbb{N} \mid x &lt; 16 \text{ và } x \text{ chia hết cho } 3\}\).
+    Minh hoạ \(B\) bằng hình vẽ.</p>
+  <p class="fragment small"><span class="kq">\(B = \{0; 3; 6; 9; 12; 15\}\) — vòng kín tên \(B\) chứa 6 chấm.</span></p>
+</section>
+
+<!-- GHI NHỚ + VỀ NHÀ -->
+<section>
+  <h2>Ghi nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Chốt lại bài học</div><div class="bd">
+    <ul>
+      <li class="fragment"><b>Tập hợp</b> gồm những đối tượng nhất định; mỗi đối tượng là một
+        <b>phần tử</b>. Kí hiệu: \(a \in A\) (thuộc), \(a \notin A\) (không thuộc).</li>
+      <li class="fragment">Mô tả tập hợp theo <b>hai cách</b>: liệt kê phần tử trong \(\{\ \}\)
+        hoặc nêu tính chất đặc trưng. Phần tử là số thì ngăn cách bằng dấu ";".</li>
+      <li class="fragment">\(\mathbb{N} = \{0; 1; 2; 3; \dots\}\) và
+        \(\mathbb{N}^{*} = \{1; 2; 3; \dots\}\) — khác nhau đúng một số \(0\).</li>
+      <li class="fragment"><b>Biểu đồ Ven</b>: vòng kín + dấu chấm — nhìn một cái là thấy cả tập hợp.</li>
+    </ul>
+  </div></div>
+</section>
+
+<section>
+  <h2>Về nhà</h2>
+  <div class="box chuy"><div class="tit">Nhiệm vụ của em</div><div class="bd">
+    <ol>
+      <li>Làm <b>Phiếu bài tập số 1</b> (10 bài, theo bài giảng):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-C-PhieuBaiTap.pdf" target="_blank">C1B1-C-PhieuBaiTap.pdf</a></li>
+      <li>Làm <b>Phiếu bài tập về nhà số 2</b> (kèm QR đáp án):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-C-PhieuBaiTap2.pdf" target="_blank">C1B1-C-PhieuBaiTap2.pdf</a></li>
+      <li>Làm <b>Bài kiểm tra tương tác online</b> (trắc nghiệm + đúng/sai + kéo thả):
+        <a href="/T6/LuyenTap/C1B1.html" target="_blank">/T6/LuyenTap/C1B1.html</a></li>
+    </ol>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Toàn bộ tài liệu bài học (dành cho giáo viên)</div><div class="bd small">
+    <ul style="margin:0">
+      <li>Phiếu khởi động: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-0-PhieuKhoiDong.pdf" target="_blank">C1B1-0-PhieuKhoiDong.pdf</a></li>
+      <li>Các dạng bài + luyện tập: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-B-CacDang.pdf" target="_blank">C1B1-B-CacDang.pdf</a></li>
+      <li>Đề kiểm tra 15 phút: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-D-KiemTra15p.pdf" target="_blank">C1B1-D-KiemTra15p.pdf</a></li>
+      <li>Bài nâng cao: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-E-NangCao.pdf" target="_blank">C1B1-E-NangCao.pdf</a></li>
+      <li>Bản đầy đủ kèm lời giải: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T6/PDF/C1B1-BaiGiang-DayDu.pdf" target="_blank">C1B1-BaiGiang-DayDu.pdf</a></li>
+    </ul>
+  </div></div>
+  <p class="center fragment">Bài sau: <b>Bài 2. Cách ghi số tự nhiên</b> — hẹn gặp lại!</p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>
