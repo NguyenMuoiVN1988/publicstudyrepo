@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn tập Chương II. Bất đẳng thức và bất phương trình | Bài giảng Toán 10</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#1b549a; --maunhat:#e9f1fb;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#1e7846;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.1em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.1em;font-weight:bold}
+  .titleslide .t2{font-size:1.35em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+  .venncap{font-size:.6em;font-style:italic;color:var(--mauxam);text-align:center;margin-top:.2em}
+  .vennrow{display:flex;justify-content:center;gap:1.2em;flex-wrap:wrap;align-items:flex-end}
+  .vennrow figure{margin:0;text-align:center}
+  .vennrow figcaption{font-size:.62em;font-style:italic;color:var(--mauxam);margin-top:.15em}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- SLIDE 1: TIÊU ĐỀ -->
+<section class="titleslide">
+  <div class="t1">Ôn tập Chương II</div>
+  <div class="t2">Bất đẳng thức và bất phương trình — Toán 10 (Kết nối tri thức)</div>
+  <p style="margin-top:1em" class="small"><em>Tổng ôn cả chương: Bài 5. Bất đẳng thức &nbsp;·&nbsp; Bài 6. BPT bậc nhất một ẩn &nbsp;·&nbsp; Bài 7. BPT bậc hai một ẩn</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để hiện lần lượt từng bước, giống như trên lớp.</p>
+</section>
+
+<!-- SLIDE 2: TÀI NGUYÊN BÀI HỌC -->
+<section>
+  <h2>Tài nguyên bài học (dành cho giáo viên)</h2>
+  <table class="small">
+    <tr><th>Tài liệu</th><th>Mở</th></tr>
+    <tr><td>Phần I — Hệ thống kiến thức (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-I-HeThongKienThuc.pdf" target="_blank">C2OT-I-HeThongKienThuc.pdf</a></td></tr>
+    <tr><td>Phần II — Bài toán tổng hợp (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-II-BaiTongHop.pdf" target="_blank">C2OT-II-BaiTongHop.pdf</a></td></tr>
+    <tr><td>Phần III — Phân dạng tổng ôn (5 cụm) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-III-PhanDang.pdf" target="_blank">C2OT-III-PhanDang.pdf</a></td></tr>
+    <tr><td>Phần IV — Nâng cao / HSG (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-IV-NangCao.pdf" target="_blank">C2OT-IV-NangCao.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra chương — Số 1 (45 phút) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-V-DeKiemTra1.pdf" target="_blank">C2OT-V-DeKiemTra1.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra chương — Số 2 (45 phút) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-V-DeKiemTra2.pdf" target="_blank">C2OT-V-DeKiemTra2.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra chương — Số 3 (45 phút) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-V-DeKiemTra3.pdf" target="_blank">C2OT-V-DeKiemTra3.pdf</a></td></tr>
+    <tr><td>Bản đầy đủ kèm lời giải (cả Phần VI) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-BaiGiang-DayDu.pdf" target="_blank">C2OT-BaiGiang-DayDu.pdf</a></td></tr>
+    <tr><td>Bài kiểm tra tương tác online<br><span class="small">(tổng hợp bất đẳng thức · BPT bậc nhất · BPT bậc hai)</span></td>
+      <td><a href="/T10/LuyenTap/C2OT.html" target="_blank">/T10/LuyenTap/C2OT.html</a></td></tr>
+  </table>
+  <p class="footer-note">In phiếu phát tay hoặc giao bài online — thầy cô tự chọn thứ tự.</p>
+</section>
+
+<!-- ============ PHẦN I. HỆ THỐNG KIẾN THỨC ============ -->
+<section class="center">
+  <h2 style="text-align:center">Phần I — Kết nối kiến thức</h2>
+  <p class="small" style="margin-top:.6em">Ôn lại và <b>liên kết</b> ba bài của chương thành một mạch thống nhất:</p>
+  <p class="center" style="font-size:1.15em"><b>Bất đẳng thức</b> \(\to\) <b>BPT bậc nhất</b> \(\to\) <b>BPT bậc hai</b></p>
+  <p class="small center">Công cụ chủ đạo xuyên suốt: <b>xét dấu</b>.</p>
+</section>
+
+<section>
+  <h2>I.1. Sơ đồ mạch chương</h2>
+  <p class="small">Chương II đi <em>từ bất đẳng thức tới bất phương trình</em>; trong bất phương trình lại đi <em>từ bậc nhất tới bậc hai</em>. Xét dấu <b>nhị thức</b> (B6) là bàn đạp cho xét dấu <b>tam thức</b> (B7).</p>
+  <div class="fragment center">
+    <svg viewBox="0 0 920 210" width="920" height="210" style="max-width:100%">
+      <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L8,3 L0,6 Z" fill="#1b549a"/></marker></defs>
+      <rect x="15" y="55" width="255" height="110" rx="8" fill="#d2e4f8" stroke="#1b549a" stroke-width="2.5"/>
+      <text x="142" y="88" text-anchor="middle" font-size="23" font-weight="bold" fill="#1b549a">BÀI 5 · Bất đẳng thức</text>
+      <text x="142" y="118" text-anchor="middle" font-size="15" font-style="italic" fill="#5a5a5a">tính chất · Cô-si · Bunhia</text>
+      <text x="142" y="140" text-anchor="middle" font-size="15" font-style="italic" fill="#5a5a5a">GTLN – GTNN</text>
+      <rect x="332" y="55" width="255" height="110" rx="8" fill="#d2e4f8" stroke="#1b549a" stroke-width="2.5"/>
+      <text x="459" y="88" text-anchor="middle" font-size="23" font-weight="bold" fill="#1b549a">BÀI 6 · BPT bậc nhất</text>
+      <text x="459" y="118" text-anchor="middle" font-size="15" font-style="italic" fill="#5a5a5a">dấu nhị thức → tích/thương</text>
+      <text x="459" y="140" text-anchor="middle" font-size="15" font-style="italic" fill="#5a5a5a">|·| · tham số</text>
+      <rect x="649" y="55" width="255" height="110" rx="8" fill="#d2e4f8" stroke="#1b549a" stroke-width="2.5"/>
+      <text x="776" y="88" text-anchor="middle" font-size="23" font-weight="bold" fill="#1b549a">BÀI 7 · BPT bậc hai</text>
+      <text x="776" y="118" text-anchor="middle" font-size="15" font-style="italic" fill="#5a5a5a">dấu tam thức → BPT bậc hai</text>
+      <text x="776" y="140" text-anchor="middle" font-size="15" font-style="italic" fill="#5a5a5a">căn/|·| · tham số</text>
+      <line x1="272" y1="110" x2="328" y2="110" stroke="#1b549a" stroke-width="3" marker-end="url(#ar)"/>
+      <line x1="589" y1="110" x2="645" y2="110" stroke="#1b549a" stroke-width="3" marker-end="url(#ar)"/>
+      <text x="300" y="46" text-anchor="middle" font-size="14" font-style="italic" fill="#c85000">là nền cho</text>
+      <text x="617" y="46" text-anchor="middle" font-size="14" font-style="italic" fill="#c85000">là nền cho</text>
+    </svg>
+    <div class="venncap">Mũi tên đọc là "là nền cho": đánh giá bằng BĐT giúp chặn và tìm điều kiện; xét dấu nhị thức chuẩn bị cho xét dấu tam thức.</div>
+  </div>
+</section>
+
+<section>
+  <h2>I.2. Bảng tóm tắt ba bài</h2>
+  <table class="small">
+    <tr><th>Bài</th><th>Kiến thức cốt lõi &amp; ký hiệu</th><th>Ví dụ siêu ngắn</th></tr>
+    <tr class="fragment">
+      <td><b>B5</b><br>Bất đẳng thức</td>
+      <td>Tính chất BĐT (nhân số <em>âm đổi chiều</em>, bắc cầu). BĐT nền \(a^2\ge0\), \(a^2+b^2\ge2ab\). <b>Cô-si</b> (\(a,b\ge0\)): \(a+b\ge2\sqrt{ab}\). <b>Bunhia</b>: \((ax+by)^2\le(a^2+b^2)(x^2+y^2)\). GTLN–GTNN: chặn một phía <em>và</em> chỉ ra dấu "\(=\)".</td>
+      <td>\(x>0:\ x+\dfrac1x\ge2\), dấu "\(=\)" tại \(x=1\).</td>
+    </tr>
+    <tr class="fragment">
+      <td><b>B6</b><br>BPT bậc nhất</td>
+      <td>\(ax+b>0\ (a\ne0)\); nhân/chia số <em>âm đổi chiều</em>. Dấu nhị thức \(ax+b\): "phải cùng, trái trái". BPT tích/thương \(\to\) <em>bảng xét dấu</em> (mẫu \(\ne0\)). \(|A|<B\Leftrightarrow-B<A<B\). Tham số: xét riêng \(A=0\).</td>
+      <td>\(\dfrac{x+2}{x-1}\le0\Leftrightarrow -2\le x<1\).</td>
+    </tr>
+    <tr class="fragment">
+      <td><b>B7</b><br>BPT bậc hai</td>
+      <td>Tam thức \(ax^2+bx+c\), \(\Delta=b^2-4ac\). Định lí dấu: "trong trái, ngoài cùng"; \(\Delta<0\Rightarrow\) cùng dấu \(a\). Căn/\(|\cdot|\): ĐKXĐ + xét dấu hai vế. Tham số: \(f(x)>0\,\forall x\Leftrightarrow a>0,\Delta<0\) (<em>xét riêng</em> \(a=0\)).</td>
+      <td>\(x^2-5x+6\le0\Leftrightarrow 2\le x\le3\).</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>I.3. Công cụ xuyên suốt — xét dấu</h2>
+  <p class="small">Dấu tam thức \(ax^2+bx+c\) (khi \(\Delta>0\)) chính là "chồng" hai bảng nhị thức: <b>trong trái, ngoài cùng</b> — giữa hai nghiệm trái dấu \(a\), ngoài hai nghiệm cùng dấu \(a\).</p>
+  <div class="fragment center">
+    <svg viewBox="0 0 460 230" width="460" height="230" style="max-width:58%">
+      <!-- trục Ox -->
+      <line x1="25" y1="140" x2="435" y2="140" stroke="#5a5a5a" stroke-width="1.5"/>
+      <text x="438" y="145" font-size="16" fill="#5a5a5a">x</text>
+      <!-- parabola a>0 (mở lên), cắt trục tại x1=150, x2=300 -->
+      <path d="M70,45 C120,235 330,235 380,45" fill="none" stroke="#1b549a" stroke-width="2.5"/>
+      <circle cx="150" cy="140" r="4" fill="#c85000"/>
+      <circle cx="300" cy="140" r="4" fill="#c85000"/>
+      <text x="143" y="165" font-size="16" fill="#c85000">x₁</text>
+      <text x="293" y="165" font-size="16" fill="#c85000">x₂</text>
+      <text x="95" y="110" font-size="18" font-weight="bold" fill="#1e7846">+</text>
+      <text x="222" y="180" font-size="18" font-weight="bold" fill="#c85000">−</text>
+      <text x="350" y="110" font-size="18" font-weight="bold" fill="#1e7846">+</text>
+      <text x="110" y="40" font-size="14" font-style="italic" fill="#5a5a5a">a &gt; 0</text>
+    </svg>
+    <div class="venncap">Với \(a>0,\ \Delta>0\): \(f(x)<0\) khi \(x_1<x<x_2\); \(f(x)>0\) khi \(x<x_1\) hoặc \(x>x_2\).</div>
+  </div>
+  <div class="fragment box kienthuc"><div class="tit">Vì sao ba bài là MỘT khối</div><div class="bd small">
+    Xét dấu nhị thức (B6) là bàn đạp cho tam thức (B7); Cô-si/Bunhia (B5) dùng để <em>chặn</em> và tìm điều kiện tham số; căn và \(|\cdot|\) xuyên suốt B6\(\to\)B7 đều quy về BPT bậc nhất/bậc hai.
+  </div></div>
+</section>
+
+<section>
+  <h2>I.4. Những sai lầm kinh điển (1/2)</h2>
+  <div class="box chuy"><div class="tit">Bất đẳng thức — GTLN/GTNN</div><div class="bd small">
+    <ul>
+      <li class="fragment">Dùng <b>Cô-si khi chưa có điều kiện không âm</b>: \(a+b\ge2\sqrt{ab}\) chỉ đúng khi \(a,b\ge0\).</li>
+      <li class="fragment">Kết luận GTLN–GTNN mà <em>quên chỉ ra dấu "\(=\)" đạt được</em> (điểm rơi phải tồn tại trong miền xét).</li>
+      <li class="fragment">Nhầm chiều khi <b>nhân/chia hai vế cho số âm</b> — phải đổi chiều bất đẳng thức.</li>
+    </ul>
+  </div></div>
+</section>
+
+<section>
+  <h2>I.4. Những sai lầm kinh điển (2/2)</h2>
+  <div class="box chuy"><div class="tit">BPT bậc nhất — bậc hai — tham số</div><div class="bd small">
+    <ul>
+      <li class="fragment"><b>Nhân chéo BPT chứa ẩn ở mẫu</b> mà không xét dấu mẫu; <b>bình phương BPT căn</b> mà bỏ qua trường hợp vế còn lại âm.</li>
+      <li class="fragment">Dấu tam thức phụ thuộc <em>cả \(a\) lẫn \(\Delta\)</em>: \(\Delta<0\) nghĩa là tam thức <em>giữ nguyên dấu của \(a\)</em>, không phải "luôn dương".</li>
+      <li class="fragment">Tham số ở hệ số bậc hai: <b>bỏ sót trường hợp \(a=0\)</b> (bài tụt về nhị thức bậc nhất); nhầm đầu mút <em>đóng/mở</em> (\(>\) hay \(\ge\)).</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- ============ PHẦN II. BÀI TOÁN TỔNG HỢP ============ -->
+<section class="center">
+  <h2 style="text-align:center">Phần II — Bài toán tổng hợp</h2>
+  <p class="small" style="margin-top:.6em">Mỗi bài <b>cố ý chạm ≥ 2 bài học</b>: giải một bài phải huy động kiến thức nhiều chỗ trong chương.</p>
+</section>
+
+<section>
+  <h2>Ví dụ 1 — Cô-si tìm GTNN → giải bất phương trình</h2>
+  <p class="small hoihs">Ôn lại B5 (Cô-si, điểm rơi) · B7 (tam thức) · B6 (đưa thương về xét dấu)</p>
+  <p class="small"><b>Đề.</b> Cho \(x>0\). Tìm GTNN của \(f(x)=x+\dfrac4x\), rồi giải bất phương trình \(x+\dfrac4x\le5\).</p>
+  <p class="fragment small"><span class="lg">GTNN.</span> Vì \(x>0\), Cô-si cho hai số dương: \(x+\dfrac4x\ge2\sqrt{x\cdot\dfrac4x}=4\), dấu "\(=\)" khi \(x=\dfrac4x\Leftrightarrow x=2\). Vậy \(\min f=4\) tại \(x=2\).</p>
+  <p class="fragment small"><span class="lg">Giải BPT.</span> Với \(x>0\): \(x+\dfrac4x\le5\Leftrightarrow\dfrac{x^2-5x+4}{x}\le0\); vì \(x>0\) nên tương đương \(x^2-5x+4\le0\Leftrightarrow 1\le x\le4\).</p>
+  <p class="fragment small center"><span class="kq">\(S=[1;4]\).</span></p>
+</section>
+
+<section>
+  <h2>Ví dụ 2 — Giải hệ bất phương trình</h2>
+  <p class="small hoihs">Ôn lại B6 (BPT thương) · B7 (BPT bậc hai)</p>
+  <p class="small"><b>Đề.</b> Giải hệ \(\begin{cases}\dfrac{x-1}{x+2}\ge0\\[2pt] x^2-4x+3<0.\end{cases}\)</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> BPT (1) (điều kiện \(x\ne-2\)): \(\dfrac{x-1}{x+2}\ge0\Leftrightarrow x<-2\) hoặc \(x\ge1\).</p>
+  <p class="fragment small">BPT (2): \(x^2-4x+3<0\) có nghiệm \(1;3\), \(a>0\) nên \(1<x<3\).</p>
+  <p class="fragment small center">Giao hai tập: \(\big[(-\infty;-2)\cup[1;+\infty)\big]\cap(1;3)=\)<span class="kq">\((1;3)\)</span>.</p>
+</section>
+
+<section>
+  <h2>Ví dụ 3 — Tham số: xét riêng \(a=0\)</h2>
+  <p class="small hoihs">Ôn lại B7 (điều kiện theo \(\Delta\)) · B6 (khi \(a=0\) bài tụt về hằng/nhị thức)</p>
+  <p class="small"><b>Đề.</b> Tìm mọi \(m\) để \((m-2)x^2+2(m-2)x+3>0\) nghiệm đúng với mọi \(x\in\mathbb R\).</p>
+  <p class="fragment small"><span class="lg">TH \(a=0\)</span> (\(m=2\)): BPT thành \(3>0\) — luôn đúng, <b>nhận</b> \(m=2\).</p>
+  <p class="fragment small"><span class="lg">TH \(m\ne2\)</span>: cần \(\begin{cases}m-2>0\\ \Delta'<0\end{cases}\) với \(\Delta'=(m-2)^2-3(m-2)=(m-2)(m-5)\). Được \(m>2\) và \(2<m<5\), tức \(2<m<5\).</p>
+  <p class="fragment small center"><span class="kq">Hợp hai trường hợp: \(2\le m<5\).</span></p>
+  <div class="fragment box chuy"><div class="tit">Bẫy</div><div class="bd small">Đừng quên trường hợp \(a=0\): nếu bỏ, ta mất mất giá trị \(m=2\).</div></div>
+</section>
+
+<!-- ============ PHẦN III. PHÂN DẠNG TỔNG ÔN ============ -->
+<section class="center">
+  <h2 style="text-align:center">Phần III — Phân dạng tổng ôn</h2>
+  <p class="small" style="margin-top:.4em">Năm cụm chủ đề, đi từ dễ đến nâng cao:</p>
+  <ol class="small" style="display:inline-block;text-align:left">
+    <li>Chứng minh BĐT &amp; tìm GTLN–GTNN <em>(ôn B5)</em></li>
+    <li>BPT bậc nhất: tích, thương, giá trị tuyệt đối <em>(ôn B6)</em></li>
+    <li>Dấu tam thức &amp; BPT bậc hai <em>(ôn B7)</em></li>
+    <li>BPT quy về bậc hai (căn, \(|\cdot|\)) <em>(ôn B7)</em></li>
+    <li>Bài toán chứa tham số <em>(ôn B6–B7)</em></li>
+  </ol>
+  <p class="footer-note">Mỗi cụm: 1 khung Phương pháp + 1 bài mẫu; các bài còn lại nằm trong phiếu PDF (Phần III).</p>
+</section>
+
+<section>
+  <h2>Cụm 1 — Chứng minh BĐT &amp; GTLN–GTNN</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Đưa BĐT về tổng các bình phương không âm, hoặc dùng Cô-si/Bunhia. Với GTLN–GTNN: chặn một phía rồi <b>chỉ ra điểm rơi</b> (dấu "\(=\)" tồn tại). "Số hạng + nghịch đảo" dùng Cô-si hai số; nhớ điều kiện không âm.
+  </div></div>
+  <p class="fragment small"><b>Bài mẫu.</b> Cho \(a,b>0\). Chứng minh \((a+b)\left(\dfrac1a+\dfrac1b\right)\ge4\). Dấu "\(=\)" khi nào?</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Khai triển: \((a+b)\left(\dfrac1a+\dfrac1b\right)=2+\dfrac ab+\dfrac ba\). Theo Cô-si \(\dfrac ab+\dfrac ba\ge2\) nên tổng \(\ge4\).</p>
+  <p class="fragment small center"><span class="kq">Dấu "\(=\)" khi \(a=b\).</span></p>
+</section>
+
+<section>
+  <h2>Cụm 2 — BPT bậc nhất: tích, thương, \(|\cdot|\)</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Chuyển hết về <em>một vế</em> (so với \(0\)), phân tích thành tích/thương các nhị thức, <b>lập bảng xét dấu</b> rồi đọc nghiệm (mẫu \(\ne0\), chú ý đầu mút). Với \(|\cdot|\): \(|A|<B\Leftrightarrow-B<A<B\); nếu vế phải chứa ẩn thì kèm điều kiện.
+  </div></div>
+  <p class="fragment small"><b>Bài mẫu.</b> Giải bất phương trình \(\dfrac{2x-1}{x+3}<1\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Điều kiện \(x\ne-3\). Chuyển vế: \(\dfrac{2x-1}{x+3}-1<0\Leftrightarrow\dfrac{x-4}{x+3}<0\). Thương \(<0\) khi \(-3<x<4\).</p>
+  <p class="fragment small center"><span class="kq">\(S=(-3;4)\).</span></p>
+</section>
+
+<section>
+  <h2>Cụm 3 — Dấu tam thức &amp; BPT bậc hai</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Tìm nghiệm tam thức, xác định dấu \(a\), lập bảng xét dấu theo "trong trái, ngoài cùng". Với BPT tích/thương chứa tam thức: chuyển về một vế, phân tích, lập bảng xét dấu chung. Nhớ \(\Delta<0\) (giữ dấu \(a\)) và \(\Delta=0\) (nghiệm kép).
+  </div></div>
+  <p class="fragment small"><b>Bài mẫu.</b> Giải bất phương trình \(2x^2-7x+3>0\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> \(2x^2-7x+3=(2x-1)(x-3)\) có nghiệm \(\dfrac12;3\), \(a>0\) nên \(>0\) ở <em>ngoài</em> hai nghiệm.</p>
+  <p class="fragment small center"><span class="kq">\(S=\left(-\infty;\dfrac12\right)\cup(3;+\infty)\).</span></p>
+</section>
+
+<section>
+  <h2>Cụm 4 — BPT quy về bậc hai (căn, \(|\cdot|\))</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Với \(\sqrt A<B\): dùng hệ \(\{A\ge0;\ B>0;\ A<B^2\}\); với \(\sqrt A>B\) chia trường hợp theo dấu \(B\). Với \(|\cdot|\): đặt ẩn phụ \(t=|x|\ge0\) hoặc phá dấu theo khoảng. Luôn <em>đối chiếu điều kiện</em> khi kết luận.
+  </div></div>
+  <p class="fragment small"><b>Bài mẫu.</b> Giải bất phương trình \(x^2-3|x|+2\le0\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Đặt \(t=|x|\ge0\): \(t^2-3t+2\le0\Leftrightarrow1\le t\le2\Leftrightarrow1\le|x|\le2\).</p>
+  <p class="fragment small center"><span class="kq">\(S=[-2;-1]\cup[1;2]\).</span></p>
+</section>
+
+<section>
+  <h2>Cụm 5 — Bài toán chứa tham số</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Với "\(f(x)\ge0\) (hoặc \(>0\)) nghiệm đúng \(\forall x\)": dùng bảng điều kiện theo \(a\) và \(\Delta\); <b>xét riêng \(a=0\)</b> khi hệ số bậc hai chứa tham số. Với "có nghiệm": lấy phủ định của "nghiệm đúng với mọi \(x\)".
+  </div></div>
+  <p class="fragment small"><b>Bài mẫu.</b> Tìm \(m\) để \(x^2+2(m-1)x+m+5\ge0\) nghiệm đúng với mọi \(x\in\mathbb R\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> \(a=1>0\) cố định; nghiệm đúng \(\forall x\Leftrightarrow\Delta'\le0\): \(\Delta'=(m-1)^2-(m+5)=(m-4)(m+1)\le0\).</p>
+  <p class="fragment small center"><span class="kq">\(-1\le m\le4\).</span></p>
+</section>
+
+<!-- ============ PHẦN IV. NÂNG CAO ============ -->
+<section class="center">
+  <h2 style="text-align:center">Phần IV — Nâng cao / HSG</h2>
+  <p class="small" style="margin-top:.6em">Bất đẳng thức dạng cộng mẫu · điểm rơi lệch · tham số biện luận đầy đủ · BPT hai căn.</p>
+</section>
+
+<section>
+  <h2>Nâng cao 1 — BĐT dạng cộng mẫu (hệ quả Bunhia)</h2>
+  <p class="small"><b>Đề.</b> Cho \(a,b,c>0\). Chứng minh \(\dfrac{a^2}{b+c}+\dfrac{b^2}{c+a}+\dfrac{c^2}{a+b}\ge\dfrac{a+b+c}{2}\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Áp dụng BĐT cộng mẫu (hệ quả Bunhia) cho ba phân thức mẫu dương:</p>
+  <p class="fragment small center">\(\dfrac{a^2}{b+c}+\dfrac{b^2}{c+a}+\dfrac{c^2}{a+b}\ge\dfrac{(a+b+c)^2}{2(a+b+c)}=\dfrac{a+b+c}{2}\).</p>
+  <p class="fragment small center"><span class="kq">Dấu "\(=\)" khi \(a=b=c\).</span></p>
+</section>
+
+<section>
+  <h2>Nâng cao 2 — Điểm rơi lệch khỏi Cô-si</h2>
+  <p class="small"><b>Đề.</b> Cho \(x\ge4\). Tìm GTNN của \(f(x)=x+\dfrac9x\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Điểm rơi tự nhiên của \(x+\dfrac9x\) là \(x=3\), nằm <em>ngoài</em> miền \(x\ge4\). Tách theo trọng số để dấu "\(=\)" rơi đúng \(x=4\): \(x+\dfrac9x=\dfrac{9x}{16}+\dfrac9x+\dfrac{7x}{16}\).</p>
+  <p class="fragment small">Cô-si hai số dương: \(\dfrac{9x}{16}+\dfrac9x\ge2\cdot\dfrac94=\dfrac92\) (\(=\) khi \(x=4\)); và \(\dfrac{7x}{16}\ge\dfrac{7\cdot4}{16}=\dfrac74\).</p>
+  <p class="fragment small center"><span class="kq">\(\min f=\dfrac92+\dfrac74=\dfrac{25}{4}\) tại \(x=4\).</span></p>
+  <div class="fragment box chuy"><div class="tit">Bẫy</div><div class="bd small">Áp thẳng Cô-si \(x+\dfrac9x\ge6\) cho dấu "\(=\)" tại \(x=3\notin[4;+\infty)\) — <em>không đạt được</em>, nên \(6\) không phải GTNN.</div></div>
+</section>
+
+<!-- ============ PHẦN V. ĐỀ KIỂM TRA ============ -->
+<section>
+  <h2>Phần V — Ba đề kiểm tra chương</h2>
+  <p class="small">Ba đề độc lập, <b>45 phút / 10 điểm</b>, cùng cấu trúc:</p>
+  <table class="small">
+    <tr><th>Phần</th><th>Số câu</th><th>Điểm</th></tr>
+    <tr><td>I. Trắc nghiệm</td><td>12 câu × 0,25đ</td><td>3,0</td></tr>
+    <tr><td>II. Đúng/Sai</td><td>3 câu (4 ý)</td><td>3,0</td></tr>
+    <tr><td>III. Trả lời ngắn</td><td>4 câu × 1,0đ</td><td>4,0</td></tr>
+  </table>
+  <div class="fragment box kienthuc"><div class="tit">Tỉ lệ mức độ</div><div class="bd small center">
+    Đề 1 &amp; 2: Nhận biết \(40\%\) · Thông hiểu \(30\%\) · Vận dụng \(20\%\) · Vận dụng cao \(10\%\).
+    <br><span class="small">(Đề 3 khó hơn: \(30/30/25/15\), thêm câu chạm phần nâng cao.)</span>
+  </div></div>
+  <p class="fragment small center">Tải đề:
+    <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-V-DeKiemTra1.pdf" target="_blank">Đề 1</a> ·
+    <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-V-DeKiemTra2.pdf" target="_blank">Đề 2</a> ·
+    <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-V-DeKiemTra3.pdf" target="_blank">Đề 3</a>
+  </p>
+</section>
+
+<!-- GHI NHỚ + VỀ NHÀ -->
+<section>
+  <h2>Ghi nhớ — chốt cả chương</h2>
+  <div class="box kienthuc"><div class="tit">Ba nấc của Chương II</div><div class="bd">
+    <ul>
+      <li class="fragment"><b>Bất đẳng thức (B5):</b> Cô-si cần số không âm; GTLN–GTNN phải <em>chỉ ra điểm rơi</em>; nhân số âm đổi chiều.</li>
+      <li class="fragment"><b>BPT bậc nhất (B6):</b> tích/thương \(\to\) <em>lập bảng xét dấu</em>; mẫu \(\ne0\); \(|A|<B\Leftrightarrow-B<A<B\).</li>
+      <li class="fragment"><b>BPT bậc hai (B7):</b> dấu tam thức theo <em>cả \(a\) lẫn \(\Delta\)</em>; căn/\(|\cdot|\) quy về bậc hai (ĐKXĐ + xét dấu vế phải).</li>
+      <li class="fragment"><b>Tham số:</b> hệ số bậc hai chứa tham số phải <em>xét riêng \(a=0\)</em> trước khi dùng điều kiện \(\Delta\).</li>
+    </ul>
+  </div></div>
+  <p class="center fragment small"><em>Chương sau: <b>Chương III. Hàm số và đồ thị</b>.</em></p>
+</section>
+
+<section>
+  <h2>Về nhà</h2>
+  <div class="box chuy"><div class="tit">Nhiệm vụ của em</div><div class="bd small">
+    <ol>
+      <li>Làm <b>Bài kiểm tra tương tác online</b> (tổng hợp cả chương):
+        <a href="/T10/LuyenTap/C2OT.html" target="_blank">/T10/LuyenTap/C2OT.html</a></li>
+      <li>Luyện <b>Phần III — phân dạng</b> và tự làm <b>3 đề kiểm tra</b> (bấm giờ 45 phút):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-V-DeKiemTra1.pdf" target="_blank">Đề 1</a> ·
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-V-DeKiemTra2.pdf" target="_blank">Đề 2</a> ·
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-V-DeKiemTra3.pdf" target="_blank">Đề 3</a></li>
+    </ol>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Toàn bộ tài liệu ôn tập (dành cho giáo viên)</div><div class="bd small">
+    <ul style="margin:0">
+      <li>Phần I — Hệ thống kiến thức: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-I-HeThongKienThuc.pdf" target="_blank">C2OT-I-HeThongKienThuc.pdf</a></li>
+      <li>Phần II — Bài toán tổng hợp: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-II-BaiTongHop.pdf" target="_blank">C2OT-II-BaiTongHop.pdf</a></li>
+      <li>Phần III — Phân dạng: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-III-PhanDang.pdf" target="_blank">C2OT-III-PhanDang.pdf</a></li>
+      <li>Phần IV — Nâng cao: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-IV-NangCao.pdf" target="_blank">C2OT-IV-NangCao.pdf</a></li>
+      <li>Bản đầy đủ kèm lời giải: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2OT-BaiGiang-DayDu.pdf" target="_blank">C2OT-BaiGiang-DayDu.pdf</a></li>
+    </ul>
+  </div></div>
+  <p class="center fragment"><b>Hết Chương II — chuẩn bị Chương III. Hẹn gặp lại!</b></p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>

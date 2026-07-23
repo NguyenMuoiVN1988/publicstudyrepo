@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 7. Bất phương trình bậc hai một ẩn | Bài giảng Toán 10</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#1b549a; --maunhat:#e9f1fb;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#1e7846;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.1em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.1em;font-weight:bold}
+  .titleslide .t2{font-size:1.35em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+  .venncap{font-size:.6em;font-style:italic;color:var(--mauxam);text-align:center;margin-top:.2em}
+  .vennrow{display:flex;justify-content:center;gap:1.2em;flex-wrap:wrap;align-items:flex-end}
+  .vennrow figure{margin:0;text-align:center}
+  .vennrow figcaption{font-size:.62em;font-style:italic;color:var(--mauxam);margin-top:.15em}
+  /* Bảng xét dấu tam thức */
+  .bxd{border-collapse:collapse;margin:.3em auto;font-size:.82em}
+  .bxd td,.bxd th{border:1px solid #b7c9e0;padding:.12em .55em;text-align:center}
+  .bxd .lbl{background:var(--maunhat);font-weight:bold;text-align:right;color:var(--mauchinh)}
+  .bxd .pos{color:var(--xanhla);font-weight:bold}
+  .bxd .neg{color:#c0392b;font-weight:bold}
+  .bxd .zero{color:var(--mauxam);font-weight:bold}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- SLIDE 1: TIÊU ĐỀ -->
+<section class="titleslide">
+  <div class="t1">Bài 7. Bất phương trình bậc hai một ẩn</div>
+  <div class="t2">Toán 10 — Chương II. Bất đẳng thức và bất phương trình</div>
+  <p style="margin-top:1.0em"><em>Bài giảng trình chiếu trên lớp — bài chốt Chương II</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để hiện lần lượt từng bước, giống như trên lớp.</p>
+</section>
+
+<!-- SLIDE 2: TÀI NGUYÊN BÀI HỌC -->
+<section>
+  <h2>Tài nguyên bài học (dành cho giáo viên)</h2>
+  <table class="small">
+    <tr><th>Tài liệu</th><th>Mở</th></tr>
+    <tr><td>Phiếu khởi động (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-0-PhieuKhoiDong.pdf" target="_blank">C2B7-0-PhieuKhoiDong.pdf</a></td></tr>
+    <tr><td>Các dạng bài + luyện tập (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-B-CacDang.pdf" target="_blank">C2B7-B-CacDang.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập số 1 (10 bài, theo bài giảng) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-C-PhieuBaiTap.pdf" target="_blank">C2B7-C-PhieuBaiTap.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập về nhà số 2 (kèm QR đáp án) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-C-PhieuBaiTap2.pdf" target="_blank">C2B7-C-PhieuBaiTap2.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra cơ bản 15 phút (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-D-KiemTra15p.pdf" target="_blank">C2B7-D-KiemTra15p.pdf</a></td></tr>
+    <tr><td>Bài nâng cao (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-E-NangCao.pdf" target="_blank">C2B7-E-NangCao.pdf</a></td></tr>
+    <tr><td>Bản đầy đủ kèm lời giải (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-BaiGiang-DayDu.pdf" target="_blank">C2B7-BaiGiang-DayDu.pdf</a></td></tr>
+    <tr><td>Bài kiểm tra tương tác online<br><span class="small">(trắc nghiệm + đúng/sai + kéo thả)</span></td>
+      <td><a href="/T10/LuyenTap/C2B7.html" target="_blank">/T10/LuyenTap/C2B7.html</a></td></tr>
+  </table>
+  <p class="footer-note">In phiếu phát tay hoặc giao bài online — thầy cô tự chọn thứ tự.</p>
+</section>
+
+<!-- PHẦN 0: KHỞI ĐỘNG -->
+<section>
+  <h2>Khởi động — Ôn kiến thức nền (1/2)</h2>
+  <p class="hoihs">Ôn phương trình bậc hai, phân tích nhân tử và parabol để bước vào bất phương trình bậc hai!</p>
+  <p class="fragment"><b>Câu 1.</b> Giải \(x^2-5x+6=0\) và tính biệt thức \(\Delta\); hệ số \(a\) của \(x^2\) mang dấu gì?</p>
+  <p class="fragment"><span class="kq">\(x=2\) hoặc \(x=3\); \(\Delta=25-24=1>0\); \(a=1>0\).</span></p>
+  <p class="fragment"><b>Câu 2.</b> Phân tích tam thức \(2x^2-5x+3\) thành tích hai nhân tử bậc nhất.</p>
+  <p class="fragment"><span class="kq">Nghiệm \(x=1,\ x=\dfrac32\Rightarrow 2x^2-5x+3=(x-1)(2x-3)\).</span></p>
+  <p class="fragment"><b>Câu 3.</b> Parabol \(y=x^2-4x+3\) cắt trục hoành ở đâu? Với \(x\) nào thì \(y<0\)?</p>
+  <p class="fragment"><span class="kq">Cắt \(Ox\) tại \((1;0),(3;0)\); nằm dưới trục hoành khi \(1<x<3\).</span></p>
+</section>
+
+<section>
+  <h2>Khởi động — Ôn kiến thức nền (2/2)</h2>
+  <p class="fragment"><b>Câu 4.</b> Lập bảng xét dấu nhị thức \(f(x)=3-2x\): với \(x\) nào thì \(f(x)>0\), với \(x\) nào thì \(f(x)<0\)?</p>
+  <p class="fragment"><span class="kq">\(3-2x>0\Leftrightarrow x<\dfrac32\); &nbsp; \(3-2x<0\Leftrightarrow x>\dfrac32\).</span></p>
+  <p class="fragment"><b>Câu 5.</b> Điền (với \(a>0\)): \(|x|<a\Leftrightarrow\ \ldots\); &nbsp; \(|x|\ge a\Leftrightarrow\ \ldots\); &nbsp; \(\sqrt{A}\) xác định \(\Leftrightarrow\ \ldots\)</p>
+  <p class="fragment"><span class="kq">\(|x|<a\Leftrightarrow -a<x<a\); &nbsp; \(|x|\ge a\Leftrightarrow x\le-a\) hoặc \(x\ge a\); &nbsp; \(\sqrt{A}\) xác định \(\Leftrightarrow A\ge0\).</span></p>
+  <div class="fragment box chuy"><div class="tit">Vào bài</div><div class="bd">
+    Việc "tìm \(x\) để parabol nằm dưới/ trên trục hoành" ở Câu 3 chính là <b>giải bất phương trình bậc hai</b>. Chìa khoá của cả bài là
+    <b>xét dấu tam thức bậc hai</b> \(ax^2+bx+c\) — nội dung Bài 7, bài chốt Chương II.
+  </div></div>
+</section>
+
+<!-- PHẦN A: LÝ THUYẾT -->
+<section>
+  <h2>A1. Tam thức bậc hai — Định lí về dấu</h2>
+  <div class="box kienthuc"><div class="tit">Định lí về dấu của tam thức bậc hai</div><div class="bd small">
+    <b>Tam thức bậc hai:</b> \(f(x)=ax^2+bx+c\ (a\ne0)\), biệt thức \(\Delta=b^2-4ac\). Cho \(a\ne0\):
+    <ul style="margin:.2em 0">
+      <li>\(\Delta<0\): \(f(x)\) <b>cùng dấu với \(a\)</b> với mọi \(x\in\mathbb R\).</li>
+      <li>\(\Delta=0\): \(f(x)\) cùng dấu với \(a\) với mọi \(x\ne-\dfrac{b}{2a}\) (tại nghiệm kép \(f=0\)).</li>
+      <li>\(\Delta>0\): có hai nghiệm \(x_1<x_2\); \(f(x)\) <b>trái dấu \(a\)</b> khi \(x_1<x<x_2\), <b>cùng dấu \(a\)</b> khi \(x<x_1\) hoặc \(x>x_2\).</li>
+    </ul>
+    Ghi nhớ: <em>“trong trái, ngoài cùng”</em>.
+  </div></div>
+  <div class="fragment vennrow">
+    <figure>
+      <svg viewBox="0 0 170 130" width="170" height="130">
+        <line x1="10" y1="75" x2="162" y2="75" stroke="#5a5a5a" stroke-width="1.3"/>
+        <polygon points="162,75 154,71 154,79" fill="#5a5a5a"/>
+        <path d="M25,20 Q85,210 145,20" fill="none" stroke="#1b549a" stroke-width="2.5"/>
+        <circle cx="54" cy="75" r="3" fill="#c0392b"/><circle cx="116" cy="75" r="3" fill="#c0392b"/>
+        <text x="46" y="92" font-size="12" fill="#c0392b">x₁</text>
+        <text x="116" y="92" font-size="12" fill="#c0392b">x₂</text>
+      </svg>
+      <figcaption>\(a>0,\ \Delta>0\): âm giữa \(x_1;x_2\).</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 170 130" width="170" height="130">
+        <line x1="10" y1="75" x2="162" y2="75" stroke="#5a5a5a" stroke-width="1.3"/>
+        <polygon points="162,75 154,71 154,79" fill="#5a5a5a"/>
+        <path d="M25,20 Q85,130 145,20" fill="none" stroke="#1b549a" stroke-width="2.5"/>
+        <circle cx="85" cy="75" r="3" fill="#c0392b"/>
+      </svg>
+      <figcaption>\(a>0,\ \Delta=0\): chạm \(Ox\), còn lại dương.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 170 130" width="170" height="130">
+        <line x1="10" y1="75" x2="162" y2="75" stroke="#5a5a5a" stroke-width="1.3"/>
+        <polygon points="162,75 154,71 154,79" fill="#5a5a5a"/>
+        <path d="M25,25 Q85,75 145,25" fill="none" stroke="#1b549a" stroke-width="2.5"/>
+      </svg>
+      <figcaption>\(a>0,\ \Delta<0\): luôn dương.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <h2>A1. Bảng xét dấu và ví dụ</h2>
+  <div class="box kienthuc"><div class="tit">Bảng xét dấu khi \(\Delta>0\) (hai nghiệm \(x_1<x_2\))</div><div class="bd center">
+    <table class="bxd">
+      <tr><td class="lbl">\(x\)</td><td>\(-\infty\)</td><td></td><td>\(x_1\)</td><td></td><td>\(x_2\)</td><td></td><td>\(+\infty\)</td></tr>
+      <tr><td class="lbl">\(f(x)\)</td><td></td><td>cùng dấu \(a\)</td><td class="zero">0</td><td>trái dấu \(a\)</td><td class="zero">0</td><td>cùng dấu \(a\)</td><td></td></tr>
+    </table>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 1.</b> Xét dấu \(f(x)=-x^2-2x+3\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> \(f(x)=0\Leftrightarrow x=-3\) hoặc \(x=1\); \(a=-1<0\).</p>
+  <div class="fragment center">
+    <table class="bxd">
+      <tr><td class="lbl">\(x\)</td><td>\(-\infty\)</td><td></td><td>\(-3\)</td><td></td><td>\(1\)</td><td></td><td>\(+\infty\)</td></tr>
+      <tr><td class="lbl">\(f(x)\)</td><td></td><td class="neg">\(-\)</td><td class="zero">0</td><td class="pos">\(+\)</td><td class="zero">0</td><td class="neg">\(-\)</td><td></td></tr>
+    </table>
+  </div>
+  <p class="fragment small"><span class="kq">\(f(x)>0\) khi \(x\in(-3;1)\); \(f(x)<0\) khi \(x\in(-\infty;-3)\cup(1;+\infty)\).</span></p>
+</section>
+
+<section>
+  <h2>A2. Bất phương trình bậc hai một ẩn</h2>
+  <div class="box kienthuc"><div class="tit">Định nghĩa và cách giải</div><div class="bd small">
+    <b>Bất phương trình bậc hai một ẩn</b> có một trong các dạng
+    \[ax^2+bx+c>0,\ \ge0,\ <0,\ \le0\qquad(a\ne0).\]
+    <b>Cách giải:</b> xét dấu tam thức \(f(x)=ax^2+bx+c\) rồi chọn khoảng làm bất phương trình đúng.
+    Với dạng <em>tích/thương</em>: chuyển hết về một vế so với \(0\), phân tích rồi lập bảng xét dấu chung (nhớ mẫu \(\ne0\)).
+  </div></div>
+  <p class="fragment"><b>Ví dụ 2.</b> Giải \(-x^2+2x+3<0\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Tam thức \(-x^2+2x+3\) có nghiệm \(x=-1,\ x=3\), \(a=-1<0\) nên nó âm khi \(x\) nằm <em>ngoài</em> đoạn \([-1;3]\).</p>
+  <p class="fragment"><span class="kq">\(S=(-\infty;-1)\cup(3;+\infty)\).</span></p>
+</section>
+
+<section>
+  <h2>A3. Bất phương trình quy về bậc hai</h2>
+  <div class="box kienthuc"><div class="tit">Chứa \(|\cdot|\) và chứa căn</div><div class="bd small">
+    <b>Giá trị tuyệt đối:</b> \(|A|<B\Leftrightarrow -B<A<B\); &nbsp; \(|A|>B\Leftrightarrow A<-B\) hoặc \(A>B\); hoặc phá dấu theo từng khoảng.
+    <br><b>Chứa căn</b> — luôn đặt điều kiện xác định và <em>xét dấu vế còn lại</em> trước khi bình phương:
+    \[\sqrt{A}<B\Leftrightarrow\begin{cases}A\ge0\\ B>0\\ A<B^2\end{cases}\]
+  </div></div>
+  <p class="fragment"><b>Ví dụ 3.</b> Giải \(\sqrt{x^2-3x-10}<x-2\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Tương đương hệ \(\begin{cases}x^2-3x-10\ge0\\ x-2>0\\ x^2-3x-10<(x-2)^2\end{cases}\Leftrightarrow\begin{cases}x\le-2\text{ hoặc }x\ge5\\ x>2\\ x<14\end{cases}\)</p>
+  <p class="fragment small"><span class="kq">Giao ba điều kiện: \(5\le x<14\), tức \(S=[5;14)\).</span></p>
+</section>
+
+<section>
+  <h2>A4. Tham số: nghiệm đúng \(\forall x\) / vô nghiệm</h2>
+  <div class="box kienthuc"><div class="tit">Bảng điều kiện (với \(a\ne0\))</div><div class="bd small">
+    \[f(x)>0\ \forall x\Leftrightarrow\begin{cases}a>0\\\Delta<0\end{cases};\qquad
+      f(x)\ge0\ \forall x\Leftrightarrow\begin{cases}a>0\\\Delta\le0\end{cases};\]
+    \[f(x)<0\ \forall x\Leftrightarrow\begin{cases}a<0\\\Delta<0\end{cases};\qquad
+      f(x)\le0\ \forall x\Leftrightarrow\begin{cases}a<0\\\Delta\le0\end{cases}.\]
+    Chuyển “<em>vô nghiệm</em>”: “\(f(x)>0\) vô nghiệm” \(\Leftrightarrow f(x)\le0\ \forall x\); “\(f(x)<0\) vô nghiệm” \(\Leftrightarrow f(x)\ge0\ \forall x\).
+  </div></div>
+  <p class="fragment"><b>Ví dụ 4.</b> Tìm \(m\) để \(x^2+(2m+1)x+m^2+3>0\) nghiệm đúng với mọi \(x\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> \(a=1>0\) cố định, cần \(\Delta<0\): \(\Delta=(2m+1)^2-4(m^2+3)=4m-11<0\Leftrightarrow m<\dfrac{11}{4}\).</p>
+  <p class="fragment small"><span class="kq">Vậy \(m<\dfrac{11}{4}\).</span></p>
+</section>
+
+<section>
+  <h2>Bốn điểm dễ sai của bài</h2>
+  <div class="box chuy"><div class="tit">Ghi nhớ để tránh mất điểm</div><div class="bd">
+    <ul>
+      <li class="fragment">Dấu tam thức phụ thuộc <b>cả \(a\) lẫn \(\Delta\)</b>: khi \(\Delta<0\) tam thức <em>giữ nguyên dấu của \(a\)</em>, không phải “luôn dương”.</li>
+      <li class="fragment">Tam thức vô nghiệm \((\Delta<0)\), \(a>0\) thì \(ax^2+bx+c>0\ \forall x\Rightarrow S=\mathbb R\) — <b>không</b> phải “vô nghiệm”.</li>
+      <li class="fragment">Hệ số bậc hai chứa tham số: <b>phải xét riêng \(a=0\)</b> (khi đó \(f\) là nhị thức bậc nhất) — lỗi phổ biến nhất.</li>
+      <li class="fragment">Bất phương trình chứa căn: <b>đặt điều kiện xác định và xét dấu vế phải</b> trước khi bình phương; chú ý đầu mút đóng/mở.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- PHẦN B: CÁC DẠNG -->
+<section>
+  <h2>Dạng 1 — Xét dấu tam thức bậc hai</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Tìm nghiệm của \(ax^2+bx+c=0\) và dấu hệ số \(a\), rồi lập bảng xét dấu theo định lí (“trong trái, ngoài cùng” khi \(\Delta>0\)).
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 1.1.</b> Xét dấu \(f(x)=2x^2-5x+3\).</p>
+  <div class="fragment center">
+    <table class="bxd">
+      <tr><td class="lbl">\(x\)</td><td>\(-\infty\)</td><td></td><td>\(1\)</td><td></td><td>\(\tfrac32\)</td><td></td><td>\(+\infty\)</td></tr>
+      <tr><td class="lbl">\(f(x)\)</td><td></td><td class="pos">\(+\)</td><td class="zero">0</td><td class="neg">\(-\)</td><td class="zero">0</td><td class="pos">\(+\)</td><td></td></tr>
+    </table>
+  </div>
+  <p class="fragment small"><span class="kq">\(f(x)>0\) khi \(x<1\) hoặc \(x>\dfrac32\); \(f(x)<0\) khi \(1<x<\dfrac32\).</span></p>
+  <p class="fragment small"><b>Luyện tập 1.2.</b> \(f(x)=-x^2+4x-4=-(x-2)^2\), \(a<0\), nghiệm kép \(x=2\):
+    <span class="kq">\(f(x)<0\ \forall x\ne2\), \(f(2)=0\).</span></p>
+  <p class="fragment small"><b>Luyện tập 1.3.</b> \(f(x)=(2x-1)(-x+3)=-2x^2+7x-3\), nghiệm \(\dfrac12;3\), \(a<0\):
+    <span class="kq">\(f(x)>0\) khi \(\dfrac12<x<3\); \(f(x)<0\) khi \(x<\dfrac12\) hoặc \(x>3\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 2 — Giải bất phương trình bậc hai</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Chuyển về so tam thức với \(0\), xét dấu rồi chọn khoảng. Lưu ý \(\Delta<0\) (tập nghiệm là \(\mathbb R\) hoặc \(\varnothing\)) và \(\Delta=0\) (nghiệm kép).
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 2.1.</b> \(x^2-5x+6\le0\): nghiệm \(2;3\), \(a>0\) nên \(\le0\) trong đoạn hai nghiệm.
+    <span class="kq">\(S=[2;3]\).</span></p>
+  <p class="fragment small"><b>Luyện tập 2.2.</b> \(-2x^2+3x+5>0\Leftrightarrow 2x^2-3x-5<0\); nghiệm \(-1;\dfrac52\), \(a>0\):
+    <span class="kq">\(S=\left(-1;\dfrac52\right)\).</span></p>
+  <p class="fragment small"><b>Luyện tập 2.3.</b> \(3x^2+x+1<0\): \(\Delta=1-12=-11<0\), \(a>0\) nên tam thức luôn dương.
+    <span class="kq">Bất phương trình vô nghiệm: \(S=\varnothing\).</span></p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd small">
+    Đừng nhầm “tam thức luôn dương” với “bất phương trình \(<0\) có nghiệm”: ở LT 2.3 tập nghiệm là <b>rỗng</b>.
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 3 — Quy về bậc hai (căn / GTTĐ)</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    GTTĐ: dùng \(|A|<B\Leftrightarrow -B<A<B\), \(|A|>B\Leftrightarrow A<-B\vee A>B\), hoặc phá dấu theo khoảng.
+    Căn: <em>đặt điều kiện xác định, xét dấu vế còn lại</em> rồi mới bình phương; vế đối chiếu có thể âm thì chia trường hợp.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 3.1.</b> \(2x^2-|5x-3|<0\Leftrightarrow 2x^2<|5x-3|\). Phá dấu theo hai trường hợp \(x\ge\dfrac35\) và \(x<\dfrac35\):
+    <span class="kq">\(S=\left(-3;\dfrac12\right)\cup\left(1;\dfrac32\right)\).</span></p>
+  <p class="fragment small"><b>Luyện tập 3.2.</b> \(\sqrt{x^2+x-12}<8-x\Leftrightarrow\begin{cases}x^2+x-12\ge0\\ 8-x>0\\ 17x<76\end{cases}\):
+    <span class="kq">\(S=(-\infty;-4]\cup\left[3;\dfrac{76}{17}\right)\).</span></p>
+  <p class="fragment small"><b>Luyện tập 3.3.</b> \(\sqrt{x^2-3x-10}>x-2\) (điều kiện \(x\le-2\vee x\ge5\)); chia theo dấu \(x-2\):
+    <span class="kq">\(S=(-\infty;-2]\cup(14;+\infty)\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 4 — Tham số (trọng tâm)</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Đưa về \(f(x)=ax^2+bx+c\) giữ nguyên một dấu \(\forall x\). <b>Xét riêng \(a=0\)</b> nếu hệ số bậc hai chứa tham số; với \(a\ne0\) dùng bảng điều kiện ở A4.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 4.1.</b> \(3x^2+2(m-1)x+m+4>0\ \forall x\): \(a=3>0\) cố định, cần \(\Delta'=(m-1)^2-3(m+4)=m^2-5m-11<0\):
+    <span class="kq">\(\dfrac{5-\sqrt{69}}{2}<m<\dfrac{5+\sqrt{69}}{2}\).</span></p>
+  <p class="fragment small"><b>Luyện tập 4.2.</b> \(x^2+(m+1)x+2m+7>0\ \forall x\): cần \(\Delta=m^2-6m-27<0\Leftrightarrow(m+3)(m-9)<0\):
+    <span class="kq">\(-3<m<9\).</span></p>
+  <p class="fragment small"><b>Luyện tập 4.3.</b> \((m+2)x^2-2(m-1)x+4<0\) vô nghiệm \(\Leftrightarrow(m+2)x^2-2(m-1)x+4\ge0\ \forall x\).
+    Xét \(m=-2\) (loại), \(m\ne-2\) cần \(m+2>0,\ \Delta'=(m-7)(m+1)\le0\):
+    <span class="kq">\(m\in[-1;7]\).</span></p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd small">
+    Ở LT 4.3, quên xét \(m=-2\) (biểu thức thành \(6x+4\) đổi dấu) là bỏ sót — luôn kiểm tra \(a=0\) trước.
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 5 — Bài toán thực tế</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Đặt ẩn, lập bất phương trình bậc hai theo mô hình (độ cao, diện tích, lợi nhuận…), giải rồi <em>đối chiếu điều kiện thực tế</em> và trả lời theo ngữ cảnh.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 5.1.</b> Bóng ném lên có độ cao \(h(t)=-5t^2+20t+1\) (m). Khi nào \(h(t)\ge16\)?
+    \(-5t^2+20t-15\ge0\Leftrightarrow t^2-4t+3\le0\):
+    <span class="kq">\(1\le t\le3\) (giây).</span></p>
+  <p class="fragment small"><b>Luyện tập 5.2.</b> Mảnh đất chu vi \(80\) m, chiều dài \(x\); diện tích \(x(40-x)\ge375\Leftrightarrow x^2-40x+375\le0\):
+    <span class="kq">\(x\in[15;25]\) (m).</span></p>
+  <p class="fragment small"><b>Luyện tập 5.3.</b> Lợi nhuận \(P(x)=-x^2+120x-2000\) (nghìn đồng). Có lãi khi \(P(x)>0\Leftrightarrow x^2-120x+2000<0\Leftrightarrow 20<x<100\):
+    <span class="kq">bán từ \(21\) đến \(99\) sản phẩm.</span></p>
+</section>
+
+<!-- GHI NHỚ + VỀ NHÀ -->
+<section>
+  <h2>Ghi nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Chốt lại bài học</div><div class="bd">
+    <ul>
+      <li class="fragment">Dấu tam thức theo <b>định lí</b>: \(\Delta<0\) cùng dấu \(a\); \(\Delta=0\) cùng dấu \(a\) trừ nghiệm kép; \(\Delta>0\) “trong trái, ngoài cùng”.</li>
+      <li class="fragment"><b>Giải BPT bậc hai:</b> xét dấu tam thức rồi chọn khoảng; kết luận tập nghiệm \(S\) rõ đầu mút, chú ý \(S=\mathbb R\) hay \(\varnothing\).</li>
+      <li class="fragment"><b>Quy về bậc hai:</b> căn phải đặt ĐKXĐ + xét dấu vế phải trước khi bình phương; GTTĐ tách trường hợp.</li>
+      <li class="fragment"><b>Tham số:</b> hệ số bậc hai chứa tham số phải <em>xét riêng \(a=0\)</em>; “vô nghiệm” đổi sang “BPT ngược đúng \(\forall x\)”.</li>
+    </ul>
+  </div></div>
+  <p class="center fragment small"><em>Hết Chương II. Bất đẳng thức và bất phương trình — chuẩn bị Chương III.</em></p>
+</section>
+
+<section>
+  <h2>Về nhà</h2>
+  <div class="box chuy"><div class="tit">Nhiệm vụ của em</div><div class="bd">
+    <ol>
+      <li>Làm <b>Phiếu bài tập số 1</b> (10 bài, theo bài giảng):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-C-PhieuBaiTap.pdf" target="_blank">C2B7-C-PhieuBaiTap.pdf</a></li>
+      <li>Làm <b>Phiếu bài tập về nhà số 2</b> (kèm QR đáp án):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-C-PhieuBaiTap2.pdf" target="_blank">C2B7-C-PhieuBaiTap2.pdf</a></li>
+      <li>Làm <b>Bài kiểm tra tương tác online</b> (trắc nghiệm + đúng/sai + kéo thả):
+        <a href="/T10/LuyenTap/C2B7.html" target="_blank">/T10/LuyenTap/C2B7.html</a></li>
+    </ol>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Toàn bộ tài liệu bài học (dành cho giáo viên)</div><div class="bd small">
+    <ul style="margin:0">
+      <li>Phiếu khởi động: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-0-PhieuKhoiDong.pdf" target="_blank">C2B7-0-PhieuKhoiDong.pdf</a></li>
+      <li>Các dạng bài + luyện tập: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-B-CacDang.pdf" target="_blank">C2B7-B-CacDang.pdf</a></li>
+      <li>Đề kiểm tra cơ bản 15 phút: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-D-KiemTra15p.pdf" target="_blank">C2B7-D-KiemTra15p.pdf</a></li>
+      <li>Bài nâng cao: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-E-NangCao.pdf" target="_blank">C2B7-E-NangCao.pdf</a></li>
+      <li>Bản đầy đủ kèm lời giải: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B7-BaiGiang-DayDu.pdf" target="_blank">C2B7-BaiGiang-DayDu.pdf</a></li>
+    </ul>
+  </div></div>
+  <p class="center fragment"><b>Hết Chương II</b> — hẹn gặp lại ở <b>Chương III</b>!</p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>

@@ -539,6 +539,16 @@ details > div {
 - [Ôn tập Chương I — Tổng ôn trình chiếu + 3 đề kiểm tra (kèm link tải PDF)](T10/BaiGiang/C1OT.html)
 - [Ôn tập Chương I — Bài kiểm tra tương tác tổng hợp (mệnh đề · tập hợp · phép toán)](T10/LuyenTap/C1OT.html)
 
+**Bài giảng trình chiếu + kiểm tra online — Chương 2: Bất đẳng thức và bất phương trình**
+- [Bài 5. Bất đẳng thức — Bài giảng trình chiếu (kèm link tải phiếu PDF)](T10/BaiGiang/C2B5.html)
+- [Bài 5. Bất đẳng thức — Bài kiểm tra tương tác (đúng/sai, kéo thả, trả lời ngắn)](T10/LuyenTap/C2B5.html)
+- [Bài 6. Bất phương trình bậc nhất một ẩn — Bài giảng trình chiếu (kèm link tải phiếu PDF)](T10/BaiGiang/C2B6.html)
+- [Bài 6. Bất phương trình bậc nhất một ẩn — Bài kiểm tra tương tác (đúng/sai, kéo thả, trả lời ngắn)](T10/LuyenTap/C2B6.html)
+- [Bài 7. Bất phương trình bậc hai một ẩn — Bài giảng trình chiếu (kèm link tải phiếu PDF)](T10/BaiGiang/C2B7.html)
+- [Bài 7. Bất phương trình bậc hai một ẩn — Bài kiểm tra tương tác (đúng/sai, kéo thả, trả lời ngắn)](T10/LuyenTap/C2B7.html)
+- [Ôn tập Chương II — Tổng ôn trình chiếu + 3 đề kiểm tra (kèm link tải PDF)](T10/BaiGiang/C2OT.html)
+- [Ôn tập Chương II — Bài kiểm tra tương tác tổng hợp (bất đẳng thức · BPT bậc nhất · BPT bậc hai)](T10/LuyenTap/C2OT.html)
+
 - [C1B1: Mệnh đề](T10/T10C1B1.md)
 - [C1B2: Tập hợp](T10/T10C1B2.html)
 - [C6B1: Hàm số](T10/T10C6B1.html)

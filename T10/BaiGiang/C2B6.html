@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 6. Bất phương trình bậc nhất một ẩn | Bài giảng Toán 10</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#1b549a; --maunhat:#e9f1fb;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#1e7846;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.1em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .xetdau{border-collapse:collapse;margin:.4em auto}
+  .xetdau td,.xetdau th{border:1px solid #9bb6d6;padding:.15em .7em;text-align:center}
+  .xetdau th{background:var(--maunhat);color:var(--mauchinh)}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.1em;font-weight:bold}
+  .titleslide .t2{font-size:1.35em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+  .venncap{font-size:.6em;font-style:italic;color:var(--mauxam);text-align:center;margin-top:.2em}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- SLIDE 1: TIÊU ĐỀ -->
+<section class="titleslide">
+  <div class="t1">Bài 6. Bất phương trình bậc nhất một ẩn</div>
+  <div class="t2">Toán 10 — Chương II. Bất đẳng thức và bất phương trình</div>
+  <p style="margin-top:1.2em"><em>Bài giảng trình chiếu trên lớp</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để hiện lần lượt từng bước, giống như trên lớp.</p>
+</section>
+
+<!-- SLIDE 2: TÀI NGUYÊN BÀI HỌC -->
+<section>
+  <h2>Tài nguyên bài học (dành cho giáo viên)</h2>
+  <table class="small">
+    <tr><th>Tài liệu</th><th>Mở</th></tr>
+    <tr><td>Phiếu khởi động (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-0-PhieuKhoiDong.pdf" target="_blank">C2B6-0-PhieuKhoiDong.pdf</a></td></tr>
+    <tr><td>Các dạng bài + luyện tập (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-B-CacDang.pdf" target="_blank">C2B6-B-CacDang.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập số 1 (10 bài, theo bài giảng) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-C-PhieuBaiTap.pdf" target="_blank">C2B6-C-PhieuBaiTap.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập về nhà số 2 (kèm QR đáp án) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-C-PhieuBaiTap2.pdf" target="_blank">C2B6-C-PhieuBaiTap2.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra cơ bản 15 phút (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-D-KiemTra15p.pdf" target="_blank">C2B6-D-KiemTra15p.pdf</a></td></tr>
+    <tr><td>Bài nâng cao (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-E-NangCao.pdf" target="_blank">C2B6-E-NangCao.pdf</a></td></tr>
+    <tr><td>Bản đầy đủ kèm lời giải (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-BaiGiang-DayDu.pdf" target="_blank">C2B6-BaiGiang-DayDu.pdf</a></td></tr>
+    <tr><td>Bài kiểm tra tương tác online<br><span class="small">(trắc nghiệm + đúng/sai + kéo thả)</span></td>
+      <td><a href="/T10/LuyenTap/C2B6.html" target="_blank">/T10/LuyenTap/C2B6.html</a></td></tr>
+  </table>
+  <p class="footer-note">In phiếu phát tay hoặc giao bài online — thầy cô tự chọn thứ tự.</p>
+</section>
+
+<!-- PHẦN 0: KHỞI ĐỘNG -->
+<section>
+  <h2>Khởi động — Ôn kiến thức nền (1/2)</h2>
+  <p class="hoihs">Nhớ lại cách giải bất phương trình bậc nhất ở lớp 9 để bước vào bài mới!</p>
+  <p class="fragment"><b>Câu 1.</b> Giải bất phương trình \(2x-6>0\) và biểu diễn tập nghiệm trên trục số.</p>
+  <p class="fragment"><span class="kq">\(2x-6>0\Leftrightarrow x>3\); &nbsp; \(S=(3;+\infty)\).</span></p>
+  <p class="fragment"><b>Câu 2.</b> Giải bất phương trình \(-3x+9\le 0\). <span class="small">(Khi chia hai vế cho số <em>âm</em> phải <b>đổi chiều</b>.)</span></p>
+  <p class="fragment"><span class="kq">\(-3x\le -9\Leftrightarrow x\ge 3\) (chia \(-3\), đổi chiều); &nbsp; \(S=[3;+\infty)\).</span></p>
+  <p class="fragment"><b>Câu 3.</b> Nhị thức \(f(x)=2x-3\): với giá trị nào của \(x\) thì \(f(x)>0\)? \(f(x)<0\)?</p>
+  <p class="fragment"><span class="kq">\(f(x)=0\) tại \(x=\dfrac32\); &nbsp; \(f(x)>0\) khi \(x>\dfrac32\), \(f(x)<0\) khi \(x<\dfrac32\).</span></p>
+</section>
+
+<section>
+  <h2>Khởi động — Ôn kiến thức nền (2/2)</h2>
+  <p class="fragment"><b>Câu 4.</b> Điền vào chỗ trống (với \(a>0\)):
+    \(|x|<a\Leftrightarrow\ldots\); &nbsp; \(|x|>a\Leftrightarrow\ldots\)</p>
+  <p class="fragment"><span class="kq">\(|x|<a\Leftrightarrow -a<x<a\); &nbsp; \(|x|>a\Leftrightarrow x>a\) hoặc \(x<-a\).</span></p>
+  <p class="fragment"><b>Câu 5.</b> Giải bất phương trình \(\dfrac{x}{2}-1\ge\dfrac{x-1}{3}\) (quy đồng, khử mẫu <em>số</em>).</p>
+  <p class="fragment"><span class="kq">Nhân \(6\): \(3x-6\ge 2(x-1)\Leftrightarrow x\ge 4\); &nbsp; \(S=[4;+\infty)\).</span></p>
+  <div class="fragment box chuy"><div class="tit">Vào bài</div><div class="bd">
+    Bài này hệ thống lại <b>bất phương trình bậc nhất một ẩn</b> \(ax+b>0\ (a\ne0)\) và mở rộng sang
+    <b>bất phương trình tích, thương, chứa dấu giá trị tuyệt đối, chứa tham số</b> — cùng bài toán thực tế.
+  </div></div>
+</section>
+
+<!-- PHẦN A: LÝ THUYẾT -->
+<section>
+  <h2>A1. Bất phương trình bậc nhất một ẩn</h2>
+  <div class="box kienthuc"><div class="tit">Khái niệm và hai quy tắc biến đổi</div><div class="bd small">
+    <b>Bất phương trình bậc nhất một ẩn</b> \(x\) có một trong các dạng
+    \[ax+b>0,\quad ax+b\ge0,\quad ax+b<0,\quad ax+b\le0\qquad(a\ne0).\]
+    <b>Hai quy tắc biến đổi tương đương:</b>
+    <ul style="margin:.2em 0">
+      <li><b>Chuyển vế</b>: chuyển một hạng tử sang vế kia và <em>đổi dấu</em> hạng tử đó.</li>
+      <li><b>Nhân (chia) hai vế với số</b> \(k\ne0\): nếu \(k>0\) <em>giữ nguyên chiều</em>; nếu \(k<0\) <b>đổi chiều</b>.</li>
+    </ul>
+    Nghiệm của \(ax+b>0\): nếu \(a>0\) thì \(x>-\dfrac ba\); nếu \(a<0\) thì \(x<-\dfrac ba\).
+  </div></div>
+  <p class="fragment small"><b>Ví dụ 1.</b> Giải \(\dfrac{1-2x}{3}\ge x+2\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Nhân \(3>0\) (giữ chiều): \(1-2x\ge 3x+6\Leftrightarrow -5\ge 5x\Leftrightarrow x\le -1\).
+    <span class="kq">\(S=(-\infty;-1]\).</span></p>
+  <div class="fragment center">
+    <svg viewBox="0 0 560 70" width="560" height="70" style="max-width:88%">
+      <line x1="20" y1="34" x2="540" y2="34" stroke="#5a5a5a" stroke-width="1.5"/>
+      <polygon points="540,34 530,29 530,39" fill="#5a5a5a"/>
+      <line x1="30" y1="34" x2="300" y2="34" stroke="#1b549a" stroke-width="5"/>
+      <circle cx="300" cy="34" r="6" fill="#1b549a"/>
+      <text x="300" y="20" text-anchor="middle" font-size="17" fill="#1b549a">−1</text>
+    </svg>
+    <div class="venncap">Tập nghiệm \(S=(-\infty;-1]\) (đầu \(-1\) <b>đóng</b>: tô đặc ●).</div>
+  </div>
+  <div class="fragment box chuy small"><div class="tit">Trường hợp suy biến</div><div class="bd">
+    Sau khi thu gọn nếu <b>hệ số của \(x\) bằng \(0\)</b>: được khẳng định số học — <em>luôn đúng</em>
+    (\(S=\mathbb R\)) hoặc <em>vô lí</em> (\(S=\varnothing\)). Ví dụ \(2x+5>2(x-1)\Leftrightarrow 5>-2\): \(S=\mathbb R\).
+  </div></div>
+</section>
+
+<section>
+  <h2>A2. Dấu nhị thức bậc nhất — BPT tích, thương</h2>
+  <div class="box kienthuc"><div class="tit">Bảng xét dấu nhị thức \(f(x)=ax+b\)</div><div class="bd small">
+    Nhị thức có nghiệm \(x_0=-\dfrac ba\). Quy tắc <b>“phải cùng, trái trái”</b>: bên <em>phải</em> nghiệm
+    \(f(x)\) <em>cùng</em> dấu \(a\), bên <em>trái</em> <em>trái</em> dấu \(a\).
+    <table class="xetdau small">
+      <tr><th>\(x\)</th><th>\(-\infty\)</th><th></th><th>\(x_0\)</th><th></th><th>\(+\infty\)</th></tr>
+      <tr><th>\(ax+b\)</th><td></td><td>trái dấu \(a\)</td><td>\(0\)</td><td>cùng dấu \(a\)</td><td></td></tr>
+    </table>
+    <b>BPT tích / thương:</b> chuyển hết về <em>một vế</em> (so với \(0\)), phân tích thành tích/thương nhị thức,
+    <b>lập bảng xét dấu</b>, đọc nghiệm theo chiều. Với thương: nêu <em>điều kiện xác định</em>, loại giá trị làm mẫu \(=0\).
+  </div></div>
+  <p class="fragment small"><b>Ví dụ 2.</b> Giải \(\dfrac{x+2}{x-1}\le 0\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Điều kiện \(x\ne1\). Nghiệm \(x=-2\) (tử), \(x=1\) (mẫu). Xét dấu thương:
+    \(\ge0\) hai đầu, \(\le0\) ở giữa \(-2\) và \(1\). Vế trái \(\le0\) khi \(-2\le x<1\)
+    (<em>nhận</em> \(x=-2\), <em>loại</em> \(x=1\)). <span class="kq">\(S=[-2;1)\).</span></p>
+</section>
+
+<section>
+  <h2>A3. Bất phương trình chứa dấu giá trị tuyệt đối</h2>
+  <div class="box kienthuc"><div class="tit">Khử dấu giá trị tuyệt đối (với \(B>0\))</div><div class="bd small">
+    \[|A|<B\Leftrightarrow -B<A<B;\qquad |A|>B\Leftrightarrow A>B\ \text{hoặc}\ A<-B.\]
+    Khi <em>vế phải chứa ẩn</em> (\(|A|\le B(x)\)): viết \(-B\le A\le B\) <b>kèm điều kiện</b> \(B\ge0\);
+    hoặc <em>bình phương hai vế</em> khi cả hai vế không âm.
+  </div></div>
+  <p class="fragment small"><b>Ví dụ 3.</b> Giải \(|2x-3|\le 5\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span>
+    \(|2x-3|\le5\Leftrightarrow -5\le 2x-3\le 5\Leftrightarrow -2\le 2x\le 8\Leftrightarrow -1\le x\le 4\).
+    <span class="kq">\(S=[-1;4]\).</span></p>
+  <div class="fragment center">
+    <svg viewBox="0 0 560 70" width="560" height="70" style="max-width:88%">
+      <line x1="20" y1="34" x2="540" y2="34" stroke="#5a5a5a" stroke-width="1.5"/>
+      <polygon points="540,34 530,29 530,39" fill="#5a5a5a"/>
+      <line x1="170" y1="34" x2="400" y2="34" stroke="#1b549a" stroke-width="5"/>
+      <circle cx="170" cy="34" r="6" fill="#1b549a"/><circle cx="400" cy="34" r="6" fill="#1b549a"/>
+      <text x="170" y="20" text-anchor="middle" font-size="17" fill="#1b549a">−1</text>
+      <text x="400" y="20" text-anchor="middle" font-size="17" fill="#1b549a">4</text>
+    </svg>
+    <div class="venncap">Tập nghiệm \(S=[-1;4]\) (hai đầu <b>đóng</b>).</div>
+  </div>
+</section>
+
+<section>
+  <h2>A4. Bất phương trình bậc nhất chứa tham số</h2>
+  <div class="box kienthuc"><div class="tit">Giải và biện luận theo tham số</div><div class="bd small">
+    Đưa về dạng \(A\,x>B\) (hoặc \(\ge,<,\le\)), \(A,B\) phụ thuộc tham số, rồi <b>xét riêng</b> theo dấu \(A\):
+    <ul style="margin:.2em 0">
+      <li>\(A>0\): \(x>\dfrac BA\) (giữ chiều);</li>
+      <li>\(A<0\): \(x<\dfrac BA\) (<em>đổi chiều</em>);</li>
+      <li>\(A=0\): thành \(0>B\) — <em>không chứa ẩn</em>, kết luận vô nghiệm hay đúng với mọi \(x\).</li>
+    </ul>
+  </div></div>
+  <p class="fragment small"><b>Ví dụ 4.</b> Giải và biện luận \(mx+2>x-1\) theo tham số \(m\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> \((m-1)x>-3\).
+    <span class="kq">\(m>1\): \(S=\left(\dfrac{-3}{m-1};+\infty\right)\); &nbsp; \(m<1\): \(S=\left(-\infty;\dfrac{-3}{m-1}\right)\);
+    &nbsp; \(m=1\): \(0>-3\) luôn đúng, \(S=\mathbb R\).</span></p>
+</section>
+
+<section>
+  <h2>Bốn điểm dễ sai của bài</h2>
+  <div class="box chuy"><div class="tit">Ghi nhớ để tránh mất điểm</div><div class="bd small">
+    <ul>
+      <li class="fragment"><b>Nhân/chia số âm</b> (hoặc biểu thức âm) phải <em>đổi chiều</em> bất phương trình.</li>
+      <li class="fragment"><b>BPT chứa ẩn ở mẫu</b>: <em>không khử mẫu tuỳ tiện</em> — chuyển về một vế, quy đồng rồi <b>lập bảng xét dấu</b>.</li>
+      <li class="fragment"><b>Đầu mút đóng/mở</b>: giá trị làm <em>mẫu \(=0\) bị loại</em>; phân biệt \(>\) với \(\ge\) khi đọc nghiệm.</li>
+      <li class="fragment"><b>Giá trị tuyệt đối</b>: \(|A|>B\) khi \(B<0\) <em>luôn đúng</em>; \(|A|<B\) khi \(B\le0\) <em>vô nghiệm</em>.</li>
+      <li class="fragment"><b>Biện luận tham số</b>: nhớ xét <em>riêng</em> trường hợp hệ số của \(x\) bằng \(0\).</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- PHẦN B: CÁC DẠNG -->
+<section>
+  <h2>Dạng 1 — Giải BPT bậc nhất (tích, thương)</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Chuyển hết về <em>một vế</em> (so với \(0\)), phân tích thành tích/thương nhị thức bậc nhất, tìm nghiệm từng
+    nhị thức, <b>lập bảng xét dấu</b>, đọc nghiệm theo chiều. Với thương: nêu điều kiện mẫu \(\ne0\).
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 1.1.</b> Giải \((x+1)(x-1)(3x-6)>0\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Ba nghiệm \(-1;1;2\) (vì \(3x-6=3(x-2)\)). Xét dấu tích:
+    <span class="kq">\(S=(-1;1)\cup(2;+\infty)\).</span></p>
+  <p class="fragment small"><b>Luyện tập 1.2.</b> Giải \(\dfrac{3x-4}{x-2}>1\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Điều kiện \(x\ne2\). Chuyển vế:
+    \(\dfrac{3x-4-(x-2)}{x-2}=\dfrac{2x-2}{x-2}>0\). Nghiệm \(1\) (tử), \(2\) (mẫu); thương \(>0\) khi \(x<1\) hoặc \(x>2\).
+    <span class="kq">\(S=(-\infty;1)\cup(2;+\infty)\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 2 — Biện luận BPT chứa tham số</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Đưa về \(A\,x>B\) rồi xét riêng \(A>0,\ A<0,\ A=0\); với tích/thương chứa tham số thì so sánh vị trí các nghiệm
+    theo tham số rồi lập bảng xét dấu cho từng trường hợp. Có căn: nêu điều kiện xác định trước.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 2.</b> Giải và biện luận \(\sqrt{x-1}\,(x-m+2)>0\) theo \(m\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Điều kiện \(x\ge1\). Tại \(x=1\), \(\sqrt{x-1}=0\Rightarrow\) tích \(=0\) (loại).
+    Với \(x>1\): \(\sqrt{x-1}>0\Rightarrow x-m+2>0\Leftrightarrow x>m-2\). Kết hợp \(x>1\):
+    <span class="kq">\(m\le3\): \(S=(1;+\infty)\); &nbsp; \(m>3\): \(S=(m-2;+\infty)\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 3 — BPT chứa dấu giá trị tuyệt đối</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    \(|A|<B\Leftrightarrow -B<A<B\); &nbsp; \(|A|>B\Leftrightarrow A>B\) hoặc \(A<-B\) (với \(B>0\)).
+    Vế phải chứa ẩn: kèm điều kiện vế phải \(\ge0\) (hoặc bình phương khi hai vế không âm).
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 3.1.</b> Giải \(|3x-2|>7\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> \(3x-2>7\) hoặc \(3x-2<-7\Leftrightarrow x>3\) hoặc \(x<-\dfrac53\).
+    <span class="kq">\(S=\left(-\infty;-\dfrac53\right)\cup(3;+\infty)\).</span></p>
+  <div class="fragment center">
+    <svg viewBox="0 0 560 70" width="560" height="70" style="max-width:88%">
+      <line x1="20" y1="34" x2="540" y2="34" stroke="#5a5a5a" stroke-width="1.5"/>
+      <polygon points="540,34 530,29 530,39" fill="#5a5a5a"/>
+      <line x1="30" y1="34" x2="210" y2="34" stroke="#1b549a" stroke-width="5"/>
+      <circle cx="210" cy="34" r="6" fill="#fff" stroke="#1b549a" stroke-width="2.5"/>
+      <line x1="370" y1="34" x2="530" y2="34" stroke="#1b549a" stroke-width="5"/>
+      <circle cx="370" cy="34" r="6" fill="#fff" stroke="#1b549a" stroke-width="2.5"/>
+      <text x="210" y="20" text-anchor="middle" font-size="16" fill="#1b549a">−5/3</text>
+      <text x="370" y="20" text-anchor="middle" font-size="17" fill="#1b549a">3</text>
+    </svg>
+    <div class="venncap">Tập nghiệm gồm <b>hai tia</b>, hai đầu \(-\dfrac53\) và \(3\) đều <b>mở</b> (○).</div>
+  </div>
+  <p class="fragment small"><b>Luyện tập 3.2.</b> Giải \(|2x-5|\le x+1\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Cần \(x+1\ge0\Rightarrow x\ge-1\); khi đó \(-(x+1)\le 2x-5\le x+1\)
+    \(\Rightarrow x\ge\dfrac43\) và \(x\le6\). <span class="kq">\(S=\left[\dfrac43;6\right]\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 4 — Bài toán thực tế</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Đặt <em>ẩn</em> cho đại lượng cần tìm (kèm điều kiện thực tế \(\ge0\)), lập bất phương trình mô tả ràng buộc
+    (<em>chi phí</em> \(\le\) ngân sách; <em>trung bình</em> \(\ge\) ngưỡng…), giải rồi <em>đối chiếu điều kiện</em> và kết luận.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 4.1.</b> Taxi tính giá: mở cửa \(11\,000\) đồng và \(14\,000\) đồng mỗi km. Người đó có \(200\,000\) đồng, đi được tối đa bao nhiêu km?</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Gọi \(x\) km \((x\ge0)\): \(11\,000+14\,000x\le200\,000\Leftrightarrow x\le13,5\).
+    <span class="kq">Tối đa \(13,5\) km.</span></p>
+  <p class="fragment small"><b>Luyện tập 4.2.</b> Ba bài kiểm tra được \(7;8;6\). Bài thứ tư ít nhất bao nhiêu điểm để trung bình bốn bài không dưới \(7,5\)?</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> \(\dfrac{7+8+6+x}{4}\ge7,5\Leftrightarrow 21+x\ge30\Leftrightarrow x\ge9\).
+    <span class="kq">Ít nhất \(9\) điểm.</span></p>
+</section>
+
+<!-- GHI NHỚ + VỀ NHÀ -->
+<section>
+  <h2>Ghi nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Chốt lại bài học</div><div class="bd small">
+    <ul>
+      <li class="fragment"><b>BPT bậc nhất</b> \(ax+b>0\ (a\ne0)\): \(a>0\Rightarrow x>-\dfrac ba\); \(a<0\Rightarrow x<-\dfrac ba\).</li>
+      <li class="fragment"><b>Nhân/chia số âm</b> \(\Rightarrow\) <em>đổi chiều</em>. Tập nghiệm là khoảng / đoạn / nửa khoảng.</li>
+      <li class="fragment"><b>Tích, thương</b>: đưa về một vế, <em>lập bảng xét dấu</em>; thương nêu điều kiện, loại mẫu \(=0\).</li>
+      <li class="fragment"><b>Giá trị tuyệt đối</b>: \(|A|<B\Leftrightarrow -B<A<B\); \(|A|>B\Leftrightarrow A>B\) hoặc \(A<-B\).</li>
+      <li class="fragment"><b>Tham số</b>: xét riêng dấu hệ số của \(x\), nhớ trường hợp \(=0\).</li>
+    </ul>
+  </div></div>
+  <p class="center fragment small"><em>Bài sau: <b>Bài 7. Bất phương trình bậc hai một ẩn</b>.</em></p>
+</section>
+
+<section>
+  <h2>Về nhà</h2>
+  <div class="box chuy"><div class="tit">Nhiệm vụ của em</div><div class="bd">
+    <ol>
+      <li>Làm <b>Phiếu bài tập số 1</b> (10 bài, theo bài giảng):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-C-PhieuBaiTap.pdf" target="_blank">C2B6-C-PhieuBaiTap.pdf</a></li>
+      <li>Làm <b>Phiếu bài tập về nhà số 2</b> (kèm QR đáp án):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-C-PhieuBaiTap2.pdf" target="_blank">C2B6-C-PhieuBaiTap2.pdf</a></li>
+      <li>Làm <b>Bài kiểm tra tương tác online</b> (trắc nghiệm + đúng/sai + kéo thả):
+        <a href="/T10/LuyenTap/C2B6.html" target="_blank">/T10/LuyenTap/C2B6.html</a></li>
+    </ol>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Toàn bộ tài liệu bài học (dành cho giáo viên)</div><div class="bd small">
+    <ul style="margin:0">
+      <li>Phiếu khởi động: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-0-PhieuKhoiDong.pdf" target="_blank">C2B6-0-PhieuKhoiDong.pdf</a></li>
+      <li>Các dạng bài + luyện tập: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-B-CacDang.pdf" target="_blank">C2B6-B-CacDang.pdf</a></li>
+      <li>Đề kiểm tra cơ bản 15 phút: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-D-KiemTra15p.pdf" target="_blank">C2B6-D-KiemTra15p.pdf</a></li>
+      <li>Bài nâng cao: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-E-NangCao.pdf" target="_blank">C2B6-E-NangCao.pdf</a></li>
+      <li>Bản đầy đủ kèm lời giải: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B6-BaiGiang-DayDu.pdf" target="_blank">C2B6-BaiGiang-DayDu.pdf</a></li>
+    </ul>
+  </div></div>
+  <p class="center fragment">Bài sau: <b>Bài 7. Bất phương trình bậc hai một ẩn</b> — hẹn gặp lại!</p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>

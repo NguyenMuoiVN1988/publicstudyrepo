@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 5. Bất đẳng thức | Bài giảng Toán 10</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#1b549a; --maunhat:#e9f1fb;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#1e7846;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.1em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.1em;font-weight:bold}
+  .titleslide .t2{font-size:1.35em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+  .venncap{font-size:.6em;font-style:italic;color:var(--mauxam);text-align:center;margin-top:.2em}
+  .vennrow{display:flex;justify-content:center;gap:1.2em;flex-wrap:wrap;align-items:flex-end}
+  .vennrow figure{margin:0;text-align:center}
+  .vennrow figcaption{font-size:.62em;font-style:italic;color:var(--mauxam);margin-top:.15em}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- SLIDE 1: TIÊU ĐỀ -->
+<section class="titleslide">
+  <div class="t1">Bài 5. Bất đẳng thức</div>
+  <div class="t2">Toán 10 — Chương II. Bất đẳng thức và bất phương trình</div>
+  <p style="margin-top:1.2em"><em>Bài giảng trình chiếu trên lớp</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để hiện lần lượt từng bước, giống như trên lớp.</p>
+</section>
+
+<!-- SLIDE 2: TÀI NGUYÊN BÀI HỌC -->
+<section>
+  <h2>Tài nguyên bài học (dành cho giáo viên)</h2>
+  <table class="small">
+    <tr><th>Tài liệu</th><th>Mở</th></tr>
+    <tr><td>Phiếu khởi động (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-0-PhieuKhoiDong.pdf" target="_blank">C2B5-0-PhieuKhoiDong.pdf</a></td></tr>
+    <tr><td>Các dạng bài + luyện tập (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-B-CacDang.pdf" target="_blank">C2B5-B-CacDang.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập số 1 (10 bài, theo bài giảng) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-C-PhieuBaiTap.pdf" target="_blank">C2B5-C-PhieuBaiTap.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập về nhà số 2 (kèm QR đáp án) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-C-PhieuBaiTap2.pdf" target="_blank">C2B5-C-PhieuBaiTap2.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra cơ bản 15 phút (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-D-KiemTra15p.pdf" target="_blank">C2B5-D-KiemTra15p.pdf</a></td></tr>
+    <tr><td>Bài nâng cao (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-E-NangCao.pdf" target="_blank">C2B5-E-NangCao.pdf</a></td></tr>
+    <tr><td>Bản đầy đủ kèm lời giải (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-BaiGiang-DayDu.pdf" target="_blank">C2B5-BaiGiang-DayDu.pdf</a></td></tr>
+    <tr><td>Bài kiểm tra tương tác online<br><span class="small">(trắc nghiệm + đúng/sai + kéo thả)</span></td>
+      <td><a href="/T10/LuyenTap/C2B5.html" target="_blank">/T10/LuyenTap/C2B5.html</a></td></tr>
+  </table>
+  <p class="footer-note">In phiếu phát tay hoặc giao bài online — thầy cô tự chọn thứ tự.</p>
+</section>
+
+<!-- PHẦN 0: KHỞI ĐỘNG -->
+<section>
+  <h2>Khởi động — Kiểm tra kiến thức nền (1/2)</h2>
+  <p class="hoihs">Ôn lại hằng đẳng thức và tính chất \(a^2\ge0\) để bước vào bất đẳng thức!</p>
+  <p class="fragment"><b>Câu 1.</b> Khai triển: \((a-b)^2=\ldots\); &nbsp; \((a+b)^2=\ldots\). Với mọi \(a,b\), biểu thức \((a-b)^2\) luôn lớn hơn hoặc bằng số nào?</p>
+  <p class="fragment"><span class="kq">\((a-b)^2=a^2-2ab+b^2\); &nbsp; \((a+b)^2=a^2+2ab+b^2\); &nbsp; \((a-b)^2\ge 0\).</span></p>
+  <p class="fragment"><b>Câu 2.</b> Chứng tỏ \((x-2)^2+3\ge3\) với mọi \(x\). Biểu thức đạt giá trị nhỏ nhất bằng bao nhiêu, tại \(x\) nào?</p>
+  <p class="fragment"><span class="kq">Vì \((x-2)^2\ge0\) nên \((x-2)^2+3\ge3\); GTNN \(=3\), đạt tại \(x=2\).</span></p>
+  <p class="fragment"><b>Câu 3.</b> Không dùng máy tính, so sánh \(a=2\sqrt3\) và \(b=3\sqrt2\) (gợi ý: so sánh \(a^2,b^2\)).</p>
+  <p class="fragment"><span class="kq">\(a^2=12<18=b^2\) và \(a,b>0\Rightarrow a<b\).</span></p>
+</section>
+
+<section>
+  <h2>Khởi động — Kiểm tra kiến thức nền (2/2)</h2>
+  <p class="fragment"><b>Câu 4.</b> Viết \(a^2-2a+1\) dưới dạng một bình phương rồi cho biết dấu của nó.</p>
+  <p class="fragment"><span class="kq">\(a^2-2a+1=(a-1)^2\ge0\).</span></p>
+  <p class="fragment"><b>Câu 5.</b> Cho \(a\ge0,\ b\ge0\). Xét \((\sqrt a-\sqrt b)^2\) và chứng tỏ \(a+b\ge2\sqrt{ab}\). Dấu "=" xảy ra khi nào?</p>
+  <p class="fragment"><span class="kq">\((\sqrt a-\sqrt b)^2\ge0\Leftrightarrow a-2\sqrt{ab}+b\ge0\Leftrightarrow a+b\ge2\sqrt{ab}\); dấu "=" khi \(a=b\).</span></p>
+  <div class="fragment box chuy"><div class="tit">Vào bài</div><div class="bd">
+    Bất đẳng thức vừa gặp ở Câu 5 chính là <b>bất đẳng thức Cô-si</b> — một trong những công cụ trọng tâm của bài học hôm nay:
+    <b>bất đẳng thức</b> và cách dùng nó để <b>chứng minh</b>, <b>tìm giá trị lớn nhất – nhỏ nhất</b>.
+  </div></div>
+</section>
+
+<!-- PHẦN A: LÝ THUYẾT -->
+<section>
+  <h2>A1. Bất đẳng thức và các tính chất</h2>
+  <div class="box kienthuc"><div class="tit">Khái niệm và tính chất cơ bản</div><div class="bd small">
+    Với hai số thực \(a,b\): \(a>b\) nghĩa là \(a-b>0\) (tương tự cho \(a\ge b,\ a<b,\ a\le b\)). Các mệnh đề đó gọi là <b>bất đẳng thức</b>. Với \(a,b,c\) thực:
+    <ul style="margin:.2em 0">
+      <li><b>Bắc cầu:</b> \(a>b\) và \(b>c\Rightarrow a>c\).</li>
+      <li><b>Cộng cùng một số:</b> \(a>b\Leftrightarrow a+c>b+c\).</li>
+      <li><b>Nhân với số dương/âm:</b> \(c>0\Rightarrow(a>b\Leftrightarrow ac>bc)\); \(\ c<0\Rightarrow(a>b\Leftrightarrow ac<bc)\) — <em>đổi chiều</em>.</li>
+      <li><b>Cộng hai BĐT cùng chiều:</b> \(a>b,\ c>d\Rightarrow a+c>b+d\).</li>
+    </ul>
+  </div></div>
+  <p class="fragment"><b>Ví dụ 1.</b> Cho \(a>b\). So sánh \(3-2a\) và \(3-2b\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span> Nhân hai vế \(a>b\) với \(-2<0\) (đổi chiều): \(-2a<-2b\); cộng \(3\): <span class="kq">\(3-2a<3-2b\)</span>.</p>
+</section>
+
+<section>
+  <h2>A2. Một số bất đẳng thức nền tảng</h2>
+  <div class="box kienthuc"><div class="tit">Các bất đẳng thức cần nhớ</div><div class="bd">
+    Với mọi số thực \(a,b\):
+    \[a^2\ge0;\qquad a^2+b^2\ge 2ab;\qquad (a+b)^2\ge 4ab.\]
+    Ngoài ra, nếu \(ab>0\) thì \(\dfrac ab+\dfrac ba\ge2\). Các dấu "=" đều xảy ra khi \(a=b\).
+  </div></div>
+  <p class="fragment"><b>Ví dụ 2.</b> Chứng minh \(a^2+b^2\ge2ab\) rồi suy ra \((a+b)^2\ge4ab\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    \(a^2+b^2-2ab=(a-b)^2\ge0\Rightarrow a^2+b^2\ge2ab\), dấu "=" khi \(a=b\). Cộng \(2ab\) hai vế:
+    <span class="kq">\((a+b)^2\ge4ab\)</span>.</p>
+</section>
+
+<section>
+  <h2>A3. Bất đẳng thức Cô-si (AM–GM)</h2>
+  <div class="box kienthuc"><div class="tit">Cô-si cho hai số không âm</div><div class="bd small">
+    <b>Với \(a,b\ge0\):</b> \(\quad\dfrac{a+b}{2}\ge\sqrt{ab}\quad(\text{tức }a+b\ge2\sqrt{ab})\), dấu "=" \(\Leftrightarrow a=b\).
+    <br><b>Ba số không âm \(a,b,c\ge0\):</b> \(\ \dfrac{a+b+c}{3}\ge\sqrt[3]{abc}\), dấu "=" khi \(a=b=c\).
+    <br><b>Điểm rơi:</b> tổng \(a+b\) không đổi thì tích \(ab\) lớn nhất khi \(a=b\); tích không đổi thì tổng nhỏ nhất khi \(a=b\).
+  </div></div>
+  <div class="fragment center">
+    <svg viewBox="0 0 560 150" width="560" height="150" style="max-width:100%">
+      <rect x="20" y="95" width="30" height="45" fill="#78a8de" fill-opacity="0.5" stroke="#1b549a" stroke-width="1.5"/>
+      <text x="35" y="135" text-anchor="middle" font-size="13" fill="#1b549a">1×5</text>
+      <text x="35" y="88" text-anchor="middle" font-size="13">S=5</text>
+      <rect x="120" y="80" width="60" height="60" fill="#78be96" fill-opacity="0.5" stroke="#1e7846" stroke-width="1.5"/>
+      <text x="150" y="135" text-anchor="middle" font-size="13" fill="#1e7846">2×4</text>
+      <text x="150" y="73" text-anchor="middle" font-size="13">S=8</text>
+      <rect x="250" y="72" width="68" height="68" fill="#e09e6e" fill-opacity="0.6" stroke="#c85000" stroke-width="2"/>
+      <text x="284" y="135" text-anchor="middle" font-size="13" fill="#c85000" font-weight="bold">3×3</text>
+      <text x="284" y="65" text-anchor="middle" font-size="13" font-weight="bold">S=9</text>
+      <text x="360" y="105" font-size="17" fill="#5a5a5a">Cùng chu vi (nửa chu vi = 6):</text>
+      <text x="360" y="130" font-size="17" fill="#c85000" font-weight="bold">hình vuông có diện tích lớn nhất.</text>
+    </svg>
+    <div class="venncap">Ba hình chữ nhật cùng nửa chu vi \(a+b=6\): tích \(ab\) lớn nhất \(=9\) khi \(a=b=3\).</div>
+  </div>
+  <p class="fragment small"><b>Ví dụ 3.</b> Tìm GTNN của \(y=x+\dfrac1x\) với \(x>0\).
+    <span class="lg">Lời giải.</span> \(x>0,\dfrac1x>0\); Cô-si: \(x+\dfrac1x\ge2\sqrt{x\cdot\dfrac1x}=2\), dấu "=" khi \(x=1\). Vậy <span class="kq">\(\min y=2\) tại \(x=1\)</span>.</p>
+</section>
+
+<section>
+  <h2>A4. Bất đẳng thức Bu-nhi-a-cốp-xki</h2>
+  <div class="box kienthuc"><div class="tit">Bu-nhi-a-cốp-xki cho hai cặp số</div><div class="bd small">
+    Với mọi số thực \(a,b,x,y\):
+    \[(ax+by)^2\le (a^2+b^2)(x^2+y^2),\]
+    dấu "=" \(\Leftrightarrow ay=bx\) (tức \(\dfrac xa=\dfrac yb\) khi \(a,b\ne0\)).
+    <br><b>Hệ quả (cộng mẫu):</b> với \(x,y>0\) và mọi \(a,b\): \(\ \dfrac{a^2}{x}+\dfrac{b^2}{y}\ge\dfrac{(a+b)^2}{x+y}\), dấu "=" khi \(\dfrac ax=\dfrac by\).
+  </div></div>
+  <p class="fragment"><b>Ví dụ 4.</b> Cho \(a+2b=2\). Chứng minh \(a^2+b^2\ge\dfrac45\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Bu-nhi-a-cốp-xki cho cặp \((1;2)\) và \((a;b)\):
+    \((a+2b)^2\le(1^2+2^2)(a^2+b^2)=5(a^2+b^2)\). Vì \(a+2b=2\) nên \(4\le5(a^2+b^2)\Rightarrow\)
+    <span class="kq">\(a^2+b^2\ge\dfrac45\)</span>, dấu "=" tại \(a=\dfrac25,\ b=\dfrac45\).</p>
+</section>
+
+<section>
+  <h2>A5. Dùng bất đẳng thức tìm GTLN – GTNN</h2>
+  <div class="box kienthuc"><div class="tit">Quy trình hai bước</div><div class="bd small">
+    Để tìm GTNN (hoặc GTLN) của biểu thức \(P\):
+    <ul style="margin:.2em 0">
+      <li><b>Chặn một phía:</b> chứng minh \(P\ge m\) (hoặc \(P\le M\)) bằng một bất đẳng thức phù hợp;</li>
+      <li><b>Chỉ ra dấu "=" xảy ra (điểm rơi):</b> tồn tại giá trị của biến làm \(P=m\) (hoặc \(P=M\)). Khi đó mới kết luận \(\min P=m\) (hoặc \(\max P=M\)).</li>
+    </ul>
+    Thiếu bước điểm rơi thì <em>chưa</em> kết luận được GTNN/GTLN.
+  </div></div>
+  <p class="fragment"><b>Ví dụ 5.</b> Tìm GTNN của \(y=\dfrac x2+\dfrac{18}{x}\) với \(x>0\).</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span> Hai số \(\dfrac x2>0,\ \dfrac{18}{x}>0\); Cô-si:
+    \(\dfrac x2+\dfrac{18}{x}\ge2\sqrt{\dfrac x2\cdot\dfrac{18}{x}}=2\sqrt9=6\), dấu "=" khi \(\dfrac x2=\dfrac{18}{x}\Leftrightarrow x=6\).
+    Vậy <span class="kq">\(\min y=6\) tại \(x=6\)</span>.</p>
+</section>
+
+<section>
+  <h2>Ba điểm dễ sai của bài</h2>
+  <div class="box chuy"><div class="tit">Ghi nhớ để tránh mất điểm</div><div class="bd">
+    <ul>
+      <li class="fragment"><b>Cô-si chỉ áp dụng cho các số không âm;</b> Bu-nhi-a-cốp-xki phải gom đúng dạng \((ax+by)^2\). Áp dụng khi chưa đủ điều kiện là sai.</li>
+      <li class="fragment">Muốn kết luận GTLN/GTNN phải <b>chỉ ra dấu "=" xảy ra</b> (điểm rơi tồn tại), không chỉ chặn một phía.</li>
+      <li class="fragment">Khi <em>cộng nhiều</em> bất đẳng thức, dấu "=" của kết quả chỉ đạt khi <b>mọi</b> dấu "=" thành phần xảy ra <b>đồng thời</b> — phải kiểm tra lại.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- PHẦN B: CÁC DẠNG -->
+<section>
+  <h2>Dạng 1 — Chứng minh BĐT bằng biến đổi tương đương</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Đưa BĐT về dạng tương đương mà <em>vế trái trừ vế phải</em> là tổng các bình phương hiển nhiên không âm. Thường dùng \((a-b)^2\ge0\) hoặc \((a-b)^2+(b-c)^2+(c-a)^2\ge0\). Luôn nêu dấu "=" xảy ra khi nào.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 1.1.</b> Cho \(a,b,c\in\mathbb R\). Chứng minh \(a^2+b^2+c^2\ge ab+bc+ca\).</p>
+  <p class="fragment small"><span class="kq">Nhân đôi: \(2(a^2+b^2+c^2)-2(ab+bc+ca)=(a-b)^2+(b-c)^2+(c-a)^2\ge0\); dấu "=" khi \(a=b=c\).</span></p>
+  <p class="fragment small"><b>Luyện tập 1.2.</b> Cho \(a,b\in\mathbb R\). Chứng minh \(a^2+b^2+1\ge ab+a+b\).</p>
+  <p class="fragment small"><span class="kq">Nhân đôi và chuyển vế: \((a-b)^2+(a-1)^2+(b-1)^2\ge0\); dấu "=" khi \(a=b=1\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 2 — Chứng minh bằng Bu-nhi-a-cốp-xki</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Khi có <em>ràng buộc tuyến tính</em> \(ma+nb=k\) cần chặn tổng bình phương, gom về dạng \((ax+by)^2\le(a^2+b^2)(x^2+y^2)\). Chọn hai cặp số hợp lí rồi thay ràng buộc. Dấu "=" khi \(ay=bx\); kiểm điểm rơi thoả ràng buộc.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 2.1.</b> Cho \(3a+4b=7\). Chứng minh \(3a^2+4b^2\ge7\).</p>
+  <p class="fragment small"><span class="kq">Bu-nhi-a cho \((\sqrt3;2)\) và \((\sqrt3\,a;2b)\): \((3a+4b)^2\le7(3a^2+4b^2)\Rightarrow49\le7(3a^2+4b^2)\Rightarrow3a^2+4b^2\ge7\); dấu "=" khi \(a=b=1\).</span></p>
+  <p class="fragment small"><b>Luyện tập 2.2.</b> Cho \(2a+3b=5\). Chứng minh \(2a^2+3b^2\ge5\).</p>
+  <p class="fragment small"><span class="kq">Bu-nhi-a cho \((\sqrt2;\sqrt3)\) và \((\sqrt2\,a;\sqrt3\,b)\): \((2a+3b)^2\le5(2a^2+3b^2)\Rightarrow25\le5(2a^2+3b^2)\Rightarrow2a^2+3b^2\ge5\); dấu "=" khi \(a=b=1\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 3 — Chứng minh bằng Cô-si (trọng tâm)</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Nhóm các số <em>dương</em> thành cặp/bộ rồi áp dụng \(a+b\ge2\sqrt{ab}\) hoặc \(a+b+c\ge3\sqrt[3]{abc}\). Với biểu thức đối xứng thường ghép theo vòng rồi cộng lại. Luôn kiểm điều kiện số không âm và chỉ ra dấu "=" (thường \(a=b=c\)).
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 3.1.</b> Cho \(a,b>0\). Chứng minh \(\dfrac1a+\dfrac1b\ge\dfrac{4}{a+b}\).</p>
+  <p class="fragment small"><span class="kq">\(a+b\ge2\sqrt{ab}\) và \(\dfrac1a+\dfrac1b\ge2\sqrt{\dfrac1{ab}}\); nhân hai vế dương: \((a+b)\!\left(\dfrac1a+\dfrac1b\right)\ge4\Rightarrow\dfrac1a+\dfrac1b\ge\dfrac{4}{a+b}\); dấu "=" khi \(a=b\).</span></p>
+  <p class="fragment small"><b>Luyện tập 3.2.</b> Cho \(a,b,c>0\). Chứng minh \((a+b)(b+c)(c+a)\ge8abc\).</p>
+  <p class="fragment small"><span class="kq">\(a+b\ge2\sqrt{ab},\ b+c\ge2\sqrt{bc},\ c+a\ge2\sqrt{ca}\); nhân ba BĐT dương: \((a+b)(b+c)(c+a)\ge8\sqrt{a^2b^2c^2}=8abc\); dấu "=" khi \(a=b=c\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 4 — Tìm GTLN – GTNN (trọng tâm)</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Dạng "số hạng + nghịch đảo" dùng Cô-si hai số (tách để <em>tích không đổi</em>); tích hai thừa số có <em>tổng không đổi</em> dùng \(\dfrac{x+y}{2}\ge\sqrt{xy}\). Sau khi chặn phải <b>tìm điểm rơi</b> và kiểm dấu "=" đạt được.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 4.1.</b> Tìm GTNN của \(y=\dfrac x2+\dfrac{18}{x}\) với \(x>0\). &nbsp;
+    <span class="kq">\(y\ge2\sqrt{\dfrac x2\cdot\dfrac{18}{x}}=6\), dấu "=" khi \(x=6\); \(\min y=6\).</span></p>
+  <p class="fragment small"><b>Luyện tập 4.2.</b> Tìm GTLN của \(y=(x+3)(5-x)\) với \(-3\le x\le5\).</p>
+  <div class="fragment center">
+    <svg viewBox="0 0 460 200" width="460" height="200" style="max-width:82%">
+      <line x1="30" y1="165" x2="430" y2="165" stroke="#5a5a5a" stroke-width="1.5"/>
+      <polygon points="430,165 420,160 420,170" fill="#5a5a5a"/>
+      <line x1="70" y1="20" x2="70" y2="180" stroke="#5a5a5a" stroke-width="1.5"/>
+      <polygon points="70,20 65,30 75,30" fill="#5a5a5a"/>
+      <path d="M 100 165 Q 230 -35 360 165" fill="none" stroke="#1b549a" stroke-width="2.5"/>
+      <circle cx="100" cy="165" r="4" fill="#1b549a"/><circle cx="360" cy="165" r="4" fill="#1b549a"/>
+      <circle cx="230" cy="47" r="5" fill="#c85000"/>
+      <line x1="230" y1="47" x2="230" y2="165" stroke="#c85000" stroke-width="1" stroke-dasharray="4 3"/>
+      <text x="100" y="182" text-anchor="middle" font-size="14" fill="#1b549a">−3</text>
+      <text x="360" y="182" text-anchor="middle" font-size="14" fill="#1b549a">5</text>
+      <text x="230" y="182" text-anchor="middle" font-size="14" fill="#c85000">1</text>
+      <text x="245" y="42" font-size="14" fill="#c85000" font-weight="bold">đỉnh (1;16)</text>
+    </svg>
+    <div class="venncap">Parabol \(y=(x+3)(5-x)\) quay bề lõm xuống, đạt đỉnh \(y=16\) tại \(x=1\).</div>
+  </div>
+  <p class="fragment small"><span class="kq">Hai thừa số \(x+3\ge0,\ 5-x\ge0\) có tổng \(8\) không đổi \(\Rightarrow(x+3)(5-x)\le\left(\dfrac82\right)^2=16\), dấu "=" khi \(x=1\). Vậy \(\max y=16\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 5 — Bài toán ứng dụng thực tế</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Đặt ẩn cho đại lượng cần tối ưu, lập biểu thức theo ràng buộc thực tế (chu vi, thể tích, diện tích…), rồi dùng Cô-si tìm cực trị. Đối chiếu điều kiện thực tế (độ dài, diện tích \(>0\)) và kết luận kích thước tại điểm rơi.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 5.1.</b> Mảnh vườn hình chữ nhật có chu vi \(40\) m. Tìm diện tích lớn nhất và hai kích thước khi đó.</p>
+  <p class="fragment small"><span class="kq">Hai cạnh \(a,b>0\), \(a+b=20\); \(S=ab\le\left(\dfrac{a+b}{2}\right)^2=10^2=100\) (m\(^2\)), dấu "=" khi \(a=b=10\). Diện tích lớn nhất \(100\) m\(^2\) (hình vuông cạnh \(10\) m).</span></p>
+  <p class="fragment small"><b>Luyện tập 5.2.</b> Rào mảnh đất hình chữ nhật dọc bờ sông thẳng (cạnh giáp sông không rào) bằng \(100\) m lưới. Tìm diện tích lớn nhất.</p>
+  <p class="fragment small"><span class="kq">Cạnh song song sông \(x\), hai cạnh vuông góc \(y\): \(x+2y=100\). \(S=xy=\dfrac12(2y)x\le\dfrac12\left(\dfrac{2y+x}{2}\right)^2=\dfrac12\cdot50^2=1250\) (m\(^2\)), dấu "=" khi \(x=50,\ y=25\).</span></p>
+</section>
+
+<!-- GHI NHỚ + VỀ NHÀ -->
+<section>
+  <h2>Ghi nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Chốt lại bài học</div><div class="bd">
+    <ul>
+      <li class="fragment"><b>Cô-si (2 số):</b> \(\dfrac{a+b}{2}\ge\sqrt{ab}\) với \(a,b\ge0\), dấu "=" khi \(a=b\). Nhớ điều kiện <em>không âm</em>.</li>
+      <li class="fragment"><b>Bu-nhi-a-cốp-xki:</b> \((ax+by)^2\le(a^2+b^2)(x^2+y^2)\), dấu "=" khi \(ay=bx\) (hai bộ tỉ lệ).</li>
+      <li class="fragment"><b>Điểm rơi:</b> tổng không đổi \(\Rightarrow\) tích lớn nhất khi các số bằng nhau; tích không đổi \(\Rightarrow\) tổng nhỏ nhất khi bằng nhau.</li>
+      <li class="fragment"><b>GTLN/GTNN:</b> chặn một phía <em>và</em> chỉ ra giá trị đạt được (điểm rơi) mới kết luận.</li>
+    </ul>
+  </div></div>
+  <p class="center fragment small"><em>Bài sau: <b>Bài 6. Bất phương trình bậc nhất một ẩn</b>.</em></p>
+</section>
+
+<section>
+  <h2>Về nhà</h2>
+  <div class="box chuy"><div class="tit">Nhiệm vụ của em</div><div class="bd">
+    <ol>
+      <li>Làm <b>Phiếu bài tập số 1</b> (10 bài, theo bài giảng):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-C-PhieuBaiTap.pdf" target="_blank">C2B5-C-PhieuBaiTap.pdf</a></li>
+      <li>Làm <b>Phiếu bài tập về nhà số 2</b> (kèm QR đáp án):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-C-PhieuBaiTap2.pdf" target="_blank">C2B5-C-PhieuBaiTap2.pdf</a></li>
+      <li>Làm <b>Bài kiểm tra tương tác online</b> (trắc nghiệm + đúng/sai + kéo thả):
+        <a href="/T10/LuyenTap/C2B5.html" target="_blank">/T10/LuyenTap/C2B5.html</a></li>
+    </ol>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Toàn bộ tài liệu bài học (dành cho giáo viên)</div><div class="bd small">
+    <ul style="margin:0">
+      <li>Phiếu khởi động: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-0-PhieuKhoiDong.pdf" target="_blank">C2B5-0-PhieuKhoiDong.pdf</a></li>
+      <li>Các dạng bài + luyện tập: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-B-CacDang.pdf" target="_blank">C2B5-B-CacDang.pdf</a></li>
+      <li>Đề kiểm tra cơ bản 15 phút: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-D-KiemTra15p.pdf" target="_blank">C2B5-D-KiemTra15p.pdf</a></li>
+      <li>Bài nâng cao: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-E-NangCao.pdf" target="_blank">C2B5-E-NangCao.pdf</a></li>
+      <li>Bản đầy đủ kèm lời giải: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C2B5-BaiGiang-DayDu.pdf" target="_blank">C2B5-BaiGiang-DayDu.pdf</a></li>
+    </ul>
+  </div></div>
+  <p class="center fragment">Bài sau: <b>Bài 6. Bất phương trình bậc nhất một ẩn</b> — hẹn gặp lại!</p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>
