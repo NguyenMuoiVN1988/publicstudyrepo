@@ -536,6 +536,8 @@ details > div {
 - [Bài 2. Tập hợp — Bài kiểm tra tương tác (đúng/sai, kéo thả, trả lời ngắn)](T10/LuyenTap/C1B2.html)
 - [Bài 3. Các phép toán trên tập hợp — Bài giảng trình chiếu (kèm link tải phiếu PDF)](T10/BaiGiang/C1B3.html)
 - [Bài 3. Các phép toán trên tập hợp — Bài kiểm tra tương tác (đúng/sai, kéo thả, trả lời ngắn)](T10/LuyenTap/C1B3.html)
+- [Ôn tập Chương I — Tổng ôn trình chiếu + 3 đề kiểm tra (kèm link tải PDF)](T10/BaiGiang/C1OT.html)
+- [Ôn tập Chương I — Bài kiểm tra tương tác tổng hợp (mệnh đề · tập hợp · phép toán)](T10/LuyenTap/C1OT.html)
 
 - [C1B1: Mệnh đề](T10/T10C1B1.md)
 - [C1B2: Tập hợp](T10/T10C1B2.html)
