@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 3. Các phép toán trên tập hợp | Bài giảng Toán 10</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+  :root{
+    --mauchinh:#1b549a; --maunhat:#e9f1fb;
+    --maucam:#c85000;  --maucamnhat:#fdf2e9;
+    --mauxam:#5a5a5a;  --mauxamnhat:#f5f5f5;
+    --xanhla:#1e7846;
+  }
+  .reveal{font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;font-size:34px}
+  .reveal h1,.reveal h2,.reveal h3{font-family:inherit;text-transform:none}
+  .reveal h2{color:#fff;background:var(--mauchinh);padding:.25em .6em;
+    border-radius:.15em;font-size:1.1em;text-align:left}
+  .reveal .slides{text-align:left}
+  .reveal .center{text-align:center}
+  .box{border-radius:.3em;margin:.5em 0;overflow:hidden}
+  .box .tit{color:#fff;font-weight:bold;padding:.15em .6em;font-size:.85em}
+  .box .bd{padding:.35em .6em;font-size:.9em}
+  .kienthuc .tit{background:var(--mauchinh)} .kienthuc .bd{background:var(--maunhat)}
+  .chuy .tit{background:var(--maucam)}       .chuy .bd{background:var(--maucamnhat)}
+  .kechuyen .tit{background:var(--mauxam)}   .kechuyen .bd{background:var(--mauxamnhat)}
+  .hoihs{color:var(--maucam);font-weight:bold;text-align:center;margin:.4em 0}
+  .kq{color:var(--xanhla);font-weight:bold}
+  .muc{color:var(--maucam);font-weight:bold}
+  .lg{color:var(--mauchinh);font-style:italic}
+  .reveal ul li,.reveal ol li{margin:.25em 0}
+  .cols2{columns:2;column-gap:2em}
+  .reveal table{margin:auto;font-size:.85em}
+  .reveal table td,.reveal table th{border-bottom:1px solid #ccc;padding:.2em .5em}
+  .titleslide{text-align:center}
+  .titleslide .t1{color:var(--mauchinh);font-size:2.1em;font-weight:bold}
+  .titleslide .t2{font-size:1.35em;font-weight:bold;margin-top:.3em}
+  .small{font-size:.8em}
+  .footer-note{font-size:.55em;color:var(--mauxam);margin-top:1.2em;text-align:center}
+  .venncap{font-size:.6em;font-style:italic;color:var(--mauxam);text-align:center;margin-top:.2em}
+  .vennrow{display:flex;justify-content:center;gap:1.2em;flex-wrap:wrap;align-items:flex-end}
+  .vennrow figure{margin:0;text-align:center}
+  .vennrow figcaption{font-size:.62em;font-style:italic;color:var(--mauxam);margin-top:.15em}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- SLIDE 1: TIÊU ĐỀ -->
+<section class="titleslide">
+  <div class="t1">Bài 3. Các phép toán trên tập hợp</div>
+  <div class="t2">Toán 10 — Chương I. Mệnh đề và Tập hợp</div>
+  <p style="margin-top:1.2em"><em>Bài giảng trình chiếu trên lớp</em></p>
+  <p class="footer-note">Bấm phím mũi tên → (hoặc chạm mép phải màn hình) để hiện lần lượt từng bước, giống như trên lớp.</p>
+</section>
+
+<!-- SLIDE 2: TÀI NGUYÊN BÀI HỌC -->
+<section>
+  <h2>Tài nguyên bài học (dành cho giáo viên)</h2>
+  <table class="small">
+    <tr><th>Tài liệu</th><th>Mở</th></tr>
+    <tr><td>Phiếu khởi động (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-0-PhieuKhoiDong.pdf" target="_blank">C1B3-0-PhieuKhoiDong.pdf</a></td></tr>
+    <tr><td>Các dạng bài + luyện tập (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-B-CacDang.pdf" target="_blank">C1B3-B-CacDang.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập số 1 (10 bài, theo bài giảng) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-C-PhieuBaiTap.pdf" target="_blank">C1B3-C-PhieuBaiTap.pdf</a></td></tr>
+    <tr><td>Phiếu bài tập về nhà số 2 (kèm QR đáp án) (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-C-PhieuBaiTap2.pdf" target="_blank">C1B3-C-PhieuBaiTap2.pdf</a></td></tr>
+    <tr><td>Đề kiểm tra cơ bản 15 phút (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-D-KiemTra15p.pdf" target="_blank">C1B3-D-KiemTra15p.pdf</a></td></tr>
+    <tr><td>Bài nâng cao (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-E-NangCao.pdf" target="_blank">C1B3-E-NangCao.pdf</a></td></tr>
+    <tr><td>Bản đầy đủ kèm lời giải (PDF)</td>
+      <td><a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-BaiGiang-DayDu.pdf" target="_blank">C1B3-BaiGiang-DayDu.pdf</a></td></tr>
+    <tr><td>Bài kiểm tra tương tác online<br><span class="small">(trắc nghiệm + đúng/sai + kéo thả)</span></td>
+      <td><a href="/T10/LuyenTap/C1B3.html" target="_blank">/T10/LuyenTap/C1B3.html</a></td></tr>
+  </table>
+  <p class="footer-note">In phiếu phát tay hoặc giao bài online — thầy cô tự chọn thứ tự.</p>
+</section>
+
+<!-- PHẦN 0: KHỞI ĐỘNG -->
+<section>
+  <h2>Khởi động — Ôn kiến thức Bài 2 (1/2)</h2>
+  <p class="hoihs">Ôn lại Bài 2 (tập hợp, khoảng/đoạn) để bước vào các phép toán!</p>
+  <p class="fragment"><b>Câu 1.</b> Liệt kê các phần tử của hai tập:
+    \(A=\{x\in\mathbb N\mid x\) là ước của \(12\}\); &nbsp; \(B=\{x\in\mathbb N\mid x\) là ước của \(18\}\).</p>
+  <p class="fragment"><span class="kq">\(A=\{1;2;3;4;6;12\}\); &nbsp; \(B=\{1;2;3;6;9;18\}\).</span></p>
+  <p class="fragment"><b>Câu 2.</b> Điền \(\in\) hoặc \(\notin\): \(3\ \ldots\ A\); &nbsp; \(5\ \ldots\ A\); &nbsp; \(9\ \ldots\ B\).</p>
+  <p class="fragment"><span class="kq">\(3\in A\); &nbsp; \(5\notin A\); &nbsp; \(9\in B\).</span></p>
+  <p class="fragment"><b>Câu 3.</b> Viết mỗi tập bằng khoảng / đoạn / nửa khoảng:
+    a) \(\{x\in\mathbb R\mid -2\le x<3\}\); &nbsp; b) \(\{x\in\mathbb R\mid x>1\}\); &nbsp; c) \(\{x\in\mathbb R\mid -4\le x\le0\}\).</p>
+  <p class="fragment"><span class="kq">a) \([-2;3)\); &nbsp; b) \((1;+\infty)\); &nbsp; c) \([-4;0]\).</span></p>
+</section>
+
+<section>
+  <h2>Khởi động — Ôn kiến thức Bài 2 (2/2)</h2>
+  <p class="fragment"><b>Câu 4.</b> Điền \(\subset\) để hoàn thành dãy bao hàm các tập số:
+    \(\mathbb N^*\ \ldots\ \mathbb N\ \ldots\ \mathbb Z\ \ldots\ \mathbb Q\ \ldots\ \mathbb R\).</p>
+  <p class="fragment"><span class="kq">\(\mathbb N^*\subset\mathbb N\subset\mathbb Z\subset\mathbb Q\subset\mathbb R\).</span></p>
+  <p class="fragment"><b>Câu 5.</b> Cho \(A=\{1;2;3;6\}\), \(B=\{2;3;5\}\). Chỉ ra: a) phần tử <em>vừa</em> thuộc \(A\) <em>vừa</em> thuộc \(B\);
+    &nbsp; b) phần tử thuộc \(A\) <em>nhưng không</em> thuộc \(B\).</p>
+  <p class="fragment"><span class="kq">a) \(2;3\); &nbsp; b) \(1;6\).</span></p>
+  <div class="fragment box chuy"><div class="tit">Vào bài</div><div class="bd">
+    Việc "lấy phần chung", "gộp lại", "bỏ đi phần chung" ở Câu 5 chính là các <b>phép toán trên tập hợp</b>:
+    <b>giao</b> \(\cap\), <b>hợp</b> \(\cup\), <b>hiệu</b> \(\setminus\) và <b>phần bù</b> — nội dung Bài 3.
+  </div></div>
+</section>
+
+<!-- PHẦN A: LÝ THUYẾT -->
+<section>
+  <h2>A1. Phép giao \(A\cap B\)</h2>
+  <div class="box kienthuc"><div class="tit">Giao của hai tập hợp</div><div class="bd">
+    <b>Giao</b> của \(A\) và \(B\), kí hiệu \(A\cap B\), là tập gồm các phần tử <em>vừa</em> thuộc \(A\) <em>vừa</em> thuộc \(B\):
+    \[A\cap B=\{x\mid x\in A\ \text{và}\ x\in B\}.\]
+    Với khoảng, đoạn trên \(\mathbb R\): <em>vẽ lên trục số rồi lấy phần chung</em> (chú ý đầu mút đóng/mở).
+  </div></div>
+  <div class="fragment center">
+    <svg viewBox="0 0 300 175" width="300" height="175" style="max-width:70%">
+      <defs><clipPath id="giaoA"><circle cx="120" cy="90" r="70"/></clipPath></defs>
+      <circle cx="180" cy="90" r="70" fill="#e09e6e" fill-opacity="0.6" clip-path="url(#giaoA)"/>
+      <circle cx="120" cy="90" r="70" fill="none" stroke="#1b549a" stroke-width="2"/>
+      <circle cx="180" cy="90" r="70" fill="none" stroke="#1e7846" stroke-width="2"/>
+      <text x="70" y="35" font-size="22" fill="#1b549a" font-weight="bold">A</text>
+      <text x="230" y="35" font-size="22" fill="#1e7846" font-weight="bold">B</text>
+    </svg>
+    <div class="venncap">Miền cam \(=A\cap B\) (phần chung của hai tập).</div>
+  </div>
+  <p class="fragment"><b>Ví dụ 1.</b> \(A=\{0;1;2;3;4\}\), \(B=\{2;3;4;5;6\}\); \(P=(-1;3)\), \(Q=(0;5]\). Tìm \(A\cap B\) và \(P\cap Q\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    <span class="kq">\(A\cap B=\{2;3;4\}\)</span>; trục số cho phần chung <span class="kq">\(P\cap Q=(0;3)\)</span> (hai đầu đều hở).</p>
+</section>
+
+<section>
+  <h2>A2. Phép hợp \(A\cup B\)</h2>
+  <div class="box kienthuc"><div class="tit">Hợp của hai tập hợp</div><div class="bd">
+    <b>Hợp</b> của \(A\) và \(B\), kí hiệu \(A\cup B\), gồm các phần tử thuộc \(A\) <em>hoặc</em> thuộc \(B\)
+    (gộp lại, phần tử chung chỉ kể một lần):
+    \[A\cup B=\{x\mid x\in A\ \text{hoặc}\ x\in B\}.\]
+  </div></div>
+  <div class="fragment center">
+    <svg viewBox="0 0 300 175" width="300" height="175" style="max-width:70%">
+      <circle cx="120" cy="90" r="70" fill="#e09e6e" fill-opacity="0.5"/>
+      <circle cx="180" cy="90" r="70" fill="#e09e6e" fill-opacity="0.5"/>
+      <circle cx="120" cy="90" r="70" fill="none" stroke="#1b549a" stroke-width="2"/>
+      <circle cx="180" cy="90" r="70" fill="none" stroke="#1e7846" stroke-width="2"/>
+      <text x="70" y="35" font-size="22" fill="#1b549a" font-weight="bold">A</text>
+      <text x="230" y="35" font-size="22" fill="#1e7846" font-weight="bold">B</text>
+    </svg>
+    <div class="venncap">Miền cam \(=A\cup B\) (toàn bộ hai tập).</div>
+  </div>
+  <p class="fragment"><b>Ví dụ 2.</b> Với \(A,B,P,Q\) như Ví dụ 1: tìm \(A\cup B\) và \(P\cup Q\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    <span class="kq">\(A\cup B=\{0;1;2;3;4;5;6\}\)</span> (không lặp); trên trục số hai khoảng phủ liền nhau nên
+    <span class="kq">\(P\cup Q=(-1;5]\)</span>.</p>
+</section>
+
+<section>
+  <h2>A3. Phép hiệu \(A\setminus B\)</h2>
+  <div class="box kienthuc"><div class="tit">Hiệu của hai tập hợp</div><div class="bd">
+    <b>Hiệu</b> của \(A\) và \(B\), kí hiệu \(A\setminus B\), gồm các phần tử thuộc \(A\) <em>nhưng không</em> thuộc \(B\):
+    \[A\setminus B=\{x\mid x\in A\ \text{và}\ x\notin B\}.\]
+    Nói chung \(A\setminus B\ne B\setminus A\) (phép hiệu <em>không</em> giao hoán).
+  </div></div>
+  <div class="fragment center">
+    <svg viewBox="0 0 300 175" width="300" height="175" style="max-width:70%">
+      <defs><mask id="hieuM"><rect x="0" y="0" width="300" height="175" fill="#fff"/>
+        <circle cx="180" cy="90" r="70" fill="#000"/></mask></defs>
+      <circle cx="120" cy="90" r="70" fill="#e09e6e" fill-opacity="0.6" mask="url(#hieuM)"/>
+      <circle cx="120" cy="90" r="70" fill="none" stroke="#1b549a" stroke-width="2"/>
+      <circle cx="180" cy="90" r="70" fill="none" stroke="#1e7846" stroke-width="2"/>
+      <text x="70" y="35" font-size="22" fill="#1b549a" font-weight="bold">A</text>
+      <text x="230" y="35" font-size="22" fill="#1e7846" font-weight="bold">B</text>
+    </svg>
+    <div class="venncap">Miền cam \(=A\setminus B\) (chỉ thuộc \(A\), bỏ phần chung).</div>
+  </div>
+  <p class="fragment"><b>Ví dụ 3.</b> Với \(A=\{0;1;2;3;4\}\), \(B=\{2;3;4;5;6\}\): tìm \(A\setminus B\) và \(B\setminus A\).</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    <span class="kq">\(A\setminus B=\{0;1\}\)</span>; &nbsp; <span class="kq">\(B\setminus A=\{5;6\}\)</span> — hai kết quả khác nhau.</p>
+</section>
+
+<section>
+  <h2>A4. Phần bù. Quy tắc De Morgan</h2>
+  <div class="box kienthuc"><div class="tit">Phần bù \(C_A B\), \(C_{\mathbb R}A\)</div><div class="bd small">
+    Khi \(B\subset A\), hiệu \(A\setminus B\) gọi là <b>phần bù</b> của \(B\) trong \(A\), kí hiệu \(C_A B\).
+    Đặc biệt phần bù của \(A\) trong \(\mathbb R\): \(\;C_{\mathbb R}A=\mathbb R\setminus A=\{x\in\mathbb R\mid x\notin A\}\).
+    <br><b>Quy tắc De Morgan</b> (trong tập \(E\)): \(\;C_E(A\cup B)=C_E A\cap C_E B\;\) và \(\;C_E(A\cap B)=C_E A\cup C_E B\).
+  </div></div>
+  <p class="fragment small"><b>Ví dụ 4.</b> \(E=\{1;2;\dots;9\}\), \(A=\{1;2;3;4\}\), \(B=\{2;4;6;8\}\).
+    Tìm \(C_E A\), \(C_E B\), \(C_E(A\cup B)\) và kiểm chứng De Morgan.</p>
+  <p class="fragment small"><span class="lg">Lời giải.</span>
+    \(C_E A=\{5;6;7;8;9\}\), \(C_E B=\{1;3;5;7;9\}\). Vì \(A\cup B=\{1;2;3;4;6;8\}\) nên
+    <span class="kq">\(C_E(A\cup B)=\{5;7;9\}\)</span>; mặt khác \(C_E A\cap C_E B=\{5;7;9\}\) — trùng nhau, đúng De Morgan.</p>
+  <div class="fragment box chuy"><div class="tit">Điểm dễ sai</div><div class="bd small">
+    Kí hiệu \(C_A B\) <em>chỉ</em> dùng khi \(B\subset A\); nếu không thì chỉ viết được \(A\setminus B\).
+    De Morgan đổi \(\cup\leftrightarrow\cap\): \(C_E(A\cup B)=C_E A\cap C_E B\).
+  </div></div>
+</section>
+
+<section>
+  <h2>A5. Số phần tử của hợp hai tập</h2>
+  <div class="box kienthuc"><div class="tit">Công thức số phần tử</div><div class="bd">
+    Với hai tập hữu hạn \(A,B\), kí hiệu \(n(A)\) là số phần tử của \(A\):
+    \[n(A\cup B)=n(A)+n(B)-n(A\cap B).\]
+    Nếu \(A\cap B=\varnothing\) (rời nhau) thì \(n(A\cup B)=n(A)+n(B)\).
+  </div></div>
+  <p class="fragment"><b>Ví dụ 5.</b> Một lớp có \(25\) HS giỏi Toán, \(23\) giỏi Lí, \(14\) giỏi <em>cả</em> Toán và Lí, \(6\) em không giỏi môn nào. Sĩ số lớp?</p>
+  <p class="fragment"><span class="lg">Lời giải.</span>
+    Giỏi ít nhất một môn \(=n(A\cup B)=25+23-14=34\); cả lớp \(=34+6=\) <span class="kq">\(40\)</span> học sinh.</p>
+  <div class="fragment box chuy"><div class="tit">Điểm dễ sai</div><div class="bd">
+    <b>Đừng quên trừ</b> phần giao: \(n(A\cup B)=n(A)+n(B)-n(A\cap B)\). Phân biệt "giỏi <em>cả hai</em>",
+    "giỏi <em>ít nhất một</em>", "<em>chỉ</em> giỏi một môn".
+  </div></div>
+</section>
+
+<section>
+  <h2>Bốn điểm dễ sai của bài</h2>
+  <div class="box chuy"><div class="tit">Ghi nhớ để tránh mất điểm</div><div class="bd">
+    <ul>
+      <li class="fragment">Giao/hợp trên <b>khoảng – đoạn</b> phải <em>vẽ trục số</em>; cẩn thận đầu mút đóng \([\,]\) hay mở \((\,)\).</li>
+      <li class="fragment">Kí hiệu \(C_A B\) <em>chỉ</em> dùng khi \(B\subset A\) (nếu không, chỉ viết \(A\setminus B\)).</li>
+      <li class="fragment">De Morgan: \(C_E(A\cup B)=C_E A\cap C_E B\) (đổi \(\cup\) thành \(\cap\) và ngược lại).</li>
+      <li class="fragment">Số phần tử: <em>đừng quên trừ</em> giao — \(n(A\cup B)=n(A)+n(B)-n(A\cap B)\).</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- PHẦN B: CÁC DẠNG -->
+<section>
+  <h2>Dạng 1 — Phép giao hai tập hợp</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    \(A\cap B\) gồm phần tử <em>vừa</em> thuộc \(A\) <em>vừa</em> thuộc \(B\). Với khoảng/đoạn: vẽ cả hai lên
+    <em>cùng một trục số</em>, lấy phần được tô <em>hai lần</em>; giữ đúng đầu mút đóng/mở.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 1.1.</b> \(A=[-5;3)\), \(B=(1;+\infty)\). Tìm \(A\cap B\).</p>
+  <div class="fragment center">
+    <svg viewBox="0 0 620 90" width="620" height="90" style="max-width:100%">
+      <line x1="20" y1="34" x2="600" y2="34" stroke="#5a5a5a" stroke-width="1.5"/>
+      <polygon points="600,34 590,29 590,39" fill="#5a5a5a"/>
+      <line x1="120" y1="34" x2="330" y2="34" stroke="#1b549a" stroke-width="5"/>
+      <circle cx="120" cy="34" r="6" fill="#1b549a"/><circle cx="330" cy="34" r="6" fill="#fff" stroke="#1b549a" stroke-width="2.5"/>
+      <line x1="250" y1="52" x2="580" y2="52" stroke="#1e7846" stroke-width="5"/>
+      <circle cx="250" cy="52" r="6" fill="#fff" stroke="#1e7846" stroke-width="2.5"/>
+      <text x="120" y="20" text-anchor="middle" font-size="17" fill="#1b549a">−5</text>
+      <text x="250" y="78" text-anchor="middle" font-size="17" fill="#1e7846">1</text>
+      <text x="330" y="20" text-anchor="middle" font-size="17" fill="#1b549a">3</text>
+    </svg>
+    <div class="venncap">\(A=[-5;3)\) (trên), \(B=(1;+\infty)\) (dưới): phần chung là \((1;3)\).</div>
+  </div>
+  <p class="fragment small"><span class="kq">\(A\cap B=(1;3)\)</span> (đầu \(1\) hở do \(B\) hở, đầu \(3\) hở do \(A\) hở).</p>
+  <p class="fragment small"><b>Luyện tập 1.2.</b> \(A=\{x\in\mathbb R\mid x+2\ge0\}\), \(B=\{x\in\mathbb R\mid 5-x\ge0\}\). Tìm \(A\cap B\).</p>
+  <p class="fragment small"><span class="kq">\(A=[-2;+\infty)\), \(B=(-\infty;5]\Rightarrow A\cap B=[-2;5]\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 2 — Phép hợp hai tập hợp</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    \(A\cup B\) gộp mọi phần tử của \(A\) và \(B\) (phần tử chung kể một lần). Với khoảng/đoạn: lấy phần được tô
+    <em>ít nhất một lần</em>; chú ý hai tập có phủ liền nhau hay không.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 2.1.</b> \(A=(-\infty;-1]\), \(B=(-2;+\infty)\). Tìm \(A\cup B\).</p>
+  <p class="fragment small"><span class="kq">Vì \(-2<-1\) nên hai tập phủ liền, không hở khoảng nào: \(A\cup B=\mathbb R\).</span></p>
+  <p class="fragment small"><b>Luyện tập 2.2.</b> \(A=[-2;7)\), \(B=[1;9]\). Tìm \(A\cup B\).</p>
+  <p class="fragment small"><span class="kq">Hai tập giao nhau nên hợp thành \([-2;9]\) (đầu \(9\) đóng do \(B\) đóng).</span></p>
+  <div class="fragment box chuy"><div class="tit">Chú ý</div><div class="bd small">
+    Hai tập <em>rời nhau</em> (không phủ liền) thì hợp là <em>hai mảnh</em>, ví dụ
+    \((-\infty;-2]\cup[3;+\infty)\) — không gộp thành một khoảng.
+  </div></div>
+</section>
+
+<section>
+  <h2>Dạng 3 — Phép hiệu và phần bù</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    \(A\setminus B\) gồm phần tử thuộc \(A\) nhưng <em>không</em> thuộc \(B\). Phần bù \(C_E A=E\setminus A\) (khi \(A\subset E\)).
+    Cần \(C_E(A\cup B)\) hoặc \(C_E(A\cap B)\) có thể dùng De Morgan.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 3.1.</b> \(A=\{2;4;6;9\}\), \(B=\{1;2;3;4\}\). Tìm \(A\setminus B\).</p>
+  <p class="fragment small"><span class="kq">Bỏ khỏi \(A\) các phần tử \(2;4\) (có trong \(B\)): \(A\setminus B=\{6;9\}\).</span></p>
+  <p class="fragment small"><b>Luyện tập 3.2.</b> \(A=(2;+\infty)\). Tìm \(C_{\mathbb R}A\).</p>
+  <p class="fragment small"><span class="kq">\(C_{\mathbb R}A=\mathbb R\setminus(2;+\infty)=(-\infty;2]\) (điểm \(2\notin A\) nên thuộc phần bù).</span></p>
+  <p class="fragment small"><b>Luyện tập 3.3.</b> \(A=(1;5]\), \(B=(2;7]\). Tìm \(A\setminus B\).</p>
+  <p class="fragment small"><span class="kq">Bỏ \((2;7]\) khỏi \((1;5]\) còn \((1;2]\) (điểm \(2\) vẫn thuộc \(A\), không thuộc \(B\)).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 4 — Số phần tử của tập hợp</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Dùng \(n(A\cup B)=n(A)+n(B)-n(A\cap B)\); mở rộng cho ba tập bằng biểu đồ Ven, đặt ẩn cho từng miền
+    (bắt đầu từ tâm \(A\cap B\cap C\)).
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 4.</b> Lớp \(10\)A có \(45\) HS: \(25\) giỏi Toán, \(23\) giỏi Lí, \(20\) giỏi Hoá; \(11\) giỏi cả Toán–Lí,
+    \(8\) giỏi cả Lí–Hoá, \(9\) giỏi cả Toán–Hoá; mỗi em giỏi ít nhất một môn. Số em giỏi <em>cả ba</em> môn?</p>
+  <div class="fragment center">
+    <svg viewBox="0 0 300 210" width="300" height="210" style="max-width:60%">
+      <circle cx="110" cy="130" r="70" fill="#78a8de" fill-opacity="0.18" stroke="#1b549a" stroke-width="2"/>
+      <circle cx="190" cy="130" r="70" fill="#78be96" fill-opacity="0.18" stroke="#1e7846" stroke-width="2"/>
+      <circle cx="150" cy="70" r="70" fill="#e09e6e" fill-opacity="0.18" stroke="#c85000" stroke-width="2"/>
+      <text x="150" y="130" text-anchor="middle" font-size="18" font-weight="bold" font-style="italic">x</text>
+      <text x="150" y="178" text-anchor="middle" font-size="14">Toán∩Lí</text>
+      <text x="55" y="55" font-size="20" fill="#1b549a" font-weight="bold">Toán</text>
+      <text x="210" y="55" font-size="20" fill="#1e7846" font-weight="bold">Lí</text>
+      <text x="130" y="20" font-size="20" fill="#c85000" font-weight="bold">Hoá</text>
+    </svg>
+    <div class="venncap">Đặt \(x\) là số HS giỏi cả ba môn (miền tâm).</div>
+  </div>
+  <p class="fragment small"><span class="kq">Bao hàm–loại trừ: \(45=25+23+20-11-8-9+x=40+x\Rightarrow x=5\).</span></p>
+</section>
+
+<section>
+  <h2>Dạng 5 — Kết hợp nhiều phép toán · Tham số</h2>
+  <div class="box kienthuc"><div class="tit">Phương pháp</div><div class="bd small">
+    Thực hiện lần lượt (ưu tiên trong ngoặc). Với tham số: biểu diễn các tập lên trục số, dịch điều kiện đề bài
+    thành bất phương trình; <em>luôn kiểm tra tập khác rỗng trước</em>.
+  </div></div>
+  <p class="fragment small"><b>Luyện tập 5.1.</b> \(A=[-2;2]\), \(B=[1;5]\), \(C=[0;1)\). Tìm \((A\setminus B)\cap C\).</p>
+  <p class="fragment small"><span class="kq">\(A\setminus B=[-2;1)\); giao với \(C=[0;1)\) được \([0;1)\).</span></p>
+  <p class="fragment small"><b>Luyện tập 5.2.</b> \(A=[m-3;m+2]\), \(B=(-3;5)\). Có bao nhiêu giá trị nguyên của \(m\) để \(A\subset B\)?</p>
+  <p class="fragment small"><span class="kq">\(A\) luôn khác rỗng; \(A\subset B\Leftrightarrow m-3>-3\) và \(m+2<5\), tức \(0<m<3\).
+    Vậy \(m\in\{1;2\}\) — có \(2\) giá trị.</span></p>
+  <div class="fragment box chuy"><div class="tit">Chú ý bài tham số</div><div class="bd small">
+    Khoảng \((m;m+6)\) <em>mở</em>: để \(-2\in(m;m+6)\) cần \(m<-2\) (dấu ngặt), không lấy dấu \(=\).
+  </div></div>
+</section>
+
+<!-- GHI NHỚ + VỀ NHÀ -->
+<section>
+  <h2>Ghi nhớ</h2>
+  <div class="box kienthuc"><div class="tit">Chốt lại bài học</div><div class="bd">
+    <ul>
+      <li class="fragment"><b>Giao</b> \(A\cap B\): vừa thuộc \(A\) vừa thuộc \(B\). &nbsp; <b>Hợp</b> \(A\cup B\): thuộc \(A\) hoặc \(B\).</li>
+      <li class="fragment"><b>Hiệu</b> \(A\setminus B\): thuộc \(A\), không thuộc \(B\); \(A\setminus B\ne B\setminus A\).</li>
+      <li class="fragment"><b>Phần bù</b> \(C_A B\) (chỉ khi \(B\subset A\)), \(C_{\mathbb R}A=\mathbb R\setminus A\); <b>De Morgan</b> đổi \(\cup\leftrightarrow\cap\).</li>
+      <li class="fragment"><b>Số phần tử:</b> \(n(A\cup B)=n(A)+n(B)-n(A\cap B)\) — nhớ trừ giao.</li>
+      <li class="fragment"><b>Khoảng/đoạn:</b> luôn vẽ trục số, giữ đúng đầu mút đóng \([\,]\) / mở \((\,)\).</li>
+    </ul>
+  </div></div>
+  <p class="center fragment small"><em>Bài sau: <b>Ôn tập chương I. Mệnh đề và Tập hợp</b>.</em></p>
+</section>
+
+<section>
+  <h2>Về nhà</h2>
+  <div class="box chuy"><div class="tit">Nhiệm vụ của em</div><div class="bd">
+    <ol>
+      <li>Làm <b>Phiếu bài tập số 1</b> (10 bài, theo bài giảng):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-C-PhieuBaiTap.pdf" target="_blank">C1B3-C-PhieuBaiTap.pdf</a></li>
+      <li>Làm <b>Phiếu bài tập về nhà số 2</b> (kèm QR đáp án):
+        <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-C-PhieuBaiTap2.pdf" target="_blank">C1B3-C-PhieuBaiTap2.pdf</a></li>
+      <li>Làm <b>Bài kiểm tra tương tác online</b> (trắc nghiệm + đúng/sai + kéo thả):
+        <a href="/T10/LuyenTap/C1B3.html" target="_blank">/T10/LuyenTap/C1B3.html</a></li>
+    </ol>
+  </div></div>
+  <div class="box kienthuc"><div class="tit">Toàn bộ tài liệu bài học (dành cho giáo viên)</div><div class="bd small">
+    <ul style="margin:0">
+      <li>Phiếu khởi động: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-0-PhieuKhoiDong.pdf" target="_blank">C1B3-0-PhieuKhoiDong.pdf</a></li>
+      <li>Các dạng bài + luyện tập: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-B-CacDang.pdf" target="_blank">C1B3-B-CacDang.pdf</a></li>
+      <li>Đề kiểm tra cơ bản 15 phút: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-D-KiemTra15p.pdf" target="_blank">C1B3-D-KiemTra15p.pdf</a></li>
+      <li>Bài nâng cao: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-E-NangCao.pdf" target="_blank">C1B3-E-NangCao.pdf</a></li>
+      <li>Bản đầy đủ kèm lời giải: <a href="https://pub-0a8eba75c88645279466cb283c918e3e.r2.dev/2026/T10/PDF/C1B3-BaiGiang-DayDu.pdf" target="_blank">C1B3-BaiGiang-DayDu.pdf</a></li>
+    </ul>
+  </div></div>
+  <p class="center fragment">Bài sau: <b>Ôn tập chương I. Mệnh đề và Tập hợp</b> — hẹn gặp lại!</p>
+</section>
+
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280, height: 720, margin: 0.06,
+    navigationMode: 'linear',
+    plugins: [ RevealMath.MathJax3 ],
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+      tex: { packages: {'[+]': ['html']} }
+    }
+  });
+</script>
+</body>
+</html>
